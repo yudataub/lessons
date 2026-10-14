@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💛 אהוב, נחוץ, יכול</title>
+<meta name="description" content="איך בונים קשר עם ילדים בחמש שניות, הופכים כיתה לקבוצה, ומלמדים ילדים להרגיע את הגוף ואת המוח כשמגיע הפחד">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · שירלי אגמי טורגמן · 14.10.2026 🍯</div>
+  <h1 class="hero-title">💛 אהוב, נחוץ, יכול</h1>
+  <p class="hero-subtitle">איך בונים קשר עם ילדים בחמש שניות, הופכים כיתה לקבוצה, ומלמדים ילדים להרגיע את הגוף ואת המוח כשמגיע הפחד</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-16 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/POII-207y0g" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌱 חוסן לא נולד לבד</a><ul class="toc-stories"><li><a href="#story-1">שלוש, ארבע - כולם לעמוד!</a></li><li><a href="#story-2">חוסן נבנה בין אנשים</a></li><li><a href="#story-3">חמשת הדברים שמחזקים חוסן</a></li><li><a href="#story-4">שייכות או השתייכות?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">💛 שלוש מילים לכל השנה</a><ul class="toc-stories"><li><a href="#story-5">אהוב, נחוץ, יכול</a></li><li><a href="#story-6">קודם קשר, אחר כך פעילות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">👋 קשר בחמש שניות</a><ul class="toc-stories"><li><a href="#story-7">הקסם של השם</a></li><li><a href="#story-8">לזכור דבר אחד קטן</a></li><li><a href="#story-9">לראות את הילדים השקטים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🤝 מכיתה לקבוצה</a><ul class="toc-stories"><li><a href="#story-10">הקבוצה כמקור כוח</a></li><li><a href="#story-11">טקס פתיחה: סימן שמשהו אחר קורה פה</a></li><li><a href="#story-12">הסיסמה הקולית</a></li><li><a href="#story-13">תפקידים ומשימות משותפות</a></li><li><a href="#story-14">צנצנת הפונפונים</a></li><li><a href="#story-15">טקס סיום: לא סתם &quot;ביי, נתראה&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🧠 האזעקה שבמוח</a><ul class="toc-stories"><li><a href="#story-16">פחד או חרדה?</a></li><li><a href="#story-17">כשהאזעקה מתבלבלת</a></li><li><a href="#story-18">המוח בכף היד</a></li><li><a href="#story-19">איפה זה בגוף?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌬️ כפתור הרגיעה: לנשום החוצה</a><ul class="toc-stories"><li><a href="#story-20">הניסוי עם הקש</a></li><li><a href="#story-21">למה דווקא הנשיפה?</a></li><li><a href="#story-22">להריח פרח, ולרקד את הלהבה</a></li><li><a href="#story-23">תחרות הבועה הגדולה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🎨 משחק הצבעים ומילים שמעצימות</a><ul class="toc-stories"><li><a href="#story-24">חמישה ירוקים, ארבעה סגולים</a></li><li><a href="#story-25">למה זה עובד: המוח לא יכול גם וגם</a></li><li><a href="#story-26">לא &quot;אלוף&quot; - פרגון שאפשר לקחת הביתה</a></li><li><a href="#story-27">כדור הנייר שהולך ומתכווץ</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌱</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">חוסן לא נולד לבד</h2></div></div>
+<p class="chapter-intro">על חוסן כבר דיברו הרבה. כאן נעבור מההגדרה אל המעשה: מה באמת בונה חוסן אצל ילד, ומה המבוגר שלידו יכול לעשות.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלוש, ארבע - כולם לעמוד!</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תדמיינו אולם מלא, כולם יושבים עייפים, ופתאום: "עשר, תשע, שמונה... שלוש, שתיים, אחת - כולם לעמוד! להרים יד ימין. עכשיו גם רגל שמאל. להוריד את הרגל, להרים את הימנית. שלוש מחיאות כפיים - ולשבת."</p>
+<p>תוך עשרים שניות כל הקהל ער, מחייך ומקשיב. זו לא הפסקת התעמלות. זו הדגמה של הכלי הראשון בעבודה עם ילדים: <strong>להשיג קשב בלי לצעוק, ולהזמין את כולם להשתתף מהרגע הראשון.</strong></p>
+<p>כל מה שמופיע בספר הזה נבנה לעבודה עם ילדים - מפגשים שונים מכל מה שהם מכירים מהכיתה הרגילה. ויש בו שני צירים: הראשון, מה מחזק את הקשר ואת הקבוצה. השני, כלים מעשיים לוויסות לחץ, פחד וחרדה - שגם מבוגרים עם חרדת מבחנים ימצאו בהם עניין.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: חוסן נבנה בין אנשים ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חוסן נבנה בין אנשים</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חוסן הוא היכולת להתמודד עם קושי ולחזור לתפקוד - לעבור, להסתגל ולהמשיך. אבל שני דברים חשובים במיוחד לזכור עליו.</p>
+<p>הראשון: ילד או מבוגר עם חוסן משתמש אמנם בכוחות האישיים שלו, אבל <strong>חוסן נבנה גם ממשאבים בין-אישיים</strong> - ממה שקורה ביני לבין מי שנמצא לידי. המבוגר שנמצא עם הילד הוא חלק מהחוסן שלו.</p>
+<p>השני: לא נולדים עם כמות קבועה של חוסן. חוסן הוא תהליך מתמשך שנבנה לאורך שנים. מבוגר זמין בחיים של ילד - שמקשיב, שמזהה, שרואה, שמתייחס - כבר מאפשר לילד הזה להתמודד טוב יותר.</p>
+<div class="honey-box">🍯 אתם לא צריכים לתת לילד חוסן. אתם צריכים להיות חלק ממנו.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: חמשת הדברים שמחזקים חוסן ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חמשת הדברים שמחזקים חוסן</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה בונה חוסן אצל ילד? אפשר לסכם את זה בחמישה מרכיבים, וכל אחד מהם הוא משהו שאפשר לעשות בפועל:</p>
+<ul class="story-list"><li><strong>קשר</strong> - יש מבוגר שרואה אותי, שמתייחס אליי, שזוכר איך קוראים לי.</li><li><strong>שייכות</strong> - יש לי מקום בתוך הקבוצה שאני נמצא בה.</li><li><strong>מסוגלות ושליטה</strong> - אני לא חסר אונים. יש דברים שאני יכול לעשות, ויש לי יכולת השפעה.</li><li><strong>שגרה וצפיות</strong> - אני יודע מה הולך לקרות: איך המפגש מתחיל, איך הוא נגמר, ומי המבוגר שפוגש אותי.</li><li><strong>כלים לרגעים קשים</strong> - יש לי משהו קונקרטי לעשות כשקשה לי.</li></ul>
+<p>את כל אחד מהם אפשר לבנות במפגש של ארבעים דקות בשבוע. הפרקים הבאים מראים איך.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: שייכות או השתייכות? ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שייכות או השתייכות?</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שתי מילים שנשמעות כמעט אותו דבר, אבל ההבדל ביניהן הוא לב העניין.</p>
+<p><strong>השתייכות</strong> היא עובדה, כמו תווית: אני גר בישראל, אני רשום בכיתה ד'2. <strong>שייכות</strong> היא רגש, תחושה סובייקטיבית: אני מרגיש חלק מהמקום הזה.</p>
+<p>ילדה יכולה להשתייך לכיתה ד'2 כל השנה ולא להרגיש שייכת אליה אפילו יום אחד - כי אין לה חברים, כי לא מתייחסים אליה, כי איש לא שם לב כשהיא חסרה. כל אחד מאיתנו מכיר את התחושה הזו ממקום כלשהו בחייו.</p>
+<p class="bold-para">אפשר לרשום ילד לכיתה. את השייכות צריך לבנות.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: אהוב, נחוץ, יכול ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">💛</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">שלוש מילים לכל השנה</h2></div></div>
+<p class="chapter-intro">אם יש דבר אחד לקחת מהספר הזה, אלה שלוש מילים: אהוב, נחוץ, יכול.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אהוב, נחוץ, יכול</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אלה לא בדיוק מילים - זו מהות של קשר. הן מבוססות על הגישה של אלפרד אדלר, הפסיכולוגיה האינדיבידואלית, בניסוח מאוחר יותר שלה. לפי הגישה הזו, תחושת השייכות היא כמו האוויר והמים של כל אדם, בכל מקום שבו הוא נמצא.</p>
+<ul class="story-list"><li><strong>אהוב</strong> - אין אדם שלא רוצה להרגיש שאוהבים אותו במקום שבו הוא נמצא: בכיתה, במשפחה, בכל קשר. רואים אותי, שמחים שהגעתי. אני לא עוד אחד מתוך שלושים - יודעים מי אני.</li><li><strong>נחוץ</strong> - יש לי מקום, ולנוכחות שלי יש משמעות חיובית. אני לא רק "הילד שמפריע", שרואים אותו רק כשהוא מעצבן.</li><li><strong>יכול</strong> - יש לי כוחות. אני מסוגל להתמודד, אני רוצה לנסות ולהצליח, ויש מי שמאפשר לי.</li></ul>
+<div class="honey-box">🍯 שאלה אחת לשאת כל השנה: איך אני עוזר לילד הזה, לילדה הזאת עם המשקפיים, להרגיש אהובים, נחוצים ויכולים?</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: קודם קשר, אחר כך פעילות ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">קודם קשר, אחר כך פעילות</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שמתחיל לעבוד עם קבוצת ילדים עסוק בדרך כלל בשאלות של תוכן: איזו פעילות, איזה מערך, מה נגיד, מה נשחק. הכול חשוב, אבל לפני כל זה בא הקשר.</p>
+<p>ילד צריך קודם כל להרגיש שהמבוגר שמולו רואה אותו: נותן לו כיף במסדרון, זוכר איך קוראים לו, שם לב אליו. רק אחרי זה הוא פנוי באמת למה שתביאו.</p>
+<p>וזה לא רק נעים - זה עובד. כשהקשר טוב, יש הרבה יותר שיתוף פעולה והרבה פחות בעיות משמעת. ילד שמרגיש אהוב, נחוץ ויכול פנוי יותר, רגשית ונפשית, להשתתף ולקחת חלק במה שקורה, ופחות נכנס למאבקים.</p>
+<p class="bold-para">כיתה של שלושים ילדים לא מנהלים בכוח. מנהלים אותה דרך הקשר.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: הקסם של השם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">👋</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">קשר בחמש שניות</h2></div></div>
+<p class="chapter-intro">איך יוצרים קשר אישי כשמולך עשרים או שלושים ילדים? מתברר שהוא לא נבנה בשיחה ארוכה אחת, אלא בהרבה רגעים קטנים.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הקסם של השם</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הצעד הראשון והחשוב ביותר: <strong>לזכור את השמות ולהשתמש בהם.</strong> בהתחלה אפשר להיעזר במדבקות שם או בתגי שם, עד שהשמות נקלטים. זה שווה כל מאמץ.</p>
+<p>תחשבו על ההבדל. אפשר להיכנס בבוקר ולומר "בוקר טוב לכולם". ואפשר לומר: "היי דני, מה קורה? תן כיף. היי שושי, מה המצב?" ברגע שמישהו פונה אליך בשמך, אתה מקשיב יותר. זה גם פשוט נעים - אתה לא סתם עוד אחד, זוכרים אותך.</p>
+<p>בכיתות הנמוכות יש בעיקר מחנכת אחת, והיא מכירה כל ילד. אבל ככל שהילדים גדלים ויש יותר מורים מקצועיים, יותר קשה לזכור את כולם, וילדים רבים עוברים יום שלם בלי שאיש יקרא להם בשמם. מבוגר שבא מבחוץ ופונה לכל ילד בשמו - עושה משהו גדול.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: לזכור דבר אחד קטן ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לזכור דבר אחד קטן</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה כלי שמשתמשים בו גם בטיפול, והוא פשוט להפליא. ילד הצביע וסיפר שהוא נוסע לטיול עם המשפחה בשבת? בפעם הבאה שואלים אותו: "איך היה הטיול? הצלחת לעשות מה שרצית?" ילדה סיפרה על משהו שהיא מתכננת? שואלים אותה מה יצא בסוף.</p>
+<p>זה לוקח חמש שניות. לא צריך שיחה אישית ארוכה ולא פגישה פרטנית. מספיקים:</p>
+<ul class="story-list"><li>שם</li><li>קשר עין וחיוך</li><li>כיף ביד</li><li>משפט אחד שמראה שזכרתי משהו</li></ul>
+<p><strong>שניות ספורות, אבל הן בונות קשר משמעותי מאוד.</strong> המחנכת נמצאת עם הילדים כל יום, ואתם רק פעם בשבוע - אבל בפעם הזו אפשר לעשות עולם ומלואו.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: לראות את הילדים השקטים ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לראות את הילדים השקטים</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קל מאוד לשים לב למי שמרעיש: לשובבים, למפריעים, לאלה שתמיד מצביעים ראשונים. הם תופסים את העין, ואת רוב תשומת הלב - לטוב ולרע.</p>
+<p>אבל יש בכל כיתה ילדים שנמצאים מתחת לרדאר. ילד שיושב בשקט ולא מפריע - אף אחד לא מוצא סיבה להתייחס אליו. הוא מתחת לרדאר של המורים האחרים, ובקלות יהיה גם מתחת לרדאר שלכם.</p>
+<div class="honey-box">🍯 תשימו לב דווקא לשקטים והחמודים. הם אלה שהכי קל לפספס, ואולי הם אלה שהכי זקוקים למישהו שיראה אותם.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הקבוצה כמקור כוח ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🤝</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מכיתה לקבוצה</h2></div></div>
+<p class="chapter-intro">קשר בין מבוגר לילד הוא משמעותי מאוד, אבל ילד רוצה גם להרגיש חלק מהקבוצה. והקבוצה עצמה היא משאב חוסן עצום.</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הקבוצה כמקור כוח</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשביל ילד, קבוצה היא התחושה שיש לי מקום, שאני חלק ממשהו, ושסביבי יש אנשים שמקבלים אותי. היא הזדמנות לקבל עזרה, לעזור למישהו אחר, להרגיש משמעותי ולחוות הצלחות משותפות.</p>
+<p>זה בדיוק מה שמפגש חוסן יכול לעשות טוב יותר מכל מערכת שעות רגילה: ליצור מרחב חברתי משמעותי. במקום אחד, אחרי תקופה ארוכה של מלחמה ולמידה בזום שבה כמעט לא היה גיבוש, הוחלט לקראת סוף השנה לשים דגש על פעילויות קבוצתיות. הילדים קיבלו את כל הציוד שנשאר ותחרות: לבנות בקבוצות את המגדל הגבוה ביותר. המגדלים היו מהממים, והמחנכת - שהכירה את הילדים כבר שנה ויותר - פתאום ראתה אותם באור אחר.</p>
+<p class="bold-para">שתי שאלות לשאת כל השנה: איך אני יוצר קשר עם כמה שיותר ילדים, ואיך אני עוזר להם להפוך לקבוצה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: טקס פתיחה: סימן שמשהו אחר קורה פה ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">טקס פתיחה: סימן שמשהו אחר קורה פה</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בבית ספר רגיל כל שיעור נראה בערך אותו דבר: נכנסים, לומדים, תרגילים, הפסקה. ולא כל הכיתות זוכות למפגשי חוסן - אולי שלוש או ארבע כיתות בבית הספר כולו. כשמגיעים סטודנטים גדולים מבחוץ פעם בשבוע, הילדים כבר מרגישים שקורה משהו מיוחד.</p>
+<p>את התחושה הזו כדאי לחזק בסימנים קבועים ומזהים, ובראשם טקס פתיחה. למשל:</p>
+<ul class="story-list"><li>ספירה לאחור מעשר עד אפס, כדי לאסוף את הקשב</li><li>"מי יכול לגעת במשהו כחול?" - וכולם מחפשים סביבם</li><li>"תנו כיף למי שיושב מימינכם"</li></ul>
+<p>דברים קטנים, שמשיגים קשב ובאותה הזדמנות אומרים לילדים: <strong>עכשיו מתחיל משהו אחר.</strong></p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: הסיסמה הקולית ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הסיסמה הקולית</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשהכיתה רועשת ויש דרמה, הדחף הטבעי הוא להרים את הקול: "שקט! שקט!" ומה קורה? נשמעים בדיוק כמו מורה, והילדים רק מרימים את הקול שלהם עוד יותר.</p>
+<p>הפתרון: <strong>סיסמה קולית.</strong> מלמדים אותה במפגש הראשון. המבוגר אומר בקצב "פם, פַּפַּם, פם..." - והילדים משלימים "פם, פם!". אפשר גם בגרסת כפיים: כמה מחיאות בקצב, והקבוצה עונה בקריאה משותפת. כל קבוצה יכולה לבחור לעצמה צליל משלה. היו מרצים במכללה שהשיגו קשב בשיר "יונתן הקטן" - כל מה שעובד.</p>
+<p>ילדים קולטים את זה כמו תכנות. מספיק שישמעו את הצליל, וכולם עונים יחד ונרגעים. אפשר ללכת איתם במסדרון, לומר "פם, פַּפַּם, פם", וכל הקבוצה עונה בבת אחת - וכולם מסביב מסתכלים בהשתאות.</p>
+<div class="honey-box">🍯 לא צועקים כדי להשיג שקט. מזמינים את כולם לענות יחד.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: תפקידים ומשימות משותפות ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">תפקידים ומשימות משותפות</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משימות משותפות הן הדרך הישירה לבנות שייכות. כשמחלקים לקבוצות, כדאי לשים לב: בדרך כלל יש קליקות קבועות שתמיד נצמדות זו לזו. כדאי לערבב, בעדינות ובנחישות, ולעזור לילדים להתחבר גם עם מי שהם עוד לא מכירים.</p>
+<p>ודבר חשוב מאוד: <strong>תפקידים.</strong> בכל מפגש יש תורן קבוע, שידוע מראש. בתחילת המפגש מכריזים מי התורן היום, ובסופו בוחרים את התורן לשבוע הבא - ואף ילד לא תורן פעמיים, כך שלכל אחד יש הזדמנות. התורן מחלק דפים, קלפים וטושים, עוזר, מוחק את הלוח.</p>
+<p>מי שזוכר את ימי הלוח והגיר יודע: המשימה הנחשקת ביותר הייתה ללכת לחדר המורים ולהביא גירים. כשהמורה שלחה אותך, הרגשת לפחות כמו מנהל בית הספר. <strong>ילד שיש לו תפקיד הוא ילד נחוץ.</strong></p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: צנצנת הפונפונים ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">צנצנת הפונפונים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה הכלי שאסור לוותר עליו. הוא מחזק את שיתוף הפעולה, גורם לילדים להרגיש חשובים ומפתח מיומנויות חברתיות.</p>
+<p>איך זה עובד? מביאים בתחילת השנה צנצנת - מחנות זולה, או צנצנת סוכר מהמטבח (רק לא צנצנת חמוצים של ליטר, ולא פונפונים זעירים - אחרת היא לעולם לא תתמלא והילדים יתייאשו). אפשר גם גולות או כל אביזר אחר. קוראים לה צנצנת הפונפונים, צנצנת החברות - איך שרוצים.</p>
+<p>בסוף כל מפגש יש <strong>טקס חלוקת פונפונים</strong> של שתיים-שלוש דקות: "מה קרה כאן היום ששווה פונפון?" - "הוא עזר לי לסחוב את הכיסא ולסדר את השולחן." "וואו, מגיע פונפון!" הפונפון לא שייך לילד - הוא שייך לקבוצה. אין פה שום תחרות. כולנו יחד, עם מטרה משותפת.</p>
+<p>כשהצנצנת מתמלאת - מגיע פרס שהקבוצה בוחרת. למשל, מפגש מובנה בגינה ציבורית קרובה, בתיאום עם בית הספר, עם משחק כדור שהילדים בחרו. בשביל ילדים, לבחור בעצמם מה יקרה במפגש זה דבר עצום.</p>
+<div class="honey-box">🍯 גם כשיש בלגן, אפשר להזכיר בחיוך: "חבר'ה, יש לנו צנצנת, ואני כל כך רוצה לתת היום הרבה פונפונים."</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: טקס סיום: לא סתם &quot;ביי, נתראה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">טקס סיום: לא סתם &quot;ביי, נתראה&quot;</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"יאללה, ביי, נתראה ביום שלישי הבא בתשע" - כך נגמר שיעור של מורה. אבל מפגש חוסן הוא לא שיעור, ומי שמנחה אותו הוא לא מורה. לכן כדאי לסיים בטקס.</p>
+<p>אחד הטקסים האהובים ביותר: <strong>מעגל להתראות.</strong> עומדים במעגל ומחזיקים ידיים, נכנסים כולם פנימה כמו גל, הולכים אחורה - ואז צועקים יחד "להתראות!". בכל פעם ילד אחר מוביל את הקריאה, וכולם צועקים איתו. ילדים מתים על זה.</p>
+<p>טקס חלוקת הפונפונים הוא גם טקס סיום מצוין, וכך גם משחק כדור הנייר שמופיע בסוף הספר. העיקר: שהסוף יהיה קבוע, צפוי וחגיגי - כי גם שגרה שאפשר לצפות אותה היא חלק מהחוסן.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: פחד או חרדה? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🧠</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">האזעקה שבמוח</h2></div></div>
+<p class="chapter-intro">הציר השני: איך מלמדים ילדים להבין מה קורה להם כשהם מפחדים - כי לפני שמתמודדים, צריך לזהות.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">פחד או חרדה?</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חרדה מרגישה בדיוק כמו פחד. אותו לב דופק, אותה בטן מתהפכת. אז מה ההבדל? חשוב מאוד לעזור לילדים לעשות את ההבחנה הזו.</p>
+<p><strong>פחד הוא תגובה לסכנה שקיימת עכשיו.</strong> ראיתי נחש. שמעתי אזעקה. עליתי על מגלשה גבוהה - והפחד גורם לי להחזיק חזק כדי שלא אפול. פחד הוא רגש חשוב מאוד: הוא שומר עלינו.</p>
+<p><strong>חרדה היא תגובה למחשבה.</strong> דמיינתי מפלצת. נזכרתי שהלילה אני הולך לישון בלי ההורים. חשבתי על חוטפים, על מחבלים, על המבחן של מחר. התגובה בגוף זהה, אבל הסכנה לא נמצאת מול העיניים - היא נמצאת במחשבות.</p>
+<p class="bold-para">אותה תגובה בגוף - אבל בחרדה, הסכנה גרה בראש.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: כשהאזעקה מתבלבלת ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כשהאזעקה מתבלבלת</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר להסביר לילדים את המנגנון בפשטות. יש לנו במוח חלק קטן שנקרא אמיגדלה, שאחראי על הרגשות. התפקיד שלו הוא להתריע כשיש סכנה - בדיוק כמו אזעקה של מכונית.</p>
+<p>אבל לפעמים יש אזעקת שווא: ציפור התיישבה על המכונית, אף אחד לא פרץ, אף אחד לא פתח את הדלת - והאזעקה מצפצפת בכל זאת. היא רגישה, והיא התבלבלה.</p>
+<p>כשהאזעקה פועלת, הגוף נכנס למצב שנקרא באנגלית Fight, Flight, Freeze - להילחם, לברוח או לקפוא. הוא מזרים דם ואדרנלין לשרירים הגדולים ומשבית כל מה שלא נחוץ לרגע ההישרדות. זה מצוין מול נחש אמיתי, ומבלבל מאוד מול מחשבה מפחידה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: המוח בכף היד ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">המוח בכף היד</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסבר נהדר שאפשר להראות לילדים בעזרת היד. פותחים את כף היד, ומקפלים את האגודל פנימה, אל מרכז כף היד. <strong>האגודל הוא האמיגדלה</strong> - המוח המרגיש, האזעקה. עכשיו סוגרים את ארבע האצבעות מעליו. <strong>ארבע האצבעות הן המוח החושב.</strong></p>
+<p>כך נראה מוח רגוע: המוח החושב עוטף ושומר על המוח המרגיש. במצב הזה אפשר להתרכז בחשבון, לשחק עם חברים, לעשות דברים רגילים.</p>
+<p>ואז - בום. נשמע אופנוע, נפל כיסא, עלתה מחשבה, או שחברה אמרה "אני לא רוצה לשחק איתך, לכי מפה". האזעקה מופעלת, והאצבעות קופצות למעלה: <strong>"עף לי המכסה".</strong> המוח המרגיש משתלט, והמוח החושב כבר לא שומר עליו.</p>
+<div class="honey-box">🍯 ילד שמבין שזה מה שקורה לו - מבין שהוא לא "משוגע" ולא "רע". זו פשוט אזעקה שהופעלה.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: איפה זה בגוף? ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">איפה זה בגוף?</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ילדים רבים, כששואלים אותם איך הם מרגישים, עונים "כלום", "משעמם לי", "לא הזיז לי". אבל כששואלים אחרת - "כשהאופנוע עבר ברחוב והקפצנו, מה הרגשתם בתוך הגוף?" - פתאום יש להם הרבה מה לומר:</p>
+<ul class="story-list"><li>הלב דופק</li><li>הבטן כואבת (ומבחן בבוקר שולח הרבה ילדים ישר לשירותים)</li><li>לחץ בחזה</li><li>נמלולים באצבעות</li><li>הפה יבש</li></ul>
+<p>זה הצעד הראשון לפני כל כלי: <strong>לזהות בגוף.</strong> הסימן הראשון לכל רגש חזק הוא תמיד סימן גופני. אפשר להראות לילדים איור של גוף ולבקש מכל אחד לבחור איפה הוא מרגיש פחד או לחץ. כשהם רואים שכולם מרגישים משהו דומה, הם מבינים: זה נורמלי. ומרגע שאני יודע מה אני מרגיש ואיפה, אני יכול לחשוב איך לעזור לעצמי.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: הניסוי עם הקש ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌬️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">כפתור הרגיעה: לנשום החוצה</h2></div></div>
+<p class="chapter-intro">בלחץ, הנשימה מואצת, הדופק עולה והשרירים נמתחים. הכלי הראשון תמיד זמין, תמיד בחינם, ותמיד איתנו: הנשימה. אבל לא סתם נשימה.</p>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הניסוי עם הקש</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ניסוי שכל אחד יכול לעשות, עם כמה מתנדבים ושעון עצר. בסיבוב הראשון: דקה שלמה של נשימה רגילה, וסופרים כמה נשימות יצאו. בדרך כלל יוצא משהו בין 12 ל-22.</p>
+<p>בסיבוב השני: מחלקים קשים. שואפים אוויר דרך האף, ומוציאים אותו לאט דרך הקש (מי שאין לו קש - מדמיין, או נושף בשפתיים מכווצות). שוב דקה, שוב סופרים. והתוצאה מדהימה: מ-22 נשימות ל-7, מ-12 ל-5 או ל-6.</p>
+<p>כשהנשיפה ארוכה - הנשימה כולה מאטה. ואפשר לעשות את זה עם כל הכיתה: כולם סופרים, רושמים על הלוח "לפני" ו"אחרי", ורואים במו עיניהם שיש להם השפעה על הגוף.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: למה דווקא הנשיפה? ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה דווקא הנשיפה?</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בגוף יש שתי מערכות. <strong>המערכת הסימפתטית</strong> היא דוושת הגז - היא מדליקה אותנו ומכינה אותנו לפעולה. <strong>המערכת הפאראסימפתטית</strong> היא מערכת הרגיעה - דוושת הבלם.</p>
+<p>לילדים אפשר להסביר כך: "יש לי בתוך המוח כפתור שמרגיע אותי. אני לא יכול ללחוץ עליו ביד, אבל אני יכול למצוא דרך להפעיל אותו." והדרך היא נשימה איטית, <strong>בדגש על הוצאת אוויר ארוכה.</strong></p>
+<p>המטרה היא לתת לילד תחושה שיש לו דרך להשפיע על הגוף שלו כשעולה לחץ או חרדה. וזה כמו כל מיומנות: ככל שמתרגלים יותר ברגעים רגועים, הכלי זמין יותר ברגע האמת.</p>
+<p class="bold-para">אי אפשר ללחוץ על כפתור הרגיעה ביד. אבל אפשר להגיע אליו בנשיפה ארוכה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: להריח פרח, ולרקד את הלהבה ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">להריח פרח, ולרקד את הלהבה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דרך נוספת לתרגל, מוכרת ואהובה: מחזיקים ביד אחת פרח דמיוני ומריחים אותו לאט - נשימה עמוקה פנימה. ביד השנייה מחזיקים נר, ונושפים עליו החוצה.</p>
+<p>אפשר להוסיף דמיון: הפרח מריח כמו שוקולד, כמו העוגה של סבתא - כל ריח שהילד אוהב.</p>
+<p>אבל יש דגש אחד קטן וחשוב: <strong>לא מכבים את הנר.</strong> נושפים לאט מספיק כדי שהלהבה רק תרקוד ותתנודד, בלי לכבות. נשיפה חזקה ומהירה דווקא לא מרגיעה. נשיפה עדינה וארוכה - כן.</p>
+<div class="honey-box">🍯 פרח פנימה, נר החוצה - והלהבה רק רוקדת.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: תחרות הבועה הגדולה ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">תחרות הבועה הגדולה</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עוד דרך משמחת לתרגל את אותו עיקרון: בועות סבון. מחלקים בקבוקוני בועות ומכריזים על תחרות - מי מצליח לנפוח את הבועה הגדולה ביותר? לא שלושים בועות קטנות - בועה אחת, גדולה.</p>
+<p>מהר מאוד הילדים מגלים את הסוד בעצמם. נשיפה חזקה מפוצצת את הבועה לפני שנוצרה. כדי לנפוח בועה גדולה צריך לנשוף <strong>ממש, ממש לאט.</strong></p>
+<p>זה בדיוק אותו כלי - נשיפה ארוכה ואיטית - רק עטוף במשחק. ילד שלמד לנפוח בועה גדולה למד בלי לשים לב לנשום בדרך שמרגיעה את הגוף.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: חמישה ירוקים, ארבעה סגולים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🎨</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">משחק הצבעים ומילים שמעצימות</h2></div></div>
+<p class="chapter-intro">כלי פשוט ומפתיע לרגעים של לחץ, ומה אפשר להפוך ממנו - וגם מכל רגע של השתתפות - לחוויה של מסוגלות.</p>
+<article class="story-card" id="story-24" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חמישה ירוקים, ארבעה סגולים</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ככה זה עובד: מציגים תמונה גדולה ומלאה בפרטים, ונותנים משימות קצרות, מהר:</p>
+<ul class="story-list"><li>מצא חמישה חפצים בצבע ירוק</li><li>ארבעה דברים בצבע סגול</li><li>שלושה דברים צהובים</li><li>דבר אחד שחור</li><li>חפץ בצורת ריבוע</li><li>ומשהו בתמונה שלא נמצא במקום</li></ul>
+<p>אפשר לעשות את זה על תמונה, ואפשר על החדר שבו נמצאים. זה כלי שאפשר לעבור איתו גם את התקופות הכי קשות: ביום שבו בן הזוג יוצא למילואים והבית נשאר מלא ילדים ומתח, משחקים בו שוב ושוב, בלי הפסקה. הוא כיפי, פשוט, ועוזר מאוד מול לחץ וחרדה.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: למה זה עובד: המוח לא יכול גם וגם ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה זה עובד: המוח לא יכול גם וגם</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשהמוח חרד, הוא עסוק בחוטפים, במחבלים, במבחנים, בתאונה בכביש, בחבר שכועס. משחק הצבעים מפעיל בכוונה את החלק החושב של המוח - הקורטקס. וכשהמוח החושב עובד, זה בא על חשבון המוח המרגיש, ומהר יותר חוזרים למצב רגוע.</p>
+<p>זה מה שמסבירים לילדים: <strong>מוח לא יכול גם לפחד מחוטפים וגם לחפש צבעים.</strong> הוא פשוט לא יכול. זו הסחת דעת, אבל לא סתם הסחת דעת - זו הפעלה יזומה של החלק החושב.</p>
+<p>דוגמה מהחיים: נערה שפחדה מאוד מנסיעה באוטובוס התחילה, מיד כשעלתה, לספור תיקים כחולים. למי יש חולצה כחולה? למי יש חולצה מנוקדת? והפחד נחלש.</p>
+<div class="honey-box">🍯 כדי להגביר את האפקט - לא רק להצביע, אלא לומר בקול: "החולצה שלך ירוקה, התיק שלך ירוק, ויש גם ירוק על הבקבוק." השיום מפעיל את המוח החושב עוד יותר.</div>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: לא &quot;אלוף&quot; - פרגון שאפשר לקחת הביתה ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לא &quot;אלוף&quot; - פרגון שאפשר לקחת הביתה</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשילד עלה מול כולם, הדגים, השתתף או עזר, קל לומר "כל הכבוד, אלוף, תודה" ולהמשיך הלאה. אבל אלה מילים ריקות מתוכן. אפשר לעשות הרבה יותר בעשר או בשלושים שניות.</p>
+<p>לעלות מול קהל ולהדגים זה לא דבר טריוויאלי - זה מביך וחושפני, גם למבוגרים. אז אומרים לילד במדויק מה הוא עשה: "עלית, הדגמת, הפגנת אומץ. בזכותך כולם הבינו איך עושים את התרגיל - ומה זה אם לא מנהיגות?"</p>
+<p>למה זה חשוב? כי ילד שעמד על במה והצליח לנפוח בועות סבון, ומישהו אמר לו במילים ברורות שיש לו אומץ - יכול לקחת את זה איתו. לקחת את המחמאה הביתה, ולהשליך אותה על דברים שהוא באמת מפחד מהם: להצטרף למשחק של חברים, להצביע ולענות על תרגיל בחשבון.</p>
+<p class="bold-para">פרגון אמיתי אומר לילד בדיוק מה הוא עשה - כדי שיוכל לעשות את זה שוב.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: כדור הנייר שהולך ומתכווץ ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כדור הנייר שהולך ומתכווץ</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>טקס סיום שגם מסכם את המפגש, ולוקח שתיים-שלוש דקות. מקמטים דף נייר לכדור. המנחה זורק את הכדור לילד, ועם כל זריקה יש שאלה: "מילה אחת שקשורה לחוסן", "מה שלוש המילים החשובות שלמדנו?" - "אהוב, נחוץ, יכול!", "מה עושים כשהקבוצה רועשת?" - "פם, פַּפַּם, פם!"</p>
+<p>עונה רק מי שהצביע או הסכים לענות. וכל פעם שילד עונה, תולשים חתיכה מהכדור. הכדור הולך ומתכווץ, וכשהוא נגמר - נגמר גם המשחק. ובדרך כלל הילדים רוצים עוד.</p>
+<p>טיפ לבניית מפגשים: מפגש נטו הוא קצר - אולי ארבעים דקות, ועד שכולם נכנסים, מתיישבים ונרגעים, נשאר עוד פחות. אז לא להעמיס. לבנות מדויק.</p>
+<div class="honey-box">🍯 ילדים שקטים ומשתפים פעולה כשיש מסגרת: חוקים ברורים, תיאום ציפיות מההתחלה, ומפגש עם התחלה, אמצע וסוף שהם יודעים לצפות.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
