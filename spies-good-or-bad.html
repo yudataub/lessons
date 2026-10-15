@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🍇 המרגלים: טוב או רע?</title>
+<meta name="description" content="פסוק אחד מפתיע בספר דברים, קושיה גדולה ותירוץ של רש&quot;י - ודרך לימוד שתעזור לנו לכל החיים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 15.10.2026 🍯</div>
+  <h1 class="hero-title">🍇 המרגלים: טוב או רע?</h1>
+  <p class="hero-subtitle">פסוק אחד מפתיע בספר דברים, קושיה גדולה ותירוץ של רש&quot;י - ודרך לימוד שתעזור לנו לכל החיים</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 4 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-5 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/5W0R4DjUTaA" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🕵️ מה כולם יודעים על המרגלים</a><ul class="toc-stories"><li><a href="#story-1">שאלה פשוטה, תשובה מהירה</a></li><li><a href="#story-2">פותחים חומש</a></li><li><a href="#story-3">הפסוק שעוצר הכול</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">❓ מה זו קושיה</a><ul class="toc-stories"><li><a href="#story-4">כשמשהו לא מסתדר</a></li><li><a href="#story-5">ומה זה תירוץ</a></li><li><a href="#story-6">קודם מחשבים לבד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">💡 התירוץ של רש&quot;י</a><ul class="toc-stories"><li><a href="#story-7">מי אמר &quot;טובה הארץ&quot;?</a></li><li><a href="#story-8">למה משה מזכיר דווקא את הטוב?</a></li><li><a href="#story-9">ומה עם הפירות הגדולים?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📒 לוקחים את זה הביתה</a><ul class="toc-stories"><li><a href="#story-10">כותבים במחברת - בקיצור</a></li><li><a href="#story-11">דרך ללמוד לכל החיים</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🕵️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">מה כולם יודעים על המרגלים</h2></div></div>
+<p class="chapter-intro">יש דברים שאנחנו בטוחים בהם מגן הילדים. אבל לפעמים כדאי לפתוח את החומש ולבדוק מה באמת כתוב שם.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שאלה פשוטה, תשובה מהירה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נתחיל בשאלה קלה: המרגלים - דיברו על ארץ ישראל טוב או רע?</p>
+<p>כמעט כל אחד יענה מיד: <strong>רע!</strong> הרי זה כל הסיפור. שנים עשר אנשים נשלחו לתור את הארץ, עשרה מהם חזרו והוציאו עליה דיבה, ובגלל זה עם ישראל בכה ונשאר ארבעים שנה במדבר.</p>
+<p>וזה נכון. כך מסופר בספר במדבר, בפרשת שלח:</p>
+<blockquote>"וַיּוֹצִיאוּ דִּבַּת הָאָרֶץ אֲשֶׁר תָּרוּ אֹתָהּ אֶל בְּנֵי יִשְׂרָאֵל" (במדבר יג, לב)</blockquote>
+<p>אז הכול ברור. או שלא?</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: פותחים חומש ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">פותחים חומש</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה רבינו, לפני מותו, חוזר ומספר לעם ישראל את כל מה שעבר עליהם במדבר. זה ספר דברים. ובתוך הסיפור הגדול הזה הוא מספר גם על המרגלים - בפרק א', מפסוק כ' והלאה.</p>
+<p>כדאי לקחת חומש ולקרוא בעצמנו, פסוק אחרי פסוק. משה מספר שהעם ביקש לשלוח אנשים לפני הכניסה לארץ, שהדבר מצא חן בעיניו, ושנבחרו שנים עשר אנשים, איש אחד לשבט. הם עלו להר, הגיעו עד נחל אשכול ותרו את הארץ.</p>
+<div class="honey-box">🍯 לפני שעונים "אני יודע" - פותחים את הספר ובודקים. זה כל ההבדל בין לשמוע לבין ללמוד.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: הפסוק שעוצר הכול ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הפסוק שעוצר הכול</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואז מגיע פסוק כ"ה, ושם כתוב:</p>
+<blockquote>"וַיִּקְחוּ בְיָדָם מִפְּרִי הָאָרֶץ וַיּוֹרִדוּ אֵלֵינוּ וַיָּשִׁבוּ אֹתָנוּ דָבָר וַיֹּאמְרוּ טוֹבָה הָאָרֶץ אֲשֶׁר ה' אֱלֹקֵינוּ נֹתֵן לָנוּ" (דברים א, כה)</blockquote>
+<p>רגע. מה הם אמרו? <strong>"טובה הארץ"!</strong></p>
+<p>מחפשים בפסוק את המילה "רעה" - ואין. אין שם מילה אחת רעה. רק פירות שהביאו בידיים, ומשפט אחד ברור: הארץ טובה.</p>
+<p class="bold-para">מה שכולם יודעים - לא כתוב כאן. ומה שכתוב כאן - הפוך ממה שכולם יודעים.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: כשמשהו לא מסתדר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">❓</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מה זו קושיה</h2></div></div>
+<p class="chapter-intro">הרגע שבו משהו "לא מסתדר" הוא לא רגע של בלבול. הוא הרגע שבו הלימוד האמיתי מתחיל.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כשמשהו לא מסתדר</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש לנו שני דברים שלא הולכים יחד. מצד אחד, אנחנו יודעים שהמרגלים דיברו רע על הארץ - כך כתוב בספר במדבר. מצד שני, בספר דברים כתוב שהם אמרו "טובה הארץ".</p>
+<p>לזה קוראים <strong>קושיה</strong>. קושיה היא לא סתם שאלה כמו "מה השעה?". קושיה היא כשיש סתירה: דבר אחד אומר כך, ודבר אחר אומר אחרת - ושניהם אמת. משהו "קשה" לנו, לא מסתדר, ואנחנו לא יכולים להמשיך הלאה עד שנבין.</p>
+<p class="bold-para">קושיה = שני דברים נכונים שנראים כאילו הם סותרים זה את זה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ומה זה תירוץ ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ומה זה תירוץ</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי הקושיה מגיע <strong>התירוץ</strong>. תירוץ הוא הסבר שמראה שבעצם אין סתירה. שני הדברים נכונים, ואפשר להבין איך הם חיים יחד.</p>
+<p>תירוץ טוב לא מוחק אף צד. הוא לא אומר "הפסוק טעה" או "מה שלמדנו קודם לא נכון". הוא מגלה פרט שלא שמנו לב אליו - ופתאום הכול מסתדר.</p>
+<p>זה כל הסוד של לימוד תורה: לקרוא בעיון, לשים לב למה שלא מסתדר, לשאול - ואז לחפש את התשובה. כך לומדים בגמרא, כך לומדים חומש עם רש"י, וכך לומדים כל דבר בחיים.</p>
+<div class="honey-box">🍯 מי שלא שואל - לא מגלה. קושיה טובה היא מתנה.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: קודם מחשבים לבד ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">קודם מחשבים לבד</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני שפותחים את רש"י, כדאי לעצור ולנסות לבד: איך ייתכן שהמרגלים אמרו "טובה הארץ", ובכל זאת הם נחשבים למי שדיברו רע?</p>
+<p>אפשר לחשוב על כמה כיוונים. אולי לא כולם אמרו את המשפט הזה. אולי הם אמרו משהו טוב, אבל התכוונו לדבר רע. אולי הם התחילו בטוב והמשיכו ברע.</p>
+<p>גם תירוץ שמתברר אחר כך שאינו נכון - שווה הרבה. הוא מלמד את הראש לחשוב, לשקול, ולחפש. <strong>מי שניסה לתרץ לבד, יבין את התירוץ האמיתי פי כמה.</strong></p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מי אמר &quot;טובה הארץ&quot;? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">💡</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">התירוץ של רש&quot;י</h2></div></div>
+<p class="chapter-intro">רש"י שם לב לקושיה הזו בדיוק, ונותן לה תשובה קצרה ומאירה.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מי אמר &quot;טובה הארץ&quot;?</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רש"י על הפסוק שואל: מי הם שאמרו את טובתה של הארץ? ועונה: <strong>יהושע וכלב.</strong></p>
+<p>שנים עשר אנשים יצאו לתור את הארץ. עשרה מהם חזרו עם דיבה. אבל שניים - יהושע בן נון וכלב בן יפונה - נשארו נאמנים, ואמרו את האמת: הארץ טובה, ה' נותן לנו אותה.</p>
+<p>והנה הרמז בפסוק עצמו: כתוב "וַיֹּאמְרוּ" - בלשון רבים. אפילו שניים הם כבר רבים. לא כל המרגלים אמרו את זה; שניים מהם אמרו.</p>
+<p class="bold-para">הקושיה נעלמת: עשרה דיברו רע, ושניים אמרו "טובה הארץ".</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: למה משה מזכיר דווקא את הטוב? ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה משה מזכיר דווקא את הטוב?</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר להמשיך לשאול: אם רוב המרגלים דיברו רע, למה משה בוחר להזכיר כאן דווקא את המשפט הטוב?</p>
+<p>כי משה מוכיח את העם. הוא אומר להם, במילים אחרות: שמעתם גם את האמת. היו ביניכם שניים שאמרו לכם בפה מלא שהארץ טובה, והביאו לכם את הפירות להוכחה. ובכל זאת - בפסוק שאחריו כתוב "וְלֹא אֲבִיתֶם לַעֲלֹת". לא רציתם.</p>
+<p>זה לימוד גדול: לא מספיק שיש מישהו שאומר את האמת. צריך גם לבחור להקשיב לו, גם כשהרוב אומר אחרת.</p>
+<div class="honey-box">🍯 כשיש עשרה קולות של פחד ושני קולות של אמונה - אפשר לבחור למי להקשיב.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: ומה עם הפירות הגדולים? ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ומה עם הפירות הגדולים?</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש עוד כיוון יפה שכדאי להכיר. המרגלים הביאו פירות ענקיים - אשכול ענבים שנשאו במוט בשניים, וגם רימונים ותאנים. לכאורה זה הדבר הכי טוב שאפשר להביא: תראו איזו ארץ נפלאה!</p>
+<p>אבל חז"ל ורש"י מלמדים שהמרגלים השתמשו גם בפירות האלה כדי להפחיד: כמו שהפירות של הארץ משונים וגדולים, כך גם האנשים שגרים בה משונים וחזקים. אותו פרי עצמו - אפשר להציג אותו כבשורה טובה, ואפשר להפוך אותו לסיבה לפחד.</p>
+<p class="bold-para">לא רק מה אומרים קובע - גם בשביל מה אומרים את זה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: כותבים במחברת - בקיצור ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📒</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">לוקחים את זה הביתה</h2></div></div>
+<p class="chapter-intro">הקושיה על המרגלים היא דוגמה אחת. הדרך שלמדנו ממנה - קריאה, קושיה, תירוץ - מתאימה לכל דבר.</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כותבים במחברת - בקיצור</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי שלא נשכח, כדאי לכתוב במחברת. לא צריך מאמר ארוך. מספיק שתיים-שלוש שורות, אפילו כמה מילים, כך שכשנפתח את המחברת לפני מבחן נדע מיד על מה מדובר:</p>
+<ul class="story-list"><li><strong>הנושא:</strong> מרגלים - טוב או רע?</li><li><strong>הקושיה:</strong> בדברים א, כה כתוב שהמרגלים אמרו "טובה הארץ", והרי ידוע שהם דיברו רע.</li><li><strong>התירוץ:</strong> רש"י - יהושע וכלב הם שאמרו "טובה הארץ".</li></ul>
+<div class="honey-box">🍯 המחברת היא המקור שלך. מה שכתוב בה בבהירות - יחזור אליך בקלות.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: דרך ללמוד לכל החיים ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">דרך ללמוד לכל החיים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה שלמדנו כאן עוזר לא רק לפרשה הזו ולא רק למבחן. זו דרך להסתכל על העולם.</p>
+<p>כשאנחנו בטוחים שאנחנו יודעים משהו - כדאי לבדוק במקור. כשמשהו לא מסתדר - לא להתעלם ולא להתייאש, אלא לקרוא לזה בשם: יש כאן קושיה. וכשיש קושיה - לחשוב, לנסות תירוץ לבד, ואז לחפש מה אמרו גדולי ישראל.</p>
+<p>והלימוד הגדול מיהושע וכלב: גם כשכולם סביבך אומרים אחרת, אפשר להיות זה שאומר "טובה הארץ". לראות את הטוב שה' נותן לנו - ולהגיד אותו בקול.</p>
+<p class="bold-para">שואלים, מחפשים, ומוצאים - וכל פעם התורה נעשית מתוקה יותר.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
