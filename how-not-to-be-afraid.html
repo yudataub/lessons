@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🦁 איך לא מפחדים</title>
+<meta name="description" content="מה קרה למרגלים כשהפחד השתלט עליהם, מה ההבדל בין פחד אמיתי לבין חרדה מדומיינת, ואיך נשארים רגועים גם כשיש אזעקה">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 15.10.2026 🍯</div>
+  <h1 class="hero-title">🦁 איך לא מפחדים</h1>
+  <p class="hero-subtitle">מה קרה למרגלים כשהפחד השתלט עליהם, מה ההבדל בין פחד אמיתי לבין חרדה מדומיינת, ואיך נשארים רגועים גם כשיש אזעקה</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-8 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/WZ80vMo_NIg" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🏜️ רגע לפני שנכנסים לארץ</a><ul class="toc-stories"><li><a href="#story-1">&quot;אל תירא ואל תחת&quot;</a></li><li><a href="#story-2">&quot;נשלחה אנשים לפנינו&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🦗 מה ראו המרגלים - ומה הם דמיינו</a><ul class="toc-stories"><li><a href="#story-3">ארץ טובה ואנשים ענקים</a></li><li><a href="#story-4">&quot;ונהי בעינינו כחגבים&quot;</a></li><li><a href="#story-5">מהבית הקורס ועד הבור</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🌪️ כשהפחד מדבק את כולם</a><ul class="toc-stories"><li><a href="#story-6">&quot;אחינו המסו את לבבנו&quot;</a></li><li><a href="#story-7">&quot;בשנאת ה&#x27; אותנו&quot; - איך זה יכול להיות?</a></li><li><a href="#story-8">כשיש חרדה - השכל מפסיק לעבוד</a></li><li><a href="#story-9">כלב לבד מול כולם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🔍 פחד או חרדה? לומדים להבדיל</a><ul class="toc-stories"><li><a href="#story-10">פחד זה אמיתי</a></li><li><a href="#story-11">חרדה זה דמיון</a></li><li><a href="#story-12">משחק קטן: פחד או חרדה?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🛡️ מה עושים כדי שזה לא יקרה לנו</a><ul class="toc-stories"><li><a href="#story-13">הטלפון: עוזר או מפחיד?</a></li><li><a href="#story-14">חושבים מחשבות טובות</a></li><li><a href="#story-15">לא נשארים לבד עם הפחד</a></li><li><a href="#story-16">שלוש שאלות לזכור</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏜️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">רגע לפני שנכנסים לארץ</h2></div></div>
+<p class="chapter-intro">ספר דברים מתחיל במשה רבנו שמזכיר לעם ישראל את כל מה שעבר עליהם במדבר. ואחד הסיפורים הכי חשובים שהוא מספר הוא סיפור על פחד.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;אל תירא ואל תחת&quot;</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עם ישראל הולך במדבר, ומגיע עד גבול ארץ ישראל. ה' הוציא אותם ממצרים, קרע להם את הים, נתן להם מן מהשמים ומים מהבאר. ועכשיו - נשאר רק צעד אחד: להיכנס לארץ.</p>
+<p>ומשה רבנו אומר להם משפט קצר וחזק:</p>
+<blockquote>"רְאֵה נָתַן ה' אֱלֹקֶיךָ לְפָנֶיךָ אֶת הָאָרֶץ עֲלֵה רֵשׁ כַּאֲשֶׁר דִּבֶּר ה' אֱלֹקֵי אֲבֹתֶיךָ לָךְ אַל תִּירָא וְאַל תֵּחָת" (דברים א, כא)</blockquote>
+<p>שימו לב: עוד לפני שקרה משהו, משה כבר יודע מה עלול להפריע להם. לא האויבים, לא החומות, לא הנשק. <strong>הפחד.</strong> לכן הדבר הראשון שהוא אומר להם הוא: אל תפחדו.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: &quot;נשלחה אנשים לפנינו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;נשלחה אנשים לפנינו&quot;</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל העם לא נכנס מיד. הם באים אל משה עם בקשה:</p>
+<blockquote>"וַתִּקְרְבוּן אֵלַי כֻּלְּכֶם וַתֹּאמְרוּ נִשְׁלְחָה אֲנָשִׁים לְפָנֵינוּ וְיַחְפְּרוּ לָנוּ אֶת הָאָרֶץ וְיָשִׁבוּ אֹתָנוּ דָּבָר" (דברים א, כב)</blockquote>
+<p>הם רוצים לשלוח מרגלים - אנשים שילכו לפניהם, יבדקו את הארץ ויחזרו לספר מה ראו. על פניו זו בקשה הגיונית: לפני שנכנסים למקום חדש, רוצים לדעת מה מחכה שם.</p>
+<p>אבל מאחורי הבקשה כבר הסתתר משהו קטן של חשש. ואת החשש הקטן הזה, כמו שנראה, קל מאוד להפוך לפחד גדול.</p>
+<div class="honey-box">🍯 פחד מתחיל תמיד קטן. מה שנעשה איתו ברגע הראשון - קובע לאן הוא יגדל.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: ארץ טובה ואנשים ענקים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🦗</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מה ראו המרגלים - ומה הם דמיינו</h2></div></div>
+<p class="chapter-intro">המרגלים חזרו עם סיפור. חלק ממנו היה אמת, וחלק ממנו נולד בתוך הראש שלהם.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ארץ טובה ואנשים ענקים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המרגלים הלכו לארץ ישראל וראו דברים מדהימים: ארץ טובה, פירות ענקיים, ערים גדולות. אבל הם ראו גם דבר אחד שהפחיד אותם מאוד - אנשים ענקים.</p>
+<p>כך מספר משה רבנו מה אמרו לעם:</p>
+<blockquote>"עַם גָּדוֹל וָרָם מִמֶּנּוּ עָרִים גְּדֹלֹת וּבְצוּרֹת בַּשָּׁמָיִם וְגַם בְּנֵי עֲנָקִים רָאִינוּ שָׁם" (דברים א, כח)</blockquote>
+<p>עד כאן - זה מה שהם ראו בעיניים. הענקים היו אמיתיים. לפחד מהם זה דבר טבעי.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: &quot;ונהי בעינינו כחגבים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ונהי בעינינו כחגבים&quot;</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל אז המרגלים אומרים משפט מוזר:</p>
+<blockquote>"וַנְּהִי בְעֵינֵינוּ כַּחֲגָבִים וְכֵן הָיִינוּ בְּעֵינֵיהֶם" (במדבר יג, לג)</blockquote>
+<p>החלק הראשון מובן: הם הרגישו קטנים, כמו חגבים. אבל החלק השני - "וכן היינו בעיניהם" - רגע, מאיפה הם יודעים? הם דיברו עם הענקים? הענקים אמרו להם "אתם נראים לנו כמו חגבים"?</p>
+<p>לא. אף אחד לא אמר להם את זה. <strong>הם דמיינו את זה.</strong> הם הרגישו קטנים, ומשם הראש שלהם כבר המשיך לבד: "בטח גם הענקים רואים אותנו ככה, בטח הם צוחקים עלינו, בטח הם ימעכו אותנו".</p>
+<div class="honey-box">🍯 כשמישהו אומר "אני יודע מה כולם חושבים עליי" - כדאי לשאול: מי אמר לך? ראית או דמיינת?</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מהבית הקורס ועד הבור ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מהבית הקורס ועד הבור</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה בדיוק מה שקורה לאדם בזמן אזעקה, כשיש טיל.</p>
+<p>אדם שומע אזעקה ונכנס למרחב המוגן - יפה מאוד, זה נכון וזה מה שצריך לעשות. אבל אז הראש מתחיל לרוץ: "מה אם הטיל ייפול בדיוק עליי? מה אם כל הבניין יקרוס? מה אם...".</p>
+<p>תשאלו את עצמכם: כמה פעמים זה באמת קרה? כמעט אף פעם. אז למה הוא חושב ככה? כי ברגע שאדם נכנס לחרדה, הוא מתחיל לדמיין כל מיני דברים שאין להם שום קשר למציאות. הוא כבר לא רואה את מה שיש מולו - הוא רואה סרט אימה שהראש שלו מקרין.</p>
+<p class="bold-para">ככה זה עובד: הפחד רואה ענק, והחרדה ממציאה שהענק כבר יודע איפה אתה גר.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;אחינו המסו את לבבנו&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🌪️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">כשהפחד מדבק את כולם</h2></div></div>
+<p class="chapter-intro">המרגלים לא שמרו את הפחד לעצמם. הם חזרו הביתה - והפכו את כל העם לעם מבוהל.</p>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אחינו המסו את לבבנו&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המרגלים חוזרים למחנה ומתחילים לספר. לא רק "ראינו ענקים", אלא: "אין לנו סיכוי. אם נעלה - נמות כולנו. הם יהרגו אותנו".</p>
+<p>ואנשים שומעים, ומתחילים לפחד, ומספרים לאחרים, וגם הם מתחילים לפחד. העם עצמו מתאר את זה כך: "אַחֵינוּ הֵמַסּוּ אֶת לְבָבֵנוּ" - האחים שלנו המיסו לנו את הלב, כמו נר שנמס מול האש.</p>
+<p>זה חשוב לדעת: כשאדם אחד נמצא בפחד, הוא מתחיל לאט לאט להדביק את כל מי שסביבו. "בואו תראו מה יקרה", "שמעתם מה אומרים?", "זה הולך להיות נורא". ובסוף כולם נמצאים בתוך פאניקה, למרות שלא קרה כלום.</p>
+<div class="honey-box">🍯 פחד מדבק כמו מחלה. לכן כדאי לשים לב גם ממי שומעים - וגם מה מעבירים הלאה.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: &quot;בשנאת ה&#x27; אותנו&quot; - איך זה יכול להיות? ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;בשנאת ה&#x27; אותנו&quot; - איך זה יכול להיות?</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואז מגיע המשפט הכי מפתיע בכל הסיפור. העם יושב באוהלים ובוכה ואומר:</p>
+<blockquote>"וַתֵּרָגְנוּ בְאָהֳלֵיכֶם וַתֹּאמְרוּ בְּשִׂנְאַת ה' אֹתָנוּ הוֹצִיאָנוּ מֵאֶרֶץ מִצְרָיִם לָתֵת אֹתָנוּ בְּיַד הָאֱמֹרִי לְהַשְׁמִידֵנוּ" (דברים א, כז)</blockquote>
+<p>ה' שונא אותנו?! הקדוש ברוך הוא הוציא אותם ממצרים, עשה להם עשר מכות, קרע להם את הים, האכיל אותם כל יום מן מהשמים, שמר עליהם במדבר בענני הכבוד. איך אפשר להגיד דבר כזה?</p>
+<p>רש"י על הפסוק מסביר: "והוא היה אוהב אתכם". ה' אהב אותם מאוד! אבל הם, מתוך הפחד, כבר לא הצליחו לראות את זה.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: כשיש חרדה - השכל מפסיק לעבוד ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כשיש חרדה - השכל מפסיק לעבוד</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אז איך זה קורה? איך אנשים שראו כל כך הרבה ניסים מגיעים למחשבה שה' שונא אותם?</p>
+<p>התשובה פשוטה ומדהימה: <strong>כשאדם נמצא בחרדה - השכל מפסיק לעבוד.</strong> הוא לא חושב, הוא לא זוכר, הוא לא מחבר בין הדברים. הוא רק מדמיין עוד ועוד דברים שאינם אמיתיים.</p>
+<p>חשבו על חייל. חייל שנכנס לפאניקה באמצע קרב - זה מסוכן מאוד. הוא לא יכול להילחם, הוא לא שומע פקודות, הוא קופא במקום. לא בגלל שהוא חלש, אלא כי החרדה כיבתה לו את הראש.</p>
+<p>זה בדיוק מה שקרה לעם ישראל. הם לא הפכו פתאום לאנשים רעים. הפחד פשוט כיבה להם את השכל, ובלי שכל - הכול נראה שחור.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: כלב לבד מול כולם ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כלב לבד מול כולם</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באמצע כל הבהלה הזו עומד אדם אחד ומנסה להחזיר את השקט - כלב בן יפונה. הוא מהסה את העם ואומר:</p>
+<blockquote>"עָלֹה נַעֲלֶה וְיָרַשְׁנוּ אֹתָהּ כִּי יָכוֹל נוּכַל לָהּ" (במדבר יג, ל)</blockquote>
+<p>ויחד עם יהושע הוא מוסיף: "וַה' אִתָּנוּ אַל תִּירָאֻם" (במדבר יד, ט). ה' איתנו - אין ממה לפחד!</p>
+<p>זה עזר? לא. זה לא עזר כלום. העם רק התעצבן יותר, ואפילו רצה לרגום אותם באבנים. למה? כי <strong>מי שנמצא בתוך חרדה - לא שומע כלום.</strong> אפשר להגיד לו את הדבר הכי נכון והכי מרגיע בעולם, וזה פשוט לא נכנס.</p>
+<div class="honey-box">🍯 הזמן הכי טוב ללמוד איך לא לפחד הוא לפני שמגיע הפחד - כשהראש עוד רגוע ומוכן להקשיב.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: פחד זה אמיתי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🔍</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">פחד או חרדה? לומדים להבדיל</h2></div></div>
+<p class="chapter-intro">הצעד הראשון כדי לא להיגרר כמו המרגלים הוא לדעת לזהות: האם מה שאני מרגיש עכשיו הוא פחד - או חרדה?</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">פחד זה אמיתי</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פחד הוא תגובה למשהו שקורה באמת. יש אזעקה - מפחדים, וזה טוב, כי הפחד גורם לנו לרוץ למרחב המוגן. יש מבחן בחשבון מחר - מפחדים קצת, וזה טוב, כי הפחד גורם לנו לשבת וללמוד. מישהו ראה ענקים - מפחד, וזה טבעי.</p>
+<p>פחד הוא דבר נורמלי. ה' ברא אותו כדי לשמור עלינו. אין שום בושה לפחד מדבר אמיתי.</p>
+<p class="bold-para">פחד הוא כמו שומר בשער: הוא מזהיר אותנו מסכנה אמיתית, כדי שנעשה מה שצריך.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: חרדה זה דמיון ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חרדה זה דמיון</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חרדה היא משהו אחר לגמרי. חרדה היא פחד ממשהו שלא קורה - ממשהו שאני רק מדמיין שאולי יקרה.</p>
+<p>יש אנשים שמרוב חרדה לא מסוגלים ללכת לשירותים, כי "אולי בדיוק עכשיו תהיה אזעקה". יש מי שכבר נמצא במקלט, במקום הכי בטוח, וממשיך להגיד "עוד רגע הכול נופל עליי". יש מי שמכין לעצמו בקבוקי מים ואוכל לשבועות, כי "מי יודע מה יקרה".</p>
+<p>הדבר שמפחיד אותם כבר לא נמצא בחוץ. הוא נמצא בתוך הראש. ובגלל זה הוא גם הרבה יותר מבלבל: החרדה גורמת לאדם לאבד את הריכוז, לא לשמוע, לא לחשוב בבהירות.</p>
+<div class="honey-box">🍯 פחד אומר: "יש סכנה, תעשה משהו". חרדה אומרת: "אולי תהיה סכנה, תדאג כל הזמן".</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: משחק קטן: פחד או חרדה? ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">משחק קטן: פחד או חרדה?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בואו נתרגל. על כל משפט - לחשוב: זה פחד או חרדה?</p>
+<ul class="story-list"><li>"יש אזעקה ואני רץ לממ"ד" - פחד. זה אמיתי, ועושים בדיוק מה שצריך.</li><li>"הטיל בטח ייפול דווקא עליי" - חרדה. מי אמר? זה דמיון.</li><li>"מחר יש מבחן בחשבון ואני לחוץ" - פחד. המבחן אמיתי, ואפשר להתכונן אליו.</li><li>"אני בטוח אקבל אפס וכולם יצחקו עליי" - חרדה. מי אמר שזה יקרה? אף אחד.</li><li>"הרמקול כאן חזק" - עובדה. "הרמקול יהרוס לי את האוזניים לתמיד" - כבר חרדה שגדלה מתוך דבר קטן.</li></ul>
+<p>שימו לב לסימן ההיכר: כשמופיעות המילים "בטח", "אולי", "עוד רגע", "כולם" - כנראה שהדמיון התחיל לעבוד.</p>
+<p class="bold-para">השאלה הכי חזקה מול חרדה היא: "מי אמר שזה יקרה?"</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: הטלפון: עוזר או מפחיד? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🛡️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מה עושים כדי שזה לא יקרה לנו</h2></div></div>
+<p class="chapter-intro">אנחנו לא רוצים שחטא המרגלים יחזור אצלנו. הנה כמה דרכים מעשיות להישאר רגועים, גם כשיש אזעקה וגם כשיש מבחן.</p>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הטלפון: עוזר או מפחיד?</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ברגעים מלחיצים הרבה אנשים שולפים מיד את הטלפון. זה יכול לעזור: אפשר לדבר עם ההורים, לשמוע קול מוכר, לקבל הוראות נכונות.</p>
+<p>אבל זה יכול גם להזיק מאוד. מי שגולל סרטונים של פיצוצים, שמועות וצעקות - מכניס לעצמו לראש בדיוק את מה שהמרגלים הכניסו לעם ישראל: עוד פחד, עוד דמיון, עוד "תראו מה עלול לקרות".</p>
+<div class="honey-box">🍯 לפני שפותחים סרטון ברגע מפחיד, שואלים: זה ירגיע אותי או ימיס לי את הלב?</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: חושבים מחשבות טובות ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">חושבים מחשבות טובות</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החרדה בנויה ממחשבות רעות שרצות בראש. לכן התרופה הראשונה היא להחליף אותן במחשבות טובות.</p>
+<p>במקום "עוד רגע הכול נופל עליי" - "אני במקום מוגן, עשיתי את מה שצריך". במקום "בטח אקבל אפס" - "למדתי, אני אעשה את הכי טוב שלי". במקום "ה' שונא אותנו" כמו המרגלים - לזכור את מה שכלב אמר: "ה' איתנו".</p>
+<p>כלב ראה את אותם ענקים בדיוק כמו המרגלים. ההבדל היחיד היה מה שהוא בחר לחשוב עליהם.</p>
+<p class="bold-para">אי אפשר תמיד לבחור מה רואים - אבל תמיד אפשר לבחור מה חושבים על מה שרואים.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: לא נשארים לבד עם הפחד ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לא נשארים לבד עם הפחד</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש ילדים - וגם מבוגרים - שהאזעקה כבר נגמרה מזמן, אבל הפחד נשאר אצלם בפנים. הם ממשיכים להיבהל מכל רעש, לא רוצים להתרחק מהבית, מתקשים להירדם.</p>
+<p>למי שמרגיש כך, הדבר הכי חשוב הוא: <strong>לא להישאר לבד עם זה.</strong> לדבר עם אבא ואמא, עם המורה, עם הרב, עם חבר טוב. לפעמים רק לספר למישהו מה מפחיד אותי - והפחד כבר נהיה קטן יותר.</p>
+<p>ולמי שרואה חבר מפוחד - אפשר להיות בשבילו כלב בן יפונה. לא לצחוק עליו, לא להוסיף עוד סיפורים מפחידים, אלא להגיד בשקט: "אני פה, זה יעבור, ה' שומר עלינו".</p>
+<div class="honey-box">🍯 פחד שמספרים עליו - קטן. פחד ששומרים בסוד - גדל.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: שלוש שאלות לזכור ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שלוש שאלות לזכור</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי שכל זה יישאר איתנו, כדאי לכתוב במחברת שלוש שאלות קצרות ולענות עליהן במילים שלנו:</p>
+<ul class="story-list"><li><strong>מה גרמה החרדה למרגלים?</strong> היא גרמה להם לדמיין שהענקים רואים אותם כחגבים, להפחיד את כל העם, ואפילו לחשוב שה' שונא אותם - למרות שהוא אהב אותם מאוד.</li><li><strong>מה ההבדל בין פחד לחרדה?</strong> פחד הוא תגובה למשהו אמיתי ועוזר לנו להישמר. חרדה היא פחד ממשהו מדומיין, והיא מבלבלת ומכבה את השכל.</li><li><strong>איך מתגברים על חרדה?</strong> שואלים "מי אמר שזה יקרה?", חושבים מחשבות טובות, נזהרים ממה שרואים ושומעים, מדברים עם מישהו - וזוכרים שה' איתנו.</li></ul>
+<p class="bold-para">"אל תירא ואל תחת" - זו לא רק הוראה של משה רבנו לפני אלפי שנים. זו ברכה לכל אחד מאיתנו, בכל אזעקה ובכל מבחן.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
