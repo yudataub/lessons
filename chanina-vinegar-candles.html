@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🕯️ הנר שדלק בחומץ</title>
+<meta name="description" content="הסיפור על רבי חנינא בן דוסא והנרות שדלקו כל השבת בחומץ - ואחריו חידון על פרשת נח, שבו דווקא המחשב טעה והילדים תפסו אותו">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 19.10.2026 🍯</div>
+  <h1 class="hero-title">🕯️ הנר שדלק בחומץ</h1>
+  <p class="hero-subtitle">הסיפור על רבי חנינא בן דוסא והנרות שדלקו כל השבת בחומץ - ואחריו חידון על פרשת נח, שבו דווקא המחשב טעה והילדים תפסו אותו</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 4 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-7 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/_jRcUdU1ZVs" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌿 מי היה רבי חנינא בן דוסא?</a><ul class="toc-stories"><li><a href="#story-1">צדיק מימי בית המקדש</a></li><li><a href="#story-2">קב חרובים משבת לשבת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🕯️ ערב שבת אחד</a><ul class="toc-stories"><li><a href="#story-3">מה עושים לפני שבת?</a></li><li><a href="#story-4">הכד הלא נכון</a></li><li><a href="#story-5">למה היא בכתה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🔥 מי שאמר לשמן וידלוק</a><ul class="toc-stories"><li><a href="#story-6">בתי, למה את עצובה?</a></li><li><a href="#story-7">מי בעצם עושה שהשמן דולק?</a></li><li><a href="#story-8">דלק עד ההבדלה</a></li><li><a href="#story-9">מה לוקחים מהסיפור הביתה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🚢 חידון נח - והמחשב שטעה</a><ul class="toc-stories"><li><a href="#story-10">חידון לכל הגילים</a></li><li><a href="#story-11">שבע או ארבע עשרה?</a></li><li><a href="#story-12">הקומות שהתהפכו</a></li><li><a href="#story-13">גנב או גזלן?</a></li><li><a href="#story-14">העורב והיונה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌿</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">מי היה רבי חנינא בן דוסא?</h2></div></div>
+<p class="chapter-intro">לפני שמספרים סיפור על צדיק, כדאי להכיר אותו: מתי חי, ממי למד, ומה אכל.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">צדיק מימי בית המקדש</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי חנינא בן דוסא חי בזמן שבית המקדש השני עוד עמד בירושלים. הוא היה מהתנאים של הדור הראשון, ותלמיד של רבן יוחנן בן זכאי.</p>
+<p>הוא לא היה עשיר ולא מפורסם בגלל ממון או כוח. הוא היה מפורסם בגלל התפילות שלו. כשמישהו היה חולה, היו באים אליו ומבקשים שיתפלל. ואפילו רבו, רבן יוחנן בן זכאי, כשבנו חלה, ביקש מרבי חנינא שיתפלל עליו - והילד הבריא (ברכות לד, ב).</p>
+<p class="bold-para">התפילה של רבי חנינא הייתה כמו של ילד שמדבר עם אבא שלו - פשוטה, קרובה ובטוחה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: קב חרובים משבת לשבת ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קב חרובים משבת לשבת</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה אכל רבי חנינא בן דוסא? חרובים. רק חרובים. הוא היה עני מאוד, ובכל שבוע היה לו מעט מאוד אוכל.</p>
+<p>חז"ל מספרים שבכל יום יצאה בת קול ואמרה: "כל העולם כולו ניזון בשביל חנינא בני, וחנינא בני דיו בקב חרובין מערב שבת לערב שבת" (ברכות יז, ב). כלומר: בזכותו כל העולם מקבל פרנסה, ולו עצמו מספיק קצת חרובים לשבוע שלם.</p>
+<p>תחשבו על זה: אדם שבזכותו כל העולם אוכל - והוא עצמו שמח במעט. הוא לא התלונן ולא כעס. הוא היה מלא אמונה ושמחה.</p>
+<div class="honey-box">🍯 מי שקרוב לה' לא צריך הרבה כדי להיות שמח.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: מה עושים לפני שבת? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">ערב שבת אחד</h2></div></div>
+<p class="chapter-intro">סיפור אמיתי מהגמרא (תענית כה, א) - על כד אחד שהתחלף בכד אחר, ועל אבא אחד שלא נבהל.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה עושים לפני שבת?</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יום שישי אחרי הצהריים. השבת עוד מעט נכנסת, ובכל בית יהודי עושים את אותו הדבר: אמא מדליקה נרות שבת. יש בתים שמדליקים שני נרות, ויש בתים שמדליקים נר לכל ילד - שמונה, עשרה, כמה שיש.</p>
+<p>אבל נר לא דולק מעצמו. אש לבד לא מחזיקה. צריך משהו שיבער: פתיל, ובתוכו או מתחתיו - שמן. השמן נספג בפתיל, והפתיל דולק לאט לאט, שעה אחרי שעה.</p>
+<p>בזמן של רבי חנינא לא היו נרות שעווה כמו שלנו, ובטח לא חשמל. שמו שמן בכלי קטן, שמו בו פתיל, והדליקו.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הכד הלא נכון ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הכד הלא נכון</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באותו ערב שבת, הבת של רבי חנינא בן דוסא הלכה להכין את הנרות. היו בבית שני כדים שנראו אותו דבר. אחד של שמן, ואחד של חומץ.</p>
+<p>ומה זה חומץ? נוזל חמוץ מאוד, ששמים קצת ממנו באוכל, בסלט או במרק, כדי לתת טעם. אבל דבר אחד בטוח לגבי חומץ: <strong>הוא לא דולק.</strong> אם שמים חומץ בנר ומדליקים, הפתיל יבער רגע קטן - ומיד יכבה.</p>
+<p>והבת, בלי לשים לב, לקחה את הכד הלא נכון. היא מילאה את הנרות בחומץ, הדליקה אותם - ורק אז הבינה מה עשתה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: למה היא בכתה ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה היא בכתה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנרות כבר דולקים, השבת כבר נכנסה, ואי אפשר להחליף. והיא יודעת: עוד רגע הנר יכבה, ויהיה חושך. חושך גמור, כמו חושך מצרים - כי אז לא היו מנורות ברחוב ולא אור מהחלון.</p>
+<p>ואיך אוכלים סעודת שבת בחושך? מרק עלול להישפך, הכף יכולה להגיע לעיניים במקום לפה, אפשר ללכלך את בגדי השבת. וגם ללכת בבית בחושך - מי שפעם רץ בלילה ונפל, יודע שזה לא נעים בכלל.</p>
+<p>אז היא ישבה ובכתה. השבת, שהייתה צריכה להיות מלאה אור ושמחה, עמדה להיות חשוכה ועצובה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: בתי, למה את עצובה? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">מי שאמר לשמן וידלוק</h2></div></div>
+<p class="chapter-intro">משפט אחד של רבי חנינא - ובו כל סוד האמונה.</p>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">בתי, למה את עצובה?</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי חנינא נכנס הביתה וראה את בתו עצובה. "בתי, למה עצובה את?" שאל. והיא סיפרה לו: הכד של החומץ התחלף לה בכד של השמן, והיא הדליקה ממנו את נרות השבת.</p>
+<p>ואז רבי חנינא ענה לה תשובה שנשארה איתנו כבר אלפיים שנה:</p>
+<blockquote>"בתי, מאי איכפת לך? מי שאמר לשמן וידלוק - הוא יאמר לחומץ וידלוק" (תענית כה, א)</blockquote>
+<p>הוא לא כעס עליה ולא נבהל. הוא היה רגוע לגמרי.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מי בעצם עושה שהשמן דולק? ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מי בעצם עושה שהשמן דולק?</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בואו נחשוב רגע על המשפט הזה. למה שמן דולק? אנחנו רגילים לחשוב: "ככה זה, שמן דולק". אבל רבי חנינא אומר משהו אחר: השמן דולק כי <strong>ה' אמר לו לדלוק.</strong> ה' ברא את השמן, וה' קבע שהוא יבער.</p>
+<p>ואם כך - מה ההבדל בין שמן לחומץ? אותו ה' שאמר לשמן "תדלוק", יכול לומר גם לחומץ "תדלוק". בשבילו אין דבר קשה יותר ודבר קל יותר.</p>
+<p class="bold-para">הטבע הוא לא משהו שעובד לבד. הטבע הוא ה' שעושה את אותו נס כל יום, עד שאנחנו מתרגלים.</p>
+<div class="honey-box">🍯 כל נר שדולק אצלנו בשבת הוא נס קטן שהתרגלנו אליו.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: דלק עד ההבדלה ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">דלק עד ההבדלה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה קרה? הנרות עם החומץ דלקו. ולא רק כמה דקות - הם דלקו ודלקו ודלקו. כל הלילה, ואחר כך כל היום של שבת.</p>
+<p>הגמרא מספרת: "היה דולק והולך כל היום כולו, עד שהביאו ממנו אור להבדלה" (תענית כה, א). השבת יצאה, וכשהגיע הזמן לעשות הבדלה, לקחו אש מהנר של החומץ - הנר שלא היה אמור לדלוק אפילו דקה אחת.</p>
+<p>הבת שבכתה בערב שבת, סיימה את השבת בשמחה הכי גדולה: היא ראתה בעיניים שלה איך ה' שומע ושומר.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מה לוקחים מהסיפור הביתה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה לוקחים מהסיפור הביתה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אנחנו לא רבי חנינא בן דוסא, ולא כל נר של חומץ אצלנו ידלוק. אבל את המשפט שלו כל אחד יכול לקחת איתו.</p>
+<p>כשמשהו משתבש - שכחנו משהו, טעינו, הכול נראה הולך להיות חושך - אפשר לעצור רגע ולהגיד: מי שעזר לי עד עכשיו, יעזור לי גם עכשיו. מי שמאמין בבורא עולם יודע שהכול ממנו, ולכן הוא יכול להיות רגוע גם כשקשה.</p>
+<p>וגם משהו על איך מדברים: רבי חנינא לא צעק על הבת שלו "למה לא שמת לב?". הוא קודם שאל למה היא עצובה, ואחר כך נתן לה ביטחון.</p>
+<div class="honey-box">🍯 "מי שאמר לשמן וידלוק - הוא יאמר לחומץ וידלוק." משפט לזכור בכל פעם שמשהו נראה תקוע.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: חידון לכל הגילים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🚢</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">חידון נח - והמחשב שטעה</h2></div></div>
+<p class="chapter-intro">אחרי הסיפור - חידון צבעוני על פרשת נח, שהוכן בעזרת מחשב. והתברר שגם מחשב יכול להתבלבל, ושמי שלמד את הפרשה יודע יותר ממנו.</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חידון לכל הגילים</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החידון בנוי פשוט: שאלה על הפרשה, כמה תשובות, וכל אחד מצביע ובוחר. הוא נבנה כך שגם ילדי כיתה א', שעוד לא יודעים לקרוא, יוכלו לשחק בו - כל תשובה היא ציור.</p>
+<p>השאלות הראשונות קלות: כמה ילדים היו לנח? שלושה - שם, חם ויפת. ומי היה הגדול? שם, שתמיד נזכר ראשון.</p>
+<p>אבל כלל אחד חשוב בחידון: לא צועקים. מי שצועק את התשובה - לא שומעים אותו. רק מי שמצביע ומחכה, עונה.</p>
+<div class="honey-box">🍯 מי שיודע - מצביע. מי שצועק - מפסיד את התור.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: שבע או ארבע עשרה? ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שבע או ארבע עשרה?</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה: כמה בהמות טהורות נכנסו לתיבה? כל התשובות בחידון הציעו שבע, או מספרים אחרים - ואף תשובה לא הייתה נכונה.</p>
+<p>ה' אמר לנח: "מִכֹּל הַבְּהֵמָה הַטְּהוֹרָה תִּקַּח לְךָ שִׁבְעָה שִׁבְעָה אִישׁ וְאִשְׁתּוֹ" (בראשית ז, ב). שבעה זכרים ושבע נקבות - מכל מין ארבע עשרה בהמות. מי שקרא את הפסוק עד הסוף, את המילים "איש ואשתו", מבין שלא מדובר בשבע בלבד.</p>
+<p class="bold-para">המחשב קרא "שבעה" ועצר. מי שלמד את הפסוק - המשיך לקרוא.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: הקומות שהתהפכו ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הקומות שהתהפכו</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתיבה של נח היו שלוש קומות: "תַּחְתִּיִּם שְׁנִיִּם וּשְׁלִשִׁים תַּעֲשֶׂהָ" (בראשית ו, טז). ורש"י מסביר מה היה בכל אחת: העליונה לאדם, האמצעית לבהמות, והתחתונה לזבל.</p>
+<p>ובחידון - כל התשובות היו לא נכונות. אחת מהן אפילו הפכה את התיבה: האנשים למטה והזבל למעלה. ילד אחד ראה את זה מיד ואמר: "זה הפוך!".</p>
+<p>מי הכין את התשובות? המחשב. והמחשב לא למד את הפרשה, הוא רק מנסה לנחש. לכן כל חידון שמחשב מכין צריך לבדוק - ובשאלה הבאה התשובות כבר תוקנו והתשובה הנכונה הופיעה.</p>
+<div class="honey-box">🍯 מחשב יכול לעזור, אבל את הבדיקה עושה מי שלמד.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: גנב או גזלן? ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גנב או גזלן?</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה הייתה העבירה של דור המבול? "וַתִּמָּלֵא הָאָרֶץ חָמָס" (בראשית ו, יא), ורש"י מפרש: חמס הוא גזל. האנשים לקחו זה מזה.</p>
+<p>אבל מה ההבדל בין גנב לגזלן? חז"ל מסבירים (בבא קמא עט, ב): הגנב לוקח <strong>בסתר</strong> - בא בלילה, בשקט, מתחבא שלא יראו אותו. הגזלן לוקח <strong>בגלוי</strong> - הוא לא מפחד, בא מול הבעלים ולוקח בכוח, למשל חוטף לחבר את האופניים מול העיניים שלו.</p>
+<p>שניהם אסורים, כמובן. ודור המבול היה דור של גזלנים - אנשים שכבר לא התביישו לקחת.</p>
+<p class="bold-para">עולם שבו כל אחד לוקח מהשני - לא יכול להחזיק מעמד.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: העורב והיונה ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">העורב והיונה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך ידע נח שהמבול נגמר? התיבה הייתה סגורה, והוא לא ראה מה קורה בחוץ. אז הוא שלח שליחים.</p>
+<p>קודם הוא שלח את העורב: "וַיְשַׁלַּח אֶת הָעֹרֵב וַיֵּצֵא יָצוֹא וָשׁוֹב עַד יְבֹשֶׁת הַמַּיִם מֵעַל הָאָרֶץ" (בראשית ח, ז). העורב הסתובב והסתובב ולא הביא שום סימן.</p>
+<p>אחר כך שלח את היונה, ובפעם השנייה היא חזרה עם עלה זית בפיה: "וַיֵּדַע נֹחַ כִּי קַלּוּ הַמַּיִם מֵעַל הָאָרֶץ" (בראשית ח, יא).</p>
+<p>חידון כזה, צבעוני ומשמח, אפשר לעשות בכל שבוע על הפרשה. וכשמישהו תופס טעות של המחשב - זה סימן שהוא באמת למד.</p>
+<div class="honey-box">🍯 ההנאה הכי גדולה בחידון: לגלות שאתה יודע את הפרשה טוב יותר מהמחשב.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
