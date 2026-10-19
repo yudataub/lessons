@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📜 התוכחה שנאמרה ברמז</title>
+<meta name="description" content="חזרה על פתיחת ספר דברים: מי אמר אותו, איפה ומתי, למה משה הוכיח את ישראל בשמות של מקומות - ומה צריך כדי להיות שופט">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 19.10.2026 🍯</div>
+  <h1 class="hero-title">📜 התוכחה שנאמרה ברמז</h1>
+  <p class="hero-subtitle">חזרה על פתיחת ספר דברים: מי אמר אותו, איפה ומתי, למה משה הוכיח את ישראל בשמות של מקומות - ומה צריך כדי להיות שופט</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 3 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-4 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/kO8gFZbZc7o" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🗺️ מי, איפה ומתי</a><ul class="toc-stories"><li><a href="#story-1">מי אמר את חומש דברים?</a></li><li><a href="#story-2">איפה הוא אמר אותו?</a></li><li><a href="#story-3">ומתי?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📍 מקומות שמספרים סיפור</a><ul class="toc-stories"><li><a href="#story-4">רשימה מוזרה של שמות</a></li><li><a href="#story-5">כל מקום והחטא שלו</a></li><li><a href="#story-6">למה דווקא ברמז?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">⚖️ מי יכול להיות שופט</a><ul class="toc-stories"><li><a href="#story-7">שלוש תכונות של שופט</a></li><li><a href="#story-8">לא להכיר פנים</a></li><li><a href="#story-9">מחברת מסודרת</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">מי, איפה ומתי</h2></div></div>
+<p class="chapter-intro">שלוש שאלות שכל מי שלומד חומש דברים צריך לדעת לענות עליהן בלי לחשוב פעמיים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מי אמר את חומש דברים?</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ארבעת החומשים הראשונים מספרים מה קרה. חומש דברים שונה: רובו נאום ארוך אחד, שמשה רבנו אומר לעם ישראל בחודשים האחרונים של חייו, ממש לפני שהם נכנסים לארץ בלעדיו.</p>
+<p>הספר נפתח כך:</p>
+<blockquote>"אֵלֶּה הַדְּבָרִים אֲשֶׁר דִּבֶּר מֹשֶׁה אֶל כָּל יִשְׂרָאֵל" (דברים א, א)</blockquote>
+<p>משה מדבר אל <strong>כל</strong> ישראל - לא רק אל הזקנים והנשיאים. זה ספר של אבא שנפרד מילדיו: הוא מזכיר, מוכיח, מחזק, ומלמד אותם איך לחיות בארץ.</p>
+<div class="honey-box">🍯 "משנה תורה" - כך קוראים חז"ל לספר דברים, כי משה חוזר בו על התורה ומסביר אותה מחדש.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: איפה הוא אמר אותו? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">איפה הוא אמר אותו?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה מציינת את המקום: "בְּעֵבֶר הַיַּרְדֵּן" (דברים א, א), ובהמשך: "בְּעֵבֶר הַיַּרְדֵּן בְּאֶרֶץ מוֹאָב הוֹאִיל מֹשֶׁה בֵּאֵר אֶת הַתּוֹרָה הַזֹּאת" (דברים א, ה).</p>
+<p>עם ישראל עומד בערבות מואב, בצד המזרחי של הירדן. מול העיניים - ארץ ישראל. עוד מעט הם יעברו את הנהר. ומשה, שיודע שהוא לא ייכנס איתם, מנצל כל רגע כדי להכין אותם.</p>
+<p>המקום הזה הוא בדיוק נקודת המעבר: בין המדבר לבין הארץ, בין הדור שיצא ממצרים לבין הדור שייכנס.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: ומתי? ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ומתי?</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם התאריך כתוב בתורה:</p>
+<blockquote>"וַיְהִי בְּאַרְבָּעִים שָׁנָה בְּעַשְׁתֵּי עָשָׂר חֹדֶשׁ בְּאֶחָד לַחֹדֶשׁ דִּבֶּר מֹשֶׁה אֶל בְּנֵי יִשְׂרָאֵל" (דברים א, ג)</blockquote>
+<p>החודש האחד עשר הוא חודש שבט, והיום הראשון בחודש - ראש חודש שבט. בשנה הארבעים ליציאת מצרים. כלומר, משה מתחיל לדבר בראש חודש שבט, ובערך חמישה שבועות אחר כך, בז' באדר, הוא נפטר.</p>
+<p class="bold-para">שלוש תשובות לזכור: משה רבנו, בעבר הירדן בערבות מואב, בראש חודש שבט בשנה הארבעים.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: רשימה מוזרה של שמות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📍</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מקומות שמספרים סיפור</h2></div></div>
+<p class="chapter-intro">הפסוק הראשון בספר נראה כמו רשימת כתובות. אבל רש"י מגלה שכל שם הוא בעצם תוכחה.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">רשימה מוזרה של שמות</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפסוק הראשון של ספר דברים ממשיך כך:</p>
+<blockquote>"בַּמִּדְבָּר בָּעֲרָבָה מוֹל סוּף בֵּין פָּארָן וּבֵין תֹּפֶל וְלָבָן וַחֲצֵרֹת וְדִי זָהָב" (דברים א, א)</blockquote>
+<p>קורא רגיל ישאל: מה זה? איך משה עומד בכל המקומות האלה בבת אחת? ואם כבר אמרנו "בעבר הירדן", למה צריך עוד שמונה שמות?</p>
+<p>רש"י עונה: אלה לא באמת כתובות. <strong>אלה דברי תוכחה.</strong> משה מונה את המקומות שבהם עם ישראל חטא במשך ארבעים שנה - וכל שם מזכיר חטא אחר.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: כל מקום והחטא שלו ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל מקום והחטא שלו</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך מפרש רש"י את השמות, אחד אחד:</p>
+<ul class="story-list"><li><strong>במדבר</strong> - על מה שהכעיסו את ה' במדבר, כשאמרו "מי יתן מותנו".</li><li><strong>בערבה</strong> - על החטא בשיטים, בערבות מואב, עם בנות מואב.</li><li><strong>מול סוף</strong> - על מה שהמרו בים סוף, כשאמרו "המבלי אין קברים במצרים".</li><li><strong>בין פארן</strong> - על חטא המרגלים, שיצאו ממדבר פארן.</li><li><strong>ותפל ולבן</strong> - על שתפלו, כלומר דיברו בזלזול, על המן שהיה לבן.</li><li><strong>וחצרות</strong> - על מחלוקת קורח.</li><li><strong>ודי זהב</strong> - על העגל שעשו בשפע הזהב שהיה להם.</li></ul>
+<p>פסוק אחד - ארבעים שנה של היסטוריה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: למה דווקא ברמז? ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה דווקא ברמז?</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה היה יכול לומר במפורש: "חטאתם בעגל, חטאתם במרגלים, חטאתם בקורח". למה הוא בוחר להסתיר את החטאים בתוך שמות של מקומות?</p>
+<p>רש"י מסביר: "סתם את הדברים והזכירן ברמז, מפני כבודן של ישראל". משה רוצה שהם יבינו - אבל לא רוצה לבייש אותם. מי שמבין, מבין. ומי ששומע מבחוץ שומע רק רשימת מקומות.</p>
+<p>זה לימוד גדול לכל אחד מאיתנו: כשצריך להעיר למישהו, אפשר לעשות את זה בעדינות. לא צריך לצעוק, לא צריך לפרט כל טעות מול כולם. רמז אוהב מגיע ללב יותר מצעקה.</p>
+<div class="honey-box">🍯 תוכחה טובה שומרת על הכבוד של מי ששומע אותה.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: שלוש תכונות של שופט ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">מי יכול להיות שופט</h2></div></div>
+<p class="chapter-intro">אחרי התוכחה, משה מספר איך הוקמה מערכת המשפט של עם ישראל - ומה צריך להיות בשופט.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שלוש תכונות של שופט</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה מזכיר לעם שכבר במדבר הוא לא יכול היה לשאת את כל המשפטים לבד, ולכן אמר להם:</p>
+<blockquote>"הָבוּ לָכֶם אֲנָשִׁים חֲכָמִים וּנְבֹנִים וִידֻעִים לְשִׁבְטֵיכֶם וַאֲשִׂימֵם בְּרָאשֵׁיכֶם" (דברים א, יג)</blockquote>
+<p>שלוש תכונות:</p>
+<ul class="story-list"><li><strong>חכמים</strong> - שיודעים תורה.</li><li><strong>נבונים</strong> - שיודעים להבין דבר מתוך דבר, להסיק מסקנה גם במקרה שלא כתוב בספר.</li><li><strong>ידועים לשבטיכם</strong> - שהעם מכיר אותם וסומך עליהם.</li></ul>
+<p>לא מספיק להיות חכם. שופט צריך גם להבין לעומק, וגם להיות אדם שאנשים מכירים את דרכו.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: לא להכיר פנים ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לא להכיר פנים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה מוסיף הוראה לשופטים עצמם:</p>
+<blockquote>"לֹא תַכִּירוּ פָנִים בַּמִּשְׁפָּט כַּקָּטֹן כַּגָּדֹל תִּשְׁמָעוּן לֹא תָגוּרוּ מִפְּנֵי אִישׁ כִּי הַמִּשְׁפָּט לֵאלֹקִים הוּא" (דברים א, יז)</blockquote>
+<p>שופט לא מסתכל מי עומד מולו - עשיר או עני, חשוב או פשוט, חבר או זר. ולא מפחד מאף אחד. למה? כי המשפט הוא של ה'. השופט רק שליח.</p>
+<p class="bold-para">מי שזוכר שהמשפט שייך לה' - לא מפחד מאף אדם.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מחברת מסודרת ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מחברת מסודרת</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשעושים חזרה על חומש שלם, מתגלה מהר מי שמר את מה שלמד. מי שיש לו מחברת מסודרת - פותח, ומוצא הכול כתוב: מי אמר, איפה, מתי, מה הרמזים, מה התכונות של שופט.</p>
+<p>זה לא רק עניין של מבחן. מחברת מסודרת היא כמו ספר דברים בקטן: חזרה על כל מה שלמדנו, במקום אחד, כדי שלא נשכח. משה ידע שהעם עומד לעבור לחיים חדשים, ודאג שהתורה תהיה מסודרת וברורה לפניהם.</p>
+<div class="honey-box">🍯 מה שכותבים בסדר - נשאר. מחברת מסודרת היא החזרה הכי טובה.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
