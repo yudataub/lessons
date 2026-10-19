@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🧺 ארבעה סלים של חוסן</title>
+<meta name="description" content="מסע דרך המחקרים הגדולים על חוסן – מבולבי ועד בוננו והובפול – אל מודל &quot;רגיעה ונחת&quot;, עם מילים פשוטות שכל מבוגר יכול לומר לילד שעובר תקופה קשה">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · ד&quot;ר תמר לביא · 19.10.2026 🍯</div>
+  <h1 class="hero-title">🧺 ארבעה סלים של חוסן</h1>
+  <p class="hero-subtitle">מסע דרך המחקרים הגדולים על חוסן – מבולבי ועד בוננו והובפול – אל מודל &quot;רגיעה ונחת&quot;, עם מילים פשוטות שכל מבוגר יכול לומר לילד שעובר תקופה קשה</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-15 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/iNFy1I_8bbU" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">💌 משפט אחד שנשאר איתנו מהבית</a><ul class="toc-stories"><li><a href="#story-1">תרגיל פתיחה: המשפט שחיזק אותך</a></li><li><a href="#story-2">מה זה בכלל חוסן?</a></li><li><a href="#story-3">מאיפה נולד מודל &quot;רגיעה ונחת&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🌊 מה טראומה עושה לילדים</a><ul class="toc-stories"><li><a href="#story-4">גם תינוק יכול לחוות טראומה</a></li><li><a href="#story-5">חלונות של עצב: למה ילדים מבלבלים את המבוגרים</a></li><li><a href="#story-6">&quot;זה קרה בגללי&quot;: החשיבה הקסומה</a></li><li><a href="#story-7">אבנים באגם: כשכולם נפגעים יחד</a></li><li><a href="#story-8">טראומה פוגשת ילד באמצע הגדילה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📈 רוב האנשים חסינים – ובכל זאת אי אפשר לנבא</a><ul class="toc-stories"><li><a href="#story-9">בוננו: התגובה הנפוצה ביותר היא חוסן</a></li><li><a href="#story-10">חוסן מתהווה: אפשר ללמוד אותו</a></li><li><a href="#story-11">פרדוקס החוסן</a></li><li><a href="#story-12">גמישות: ארבע שאלות שאפשר ללמד כל ילד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">✨ קסם רגיל: החוסן נבנה ביומיום</a><ul class="toc-stories"><li><a href="#story-13">גרמזי ומסטן: לא רק גורמי סיכון</a></li><li><a href="#story-14">ממה עשוי הקסם</a></li><li><a href="#story-15">מחקר ACE: מצוקה מושכת מצוקה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🧺 שלושה סלים: יש לי, אני, אני יכול</a><ul class="toc-stories"><li><a href="#story-16">המחקר של אדית גרוטברג</a></li><li><a href="#story-17">הסל של &quot;יש לי&quot;</a></li><li><a href="#story-18">הסל של &quot;אני&quot; והסל של &quot;אני יכול&quot;</a></li><li><a href="#story-19">ומה עם ילד שלא מוצא בעצמו כלום?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🏦 בנק המשאבים ומודל &quot;רגיעה ונחת&quot;</a><ul class="toc-stories"><li><a href="#story-20">הובפול: חוסן הוא בנק של משאבים</a></li><li><a href="#story-21">הילד ה&quot;נועז&quot; שבעצם נמצא במצוקה</a></li><li><a href="#story-22">ארבע משימות מול אדם במצוקה</a></li><li><a href="#story-23">לא רק לחזור – לצמוח</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">💌</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">משפט אחד שנשאר איתנו מהבית</h2></div></div>
+<p class="chapter-intro">לפני כל התיאוריות – רגע קטן של זיכרון. מתוכו נבין מה זה חוסן ומאיפה הוא מגיע.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">תרגיל פתיחה: המשפט שחיזק אותך</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קחו דף ועט, או פשוט עצמו עיניים לרגע. נסו להיזכר במשפט אחד שמישהו יקר אמר לכם כשהייתם ילדים – אבא, אמא, סבתא, מורה, דמות מיטיבה – משפט שנועד לחזק, לתמוך ולעודד.</p>
+<p>כשאנשים עושים את התרגיל הזה, עולים משפטים כמו:</p>
+<ul class="story-list"><li>"לא משנה איפה תהיי – את הילדה הכי טובה בעולם, ואני סומכת עלייך."</li><li>"את טובה כמו שאת, מעצם קיומך."</li><li>"רק תאמיני בעצמך. את חזקה."</li><li>"אני אוהבת אותך עד השמיים וחזרה, אינסוף פעמים."</li><li>"אלוקים ישמור עלינו ויעזור לנו תמיד."</li></ul>
+<p>שמרו את המשפט שלכם. הוא ילווה אותנו לאורך כל הדרך, ובסוף נגלה שהוא בעצם מכיל כמעט את כל מה שהמחקר יודע לומר על חוסן.</p>
+<div class="honey-box">🍯 משפט אחד, שנאמר בזמן הנכון באהבה, יכול להחזיק אדם עשרות שנים.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: מה זה בכלל חוסן? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה זה בכלל חוסן?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חוסן הוא היכולת להגיב ולהתמודד עם אירוע של דחק – מצב של לחץ, איום או מצוקה. הוא לא אומר שלא כואב, ולא שלא קשה. הוא אומר שאפשר לעבור את זה, לקום על הרגליים ולהמשיך לגדול.</p>
+<p>בעולם כולו, וגם בישראל, מבינים היום שאי אפשר לדבר על טראומה בלי לדבר על חוסן. וגם הכיוון ההפוך נכון: כשמדברים על חוסן, מדברים עליו בהקשר של התמודדות עם אירועים קשים – מלחמה, פגיעה על רקע לאומי, פינוי, אובדן. חוסן בלי הקשר כזה הוא כבר נושא אחר: רווחה נפשית, איכות חיים, אושר.</p>
+<p class="bold-para">חוסן הוא לא היעדר כאב. חוסן הוא היכולת לעבור דרך הכאב ולצאת ממנו.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: מאיפה נולד מודל &quot;רגיעה ונחת&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מאיפה נולד מודל &quot;רגיעה ונחת&quot;</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעמותת נט"ל, שהוקמה כדי לסייע לנפגעי טראומה על רקע לאומי – גם לנפגעים האזרחיים, שבמשך שנים כמעט לא טופלו – עשו לפני כשמונה שנים בחינה מחודשת: מה בעצם אנחנו יודעים על חוסן, ומה צריך לעשות כדי לפתח אותו?</p>
+<p>מתוך המסע הזה בין המחקרים נבנה מודל שמחלק את עולם החוסן לסלים פשוטים, שאפשר לעבוד איתם. שמו "רגיעה ונחת", ובתוך המילה "נחת" מסתתרים ראשי התיבות של מרכיביו: <strong>ר</strong>גיעה, <strong>נ</strong>רמול, <strong>ח</strong>ברה, <strong>ת</strong>קווה ומשמעות.</p>
+<p>המודל גנרי מאוד: הוא מתאים מהגיל הרך ועד לבגרות, לרגע הראשון שאחרי אירוע ולתקופה ארוכה שאחריו, ואפילו למצבי לחץ יומיומיים שאינם טראומטיים כלל. יועצות חינוכיות משתמשות בו לאורך כל השנה. הוא נועד בעיקר להחזיק את החשיבה שלנו מסודרת ברגעים שבהם הכול מתבלבל.</p>
+<p>כדי להבין למה דווקא ארבעת הסלים האלה – נלך בעקבות המחקרים שהובילו אליהם.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: גם תינוק יכול לחוות טראומה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌊</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מה טראומה עושה לילדים</h2></div></div>
+<p class="chapter-intro">ילדים לא תמיד מראים את הכאב כמו מבוגרים. כדי לעזור להם צריך קודם כל לדעת לזהות אותו.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גם תינוק יכול לחוות טראומה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשך שנים ארוכות התנהל ויכוח: האם ילדים קטנים בכלל יכולים לחוות טראומה או אבל? הייתה תפיסה שכל עוד אין לילד בשלות קוגניטיבית להבין מה קרה – הוא גם לא יפתח תגובת טראומה. הוא "לא מבין", ולכן הוא מוגן.</p>
+<p>ג'ון בולבי ועמיתיו הראו שזה לא נכון. בעבודתם, ובמקרה המפורסם של לורה, ילדה בת שנתיים וחצי שנפרדה מהוריה, רואים תגובות אבל וטראומה מלאות – הרבה לפני שיש לילד יכולת להבין, ולפעמים עוד לפני שיש לו מילים.</p>
+<p>מה שמסכן את הילד הוא ההצפה הרגשית עצמה: אימה, פרידה, יגון, והחשש לאבד את הדמויות המטפלות בו. ההצפה הזו קיימת גם אצל ילדים קטנים מאוד.</p>
+<p class="bold-para">לא צריך להבין כדי להיפגע. מספיק להרגיש.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: חלונות של עצב: למה ילדים מבלבלים את המבוגרים ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חלונות של עצב: למה ילדים מבלבלים את המבוגרים</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ילד יכול לבכות בכי מר, להתפרץ בזעם – ודקה אחר כך לרוץ לשחק ולצחוק. מבוגרים רואים את זה ושואלים את עצמם: אולי הוא בכלל לא קלט מה קרה? אולי זה לא נגע בו?</p>
+<p>זה נקרא "חלונות של עצב". הילד נכנס לרגש ויוצא ממנו, כי זה מה שהמערכת שלו מסוגלת לשאת. התגובה לא פחות אמיתית – היא פשוט אחרת.</p>
+<p>אצל ילדים צעירים הכאב מדבר בעיקר בשלושה ערוצים:</p>
+<ul class="story-list"><li><strong>הגוף</strong> – כאבי בטן, דלקות, וירוסים ומחלות שחוזרים שוב ושוב.</li><li><strong>ההתנהגות</strong> – התפרצויות, עקשנות, מרדנות, קושי להיפרד מההורים.</li><li><strong>התפקוד</strong> – רגרסיה: ילד שכבר אכל לבד חוזר לבקבוק, מיומנויות ניקיון שנרכשו נעלמות, הריכוז נפגע.</li></ul>
+<p>רק בגיל מבוגר יותר מצטרף הערוץ הרגשי-מילולי. אצל מתבגרים אפשר לראות גם התנהגויות מסוכנות, פגיעה עצמית ושינויים חדים בתפקוד.</p>
+<div class="honey-box">🍯 ילד שצוחק אחרי בכי לא "עבר את זה". הוא נח לרגע. תנו לו לנוח, והישארו קרובים.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;זה קרה בגללי&quot;: החשיבה הקסומה ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;זה קרה בגללי&quot;: החשיבה הקסומה</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ילדים חושבים לעיתים קרובות בחשיבה מאגית – כאילו המחשבות והמעשים שלהם גרמו לדברים לקרות – ובחשיבה אגוצנטרית, שבה כל מה שקורה מכוון אליהם. אחרי אירוע קשה זה מוביל לשרשרת מסוכנת:</p>
+<p>אם זה קרה בגללי – אני אשם. אם זה מכוון אליי – אולי זה כי אני לא טוב מספיק, לא ראוי מספיק. אולי מגיע לי עונש. ומשם, כמו קוביות דומינו, נופלים הערך העצמי ותחושת המסוגלות.</p>
+<p>הדפוס הזה לא נעלם עם הגיל. רואים אותו גם אצל חיילים שמרגישים שדברים קרו בגללם, שהם היו צריכים לצפות אותם מראש – גם כשבאמת לא הייתה שום דרך לדעת.</p>
+<p>וגם המבוגרים סביב הילד נושאים לפעמים תחושה כזו: "בגללנו גרנו דווקא כאן", "בגללנו שנתיים במלון של המפונים". ילד שבהתחלה שמח על החופשה במלון מוצא את עצמו פתאום בתוך מערבולת של לחצים ואשמה שאינם שלו.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: אבנים באגם: כשכולם נפגעים יחד ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אבנים באגם: כשכולם נפגעים יחד</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נהוג לדמות טראומה לאבן שנזרקת לאגם. אדם אחד נפגע בתאונה, והאדוות של הפגיעה מתפשטות סביבו – אל המשפחה, החברים, הקהילה.</p>
+<p>אבל מה קורה כשזורקים לאגם ערימה גדולה של אבנים בבת אחת? האדוות נפגשות זו בזו, מתנגשות, ויוצרות מערבולת. זה מה שקורה בתקופת מלחמה: ילד שבביתו עברו לילה קשה מגיע לכיתה, אל מורה שגם היא לא ישנה בלילה – כי דאגה לבן שלה בצבא, או כי היא גרה ביישוב מופגז. וגם היועצת והפסיכולוגית חיות באותה מציאות.</p>
+<p>לכן חשוב לזכור: מי שבא לעזור נמצא בעצמו בתוך האגם. זה לא חיסרון – זו המציאות, ומתוכה לומדים יחד.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: טראומה פוגשת ילד באמצע הגדילה ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">טראומה פוגשת ילד באמצע הגדילה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>טראומה פוגשת את הילד בשלב ההתפתחות שבו הוא נמצא, ותמיד משפיעה בשילוב עם המשימות של אותו גיל. בגילאי 9 עד 11, למשל – המעבר מהילדות אל ראשית ההתבגרות – הילד רוכש מיומנויות ולמידה שמבססות את תחושת המסוגלות שלו. הערך העצמי נמדד הרבה ביחס לחברים. החברה הופכת חשובה מאוד, ומתוכה הוא מחפש שייכות וזהות. יש לו כבר כמה "כובעים": החוג, הכיתה, המשפחה.</p>
+<p>לתוך כל זה נופל המטען של הטראומה, ועלול לפגוע בכל אחד מהמרכיבים. ילדים מתחילים לשאול: "למה בכלל ללמוד, אם אי אפשר לדעת מה יהיה מחר?" תפיסת העתיד מתערערת. אמונות יסוד – שהצבא יגן, שהמקלט בטוח, שהמבוגרים שומרים – נסדקות.</p>
+<p>בגלל זה ילד בגיל הזה צריך מבוגר שיעזור לו לסדר את הסיפור: שתהיה לו התחלה, אמצע וסוף. במחקר של פרופ' סמדר בן אשר על ילדים ביישוב בדואי בנגב התברר שבמהלך מבצע "צוק איתן" חלק מהילדים היו בטוחים שישראל היא שיורה עליהם את הטילים. כשגם למבוגרים קשה לעקוב אחרי מי נגד מי – הילד זקוק מאוד לתיווך שלנו.</p>
+<p class="bold-para">ילד שעבר אירוע קשה צריך מישהו שיעזור לו להפוך את הבלגן לסיפור.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: בוננו: התגובה הנפוצה ביותר היא חוסן ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📈</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">רוב האנשים חסינים – ובכל זאת אי אפשר לנבא</h2></div></div>
+<p class="chapter-intro">אחד הממצאים המפתיעים במחקר: התגובה השכיחה ביותר לאסון היא דווקא חוסן. אבל מי בדיוק יהיה חסין – את זה איש לא מצליח לדעת מראש.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">בוננו: התגובה הנפוצה ביותר היא חוסן</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ג'ורג' בוננו הוא אחד מחוקרי החוסן המרכזיים בעולם. הוא הראה שאחרי אירוע עם פוטנציאל טראומטי אנשים מתפצלים לכמה מסלולים: יש שמפתחים מצוקה כרונית, יש שמתאוששים לאט, יש שהקושי מופיע אצלם באיחור – ויש את המסלול השכיח ביותר: חוסן. באוכלוסיות שונות, ובמגוון רחב של אירועים, זו תמיד התגובה הנפוצה ביותר.</p>
+<p>כשהעמיק, גילה שגם בתוך החוסן יש כמה קבוצות. יש קבוצה נדירה של "עמידות לדחק" – כמעט בלי סימפטומים בכלל. ויש קבוצה גדולה יותר של "השפעה מינימלית": יש עצב, יש עוררות, אבל הם מתונים וחולפים.</p>
+<div class="honey-box">🍯 הכוחות של האדם עצמו ושל הסביבה שלו יפעלו – זה הטבע. כל התערבות צריכה לתת להם כבוד, ולא לדחוק אותם הצידה.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: חוסן מתהווה: אפשר ללמוד אותו ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">חוסן מתהווה: אפשר ללמוד אותו</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בוננו בדק גם מה קורה כשהאירוע לא נגמר: חשיפה כרונית לאלימות, לעוני, למחלה קשה, למלחמה שנמשכת ונמשכת. שם הוא מצא משהו מעודד מאוד – "חוסן מתהווה".</p>
+<p>לפעמים התגובה הראשונה סימפטומטית מאוד. האדם נראה פגיע, שבור. אבל עם הזמן הוא מפתח חוסן. כלומר, מי שהגיב קשה ברגע הראשון לא "נכשל" ולא נידון להישאר שם.</p>
+<p>למי שעובד עם ילדים זה הממצא החשוב מכולם: <strong>חוסן אפשר לרכוש, אפשר ללמד, ואפשר לפתח לאורך זמן – גם בתוך המצוקה עצמה.</strong> חוסן הוא תהליך, לא תעודה שמקבלים או לא מקבלים ברגע האירוע.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: פרדוקס החוסן ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">פרדוקס החוסן</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן בוננו נתקל בבעיה, שהוא קרא לה "פרדוקס החוסן". אנחנו מכירים היטב את גורמי החוסן: אופטימיות, תמיכה חברתית, מסוגלות אישית, סגנון התמודדות. מעט נושאים נחקרו כל כך הרבה. ובכל זאת – איננו מצליחים לנבא מי יגלה חוסן ומי לא.</p>
+<p>בוננו ניסה לפתור את זה סטטיסטית. הוא אסף מאגרי נתונים עצומים, ואפילו הזין אותם לכלי בינה מלאכותית – ועדיין לא נמצאו משתנים שמנבאים חוסן באופן עקבי.</p>
+<p>מתוך המבוי הסתום הזה הוא שינה כיוון: במקום לשאול "מי חסין?", הוא שאל "מה בונה את החוסן?" והתשובה הייתה – גמישות.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: גמישות: ארבע שאלות שאפשר ללמד כל ילד ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">גמישות: ארבע שאלות שאפשר ללמד כל ילד</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפי בוננו, החוסן בנוי משני חלקים.</p>
+<p>החלק הראשון הוא <strong>תפיסה גמישה</strong> – האמונה "אני יכול להתמודד עם מצוקה". היא בנויה משלוש עמדות שמזינות זו את זו: אופטימיות, תחושת מסוגלות, וראיית האיום כאתגר.</p>
+<p>החלק השני הוא <strong>רצף גמישות</strong> – תהליך בשלושה שלבים שאנשים חסינים עוברים:</p>
+<ul class="story-list"><li><strong>רגישות להקשר</strong> – מה המצב הזה? מה הוא דורש ממני עכשיו, ומה בטווח הארוך?</li><li><strong>רפרטואר גמיש</strong> – יש לי הרבה דרכי התמודדות, לא רק אחת. לא רק רגש, לא רק דמיון, לא רק חברים – כי המצבים משתנים: לפעמים אני לבד ולפעמים עם אחרים.</li><li><strong>קשב למשוב</strong> – אחרי שפעלתי, אני בודק: זה עבד? אם לא – אני לא הולך ראש בקיר, אלא משנה.</li></ul>
+<p>ומכאן ארבע שאלות פשוטות:</p>
+<ul class="story-list"><li>מה המצב דורש?</li><li>מה אני יכול לעשות, מתוך מה שיש לי?</li><li>האם זה עזר?</li><li>מה צריך לשנות?</li></ul>
+<div class="honey-box">🍯 ארבע השאלות האלה מתאימות לילד בכיתה ד' בדיוק כמו לצוות צבאי בתחקיר.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: גרמזי ומסטן: לא רק גורמי סיכון ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">✨</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">קסם רגיל: החוסן נבנה ביומיום</h2></div></div>
+<p class="chapter-intro">חוקרים מוקדמים יותר כבר גילו שחוסן איננו כוח-על נדיר. הוא צומח מדברים פשוטים מאוד.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גרמזי ומסטן: לא רק גורמי סיכון</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נורמן גרמזי, מחלוצי חקר החוסן, הגיע לנושא כמעט במקרה. הוא חקר ילדים להורים שחלו בסכיזופרניה, ושם את הלב לשאלה אחרת מהמקובל: איך זה שחלק מהילדים האלה מתפתחים בצורה תקינה? מה קורה אצלם? במקום להיתקע בגורמי הסיכון, הוא בחר לחפש את מה שמגן.</p>
+<p>העמדה שחוקר מגיע איתה קובעת במידה רבה מה הוא ימצא – ולכן זו עמדה שכדאי ללמוד ממנה.</p>
+<p>מהמעבדה שלו צמחה אן מסטן, שקראה לחוסן "קסם רגיל" (Ordinary Magic). האוקסימורון הזה אומר הכול: העוצמה של הרוח האנושית מפעימה כל פעם מחדש – ובכל זאת, היא רגילה לגמרי. היא לא נבנית בקסמים ובתרופות, אלא מתוך העשייה היומיומית.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: ממה עשוי הקסם ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ממה עשוי הקסם</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסטן מונה רשימה של מערכות יומיומיות ונגישות שבונות חוסן אצל ילדים. אפשר לחלק אותן לארבע קבוצות:</p>
+<ul class="story-list"><li><strong>קשר ואהבה</strong> – ילד צריך לדעת שיש מישהו שדואג לו ואוהב אותו, ושיש לו מקום בטוח: בבית, בכיתה, בקבוצה.</li><li><strong>ויסות</strong> – לעבוד הרבה על הטכניקות שעוזרות לו להירגע ולשלוט בעצמו.</li><li><strong>מוטיבציה ומסוגלות</strong> – להרגיש שהוא יכול, שהוא מסוגל.</li><li><strong>יכולת קוגניטיבית</strong> – לעזור לו לפתח את החשיבה ואת ההבנה.</li></ul>
+<p>וזהו. זה הכול. כשהדברים הפשוטים האלה נמצאים במקומם – רואים את הקסם.</p>
+<p class="bold-para">חוסן לא נבנה ברגע אחד גדול. הוא נבנה באלף רגעים קטנים.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: מחקר ACE: מצוקה מושכת מצוקה ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מחקר ACE: מצוקה מושכת מצוקה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מחקר ACE, שנערך בסוף שנות התשעים, עסק פחות בחוסן ויותר בדחק – אבל הממצאים שלו חשובים מאוד.</p>
+<p>ראשית, החוקרים הופתעו מכמה נפוצים אירועים קשים בילדות. היום קשה להבין את זה, אבל פעם לא חשבו שילדים חשופים לכל כך הרבה.</p>
+<p>שנית, חשיפה לאירוע קשה אחד היא כמו מגנט לאירועים נוספים. כמו כדור שלג שמתגלגל במורד וצובר גודל ומהירות – למצוקה יש נטייה להצטבר.</p>
+<p>ושלישית, לחשיפה בגיל הרך יש השלכות לטווח ארוך: לא רק נפשיות ורגשיות, אלא גם גופניות. במחקרי מעקב נמצאה אפילו תמותה מוגברת.</p>
+<div class="honey-box">🍯 בדיוק בגלל זה כל מבוגר שעוצר את כדור השלג מוקדם – משנה מסלול חיים שלם.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: המחקר של אדית גרוטברג ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🧺</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">שלושה סלים: יש לי, אני, אני יכול</h2></div></div>
+<p class="chapter-intro">הכלי הכי שימושי בדרך: שלוש שאלות שעוזרות לילד – ולנו – לגלות כמה כוחות כבר יש לו.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">המחקר של אדית גרוטברג</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אדית גרוטברג רצתה לדעת במה ילדים ומבוגרים נעזרים כשהם מתמודדים עם מצוקה. היא הובילה פרויקט בינלאומי בכ-14 מדינות מרחבי העולם, עם מדגם ראשון של כמעט 600 ילדים ומבוגרים, ואחר כך אלפים נוספים.</p>
+<p>היא שאלה שתי שאלות. בראשונה תיארה מקרה דמיוני ושאלה: מה הייתם עושים? רוב הנשאלים ענו שלא היו מצליחים להתמודד, ושאין להם מושג איך. בשנייה ביקשה: היזכרו במצב קשה שבאמת עברתם – איך התמודדתם? ופתאום רובם סיפרו שהתמודדו, ובהצלחה.</p>
+<p>המסקנה, כמו אצל בוננו, גרמזי ומסטן: היכולת להתמודד נשענת על ניסיון. ניסיון מוקדם והכנה מגבירים אותה, וחוסן הוא תכונה נרכשת.</p>
+<p class="bold-para">כשמדמיינים קושי – נראה שאין סיכוי. כשנזכרים בקושי שכבר עברנו – מגלים שיש בנו כוח.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: הסל של &quot;יש לי&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הסל של &quot;יש לי&quot;</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גרוטברג מצאה שילדים שואבים את ההתמודדות שלהם משלושה מקורות. הראשון: <strong>מה יש לי</strong> בסביבה.</p>
+<p>יש לי אנשים שאוהבים אותי. יש לי אנשים ששומרים עליי. יש לי מורה שדואגת לי ומתקשרת. יש לי כלב שאם אשאר לבד – יהיה איתי. יש לי פלייליסט שאני אוהב לשמוע. יש לי מזרן יוגה.</p>
+<p>בתקופות סגר מבקשים ממורים להתקשר שוב ושוב הביתה. למה? כי ילד שהמורה מתקשרת אליו מרגיש שיש לו מישהו.</p>
+<p>מילים שממלאות את הסל הזה:</p>
+<ul class="story-list"><li>"אני פה איתך."</li><li>"מתי שתצטרך אותי – אני כאן."</li><li>"שמתי לב שלא היית בשבוע שעבר, דאגתי לך."</li><li>"ראיתי שמישהו רצה לשחק איתך."</li></ul>
+<p>משפטים כאלה פותחים לילד את העיניים לראות מה יש לו מסביב.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: הסל של &quot;אני&quot; והסל של &quot;אני יכול&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הסל של &quot;אני&quot; והסל של &quot;אני יכול&quot;</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסל השני הוא <strong>מי אני</strong> – התכונות שלי, הזהות שלי. "אני מצחיק", "אני אהוב", "אני אכפתי", "אני רגיש לאחרים". כל תכונה כזו אומרת משהו על הדרך שבה אני יכול להתמודד, ועל מה שאני מביא איתי לקושי.</p>
+<p>הסל השלישי הוא <strong>מה אני יכול</strong> – היכולות והמיומנויות, הצד המעשי. "אני יודע לשתף", "אני מוצא פתרונות יצירתיים", "אני יודע לגייס אנשים", "אני יכול לשמור על האחים הקטנים", "אני מסודר, אני יכול לבנות טבלה".</p>
+<p>מילים שממלאות את הסלים האלה: "הצחקת אותי", "ריגשת אותי", "תראה – אתה עושה את זה לבד!". וגם: לסמוך על הילד, להטיל עליו משימות, לא לוותר לו תמיד, לצפות ממנו לעמוד בציפיות. כל אלה מעבירים את המסר: אתה חזק, אתה תעמוד בזה.</p>
+<p>לא נורא אם משהו נכנס לסל "הלא נכון" – יוגה יכולה להיות גם "יש לי" וגם "אני יכול". הרעיון הוא לא למיין בדייקנות, אלא לפתוח את הקשת ולא להסתפק בתשובה אחת.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: ומה עם ילד שלא מוצא בעצמו כלום? ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ומה עם ילד שלא מוצא בעצמו כלום?</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש ילדים חסרי ביטחון שקשה להם מאוד לומר משהו טוב על עצמם. השאלה "אילו משאבים יש לך?" מופשטת מדי בשבילם. לכן עוזרים להם לתרגם אותה לדברים מוחשיים: יש לך חבר טוב? יש לך אמא שדואגת לך? יש מישהו שבא כל שבוע ומשחק איתך?</p>
+<p>זה לוקח זמן. מה שלא ברור בשבוע הראשון מתחיל לאט לאט להתמלא, עד שהסל מלא: משאבים, מיומנויות, והיכרות של הילד עם עצמו – "אני המצחיק, כשיש משהו קשה אני מספר בדיחה".</p>
+<p>העיקר הוא לזרוע זרע ולהטמיע שפה. כשמבוגר אומר שוב ושוב, בלי קשר מיוחד, "אוי, ראיתי שהצלחת", "זה ריגש אותי" – הילד מבין לאט לאט: זה משהו שקיים אצלי.</p>
+<p>ויהיו ילדים שעבורם הדרך תהיה קשה במיוחד. הם בדיוק אלה שצריכים, מעבר לעבודה בקבוצה, גם חיזוק אישי.</p>
+<div class="honey-box">🍯 תרגיל לעצמכם: חשבו על ילד אחד שאתם מכירים. כתבו שלושה דברים ש"יש לו", שלוש תכונות ש"הוא", ושלושה דברים ש"הוא יכול".</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: הובפול: חוסן הוא בנק של משאבים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏦</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">בנק המשאבים ומודל &quot;רגיעה ונחת&quot;</h2></div></div>
+<p class="chapter-intro">הצעד האחרון במסע: להבין שחוסן הוא עניין של משאבים – ולתרגם את כל מה שלמדנו לארבע משימות פשוטות.</p>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הובפול: חוסן הוא בנק של משאבים</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סטיבן הובפול מתבונן על העולם דרך משקפיים של משאבים – הדבר המשמעותי ביותר שיש לנו, שאותו אנחנו צוברים מגיל צעיר. מבחינתו, אירוע טראומטי הוא אירוע שבו יש איום או אובדן של משאבים שאי אפשר להחליף.</p>
+<p>הובפול אומר במפורש: חוסן הוא לא רק תכונה של האדם, אלא של האדם וסביבתו יחד. סביבה חסינה היא סביבה עשירה במשאבים – שגם מאפשרת <strong>גישה</strong> אליהם (אפשר שיהיו המון מים, אבל אם אין לי גישה אליהם – הם לא עוזרים לי), גם מגינה עליהם כדי שלא יאבדו, וגם מעודדת אותם לגדול.</p>
+<p>וכאן המושגים לקוחים מהכלכלה. תדמיינו בנק: חייבים להשקיע במשאבים מראש, כי בעת דחק הם אוזלים מהר מאוד. מי שיש לו הרבה – יאבד כמה גולות מהכוס שלו ויסתדר. מי שהייתה לו גולה אחת בלבד ונאלץ להשתמש בה – נכנס למינוס, וממינוס נורא קשה לצאת.</p>
+<p class="bold-para">מי שמשקיע בילד בימים רגילים – בונה לו חשבון שיחזיק אותו בימים קשים.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: הילד ה&quot;נועז&quot; שבעצם נמצא במצוקה ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הילד ה&quot;נועז&quot; שבעצם נמצא במצוקה</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עוד דבר שהובפול מלמד: מי שדל במשאבים מגן על המעט שיש לו באופן נואש יותר, הישרדותי יותר. אצל ילדים זה נראה לפעמים כמו התנהגות לא מסתגלת – תוקפנות, התרסה, נועזות מופרזת, "ילד בעייתי".</p>
+<p>כשרואים ילד כזה, כדאי לשאול: אולי מה שאני רואה הוא בעצם מצוקה? אולי הוא נלחם על הגולה האחרונה שלו?</p>
+<p>הובפול מצא שהמשאבים מתקבצים יחד, ומנה חמישה תחומים מרכזיים: <strong>ביטחון, רגיעה, מסוגלות, חברה ותקווה</strong>.</p>
+<div class="honey-box">🍯 תרגיל מיפוי: כתבו עשרה אנשים ועשרה דברים בחייכם (או בחיי הילד). מי ומה מגייס לכם משאבים, ומי ומה שואב אותם? ואז שאלו: איך מגדילים את מה שנותן כוח, ואיך מצמצמים – גם אם לא לגמרי – את מה שמרוקן.</div>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: ארבע משימות מול אדם במצוקה ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ארבע משימות מול אדם במצוקה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכל המסע הזה נלמדו כמה דברים: חוסן הוא שריר שאפשר לאמן; הסביבה והחברה חשובות; תחושת שליטה ומסוגלות חשובה מאוד; ונרמול, תקווה ומשמעות – חשובים. מכאן נולד מודל "רגיעה ונחת": כשפוגשים אדם במצוקה, יש מולו ארבע משימות.</p>
+<p><strong>1. נרמול.</strong> קודם כל לתת הקשר: "קרה משהו בחוץ, ולכן אתה מגיב כך", "אחרי מה שעברת, הגיוני שאתה כועס", "הגיוני שאתה מפחד". זה לא מצדיק כל התנהגות, אבל זה אומר שהתגובה לא משוגעת. ובנוסף – מידע פשוט על איך הגוף והמוח מגיבים לפחד, למשל דרך "חלון הסבילות": כשקורה משהו קשה, האזור שבו נוח ובטוח לנו מצטמצם – אצל הילד, אצל חבריו, אצל המורה, אצל כולם. כך מה שהרגיש אישי, מוזר ומפחיד הופך לאנושי ואוניברסלי.</p>
+<p><strong>2. רגיעה.</strong> לא "הרגעה". אומרים "תירגע", "תשחרר" – והוא לא ירגע, כי הדריכות שלו היא הישרדותית. אחד הדברים המרגיעים ביותר הוא ידע: מידע ברור ותקשורת פתוחה.</p>
+<p><strong>3. חברה וחיבור.</strong> במיוחד בישראל – לעשות משהו עם אחרים ועבור אחרים: במשפחה, בבניין, בקהילה, בכיתה. התנדבות ודאגה לאחר מחזירות לאדם את תחושת הערך.</p>
+<p><strong>4. תקווה ומשמעות.</strong> לחפש את מה שנותן טעם ואת מה שמחכה בהמשך הדרך.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: לא רק לחזור – לצמוח ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא רק לחזור – לצמוח</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חוסן לא אומר שלא נגיב ושלא יהיה לנו קשה. הוא אומר שיש לנו את היכולת להתמודד, להתפתח ולקום על הרגליים. ובימינו אנחנו רוצים יותר מזה: לא רק לחזור למצב הקודם, אלא לצמוח מתוך מה שעבר – ולהגיע למקום חדש וטוב יותר.</p>
+<p>עכשיו חזרו למשפט שכתבתם בהתחלה – המשפט שמישהו יקר אמר לכם. בדקו: באיזה סל הוא נמצא? "אני סומכת עלייך" – זו מסוגלות. "את טובה מעצם קיומך" – זו זהות. "אני אוהבת אותך עד השמיים" – זה "יש לי". "אלוקים ישמור עלינו" – זו תקווה ומשמעות. מבוגר אחד, במשפט אחד, מילא סל שלם.</p>
+<p>כל התיאוריות – בוננו, הובפול, גרוטברג, מסטן – צריכות בסוף להיתרגם לשפה של ילד, למשחק ולמילה טובה בזמן הנכון. ילד אחד נשאל פעם מה הוא רוצה להיות כשיגדל, וענה: "אני רוצה להיות שמח". זו בדיוק המשימה: לעזור לילדים להרגיש שמה שיש להם באמת מחזיק אותם.</p>
+<p class="bold-para">חוסן הוא לא מתנה שנולדים איתה. הוא משפט טוב, שנאמר שוב ושוב, עד שהילד מתחיל להגיד אותו לעצמו.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
