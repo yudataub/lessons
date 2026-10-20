@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔥 מי שרוצה באמת</title>
+<meta name="description" content="רבי אליעזר שאכל אדמה כדי ללמוד, הבת של רבי עקיבא והנחש, הלל על הגג בשלג ותלמידיו הגדולים - סיפורים על רצון חזק שהופך אדם פשוט לגדול בישראל">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 20.10.2026 🍯</div>
+  <h1 class="hero-title">🔥 מי שרוצה באמת</h1>
+  <p class="hero-subtitle">רבי אליעזר שאכל אדמה כדי ללמוד, הבת של רבי עקיבא והנחש, הלל על הגג בשלג ותלמידיו הגדולים - סיפורים על רצון חזק שהופך אדם פשוט לגדול בישראל</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-14 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/z-knRsU4tcA" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌾 אליעזר בוכה בשדה</a><ul class="toc-stories"><li><a href="#story-1">הבכי באמצע החריש</a></li><li><a href="#story-2">קם והולך לירושלים</a></li><li><a href="#story-3">&quot;למה אתה בוכה?&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🪨 הלחם שהיה אדמה</a><ul class="toc-stories"><li><a href="#story-4">הריח המוזר</a></li><li><a href="#story-5">למה לא היה לו אוכל?</a></li><li><a href="#story-6">הברכה: ריח טוב במקום ריח רע</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🐎 האבא שבא לנשל - ונשאר להתפעל</a><ul class="toc-stories"><li><a href="#story-7">האחים והצוואה</a></li><li><a href="#story-8">הנשיקה על הראש</a></li><li><a href="#story-9">&quot;לא באתי בשביל כסף&quot;</a></li><li><a href="#story-10">בור סוד שאינו מאבד טיפה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🐍 הבת של רבי עקיבא והנחש</a><ul class="toc-stories"><li><a href="#story-11">הגזירה</a></li><li><a href="#story-12">העני שאף אחד לא ראה</a></li><li><a href="#story-13">הסיכה שבקיר</a></li><li><a href="#story-14">&quot;וצדקה תציל ממוות&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">❄️ הלל על הגג</a><ul class="toc-stories"><li><a href="#story-15">שני חצאים של טרפעיק</a></li><li><a href="#story-16">הדלת הסגורה</a></li><li><a href="#story-17">החידה: איפה היה החלון?</a></li><li><a href="#story-18">שלג בליל שבת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🕊️ מי כאן הלל?</a><ul class="toc-stories"><li><a href="#story-19">הלל שלא כעס</a></li><li><a href="#story-20">השאלה הופכת אלינו</a></li><li><a href="#story-21">גם הלל לא נולד הלל</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🌳 שמונים התלמידים של הלל</a><ul class="toc-stories"><li><a href="#story-22">הגדול והקטן</a></li><li><a href="#story-23">יונתן בן עוזיאל והאש</a></li><li><a href="#story-24">הדרך לעמוקה</a></li><li><a href="#story-25">לזכור ולקחת</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌾</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">אליעזר בוכה בשדה</h2></div></div>
+<p class="chapter-intro">בחור חזק ובריא, בן של איש עשיר, עומד בשדה וחורש - ופתאום מתחיל לבכות. כך מתחיל הסיפור של אחד מגדולי התנאים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הבכי באמצע החריש</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לאליעזר בן הורקנוס היה הכול. אבא שלו, הורקנוס, היה עשיר מאוד, בעל שדות גדולים, ואליעזר ואחיו עבדו את האדמה. הוא היה בחור חזק, אוכל טוב, ישן טוב, ולא חסר לו כלום.</p>
+<p>ויום אחד, באמצע החריש, אליעזר עומד ובוכה. אבא שלו ניגש אליו: "למה אתה בוכה? קשה לך? אתה רוצה עבודה יותר קלה?" - "לא, אבא. אני רוצה ללמוד תורה."</p>
+<p>אבא שלו פשוט צחק. למה צחק? כי אליעזר כבר לא היה ילד קטן. הוא היה בחור בן עשרים ומשהו, ומעולם לא למד. לא משניות, לא גמרא, אולי בקושי את האותיות. "עכשיו, בגיל הזה, אתה רוצה ללכת לישיבה? בין בחורים שלומדים מגיל חמש? אין לך שום סיכוי."</p>
+<p class="bold-para">אבל בתוך אליעזר בער רצון אחד - והרצון הזה היה חזק יותר מכל הצחוק.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: קם והולך לירושלים ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קם והולך לירושלים</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אליעזר לא התווכח. הוא לא ניסה לשכנע. הוא פשוט קם, עזב את השדה, והלך לירושלים, לבית המדרש של רבן יוחנן בן זכאי.</p>
+<p>על מה הוא יכול לסמוך? לא היה לו ידע, לא היה לו כסף, ולא הייתה לו ברכה מהבית. היו לו שני דברים בלבד: <strong>רצון</strong> חזק מאוד, ו<strong>התמדה</strong> - היכולת לשבת וללמוד יום אחרי יום בלי להתייאש.</p>
+<p>וזה גם מה שהיה לרבי עקיבא, שהתחיל ללמוד רק בגיל ארבעים, כשעוד לא ידע אפילו את האותיות. כשמישהו באמת רוצה - זה כוח עצום. הרצון פותח דלתות שהכישרון לבד לא יכול לפתוח.</p>
+<div class="honey-box">🍯 לא צריך להתחיל מוכן. צריך להתחיל רוצה.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: &quot;למה אתה בוכה?&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;למה אתה בוכה?&quot;</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אליעזר נכנס לבית המדרש. כולם יושבים ולומדים, מתווכחים, מקשים ומתרצים - והוא לא מבין מילה. הוא יושב ומקשיב, מנסה לתפוס משהו, ולא מצליח. ואחרי כמה דקות - שוב הוא בוכה.</p>
+<p>מי ניגש אליו? רבן יוחנן בן זכאי בעצמו, הגדול שבדור. רבן יוחנן חי בזמן בית המקדש השני וגם אחרי החורבן. הוא זה שיצא מירושלים הנצורה כשהוא מוסתר בארון, כדי להציל את התורה, ובזכותו קמה יבנה וחכמיה.</p>
+<p>"למה אתה בוכה, בני?" - "כי אני רוצה ללמוד ואני לא מבין כלום." ורבן יוחנן לא אמר לו "לך הביתה". הוא אמר: "בוא, אני אלמד איתך." והתחיל ללמד אותו מההתחלה ממש. ואליעזר יושב ולומד, שוכח וחוזר, לומד ולומד.</p>
+<p class="bold-para">רב גדול הוא לא רק מי שיודע הרבה. הוא מי שרואה בחור בוכה - ומתיישב לידו.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הריח המוזר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🪨</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">הלחם שהיה אדמה</h2></div></div>
+<p class="chapter-intro">רבן יוחנן מרגיש ריח רע מהפה של אליעזר - ומגלה סוד שאליעזר שמר בשתיקה.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הריח המוזר</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יום אחד מרגיש רבן יוחנן בן זכאי שעולה ריח לא טוב מהפה של אליעזר. הוא שואל אותו: "אליעזר, אכלת היום משהו?" - ואליעזר שותק. שוב שואל - ושוב שתיקה.</p>
+<p>רבן יוחנן שלח שניים מתלמידיו לבית שבו אליעזר התאכסן, לבדוק מה קורה. הם שאלו את בעלת הבית: "הוא אוכל אצלך משהו?". אמרה להם: "כל יום הוא בא, מכניס יד לשק שלו, ואוכל ממנו." פתחו את השק - והוא היה מלא אדמה.</p>
+<p>אליעזר לא אכל לחם. הוא אכל רגבי עפר, כדי שיוכל להמשיך לשבת וללמוד.</p>
+<div class="honey-box">🍯 יש אנשים שמוותרים על התורה כי חסר להם משהו קטן. אליעזר ויתר על הלחם - ולא על התורה.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: למה לא היה לו אוכל? ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה לא היה לו אוכל?</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך זה יכול להיות? הבן של עשיר גדול, שבבית של אבא שלו יש שדות ותבואה - ואין לו מה לאכול?</p>
+<p>כי אבא שלו כעס עליו. הוא היה בטוח שאליעזר עושה שטות, שאין לו שום סיכוי להצליח, ולכן לא נתן לו כלום כשעזב. בלי כסף ובלי צידה. ואליעזר, שהיה רגיל לעבוד את האדמה, לקח איתו את מה שהיה לו - את העפר עצמו.</p>
+<p>והוא גם לא סיפר לאף אחד. לא ביקש, לא התלונן, לא רצה שירחמו עליו. רק ישב ולמד.</p>
+<p class="bold-para">הרצון של אליעזר לא היה רצון של "אם יהיה נוח". הוא היה רצון שמוכן לשלם מחיר.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: הברכה: ריח טוב במקום ריח רע ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הברכה: ריח טוב במקום ריח רע</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשרבן יוחנן שמע מה קרה, הוא לא נזף ולא ריחם. הוא בירך. כך מסופר: הוא אמר לאליעזר שכמו שעלה ריח רע מפיו בשביל התורה, כך ייצא שם התורה שלו בריח טוב מסוף העולם ועד סופו.</p>
+<p>כלומר: הפה שסבל בשביל התורה - ממנו ייצאו דברי תורה מתוקים, שכל העולם ייהנה מהם. וכך באמת היה. רבי אליעזר נעשה אחד מגדולי התנאים, ושמו מופיע בכל מקום במשנה ובגמרא.</p>
+<div class="honey-box">🍯 כל מאמץ שעושים בשביל התורה - חוזר אלינו בסוף כברכה.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: האחים והצוואה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🐎</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">האבא שבא לנשל - ונשאר להתפעל</h2></div></div>
+<p class="chapter-intro">האחים רוצים שאליעזר לא יקבל ירושה. אבא שלהם רוכב לירושלים לכתוב צוואה - ורואה את מה שלא האמין שיראה.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">האחים והצוואה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עברו כמה שנים. אליעזר לומד יום ולילה, יום ולילה. ובבית, האחים שלו מדברים עם אבא שלהם: "אתה יודע, אליעזר ברח. אבל כשאתה תמות - הוא יחזור ויגיד: מגיע לי חלק בירושה! לך לבית הדין בירושלים ותכתוב שהוא לא מקבל כלום."</p>
+<p>הם שכנעו אותו. הורקנוס עלה על הסוס ורכב לירושלים, כדי לנשל את הבן שלו מכל נכסיו.</p>
+<p>הוא הגיע לירושלים, ונכנס לבית המדרש של רבן יוחנן בן זכאי. הרבה אנשים חשובים ישבו שם. ומה הוא רואה? את הבן שלו - יושב במרכז, ליד השולחן הגדול, וכל החכמים מקשיבים לו.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: הנשיקה על הראש ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הנשיקה על הראש</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבן יוחנן ביקש מאליעזר לדרוש לפני כולם. אליעזר עמד ודרש דברי תורה שלא נשמעו כמותם, והפנים שלו האירו. כולם הקשיבו בשקט.</p>
+<p>כשסיים, קם רבן יוחנן בן זכאי ונישק אותו על הראש. והאבא יושב בצד, מסתכל, ולא מאמין למראה עיניו. זה הבן שלו? זה אליעזר שאכל אדמה? זה הבחור שצחקו עליו?</p>
+<p>איך הוא הספיק כל כך מהר? כי מי שלומד ברצון כזה ובהתמדה כזאת - מתקדם במהירות שאי אפשר להאמין לה.</p>
+<p class="bold-para">הבחור ש"לא היה לו סיכוי" עומד עכשיו במרכז בית המדרש, ורבו מנשק אותו.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: &quot;לא באתי בשביל כסף&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;לא באתי בשביל כסף&quot;</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הורקנוס קם, ניגש לרבן יוחנן, ואמר משהו הפוך לגמרי ממה שבא לעשות: "לא באתי לנשל אותו. באתי כדי שכל הנכסים שלי יהיו שלו לבדו!"</p>
+<p>וכאן אליעזר מפתיע שוב. הוא ניגש לאבא שלו ואמר: "אבא, לא באתי לכאן בשביל כסף וזהב. באתי ללמוד תורה. אם הייתי רוצה כסף - הייתי נשאר בשדה. אני לא צריך שתיקח מהאחים שלי כדי לתת לי." הוא ביקש שהנכסים יתחלקו בשווה, כמו שהיה צריך להיות מלכתחילה.</p>
+<p>עכשיו כבר כולם הכירו אותו, ורבן יוחנן דאג לו. אבל גם בלי זה - אליעזר כבר מצא את האוצר שלו.</p>
+<div class="honey-box">🍯 מי שמצא את התורה - כבר לא מחפש אוצרות אחרים.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: בור סוד שאינו מאבד טיפה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">בור סוד שאינו מאבד טיפה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חמישה תלמידים מיוחדים היו לרבן יוחנן בן זכאי, והראשון שבהם הוא רבי אליעזר בן הורקנוס. ורבן יוחנן היה מונה את שבחיהם. על רבי אליעזר אמר:</p>
+<blockquote>"רבי אליעזר בן הורקנוס - בור סוד שאינו מאבד טיפה" (אבות ב, ח)</blockquote>
+<p>מה זה בור סוד? פעם לא היו ברזים. היו חופרים בור באדמה ואוספים לתוכו מי גשמים. אבל אם שופכים מים לבור רגיל באדמה - אחרי כמה דקות יש בוץ, והמים נבלעים ונעלמים. לכן היו מצפים את הבור בסיד, ואז המים נשמרים בו ולא בורחת אף טיפה.</p>
+<p>כזה היה רבי אליעזר: כל מה שלמד נשאר אצלו. שום מילה לא הלכה לאיבוד. ואיך נעשה כזה? בחזרה, ועוד חזרה, ועוד חזרה - כמו שלמד בהתחלה, "שוכח וחוזר, לומד ולומד".</p>
+<p class="bold-para">"יגעת ומצאת - תאמין" (מגילה ו, ב). מי שמתאמץ באמת - מוצא באמת.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הגזירה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🐍</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">הבת של רבי עקיבא והנחש</h2></div></div>
+<p class="chapter-intro">החוזים בכוכבים אמרו שביום החתונה הבת של רבי עקיבא תמות. ומה שהציל אותה היה דבר קטן מאוד, שאף אחד לא ראה.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הגזירה</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לרבי עקיבא הייתה בת. החוזים בכוכבים אמרו לו דבר מפחיד: ביום שבו תיכנס לחופה, יכיש אותה נחש והיא תמות.</p>
+<p>רבי עקיבא שמע ונבהל, כמו כל אבא. אבל הוא לא התייאש. הוא ידע שהדברים נקבעים בשמים, ושגם אם נגזרה גזירה - אפשר לבטל אותה. הוא אפילו לא סיפר לבת שלו, כדי שלא תפחד. רק התפלל לה' כל יום שישמור עליה.</p>
+<div class="honey-box">🍯 גם כשמישהו אומר "כך כתוב" - תפילה ומעשים טובים יכולים לשנות.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: העני שאף אחד לא ראה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">העני שאף אחד לא ראה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סוף סוף מגיע יום החתונה. כולם רוקדים ושמחים, השולחנות מלאים, ההמולה גדולה. ובאמצע כל זה - עני עומד בפתח ודופק. הוא רעב ומבקש משהו לאכול.</p>
+<p>אף אחד לא שם לב אליו. כולם עסוקים בסעודה, במוזיקה, בכלה. רק אחת שמה לב: הכלה עצמה, הבת של רבי עקיבא.</p>
+<p>איך זה יכול להיות? הכלה היא העסוקה מכולם, כל העיניים עליה! אבל דווקא היא שמעה. כי היא הייתה אחת שאכפת לה, ומי שאכפת לו - שומע גם כשיש רעש גדול. היא קמה, לקחה את המנה שהגישו לה, ונתנה אותה לעני. "תאכל בתיאבון." והוא אכל, שמח, והלך לדרכו.</p>
+<p class="bold-para">מי שאכפת לו - שומע את הדפיקה בדלת גם באמצע החתונה שלו.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: הסיכה שבקיר ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הסיכה שבקיר</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בלילה, כשהכלה הלכה לישון, הורידה מהראש את הסיכה הגדולה והיפה שלה, ותקעה אותה בחור שבקיר, כמו שעושים כל לילה.</p>
+<p>בבוקר היא שולפת את הסיכה מהקיר - ויחד איתה נגרר נחש. מת. בלילה, בלי שידעה, הסיכה נתקעה בדיוק בעין של הנחש שהסתתר בחור, והרגה אותו. הנחש שהיה אמור להכיש אותה ביום החופה - לא הספיק.</p>
+<p>היא רצה לאבא שלה וסיפרה. ורבי עקיבא, שידע כל הזמן מה נגזר, הבין מיד שקרה כאן נס גדול.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: &quot;וצדקה תציל ממוות&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;וצדקה תציל ממוות&quot;</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי עקיבא שאל את בתו: "מה עשית אתמול? נס כזה לא קורה סתם." והיא סיפרה לו על העני שדפק בדלת, שאף אחד לא שמע, ושהיא נתנה לו את המנה שלה.</p>
+<p>אז יצא רבי עקיבא ודרש לפני כולם את הפסוק:</p>
+<blockquote>"וּצְדָקָה תַּצִּיל מִמָּוֶת" (משלי י, ב)</blockquote>
+<p>ולא רק ממיתה משונה - אלא ממוות עצמו (שבת קנו, ב). מטבע קטן, מנה אחת של אוכל, יכולים להציל חיים.</p>
+<p>ואיפה אנחנו יכולים לתת צדקה? לא רק בכסף. ילד שאין לו אוכל בהפסקה - לחלוק איתו. מישהו ששכח משהו - להביא לו. חבר עצוב - לשבת לידו. מישהו צמא - להביא לו כוס מים.</p>
+<div class="honey-box">🍯 כל עזרה קטנה לשני היא צדקה. ואי אפשר לדעת אילו נחשים היא מסלקת מהדרך.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: שני חצאים של טרפעיק ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">❄️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">הלל על הגג</h2></div></div>
+<p class="chapter-intro">הסיפור שכולם הכי אוהבים: אדם פשוט שלא היה מוכן לוותר על דברי תורה, גם כשנסגרה בפניו הדלת.</p>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שני חצאים של טרפעיק</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשהלל היה צעיר, אף אחד לא הכיר אותו. הוא לא היה תלמיד חכם גדול, ולא נשיא, ולא שום דבר. הוא היה איש פשוט ועני מאוד, שעבד קשה. בכל יום היה מרוויח טרפעיק - מטבע קטן מאוד. חציו נתן לשומר בית המדרש כדי שיכניס אותו ללמוד, וחציו השאיר לפרנסת ביתו (יומא לה, ב).</p>
+<p>לא היה חייב ללמוד. אף אחד לא הכריח אותו. אבל הוא אהב תורה כל כך, שהיה מוכן לחיות על חצי משכורת - רק כדי לשמוע את דברי שמעיה ואבטליון, גדולי הדור.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הדלת הסגורה ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הדלת הסגורה</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יום אחד הלל לא הרוויח כלום. אולי היה קר מאוד, ואף אחד לא יצא לקנות. הוא הגיע לבית המדרש, והשומר לא נתן לו להיכנס. בלי תשלום - אסור.</p>
+<p>מה הבעיה? שילך הביתה! מחר יחזור. אבל הלל לא רצה לוותר אפילו על יום אחד. מה עשה? טיפס על הגג, ושכב שם ליד החלון, כדי לשמוע את דברי אלוקים חיים מפי שמעיה ואבטליון.</p>
+<p>וכאן יש שאלה מעניינת: איפה בדרך כלל יש חלונות? בצד, בקירות. אז למה הלל עלה דווקא לגג? למה לא נעמד ליד חלון בצד?</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: החידה: איפה היה החלון? ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">החידה: איפה היה החלון?</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר להוכיח מהסיפור עצמו שבבית המדרש לא היו חלונות בצדדים, אלא רק חלון אחד בתקרה. איך?</p>
+<p>בבוקר אמר שמעיה לאבטליון: "אבטליון אחי, בכל יום הבית מאיר, והיום חשוך." אם היו חלונות בצדדים - גוף אחד ששוכב על חלון אחד לא היה מחשיך את כל הבית. מכאן שכל האור נכנס מלמעלה, דרך החלון שבגג, והלל שכב בדיוק עליו.</p>
+<p>למה בנו כך? יש אומרים שבתים כאלה נבנו עם קירות אטומים כדי לשמור על הבית - שבחורף לא ייכנס קור ובקיץ לא ייכנס חום - ופתח אחד למעלה הכניס אור והוציא עשן. ולכן מי שרצה לשמוע - היה צריך לעלות עד למעלה.</p>
+<div class="honey-box">🍯 כשקוראים סיפור לאט ושואלים שאלות - הסיפור עצמו נותן את התשובות.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: שלג בליל שבת ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שלג בליל שבת</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה היה ערב שבת, בחורף, וירד שלג. הלל שכב על הגג, מקשיב, לומד, ולא זז. השלג ירד וירד, עד שכיסה אותו לגמרי. לאט לאט הוא קפא, התעלף, ונשאר שם כל הלילה. עוד מעט - והיה מת מקור.</p>
+<p>אבל הקדוש ברוך הוא אהב את הלל, ולא רצה שימות. בבוקר שמו לב שמעיה ואבטליון שהבית חשוך. הסתכלו למעלה, וראו צורה של אדם בחלון. עלו, מצאו עליו שלג בגובה שלוש אמות, והורידו אותו.</p>
+<p>זה היה שבת. אבל רחצו אותו, סכו אותו והושיבו אותו מול המדורה, כי פיקוח נפש דוחה שבת. ואמרו עליו: "ראוי זה לחלל עליו את השבת."</p>
+<p class="bold-para">הוא שרד לילה שלם בשלג - כי ה' שמר על מי שמסר את נפשו בשביל התורה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: הלל שלא כעס ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🕊️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">מי כאן הלל?</h2></div></div>
+<p class="chapter-intro">שאלה קטנה מסיפור אחר על הלל הופכת לשאלה גדולה עלינו: מי מאיתנו לוקח משהו מהלל?</p>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הלל שלא כעס</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עוד סיפור מפורסם על הלל: שני אנשים התערבו על ארבע מאות זוז - מי שיצליח להרגיז את הלל יקבל את הכסף. בערב שבת, כשהלל רחץ את ראשו, בא אחד מהם וקרא: "מי כאן הלל? מי כאן הלל?".</p>
+<p>הלל יצא אליו בסבלנות, ושוב, ושוב. האיש שאל שאלות מוזרות - למה ראשי הבבלים עגולים, למה עיני התרמודים טרוטות, למה רגלי האפריקאים רחבות - והלל ענה לכל אחת בנחת. בסוף אמר האיש: הפסדתי בגללך ארבע מאות זוז! והלל ענה שכדאי שיפסיד ארבע מאות זוז, ועוד ארבע מאות זוז, והלל לא יקפיד (שבת לא, א).</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: השאלה הופכת אלינו ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">השאלה הופכת אלינו</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה אם נשאל היום את אותה שאלה: "מי כאן הלל?" - לא "למי קוראים הלל", אלא: מי פה דומה להלל? מי לוקח ממנו משהו?</p>
+<p>מי שרגוע ולא נלחץ מכלום - יש בו משהו מהלל. מי שאפשר להרגיז אותו ולא מתרגז - יש בו משהו מהלל. ומי שאם היו אומרים לו "היום אתה לא נכנס", היה נצמד עם האוזן לדלת כדי לשמוע עוד מילה של תורה - הוא ממש הלל.</p>
+<p>ויש ילדים שנשארים ללמוד תורה גם אחרי שעות הלימודים, מעבר למה שחייבים, ולומדים להכיר את התנאים אחד אחד - משמעון הצדיק, דרך יוסי בן יועזר, שמעיה ואבטליון, הלל ורבי עקיבא. מי שעושה כך - כבר עכשיו קצת "עולה על הגג".</p>
+<p class="bold-para">כל הסיפורים האלה לא באו רק לספר. הם באו ללמד אותנו מה לעשות עם עצמנו.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: גם הלל לא נולד הלל ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">גם הלל לא נולד הלל</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לחשוב: "אני לא יכול להיות כמו הלל. הוא היה ענק." אבל גם הלל לא נולד הלל. בהתחלה הוא היה עני פשוט ששוכב על גג. הוא צמח, צעד אחר צעד, עד שנעשה הלל הזקן, הנשיא.</p>
+<p>וכך גם רבי עקיבא. איך קראו לו כשנולד? לא "רבי עקיבא". סתם עקיבא, רועה צאן שלא ידע לקרוא. בסוף הוא נעשה רבי עקיבא. וכך רבי אליעזר - חורש בשדה שאכל אדמה, ונעשה "בור סוד שאינו מאבד טיפה".</p>
+<div class="honey-box">🍯 אף גדול לא נולד גדול. כל אחד מהם התחיל ממקום פשוט - ובחר לרצות.</div>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: הגדול והקטן ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌳</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">שמונים התלמידים של הלל</h2></div></div>
+<p class="chapter-intro">מהאיש ששכב על הגג צמח עץ גדול של תורה: שמונים תלמידים, שהגדול שבהם שרף ציפורים באש של אהבת תורה, והקטן שבהם היה רבן יוחנן בן זכאי.</p>
+<article class="story-card" id="story-22" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הגדול והקטן</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף הלל נעשה רב גדול, וצמחו לו המון תלמידים. כך מסופר:</p>
+<blockquote>"שמונים תלמידים היו לו להלל הזקן... גדול שבכולן יונתן בן עוזיאל, קטן שבכולן רבן יוחנן בן זכאי" (סוכה כח, א)</blockquote>
+<p>רגע - רבן יוחנן בן זכאי, הרב הגדול שלימד את רבי אליעזר, הוא "הקטן"? ואמרו עליו שלא הניח מקרא, משנה, גמרא, הלכות ואגדות שלא למד, ואפילו משלות שועלים ושיחת דקלים ידע!</p>
+<p>אם הקטן שבהם היה כזה גדול - תחשבו מה היה הגדול. וזה גם מלמד כמה גדול היה הלל עצמו, שכל אלה היו תלמידיו.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: יונתן בן עוזיאל והאש ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">יונתן בן עוזיאל והאש</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה מסופר על יונתן בן עוזיאל, הגדול שבתלמידי הלל? כשהיה יושב ועוסק בתורה, כל עוף שהיה פורח מעליו - מיד נשרף (סוכה כח, א).</p>
+<p>למה? כי הוא למד תורה בשמחה כזאת ובהתלהבות כזאת, שדברי התורה נעשו כמו אש סביבו. כמו ביום מתן תורה, כשההר בער באש.</p>
+<p class="bold-para">תורה שלומדים מתוך אהבה ושמחה - היא אש אמיתית.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: הדרך לעמוקה ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הדרך לעמוקה</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יונתן בן עוזיאל קבור בעמוקה, ליד צפת. אחרי צפת, הדרך יורדת למטה, ויורדת, ויורדת, בכביש צר עם הרבה סיבובים, עד שמגיעים למטה ליער - ושם הציון שלו.</p>
+<p>פעם, לפני שנים, לא היה לשם אפילו כביש, והולכים היו ברגל. והיום, גם כשיש כביש, נוסעים בזהירות ומתפללים שלא תבוא מכונית מהצד השני.</p>
+<p>ולמה אנשים טורחים לבוא לשם? כי הם מאמינים שזכותו של הצדיק עומדת להם, ובאים להתפלל שם על ישועות, ובמיוחד על זיווג הגון. ויונתן בן עוזיאל - הוא כמו סבא רבא רבא שלנו, מהדורות הראשונים של התורה שבעל פה.</p>
+<div class="honey-box">🍯 מהגג של הלל, דרך שמונים תלמידיו, ועד לרבי אליעזר ולרבי עקיבא - זו שרשרת אחת של אנשים שרצו באמת. ואנחנו החוליה הבאה בה.</div>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: לזכור ולקחת ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לזכור ולקחת</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סיכום קצר, לזכור ולספר הלאה:</p>
+<ul class="story-list"><li>רבי אליעזר בן הורקנוס - בכה בשדה, אכל אדמה כדי ללמוד, ונעשה "בור סוד שאינו מאבד טיפה"</li><li>רבן יוחנן בן זכאי - ראה בחור בוכה, ישב ללמד אותו, ונישק אותו על הראש</li><li>הבת של רבי עקיבא - שמעה את העני באמצע החתונה, וניצלה מהנחש: "וצדקה תציל ממוות"</li><li>הלל - שכב על הגג בשלג כדי לשמוע תורה, ולא כעס על מי שניסה להרגיז אותו</li><li>יונתן בן עוזיאל - הגדול בתלמידי הלל, שלמד באש של שמחה</li></ul>
+<p>ומכל אחד לוקחים משהו: מרבי אליעזר - לרצות באמת. מהבת של רבי עקיבא - לשים לב לשני. ומהלל - לא לוותר, ולא לכעוס.</p>
+<p class="bold-para">מי שרוצה באמת - בסוף משיג. יגעת ומצאת - תאמין.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
