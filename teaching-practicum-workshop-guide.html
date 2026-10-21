@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🧭 המפה של שנה ב: הסדנה וההתנסות בהוראה</title>
+<meta name="description" content="כל מה שסטודנט להוראה בתרבות ישראל ומורשתו צריך לדעת כדי לעבור את שנת ההתנסות בשלום: נוכחות, ימי התנסות, תלקיט, טפסים וציונים - בלי הפתעות בסוף הסמסטר">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 21.10.2026 🍯</div>
+  <h1 class="hero-title">🧭 המפה של שנה ב: הסדנה וההתנסות בהוראה</h1>
+  <p class="hero-subtitle">כל מה שסטודנט להוראה בתרבות ישראל ומורשתו צריך לדעת כדי לעבור את שנת ההתנסות בשלום: נוכחות, ימי התנסות, תלקיט, טפסים וציונים - בלי הפתעות בסוף הסמסטר</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-14 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/cwXfe7JNZ4k" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧭 שני קורסים שהולכים יד ביד</a><ul class="toc-stories"><li><a href="#story-1">שני ציונים, שני בודקים</a></li><li><a href="#story-2">המדריך הפדגוגי עוד לא התקשר? לא מחכים</a></li><li><a href="#story-3">סדנה שהיא לב ההכשרה</a></li><li><a href="#story-4">מה לומדים השנה</a></li><li><a href="#story-5">מטרות כלליות ומטרות אופרטיביות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">⏰ נוכחות: הכלל שאין בו הנחות</a><ul class="toc-stories"><li><a href="#story-6">לא 20 אחוז, לא 5 אחוז - אפס</a></li><li><a href="#story-7">גם סיבה מוצדקת לא מבטלת חובה</a></li><li><a href="#story-8">למי פונים כשיש בעיה</a></li><li><a href="#story-9">איך נבדקת הנוכחות: פעילות שנסגרת</a></li><li><a href="#story-10">מכשיר שמאפשר להשתתף</a></li><li><a href="#story-11">הציון בסדנה ותנאי המעבר</a></li><li><a href="#story-12">מפגש מוקלט ביום הבחירות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🏫 ההתנסות: יום אחד בשבוע, שישה שיעורים</a><ul class="toc-stories"><li><a href="#story-13">תעודת הוראה, סטאז&#x27; ורישיון</a></li><li><a href="#story-14">איפה ומתי</a></li><li><a href="#story-15">מה בונה יום התנסות</a></li><li><a href="#story-16">רק בתחום הדעת: תרבות ישראל ומורשתו</a></li><li><a href="#story-17">כשהמורה המאמן יוצא לגינה</a></li><li><a href="#story-18">מורים בפועל ומסלולים מיוחדים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📁 התלקיט: מה מגישים למדריך הפדגוגי</a><ul class="toc-stories"><li><a href="#story-19">ארבעה מדורים</a></li><li><a href="#story-20">שישה מערכים, לא שמונה-עשר</a></li><li><a href="#story-21">רפלקציה ומשוב</a></li><li><a href="#story-22">הדוח היומי ו&quot;דבר חדש שלמדתי היום&quot;</a></li><li><a href="#story-23">תצפית במורה המאמן ושיעור פרטני</a></li><li><a href="#story-24">מועד ההגשה וחלוקת הציון</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">💻 כלל הזהב: הכול מוקלד</a><ul class="toc-stories"><li><a href="#story-25">אין טפסים בכתב יד</a></li><li><a href="#story-26">ומה עם החתימה של המורה המאמן?</a></li><li><a href="#story-27">זה נראה הרבה - וזה מסתדר</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">שני קורסים שהולכים יד ביד</h2></div></div>
+<p class="chapter-intro">הבלבול הגדול ביותר בתחילת השנה הוא בין הסדנה לבין ההתנסות. הם קשורים זה בזה, אבל הם שני עולמות נפרדים - עם ציון נפרד, דרישות נפרדות ואנשים אחרים שבודקים אותם.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שני ציונים, שני בודקים</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסדנה היא קורס במכללה. ההתנסות היא מה שקורה בפועל בבית הספר. לכל אחד מהם יש ציון משלו.</p>
+<p>את ציון הסדנה נותן מנחה הסדנה, על מה שנעשה בקורס עצמו: נוכחות, השתתפות, משימות ומטלה מסכמת. את ציון ההתנסות נותן המדריך הפדגוגי - על מה שקורה בבית הספר, ועל התלקיט שמוגש לו בסוף המחצית.</p>
+<p class="bold-para">כל מה שעושים בבית הספר וכל מה שמגישים על בית הספר - הולך למדריך הפדגוגי, לא למנחה הסדנה.</p>
+<p>ולמה הם תלויים זה בזה? כי אין התנסות בלי סדנה ואין סדנה בלי התנסות. מי שנכשל באחד מהם - יצטרך לחזור על שניהם.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: המדריך הפדגוגי עוד לא התקשר? לא מחכים ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המדריך הפדגוגי עוד לא התקשר? לא מחכים</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההתנסות התחילה כבר בספטמבר. עד עכשיו כל סטודנט אמור להכיר את המדריך הפדגוגי שלו: מדריך שהרים טלפון, הציג את עצמו, הסביר איך תיראה השנה ונשאר בקשר.</p>
+<p>מי שהמדריך שלו לא יצר איתו קשר - זה חמור, וצריך לפעול מיד. אם יודעים מי המדריך, פונים אליו ישירות. אם לא יודעים - פונים לראש החוג או לרכזת ההדרכה, שמאשרת את בתי הספר ומכירה את כל המדריכים.</p>
+<div class="honey-box">🍯 לא מחכים "עוד יום, עוד שבוע". כל שבוע שעובר בלי מדריך הוא שבוע של התנסות שעלול להיות קשה מאוד להשלים.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: סדנה שהיא לב ההכשרה ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">סדנה שהיא לב ההכשרה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסדנה היא הלב של ההכשרה המעשית. כאן לומדים, בפשטות, איך להיות מורים.</p>
+<p>הרעיון הוא כמה שפחות תיאוריות וכמה שפחות הרצאות ארוכות, וכמה שיותר פעילויות ודיונים על מה שקורה באמת, ביום-יום, בכיתה. רבים מהסטודנטים כבר מלמדים, ויש להם ניסיון אמיתי מהשטח. התפקיד של המנחה הוא לא להיות החכם מכולם, אלא לשאול כמה שאלות טובות מתוך ניסיון, לכוון, ובעיקר להביא לשולחן את הקשיים שהסטודנטים עצמם נתקלים בהם.</p>
+<p>זו גם הדוגמה למורה שרוצים לגדל: לא מורה שעומד ומדבר 45 דקות, אלא מורה שיש לו פתיחה, סיום, ובאמצע - הילדים פעילים.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: מה לומדים השנה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה לומדים השנה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שנה ב' עמוקה ותובענית יותר משנה א'. אלה הנושאים העיקריים:</p>
+<ul class="story-list"><li>היכרות עם תוכניות הלימודים בתרבות ישראל ומורשתו</li><li>מטרות הוראה לפי הטקסונומיה של בלום</li><li>מתודולוגיה ואסטרטגיות הוראה - דרכים שונות ללמד בכיתה</li><li>פיתוח שפת חשיבה ושיח דיאלוגי</li><li>בניית יחידת הוראה שלמה</li><li>דרכי הערכה, כולל הערכה חלופית ולא רק מבחנים</li><li>טכנו-פדגוגיה ובינה מלאכותית, שהולכת וצוברת תאוצה</li><li>רפלקציה: איך כותבים אותה, ואיך מבקשים מתלמידים לכתוב אותה בעצמם</li><li>ניתוח אירועים מהשטח והערכת עמיתים</li></ul>
+<p>גם מערך השיעור משתנה: השנה הוא מעמיק יותר ודורש יותר. ובסוף השנה כבר לא מגישים שיעורים בודדים שאין קשר ביניהם, אלא <strong>יחידת הוראה</strong> - נושא אחד שמחולק לכמה שיעורים ברצף, שבה רואים איך שיעור אחד מתחבר לשיעור שאחריו.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מטרות כלליות ומטרות אופרטיביות ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מטרות כלליות ומטרות אופרטיביות</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה טובה לטקסונומיה של בלום אפשר למצוא דווקא בסילבוס של הקורס עצמו.</p>
+<p>מטרות הקורס כתובות כמטרות כלליות: הכשרה, פיתוח, שילוב, הקניה, עידוד. אלה מילים גדולות שמתארות כיוון, אבל אי אפשר לבדוק אותן ישירות.</p>
+<p>לעומתן, תוצרי הלמידה כתובים כמטרות אופרטיביות: מה בדיוק הלומד יוכל לעשות בסוף - לזהות, להסביר, להשוות, לבנות, להעריך. מטרה כזו אפשר לראות ולמדוד.</p>
+<div class="honey-box">🍯 השנה ייבדק בקפידה שמערכי השיעור משתמשים בטקסונומיה של בלום בצורה נכונה. כדאי להתחיל כבר עכשיו לשים לב לפעלים שבוחרים כשמנסחים מטרה.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: לא 20 אחוז, לא 5 אחוז - אפס ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">⏰</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">נוכחות: הכלל שאין בו הנחות</h2></div></div>
+<p class="chapter-intro">זה הפרק שהכי חשוב לקרוא עד הסוף. כלל אחד פשוט, שמי שמפספס אותו עלול לאבד שנה שלמה.</p>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לא 20 אחוז, לא 5 אחוז - אפס</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בכל הקורסים של האשכול הדידקטי - הסדנה, ההתנסות, ואולי גם קורס היסודות - אין חיסורים. לא 20 אחוז, לא 5 אחוז, לא מפגש אחד.</p>
+<p>זו לא החלטה של המנחה וגם לא של המכללה, אלא דרישה של משרד החינוך. ולכן אין טעם לכעוס או לבקש הנחות ממי שרק מסביר את הכללים.</p>
+<p class="bold-para">גם חיסור במפגש אחד, בלי אישור, פירושו לחזור על הסדנה - ומכאן גם על ההתנסות.</p>
+<p>בפועל זה אומר דחייה של התואר בשנה, ודחייה של כל מה שתלוי בו. חבל להגיע לשם.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: גם סיבה מוצדקת לא מבטלת חובה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גם סיבה מוצדקת לא מבטלת חובה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אותו כלל חל על ימי ההתנסות. מי שפספס יום התנסות - חייב להשלים אותו, גם אם הסיבה הייתה הכי מוצדקת בעולם, וגם אם הייתה שמחה: ברית לבן, חתונה במשפחה, אירוע שאי אפשר לוותר עליו.</p>
+<p>סיבה מוצדקת היא לא סיבה לעשות פחות ימים. היא רק סיבה לא להיענש - אבל את מה שהוחסר עדיין צריך להשלים.</p>
+<p>החריג הגדול הוא מילואים. למשרתי המילואים יש כללים מסודרים של משרד החינוך לגבי הקלות. ראש מערך ההדרכה בוחנת כל מקרה לגופו: לפעמים מוותרים על חלק מהימים, ולפעמים צריך להשלים אותם.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: למי פונים כשיש בעיה ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למי פונים כשיש בעיה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל מה שקשור לנוכחות, לחיסורים ולהקלות הוצא מידי המנחה. לכן אין טעם לפנות אליו - הוא ממילא יפנה הלאה.</p>
+<p>פונים ישירות, במייל, לראש מערך ההדרכה, ומסבירים מה הסיבה. היא קובעת אם הסיבה מוצדקת ואם צריך להשלים, ורק אז אפשר לסמן את ההיעדרות כמאושרת.</p>
+<div class="honey-box">🍯 מי שיודע כבר עכשיו שיש לו מצב מיוחד - צורך בהקלה, אילוץ קבוע, בעיה חריגה - זה הזמן לפנות, בתחילת השנה, ולא בסוף הסמסטר.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: איך נבדקת הנוכחות: פעילות שנסגרת ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">איך נבדקת הנוכחות: פעילות שנסגרת</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בקורס עם 130 סטודנטים אף אחד לא יעבור על שמות בזום. הנוכחות נבדקת אחרת, בדרך פשוטה והוגנת.</p>
+<p>בכל מפגש, בזום או במכללה, יש פעילות אחת או יותר: לוח פאדלט, מצגת שיתופית, תשובה בצ'אט. הפעילות מופיעה במודל, ונסגרת בסוף המפגש. אי אפשר להשלים אותה אחר כך.</p>
+<p class="bold-para">מי שהשתתף בפעילות - נכח. מי שלא השתתף - לא נכח.</p>
+<p>ומה עם מי שמחובר לזום ובאותו זמן עסוק בדבר אחר לגמרי? היה מקרה של סטודנט שהזום שלו היה פתוח בזמן שעבד בדוכן שווארמה. הוא "נכח", אבל לא עשה דבר. מבחינת הקורס זו לא השתתפות. זה עניין של כבוד הדדי: הסטודנטים נמצאים במפגש באמת, והמפגש בנוי בשבילם.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: מכשיר שמאפשר להשתתף ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מכשיר שמאפשר להשתתף</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חלק מהפעילויות קשה מאוד לבצע מטלפון, וגם נסיעה במהלך המפגש עלולה למנוע השתתפות.</p>
+<p>הדרישה כאן לגיטימית: מי שנרשם ללימודים צריך שתהיה לו אפשרות אמיתית להשתתף - מחשב או טאבלט, ומקום שאפשר לעבוד בו. אף אחד לא יבדוק עם איזה מכשיר כל אחד מתחבר, אבל האחריות להשתתף מוטלת על הסטודנט.</p>
+<div class="honey-box">🍯 כדאי לבדוק כבר במפגש הראשון שהפאדלט והמצגת השיתופית נפתחים ועובדים במכשיר שבו משתמשים - ולא לגלות את זה כשהפעילות כבר נסגרה.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הציון בסדנה ותנאי המעבר ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הציון בסדנה ותנאי המעבר</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ציון הסדנה בנוי מכמה רכיבים:</p>
+<ul class="story-list"><li>20 אחוז - נוכחות והשתתפות פעילה</li><li>20 אחוז - בחירת דמות מופת וכתיבת סיכום עליה</li><li>כתיבת מערך שיעור והצגתו - המטלה המסכמת</li></ul>
+<p>ציון המעבר בקורסים האלה גבוה מהרגיל: <strong>70</strong>. ויש עוד שני תנאים: רק מי שהשלים את כל מטלות החובה במהלך הסמסטר ונכח בכל המפגשים יכול להגיש את המטלה המסכמת. ואת המטלה המסכמת עצמה חייבים לעבור - גם אם בשקלול הכללי הציון יוצא מעל 70.</p>
+<p>בשנה שעברה היו שלושה סטודנטים שלא השלימו את הקורס. אחד מהם הוא בעל דוכן השווארמה. אין סיבה להגיע לשם.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: מפגש מוקלט ביום הבחירות ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מפגש מוקלט ביום הבחירות</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מבנה הסדנה מופיע בסילבוס: לכל מפגש יש נושא, ולידו מסומן אם הוא פרונטלי (במכללה), בזום או אסינכרוני (מוקלט). זו תוכנית כללית, ויכולים להיות בה שינויים קטנים. מתוך שלושת המפגשים במכללה בכל סמסטר צריך להגיע לפחות לשניים.</p>
+<p>ביום שלישי הקרוב, יום הבחירות, יש חופש, ולכן המפגש יהיה אסינכרוני: הקלטה של רבע שעה עד עשרים דקות במודל, תחת "יחידת הוראה מספר 2", ובה הסבר על מערך השיעור החדש.</p>
+<p>בהקלטה תהיה גם משימה, והיא תהיה הנוכחות. המשימה פתוחה בערך יומיים ואז נסגרת. מי שלא השלים אותה - נחשב כאילו לא נכח.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: תעודת הוראה, סטאז&#x27; ורישיון ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🏫</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">ההתנסות: יום אחד בשבוע, שישה שיעורים</h2></div></div>
+<p class="chapter-intro">ההתנסות היא המקום שבו הסטודנט נכנס לכיתה אמיתית. כאן כל הכללים: איפה, מתי, כמה, ובאילו מקצועות.</p>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">תעודת הוראה, סטאז&#x27; ורישיון</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שני מונחים שקל לבלבל ביניהם:</p>
+<p><strong>תעודת הוראה</strong> מקבלים בסיום הלימודים במכללה, מי שהשלים את כל החובות - ובהן ההתנסות המעשית. אבל תעודת הוראה עדיין לא מאפשרת ללמד בבית ספר.</p>
+<p><strong>רישיון הוראה</strong> מקבלים ממשרד החינוך בסוף שנת הסטאז', שהיא השנה הראשונה שבה המורה עובד בפועל בבית ספר. רק רישיון ההוראה מאפשר ללמד באופן קבוע.</p>
+<p>יש סטודנטים שכבר בשנה ב' עובדים כמורים בפועל, לפחות בשליש משרה, ועושים את שנת הסטאז' במקביל ללימודים. זה קיים ומותר, אבל המכללה צריכה לדעת על כך - ומודיעים לרכזת ההדרכה כשמגישים את פרטי בית הספר. ההתנסות עוסקת רק בדרך לתעודת ההוראה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: איפה ומתי ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">איפה ומתי</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההתנסות מתקיימת בכיתה רגילה: ממלכתית, ממלכתית-דתית או חרדית. כיתה של חינוך מיוחד דורשת אישור מיוחד מראש מערך ההדרכה.</p>
+<p>ההתנסות היא <strong>יום אחד קבוע בשבוע</strong>, בתיאום עם המורה המאמן - לא יומיים, ולא יום שמשתנה מדי שבוע.</p>
+<p>בסמסטר א' יש 18 ימי התנסות. ארבעה מהם היו צריכים להתקיים ברצף בתחילת ספטמבר - החודש היחיד שבו אפשר ללמד כמה ימים רצופים. שאר 14 הימים מתפרסים על השבועות שעד סוף המחצית, כולל חישוב החגים.</p>
+<p>מי שלא עשה את ארבעת הימים הרצופים בספטמבר לא יספיק להשלים 18 ימים ביום אחד בשבוע, ולכן יצטרך יותר מיום אחד בשבוע - באישור חריג, במייל לראש מערך ההדרכה.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: מה בונה יום התנסות ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה בונה יום התנסות</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יום התנסות הוא שישה שיעורים - לא יותר ולא פחות:</p>
+<ul class="story-list"><li><strong>ארבעה שיעורים</strong> של צפייה במורה המאמן</li><li><strong>שיעור אחד</strong> שהסטודנט מלמד בעצמו</li><li><strong>שיעור אחד</strong> פרטני - מול תלמיד אחד, או קבוצה קטנה של שניים-שלושה</li></ul>
+<p><strong>בכל יום התנסות חייבים ללמד לפחות שיעור אחד.</strong> יום של צפייה בלבד לא נחשב.</p>
+<p>וגם אין צורך להישאר בבית הספר משמונה בבוקר עד ארבע אחר הצהריים. שישה שיעורים - וזהו.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: רק בתחום הדעת: תרבות ישראל ומורשתו ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">רק בתחום הדעת: תרבות ישראל ומורשתו</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשנה שעברה ההתנסות הייתה כללית, ואפשר היה ללמד כמעט כל נושא. השנה ההתנסות חייבת להיות בתחום הדעת - כי בסוף התואר מקבלים תעודת הוראה בתרבות ישראל ומורשתו, ולא באנגלית או בספורט.</p>
+<p>המקצועות שבהם אפשר לעשות את ההתנסות:</p>
+<ul class="story-list"><li>מחשבת ישראל</li><li>הלכה</li><li>היסטוריה - רק היסטוריה של עם ישראל. שיעור על מלחמת האזרחים בארצות הברית לא נחשב</li><li>תלמוד</li><li>תנ"ך</li><li>תורה שבעל פה</li><li>תפילה - שיעור תפילה עם התלמידים נחשב</li></ul>
+<p>גם "סיפורי חכמים" ושיעורים על התנאים הם מורשת ישראל.</p>
+<div class="honey-box">🍯 הכלל חל גם על השיעור הפרטני: לא מלמדים פרטני במתמטיקה, באנגלית או במדעים. הכול בתחום הדעת.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: כשהמורה המאמן יוצא לגינה ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כשהמורה המאמן יוצא לגינה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה קורה כשביום ההתנסות המורה המאמן לוקח את הכיתה לפעילות מיוחדת - שתילה בגינת בית הספר, טיול, הצגה?</p>
+<p>מותר ללוות אותו ולצפות בו, ואפשר ללמוד הרבה גם מפעילות כזו. אבל אם באותו יום לא העביר הסטודנט שיעור בעצמו - היום לא נחשב יום התנסות.</p>
+<p>יש שני פתרונות: להחליף את היום ליום אחר, או לצפות ולהצטרף באותו יום למורה אחר בבית הספר שמלמד בתחום הדעת ולהעביר אצלו שיעור.</p>
+<p class="bold-para">כל יום התנסות - לפחות שיעור אחד שהסטודנט מלמד בעצמו.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: מורים בפועל ומסלולים מיוחדים ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מורים בפועל ומסלולים מיוחדים</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מסלול רגיל: קודם לומדים, אחר כך נכנסים לעבודה, אחר כך סטאז'. אבל החיים לא תמיד מסודרים כך. יש מי שהתחתן, בנה בית, נכנס לעבודה, ורק בגיל מבוגר יותר חזר ללמוד הוראה.</p>
+<p>מורה שמלמד כל השבוע עדיין צריך, ביום ההתנסות, להיכנס לכיתה של מורה אחר ולצפות בו. זה לפעמים קשה מבחינת מערכת השעות, ולפעמים בית הספר לא מאפשר את זה.</p>
+<p>במקרים כאלה פונים קודם למדריך הפדגוגי. אם הוא יכול לפתור את הבעיה - מצוין. אם לא, הוא יפנה לרכזת ההדרכה או לראש מערך ההדרכה, והן יחליטו לפי השיקולים שלהן - למשל ותק או ניסיון.</p>
+<div class="honey-box">🍯 מצב מיוחד אינו סיבה לוותר. הוא סיבה לפנות מוקדם.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: ארבעה מדורים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📁</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">התלקיט: מה מגישים למדריך הפדגוגי</h2></div></div>
+<p class="chapter-intro">התלקיט הוא התיק שמגישים למדריך הפדגוגי בסוף המחצית. נראה שיש בו הרבה, אבל כשמבינים את המבנה - הכול מסתדר.</p>
+<article class="story-card" id="story-19" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ארבעה מדורים</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תלקיט סמסטר א' בנוי כך:</p>
+<p><strong>הקדמה</strong> - תיאור הכיתה (גיל הילדים, הרכב הכיתה, מאפיינים) ותיאור כללי של בית הספר: תלמוד תורה, ממלכתי-דתי, חרדי או כללי.</p>
+<p><strong>מדור ראשון: מערכי שיעור</strong> - שישה מערכי שיעור, בתבנית החדשה. שניים מהם הם השיעורים שבהם צפה המדריך הפדגוגי.</p>
+<p><strong>מדור שני: תצפיות במורה המאמן</strong> - שתי תצפיות, לפי הטופס שבמודל.</p>
+<p><strong>מדור שלישי: שיעורים פרטניים</strong> - תיעוד של שלושה שיעורים פרטניים, בטופס מובנה.</p>
+<p><strong>מדור רביעי: דוחות יומיים</strong> - 18 דוחות, אחד לכל יום התנסות. בהנחיות כתוב בטעות 14 - הנכון הוא 18.</p>
+<div class="honey-box">🍯 התלקיטים של סמסטר א' ושל סמסטר ב' שונים. ההנחיות לשניהם נמצאות במודל, בקובץ "הנחיות לכתיבת התלקיט" - שם כתוב בדיוק כמה מכל דבר.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: שישה מערכים, לא שמונה-עשר ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שישה מערכים, לא שמונה-עשר</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה שחוזרת שוב ושוב: אם בכל יום התנסות מלמדים שיעור, האם צריך לכתוב 18 מערכי שיעור?</p>
+<p>לא. מלמדים 18 שיעורים, אבל מגישים רק <strong>שישה מערכי שיעור</strong>. על כל 18 הימים כותבים <strong>דוח יומי</strong> - קצר ופשוט.</p>
+<p>מערכי השיעור חייבים להיות בתבנית של המכללה, עם כל הפרמטרים הנדרשים. לא מערך שהורד מהאינטרנט ולא מערך שנכתב בצ'אט של בינה מלאכותית ונראה כמו משהו אחר לגמרי. את התבנית החדשה לומדים בסדנה.</p>
+<p>ומאחר שהתבנית חדשה, גם שיעורים שכבר הועברו בספטמבר לא חייבים להיכנס לתלקיט. אפשר לבחור שישה שיעורים שייכתבו כבר במבנה החדש.</p>
+<p>חומרים נוספים - דף עבודה, הרחבות, דברים שלא נכנסו למערך - מצרפים כנספחים. הם לא תחליף למערך עצמו.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: רפלקציה ומשוב ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">רפלקציה ומשוב</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לכל אחד משישת מערכי השיעור מצרפים רפלקציה: מה הצליח, מה פחות, מה הייתי עושה אחרת.</p>
+<p>בשני השיעורים שבהם צפה המדריך הפדגוגי הרפלקציה כוללת גם את המשוב שלו. מי כותב? הסטודנט. המדריך נותן משוב בסוף השיעור, והסטודנט כותב אותו - ומוסיף את הרפלקציה שלו עליו: מה המדריך אמר שצריך לתקן, ואיך הוא עצמו רואה את זה.</p>
+<p class="bold-para">הרפלקציה היא לא סיכום של מה שנאמר. היא עבודה משותפת עם המדריך על הצמיחה שלך כמורה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: הדוח היומי ו&quot;דבר חדש שלמדתי היום&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הדוח היומי ו&quot;דבר חדש שלמדתי היום&quot;</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הדוח היומי הוא טופס פשוט: מספר השיעור, הכיתה, וסוג הפעילות - התנסות (שיעור שהסטודנט העביר) או צפייה (שיעור שבו צפה במורה). ומכיוון שבכל יום יש שיעור שהסטודנט מלמד, בכל דוח יופיע לפחות שיעור התנסות אחד.</p>
+<p>בסוף כל דוח יש שורה אחת חשובה: <strong>"דבר חדש שלמדתי היום"</strong>. רעיון אחד, תובנה אחת, שאספת מאותו יום.</p>
+<p>18 דוחות נשמעים כמו הרבה, אבל זה לא קשה. הסוד הוא לכתוב כל דוח באותו יום ולשמור אותו - ולא לנסות לשחזר 18 ימים בשבוע האחרון.</p>
+<div class="honey-box">🍯 "דבר חדש שלמדתי היום" הוא אולי השורה החשובה בכל התלקיט. מורה שלומד משהו חדש בכל יום - הוא מורה שגדל.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: תצפית במורה המאמן ושיעור פרטני ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">תצפית במורה המאמן ושיעור פרטני</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>דף התצפית בשיעור של המורה המאמן</strong> מפורט יותר: נושא השיעור, השאלות שנשאלו, מבנה השיעור ועוד. צריך שתיים כאלה בסמסטר. עדיף לא לעשות את שתיהן באותו יום, אלא במרווח - כך רואים את המורה בשני מצבים, ורואים גם את ההתקדמות של הסטודנט כצופה. ואם המורה מלמד בכל שבוע אותו שיעור, אפשר לבחור שיעורים אחרים לתצפית.</p>
+<p><strong>טופס תיעוד השיעור הפרטני</strong> השנה מורכב יותר: הכיתה ומספר התלמידים, תחום הדעת, נושא השיעור, מה למדת ומה לימדת, ובאילו חומרי למידה ועזרים השתמשת. כאן צריך משהו מעבר לכיתה הרגילה.</p>
+<p>ובסוף שאלה אישית: האם רגע אחד במפגש גרם לך להבין משהו חדש על התלמיד, או על עצמך כמורה? מה קרה באותו רגע, ומה זה מלמד על ההוראה שלך? כאן רוצים באמת לשמוע את הסטודנט.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: מועד ההגשה וחלוקת הציון ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מועד ההגשה וחלוקת הציון</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התלקיט מוגש עד <strong>ה-25 בינואר</strong>. זה תאריך אחרון.</p>
+<p>("סמסטר" הוא המונח של המכללה, "מחצית" - של בית הספר. מדובר באותה תקופה.)</p>
+<p>ציון ההתנסות בנוי כך:</p>
+<ul class="story-list"><li><strong>60 אחוז</strong> - שיעורי הצפייה: ההערכה שכותב המדריך הפדגוגי על השיעורים שבהם צפה</li><li><strong>20 אחוז</strong> - התלקיט, על כל הטפסים שבו</li><li><strong>10 אחוז</strong> - טופס התנהלות בבית הספר</li><li><strong>10 אחוז</strong> - הערכת המורה המאמן</li></ul>
+<p>את שני הטפסים האחרונים ישלח המדריך הפדגוגי במהלך הסמסטר, והמורה המאמן ימלא אותם. המדריך גם קובע תאריכים לשני שיעורי הצפייה, מוקדם ככל האפשר ובמרווח ביניהם - לא שבוע אחרי שבוע - כדי שתראה התקדמות.</p>
+<div class="honey-box">🍯 כדאי לקבוע את שני ימי הצפייה עם המדריך כבר עכשיו.</div>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: אין טפסים בכתב יד ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">💻</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">כלל הזהב: הכול מוקלד</h2></div></div>
+<p class="chapter-intro">פרט אחד קטן שגורם לעוגמת נפש גדולה בכל סוף שנה. מי שזוכר אותו מהיום - חוסך לעצמו הרבה.</p>
+<article class="story-card" id="story-25" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">אין טפסים בכתב יד</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל טופס שמגישים באקדמיה כתוב במחשב, בוורד. אף אחד לא יושב לפענח כתבי יד.</p>
+<p>זה לא כלל חדש ולא כלל של מכללה אחת. כך עובדת האקדמיה כבר שנים רבות, בכל מקום. דוחות שלא הוקלדו במחשב - לא מתקבלים.</p>
+<p>בשנה שעברה היו סטודנטים ששלחו בסוף השנה תלקיט שלם בכתב יד, ונאלצו לכתוב הכול מחדש.</p>
+<p class="bold-para">שום טופס בכתב יד. רק במחשב.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: ומה עם החתימה של המורה המאמן? ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ומה עם החתימה של המורה המאמן?</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החתימה של המורה המאמן היא בכתב יד - וזה מסתדר בקלות:</p>
+<ul class="story-list"><li>בזמן הצפייה, או בסוף היום, מקלידים את מה שהיה בתוך הטופס שכבר נמצא במודל</li><li>מדפיסים את הטופס</li><li>המורה המאמן חותם עליו</li><li>סורקים בבית הספר, או מצלמים בטלפון</li><li>מעלים את הקובץ ושולחים</li></ul>
+<p>לכל סטודנט יש מורה מאמן - מורה שמנהל בית הספר הצמיד אליו כדי ללוות אותו, והוא מקבל על כך תשלום. בהמשך יישלח הטופס שהמורה המאמן צריך למלא כדי לקבל את התשלום על החניכה.</p>
+<div class="honey-box">🍯 מי שמקליד בסוף כל יום התנסות - מסיים את הסמסטר עם תלקיט כמעט מוכן.</div>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: זה נראה הרבה - וזה מסתדר ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">זה נראה הרבה - וזה מסתדר</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמקבלים את כל זה בבת אחת - נוכחות, ציונים, 18 ימים, שישה מערכים, שתי תצפיות, שלושה פרטניים, 18 דוחות - זה נראה כמו הר של טפסים.</p>
+<p>אבל כדאי לזכור שיש כאן שני קורסים שונים: הסדנה, עם המשימות שלה והמטלה המסכמת, וההתנסות, עם התלקיט שלה. מנחה הסדנה לא מקבל אף אחד מטפסי ההתנסות, והמדריך הפדגוגי לא בודק את משימות הסדנה. כשמפרידים בין השניים - הכול נעשה פשוט יותר.</p>
+<p>וכל הפרטים כתובים: בסילבוס, בהנחיות התלקיט במודל, בלוח המודעות ובמייל.</p>
+<p class="bold-para">מי שמגיע לכל מפגש, מלמד שיעור בכל יום התנסות, כותב דוח בסוף כל יום ומקליד כל טופס - יסיים את השנה בשקט, ויצא ממנה מורה טוב יותר.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
