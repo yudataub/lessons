@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🛡️ לראות את הילד: חובת הדיווח</title>
+<meta name="description" content="מה עושים כשעולה חשד שילד נפגע בבית: מה החוק אומר, למי פונים, מה קורה אחרי הדיווח, ואיך מדברים עם ילד שמתחיל לספר - בלי להישאר עם זה לבד">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · גל וטלי, פרויקט עוגנים לחוסן · 21.10.2026 🍯</div>
+  <h1 class="hero-title">🛡️ לראות את הילד: חובת הדיווח</h1>
+  <p class="hero-subtitle">מה עושים כשעולה חשד שילד נפגע בבית: מה החוק אומר, למי פונים, מה קורה אחרי הדיווח, ואיך מדברים עם ילד שמתחיל לספר - בלי להישאר עם זה לבד</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-19 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/3-44nSXQRR0" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧭 לפני שמתחילים: שלושה דברים לזכור</a><ul class="toc-stories"><li><a href="#story-1">לא צריך לזכור את החוק בעל פה</a></li><li><a href="#story-2">החוק הזה הוא חוק טיפולי</a></li><li><a href="#story-3">זה יכול לגעת במקום כואב</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🎬 &quot;המלאכים של עומר&quot;: סיפור שמתחיל בסימן כחול</a><ul class="toc-stories"><li><a href="#story-4">שרוולים ארוכים ביום חם</a></li><li><a href="#story-5">&quot;אני לא מסוגל לדמיין את זה עליהם&quot;</a></li><li><a href="#story-6">שוטר, מיון, וילד שמתחנן</a></li><li><a href="#story-7">המורה, היועצת והחוקר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">⚖️ חוק חובת הדיווח: מאין הוא בא ומה הוא אומר</a><ul class="toc-stories"><li><a href="#story-8">ילדה בת שלוש מטבריה</a></li><li><a href="#story-9">תיקון 26 לחוק העונשין</a></li><li><a href="#story-10">&quot;יסוד סביר&quot; - לא ודאות</a></li><li><a href="#story-11">מי נחשב &quot;אחראי&quot; על הילד</a></li><li><a href="#story-12">למה עובד סוציאלי ולא רק משטרה</a></li><li><a href="#story-13">חובה מוגברת לאנשי מקצוע, ועבירות בתוך בית הספר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🔎 מה קורה אחרי הדיווח</a><ul class="toc-stories"><li><a href="#story-14">חוקר ילדים וחקירה סמויה</a></li><li><a href="#story-15">טיפול במקום כתב אישום</a></li><li><a href="#story-16">ועדת פטור: כשהמשפחה מוכנה להשתנות</a></li><li><a href="#story-17">פטור הוא לא צ&#x27;ק פתוח</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🧒 דני: הסיפור של &quot;לא מגיע לאף ילד&quot;</a><ul class="toc-stories"><li><a href="#story-18">ילד מקסים ממשפחה מקסימה</a></li><li><a href="#story-19">סוף מאי: טלפון אחד</a></li><li><a href="#story-20">תסמונת ידית הדלת</a></li><li><a href="#story-21">למה לסטודנטית ולא לפסיכולוג</a></li><li><a href="#story-22">הכנה למפגש: סוד טוב וסוד רע</a></li><li><a href="#story-23">&quot;הוא חייב להגיד במפורש&quot;? לא</a></li><li><a href="#story-24">המפגש האחרון</a></li><li><a href="#story-25">העיקר: שמישהו ראה אותו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🏡 בתי לין: הכול במקום אחד, ביום אחד</a><ul class="toc-stories"><li><a href="#story-26">מרכזי הגנה בכל הארץ</a></li><li><a href="#story-27">מה יש בבית לין</a></li><li><a href="#story-28">לא צריך תחנת משטרה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">💬 שאלות מהשטח</a><ul class="toc-stories"><li><a href="#story-29">&quot;תבטיחי שלא תספרי לאף אחד&quot;</a></li><li><a href="#story-30">ואם הילד נסוג</a></li><li><a href="#story-31">דיווחתי ליועצת, והיא לא העבירה</a></li><li><a href="#story-32">פגיעה עצמית: חובה מוסרית</a></li><li><a href="#story-33">לברר לבד או לפנות לצוות?</a></li><li><a href="#story-34">רוב הילדים באמצע</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">לפני שמתחילים: שלושה דברים לזכור</h2></div></div>
+<p class="chapter-intro">הנושא כבד, והחוק מפורט. אבל מי שעובד עם ילדים לא צריך לזכור כל סעיף. הוא צריך לזכור שלושה דברים פשוטים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא צריך לזכור את החוק בעל פה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אין ציפייה שמי שנכנס לבית ספר ידע לצטט את חוק חובת הדיווח. המטרה צנועה יותר וחשובה יותר: לדעת שהחוק קיים, להבין בקווים כלליים מה קורה במדינה כשעולה חשד שילד נפגע, ומה כל אחד מאיתנו מחויב לעשות.</p>
+<p>סביר מאוד שהרבה פרטים יישכחו. זה בסדר. מה שחייב להישאר הוא דבר אחד: כשעולה חשד שילד עובר פגיעה ממי שאחראי עליו - <strong>לא שותקים ולא מתמודדים לבד.</strong> פונים מיד לדוקטורנטית המלווה, והיא מעבירה את המקרה להתייעצות.</p>
+<p class="bold-para">אתם לא לבד בזה. הצוות ילווה, ידריך ויגיד מה לעשות.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: החוק הזה הוא חוק טיפולי ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החוק הזה הוא חוק טיפולי</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חובת הדיווח כתובה בחוק העונשין - החוק הפלילי של מדינת ישראל. ולכן קל לחשוב שדיווח פירושו משטרה, מעצר ומשפחה שמתפרקת. אבל לחוק הזה יש צדדים טיפוליים רבים, ומטרתו הראשונה היא לעזור לילד ולמשפחה.</p>
+<p>זה חשוב, כי כמעט תמיד יש התלבטות. מרבית המקרים אינם שחור ולבן. רק לעתים רחוקות ילד מגיע ומספר במפורש. בדרך כלל יש סימן קטן, משפט מוזר, תחושה. ואז מגיע הפחד: ואם אני טועה? ואם אהרוס משפחה שלמה?</p>
+<div class="honey-box">🍯 מי שזוכר שהחוק נועד גם לטפל, ולא רק להעניש, מתלבט פחות ומדווח מהר יותר.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: זה יכול לגעת במקום כואב ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">זה יכול לגעת במקום כואב</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פגיעה בילדים אינה תופעה רחוקה. לפי הנתונים, ילדים רבים מאוד בישראל חווים פגיעה כלשהי, וחלק ניכר מהפגיעות קורות בתוך המשפחה. המשמעות היא שבכל קבוצה גדולה של אנשי חינוך יש לא מעטים שחוו בילדותם דברים דומים.</p>
+<p>לכן כשעוסקים בנושא הזה - בסרט, בסיפור או בשיחה - יכולים לעלות מחנק בגרון, זיכרונות או קושי. זה טבעי, וזה בסדר.</p>
+<p class="bold-para">מי שמשהו מתעורר אצלו - מוזמן לפנות. גם כאן, לא נשארים לבד.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: שרוולים ארוכים ביום חם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🎬</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">&quot;המלאכים של עומר&quot;: סיפור שמתחיל בסימן כחול</h2></div></div>
+<p class="chapter-intro">סרט הסברה ישן שהפיקו משרדי הממשלה, ועדיין אחד הכלים החזקים להבין איך זה נראה מבפנים. קשה לצפייה, ומדויק מאוד.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שרוולים ארוכים ביום חם</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עומר הוא ילד חדש בכיתה. יום אחד הוא מגיע עם חום, ובחום הזה הוא לבוש בשרוולים ארוכים. כשהמורה מציעה לקפל לו את השרוול, הוא מסרב. ואז היא רואה סימן כחול על היד.</p>
+<p>"זה מבאונסר", הוא אומר. הכלב של חבר משך אותו חזק.</p>
+<p>האבא מגיע לאסוף אותו: עורך דין מצליח, מקסים, ממהר. "את יודעת איך זה ילדים", הוא מבטל. אבל המורה שמה לב לדבר אחד קטן: כשאביו נכנס, הילד נדרך ונצמד אליה.</p>
+<p class="bold-para">הסימנים הראשונים כמעט אף פעם אינם הוכחה. הם תחושה שמשהו לא מסתדר.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;אני לא מסוגל לדמיין את זה עליהם&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;אני לא מסוגל לדמיין את זה עליהם&quot;</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם רופא הילדים של המשפחה רואה סימני חבלה. הוא בודק את התיק הרפואי ומגלה שלפני חצי שנה היה לילד שטף דם חמור ברגל. האם נראתה לחוצה מאוד. הכול מצטרף.</p>
+<p>אבל הרופא חבר של המשפחה. האבא עזר לו בעניין משפטי. "אני לא מסוגל לדמיין את זה עליהם", הוא אומר לאחות, "זה נשמע לי מטורף לגמרי". והיא עונה במשפט שכדאי לזכור: אנחנו יודעים מעט מאוד על אנשים שנדמה לנו שאנחנו מכירים.</p>
+<p>במקביל, חברתה של המורה מנסה להרגיע אותה: "את צריכה להיות ממש בטוחה לפני שאת מאשימה. את יכולה להרוס למשפחה הזאת את החיים".</p>
+<div class="honey-box">🍯 כך נראה הקול שמשתיק: היכרות אישית, כבוד להורה, פחד לטעות. דווקא הוא מסוכן לילד.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: שוטר, מיון, וילד שמתחנן ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שוטר, מיון, וילד שמתחנן</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בבית השכנים שומעים צרחות ומזעיקים משטרה. האם אומרת שהאבא לקח את הילד לרופא - הוא נפל על היד. השוטרים לא נכנסים.</p>
+<p>אצל הרופא מתברר שהיד שבורה. הרופא מפנה אותם לחדר מיון, והאבא כועס: "אל תריץ אותי סתם". הילד מתחנן שאביו לא ייכנס איתו, ושוב מתנצל - כאילו הוא אשם.</p>
+<p>הרופא, מבוהל מהאלימות שראה ומהקשרים של האבא, לא יודע מה לעשות. האחות מזכירה לו מה אומר רופא ותיק במיון ילדים: התעללות בילדים היא מחלת ילדים קטלנית. ולצדה ההחלטה: פונים לעובדת הסוציאלית, שמסבירה לו שהוא חייב לדווח לפקידת הסעד לחוק הנוער.</p>
+<p class="bold-para">כמעט כל המבוגרים בסרט ראו משהו. השאלה הייתה רק מי יפעל.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: המורה, היועצת והחוקר ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המורה, היועצת והחוקר</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בבית הספר המורה כבר לא ישנה בלילות. היא הולכת יחד עם מורה נוספת ליועצת. היועצת מקשיבה, מרגיעה ואומרת בבירור: מי שחשף את המקרה חייב לדווח. יחד הן פונות למנהלת, ומשם לפקידת הסעד לחוק הנוער.</p>
+<p>ואז מתברר שהדיווחים נפגשים: הרופא כבר התקשר, השוטרים כבר היו בבית. חוקר ילדים מגיע לבית הספר ומדבר עם עומר בלי שההורים יודעים מראש. המורה רוצה להיכנס איתו לחדר, ונענית שחוקר הילדים יודע מה הוא עושה.</p>
+<p>בסוף הסרט מתברר שהאבא הודה והתחיל טיפול. הילד ניצל, ולמשפחה נפתחה דרך חדשה.</p>
+<div class="honey-box">🍯 כל אחד ראה חלק קטן מהתמונה. רק כשכולם דיווחו - התמונה התחברה.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: ילדה בת שלוש מטבריה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">חוק חובת הדיווח: מאין הוא בא ומה הוא אומר</h2></div></div>
+<p class="chapter-intro">כמו חוקים רבים, גם החוק הזה נולד מאסון. ההבנה של מה שקרה אז מסבירה כמעט כל סעיף בו.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ילדה בת שלוש מטבריה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד 1989 לא הייתה בישראל חובה לדווח על פגיעה בילדים. החוק נחקק בעקבות מקרה קשה מאוד: ילדה בת שלוש מטבריה, מורן, שעברה התעללות קשה מאוד מדוד שלה, אחי אמה.</p>
+<p>בשיא ההתעללות הוא פגע בה כל כך שהיא איבדה את ההכרה. היא הובאה לבית החולים ושכבה מחוסרת הכרה כחמישה חודשים. התקשורת כמעט לא התייחסה. יצחק קדמן, שעמד אז בראש המועצה לשלום הילד, סיפר לימים כמה ניסה לעורר עניין - כמעט בלי הצלחה.</p>
+<p>הדוד נעצר, ואז התברר שבבית חולים אחר שוכב בנו שלו עם שברים בגפיים. איש לא חיבר בין שני המקרים. בפברואר 1989 מורן נפטרה.</p>
+<p class="bold-para">ואז התברר שכולם ידעו. הסימנים על הגוף, הצעקות מהבית - אי אפשר היה שלא לראות.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: תיקון 26 לחוק העונשין ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">תיקון 26 לחוק העונשין</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי מותה של מורן התעוררה סערה ציבורית. הוגשו כמה הצעות חוק, וכתשעה חודשים לאחר מכן נחקק החוק. בשפת היום-יום קוראים לו "חוק חובת הדיווח". בשמו הרשמי הוא תיקון מספר 26 לחוק העונשין.</p>
+<p>הלב שלו הוא משפט אחד: מי שיש לו יסוד סביר לחשוב שנעברה לאחרונה עבירה בקטין או בחסר ישע על ידי האחראי עליו - חייב לדווח על כך בהקדם לעובד סוציאלי לפי החוק או למשטרה.</p>
+<p>החוק חל על כל אזרח בגיר במדינה. לא רק על אנשי חינוך, לא רק על רופאים - על כל אחד.</p>
+<div class="honey-box">🍯 החוק לא נכתב כדי להעניש את מי ששותק. הוא נכתב כדי שאף ילד לא יישאר שוב לבד כשכולם יודעים.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: &quot;יסוד סביר&quot; - לא ודאות ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;יסוד סביר&quot; - לא ודאות</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זוכרים את החברה של המורה בסרט? "את חייבת להיות ממש בטוחה". זו בדיוק הטעות.</p>
+<p>החוק לא דורש ודאות. הוא דורש <strong>יסוד סביר לחשוב</strong>. המורה ראתה סימנים על הגוף, ראתה את הילד נדרך ונצמד אליה כשאביו נכנס - זה בדיוק יסוד סביר. היא לא צריכה הוכחה, היא לא צריכה שהילד יספר, והיא בוודאי לא צריכה לחקור בעצמה.</p>
+<p>לבדוק, לחקור ולהכריע - זה תפקידם של אנשי המקצוע שמקבלים את הדיווח. התפקיד של מי שרואה הוא לא להתעלם.</p>
+<p class="bold-para">לא צריך להיות בטוחים כדי לדווח. צריך רק לראות.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: מי נחשב &quot;אחראי&quot; על הילד ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מי נחשב &quot;אחראי&quot; על הילד</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החוק מדבר על פגיעה של מי שאחראי על הילד. בראש ובראשונה - ההורים, האחראים הטבעיים והראשונים. אבל לא רק הם:</p>
+<ul class="story-list"><li>סבים וסבתות</li><li>דודים ודודות</li><li>הורים אומנים</li><li>מורה, בזמן שהילד נמצא בבית הספר</li><li>נהג הסעות, בזמן שהילד נמצא בהסעה</li></ul>
+<p>כלומר האחריות תלויה במצב. מורה שפגע בילד בשעות הלימודים - יש חובת דיווח. אותו מורה מחוץ לשעות הלימודים - זה כבר סיפור אחר מבחינת החוק הזה.</p>
+<div class="honey-box">🍯 השאלה הראשונה שכדאי לשאול: מי פגע, ובאיזה תפקיד הוא היה באותו רגע?</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: למה עובד סוציאלי ולא רק משטרה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה עובד סוציאלי ולא רק משטרה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החוק נותן שתי כתובות לדיווח: משטרה, או עובד סוציאלי לפי חוק הנוער (בעבר "פקיד סעד לחוק הנוער", היום עו"ס לחוק הנוער - אותו תפקיד בשם חדש).</p>
+<p>זו כבר הזווית הטיפולית של החוק. משטרה היא גוף מאיים ומרוחק, ואי אפשר להתייעץ איתה: או שמגישים תלונה ונפתח תיק, או שלא. העו"ס לחוק הנוער, לעומת זאת, היא עובדת סוציאלית שמונתה על ידי שר הרווחה להיות אחראית על ילדים בסיכון מיום לידתם ועד גיל 18. יש כזו בכל רשות - עיר, מועצה מקומית או מועצה אזורית, ובערים גדולות יותר מאחת.</p>
+<p>כל גורם חייב למסור לה מידע, והיא יכולה לאסוף אותו ממקורות רבים. גם עליה חלה חובת הדיווח, ולכן היא לא יכולה להחליט לא לעשות דבר - אבל יש לה זמן לבדוק ולהחליט מה נכון.</p>
+<p class="bold-para">אפשר להתחיל בעובדת סוציאלית. לא כל חשד חייב להתחיל במשטרה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: חובה מוגברת לאנשי מקצוע, ועבירות בתוך בית הספר ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">חובה מוגברת לאנשי מקצוע, ועבירות בתוך בית הספר</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל אזרח חייב לדווח, אבל על אנשי מקצוע - אנשי חינוך, רפואה, טיפול ורווחה - החובה מוגברת, והעונש על אי-דיווח חמור יותר. מי שנכנס לבית ספר במסגרת עבודה עם ילדים כבר אינו "סתם אזרח".</p>
+<p>יש גם סעיף מיוחד לעבירות שנעשו בתוך מוסד חינוכי או טיפולי. כאן החובה רחבה יותר, והיא חלה גם כשהפוגע אינו אחראי על הילד:</p>
+<ul class="story-list"><li><strong>עבירת מין</strong> מכל סוג - גם בין ילדים לבין עצמם</li><li><strong>חבלה חמורה של ממש</strong> - למשל אלימות בין ילדים שהסתיימה ביד שבורה או בפגיעת ראש שהצריכה פינוי</li></ul>
+<p>קטטה שבה לא נפגע איש היא עניין לצוות החינוכי. אבל ברגע שיש חבלה חמורה - חייבים לדווח לעו"ס לחוק הנוער או למשטרה. והחוק חל גם על חסרי ישע בגירים, לא רק על קטינים.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: חוקר ילדים וחקירה סמויה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🔎</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מה קורה אחרי הדיווח</h2></div></div>
+<p class="chapter-intro">הפחד הגדול הוא מה שיקרה למשפחה. התשובה מורכבת יותר, ובהרבה מקרים - מעודדת יותר, ממה שנדמה.</p>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חוקר ילדים וחקירה סמויה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשיש חשד לפגיעה בתוך המשפחה, ילדים עד גיל 14 נחקרים בישראל על ידי חוקרי ילדים - אנשי מקצוע שהוכשרו לכך. במידת הצורך הם גם מעידים במקום הילד בבית המשפט, כדי שלא יצטרך לעמוד שם בעצמו.</p>
+<p>החקירה במקרים כאלה סמויה. בדיוק כמו בסרט: לא מודיעים להורים שהוזמן חוקר ילדים. החוקר מגיע לבית הספר בתיאום עם הצוות בלבד, ובית הספר חייב לשמור על סודיות מלאה.</p>
+<p>בסיום החקירה החוקר פונה לעו"ס לחוק הנוער, והיא מחליטה כיצד להמשיך. אם הילד סיפר על פגיעה ממשית, המשטרה יוצאת לעצור את הפוגע והחקירה נמשכת.</p>
+<div class="honey-box">🍯 מה שנאמר לחוקר - נשאר בין אנשי המקצוע. לא משתפים הורים, לא משתפים חברים לצוות שאינם מעורבים.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: טיפול במקום כתב אישום ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">טיפול במקום כתב אישום</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף הסרט מופיע משפט קצר שקל לפספס: האבא הודה והתחיל לקבל טיפול. זה לא סוף מומצא - זו אפשרות שהחוק עצמו פותח.</p>
+<p>כשהורה לוקח אחריות ונכנס לתהליך טיפולי אמיתי, הפרקליטות מתחשבת פעמים רבות בהמלצת העו"ס לחוק הנוער. לפעמים, גם אחרי שכבר הוגשה תלונה, מחליטים בסוף לא להגיש כתב אישום. יש גם מסגרות ייעודיות, כמו בית נועם, שהוא מרכז לטיפול בגברים אלימים.</p>
+<p class="bold-para">הדיווח אינו בהכרח סוף המשפחה. לא פעם הוא תחילת הריפוי שלה.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: ועדת פטור: כשהמשפחה מוכנה להשתנות ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ועדת פטור: כשהמשפחה מוכנה להשתנות</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>העו"ס לחוק הנוער שקיבלה דיווח יכולה לפנות למשטרה ולהזמין חוקר ילדים. אבל היא יכולה גם לבקש ללכת בדרך טיפולית עם המשפחה, בלי משטרה. לשם כך היא צריכה אישור מ<strong>ועדת פטור</strong> - ועדה סטטוטורית שפועלת בכל מחוז.</p>
+<p>בוועדה יושבים נציג של פרקליט המחוז, קצין נוער מחוזי ועו"ס מחוזי לחוק הנוער. העו"ס מגישה להם בקשה: יש לי דיווח על הורה שפגע בילד, הוא לקח אחריות, הוא רוצה טיפול, אני מבקשת לא לפנות כרגע למשטרה ולבנות תוכנית טיפולית.</p>
+<p>שני תנאי היסוד:</p>
+<ul class="story-list"><li>הפוגע <strong>מודה</strong> בפגיעה, לוקח אחריות ומסכים לטיפול</li><li>יש <strong>מוגנות מלאה</strong> - האלימות הפסיקה</li></ul>
+<p>בנוסף, העבירה אינה ברמת חומרה גבוהה במיוחד, ויש סיכוי ממשי שהטיפול ימנע עבירות נוספות. בפגיעה מינית של הורה בילד, למשל, לא פונים לוועדת פטור.</p>
+<div class="honey-box">🍯 בסוף, לילד הזה זו המשפחה שלו. כל דרך שמגינה עליו ושומרת על המשפחה - שווה בדיקה.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: פטור הוא לא צ&#x27;ק פתוח ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">פטור הוא לא צ&#x27;ק פתוח</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפטור ניתן בתנאים ברורים, ואינו נעלם מעיני הוועדה.</p>
+<ul class="story-list"><li><strong>הוא זמני.</strong> העו"ס צריכה לדווח לוועדה כל חודשיים-שלושה, עם דוחות מהמטפלים, והוועדה מחליטה אם להמשיך. רק אחרי תקופה משמעותית שבה רואים שיפור דרמטי ואין אלימות - יכול להינתן פטור מלא.</li><li><strong>אין הזדמנות שנייה.</strong> אם ניתן פטור והאלימות חזרה - אין יותר פטור. פונים ישר למשטרה.</li><li><strong>לפעמים הפטור נועד להגן על הילד עצמו.</strong> גם בעבירות חמורות מאוד אפשר לבקש פטור, כשברור שמצבו הנפשי של הילד לא מאפשר לו לעמוד בחקירה.</li></ul>
+<p class="bold-para">החוק גמיש כלפי מי שמשתנה, ונוקשה כלפי מי שחוזר לפגוע.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: ילד מקסים ממשפחה מקסימה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🧒</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">דני: הסיפור של &quot;לא מגיע לאף ילד&quot;</h2></div></div>
+<p class="chapter-intro">סיפור אמיתי מפרויקט עוגנים לחוסן, מלפני שנתיים. השמות בדויים. סטודנטית אחת, ילד אחד, וכמה משפטים קטנים שלא נתנו לה מנוח.</p>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ילד מקסים ממשפחה מקסימה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דני, תלמיד כיתה ה', גר עם משפחתו בעיר בעוטף עזה. ב-7 באוקטובר הם ישבו שעות ארוכות בממ"ד. אחרי הפינוי הגיע לבית ספר חדש, ומאז המשפחה מלווה על ידי פסיכולוג. יש לו אבא, אמא ואח גדול.</p>
+<p>הוא נבחר לקשר הפרטני בגלל זה בלבד: ילד חדש שעבר את 7 באוקטובר. שום סימן אחר. להפך - היועצת תיארה "משפחה מקסימה, הורים מקסימים, ילד מקסים".</p>
+<p>כך זה עובד בדרך כלל: היועצת, המחנכת והדוקטורנטית המלווה מסבירות למה ילד נבחר, ואז הסטודנט והדוקטורנטית מחליטים יחד על מטרות ופעילויות. מכירים את הילד, מגלים מה הוא אוהב, ולאט-לאט נבנה קשר.</p>
+<p>במשך כל השנה, בכל ההדרכות, לא עלתה שום נורה אדומה. ילד שבהתחלה משתף פחות, ולאט-לאט נפתח.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: סוף מאי: טלפון אחד ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">סוף מאי: טלפון אחד</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ממש לקראת סוף התוכנית, בסוף מאי, הסטודנטית מתקשרת לדוקטורנטית: "לא ידעתי מה לעשות, אבל אני כל הזמן חושבת על הסרט על עומר".</p>
+<p>דני סיפר לה שכשהוא עושה משהו לא בסדר, ההורים לוקחים לו את הטלפון "ועוד משהו - אבל זה סוד". ומאוחר יותר, בהקשר אחר לגמרי, אמר: "לא מגיע לאף ילד שירביצו לו".</p>
+<p>בכל המפגשים הוא סיפר שהוא ואחיו הגדול הולכים מכות במשחקים. "איזה אחים לא הולכים מכות?" חשבה. אבל עכשיו - סוד, ומיד אחריו המשפט הזה. "הוא לא אמר כלום, ומצד שני משהו שם לא מסתדר לי. אולי אני טועה, אולי לא. מה עושים?"</p>
+<div class="honey-box">🍯 הדבר הראשון שהיא שמעה: כל הכבוד שהתקשרת. וכל הכבוד שבנית קשר שבו ילד מרגיש בטוח לומר משפט כזה.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: תסמונת ידית הדלת ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">תסמונת ידית הדלת</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה דווקא עכשיו, בסוף? יש לזה שם: <strong>תסמונת ידית הדלת</strong>. רגע לפני שהמפגש נגמר, כשהיד כבר על הידית, הילד זורק פתאום משפט כבד.</p>
+<p>אותו דבר קורה בסוף קשר שלם. הילד מבין שהמבוגר הזה, שהוא סומך עליו, עומד להיעלם - וזה הניסיון האחרון שלו לומר משהו. לפעמים בבדיקה, לפעמים בחצי משפט, כדי לראות מה יקרה.</p>
+<p>ולכן כדאי להיות קשובים במיוחד במפגשים האחרונים. דווקא שם יכול להופיע מה שהילד החזיק כל השנה.</p>
+<p class="bold-para">המשפט הקטן ליד הדלת הוא לפעמים המשפט החשוב של כל השנה.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: למה לסטודנטית ולא לפסיכולוג ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה לסטודנטית ולא לפסיכולוג</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"אבל יש לו פסיכולוג", אמרה הסטודנטית. "למה שיגיד את זה דווקא לי?"</p>
+<p>זו תופעה מוכרת מהשטח. לפעמים קל לילד יותר לדבר דווקא עם דמות שאינה איש מקצוע, שאין לה קשר עם ההורים, שפחות מאיימת. בסרט זה בדיוק כך: הרופא הוא חבר של האבא, והמורה מנהלת איתו שיחות נימוסים.</p>
+<p>ויש עוד דבר: הזמניות. הילד יודע שהסטודנט נמצא בחייו לתקופה מוגדרת ולא יהיה שם כל החיים, שהוא לא מכיר את ההורים. יש בזה מרחק שמקל. לא פעם ילדים מספרים דווקא למישהו שעובר בדרכם, ולא למי שמלווה אותם שנים.</p>
+<div class="honey-box">🍯 "אני רק זמני" אינו סיבה לפטור את עצמך. לפעמים זו בדיוק הסיבה שבחרו בך.</div>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: הכנה למפגש: סוד טוב וסוד רע ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הכנה למפגש: סוד טוב וסוד רע</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הדוקטורנטית התקשרה למדריכה שלה. המדריכה הייתה בשדה התעופה, רגע לפני עלייה למטוס - וענתה, ונתנה את התשובה המקצועית ביותר. כך נראה צוות שזמין באמת.</p>
+<p>אז התחילה הכנה רצינית למפגש הבא. מצד אחד, הילד לא אמר שום דבר מפורש. מצד שני, הוא אמר דברים שחייבים לדבר עליהם - בלי להפחיד אותו. הסטודנטית למדה איך להסביר לילד בכיתה ה' את ההבדל בין סוד טוב לסוד רע, איך להסביר לו את החוק בשפה שלו, ותרגלה את השיחה.</p>
+<p>במקביל דיווחו ליועצת בשיחת זום משותפת. היועצת הופתעה מאוד: "משפחה מקסימה, מלווים על ידי פסיכולוג". הכול תועד והועבר לצוות התוכנית למעקב. גם בת הזוג של הסטודנטית הוכנה: אם השיחה הפרטנית תתפתח, אולי תצטרך להעביר את המפגש הקבוצתי לבד.</p>
+<p>ויום המפגש הגיע. ודני - לא הגיע.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: &quot;הוא חייב להגיד במפורש&quot;? לא ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;הוא חייב להגיד במפורש&quot;? לא</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דני לא הגיע גם למפגש שאחריו - חולה, או טיול, או חופשה. אחרי כל ההכנות.</p>
+<p>בינתיים, כשהיועצת שמעה את התמונה המלאה, אמרה: "כדי שתהיה חובה לדווח, הוא חייב להגיד במפורש שמרביצים לו".</p>
+<p>זו אותה טעות שבסרט, רק בלבוש מקצועי. חובת הדיווח קמה כשיש יסוד סביר לחשוב - לא רק כשילד אומר הכול במילים ברורות. ובמציאות, הנושא הזה כמעט תמיד עמום. לפעמים מעט, ולרוב - מאוד.</p>
+<p class="bold-para">אל תחכו לוידוי מפורש. ילדים כמעט אף פעם לא מספרים כך.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: המפגש האחרון ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">המפגש האחרון</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התוכנית כבר הסתיימה, אבל הסטודנטית החליטה להגיע עוד שבוע, רק בשביל מפגש אחרון עם דני.</p>
+<p>"אני נורא דואגת לך", אמרה לו. "חשבתי עליך מאז השיחה האחרונה שלנו. המשפט שאמרת, שלא מגיע לאף ילד שירביצו לו - זה משפט מאוד חכם, ואתה כל כך צודק. רציתי להיפגש איתך כדי להגיד לך את זה".</p>
+<p>היא הסבירה לו את ההבדל בין סוד טוב, שמשמח, לסוד רע, שכואב קצת בבטן ולא נעים להחזיק. סיפרה לו שהיא שיתפה את היועצת, ושיש חוק במדינה שאסור להרביץ לילדים. יחד הם עשו רשימה של מבוגרים שהוא סומך עליהם: דודה במשפחה, המחנכת בבית הספר.</p>
+<p>דני אמר כמה פעמים, בבירור, שההורים לא מרביצים לו - רק הוא ואחיו משחקים במכות. אבל הוא התעניין מאוד בחוק ושאל המון: מה עושים למי שמרביץ? האם החוק היה גם כשהיא הייתה ילדה? חלק היא ידעה, וחלק הקריאה לו מתוך המצגת.</p>
+<div class="honey-box">🍯 הוא יצא עם ידע, עם רשימת אנשים, ועם התחושה שיש מדינה שלמה שדואגת לו.</div>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: העיקר: שמישהו ראה אותו ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">העיקר: שמישהו ראה אותו</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ברגע שדני שלל במפורש פגיעה מצד ההורים, חובת הדיווח הפורמלית הסתיימה. אין צורך לפנות לעו"ס לחוק הנוער או למשטרה. ובכל זאת, קשה להתעלם מכך שהחשד הסביר לא נעלם לגמרי.</p>
+<p>אבל השאלה החשובה אינה רק אם הוא סיפר. אנשים רבים שעברו פגיעה בילדות ולא חשפו אותה מתארים אותו דבר: כמה שקופים הם היו. הם לא בטוח היו מספרים גם אילו שאלו אותם - אבל הם חיכו לרגע שבו מישהו יראה אותם, יבוא וישאל.</p>
+<p>דני קיבל את הרגע הזה. מישהי ראתה, הקשיבה, התייחסה ברצינות, נתנה לו אפשרויות - והחזירה לו את השליטה. הוא בחר מה לומר. אולי באמת ההורים לא פוגעים בו. ואם כן - הוא יודע שראו אותו, ושיש לו לאן לפנות.</p>
+<p class="bold-para">ילד שיודע שרואים אותו - קיבל משהו שאין לו מחיר.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: מרכזי הגנה בכל הארץ ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏡</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">בתי לין: הכול במקום אחד, ביום אחד</h2></div></div>
+<p class="chapter-intro">פעם, ילד שנפגע עבר בין תחנת משטרה, בית חולים ומשרדים. היום יש בית אחד שבנוי סביבו.</p>
+<article class="story-card" id="story-26" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מרכזי הגנה בכל הארץ</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתי לין הם מרכזי הגנה לילדים ולבני נוער שנפגעו. הם הוקמו מכוח חוק שנחקק ב-2008 לסיוע לקטינים נפגעי עבירה, ונקראים על שם לין שוסטרמן, שתרמה את הכספים להקמתם.</p>
+<p>יש שמונה מרכזים: בצפת, בחיפה (לחברה הערבית ולחברה היהודית), בנצרת (לחברה הערבית), בירושלים, בנתניה, ברמת גן, באשקלון ובבאר שבע - בשכונת רמות. ובתחילת נובמבר נפתח מרכז תשיעי, באילת.</p>
+<p>המקום עצמו מעוצב כבית ולא כמשרד: גינה, חדר קבלה חם, צבעים, משחקים.</p>
+<div class="honey-box">🍯 כדאי לדעת איפה בית לין הקרוב לבית הספר שבו עובדים.</div>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: מה יש בבית לין ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה יש בבית לין</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בכל מרכז יש צוות שלם תחת קורת גג אחת:</p>
+<ul class="story-list"><li><strong>אם בית</strong> - מקבלת את הילד, דואגת לאוכל ולשתייה ומשחקת איתו כדי להרגיע אותו</li><li><strong>עובדות סוציאליות לחוק הנוער</strong></li><li><strong>שוטרת</strong> - בכל בית לין יש עמדת משטרה המחוברת למערכות המחוז</li><li><strong>חוקרי ילדים</strong> בעברית ובערבית, ומתורגמנים לכל השפות שילדים מדברים בישראל</li><li><strong>חדר רופא</strong> - לבדיקות של חבלות ולבדיקות דחופות</li></ul>
+<p>לבית החולים מפנים רק כשיש חשד לשברים או כשצריך צילום רנטגן. כמעט כל הבדיקות הרפואיות נעשות במקום.</p>
+<p class="bold-para">כמעט כל התהליך מסתיים ביום אחד, במקום אחד, בגישה מותאמת לטראומה של ילדים.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: לא צריך תחנת משטרה ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא צריך תחנת משטרה</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דבר שכדאי לדעת: מי שרוצה להגיש תלונה על פגיעה בקטין לא צריך היום להגיע לתחנת משטרה. אפשר להגיע ישר לבית לין, בלי תיאום מראש, להיכנס לחדר השוטרת ולהגיש שם תלונה.</p>
+<p>והיתרונות אינם רק נוחות. בית לין מונע מהילד טראומה נוספת של מגע עם אנשים לא מיומנים, במקומות לא מתאימים. כל הצוות רגיש לילדים ולמשפחות, התנאים מכבדים, ויש סבלנות רבה.</p>
+<p>לכן גם החקירות שם מלאות יותר, ובעקבותיהן מוגשים יותר כתבי אישום. והעבודה המשותפת מאפשרת לשוטרת להזעיק מיד שוטרים בשטח לאסוף ממצאים, עוד בזמן שהילד מספר.</p>
+<div class="honey-box">🍯 בית לין הוא ההוכחה שאפשר לבנות מערכת שמגינה על הילד גם בתוך התהליך עצמו.</div>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: &quot;תבטיחי שלא תספרי לאף אחד&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">💬</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">שאלות מהשטח</h2></div></div>
+<p class="chapter-intro">השאלות שעולות שוב ושוב אצל מי שעובד עם ילדים - והתשובות שכדאי לקחת איתם לכל מפגש.</p>
+<article class="story-card" id="story-29" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;תבטיחי שלא תספרי לאף אחד&quot;</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה הכלל החשוב ביותר בעבודה עם ילדים: <strong>לעולם לא מבטיחים לשמור סוד.</strong></p>
+<p>ילדים אומרים לפעמים: "אני אספר לך משהו, אבל רק אם תבטיחי, תבטיחי, תבטיחי שלא תספרי לאף אחד". מי שאומר את זה כבר בשל לספר, ובעומק לבו הוא רוצה שיעשו עם זה משהו.</p>
+<p>אפשר להגיד כך: כל עוד לא תספר שמישהו פוגע בך או שאתה פוגע בעצמך - זה נשאר בינינו. אבל אם אדע שמישהו פוגע בך, אני לא אוכל להתעלם. אני ארצה לעזור שזה ייפסק, ויש גם חוק שמחייב אותי.</p>
+<p>ואפשר גם לנסח את זה בחיוב, בלי להתחיל ממה שאסור: "אני כאן בשבילך. אני אעשה הכול כדי לעזור לך ולשמור שלא יפגעו בך".</p>
+<div class="honey-box">🍯 הבטחה ששוברים מאוחר יותר הורסת את האמון. עדיף להיות כנים מההתחלה.</div>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: ואם הילד נסוג ←</a></div>
+</article>
+<article class="story-card" id="story-30" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ואם הילד נסוג</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה אם אחרי ההסבר הילד אומר: "אז אני לא מספר"? גם זה בסדר.</p>
+<p>איש מאיתנו אינו כל-יכול. לנפש יש קצב משלה, וילדים צריכים זמן להבשיל. אולי הוא בודק, אולי הוא לוקח צעד אחורה. צריך לאפשר לו את הצעד הזה, להשאיר לו את השליטה, ולתת לו להרגיש שהוא יכול לחזור ולשתף כשיהיה מוכן.</p>
+<p>עצם הנוכחות - מבוגר שנמצא שם בשבילו - היא עולם ומלואו.</p>
+<p class="bold-para">לא מכריחים ילד לספר. דואגים שיידע שיש למי.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: דיווחתי ליועצת, והיא לא העבירה ←</a></div>
+</article>
+<article class="story-card" id="story-31" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דיווחתי ליועצת, והיא לא העבירה</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפי לשון החוק, החובה היא לדווח לעו"ס לחוק הנוער או למשטרה, ולא רק ליועצת. בפועל, בית ספר הוא מערכת עם היררכיה, והדרך המקובלת היא לעדכן את היועצת ולוודא שהיא מעבירה את הדיווח הלאה.</p>
+<p>ואם נראה שהיא לא העבירה? לא נשארים עם זה. מעבירים את המקרה לדוקטורנטית המלווה, משם הוא מגיע לצוות התוכנית, והצוות מטפל בכך מול בית הספר ומוודא שהדיווח מגיע למקום הנכון.</p>
+<div class="honey-box">🍯 האחריות לא נגמרת כשסיפרת למישהו. היא נגמרת כשהדיווח הגיע ליעדו.</div>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: פגיעה עצמית: חובה מוסרית ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">פגיעה עצמית: חובה מוסרית</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חוק חובת הדיווח עוסק בדבר אחד: חשד לפגיעה בילד מצד מי שאחראי עליו. הוא לא עוסק בפגיעה עצמית, ולא בעבירה חמורה שנעשתה מחוץ לבית הספר על ידי מי שאינו אחראי על הילד.</p>
+<p>מה זה אומר? שאם לא דיווחנו במקרים כאלה, אי אפשר לבוא אלינו בטענות לפי החוק. זו כל משמעותה של "חובת דיווח".</p>
+<p>אבל יש גם מה שנקרא בשפה המקצועית <strong>חובה מוסרית</strong>. אם יודעים שילד פוגע בעצמו או מתכנן לפגוע בעצמו - השאלה היא מה עושים כדי לעזור לו. וכאן צריך לפעול בזהירות רבה, ובהתייעצות.</p>
+<p class="bold-para">מה שהחוק לא מחייב - הלב עדיין מחייב.</p>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: לברר לבד או לפנות לצוות? ←</a></div>
+</article>
+<article class="story-card" id="story-33" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לברר לבד או לפנות לצוות?</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשעולה תחושה שמשהו לא בסדר, האם להעמיק בשיחה עם הילד לפני שפונים לבית הספר?</p>
+<p>התשובה: לא לפנות לבד לצוות בית הספר, ולא לחקור לבד. קודם מביאים את המקרה להדרכה. לשם כך יש מפגש הדרכה אחת לשבועיים, והדוקטורנטים זמינים גם בין המפגשים. מה שלא יכול לחכות - כותבים מיד לדוקטורנטית.</p>
+<p>ואם ילד פולט פתאום משהו כבד, משום מקום, באמצע יום - כמובן שלא מחכים. היועצת נמצאת במקום, ואפשר לפנות אליה ובמקביל לכתוב לדוקטורנטית או לרכזת.</p>
+<p>ואת תחושת הבטן לוקחים ברצינות. אינטואיציה כזו משמעותית מאוד. אם משהו עושה לכם כאב בטן - זה לא סתם.</p>
+<div class="honey-box">🍯 כמו שראינו אצל דני: תחושת בטן, הדרכה, הכנה ותרגול - והמפגש שאחריהם שינה משהו לילד ולסטודנטית.</div>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: רוב הילדים באמצע ←</a></div>
+</article>
+<article class="story-card" id="story-34" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">רוב הילדים באמצע</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"עד כמה זה המקום שלי, ומתי זו כבר עבודה של מטפל?" זו שאלה גדולה, ואין לה תשובה אחת. הקשר הפרטני אינו טיפול, וגבולותיו מתבררים תוך כדי - בהדרכות, בחוברת על הקשר הפרטני, ובשיחה עם הצוות. יש ילדים שיופנו לטיפול, ויש ילדים שכל מה שהם צריכים הוא עיניים טובות, תשומת לב, הקשבה ואמפתיה.</p>
+<p>כדאי גם לזכור: <strong>רוב הילדים אינם בקצה.</strong> לא בקצה הנפשי ולא בקצה הפיזי. ילד יכול להיות עצוב יום אחד ושמח למחרת, וזה בסדר גמור - זה לא הופך אותו לילד מוכה או לילד בדיכאון.</p>
+<p>את התמונה המלאה רואים גם בכיתה: האם הוא מתנהג כמו כולם? האם הוא משחק עם כולם, או שהוא עצוב ומוטרד יותר מאחרים, כמו עומר בסרט? כך לומדים להבחין בין הכביש המרכזי לבין שולי הדרך, שם צריך יותר תשומת לב.</p>
+<p class="bold-para">בספק - אין ספק: מציפים, מתייעצים, ולא נשארים לבד.</p>
+<div class="honey-box">🍯 כולנו, ילדים ומבוגרים, זקוקים לנחמה, לעיניים טובות ולתשומת לב.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
