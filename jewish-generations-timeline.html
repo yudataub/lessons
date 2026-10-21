@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>⏳ כל הדורות בעמוד אחד</title>
+<meta name="description" content="מסע קצר על ציר הזמן של עם ישראל - מאברהם אבינו ועד דורנו - עם כמה מספרים פשוטים שבזכותם כבר לא תתבלבלו לעולם מי חי לפני מי">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 21.10.2026 🍯</div>
+  <h1 class="hero-title">⏳ כל הדורות בעמוד אחד</h1>
+  <p class="hero-subtitle">מסע קצר על ציר הזמן של עם ישראל - מאברהם אבינו ועד דורנו - עם כמה מספרים פשוטים שבזכותם כבר לא תתבלבלו לעולם מי חי לפני מי</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-15 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/hafaWuj2P_A" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🗺️ השאלה שכולם שואלים</a><ul class="toc-stories"><li><a href="#story-1">החור הגדול בידיעה של כולנו</a></li><li><a href="#story-2">איך מגיעים לציר הדורות</a></li><li><a href="#story-3">למה מתחילים דווקא בתאריך העברי</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">⛺ מאברהם אבינו ועד בית המקדש הראשון</a><ul class="toc-stories"><li><a href="#story-4">1948 - המספר שאי אפשר לשכוח</a></li><li><a href="#story-5">ארבע מאות שנה - ויוצאים ממצרים</a></li><li><a href="#story-6">שופטים, ו-480 שנה עד בית המקדש</a></li><li><a href="#story-7">המשכנות שבדרך: מהמדבר ועד גבעון</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">👑 מלכים, נביאים, וגלות בבל</a><ul class="toc-stories"><li><a href="#story-8">המלכים והנביאים הגדולים</a></li><li><a href="#story-9">מאה השנים הריקות</a></li><li><a href="#story-10">שבעים שנה בבבל</a></li><li><a href="#story-11">מי קבע את פורים לדורות?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🏛️ בית שני: כנסת הגדולה, הזוגות ונס חנוכה</a><ul class="toc-stories"><li><a href="#story-12">אנשי כנסת הגדולה - ולמה דווקא 120?</a></li><li><a href="#story-13">שמעון הצדיק - האחד שנכנס למשנה</a></li><li><a href="#story-14">הזוגות, ויהושע בן פרחיה שברח למצרים</a></li><li><a href="#story-15">נס חנוכה לא קרה ביום אחד</a></li><li><a href="#story-16">מהלל ושמאי ועד החורבן</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">📜 מהחורבן ועד הגאונים: עוברים לספירה הלועזית</a><ul class="toc-stories"><li><a href="#story-17">החורבן - כמעט באפס</a></li><li><a href="#story-18">התנאים: מ-70 ועד 200</a></li><li><a href="#story-19">אחרי החורבן: איך התורה הגיעה לבבל</a></li><li><a href="#story-20">האמוראים: מ-200 ועד 500</a></li><li><a href="#story-21">מאתיים שנה בשקט: הסבוראים</a></li><li><a href="#story-22">הגאונים: מ-700 ועד 1000</a></li><li><a href="#story-23">החיפוש בציר: איפה נמצא אונקלוס?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🕯️ ראשונים, אחרונים ודורנו</a><ul class="toc-stories"><li><a href="#story-24">הראשונים: מ-1000 ועד 1500</a></li><li><a href="#story-25">הבית יוסף, גירוש ספרד והפלא של צפת</a></li><li><a href="#story-26">האחרונים: מ-1500 ועד 2000</a></li><li><a href="#story-27">דורנו - והעושר שלא היה כמותו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🧠 כל הבריאה בדקה אחת</a><ul class="toc-stories"><li><a href="#story-28">הסיכום שנכנס לכיס</a></li><li><a href="#story-29">שאל אביך ויגדך</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">השאלה שכולם שואלים</h2></div></div>
+<p class="chapter-intro">מתי חי רש"י? מתי חי הרמב"ם? מתי היה נס חנוכה? כמעט כל אחד שואל את עצמו את השאלות האלה מדי פעם - וכמעט אף אחד לא יודע לענות בביטחון.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החור הגדול בידיעה של כולנו</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אנחנו לומדים פרשת שבוע, משנה, גמרא, הלכה. אנחנו מכירים את רש"י ואת הרמב"ם, את הלל ושמאי, את רבי עקיבא ואת הבית יוסף. אבל כשמישהו שואל פתאום "מי חי קודם?" או "באיזו תקופה היה נס חנוכה?" - רובנו מגמגמים.</p>
+<p>היה זה בבית שני? מי עמד אז בראש העם? הזוגות? הלל ושמאי? יוסי בן יועזר? ומתי בכלל הייתה תקופת המשנה, ומתי הגאונים?</p>
+<p>הבעיה איננה שחסר לנו ידע. הבעיה היא שהידע שלנו מפוזר - כל דמות עומדת לבד, בלי מקום ברור על ציר הזמן. ברגע שמסדרים את כולם בשורה אחת, הכל מתחבר.</p>
+<p class="bold-para">המטרה: לראות את כל הדורות - בעמוד אחד.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: איך מגיעים לציר הדורות ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">איך מגיעים לציר הדורות</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את ציר הדורות אפשר לפתוח בכל טלפון חכם או מחשב, בחינם. כותבים בגוגל "הקול החמישי" ולוחצים על התוצאה הראשונה. באתר בוחרים במדור "סיפורי תנאים וגדולי ישראל" (הוא מופיע גם בשורת המדורים הקטנה בראש העמוד, ליד פרשת השבוע, חומש, נביא, הלכה, משנה וחגים ומועדים). בתוך המדור יש כמה כלים, ואחד מהם הוא "ציר הדורות".</p>
+<p>הכתובת הישירה למדור גדולי ישראל: https://www.kol-toda.co.il/gedolim/</p>
+<p>בציר הזמן כל תקופה צבועה בצבע משלה, וכל רב מופיע במקומו - עם שנות חייו. בראש העמוד יש גם חיפוש: כותבים שם, והעמוד קופץ ישר אל המקום שלו על הציר.</p>
+<div class="honey-box">🍯 מי שאין לו מכשיר - יכול להסתכל יחד עם חבר. ציר אחד על מסך אחד מספיק לשניים.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: למה מתחילים דווקא בתאריך העברי ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה מתחילים דווקא בתאריך העברי</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כלל קטן שחוסך הרבה בלבול: את התקופות הקדומות - מבריאת העולם ועד חורבן הבית השני - נוח לספור לפי <strong>התאריך העברי</strong>, לבריאת העולם.</p>
+<p>למה? כי בספירה הלועזית כל התקופות האלה הן "לפני הספירה", כלומר מספרים במינוס. ככל שמתקדמים בזמן - המספר יורד. 500 לפני הספירה בא לפני 300 לפני הספירה. זה הפוך, וזה מבלבל: אתה הולך קדימה והמספר הולך אחורה.</p>
+<p>בתאריך העברי הכל זורם בכיוון הטבעי: כל דור בא אחרי הקודם, והמספר עולה איתו.</p>
+<p>ואז, בנקודה אחת מסוימת - חורבן הבית השני - עוברים לספירה הלועזית, ומשם הכל נעשה קל עוד יותר. נראה את זה בהמשך.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: 1948 - המספר שאי אפשר לשכוח ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">⛺</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מאברהם אבינו ועד בית המקדש הראשון</h2></div></div>
+<p class="chapter-intro">התקופה הראשונה נבנית כולה על מספר אחד שכל ישראלי מכיר - ועל שני חשבונות פשוטים שכתובים בתורה ובנביאים.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">1948 - המספר שאי אפשר לשכוח</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך זוכרים מתי חי אברהם אבינו? זה הכלל הגדול, ומי שיודע אותו לא ישכח אותו לעולם:</p>
+<p class="bold-para">אברהם אבינו נולד בשנת 1948 לבריאת העולם.</p>
+<p>כן, אותו מספר בדיוק כמו שנת קום המדינה. כל ישראלי זוכר את 1948 - ועכשיו הוא זוכר גם את שנת הולדתו של אברהם אבינו. מכאן מתחילים לבנות את כל השאר.</p>
+<div class="honey-box">🍯 כשהמספר החדש נתלה על מספר שכבר יושב לך בראש - הוא נשאר שם.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ארבע מאות שנה - ויוצאים ממצרים ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ארבע מאות שנה - ויוצאים ממצרים</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הצעד הבא כתוב בתורה עצמה. בברית בין הבתרים נאמר לאברהם:</p>
+<blockquote>"יָדֹעַ תֵּדַע כִּי גֵר יִהְיֶה זַרְעֲךָ בְּאֶרֶץ לֹא לָהֶם וַעֲבָדוּם וְעִנּוּ אֹתָם אַרְבַּע מֵאוֹת שָׁנָה" (בראשית טו, יג)</blockquote>
+<p>אז החשבון פשוט: בערך ארבע מאות שנה אחרי אברהם - יוצאים ממצרים. בפועל, יציאת מצרים הייתה בשנת 2448 לבריאת העולם. ארבעים שנה במדבר, ובשנת 2488 נכנסים לארץ ישראל עם יהושע.</p>
+<p>לזיכרון מספיק "בערך 2400": 1948 ועוד ארבע מאות. לא צריך לזכור כל ספרה - צריך לדעת איפה אתה נמצא על הציר.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: שופטים, ו-480 שנה עד בית המקדש ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שופטים, ו-480 שנה עד בית המקדש</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי הכניסה לארץ מגיעה תקופת השופטים. אין לנו עליה הרבה מידע מדויק, אבל אנחנו מכירים את הדמויות: עתניאל בן קנז, דבורה הנביאה, גדעון, עלי הכהן, שמשון, ושמואל הנביא שחותם את התקופה.</p>
+<p>וכמה זמן עובר עד שבונים את בית המקדש? הנביא סופר בעצמו:</p>
+<blockquote>"וַיְהִי בִשְׁמוֹנִים שָׁנָה וְאַרְבַּע מֵאוֹת שָׁנָה לְצֵאת בְּנֵי יִשְׂרָאֵל מֵאֶרֶץ מִצְרַיִם... וַיִּבֶן הַבַּיִת לַה'" (מלכים א ו, א)</blockquote>
+<p>480 שנה מיציאת מצרים! כלומר, יותר מארבע מאות שנה מאז שנכנסו לארץ ועד שזכו לבנות בה בית קבע לשכינה. זה הרבה זמן. ונקווה שלנו, בבניין הבית השלישי, זה לא ייקח כל כך הרבה.</p>
+<p class="bold-para">בית המקדש הראשון נבנה בערך בשנת 2900 לבריאת העולם.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: המשכנות שבדרך: מהמדבר ועד גבעון ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המשכנות שבדרך: מהמדבר ועד גבעון</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה היה במשך כל השנים האלה, עד שנבנה בית המקדש? היה משכן - והוא עבר ממקום למקום. חז"ל מונים את התחנות שלו:</p>
+<ul class="story-list"><li><strong>במדבר</strong> - כארבעים שנה</li><li><strong>בגלגל</strong> - 14 שנה, שנות הכיבוש והחלוקה</li><li><strong>בשילה</strong> - 369 שנה, התקופה הארוכה מכולן</li><li><strong>בנוב</strong> - 13 שנה</li><li><strong>בגבעון</strong> - 44 שנה</li></ul>
+<p>שילה היא הגדולה שבתחנות. מעניין לגלות שהמספר 369 קרוב מאוד לגימטריה של השם "שילו" עצמו - קצת יותר ממנה. ובשילה של היום יש שחזור מרשים של המשכן ושל החצר שסביבו, וגם סיור וירטואלי שאפשר לראות דרך המחשב - ממש מדהים לראות איך זה נראה.</p>
+<p>את התחנות הקטנות - גלגל, נוב וגבעון - קשה לסמן על ציר זמן קטן של כל הדורות, אבל כדאי לדעת שהן היו שם, ברצף אחד, עד שנבנה הבית.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: המלכים והנביאים הגדולים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">מלכים, נביאים, וגלות בבל</h2></div></div>
+<p class="chapter-intro">תקופת בית ראשון מלאה מלכים ונביאים. אבל כשמסתכלים עליה על הציר, מתגלה בה תופעה מפתיעה: חור.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">המלכים והנביאים הגדולים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תקופת המלכים נפתחת בשאול המלך, ממשיכה בדוד המלך ובשלמה המלך שבנה את הבית - ואחריהם באים מלכים רבים, כל אחד מהם לזמן קצר יחסית, בממלכת יהודה ובממלכת ישראל.</p>
+<p>לצד המלכים עומדים הנביאים: אליהו, אלישע, יונה בן אמיתי, ישעיהו שפעל בימי חזקיהו המלך, ואחר כך ירמיהו שראה את החורבן בעיניו.</p>
+<p>בית המקדש הראשון עמד כארבע מאות שנה, ונחרב בידי נבוכדנצר מלך בבל.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מאה השנים הריקות ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מאה השנים הריקות</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והנה הדבר המוזר: מחזקיהו וישעיהו ועד ירמיהו, על ציר הדורות יש רווח ריק של כמאה שנה. אין שם נביא.</p>
+<p>האם באמת לא היו נביאים בשנים האלה? ודאי שהיו. ספר תרי עשר מלא נביאים, וחלקם פעלו כנראה בדיוק בתקופה הזאת. אבל אצל רבים מהם אין לנו מידע ברור מתי בדיוק חיו ובאיזו שנה ניבאו. ציר זמן אמין מסמן רק מה שידוע, ולכן נשאר החור.</p>
+<p>וגם המלכים שבאמצע, כמו יאשיהו - הם מלכים, לא נביאים.</p>
+<div class="honey-box">🍯 ציר זמן טוב יודע גם להודות במה שלא ידוע. חור על הציר איננו טעות - הוא כנות.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: שבעים שנה בבבל ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שבעים שנה בבבל</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי החורבן מגיעה גלות בבל. כמה זמן היא נמשכה? בסך הכל שבעים שנה, כפי שניבא ירמיהו. על הציר זה עובר מהר מאוד.</p>
+<p>בגלות הזאת ניבא יחזקאל. כדאי לדעת שיחזקאל לא ניבא בארץ ישראל בכלל - הוא גלה לבבל עוד לפני החורבן, יחד עם יהויכין המלך, ושם, בגלות, ראה את מראות הנבואה שלו.</p>
+<p>בסוף שבעים השנים - נס פורים.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: מי קבע את פורים לדורות? ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מי קבע את פורים לדורות?</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה יפה: מי קבע שנחגוג את פורים בכל הדורות? מרדכי ואסתר, כמובן - אבל לא לבד. מרדכי לא יכול להחליט לבד על חג לכל ישראל, ואסתר בוודאי לא.</p>
+<p>הגמרא מספרת שאסתר פנתה אל החכמים:</p>
+<blockquote>"שלחה להם אסתר לחכמים: קבעוני לדורות" (מגילה ז, א)</blockquote>
+<p>כלומר, היא ביקשה מחכמי הדור לקבוע את היום ואת המגילה לדורות. ומי הם החכמים של אותו דור? כנראה אלה שעומדים ממש על סף התקופה הבאה - אנשי כנסת הגדולה, שהיו בהם גם נביאים. החג נקבע בידי בית דין גדול של חכמי ישראל, ולכן יש לו תוקף לכל הדורות.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: אנשי כנסת הגדולה - ולמה דווקא 120? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">בית שני: כנסת הגדולה, הזוגות ונס חנוכה</h2></div></div>
+<p class="chapter-intro">חוזרים לארץ, בונים את הבית השני, ומתחילה שרשרת המסורה שמשנת אבות פותחת בה: משה, יהושע, זקנים, נביאים - ואנשי כנסת הגדולה.</p>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אנשי כנסת הגדולה - ולמה דווקא 120?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתחילת ימי הבית השני עולים לארץ עזרא ונחמיה, ואיתם אנשי כנסת הגדולה - 120 זקנים, ובהם גם הנביאים האחרונים.</p>
+<p>הם עשו דבר עצום: תיקנו את התפילה.</p>
+<blockquote>"אנשי כנסת הגדולה תקנו להם לישראל ברכות ותפלות, קדושות והבדלות" (ברכות לג, א)</blockquote>
+<p>עד אז רבים התפללו בלשונם ובמילים שלהם, ובני הגולה שחזרו מבבל הביאו איתם לשונות זרות. אנשי כנסת הגדולה נתנו לכל ישראל נוסח אחד, בלשון הקודש - ועד היום אנחנו מתפללים במילים שלהם.</p>
+<p>ונשארת שאלה מעניינת: למה 120? סנהדרין גדולה היא 71, אז מאיפה בא המספר הזה? יש לכך כמה הסברים אפשריים - למשל, שהמספר כולל את כל החכמים שישבו בה לאורך כל התקופה, ולא כולם בבת אחת. אגב, גם הכנסת של מדינת ישראל קיבלה את שמה ואת מספר חבריה, 120, בהשראת כנסת הגדולה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: שמעון הצדיק - האחד שנכנס למשנה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שמעון הצדיק - האחד שנכנס למשנה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ממאה ועשרים אנשי כנסת הגדולה, רק אחד זכה שהמשנה תזכיר אותו בשמו. במסכת אבות, אחרי שהמשנה מסכמת במשפט אחד את כל השרשרת ממשה רבנו ועד אנשי כנסת הגדולה, היא אומרת:</p>
+<blockquote>"שמעון הצדיק היה משירי כנסת הגדולה. הוא היה אומר: על שלשה דברים העולם עומד - על התורה ועל העבודה ועל גמילות חסדים" (אבות א, ב)</blockquote>
+<p>מעניין גם לחשוב איפה קבורים כל השאר. בשכונת סנהדריה בירושלים יש מערות קבורה עתיקות, סגורות בשער, שנקראות "קברי הסנהדרין". אבל ציון מסורתי שעולים אליו עד היום יש בעיקר לאחד - שמעון הצדיק, שקברו נמצא בסוף רחוב שמעון הצדיק בירושלים.</p>
+<p class="bold-para">מכל התקופה הגדולה הזאת - שם אחד שנשאר בשמו, במשנה ובציון.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: הזוגות, ויהושע בן פרחיה שברח למצרים ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הזוגות, ויהושע בן פרחיה שברח למצרים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי שמעון הצדיק מתחילה תקופת <strong>הזוגות</strong> - חמשה זוגות של חכמים שעמדו בראש העם, נשיא ואב בית דין: יוסי בן יועזר ויוסי בן יוחנן; יהושע בן פרחיה ונתאי הארבלי; יהודה בן טבאי ושמעון בן שטח; שמעיה ואבטליון; והלל ושמאי.</p>
+<p>על יהושע בן פרחיה מסופר בגמרא שבזמן רדיפת החכמים בידי ינאי המלך הוא נאלץ לברוח למצרים, ושם אירע סיפור מטלטל עם אחד מתלמידיו, שסטה מהדרך. קטעים מן הגמרא שעוסקים בכך נמחקו בעבר בידי הצנזורה ונדפסים היום מחדש. על סדר הדברים והשנים יש מחלוקת בין המסורת שבגמרא לבין מה שמקובל בכתבי ההיסטוריה, ולכן ציר הזמן מסמן כאן תקופה ולא תאריך חד.</p>
+<div class="honey-box">🍯 כשהמקורות חלוקים - עדיף לסמן תקופה מאשר לנחש שנה.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: נס חנוכה לא קרה ביום אחד ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">נס חנוכה לא קרה ביום אחד</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והנה התשובה לשאלה מההתחלה: מתי היה נס חנוכה? בתקופת הבית השני, בימי הזוגות - בערך מאתיים שנה לפני חורבן הבית. על ציר הדורות מסומן קו מיוחד באמצע התקופה הזאת.</p>
+<p>וכדאי לדעת עוד דבר: נס חנוכה לא קרה ביום אחד, כמו שהוא מצטייר בסיפורי הילדים - קמו, מרדו, ובשבוע הבא כבר נכנסו לבית המקדש. מאז שמתתיהו בן יוחנן הכהן הגדול יצא למלחמה ועד שבניו השיגו עצמאות מלאה, עברו יותר מעשרים שנה של מאבק.</p>
+<p>זה מזכיר את הדרך הארוכה של דורנו: גם מהימים שבהם התחילו להתארגן להגנה על היישוב היהודי בארץ ועד הקמת המדינה עברו עשרות שנים של מאמץ, קורבנות ותקוות.</p>
+<p class="bold-para">הנס הגדול צמח מתוך שנים ארוכות של מסירות.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מהלל ושמאי ועד החורבן ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מהלל ושמאי ועד החורבן</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בכל ימי הזוגות כמעט אין מחלוקות בתורה. המחלוקות הגדולות מתחילות רק בסוף התקופה - אצל הלל ושמאי ותלמידיהם, בית הלל ובית שמאי.</p>
+<p>אחרי הלל באים צאצאיו, נשיאי ישראל: רבן שמעון בנו ורבן גמליאל הזקן. ובסוף התקופה עומד רבן יוחנן בן זכאי - האיש שראה את החורבן, יצא מירושלים הנצורה וביקש מאספסיינוס: "תן לי יבנה וחכמיה". הוא דאג שהתורה תמשיך לחיות גם בלי בית המקדש.</p>
+<p>וכאן, ממש בנקודה הזאת, משנים את שיטת הספירה.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: החורבן - כמעט באפס ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מהחורבן ועד הגאונים: עוברים לספירה הלועזית</h2></div></div>
+<p class="chapter-intro">מחורבן הבית השני כבר לא כדאי לספור בתאריך העברי - 3000 ומשהו, 4000 ומשהו, זה קשה לזכירה. עוברים לספירה הלועזית, והכל נעשה פשוט להפליא.</p>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">החורבן - כמעט באפס</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הכלל הוא: <strong>החורבן קרה כמעט בתחילת הספירה הלועזית</strong> - בשנת 70 לספירה. לצורך הזיכרון, תחשבו עליו כעל "נקודת האפס". משם מתחילים לספור, והכל נבנה בקפיצות עגולות ונוחות.</p>
+<p>נסו לחשב בתאריך העברי מתי נולד רש"י - תגלו מיד כמה זה מסובך. אבל בספירה הלועזית, כמו שנראה, כל תקופה מקבלת מספר עגול שקל לזכור.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: התנאים: מ-70 ועד 200 ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">התנאים: מ-70 ועד 200</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תקופת התנאים היא תקופת המשנה. היא נפתחת ברבן יוחנן בן זכאי וחמשת תלמידיו הגדולים: רבי אליעזר בן הורקנוס, רבי יהושע בן חנניה, רבי יוסי הכהן, רבי שמעון בן נתנאל ורבי אלעזר בן ערך.</p>
+<p>אחריהם בא רבי עקיבא, תלמידם, שהעמיד תלמידים חדשים אחרי שתלמידיו הראשונים מתו: רבי מאיר, רבי יהודה, רבי יוסי, רבי שמעון בר יוחאי ורבי אלעזר בן שמוע.</p>
+<p>ובסוף התקופה עומד רבי יהודה הנשיא, שחתם את המשנה.</p>
+<p><strong>תקופת התנאים מסתיימת בערך בשנת 200 לספירה.</strong> קל לזכור: מהחורבן ועד 200.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: אחרי החורבן: איך התורה הגיעה לבבל ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">אחרי החורבן: איך התורה הגיעה לבבל</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב להבין: אחרי החורבן, מרכז התורה לא עבר מיד לבבל. החכמים נשארו בארץ ישראל ועברו ממקום למקום - יבנה, אושא, שפרעם, בית שערים, ציפורי וטבריה.</p>
+<p>המכה הקשה באמת באה בשנות ה-130 לספירה, עם מרד בר כוכבא וכישלונו. הרומאים החריבו את ירושלים, אסרו על היהודים לגור בה, ורבים יצאו מן הארץ - חלקם רחוק, לכל קצוות העולם.</p>
+<p>ולמה דווקא לבבל? כי שם כבר הייתה קהילה יהודית ותיקה וגדולה, עוד מימי גלות בית ראשון - הצאצאים של אלה שלא עלו עם עזרא. בתקופת התנאים כמעט לא היה שם מרכז תורה של ממש, אבל הקרקע הייתה מוכנה.</p>
+<p>המפנה הגדול הוא רב - תלמידו של רבי יהודה הנשיא - שירד מארץ ישראל לבבל. מאז, לאט לאט, בבל נעשית מרכז התורה של העם.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: האמוראים: מ-200 ועד 500 ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">האמוראים: מ-200 ועד 500</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי התנאים באים <strong>האמוראים</strong> - חכמי הגמרא. התקופה נמשכת כשלוש מאות שנה, מ-200 ועד 500 לספירה.</p>
+<p>בתקופה הזאת יש שני מרכזים: בארץ ישראל נכתב התלמוד הירושלמי, ובבבל - התלמוד הבבלי, בישיבות הגדולות של סורא ונהרדעא ואחר כך פומבדיתא.</p>
+<p>בסוף התקופה רבינא ורב אשי חותמים את התלמוד הבבלי.</p>
+<div class="honey-box">🍯 התנאים: עד 200. האמוראים: עד 500. שני מספרים עגולים - ויש לך את כל ימי המשנה והגמרא.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: מאתיים שנה בשקט: הסבוראים ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מאתיים שנה בשקט: הסבוראים</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משנת 500 ועד 700 בערך יש תקופה שכמעט אין לנו עליה ידע - <strong>תקופת הסבוראים</strong>. מכירים כמה שמות של חכמים מהזמן הזה, אבל כמעט שום דבר עליהם: לא סיפורים, לא תולדות חיים. אם תבקשו לספר משהו על אחד מהם - יהיה קשה מאוד למצוא.</p>
+<p>באותן שנים בערך קם האסלאם, ופני העולם שסביב היהודים בבבל השתנו.</p>
+<p>הסבוראים עשו עבודה שקטה וחשובה: הם עברו על התלמוד, סידרו והשלימו אותו - אבל את שמם כמעט לא השאירו.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: הגאונים: מ-700 ועד 1000 ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הגאונים: מ-700 ועד 1000</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מ-700 ועד 1000 בערך - <strong>תקופת הגאונים</strong>, ראשי הישיבות הגדולות בבבל. כאן כבר יש הרבה שמות מוכרים: רב יהודאי גאון, רב אחאי גאון בעל השאלתות, רב עמרם גאון שסידר את סידור התפילה, רב שרירא גאון ורב האי גאון.</p>
+<p>וגדול מכולם במפעל הכתיבה - רב סעדיה גאון. הוא חיבר חיבורים רבים: תרגום ופירוש לתורה, ספר באמונה ובדעות, סידור, ספרי דקדוק ועוד - ורבים מהם קיימים בידינו עד היום. לחלק מן הגאונים יש גם פירושים לגמרא שהגיעו אלינו.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: החיפוש בציר: איפה נמצא אונקלוס? ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">החיפוש בציר: איפה נמצא אונקלוס?</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איפה חי אונקלוס, שתרגם את התורה לארמית? רבים חושבים שהוא היה בתקופה מאוחרת, בערך בזמן הגאונים. אבל זה לא נכון.</p>
+<p>כדי לבדוק, משתמשים בחיפוש שבראש עמוד ציר הדורות: כותבים "אונקלוס", והעמוד קופץ אליו. ומתברר שהוא חי בתקופת התנאים, בערך מ-60 ועד 130 לספירה. גם הגמרא אומרת זאת במפורש:</p>
+<blockquote>"תרגום של תורה אונקלוס הגר אמרו מפי רבי אליעזר ורבי יהושע" (מגילה ג, א)</blockquote>
+<p>כלומר, הוא למד מפי תלמידיו של רבן יוחנן בן זכאי.</p>
+<p class="bold-para">כשיש ספק - לא מנחשים, בודקים בציר.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: הראשונים: מ-1000 ועד 1500 ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">ראשונים, אחרונים ודורנו</h2></div></div>
+<p class="chapter-intro">האלף השני של הספירה מתחלק לשני חצאים מושלמים: חמש מאות שנה של ראשונים, וחמש מאות שנה של אחרונים.</p>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הראשונים: מ-1000 ועד 1500</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עם תחילת האלף השני לספירה מתחילה <strong>תקופת הראשונים</strong>. על הגבול שבין הגאונים לראשונים עומדים רבנו גרשום מאור הגולה והרי"ף.</p>
+<p>אחריהם, בסדר הזמנים: רש"י, בעלי התוספות ורבנו תם נכדו של רש"י, הרמב"ם, הרמב"ן, רבנו יונה, הרשב"א והרא"ש, ובנו של הרא"ש - בעל הטורים.</p>
+<p>כדי להרגיש את המרחקים: רש"י נפטר בשנת 1105, והרא"ש נולד בערך מאה וחמישים שנה אחר כך. שניהם "ראשונים" - אבל ביניהם עברו דורות שלמים.</p>
+<p>זו תקופה עשירה מאוד, אולי תקופת הזהב של חיבורי התורה. היו בה רדיפות קשות, אבל גם ישיבות גדולות וחיבורים רבים - ורובם נשארו בידינו ואנחנו לומדים בהם עד היום.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: הבית יוסף, גירוש ספרד והפלא של צפת ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הבית יוסף, גירוש ספרד והפלא של צפת</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי פותח את <strong>תקופת האחרונים</strong>? המקובל הוא שהבית יוסף, רבי יוסף קארו. הוא נולד ממש לפני גירוש ספרד, והיה ילד קטן כשמשפחתו גורשה. רבים ממגורשי ספרד נדדו לטורקיה, לצפון אפריקה ולמקומות נוספים.</p>
+<p>וכאן קורה דבר מופלא: המגורשים חיפשו מקום - ונוצר בצפת קיבוץ חד פעמי של גדולי תורה. כמעט כולם מגורשי ספרד או בניהם: הבית יוסף, האר"י הקדוש, האלשיך, בעל ספר חרדים ועוד. עד היום הם קבורים יחד בבית העלמין העתיק בצפת, זה ליד זה.</p>
+<p>הבית יוסף חיבר את השולחן ערוך, וקבע את ההלכה על פי שלושה עמודי ההוראה: הרי"ף, הרמב"ם והרא"ש.</p>
+<div class="honey-box">🍯 מתוך הגירוש הקשה צמח אחד המרכזים הגדולים של התורה בכל הדורות.</div>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: האחרונים: מ-1500 ועד 2000 ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האחרונים: מ-1500 ועד 2000</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האחרונים מקבלים בדיוק חמש מאות שנה - כמו הראשונים. כמה דמויות, לפי הסדר:</p>
+<ul class="story-list"><li><strong>הט"ז</strong> - מנושאי הכלים הראשונים על השולחן ערוך, סמוך לימי הרמ"א</li><li><strong>האור החיים הקדוש</strong> - עלה לארץ ישראל בשנות ה-1740, חי בירושלים פחות משנה ונפטר צעיר, בן 47 בלבד</li><li><strong>הרמח"ל</strong>, ובאותה תקופה בערך <strong>הבעל שם טוב</strong> - תחילת החסידות - ו<strong>הגאון מווילנא</strong></li><li><strong>רבי חיים מוולוז'ין</strong> - תלמיד הגאון, שהקים את ישיבת וולוז'ין</li><li><strong>רבי נחמן מברסלב</strong> - נינו של הבעל שם טוב, וראשית חסידות חב"ד</li><li><strong>הרב צבי הירש קלישר</strong> - מראשוני חובבי ציון, בשנות ה-1800</li><li><strong>הנצי"ב מוולוז'ין</strong>, <strong>הבן איש חי</strong>, <strong>החפץ חיים</strong> ו<strong>הכף החיים</strong></li></ul>
+<p>תקופת האחרונים נגמרת בשואה. עולם התורה של אירופה נחרב, הישיבות נחרבו - ומשהו גדול נסגר.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: דורנו - והעושר שלא היה כמותו ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דורנו - והעושר שלא היה כמותו</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי השואה וקום המדינה מתחילה תקופה חדשה: <strong>דורנו</strong>. בציר הדורות מופיעים בה, בין השאר: החזון איש, ולפניו בקצת הרב קוק; הרב עוזיאל והרב הרצוג; הבבא סאלי; הרבי מלובביץ'; רבי משה פיינשטיין; הרב שך, ועוד רבים.</p>
+<p>ולמי שרוצה להעמיק עוד - יש גם ספרים שמסכמים את כל הדורות, מאדם הראשון ועד ימינו, בקיצור ובבהירות.</p>
+<p>ויש דבר מיוחד בדור שלנו: אם שמים לב, זו אולי התקופה העשירה מכולן בגישה לתורה. כל מה שנכתב בכל הדורות - פתוח לפנינו, בספרים ובמסך, בלחיצה אחת. מה שגדולי הדורות חיפשו שנים בספריות רחוקות - נמצא היום בכיס של כל אחד.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: הסיכום שנכנס לכיס ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🧠</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">כל הבריאה בדקה אחת</h2></div></div>
+<p class="chapter-intro">וכך זוכרים את הכל, מההתחלה ועד הסוף, בכמה מספרים עגולים.</p>
+<article class="story-card" id="story-28" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הסיכום שנכנס לכיס</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p class="bold-para">עד החורבן - בתאריך העברי:</p>
+<ul class="story-list"><li>1948 - נולד אברהם אבינו (כמו שנת קום המדינה)</li><li>בערך 2400 - יציאת מצרים והכניסה לארץ ("ארבע מאות שנה")</li><li>בערך 2900 - נבנה הבית הראשון (480 שנה מיציאת מצרים)</li><li>בית ראשון עומד כארבע מאות שנה, ואחריו שבעים שנות גלות בבל</li><li>עולים בחזרה, ובית שני עומד כארבע מאות שנה</li></ul>
+<p class="bold-para">מהחורבן - בספירה הלועזית:</p>
+<ul class="story-list"><li>70 - החורבן, "נקודת האפס"</li><li>עד 200 - תנאים</li><li>200 עד 500 - אמוראים</li><li>500 עד 700 - סבוראים</li><li>700 עד 1000 - גאונים</li><li>1000 עד 1500 - ראשונים</li><li>1500 עד 2000 - אחרונים</li><li>ומשם - דורנו</li></ul>
+<p class="bold-para">זהו. כל הבריאה, בקיצור.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: שאל אביך ויגדך ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שאל אביך ויגדך</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה בכלל חשוב לדעת מי חי לפני מי? כי כך רואים איך התורה עוברת מדור לדור, מיד ליד, בלי הפסקה. "משה קיבל תורה מסיני ומסרה ליהושע" - והשרשרת ממשיכה, חוליה אחר חוליה, עד שהיא מגיעה אלינו.</p>
+<p>התורה עצמה מצווה אותנו להסתכל אחורה:</p>
+<blockquote>"זְכֹר יְמוֹת עוֹלָם בִּינוּ שְׁנוֹת דֹּר וָדֹר שְׁאַל אָבִיךָ וְיַגֵּדְךָ זְקֵנֶיךָ וְיֹאמְרוּ לָךְ" (דברים לב, ז)</blockquote>
+<p>מי שמכיר את הדורות יודע מאין הוא בא. כשאתה פותח רש"י, אתה יודע שאתה יושב ליד מי שחי לפני כאלף שנה. כשאתה אומר "שמעון הצדיק אומר", אתה שומע קול מתחילת הבית השני. וכשאתה מתפלל, אתה אומר את המילים של אנשי כנסת הגדולה.</p>
+<p class="bold-para">ואנחנו - החוליה הבאה בשרשרת.</p>
+<div class="honey-box">🍯 בפעם הבאה שמישהו שואל "מתי חי רש"י?" - תדעו לענות: בתחילת תקופת הראשונים, ממש אחרי שנת 1000.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
