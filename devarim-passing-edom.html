@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🗺️ טיול בעבר הירדן: עוברים ליד אדום</title>
+<meta name="description" content="מסע אל השנה הארבעים במדבר, בעקבות פרק ב בספר דברים: מי הם אדום, למה אסור להתגרות בהם, ולמה עם ישראל משלם על כל כוס מים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 22.10.2026 🍯</div>
+  <h1 class="hero-title">🗺️ טיול בעבר הירדן: עוברים ליד אדום</h1>
+  <p class="hero-subtitle">מסע אל השנה הארבעים במדבר, בעקבות פרק ב בספר דברים: מי הם אדום, למה אסור להתגרות בהם, ולמה עם ישראל משלם על כל כוס מים</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 3 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-5 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/n2QqRhk4GXg" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧭 יוצאים לטיול: השנה הארבעים</a><ul class="toc-stories"><li><a href="#story-1">איפה זה עבר הירדן המזרחי?</a></li><li><a href="#story-2">ארבעים שנה, והסוף כבר קרוב</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔴 התחנה הראשונה: אדום</a><ul class="toc-stories"><li><a href="#story-3">&quot;רב לכם סב את ההר הזה&quot;</a></li><li><a href="#story-4">למה קוראים להם אדום?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🤝 שלוש מצוות בגבול אדום</a><ul class="toc-stories"><li><a href="#story-5">&quot;אל תתגרו בם&quot;</a></li><li><a href="#story-6">למה עשו קיבל את הר שעיר?</a></li><li><a href="#story-7">משלמים על האוכל, ומשלמים גם על המים</a></li><li><a href="#story-8">&quot;לא חסרת דבר&quot;: אתם עשירים</a></li><li><a href="#story-9">סיכום התחנה הראשונה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">יוצאים לטיול: השנה הארבעים</h2></div></div>
+<p class="chapter-intro">פותחים את המפה ויוצאים למסע אל עבר הירדן המזרחי, בדיוק במקום שבו עמד עם ישראל לפני הכניסה לארץ.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">איפה זה עבר הירדן המזרחי?</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמסתכלים על המפה של ארץ ישראל, נהר הירדן עובר מצפון לדרום, מהכנרת ועד ים המלח. כל מה שנמצא ממערב לנהר - זה הצד שבו נמצאות ירושלים, חברון ובית לחם. וכל מה שנמצא ממזרח לנהר נקרא <strong>עבר הירדן המזרחי</strong>.</p>
+<p>שם, בצד המזרחי ובעיקר בחלק הדרומי שלו, עבר עם ישראל בסוף המסע הארוך במדבר. ושם גרו שלושה עמים שהתורה מספרת עליהם בפרק ב של ספר דברים: <strong>אדום, מואב ועמון</strong>.</p>
+<p>הטיול שלנו הוא טיול בשלושה מקומות. התחנה הראשונה: אדום.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: ארבעים שנה, והסוף כבר קרוב ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ארבעים שנה, והסוף כבר קרוב</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין את הפרק, צריך לדעת באיזו שנה אנחנו נמצאים. עם ישראל יצא ממצרים לפני ארבעים שנה. ארבעים שנה נדדו במדבר. ועכשיו זו <strong>השנה האחרונה</strong> של המסע.</p>
+<p>משה רבנו עומד לפני העם ונואם את הנאום הגדול של ספר דברים. הוא מזכיר להם את כל הדרך שעברו, תחנה אחרי תחנה. בפרק הראשון סיפר על המרגלים ועל החטא שבגללו נשארו במדבר. ובפרק השני מתחיל נושא חדש: הדרך אל הארץ.</p>
+<blockquote>ונפן ונסע המדברה דרך ים סוף כאשר דבר ה' אלי ונסב את הר שעיר ימים רבים</blockquote>
+<p>ימים רבים הסתובבו סביב הר שעיר. ועכשיו - הגיע הזמן להתקדם.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: &quot;רב לכם סב את ההר הזה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔴</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">התחנה הראשונה: אדום</h2></div></div>
+<p class="chapter-intro">הפסוקים מדברים על "בני עשו היושבים בשעיר". אבל לעם הזה יש שם מיוחד, ושם אחד שכל ילד מכיר.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;רב לכם סב את ההר הזה&quot;</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הקדוש ברוך הוא אומר למשה:</p>
+<blockquote>רב לכם סב את ההר הזה פנו לכם צפנה</blockquote>
+<p>מספיק להסתובב. עכשיו פונים צפונה, לכיוון ארץ ישראל. אבל הדרך עוברת ליד עם אחר:</p>
+<blockquote>ואת העם צו לאמר אתם עברים בגבול אחיכם בני עשו הישבים בשעיר וייראו מכם ונשמרתם מאד</blockquote>
+<p>שימו לב למילה <strong>"אחיכם"</strong>. התורה לא קוראת להם אויבים, אלא אחים. עשו היה אחיו של יעקב, ולכן הצאצאים של עשו הם בני דודים של עם ישראל.</p>
+<p>ואיך קוראים לעם הזה? בפסוקים כתוב "בני עשו" ו"שעיר" - אבל לעם יש שם אחר, ידוע מאוד.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: למה קוראים להם אדום? ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה קוראים להם אדום?</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השם של העם הוא <strong>אדום</strong>. ומאיפה הוא בא? מהסיפור המפורסם בספר בראשית, כשעשו חזר עייף מהשדה וראה את יעקב מבשל עדשים:</p>
+<blockquote>הלעיטני נא מן האדם האדם הזה כי עיף אנכי על כן קרא שמו אדום</blockquote>
+<p>העדשים היו אדומים, ועשו ביקש "מן האדום האדום הזה". מאז דבק בו השם אדום. ובהמשך התורה אומרת במפורש:</p>
+<blockquote>וישב עשו בהר שעיר עשו הוא אדום</blockquote>
+<p>אז עכשיו כל השמות מתחברים: <strong>עשו, אדום ושעיר</strong> - זה אותו עם. עשו הוא האבא, אדום הוא שם העם, ושעיר הוא שם ההר והארץ שבה הם גרים.</p>
+<div class="honey-box">🍯 טיפ לזכירה: עשו = אדום = שעיר. אדום כמו העדשים, שעיר כמו ההר.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;אל תתגרו בם&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🤝</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">שלוש מצוות בגבול אדום</h2></div></div>
+<p class="chapter-intro">עם ישראל חזק, והעם של אדום מפחד ממנו. דווקא ברגע הזה התורה מבקשת מעם ישראל להיזהר מאוד.</p>
+<article class="story-card" id="story-5" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אל תתגרו בם&quot;</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה אומרת "וייראו מכם" - בני אדום מפחדים מעם ישראל. ומיד אחר כך: "ונשמרתם מאד". דווקא כשאתה החזק, צריך להיזהר מאוד.</p>
+<blockquote>אל תתגרו בם כי לא אתן לכם מארצם עד מדרך כף רגל כי ירשה לעשו נתתי את הר שעיר</blockquote>
+<p>מה פירוש "אל תתגרו"? לא להתחיל איתם מלחמה, לא לעשות בלגן, לא להתגרות ולא להרגיז. גם כשהם מפחדים וגם כשאפשר היה לנצח אותם.</p>
+<p>ולמה? כי הארץ הזאת <strong>שייכת לעשו</strong>. הקדוש ברוך הוא נתן אותה לו בירושה, ואפילו כף רגל אחת ממנה לא תינתן לעם ישראל.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: למה עשו קיבל את הר שעיר? ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה עשו קיבל את הר שעיר?</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זו שאלה מעניינת. עשו לא היה צדיק. למה הקדוש ברוך הוא שמר לו ארץ, ואסר על עם ישראל לגעת בה?</p>
+<p>התשובה קשורה לאברהם אבינו. עשו הוא נכדו של יצחק ונינו של אברהם. רש"י מסביר שהר שעיר ניתן לעשו מתוך הארצות שהובטחו לזרעו של אברהם. הירושה של עשו היא בעצם ירושה מסבא רבא שלו.</p>
+<p>כלומר, הקדוש ברוך הוא שומר על ההבטחות שלו. אם הבטיח לאברהם, ההבטחה מגיעה גם לצאצאים שלו, אפילו לאלה שלא הלכו בדרכו.</p>
+<p class="bold-para">מה שהקדוש ברוך הוא נתן למישהו - אסור לנו לקחת.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: משלמים על האוכל, ומשלמים גם על המים ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">משלמים על האוכל, ומשלמים גם על המים</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ממשיכה התורה:</p>
+<blockquote>אכל תשברו מאתם בכסף ואכלתם וגם מים תכרו מאתם בכסף ושתיתם</blockquote>
+<p>אם אתם צריכים אוכל - קונים מהם בכסף. ואפילו מים - קונים בכסף. לא לוקחים בכוח ולא לוקחים בלי רשות. אפילו כוס מים, שבדרך כלל אף אחד לא מבקש עליה כסף, צריך לשלם עליה.</p>
+<p>למה כל כך מקפידים? הרי עם ישראל חזק, ואדום מפחד ממנו. בדיוק בגלל זה. כשאתה חזק, יש פיתוי לקחת. התורה מלמדת שגם מי שיכול לקחת - צריך לשלם.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;לא חסרת דבר&quot;: אתם עשירים ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;לא חסרת דבר&quot;: אתם עשירים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה הסיבה שהתורה נותנת? הפסוק הבא:</p>
+<blockquote>כי ה' אלקיך ברכך בכל מעשה ידך ידע לכתך את המדבר הגדל הזה זה ארבעים שנה ה' אלקיך עמך לא חסרת דבר</blockquote>
+<p>ארבעים שנה הקדוש ברוך הוא היה איתכם במדבר. היה לכם מן, הייתה לכם באר, הבגדים לא בלו. <strong>לא חסר לכם כלום.</strong> אתם עשירים! אז למה שתיקחו בלי לשלם?</p>
+<p>רש"י מסביר שהתורה אומרת לעם ישראל: אל תסתירו את הטובה שהקדוש ברוך הוא עשה לכם, ואל תתנהגו כאילו אתם עניים. תראו לכולם שאתם עשירים.</p>
+<p>מי שלוקח בלי לשלם אומר בעצם "אין לי". אבל מי שהקדוש ברוך הוא בירך אותו - צריך להראות את הברכה, ולשלם בכבוד.</p>
+<div class="honey-box">🍯 מי שמרגיש שלא חסר לו דבר, לא צריך לקחת משום אדם. התודה על מה שיש היא שמונעת את הרצון לקחת את מה שאין.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: סיכום התחנה הראשונה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">סיכום התחנה הראשונה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה למדנו בתחנה הראשונה של הטיול בעבר הירדן?</p>
+<ul class="story-list"><li><strong>שם העם:</strong> אדום, על שם העדשים האדומים של עשו</li><li><strong>שם הארץ:</strong> הר שעיר</li><li><strong>מה אסור:</strong> להתגרות בהם ולהתחיל איתם מלחמה, כי הארץ ניתנה לעשו בירושה</li><li><strong>מה צריך לעשות:</strong> לקנות מהם אוכל ומים בכסף</li><li><strong>למה:</strong> כי הקדוש ברוך הוא בירך את עם ישראל, וארבעים שנה לא חסר להם דבר</li></ul>
+<p>ואחרי אדום, הטיול ממשיך: התחנות הבאות הן מואב ועמון, עוד שני עמים שהתורה מצווה איך לנהוג בהם.</p>
+<p class="bold-para">גם כשאתה חזק, גם כשאתה יכול - מכבדים את מה ששייך לאחר.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
