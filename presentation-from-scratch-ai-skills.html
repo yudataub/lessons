@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎬 מצגת מאפס: מתוכן לעיצוב בלי לשלם על כלים</title>
+<meta name="description" content="איך שני סקילים, אחד לתוכן ואחד לעיצוב, הופכים את קלוד קוד וקודקס למכונה שבונה מצגות HTML מרהיבות עם בילדאפים, ומייצאת אותן לפאוורפוינט בלי שום דבר נשבר">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · בר · 26.10.2026 🍯</div>
+  <h1 class="hero-title">🎬 מצגת מאפס: מתוכן לעיצוב בלי לשלם על כלים</h1>
+  <p class="hero-subtitle">איך שני סקילים, אחד לתוכן ואחד לעיצוב, הופכים את קלוד קוד וקודקס למכונה שבונה מצגות HTML מרהיבות עם בילדאפים, ומייצאת אותן לפאוורפוינט בלי שום דבר נשבר</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-14 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/a1ft5T3fiR8" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">✨ מה מצגת יכולה להיות היום</a><ul class="toc-stories"><li><a href="#story-1">וויל סמית&#x27; אוכל ספגטי: שלוש שנים של קפיצה</a></li><li><a href="#story-2">פלטפורמה ישראלית אחת לכל כלי היצירה</a></li><li><a href="#story-3">בילדאפים: מצגת שנבנית מול העיניים</a></li><li><a href="#story-4">ארצות הברית, יפן ואתר בתוך שקף</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔄 HTML בחזית, פאוורפוינט ביד</a><ul class="toc-stories"><li><a href="#story-5">למה מצגת שהיא בעצם אתר</a></li><li><a href="#story-6">אותה מצגת, בלחיצת כפתור</a></li><li><a href="#story-7">עורכים באתר, מייצאים בסוף</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🧩 שני סקילים: מתקינים פעם אחת</a><ul class="toc-stories"><li><a href="#story-8">מה זה סקיל</a></li><li><a href="#story-9">איפה מוצאים אותם</a></li><li><a href="#story-10">ההתקנה: משפט אחד</a></li><li><a href="#story-11">קלוד קוד או קודקס</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🗣️ שלב התוכן: הסקיל מתחקר אתכם</a><ul class="toc-stories"><li><a href="#story-12">המילה &quot;מצגת&quot;</a></li><li><a href="#story-13">שאלות אמריקאיות שנבנות מהתשובות שלכם</a></li><li><a href="#story-14">להעלות קבצים כבר בהתחלה</a></li><li><a href="#story-15">בלי מגבלת שקפים, ובלי סגנון של AI</a></li><li><a href="#story-16">מחקר, אימות נתונים ושלוש פתיחות</a></li><li><a href="#story-17">טיוטה לפני עיצוב, ומקורות לבדיקה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🎨 שלב העיצוב: מתוכן למצגת חיה</a><ul class="toc-stories"><li><a href="#story-18">תוכנית ויזואלית לכל שקף</a></li><li><a href="#story-19">התחילו מחמישה שקפים</a></li><li><a href="#story-20">התוצאה: שבעה שקפים</a></li><li><a href="#story-21">מסר שמאחורי הדוגמה: לחשוב לטווח ארוך</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">✏️ עורכים בלי לפתוח קוד</a><ul class="toc-stories"><li><a href="#story-22">מצב עריכה</a></li><li><a href="#story-23">לבקש מקלוד בשפה פשוטה</a></li><li><a href="#story-24">סבלנות של כמה דקות</a></li><li><a href="#story-25">דרך נוספת: מצגת פשוטה ב-Notebook</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">💡 שאלות שחוזרות</a><ul class="toc-stories"><li><a href="#story-26">איפה נשמרת מצגת HTML ואיך מציגים אותה בכיתה</a></li><li><a href="#story-27">צבעים ופונטים קבועים, בלי לחזור על עצמך</a></li><li><a href="#story-28">לבנות מצגת ממחברות Notebook</a></li><li><a href="#story-29">סרטונים בתוך המצגת</a></li><li><a href="#story-30">למה לא Claude Design</a></li><li><a href="#story-31">גרפים שאינם עוד עמודות</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">✨</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">מה מצגת יכולה להיות היום</h2></div></div>
+<p class="chapter-intro">לפני שלומדים לבנות, כדאי לראות לאן אפשר להגיע. כמה דוגמאות שמראות כמה רחוק הגיעו מצגות שנבנות בעזרת בינה מלאכותית.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">וויל סמית&#x27; אוכל ספגטי: שלוש שנים של קפיצה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחת הדוגמאות המפורסמות ביותר בעולם הבינה המלאכותית היא סרטון של וויל סמית' אוכל ספגטי. ב-2023 הוא פתח את מרוץ הווידאו של ה-AI: דמות מעוותת, תנועות משונות, פנים שמשתנות מפריים לפריים. אז זה נראה כמו קסם. היום זה נראה מצחיק.</p>
+<p>כשמריצים את אותה בקשה בדיוק בכלי של היום, התוצאה כמעט לא ניתנת להבחנה מצילום אמיתי. ההשוואה הזאת, שני הסרטונים זה לצד זה, היא אולי ההסבר הכי טוב לשאלה "כמה השתנה".</p>
+<p>והדבר המעניין: שני הסרטונים רצים בתוך מצגת. לא קישור שצריך לפתוח, לא חלון נפרד, אלא וידאו שמתנגן בתוך השקף עצמו.</p>
+<div class="honey-box">🍯 מצגת טובה היום יכולה להחזיק בתוכה וידאו, אתר נגלל ואנימציה, לא רק טקסט ותמונה.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: פלטפורמה ישראלית אחת לכל כלי היצירה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">פלטפורמה ישראלית אחת לכל כלי היצירה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חלק מהדוגמאות נוצרו בקדברה, פלטפורמה ישראלית שמאגדת בתוכה כלי AI רבים מעולם היצירה: תמונות, וידאו, קול, אווטארים. יש לה שני יתרונות בולטים למשתמש הישראלי: היא בעברית, והיא עובדת בקרדיטים ולא במנוי. קונים קרדיטים, והם נשארים זמינים כמה חודשים, במקום לשלם כל חודש גם כשלא משתמשים.</p>
+<p>בין הדוגמאות שאפשר ליצור בה: סרטון פרסומי בסגנון של מותג ספורט גדול, ואווטאר שנראה ונשמע בדיוק כמו האדם האמיתי, כולל דיבור באנגלית שהוא עצמו לא אמר מעולם.</p>
+<p>אבל כל אלה הם רק התוכן. השאלה הגדולה היא איך מכניסים אותו למצגת שנראית מקצועית באמת.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: בילדאפים: מצגת שנבנית מול העיניים ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בילדאפים: מצגת שנבנית מול העיניים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הבעיה הכי גדולה בכלי מצגות ה-AI המוכרים היא שהם מוציאים שקף אחד, שטוח, שנראה כמו אלף שקפים אחרים. אין בו ייחוד, ואין בו את מה שמבדיל מצגת מקצועית: <strong>בילדאפים</strong>.</p>
+<p>בילדאפ הוא שקף שנבנה בשלבים. לוחצים, ומופיעה שורה. לוחצים שוב, ומצטרפת תמונה. לוחצים שוב, ומספר רץ מאפס עד 620,000. השקף מספר סיפור, ולא שופך הכול על המסך בבת אחת.</p>
+<p>דוגמה: שקף היכרות שבלחיצה הראשונה מציג את מספר העוקבים, בשנייה את המקומות שבהם ניתנו הרצאות, ובשלישית את החברות שעבדו איתן. שקף אחד, שלושה רגעים.</p>
+<p class="bold-para">שקף עם בילדאפים שווה כמה שקפים, כי הקהל מקשיב לשלב אחד בכל פעם.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: ארצות הברית, יפן ואתר בתוך שקף ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ארצות הברית, יפן ואתר בתוך שקף</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמה דוגמאות שממחישות מה אפשר:</p>
+<ul class="story-list"><li>מצגת קצרה שפותחת בשאלה "מה הופך 13 מושבות על חוף אחד למעצמה הגדולה בעולם?" ומלווה בנקודות, בתמונות ובמספרים שעולים, את התפתחותה של ארצות הברית.</li><li>מצגת שנועדה לשכנע לטוס ליפן: אוכל, טבע, תרבות, ערים, והנופים והצבעים מתחלפים בכל שקף.</li><li>דף נחיתה שלם בתוך שקף, שאפשר ממש לגלול בו.</li><li>שקף שמדמה הקלדה של פרומפט, אות אחר אות.</li><li>שקף שמסביר MCP, היכולת לחבר כלים כמו GPT וקלוד לשירותים של גוגל ושל מייקרוסופט, בצורה ויזואלית וברורה.</li></ul>
+<p>אלה מצגות שנועדו ללוות דובר. הן לא מחליפות אותו, אלא נותנות לו במה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: למה מצגת שהיא בעצם אתר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔄</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">HTML בחזית, פאוורפוינט ביד</h2></div></div>
+<p class="chapter-intro">מצגת יפה באתר היא נהדרת, אבל רבים חייבים לשלוח פאוורפוינט. כאן נפתרת הבעיה שכלים אחרים נכשלים בה.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה מצגת שהיא בעצם אתר</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל הדוגמאות שלמעלה הן מצגות HTML. בפועל, זה אתר קטן: אפשר לשלוח אותו בקישור, לפתוח אותו מכל מחשב, ולהציג אותו בלי שום תוכנה מיוחדת. בדיוק בגלל זה אפשר להכניס לתוכו וידאו, גלילה, אנימציות ומספרים שרצים.</p>
+<p>אבל יש בעיה אמיתית. אנשים רבים עובדים בארגונים שבהם הכול חייב להישמר ולהישלח בפאוורפוינט או ב-Google Slides. והתלונה הכי נפוצה על כלי המצגות של ה-AI היא שברגע שמייצאים לפאוורפוינט, הכול נשבר: העברית מתהפכת, הסוגריים מתבלבלים, העיצוב מתפרק.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: אותה מצגת, בלחיצת כפתור ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אותה מצגת, בלחיצת כפתור</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל מצגת שנבנית עם הסקילים שבספר הזה יוצאת גם כקובץ פאוורפוינט, וגם כ-PDF למי שמעדיף. וזה לא צילום של השקפים: זו אותה מצגת, עם אותם בילדאפים. לוחצים בפאוורפוינט, ומופיעה השורה הבאה, בדיוק כמו באתר.</p>
+<p>העברית עוברת שלמה, הכיתוב במקומו, שום דבר לא נשבר. ההבדלים קטנים: מספר שרץ מאפס למעלה יופיע בפאוורפוינט כמספר קבוע, ומעבר שמתחלף בתוך אותו שקף יהיה מעט פחות חלק. אלה פרטים שלא הורסים כלום.</p>
+<p>השיטה נבדקה על עשרות מצגות, וכולן עברו חלק, כולל הבילדאפים.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: עורכים באתר, מייצאים בסוף ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עורכים באתר, מייצאים בסוף</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עצה חשובה במיוחד: גם אם המטרה הסופית היא קובץ פאוורפוינט, את כל העריכות עושים בגרסת ה-HTML.</p>
+<p>למה? כי שם הכול קל ומהיר יותר, והאפשרויות רחבות הרבה יותר. מוסיפים, מוחקים, מזיזים, מבקשים שינוי בשפה פשוטה, ורואים אותו מיד. רק כשהכול מושלם מייצאים, וכל שינוי שנעשה באתר משתקף בקובץ.</p>
+<p>ואם בכל זאת מתגלה משהו שלא מסתדר בפאוורפוינט, למשל טקסט שקשה לערוך, לא נאבקים בו שם. חוזרים ל-HTML, מתקנים, ומבקשים לייצא מחדש.</p>
+<div class="honey-box">🍯 HTML הוא שולחן העבודה, פאוורפוינט הוא האריזה.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מה זה סקיל ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🧩</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">שני סקילים: מתקינים פעם אחת</h2></div></div>
+<p class="chapter-intro">כל הקסם נשען על שני תהליכי עבודה מוכנים. ההתקנה לוקחת דקה.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה זה סקיל</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סקיל הוא תהליך עבודה ארוז. מתקינים אותו פעם אחת בקלוד קוד או בקודקס (וכיום גם בכלים נוספים), ומאותו רגע הכלי יודע לבצע את כל התהליך בעצמו, צעד אחר צעד, בלי שצריך להסביר לו מחדש בכל פעם.</p>
+<p>כאן יש שניים, שעובדים כזוג:</p>
+<ul class="story-list"><li><strong>סקיל התוכן</strong>: מתחקר אתכם, עושה מחקר באינטרנט, וכותב את התוכן של כל שקף.</li><li><strong>סקיל העיצוב</strong>: לוקח את התוכן המאושר ובונה ממנו מצגת מעוצבת, עם תמונות, בילדאפים וייצוא.</li></ul>
+<p>חשוב: צריך להתקין את שניהם יחד. בסוף שלב התוכן, הסקיל הראשון מציע בעצמו לעבור לעיצוב, וזה לא יעבוד אם השני חסר.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: איפה מוצאים אותם ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">איפה מוצאים אותם</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסקילים נמצאים בספריית הסקילים של מועדון AI פרקטי. מחפשים בגוגל "סקילים AI פרקטי", נכנסים לספרייה, ומחפשים את "מצגת מאפס": סקיל לתוכן וסקיל לעיצוב. המועדון עצמו בתשלום, אבל שני הסקילים האלה פתוחים בחינם.</p>
+<p>בדף ההורדה יש חלוקה בין Windows ל-Mac. לוחצים על הורדה לכל אחד מהשניים, והקבצים נשמרים בתיקיית ההורדות.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: ההתקנה: משפט אחד ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ההתקנה: משפט אחד</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי ההורדה פותחים שיחה חדשה בקלוד קוד או בקודקס, וכותבים משפט פשוט:</p>
+<blockquote>תתקין לי את שני הסקילים האחרונים על מצגות שנמצאים בתיקיית ההורדות</blockquote>
+<p>זה הכול. ייתכן שהכלי יבקש אישור הרשאה, ואחר כך הוא מתקין. דרך נוספת: לגרור את הקובץ עצמו לחלון השיחה ולכתוב "תתקין את הסקיל".</p>
+<p>הסקילים נבנו ואומנו באופן אישי, לא נלקחו מהאינטרנט, ולכן הם נקיים לגמרי.</p>
+<p class="bold-para">שתי הורדות, משפט אחד, ומצגות מקצועיות זמינות לתמיד.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: קלוד קוד או קודקס ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">קלוד קוד או קודקס</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התהליך זהה אחד לאחד בשני הכלים: אותה התקנה, אותה מילת הפעלה, אותן שאלות. לקודקס יש אפילו יתרון אחד: הוא יודע ליצור תמונות AI בעצמו, ולא רק לחפש תמונות ברשת.</p>
+<p>ומה עם Copilot של מייקרוסופט? הסקילים עדיין לא הותאמו לו כולם, וההתאמה בדרך. מי שלא רוצה לחכות יכול לבקש מקלוד קוד או מקודקס לבדוק אם הסקיל עומד בכל הסטנדרטים של Copilot ולהתאים אותו. עדיף לעשות את ההתאמה דווקא בהם, כי הם עושים אותה טוב יותר.</p>
+<p>ואזהרה למי שמחפש חינם: הגרסה החינמית של קלוד מוגבלת מאוד ונעצרת אחרי פעולות ספורות. למי שעובד בחינם, Gemini ו-Notebook מתאימים יותר.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: המילה &quot;מצגת&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🗣️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">שלב התוכן: הסקיל מתחקר אתכם</h2></div></div>
+<p class="chapter-intro">מילה אחת מפעילה את הכול. מכאן הסקיל שואל, חוקר וכותב, ואתם רק בוחרים. הדוגמה: מצגת על הבורסה בישראל מאז השבעה באוקטובר.</p>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">המילה &quot;מצגת&quot;</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פותחים שיחה חדשה וכותבים מילה אחת: <strong>מצגת</strong>. זו מילת ההפעלה. הסקיל שואל: "האם ליצור רק תוכן למצגת?" עונים כן, ומכאן הוא יודע שתפקידו לכתוב את התוכן.</p>
+<p>השאלה הראשונה פתוחה: במה עוסקת המצגת. לדוגמה: "מצגת על מצב הבורסה בישראל מתחילת המלחמה, בשבעה באוקטובר 2023, ועד היום".</p>
+<p>הנושא משנה הרבה. מצגת על בורסה תדרוש גרפים ונתונים, ומצגת על טיול תדרוש נופים ותמונות. הסקיל מבין את זה ומתאים את עצמו.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: שאלות אמריקאיות שנבנות מהתשובות שלכם ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שאלות אמריקאיות שנבנות מהתשובות שלכם</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכאן הסקיל ממשיך בשאלות עם אפשרויות לבחירה. אבל אין כאן שאלון קבוע: כל שאלה נבנית לפי מה שעניתם קודם.</p>
+<p>בדוגמת הבורסה הוא שאל:</p>
+<ul class="story-list"><li><strong>איזו זווית?</strong> ציר זמן של הנפילה, ההתאוששות והשיאים; מה הניע את השוק, כולל הורדת דירוג האשראי והתחזקות השקל; או סקטורים ומניות. נבחר "הסיפור של השוק".</li><li><strong>מה הקהל ייקח?</strong> להבין מה קרה, לשנות תפיסה, להפיק לקחים. נבחר: שאנשים לא יישברו בירידות.</li><li><strong>למי המצגת?</strong> לקהל הרחב.</li><li><strong>כמה זמן?</strong> עד 10 דקות.</li><li><strong>איזה סגנון?</strong> ענייני ומקצועי.</li><li><strong>תוכן קיים או מאפס?</strong> מאפס.</li><li><strong>המסר המרכזי?</strong> חוסן מנצח משבר בהשקעות.</li></ul>
+<p>בכל שאלה יש גם שדה חופשי. אפשר תמיד לכתוב בעברית מה שרוצים במקום לבחור.</p>
+<div class="honey-box">🍯 הסקיל לא רק מקבל הוראות, הוא מוציא מכם את מה שאתם יודעים.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: להעלות קבצים כבר בהתחלה ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">להעלות קבצים כבר בהתחלה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כבר בשאלה הראשונה אפשר לצרף קבצים: מסמכים, מאמרים, מצגת ישנה שרוצים לשדרג. כשהחומר מגיע בהתחלה, כל השאלות שאחריו נבנות סביבו.</p>
+<p>דוגמה מהחיים: ארבעה קבצים, ואחד מהם צילום ישן ודהוי של פרק שלם מספר באנגלית, כזה שלא היה ברור אם אפשר בכלל לקרוא אותו. הסקיל קרא, הבין, ובנה מהם את כל השאלות ואת המצגת.</p>
+<p>אפשר להוסיף חומר גם באמצע, אבל אז השאלות הקודמות כבר לא התייחסו אליו.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: בלי מגבלת שקפים, ובלי סגנון של AI ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בלי מגבלת שקפים, ובלי סגנון של AI</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בניגוד לכלים שבגרסה החינמית מגבילים לעשרה שקפים, כאן אין תקרה. וכל שקף יכול להכיל בילדאפים, כך שבפועל הוא שווה כמה שקפים.</p>
+<p>בסקיל מובנה גם מנגנון שמזהה "AI slop", הסימנים המובהקים של טקסט שנכתב על ידי מכונה, כמו מקפים ארוכים בכל משפט ונקודות מיותרות. ברוב המוחלט של המקרים הוא מעלים אותם. מי שבכל זאת רוצה סגנון כזה, צריך רק לבקש.</p>
+<p>הסקיל גם בנוי על ניתוח של מצגות מצליחות רבות, ולכן המבנה שהוא מציע לא שרירותי.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מחקר, אימות נתונים ושלוש פתיחות ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מחקר, אימות נתונים ושלוש פתיחות</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי השאלות הסקיל יוצא לאינטרנט, אוסף נתונים ומאמת אותם. בדוגמה, כל שלב השאלות לקח כשש דקות.</p>
+<p>ואז מגיעה הפתיחה, תמיד בשלוש גרסאות:</p>
+<ul class="story-list"><li>שאלה לקהל: "8 באוקטובר, הבורסה נפתחת. למכור או להחזיק?"</li><li>נתון מפתיע: כמה אחוזים עלה המדד מאז.</li><li>תרחיש מוכר: "אתם פותחים את אפליקציית ההשקעות, הכול אדום, והאצבע כבר על 'מכור'."</li></ul>
+<p>בוחרים אחת, מציעים משהו אחר, או מבקשים ממנו עוד הצעות. אחר כך מגיע מבנה השקפים: הנפילה, המבנה, הורדות הדירוג, שנת השיאים, הלקחים, וסיום בשלושה לקחים. אפשר להוסיף, להוריד, לשנות סדר. הכול פתוח.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: טיוטה לפני עיצוב, ומקורות לבדיקה ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">טיוטה לפני עיצוב, ומקורות לבדיקה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני שנבנה שקף אחד, הסקיל מציג טיוטה מלאה של כל התוכן. הרעיון: לא לבנות מצגת ואז לתקן בתוכה, אלא לתקן מראש, כשהשינוי עוד זול.</p>
+<p>לצד הטיוטה מופיעים המקורות שמהם נלקח כל נתון. כדאי מאוד לבדוק אותם. הבינה המלאכותית מדייקת הרבה, אבל לא תמיד.</p>
+<p>בסוף הוא שואל אם אתם מרוצים. עונים כן, והוא מציע את כיוון העיצוב: פלטת צבעים (בדוגמה: כחול, לבן, ירוק, אדום ואפור) ופונטים. אפשר לבקש צבעי מותג, לוגו בכל שקף, או אפילו לשלוח קישור לאתר שאהבתם ולבקש בדיוק את הצבעים שלו.</p>
+<p class="bold-para">מצגת היא פלסטלינה: תמיד אפשר לשנות, גם אחרי שנבנתה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: תוכנית ויזואלית לכל שקף ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🎨</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">שלב העיצוב: מתוכן למצגת חיה</h2></div></div>
+<p class="chapter-intro">אומרים "כן, תעבור לעיצוב", והסקיל השני נכנס לפעולה: מתכנן, מחפש תמונות, ובונה.</p>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">תוכנית ויזואלית לכל שקף</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סקיל העיצוב שואל שתיים-שלוש שאלות לפי ההקשר, ואז מציג בדיוק מה יופיע בכל שקף, שלב אחר שלב.</p>
+<p>למשל, בשקף הפתיחה: טלפון במרכז המסך עם אפליקציית השקעות, כל השורות והגרפים בתוכו אדומים, ומעליו התאריך 8 באוקטובר 2023. בלחיצה הראשונה מופיע "אתם פותחים את אפליקציית ההשקעות, הכול אדום". בלחיצה השנייה, כפתור "מכור" אדום.</p>
+<p>אוהבים? אומרים לו לבנות. לא אוהבים? אומרים מה לשנות. מכאן הוא מחפש צילומים מתאימים, צילום מהמלחמה, צילום מהבורסה, ובונה. בקלוד קוד אפשר לראות את סדר הפעולות שלו בזמן אמת.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: התחילו מחמישה שקפים ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">התחילו מחמישה שקפים</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מצגת קטנה נבנית בכמה דקות. מצגת של 30 או 40 שקפים יכולה לקחת 40 דקות ואפילו שעה, תלוי בכמות המחקר והתמונות. זה בסדר, ולא צריך להיבהל.</p>
+<p>אבל במצגת גדולה כדאי לעבוד בשלבים: לבקש קודם את חמשת השקפים הראשונים, לראות שזה עובד ושזה נראה כמו שדמיינתם, לתקן, ורק אז להמשיך לחמישה הבאים.</p>
+<p>זה עובד טוב יותר גם טכנית וגם מנטלית: קשה מאוד להסתכל על עשרות שקפים ולהבין מה לתקן בכל אחד. על חמישה זה קל.</p>
+<div class="honey-box">🍯 מצגת גדולה בונים כמו בית: קומה אחר קומה.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: התוצאה: שבעה שקפים ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">התוצאה: שבעה שקפים</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המצגת נפתחת בדפדפן. הטלפון האדום והתאריך, ובכל לחיצה מצטרף עוד קטע. אחר כך הנפילה: מדד תל אביב צונח ביום אחד, נתון אחרי נתון, שפל של 12% מתחת לרמה שלפני המלחמה, ובתוך פחות משלושה חודשים, המפנה.</p>
+<p>בהמשך: חמש הורדות בדירוג האשראי, ובאותו זמן מדד תל אביב עולה. אחר כך שנת השיאים, ובסוף חזרה לשורה התחתונה: מי שמכר בבהלה פספס את ההתאוששות.</p>
+<p class="bold-para">חוסן מנצח משבר.</p>
+<p>בתחתית המסך יש סרגל: תצוגה של כל השקפים ודילוג ביניהם, מסך מלא, והערות דובר.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: מסר שמאחורי הדוגמה: לחשוב לטווח ארוך ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מסר שמאחורי הדוגמה: לחשוב לטווח ארוך</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הדוגמה נבחרה לא במקרה. הבורסה נפלה בשבעה באוקטובר, וזה קרה גם קודם: בקורונה ובתחילת 2022. בכל פעם כזאת אנשים נבהלים ומוציאים את הכסף, ובדיוק אז הם מפספסים את ההתאוששות.</p>
+<p>זו לא המלצת השקעה ולא ייעוץ, אלא מחשבה אישית: מי שמשקיע, בבורסה בישראל או בכל מקום אחר, כדאי שיחשוב לטווח ארוך.</p>
+<p>והמסר הזה ממחיש עוד משהו: הסקיל לא רק מעצב נתונים, הוא בונה סביבם סיפור עם התחלה, מתח ופואנטה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: מצב עריכה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">✏️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">עורכים בלי לפתוח קוד</h2></div></div>
+<p class="chapter-intro">המצגת מוכנה, אבל זה רק ההתחלה. כל מה שכלי המצגות בתשלום מציעים, אפשר לעשות כאן.</p>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מצב עריכה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לוחצים על "עריכה", ובראש המסך נפתח סרגל כלים:</p>
+<ul class="story-list"><li><strong>שקף חדש</strong>: הוא שואל על מה לבנות אותו.</li><li><strong>שכפול ומחיקה</strong> של שקפים.</li><li><strong>תיבת טקסט</strong> להוספה ידנית.</li><li><strong>העלאת תמונה</strong> מהמחשב, ישר לתוך השקף.</li><li><strong>קוד QR</strong>: מדביקים קישור, מוסיפים כיתוב, והקוד מופיע. מתאים במיוחד לשקף הסיום.</li><li><strong>הזזה חופשית</strong> של רכיבים בגרירה.</li></ul>
+<p>ולמעלה, תמיד, כפתור ביטול. כל טעות ניתנת לתיקון בלחיצה.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: לבקש מקלוד בשפה פשוטה ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לבקש מקלוד בשפה פשוטה</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מעבר לכלים הידניים, אפשר לכתוב בקשה לשקף הנוכחי, ממש מתוך המצגת. לדוגמה, בשקף הפתיחה: "תחליף את הטלפון המצויר לאייפון אמיתי, פתוח על אפליקציית השקעות".</p>
+<p>הבקשה נשלחת לקלוד, והוא עובד ברקע. כאן הוא אפילו חיפש נתונים אמיתיים, כדי שהמספרים על מסך הטלפון יהיו מדויקים. אחרי כמה דקות הטלפון השתנה לסמארטפון אמיתי, והוא הבין לבד שגם בשקף האחרון יש טלפון כזה, והחליף גם אותו.</p>
+<p>אפשר גם לכתוב ישירות בחלון השיחה רשימה שלמה: "בשקף 1 תשנה כך, בשקף 3 כך, ותוסיף שקף בין 7 ל-8".</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: סבלנות של כמה דקות ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">סבלנות של כמה דקות</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שינוי שדורש חיפוש באינטרנט, נתונים חדשים, תמונה אחרת, או יצירת תמונה, יכול לקחת כמה דקות. זה טבעי. בזמן הזה אפשר לחזור לחלון של קלוד ולראות בדיוק מה הוא עושה: מצלם, בודק, מתקן, מצלם שוב.</p>
+<p>כשמסיימים לערוך, כותבים "סיימתי". הסקיל שואל אם לייצא לפאוורפוינט, ל-PDF או לשניהם, ותוך רגע הקובץ מוכן. פותחים אותו, לוחצים, והבילדאפים עובדים, העברית שלמה, הכול חלק.</p>
+<div class="honey-box">🍯 "סיימתי" היא המילה שסוגרת את המעגל: מהעריכה אל הקובץ.</div>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: דרך נוספת: מצגת פשוטה ב-Notebook ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דרך נוספת: מצגת פשוטה ב-Notebook</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למי שרוצה משהו פשוט יותר, בלי אתר ובלי בילדאפים, יש את Gemini Notebook (שנקרא בעבר NotebookLM), כלי מצוין של גוגל עם הרבה אפשרויות גם בחינם.</p>
+<p>איך עושים: מעתיקים את התוכן המאושר מסקיל התוכן. במחברת חדשה לוחצים "הוספת מקורות", בוחרים "טקסט שהועתק", מדביקים ומוסיפים. אחר כך בוחרים ביצירת מצגת, כותבים אם יש דגשים, ולוחצים על יצירה.</p>
+<p>התוצאה נחמדה מאוד, אבל עם יותר טעויות ופחות ברמה של הסקיל. אותו דבר נכון לכלים כמו Gamma או Genspark: הם נותנים טעימה בחינם, אבל לא באותה רמה.</p>
+<p class="bold-para">אין צורך לשלם על כלי מצגות. קלוד קוד וקודקס עושים את זה טוב יותר.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: איפה נשמרת מצגת HTML ואיך מציגים אותה בכיתה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">💡</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">שאלות שחוזרות</h2></div></div>
+<p class="chapter-intro">כמה שאלות נפוצות, ותשובות שיעזרו להפיק מהסקילים את המקסימום.</p>
+<article class="story-card" id="story-26" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">איפה נשמרת מצגת HTML ואיך מציגים אותה בכיתה</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המצגת נשמרת בתוך קלוד קוד או קודקס, יחד עם כל המצגות הקודמות. כדי לחזור אליה, פותחים שיחה ומבקשים: "תפתח לי את המצגת על... בדפדפן". הוא פותח, ואפשר להציג מכל מחשב, במסך מלא.</p>
+<p>טיפ למי שמציג בזום: לשתף רק את חלון הדפדפן ולא את כל המסך. כך אפשר לפתוח בצד את הערות הדובר בלי שהקהל יראה אותן.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: צבעים ופונטים קבועים, בלי לחזור על עצמך ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">צבעים ופונטים קבועים, בלי לחזור על עצמך</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למי שיש סגנון קבוע, הדרך פשוטה: בפעם הראשונה מצרפים מצגת או כמה מצגות קיימות בצבעים ובפונטים הרצויים. עובדים, מתקנים, ורק כשיש מצגת שמרוצים ממנה לגמרי, אומרים לו: "תשמור את זה בתוך הסקיל. בכל מצגת שתיצור מעכשיו, חובה להשתמש בצבעים ובפונטים האלה."</p>
+<p><strong>רק אחרי, לא לפני.</strong> מי שמקבע סגנון לפני שתוקן, מקבע גם את הטעויות, והן יחזרו בכל מצגת.</p>
+<p>הסקיל, אחרי שהותקן, שייך לכם וניתן לשינוי מלא.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: לבנות מצגת ממחברות Notebook ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לבנות מצגת ממחברות Notebook</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר בהחלט לחבר את Notebook לקלוד קוד או לקודקס. יש לכך סקיל ייעודי (בספריית המדריכים של המועדון, בגרסה לקלוד ובגרסה לקודקס), שמסביר בדיוק מה להדביק.</p>
+<p>אחרי החיבור אפשר לומר: "לך למחברת הזאת", ואפילו לכמה מחברות יחד. למשל, למי שרוצה להשוות בין שלוש שיטות: "יש לי שלוש מחברות, כל אחת על שיטה אחרת. תביא חומר משלושתן ותבנה ממנו מצגת."</p>
+<p>התקנת סקילים בתוך Notebook עצמו אינה אפשרית, וגם אין בזה צורך: מחברים אותו לכלי שבו הסקילים מותקנים.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: סרטונים בתוך המצגת ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">סרטונים בתוך המצגת</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר להכניס וידאו לתוך השקפים, בלי לעבור ידנית לפאוורפוינט ולהדביק קישורים. פשוט אומרים מה מחפשים. למשל: "תמצא את הסרטון המפורסם של וויל סמית' מ-2023, ואת ההשוואה שעשו לו ב-2026, ותשים את שניהם בשקף."</p>
+<p>גם קטע שחור-לבן ישן אפשרי, בשני תנאים: שאפשר למצוא אותו ברשת בצורה סבירה, ושאינו מוגן בזכויות יוצרים. חומר מוגן הסקיל לא יביא.</p>
+<p>ומה אם רוצים 30 שניות מתוך סרטון של 50 דקות? לזה צריך סקיל נוסף, לעריכת וידאו, שגם הוא זמין בחינם במועדון.</p>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: למה לא Claude Design ←</a></div>
+</article>
+<article class="story-card" id="story-30" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה לא Claude Design</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>Claude Design הוא כלי מעולה, אינטואיטיבי ונוח, ולמשתמש הרגיל הוא נהדר. אבל הוא בנוי על תבניות ועל מבנה קבוע, בדיוק כמו Gamma ו-Genspark. מיליוני אנשים משתמשים בהם, ולכן המצגות נראות דומות זו לזו ו"מריחות" מ-AI.</p>
+<p>קלוד קוד וקודקס, למרות השם "קוד", כבר מזמן מתאימים לכולם. הם מאפשרים לעצב בדיוק מה שרוצים: בילדאפים, וידאו, אפקטים, ותוכן מעמיק יותר.</p>
+<p>אפשר להגיע לתוצאות האלה גם בלי הסקיל, אבל זה דורש שעות רבות של ניסוי. הסקיל חוסך את הדרך הזאת.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: גרפים שאינם עוד עמודות ←</a></div>
+</article>
+<article class="story-card" id="story-31" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גרפים שאינם עוד עמודות</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שמנגיש מחקרים ונתונים ללקוחות מכיר את הבעיה: הגרפים יוצאים כמעט תמיד עמודות, מונוטוניים, בלי "הרמה הבאה". סקיל העיצוב יודע ליצור תצוגות נתונים יצירתיות ומגוונות יותר, כמו שראינו במספרים הרצים ובגרפים של הבורסה.</p>
+<p>והסקיל ימשיך להשתפר. כל סקיל שיוצא מקבל משוב ומתעדכן, ומי שלא מגיע לתוצאה שרצה מוזמן לדווח, כדי שהגרסה הבאה תהיה טובה יותר.</p>
+<div class="honey-box">🍯 סקיל הוא לא מוצר גמור, הוא שותף שלומד.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
