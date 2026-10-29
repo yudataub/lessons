@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📜 אלה הדברים: חזרה מאירה על ספר דברים פרקים א-ג</title>
+<meta name="description" content="כל מה שצריך לדעת על נאום הפרידה של משה רבנו - המקום, הזמן, התוכחה ברמז, השופטים, המרגלים, סיחון ועוג - בשפה ברורה, עם הפסוקים ועם הלב שמאחוריהם">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 29.10.2026 🍯</div>
+  <h1 class="hero-title">📜 אלה הדברים: חזרה מאירה על ספר דברים פרקים א-ג</h1>
+  <p class="hero-subtitle">כל מה שצריך לדעת על נאום הפרידה של משה רבנו - המקום, הזמן, התוכחה ברמז, השופטים, המרגלים, סיחון ועוג - בשפה ברורה, עם הפסוקים ועם הלב שמאחוריהם</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/uGMZjuuAMuc" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">📜 אלה הדברים: איפה, מתי ומה</a><ul class="toc-stories"><li><a href="#story-1">המקום: בעבר הירדן</a></li><li><a href="#story-2">הזמן: עשתי עשר חודש</a></li><li><a href="#story-3">תוכחה ולא נאום חגיגי</a></li><li><a href="#story-4">למה ברמז ולא בפירוש</a></li><li><a href="#story-5">המפה הסודית: תפל ולבן, די זהב וחצרות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">⚖️ לא אוכל לבדי: מנהיג שיודע לחלק את המשא</a><ul class="toc-stories"><li><a href="#story-6">מה משה מבקש ולמה</a></li><li><a href="#story-7">מי ראוי להיות שופט</a></li><li><a href="#story-8">&quot;טוב הדבר אשר דברת&quot;</a></li><li><a href="#story-9">הציוויים לשופטים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🔍 המרגלים והמעפילים: שתי טעויות הפוכות</a><ul class="toc-stories"><li><a href="#story-10">מי ביקש לשלוח מרגלים</a></li><li><a href="#story-11">מה היה חטא המרגלים</a></li><li><a href="#story-12">חטא העם ועונשו</a></li><li><a href="#story-13">המעפילים: &quot;לא תעלו ולא תלחמו&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🗺️ שכנים שאסור לגעת בהם</a><ul class="toc-stories"><li><a href="#story-14">אדום, מואב ועמון</a></li><li><a href="#story-15">בזכות מה זכה עשו להר שעיר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">⚔️ סיחון ועוג: מלחמה, שלום ופחד מזכות</a><ul class="toc-stories"><li><a href="#story-16">מה ה&#x27; ציווה על סיחון</a></li><li><a href="#story-17">מה משה עשה בפועל: קודם שלום</a></li><li><a href="#story-18">תוצאות המלחמה עם סיחון</a></li><li><a href="#story-19">למה דווקא מול עוג צריך עידוד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🏔️ החרמון ושבטי עבר הירדן</a><ul class="toc-stories"><li><a href="#story-20">ארבעה שמות להר אחד</a></li><li><a href="#story-21">ראובן, גד וחצי שבט המנשה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">📝 מי אמר למי: כרטיס חזרה</a><ul class="toc-stories"><li><a href="#story-22">&quot;לא אוכל לבדי&quot; ו&quot;נשלחה אנשים&quot;</a></li><li><a href="#story-23">&quot;לא תעלו&quot; ו&quot;אל תירא אותו&quot;</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">אלה הדברים: איפה, מתי ומה</h2></div></div>
+<p class="chapter-intro">ספר דברים נפתח בנאום ארוך ומרגש. משה רבנו עומד מול העם רגע לפני שהוא נפרד מהם, ורגע לפני שהם נכנסים לארץ. לפני שמבינים מה הוא אומר, כדאי לדעת איפה, מתי ולמה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המקום: בעבר הירדן</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפסוק הראשון של הספר מצייר לנו את המקום:</p>
+<blockquote>"אלה הדברים אשר דבר משה אל כל ישראל בעבר הירדן במדבר בערבה מול סוף בין פארן ובין תפל ולבן וחצרות ודי זהב" (דברים א, א)</blockquote>
+<p>משה מדבר אל <strong>כל ישראל</strong>, בעבר הירדן המזרחי - ממש על הסף. מצד אחד נשאר המדבר של ארבעים שנה, ומצד שני, מעבר לנהר, מחכה הארץ המובטחת. זה המקום המושלם לנאום של סיכום: להסתכל אחורה על כל הדרך, ולהכין את העם למה שמחכה קדימה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: הזמן: עשתי עשר חודש ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הזמן: עשתי עשר חודש</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה מדייקת גם בזמן:</p>
+<blockquote>"ויהי בארבעים שנה בעשתי עשר חודש באחד לחודש דבר משה אל בני ישראל" (דברים א, ג)</blockquote>
+<p>זו <strong>השנה הארבעים ליציאת מצרים</strong>, השנה האחרונה במדבר. והתאריך - "עשתי עשר חודש", כלומר החודש האחד עשר, חודש שבט, "באחד לחודש" - <strong>ראש חודש שבט</strong>.</p>
+<p>הביטוי "עשתי עשר" נשמע מוזר לאוזן שלנו, אבל זו פשוט הדרך של התורה לומר "אחד עשר". מי שזוכר את הביטוי הזה, זוכר גם את התאריך.</p>
+<div class="honey-box">🍯 משה התחיל את נאום הפרידה בא' בשבט, ונפטר בז' באדר - כחמישה שבועות של דברי תורה, אהבה ותוכחה לפני הפרידה.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: תוכחה ולא נאום חגיגי ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">תוכחה ולא נאום חגיגי</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה תוכן הדברים? בשתי מילים: <strong>דברי תוכחה</strong>. משה רבנו בא להזכיר לעם את המקומות שבהם הם נכשלו לאורך הדרך, ולהוכיח אותם עליהם.</p>
+<p>למה דווקא עכשיו, לפני הכניסה לארץ? כי מי שנכנס לחיים חדשים צריך ללמוד מהעבר. אבא שמלווה את בנו לפני שהוא יוצא לדרך עצמאית לא מסתפק ב"בהצלחה" - הוא אומר לו גם "תיזהר מכאן ומכאן, כאן כבר נפלת פעם". זו תוכחה של אהבה.</p>
+<p class="bold-para">התוכחה של משה איננה כעס - היא דאגה של רועה נאמן לצאן שלו.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: למה ברמז ולא בפירוש ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה ברמז ולא בפירוש</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והנה הפלא: משה לא אומר "חטאתם בעגל" או "התלוננתם על המן". הוא רק מזכיר שמות של מקומות. רש"י מסביר:</p>
+<blockquote>"לפי שהן דברי תוכחות ומנה כאן כל המקומות שהכעיסו לפני המקום בהן, לפיכך סתם את הדברים והזכירן ברמז, מפני כבודן של ישראל" (רש"י דברים א, א)</blockquote>
+<p>משה רבנו רוצה להוכיח, אבל <strong>לשמור על הכבוד שלהם</strong>. מי שצריך לשמוע - יבין. מי שעומד מהצד - לא ישמע השפלה.</p>
+<div class="honey-box">🍯 כשרוצים להעיר למישהו, אפשר ללמוד ממשה: לומר את האמת, אבל בעדינות, ברמז, בלי לבייש. הערה ששומרת על הכבוד נכנסת ללב; הערה שמביישת - נתקעת בחוץ.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: המפה הסודית: תפל ולבן, די זהב וחצרות ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המפה הסודית: תפל ולבן, די זהב וחצרות</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל שם בפסוק הראשון הוא רמז לחטא. לפי רש"י:</p>
+<ul class="story-list"><li><strong>תפל ולבן</strong> - שתפלו (דיברו דברי תפלות) על המן, שהוא לבן, ואמרו "ונפשנו קצה בלחם הקלקל".</li><li><strong>די זהב</strong> - חטא העגל, שנעשה מן הזהב שהיה להם בשפע ("די" - הרבה).</li><li><strong>חצרות</strong> - מחלוקתו של קרח, שהייתה בחצרות.</li></ul>
+<p>כך, בשורה אחת של שמות מקומות, משה פורש את כל ההיסטוריה של המדבר - התלונה, העבודה הזרה והמחלוקת - בלי להזכיר אף אחד מהם במפורש.</p>
+<p class="bold-para">מי שקורא את הפסוק הראשון לאט, מגלה שהוא מפה של לב: כל תחנה היא שיעור.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: מה משה מבקש ולמה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">לא אוכל לבדי: מנהיג שיודע לחלק את המשא</h2></div></div>
+<p class="chapter-intro">בפרק א, פסוקים ט-יז, משה מספר איך הוקמה מערכת המשפט של עם ישראל. זה סיפור על ענווה, על אחריות ועל הדרך לשפוט בצדק.</p>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה משה מבקש ולמה</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה פותח בהודאה כנה:</p>
+<blockquote>"לא אוכל לבדי שאת אתכם" (דברים א, ט)</blockquote>
+<p>העם גדל מאוד - "והנכם היום ככוכבי השמים לרב" - ומשה לא מסוגל לשאת לבדו את כל העומס: את הטרחה, את המשא ואת הריב. לכן הוא מבקש למנות <strong>שופטים</strong> ושרים שיחלקו איתו את העבודה.</p>
+<p>זה רגע גדול: המנהיג הגדול ביותר בהיסטוריה אומר בפשטות "אני לא יכול לבד". אין בזה חולשה. יש בזה חוכמה.</p>
+<div class="honey-box">🍯 לדעת לבקש עזרה זו לא חולשה - זו אחריות. מי שמנסה לסחוב הכול לבד, בסוף לא נושא כלום כמו שצריך.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מי ראוי להיות שופט ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מי ראוי להיות שופט</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה לא לוקח כל אחד. הוא מגדיר תכונות:</p>
+<blockquote>"הבו לכם אנשים חכמים ונבנים וידעים לשבטיכם ואשימם בראשיכם" (דברים א, יג)</blockquote>
+<ul class="story-list"><li><strong>חכמים</strong> - שיודעים תורה.</li><li><strong>נבונים</strong> - שמבינים דבר מתוך דבר.</li><li><strong>ידועים לשבטיכם</strong> - שהעם מכיר אותם ויודע שהם אנשים ישרים.</li></ul>
+<p>התכונה האחרונה חשובה במיוחד: שופט צריך שיסמכו עליו. מי שכולם יודעים שהוא הגון - דבריו מתקבלים.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;טוב הדבר אשר דברת&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;טוב הדבר אשר דברת&quot;</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך הגיב העם להצעה? הם ענו מיד:</p>
+<blockquote>"ותענו אתי ותאמרו טוב הדבר אשר דברת לעשות" (דברים א, יד)</blockquote>
+<p>במבט ראשון זו תשובה יפה ומסכימה. אבל רש"י רואה כאן גם רמז לתוכחה: הם הסכימו מהר מדי. במקום לומר "רבנו, ממי עדיף ללמוד - ממך או מתלמידך?", הם שמחו שיהיו שופטים רבים, ואולי חשבו שעם הרבה שופטים יהיה קל יותר להשפיע.</p>
+<p class="bold-para">גם תשובה שנשמעת טובה יכולה להסתיר כוונה שצריך לתקן - ומשה, באהבה, מזכיר גם את זה.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: הציוויים לשופטים ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הציוויים לשופטים</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה מצווה את השופטים כמה ציוויים יסודיים:</p>
+<blockquote>"שמע בין אחיכם ושפטתם צדק" (דברים א, טז)</blockquote>
+<blockquote>"לא תכירו פנים במשפט כקטן כגדל תשמעון לא תגורו מפני איש כי המשפט לאלוקים הוא" (דברים א, יז)</blockquote>
+<p>ובעברית שלנו:</p>
+<ul class="story-list"><li><strong>לא תכירו פנים</strong> - אין העדפות. לא "את זה אני אוהב ואת זה לא". מול הדין כולם שווים.</li><li><strong>כקטן כגדול תשמעון</strong> - להקשיב לכולם, לעני ולעשיר, לפשוט ולחשוב, באותה סבלנות.</li><li><strong>לא תגורו מפני איש</strong> - לא לפחד מאף אחד, גם לא מבעל כוח.</li></ul>
+<div class="honey-box">🍯 "כי המשפט לאלוקים הוא" - השופט יושב במקומו של הקדוש ברוך הוא. מי שזוכר את זה, לא יעז להטות את הדין.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: מי ביקש לשלוח מרגלים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🔍</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">המרגלים והמעפילים: שתי טעויות הפוכות</h2></div></div>
+<p class="chapter-intro">משה מגיע לחטא הכואב ביותר - חטא המרגלים - ולמה שקרה מיד אחריו. שתי טעויות שנראות הפוכות, אבל השורש שלהן אחד.</p>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מי ביקש לשלוח מרגלים</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספר דברים משה מגלה פרט חשוב: הרעיון לשלוח מרגלים בא מהעם.</p>
+<blockquote>"ותקרבון אלי כלכם ותאמרו נשלחה אנשים לפנינו ויחפרו לנו את הארץ" (דברים א, כב)</blockquote>
+<p><strong>בני ישראל באו אל משה רבנו וביקשו</strong> לשלוח אנשים שיבדקו את הארץ לפניהם. הקדוש ברוך הוא כבר הבטיח שהארץ טובה, אבל הם רצו לבדוק בעצמם.</p>
+<p>כבר בבקשה הזאת יש סדק קטן בביטחון: מי שבוטח באמת בהבטחה של אבא שלו, לא צריך לשלוח מישהו לבדוק אם היא נכונה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: מה היה חטא המרגלים ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה היה חטא המרגלים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המרגלים חזרו והוציאו <strong>דיבת הארץ רעה</strong>. החטא שלהם היה חוסר ביטחון בה': הם ראו את הקושי, ושכחו את מי שהבטיח לעזור.</p>
+<p>ואיך תיארו את אנשי הארץ ואת עריה?</p>
+<blockquote>"עם גדול ורם ממנו ערים גדלת ובצורת בשמים וגם בני ענקים ראינו שם" (דברים א, כח)</blockquote>
+<ul class="story-list"><li><strong>האנשים</strong> - ענקים, גדולים מאיתנו, "אי אפשר בכלל לצאת נגדם למלחמה".</li><li><strong>הערים</strong> - "בצורות בשמים", כאילו החומות מגיעות עד השמים.</li></ul>
+<p class="bold-para">כשהפחד מגדיל את הבעיה, הוא מקטין את האמונה. העיניים ראו חומות; הלב שכח את ה'.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: חטא העם ועונשו ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">חטא העם ועונשו</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לא רק המרגלים חטאו. העם שמע ונשבר:</p>
+<blockquote>"ותרגנו באהליכם ותאמרו בשנאת ה' אתנו הוציאנו מארץ מצרים" (דברים א, כז)</blockquote>
+<p>חטא העם היה <strong>שרגנו והתלוננו</strong> - על ה' ועל משה. במקום להתחזק, הם בכו באוהלים ודמיינו שהקדוש ברוך הוא שונא אותם.</p>
+<p>העונש: <strong>ארבעים שנה של נדודים במדבר</strong>, ואף אחד מבני הדור ההוא לא ייכנס לארץ - חוץ מכלב בן יפונה ויהושע בן נון, שנשארו נאמנים.</p>
+<div class="honey-box">🍯 התלונה "בשנאת ה' אותנו" היא אולי הכאב הגדול מכולם: הם פירשו את האהבה הכי גדולה כשנאה. כדאי לזכור את זה ברגעים קשים - ה' אוהב אותנו גם כשקשה לנו להבין.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: המעפילים: &quot;לא תעלו ולא תלחמו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">המעפילים: &quot;לא תעלו ולא תלחמו&quot;</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי הגזירה, חלק מהעם התחרטו - ומיהרו לתקן בדרך הלא נכונה. הקדוש ברוך הוא אמר להם במפורש:</p>
+<blockquote>"ויאמר ה' אלי אמר להם לא תעלו ולא תלחמו כי אינני בקרבכם ולא תנגפו לפני איביכם" (דברים א, מב)</blockquote>
+<p>אבל הם <strong>עלו בכל זאת</strong>. אלה המעפילים. וכך נגמר הדבר:</p>
+<blockquote>"ויצא האמרי היושב בהר ההוא לקראתכם וירדפו אתכם כאשר תעשינה הדברים" (דברים א, מד)</blockquote>
+<p class="bold-para">שתי הטעויות הפוכות, אבל השורש אחד: המרגלים לא עלו כשה' אמר לעלות, והמעפילים עלו כשה' אמר לא לעלות. בשני המקרים - הם עשו מה שהם רצו, ולא מה שה' ציווה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: אדום, מואב ועמון ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">שכנים שאסור לגעת בהם</h2></div></div>
+<p class="chapter-intro">בדרך לארץ עברו ישראל ליד שלושה עמים, וה' ציווה לא להילחם בהם. למה? כי גם להם יש הבטחה.</p>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אדום, מואב ועמון</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרק ב שלושה עמים מקבלים מעמד מיוחד: <strong>אדום</strong> (בני עשו), <strong>מואב</strong> ו<strong>עמון</strong> (בני לוט). את שלושתם אסור היה לכבוש.</p>
+<p>הסיבה כתובה בתורה:</p>
+<blockquote>"אל תתגרו בם כי לא אתן לכם מארצם עד מדרך כף רגל כי ירשה לעשו נתתי את הר שעיר" (דברים ב, ה)</blockquote>
+<blockquote>"כי לא אתן לך מארצו ירשה כי לבני לוט נתתי את ער ירשה" (דברים ב, ט)</blockquote>
+<p><strong>ה' הבטיח לעמים האלה את ארצם.</strong> כמו שהוא נתן לישראל את ארץ ישראל, הוא קבע גם להם את השטח ששייך להם - וההבטחה שלו נשמרת גם כלפי אחרים.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: בזכות מה זכה עשו להר שעיר ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בזכות מה זכה עשו להר שעיר</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לשאול: עשו, שהיה רשע, למה זכה לנחלה מובטחת?</p>
+<p>חז"ל עונים: <strong>בזכות כיבוד הורים</strong>. עשו כיבד את אביו יצחק בצורה יוצאת דופן - היה צד לו ציד, מכין לו מטעמים, ומשמש אותו בכבוד גדול. על המצווה הזאת קיבל שכר עצום, עד שה' שמר לו את הר שעיר ואסר על ישראל לגעת בו.</p>
+<div class="honey-box">🍯 אם עשו קיבל ארץ שלמה בזכות כיבוד אב - כמה גדול השכר של מי שמכבד את הוריו בלב שלם ומתוך אהבה לה'.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מה ה&#x27; ציווה על סיחון ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">⚔️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">סיחון ועוג: מלחמה, שלום ופחד מזכות</h2></div></div>
+<p class="chapter-intro">אחרי השכנים שאסור לגעת בהם, מגיעים שני מלכים שכן צריך להילחם בהם: סיחון מלך חשבון ועוג מלך הבשן.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מה ה&#x27; ציווה על סיחון</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הציווי ברור וחד:</p>
+<blockquote>"קומו סעו ועברו את נחל ארנן ראה נתתי בידך את סיחן מלך חשבון האמרי ואת ארצו החל רש והתגר בו מלחמה" (דברים ב, כד)</blockquote>
+<p><strong>לקום, להילחם, לרשת את הארץ שלו</strong> - ולא לפחד. ה' כבר אומר "נתתי בידך", כאילו הניצחון כבר קרה. כאן, בניגוד לאדום, מואב ועמון, יש הוראה מפורשת: ללכת ולהתגרות בו.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: מה משה עשה בפועל: קודם שלום ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מה משה עשה בפועל: קודם שלום</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והנה הפתעה: משה, שקיבל ציווי להילחם, פותח דווקא בשלום.</p>
+<blockquote>"ואשלח מלאכים ממדבר קדמות אל סיחון מלך חשבון דברי שלום לאמר" (דברים ב, כו)</blockquote>
+<p>משה מבקש רק לעבור בדרך, לשלם על האוכל והמים, ולא לסטות ימין ושמאל. <strong>רק אחרי שסיחון סירב ויצא בעצמו למלחמה</strong> - "ויצא סיחן לקראתנו הוא וכל עמו למלחמה יהצה" (ב, לב) - נפתחה המלחמה.</p>
+<p class="bold-para">גם כשמותר להילחם, דרכה של תורה היא לנסות קודם בשלום.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: תוצאות המלחמה עם סיחון ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">תוצאות המלחמה עם סיחון</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התוצאה הייתה ניצחון מוחלט:</p>
+<blockquote>"ויתנהו ה' אלקינו לפנינו ונך אתו ואת בנו ואת כל עמו" (דברים ב, לג)</blockquote>
+<p>ישראל <strong>כבשו את סיחון ואת כל ערי ממלכתו</strong>. ההבטחה "נתתי בידך" התקיימה במלואה.</p>
+<p>וזה בדיוק ההפך מחטא המרגלים: שם הם פחדו מענקים וערים בצורות ולא עלו; כאן הם הלכו עם ה' - וניצחו. הדור החדש תיקן את מה שהדור הקודם קלקל.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: למה דווקא מול עוג צריך עידוד ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה דווקא מול עוג צריך עידוד</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמגיעים לעוג מלך הבשן, ה' אומר למשה משהו שלא אמר לו מול סיחון:</p>
+<blockquote>"ויאמר ה' אלי אל תירא אתו כי בידך נתתי אתו ואת כל עמו ואת ארצו" (דברים ג, ב)</blockquote>
+<p>למה דווקא כאן "אל תירא"? רש"י מסביר: משה <strong>פחד שתעמוד לעוג זכות</strong>. עוג הוא "הפליט" שבא לבשר לאברהם אבינו שלוט אחיו נלקח בשבי (בראשית יד, יג), ובזכות הבשורה הזאת אברהם יצא והציל את לוט. משה חשש שהזכות הזאת תגן על עוג.</p>
+<div class="honey-box">🍯 משה לא פחד מהגובה של עוג ולא מהצבא שלו - הוא פחד מזכות אחת. זה מלמד כמה כוח יש למעשה טוב אחד, אפילו של אדם שכוונתו לא הייתה טהורה.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: ארבעה שמות להר אחד ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏔️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">החרמון ושבטי עבר הירדן</h2></div></div>
+<p class="chapter-intro">הפרק השלישי נחתם בשני נושאים: הר אחד עם הרבה שמות, ושני שבטים וחצי שמקבלים את נחלתם לפני כולם - בתנאי.</p>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ארבעה שמות להר אחד</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לחרמון יש בתורה <strong>ארבעה שמות</strong>:</p>
+<blockquote>"צידנים יקראו לחרמון שרין והאמרי יקראו לו שניר" (דברים ג, ט)</blockquote>
+<p>ובמקום אחר: "ועד הר שיאן הוא חרמון" (דברים ד, מח). כלומר: <strong>חרמון, שריון, שניר ושיאן</strong>.</p>
+<p>למה התורה טורחת לכתוב את כל השמות? רש"י עונה: <strong>להגיד שבחה של ארץ ישראל</strong> - ארבע מלכויות התפארו בהר הזה, וכל אחת רצתה שייקרא על שמה.</p>
+<p class="bold-para">כשכולם רוצים לקרוא למקום בשמם, סימן שהוא יקר. וארץ ישראל - כולם אוהבים אותה.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: ראובן, גד וחצי שבט המנשה ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ראובן, גד וחצי שבט המנשה</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השבטים שהתנחלו בעבר הירדן המזרחי הם <strong>ראובן, גד וחצי שבט המנשה</strong>. הייתה להם מקנה רב, והארץ שנכבשה מסיחון ומעוג הייתה ארץ מרעה טובה.</p>
+<p>אבל משה התנה איתם תנאי ברור:</p>
+<blockquote>"חלוצים תעברו לפני אחיכם בני ישראל כל בני חיל" (דברים ג, יח)</blockquote>
+<p>הם חייבים <strong>לצאת ראשונים למלחמה</strong>, לפני כל ישראל, ולחזור לנחלתם רק אחרי שכל אחיהם יירשו את ארצם.</p>
+<div class="honey-box">🍯 מי שקיבל ראשון, צריך לעזור לאחרים להגיע. לא "לי כבר יש", אלא "אני לא נח עד שגם לך יהיה".</div>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: &quot;לא אוכל לבדי&quot; ו&quot;נשלחה אנשים&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📝</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">מי אמר למי: כרטיס חזרה</h2></div></div>
+<p class="chapter-intro">אחת הדרכים הטובות לזכור את הפרקים היא לשאול על כל משפט: מי אמר אותו, למי, ובאיזה עניין. הנה המשפטים המרכזיים.</p>
+<article class="story-card" id="story-22" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;לא אוכל לבדי&quot; ו&quot;נשלחה אנשים&quot;</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"לא אוכל לבדי שאת אתכם" (דברים א, ט)</blockquote>
+<p><strong>משה אמר לעם ישראל</strong>, בעניין מינוי השופטים. העומס גדול מדי, ולכן צריך שופטים ושרים שיעזרו.</p>
+<blockquote>"נשלחה אנשים לפנינו ויחפרו לנו את הארץ" (דברים א, כב)</blockquote>
+<p><strong>בני ישראל אמרו למשה</strong>, בעניין שליחת המרגלים. הבקשה באה מהעם, לא מה' ולא ממשה.</p>
+<p>כדאי לשים לב לבלבול הנפוץ: משה הוא זה שמספר את שני המשפטים, אבל את השני הוא מצטט מפי העם.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: &quot;לא תעלו&quot; ו&quot;אל תירא אותו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;לא תעלו&quot; ו&quot;אל תירא אותו&quot;</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"לא תעלו ולא תלחמו כי אינני בקרבכם" (דברים א, מב)</blockquote>
+<p><strong>ה' אמר למשה שיאמר לעם ישראל</strong>, בעניין המעפילים - אחרי גזירת המרגלים, כשרצו לעלות בכל זאת.</p>
+<blockquote>"אל תירא אתו כי בידך נתתי אתו" (דברים ג, ב)</blockquote>
+<p><strong>ה' אמר למשה</strong>, בעניין המלחמה בעוג מלך הבשן - כי משה חשש שתעמוד לעוג זכות ההצלה של לוט.</p>
+<p class="bold-para">הכלל לזכור: כשכתוב "ויאמר ה' אלי" - המדבר הוא ה', והשומע הוא משה, שמספר לעם.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
