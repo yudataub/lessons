@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🚂 להחליף רכבת: לצמוח מתוך הכאב</title>
+<meta name="description" content="איך מפסיקים לתת לדאגות לנהל אותנו, למה לפעמים ה&#x27; מוריד אותנו מהרכבת שלנו ומעלה אותנו על רכבת אחרת, ואיך דווקא המשבר הופך להזדמנות לגדול - מפי מי שמלווה אנשים בקושי עשרות שנים ועובר אותו גם בעצמו">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · הרב אהרן פרידמן · 30.10.2026 🍯</div>
+  <h1 class="hero-title">🚂 להחליף רכבת: לצמוח מתוך הכאב</h1>
+  <p class="hero-subtitle">איך מפסיקים לתת לדאגות לנהל אותנו, למה לפעמים ה&#x27; מוריד אותנו מהרכבת שלנו ומעלה אותנו על רכבת אחרת, ואיך דווקא המשבר הופך להזדמנות לגדול - מפי מי שמלווה אנשים בקושי עשרות שנים ועובר אותו גם בעצמו</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-18 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌿 להשאיר את הדאגות בבית: כאן ועכשיו</a><ul class="toc-stories"><li><a href="#story-1">הדאגה שנסעה אחרינו לנופש</a></li><li><a href="#story-2">הדמיון: החבר הכי טוב והאויב הכי גדול</a></li><li><a href="#story-3">&quot;רוח איש יכלכל מחלהו&quot;</a></li><li><a href="#story-4">לחיות בשיטת הסלמי: &quot;הנה טפחות נתתה ימי&quot;</a></li><li><a href="#story-5">&quot;ועתה ישראל&quot;: מה ה&#x27; רוצה ממני עכשיו</a></li><li><a href="#story-6">בן הזוג: העזרה הכי קרובה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">💛 מלווה ומתמודד: סיפור אישי</a><ul class="toc-stories"><li><a href="#story-7">שלושה משברים, ספר אחד</a></li><li><a href="#story-8">&quot;I can pull this off&quot;: כשהמלווה הופך למטופל</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🚂 משל הרכבת: שבויים אבל חופשיים</a><ul class="toc-stories"><li><a href="#story-9">איש העסקים שנעצר באמצע הדרך</a></li><li><a href="#story-10">על הרכבת: מה אפשר לבחור ומה לא</a></li><li><a href="#story-11">הצלחת של השכן</a></li><li><a href="#story-12">כשה&#x27; מעביר אותנו לרכבת אחרת</a></li><li><a href="#story-13">הילד שביקש תאונה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🐝 בלי מכות לא גדלים</a><ul class="toc-stories"><li><a href="#story-14">אנשים של הרגלים</a></li><li><a href="#story-15">&quot;אך טוב וחסד ירדפוני&quot;</a></li><li><a href="#story-16">הדבש בא מהדבורה</a></li><li><a href="#story-17">שלושה בנים, שלוש עקיצות</a></li><li><a href="#story-18">משבר הוא שעון מעורר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🙏 קרובים יותר אל ה&#x27;</a><ul class="toc-stories"><li><a href="#story-19">&quot;כי אתה עמדי&quot;: מגוף שלישי לגוף שני</a></li><li><a href="#story-20">שלושים שניות: פרק בענווה</a></li><li><a href="#story-21">הורים שלא שופטים</a></li><li><a href="#story-22">&quot;קיבלנו אבא חדש&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🦋 הפרוטוקול האישי והפרפר</a><ul class="toc-stories"><li><a href="#story-23">אף אחד לא גונב פרוטוקול</a></li><li><a href="#story-24">הדבר היחיד שה&#x27; לא יכול לעשות</a></li><li><a href="#story-25">הפרפר שעזרו לו יותר מדי</a></li><li><a href="#story-26">כוחה של חבורה - וזהירות מהאווזה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌿</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">להשאיר את הדאגות בבית: כאן ועכשיו</h2></div></div>
+<p class="chapter-intro">כולנו מתמודדים עם לחצים, חששות ודאגות. קל מאוד להגיד "תשאיר את הדאגות בבית". קשה הרבה יותר לעשות את זה. אבל יש דרך.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הדאגה שנסעה אחרינו לנופש</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מספרים על אדם שיצא לנופש. לפני היציאה הוא החליט: את כל הבעיות ואת כל הלחצים אני משאיר בבית. יום ראשון היה נפלא. ביום השני, פתאום, הדאגות התחילו לחזור.</p>
+<p>הוא פנה אל הדאגה ואמר לה: "מה קרה? הרי השארתי אותך בבית! איך הגעת לפה?"</p>
+<p>ענתה לו הדאגה: "אני הולכת אחריך לכל מקום."</p>
+<p>זה הסיפור של כולנו. אפשר לנסוע לבית מלון שקט, אפשר להחליף נוף, אבל הדאגות לא נשארות מאחור. הן נמצאות בתוכנו, בראש שלנו.</p>
+<p class="bold-para">קל להגיד "תשאיר את זה בבית". אבל יש דרכים איך באמת לעשות את זה, ואפשר לעבוד על זה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: הדמיון: החבר הכי טוב והאויב הכי גדול ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הדמיון: החבר הכי טוב והאויב הכי גדול</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הדמיון שלנו הוא אחד הכוחות המדהימים ביותר שה' נתן לנו. חז"ל אומרים:</p>
+<blockquote>"איזהו חכם? הרואה את הנולד" (תמיד לב ע"א)</blockquote>
+<p>לראות את הנולד - זה דמיון. היכולת לדמיין מצבים, לכתוב תסריטים בראש, לתכנן את העתיד. "החכם עיניו בראשו" (קהלת ב, יד). זה הדבר החכם ביותר שאדם יכול לעשות.</p>
+<p>אבל אותו כוח בדיוק יכול להפוך לדבר הבעייתי ביותר. כשמגיעים לדאגות - מה יהיה, מה יקרה אם לא יצליח, אם הטיפולים לא יעבדו, אם משהו ישתבש - הדמיון יכול לשבור את האדם, לפרק אותו מכל הכוחות שלו ולא לתת לו לתפקד.</p>
+<p>ובמיוחד כשהדאגות האלה אינן סתם. יש להן בסיס במציאות. דברים באמת יכולים לא להסתדר כמו שאנחנו רוצים. ודווקא אז, הדמיון שעובד שעות נוספות הוא מה שמפרק אותנו.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: &quot;רוח איש יכלכל מחלהו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;רוח איש יכלכל מחלהו&quot;</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שלמה המלך מלמד אותנו כמה כוח יש למצב הנפשי:</p>
+<blockquote>"רוח איש יכלכל מחלהו ורוח נכאה מי ישאנה" (משלי יח, יד)</blockquote>
+<p>כשאדם חזק, מאמין ומלא עוצמות פנימיות, הרוח שלו מחזיקה אותו - ועוזרת לו להתמודד עם כל קושי, אפילו עם מחלה. לעומת זה, מי שנכנס לייאוש, לפחד ולחרדה, נחלש מזה עצמו, ואז כל התמודדות נעשית קשה פי כמה.</p>
+<p>לכן אחת העצות החשובות ביותר, מתוך הניסיון ומתוך החיים, היא <strong>להתמקד בכאן ועכשיו</strong>.</p>
+<p>אנשים אומרים: "קל לדבר." נכון. כל דבר בחיים קל יותר לדבר עליו מאשר לעשות. בשנייה אחת אפשר להגיד "נוסעים לארצות הברית", אבל הנסיעה עצמה היא סיפור ארוך ויקר. ובכל זאת, זה אחד הדברים שהכי נותנים כוח.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: לחיות בשיטת הסלמי: &quot;הנה טפחות נתתה ימי&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לחיות בשיטת הסלמי: &quot;הנה טפחות נתתה ימי&quot;</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לקחת את החיים פרוסה אחר פרוסה - יש מי שקורא לזה בחיוך "שיטת הסלמי". אדם שמתמקד בכאן ועכשיו יכול תמיד להתמודד.</p>
+<p>יש על זה ווארט יפה שמובא בשם צדיקי פשיסחא, על הפסוק בתהילים:</p>
+<blockquote>"הנה טפחות נתתה ימי" (תהלים לט, ו)</blockquote>
+<p>פעם, כשרצו למדוד חבל ארוך, היו מודדים אותו בטפחים: אוחזים טפח אחד, ועוד טפח, ועוד טפח. גם חבל של אלף טפחים - מה שהאדם מחזיק ביד בכל רגע הוא <strong>רק טפח אחד</strong>.</p>
+<p>כך גם החיים. אדם יכול להיות מוצף: אני צריך ללמוד כל כך הרבה, לעבוד כל כך הרבה, לחתן ילדים, לטפל בבריאות. אבל אם יחזיק תמיד רק את הטפח שבידו - את מה שיש כאן ועכשיו - כל אדם יכול להתמודד.</p>
+<div class="honey-box">🍯 אל תחשוב על כל מה שאתה צריך לעשות. תתמקד במה שאתה יכול וצריך לעשות היום.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;ועתה ישראל&quot;: מה ה&#x27; רוצה ממני עכשיו ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;ועתה ישראל&quot;: מה ה&#x27; רוצה ממני עכשיו</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"ועתה ישראל מה ה' אלוקיך שאל מעמך" (דברים י, יב)</blockquote>
+<p>מובא בשם רבי חיים מבריסק שהמילה "ועתה" היא המפתח: אדם צריך לשאול את עצמו כל יום מחדש - מה ה' רוצה ממני <strong>עכשיו</strong>, במצב שבו אני נמצא היום?</p>
+<p>היצר הרע מנסה לפתות את האדם לעשות דווקא את מה שהוא לא יכול לעשות. הדוגמה המעניינת: אדם חולה, אין לו כוח ללכת לבית הכנסת. ודווקא אז היצר מתחיל לעורר בו חשק עצום ללכת. אבל התורה אומרת:</p>
+<blockquote>"ונשמרתם מאד לנפשתיכם" (דברים ד, טו)</blockquote>
+<p>תישאר בבית - זה מה שה' רוצה ממך עכשיו.</p>
+<p>מבחינה פסיכולוגית זה בדיוק אותו עיקרון. לא מדובר במצבים שדורשים טיפול מקצועי, וגם לא בדאגה מעשית כמו להכין צידה לדרך. מדובר בדאגה הכללית, ב"מה יהיה אם". ומולה, הדרך הטובה ביותר היא לשאול: מה נדרש ממני כאן ועכשיו?</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: בן הזוג: העזרה הכי קרובה ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בן הזוג: העזרה הכי קרובה</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ימים של מנוחה הם גם הזדמנות להשקיע בזוגיות. אין אף אחד בעולם שקרוב אלינו יותר מבן הזוג או בת הזוג. אנחנו נמצאים תמיד זה לצד זה, ומטבע הדברים בן הזוג יכול להיות העזרה הכי גדולה - או, חלילה, ההפך.</p>
+<p>במיוחד בעיתות מצוקה - כשיש בעיה רפואית, כשיש חרדות ופחדים - לאנשים יש פחות סבלנות. ואז נושאים זוגיים שהיו רדומים צפים פתאום למעלה.</p>
+<p>לכן כל כך חשוב להשקיע בזה, לדבר על זה, ולדעת איך להתמודד עם זה. המשבר יכול לפרק, אבל הוא יכול גם לקרב כמו שום דבר אחר.</p>
+<div class="honey-box">🍯 כשהלחץ גבוה, הסבלנות נמוכה. מי שיודע את זה מראש, יכול לסלוח לבן הזוג - ולעצמו - הרבה יותר בקלות.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: שלושה משברים, ספר אחד ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">💛</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מלווה ומתמודד: סיפור אישי</h2></div></div>
+<p class="chapter-intro">את הדברים האלה כותב מי שעובד עם אנשים כ-35 שנה - וגם מי שעבר וחווה אותם על בשרו, שוב ושוב.</p>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שלושה משברים, ספר אחד</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב אהרן פרידמן עוזר לאנשים בתחום הנפשי כבר כ-35 שנה, וכתב ספרים רבים. לפני יותר מעשרים שנה חלתה אשתו הראשונה. היא עברה ניתוח, טיפולים והקרנות, ואחרי שנתיים נפטרה.</p>
+<p>ברוך ה', הוא התחתן שנית עם אישה נפלאה. ואז כתב את ספרו הרביעי, "גם אתה יכול להתמודד" - ספר על התמודדות עם קושי, עם לחצים ועם דאגות, ובו פרקים על כל מה שקורה כשמחלה נכנסת לבית: איך מדברים עם הילדים, איך מדברים עם הסביבה, איך מקבלים את זה, מה נותן כוח, איך מאזנים בין התפקידים - ואפילו איך להגיב לאנשים שמגיבים בלי טקט.</p>
+<p>מאז התחבר לארגון שמלווה משפחות שמתמודדות עם מחלה, ובכל ימי הנופש של הארגון הוא נמצא - מדבר בהתחלה, באמצע ובסוף, ויושב בלובי לכל מי שרוצה לשוחח.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;I can pull this off&quot;: כשהמלווה הופך למטופל ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;I can pull this off&quot;: כשהמלווה הופך למטופל</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עברו שנים, וחתנו, בגיל 26, חלה גם הוא. "חשבתי שעברו כל כך הרבה שנים, ושכבר שכחתי את החוויה," הוא מספר, "וה' עשה לי קורס ריענון." החתן עבר טיפולים וניתוח בארצות הברית, וברוך ה' הוא בסדר.</p>
+<p>ולפני כמה שנים, לפני פסח, הוא עצמו התחיל להרגיש לא טוב. שיעול, חולשה, תוצאות בדיקה משובשות. המוגלובין ירד, הברזל צנח, והוא התחיל לרדת במשקל - היו שבועות שירד כמעט קילו בשבוע. מצאו משהו בטחול, אבל לא הצליחו לזהות מה זה. ביופסיה בטחול מסוכנת מאוד, ולכן חיכו כמעט ארבעה חודשים, עד שלא הייתה ברירה. רק אז התגלתה המחלה.</p>
+<p>מאז הוא מקבל טיפולים. השבוע השלישי למחזור הטיפולים הוא השבוע שבו הוא הכי חזק - ובדיוק בשבוע הזה יצאו ימי הנופש. "אמרתי לרופא: I can pull this off - אני יכול לעשות את זה. זו בשבילי מתנת שמים."</p>
+<p class="bold-para">עכשיו הוא מדבר משני הצדדים: גם כמי שמלווה אחרים, וגם כמי שעובר את זה בעצמו.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: איש העסקים שנעצר באמצע הדרך ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🚂</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">משל הרכבת: שבויים אבל חופשיים</h2></div></div>
+<p class="chapter-intro">יש גישה לחיים שנותנת לאנשים כוח לעבור את הדברים הקשים ביותר. היא מתחילה בסיפור על איש עסקים אחד.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">איש העסקים שנעצר באמצע הדרך</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כשנתיים התקשרה אישה. בעלה, איש עסקים גדול ופעיל מאוד, עבר אירוע רפואי. הוא נחלש, צריך לישון יותר, והרופא אסר עליו לטוס - אדם שנסע לחוץ לארץ לפחות פעם בחודש. הוא נכנס לדיכאון.</p>
+<p>כשהגיע, הוא הציג את עצמו: בצעירותו לא היה דתי, היה קצין בצבא, ובאוניברסיטה עמד בראש חוג נגד כפייה דתית. אדם לוחמני ועוצמתי. יום אחד פגש רב ואמר לו שיש לו שאלות על הדת. הרב ענה: "אין לי זמן לוויכוחים. אם אתה רוצה - בוא נלמד." הם פתחו גמרא. אחרי שעה וחצי הוא סגר את הספר ואמר: "אני רואה שאני לא יודע כלום ביהדות." הוא חזר בתשובה, באותה עוצמה שבה נלחם קודם, והקים משפחה של בני תורה.</p>
+<p>אחר כך הקים עסק עולמי של מחקר, בקשר עם אוניברסיטאות ובנקים, במיליוני דולרים. ועכשיו פתאום - הוא לא יכול לתפקד. "אני רוצה שתעזור לי לחזור לכוחות, אפילו יותר ממה שהיו לי."</p>
+<p>התשובה הפתיעה אותו: "אני לא יכול להחזיר לך את הכוחות. ואני לא בטוח שזה טוב לך. אני חושב שקרה לך דבר מצוין." הוא הלך הביתה ואמר: "הפרידמן הזה משוגע, אני לא חוזר אליו." בסוף הוא חזר.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: על הרכבת: מה אפשר לבחור ומה לא ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">על הרכבת: מה אפשר לבחור ומה לא</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החיים שלנו דומים לנסיעה ברכבת.</p>
+<p>כל אחד מאיתנו נולד עם נתונים שאין לו שום בחירה לגביהם. אף אחד לא בחר אם להיוולד בן או בת, אצל אילו הורים, באיזה גוף, עם איזה צבע שיער ועם אילו תכונות. אלה נתונים שלא נוכל לשנות.</p>
+<p>אדם שנוסע ברכבת הוא <strong>שבוי</strong> - הוא לא יכול לרדת ממנה. אבל הוא גם <strong>חופשי</strong> - בתוך הרכבת הוא יכול לעשות מה שהוא רוצה. לבחור עם מי לדבר ועל מה. לקרוא ספר, להסתכל בנוף. או לשבת על הרצפה, לבכות ולתלוש את שערות ראשו: למה אני לא ברכבת השנייה?</p>
+<p>כך אנחנו בחיים. ה' בהשגחה פרטית לוקח כל אחד מאיתנו במסע שלו, ברכבת שלו. מהרכבת אי אפשר לרדת. אבל אפשר לבחור: להיות ממורמרים ומתוסכלים, או לקבל את גזירת הבורא באהבה - ולחפש מה יכול לשמח אותנו בתוך המסע.</p>
+<p class="bold-para">הבחירה שלנו היא לא לשנות את המציאות. ה' לא נתן לנו את האפשרות הזו. הבחירה שלנו היא תמיד איך להתייחס למציאות.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הצלחת של השכן ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הצלחת של השכן</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה נכון אצל כל אדם, לא רק כשמגיעה מחלה. שני אנשים מגיעים לאותו בית מלון. אחד נהנה מהנוף. השני ממורמר על החדר שקיבל - למה לא בקומה אחרת? ויש מי שתמיד מסתכל בצלחת של השני: למה לו יש ולי אין? למה אני ככה?</p>
+<p>המבט הזה לא משמח, לא מוביל ולא מקדם אותנו לשום מקום. הוא רק מתסכל וממרר. ואפשר, באותה רכבת עצמה, להגיד "ברוך ה' שהמצב לא גרוע יותר" - ולחפש את הטוב.</p>
+<div class="honey-box">🍯 באותו מלון, באותו נוף, באותה ארוחה - אחד חוגג ואחד מתלונן. ההבדל לא בחדר. ההבדל בעיניים.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: כשה&#x27; מעביר אותנו לרכבת אחרת ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כשה&#x27; מעביר אותנו לרכבת אחרת</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מלבד המסע הקבוע של החיים, לפעמים ה' לוקח אותנו ומוריד אותנו מרכבת אחת אל רכבת חדשה.</p>
+<p>אדם רגיל חי בשגרה. מצא את מקומו, יש לו פרנסה, הוא מסתדר. ולפעמים ה' משנה את המסלול. לפעמים זה "בדרכי נועם" - אדם מתחתן, עובר למדינה אחרת. ולפעמים זה "במקל חובלים" - משבר במשפחה, חלילה גירושין, או חלילה מחלה. פתאום אנחנו על רכבת חדשה, או שמורידים אותנו בתחנה.</p>
+<p>כך הרגיש גם הרב פרידמן בזמנו: שפה שאינו מכיר, בדיקות, בתי חולים, טיפולים, נושאים שלא היה לו מושג בהם. אדם מגיע למקום חדש, וצריך כאילו להמציא את עצמו מחדש, להסתגל, ולמצוא את מקומו במסלול החדש.</p>
+<p>ולמה ה' עושה את זה? <strong>כי יש לו תוכנית אחרת משלנו.</strong> חשבנו שאנחנו הולכים בדרך מסוימת, היו לנו תוכניות - וה' רוצה שנגיע למקום אחר. והוא מבין הרבה יותר טוב מאיתנו מה נכון בשבילנו.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: הילד שביקש תאונה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הילד שביקש תאונה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ילד עלה פעם לאוטובוס ואמר לנהג: "תעשה תאונת דרכים."</p>
+<p>"אתה משוגע? למה שאעשה תאונה?"</p>
+<p>"שמעתי בבית שמדברים על תאונות. אני רוצה לראות פעם איך זה, ואיך מפנים באמבולנס."</p>
+<p>"זה מסוכן. אני לא עושה תאונה." והילד מתחיל לבכות ולהתחנן.</p>
+<p>מי צודק - הילד או הנהג? ברור שהנהג.</p>
+<p>כשאנחנו מתחננים שה' יעשה לנו משהו מסוים, ה' יושב למעלה ומבין יותר טוב מכולנו. אנחנו לא מבינים כמעט כלום בחיים - לא את התפקיד שלנו ולא את המשימות שלנו. וה' אומר: "מה שאתה מבקש זו תאונת דרכים בשבילך. יש לי תוכנית אחרת. אני לוקח אותך למקום הנכון."</p>
+<div class="honey-box">🍯 לפעמים מה שנראה לנו כמו סירוב, הוא בעצם נהג טוב ששומר עלינו.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: אנשים של הרגלים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🐝</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">בלי מכות לא גדלים</h2></div></div>
+<p class="chapter-intro">למה ה' מכריח אותנו לעבור שינויים? כי אנחנו אנשים של הרגלים - ובלי דחיפה, לא היינו זזים.</p>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אנשים של הרגלים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרגל זה דבר נוח מאוד. אני נכנס לחנות ולא צריך לחשוב מאיזו חברה לקנות - אני כבר יודע מה טוב. אני לוקח את האוטובוס שאני רגיל אליו, עובד בעבודה שאני רגיל אליה.</p>
+<p>ואדם מפחד לשנות. את הישן הוא מכיר; מה יהיה במקום החדש - הוא לא יודע.</p>
+<p>אבל ה' רוצה שנצליח. ולכן לפעמים, בעל כורחנו, הוא מכריח אותנו לשנות משהו - כדי לתת לנו הזדמנות לעבוד מחדש, במקום שהוא רוצה ובתחומים שהוא רוצה, ולגדול דווקא מהדברים האלה.</p>
+<p>חז"ל אומרים במדרש:</p>
+<blockquote>"אין לך כל עשב ועשב שאין לו מזל ברקיע שמכה אותו ואומר לו גדל" (בראשית רבה י, ו)</blockquote>
+<p>ונשאלת השאלה: למה צריך <strong>להכות</strong> את העשב? למה לא פשוט לומר לו "גדל"? התשובה: כנראה שבלי מכות - לא גדלים. המכות הן שמכריחות אותנו לצמוח.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: &quot;אך טוב וחסד ירדפוני&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;אך טוב וחסד ירדפוני&quot;</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אף אדם לא בוחר במכות, ואף אדם לא רוצה שיהיה לו רע. אבל ה' מבין את טבע האדם, וכך כתוב בתורה:</p>
+<blockquote>"וישמן ישרון ויבעט" (דברים לב, טו)</blockquote>
+<p>כשטוב לאדם, הוא שוכח את ריבונו של עולם. וכשבאה תוכחה, כשמגיעים קשיים:</p>
+<blockquote>"או אז יכנע לבבם הערל" (ויקרא כו, מא)</blockquote>
+<p>ויש ווארט מופלא על הפסוק בתהילים "אך טוב וחסד ירדפוני כל ימי חיי" (תהלים כג, ו): למה טוב וחסד "רודפים"? כי כשהולך לאדם רק טוב, זה כמעט רדיפה - זה לא טוב לו באמת, כי בטוב הוא שוכח את ה'. וכשיש קושי, הוא חוזר אל ריבונו.</p>
+<p>אפשר להסכים ואפשר לא להבין למה ה' עשה את העולם כך. אבל זה מה שכתוב בתורה ובספרים. <strong>ואם אדם מאמין שה' עשה את זה לטובתו, ובמקום להתמרמר שואל "מה אני יכול לעשות עכשיו כדי לגדול מזה?" - הוא באמת גדל.</strong></p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הדבש בא מהדבורה ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הדבש בא מהדבורה</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בראש השנה טובלים את החלה בדבש, כדי שתהיה שנה מתוקה. ומי עושה את הדבש? פרפר יפה ונחמד? לא. <strong>דבורה</strong> - יצור שעוקץ, משהו לא נעים בכלל.</p>
+<p>כל הדבש שלנו, ההצלחה האמיתית בחיים, מגיע דווקא מהכאבים, מהעקיצות, מהדברים הלא נעימים. וזה נכון גם ברוחניות וגם בגשמיות.</p>
+<p>חז"ל אומרים:</p>
+<blockquote>"אין אדם עומד על דברי תורה אלא אם כן נכשל בהן" (גיטין מג ע"א)</blockquote>
+<p>כשאדם נכשל במשהו, הוא לומד דבר חדש. ועוד אמרו:</p>
+<blockquote>"הזהרו בבני עניים שמהן תצא תורה" (נדרים פא ע"א)</blockquote>
+<p>כשקשה לאדם, הוא צריך להתאמץ - וזה המקום והזמן שבו הוא יכול להצליח. העולם מלא סיפורים של אנשים שדווקא הכישלון שלהם הוביל אותם להצלחה.</p>
+<p>הספר השמיני של הרב פרידמן נכתב בדיוק על הרעיון הזה - עוד לפני שידע מה מחכה לו: לא רק איך לשרוד עם קושי, אלא <strong>איך לגדול עם קושי</strong>.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: שלושה בנים, שלוש עקיצות ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שלושה בנים, שלוש עקיצות</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב פרידמן ראה את זה בחייו שלו.</p>
+<p>כאברך צעיר נולד לו בן בכור עם בעיה בלב. בצנתור משהו השתבש, והילד נשאר עם נזק מוחי. היום הוא בן 44, מתוק, נראה כמו ילד, לא יודע כמה זה אחת ועוד אחת - אבל יש לו חוכמת רחוב: הוא יודע בדיוק מי נותן ממתקים. "בתקופה הראשונה לא ידעתי איך להתמודד. זו הייתה המכה הכי גדולה שקיבלתי בחיים. התביישתי ללכת איתו ברחוב." הקושי הכריח אותו לקרוא ספרי פסיכולוגיה, לדבר עם אנשים, לחפש חיזוק - וכך הגיע לתחום שבו הוא עוזר לאחרים כבר עשרות שנים.</p>
+<p>בן אחר עבד אצל מעסיק, ובגלל ויכוח על אלף שקלים התפטר - ופתח עסק משלו שהצליח מאוד.</p>
+<p>ובן נוסף, בארצות הברית, עבד בהחלפת נורות ברחובות. יום אחד נפצע, עבר ניתוח, ולא יכול היה לעבוד. הוא בכה: איבדתי את הפרנסה. אבל בעל החברה שמע שהוא חרוץ, ואמר: עד שיחלים, אתן לו שליחויות במשרד. במשרד ראו שכל מה שמבקשים ממנו הוא עושה עוד לפני שביקשו. נתנו לו עוד אחריות, ועוד אחריות - עד שניהל את החברה, חתם על עסקאות של מיליוני דולרים והיה אחראי על 400 עובדים.</p>
+<p class="bold-para">כל המפנה התחיל ממשהו שנראה בעיניו כמו ירידה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: משבר הוא שעון מעורר ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">משבר הוא שעון מעורר</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אנשים אומרים: "אנשים נבנים מצרות." זה לא מדויק. יש הרבה אנשים שדווקא נשברים ויורדים מצרות.</p>
+<p>הנכון הוא כך: <strong>המשברים לא בונים אותנו. המשברים נותנים לנו אפשרות לבחור בדרך שתבנה אותנו.</strong></p>
+<p>זה כמו שעון מעורר. השעון לא לוקח אותנו לבית הכנסת. יש מי ששובר את השעון ומתהפך לצד השני. אבל השעון נותן לנו את האפשרות לקום ולעשות את מה שצריך.</p>
+<p>הבחירה היא תמיד שלנו - איך להגיב. וזו תמיד העבודה שלנו: לבחור איך אנחנו יכולים לגדול מהדבר הזה.</p>
+<div class="honey-box">🍯 המשבר מצלצל. השאלה היא אם נקום - או נזרוק את השעון.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: &quot;כי אתה עמדי&quot;: מגוף שלישי לגוף שני ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🙏</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">קרובים יותר אל ה&#x27;</h2></div></div>
+<p class="chapter-intro">הקושי עושה עוד משהו: הוא מקרב אותנו אל ריבונו של עולם, ומלמד אותנו פרק בענווה.</p>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;כי אתה עמדי&quot;: מגוף שלישי לגוף שני</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשאדם מרגיש איום על החיים שלו, כשהוא לא יודע מה ילד יום ואף אחד לא יכול להגיד לו מה יהיה - הוא פונה אל ה' ומתקרב אליו.</p>
+<p>רבי צדוק הכהן מלובלין שם לב לדבר מעניין במזמור שכולנו מכירים. בתחילתו, הדיבור על ה' הוא בגוף שלישי:</p>
+<blockquote>"ה' רעי לא אחסר. בנאות דשא ירביצני, על מי מנחות ינהלני. נפשי ישובב, ינחני במעגלי צדק למען שמו" (תהלים כג, א-ג)</blockquote>
+<p>הוא ירביצני, הוא ינהלני. ופתאום, בפסוק אחד, משהו משתנה:</p>
+<blockquote>"גם כי אלך בגיא צלמות לא אירא רע כי אתה עמדי" (תהלים כג, ד)</blockquote>
+<p>פתאום "אתה". ומשם והלאה: "שבטך ומשענתך המה ינחמני, תערך לפני שלחן".</p>
+<p class="bold-para">כשאנחנו הולכים בגיא צלמות, ה' כבר לא "הוא" רחוק. הוא "אתה", קרוב, ממש לידנו.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: שלושים שניות: פרק בענווה ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שלושים שניות: פרק בענווה</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ספרי המוסר מזהירים: שאדם לא יתגאה, כי ה' יכול להפוך אותו בשנייה לנצרך.</p>
+<p>הרב פרידמן חווה את זה. הוא התפרנס היטב, הכול היה בסדר. וכשאשתו הראשונה חלתה, הוא לא יכול היה לעבוד, לא היה לו כסף לחתן ילדים - ובן רגע הפך לנצרך. אנשים שמעולם לא הסתכל לעברם, הוא היה צריך לבקש מהם שייקחו אותו לבית החולים, ימתינו ויחזירו. "זה לימד אותי פרק בענווה."</p>
+<p>בשלושים שניות אדם יכול להפוך לנצרך. אירוע מוחי, חלילה, ופתאום הוא לא יכול לדבר ולא יכול ללכת. כמה אנחנו תלויים בחסדי שמים. ומי שהצליח הכי הרבה בחיים, יכול בשנייה להגיע להפך הגמור.</p>
+<div class="honey-box">🍯 הצרות מזכירות לנו לא להתגאות על אף אחד, ולכבד כל אחד.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: הורים שלא שופטים ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הורים שלא שופטים</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אותו דבר נכון בחינוך ילדים. הורים שמצליחים עם הילדים שלהם עלולים להיות הגאים ביותר - ולשפוט את כל מי שלא הצליח. "אני הרי יודע איך עושים את זה. אני יודע איך להנחיל משמעת בבית. הם לא יודעים."</p>
+<p>ואף אחד לא חסין. גם לגדולים שבגדולים היו קשיים עם ילדים.</p>
+<p>לכן, כשיש להורים קושי עם ילד, זו בעצם <strong>מתנה</strong>: הם לא יהיו בעלי גאווה. הם לא ישפטו אחרים, לא יסתכלו מלמעלה למטה על אלה שהצליחו פחות. הם לומדים לכבד כל אדם.</p>
+<p>וכך ה' נותן לנו, דרך הקושי, את המתנה הטובה ביותר בחיים: שנהיה יותר צנועים, ויותר קרובים אליו.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: &quot;קיבלנו אבא חדש&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;קיבלנו אבא חדש&quot;</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה קרה עם איש העסקים?</p>
+<p>לאט לאט הוסבר לו: ריבונו של עולם הוריד אותך מהרכבת שהיית עליה. נסעת בכל העולם ועשית עסקים במיליוני דולרים. ה' החליט שהגיע הזמן להחליף לך מסלול. אתה יכול לבכות, אתה יכול להיות בדיכאון - אבל זה לא יעזור לך. ואם תתחיל להכיר בכך שיש לך עכשיו הזדמנות אחרת?</p>
+<p>להיות יותר בבית, עם האישה והילדים. יותר זמן לבנות קשר טוב איתם. להשקיע ברוחניות - להתבונן בברכה, בלימוד, בכל מצווה. יש דברים נפלאים שאפשר לעשות גם בלי לטוס לארצות הברית.</p>
+<p>לאט לאט הוא קלט את זה והפנים. אשתו וילדיו אמרו: <strong>"קיבלנו אבא חדש."</strong> גם עם פחות שעות פעילות ביממה, הוא הקים גמ"ח, ארגן שיעורי תורה בסביבתו, והתחיל להרגיש סיפוק. "פתאום גיליתי חיים אחרים. בניתי קשר משפחתי שונה לגמרי."</p>
+<p>אף אחד לא בוחר בבעיות. אבל אם ה' עשה את זה בשבילנו, ואנחנו יודעים איך לקלוט את זה נכון - זה דבר שבונה אותנו.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: אף אחד לא גונב פרוטוקול ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🦋</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">הפרוטוקול האישי והפרפר</h2></div></div>
+<p class="chapter-intro">"למה אני? למה לא אחרים?" - השאלה הכואבת ביותר. ויש לה תשובה שאפשר לחיות איתה.</p>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אף אחד לא גונב פרוטוקול</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשאדם כואב, הוא שואל: למה אני? מה עשיתי כל כך רע? למה לשני הולך בקלות?</p>
+<p>חשבו על מחלקה בבית חולים. לכל מחלה יש פרוטוקול - איזה טיפול נותנים, באיזה סדר. עוד לא נראה מטופל שהתגנב ולקח את הטיפול של מישהו אחר רק כי הפרוטוקול שלו קל יותר. "אני צריך ניתוח גדול, הוא צריך ניתוח קל - למה שלא אתחלף איתו?" כל אחד מבין שרק הפרוטוקול שנקבע <strong>למחלה שלו</strong> יכול לרפא אותו.</p>
+<p>יש מי שאמר שהעולם הזה אינו בית חולים אלא <strong>בית הבראה</strong> של ריבונו של עולם. לכל אחד מאיתנו יש תוכנית, ויש פרוטוקול שתפור בדיוק עליו. רק מי שלא מבין ירצה את הפרוטוקול של השני - כי זה לא מה שירפא אותו.</p>
+<div class="honey-box">🍯 הקושי של השני נראה לפעמים קל יותר. אבל הוא לא שלך, והוא לא היה מרפא אותך.</div>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: הדבר היחיד שה&#x27; לא יכול לעשות ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הדבר היחיד שה&#x27; לא יכול לעשות</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אב שאיבד ילד סיפר: אנשים באו לנחם, אמרו כל מיני דברים, ואף אחד לא הצליח לנחם אותו. חוץ מאחד.</p>
+<p>האחד הזה אמר: "ריבונו של עולם הוא כל יכול. אבל יש דבר אחד שגם הוא לא יכול לעשות. אתה יודע מה? <strong>לטעות.</strong>"</p>
+<p>אין טעויות בשמים. בהשגחה פרטית אין דבר כזה. כל מה שה' עושה הוא מכוון.</p>
+<p>בכל הספרים מופיע המושג הזה: "צדיק ורע לו, רשע וטוב לו" - אין לנו יכולת להבין. גם ירמיהו הנביא שאל "מדוע דרך רשעים צלחה" (ירמיה יב, א), ואנחנו לא נוכל לקבל תשובה מלאה בעולם הזה. כי אנחנו לא יודעים מה באמת טוב ומה באמת רע. יש דברים שנראים טובים והם הדבר הרע ביותר, ויש דברים שנראים רעים והם הדבר הטוב ביותר.</p>
+<p class="bold-para">אם נשכיל להבין שכל מה שה' עושה הוא לטובתנו - נוכל להיבנות מהקושי שעברנו.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: הפרפר שעזרו לו יותר מדי ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הפרפר שעזרו לו יותר מדי</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אדם אחד ראה גולם של פרפר. הפרפר ניסה לצאת, ונאבק בכל כוחו עם הפקעת. האדם ריחם עליו, לקח מספריים וגזר את הפקעת כדי שהפרפר יצא בקלות.</p>
+<p>הפרפר יצא - ומעולם לא הצליח לעוף.</p>
+<p>כי הדרך שבה הפרפר בונה את הכנפיים שלו היא <strong>דווקא המאמץ והמלחמה</strong> לצאת מהפקעת. כשהאדם "עזר" וגזר את הפקעת, הוא גזר על הפרפר שלא יתפתח, ושלא יוכל לעוף לעולם.</p>
+<p>שיר ידוע מבטא את זה כך:</p>
+<ul class="story-list"><li>ביקשתי כוח - וה' שלח לי קשיים, כדי שאתחזק</li><li>ביקשתי חוכמה - וה' שלח לי בעיות, כדי שאלמד לפתור אותן</li><li>ביקשתי שפע - וה' נתן לי מוח וידיים לעבוד</li><li>ביקשתי אומץ - וה' נתן לי מכשולים להתגבר עליהם</li><li>ביקשתי אהבה - וה' שלח לי אנשים שזקוקים לי</li><li>ביקשתי טובות - וה' נתן לי הזדמנויות</li></ul>
+<p class="bold-para">לא קיבלתי שום דבר ממה שביקשתי. אבל קיבלתי כל מה שהייתי צריך.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: כוחה של חבורה - וזהירות מהאווזה ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כוחה של חבורה - וזהירות מהאווזה</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשאנשים שעוברים את אותו קושי נפגשים, יש בזה תועלת עצומה. הרבה פעמים העזרה הגדולה ביותר לא באה דווקא מאנשי מקצוע, אלא מאנשים שפוגשים זה את זה ושומעים עצות טובות זה מזה. נוצרות חברויות, מתייעצים, ומגלים שאתה לא לבד.</p>
+<p>אבל חשוב לזכור: <strong>כל מקרה שונה</strong>. מעשה באדם שרצה לחצות נהר ושאל מישהו אם הוא עמוק. "לא, אפשר לעבור." הוא נכנס - וכמעט טבע. "השתגעת? אמרת שאפשר לעבור!" "ראיתי אווזה שנכנסה למים, והם הגיעו לה עד המותניים..."</p>
+<p>לפעמים אנשים מספרים את הסיפור שלהם כאילו הוא מתאים לכולם. צריך להיזהר. ובכל זאת, כשאנחנו שומעים רעיונות - אנחנו לא ילדים קטנים, ואנחנו יכולים לבחור מה מתאים לנו.</p>
+<div class="honey-box">🍯 כל רעיון ששומעים הוא כמו כלי בארגז כלים. אולי היום הוא לא נראה חשוב, אבל אי אפשר לדעת איזה כלי נצטרך מחר.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
