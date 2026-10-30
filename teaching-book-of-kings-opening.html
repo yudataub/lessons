@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>👑 מלכות שלא נגמרת: מדריך להוראת ראשית ספר מלכים</title>
+<meta name="description" content="הכיוון הגדול שמאחורי עשרת הפרקים הראשונים של ספר מלכים - דוד ושלמה, אדוניהו, יואב ושמעי, החכמה והמקדש - ואיך מעבירים אותו לילדים כך שייצא להם מזה לימוד תורה אמיתי ולא אוסף פרטים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 30.10.2026 🍯</div>
+  <h1 class="hero-title">👑 מלכות שלא נגמרת: מדריך להוראת ראשית ספר מלכים</h1>
+  <p class="hero-subtitle">הכיוון הגדול שמאחורי עשרת הפרקים הראשונים של ספר מלכים - דוד ושלמה, אדוניהו, יואב ושמעי, החכמה והמקדש - ואיך מעבירים אותו לילדים כך שייצא להם מזה לימוד תורה אמיתי ולא אוסף פרטים</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-13 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">📖 ספר אחד, נביא אחד, תקווה אחת</a><ul class="toc-stories"><li><a href="#story-1">מלכים א&#x27; ומלכים ב&#x27; - ספר אחד</a></li><li><a href="#story-2">למה הספר נכתב: גם כשהכול מתפרק, בית דוד נמשך</a></li><li><a href="#story-3">המבנה: קודם הגדולה, אחר כך הנפילה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🕊️ דוד הזקן ושלמה הענו: העברת המלכות</a><ul class="toc-stories"><li><a href="#story-4">&quot;ולא יחם לו&quot;: כשהנשמה הכללית נחלשת</a></li><li><a href="#story-5">בדעת צלולה: המלך דוד מעביר את המלכות</a></li><li><a href="#story-6">אדוניהו המתנשא מול שלמה הענו</a></li><li><a href="#story-7">לילדים: למקד את התכונה העיקרית</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">⚔️ צוואת דוד: שלוש משימות שנשארו פתוחות</a><ul class="toc-stories"><li><a href="#story-8">שלילה, חיוב, שלילה</a></li><li><a href="#story-9">יואב: מלכות אחת, כמו מלכות שמים</a></li><li><a href="#story-10">שמעי בן גרא: הליצנות שמגרשת את השכינה</a></li><li><a href="#story-11">דין נורא - ולא החלטה מהבטן</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🏛️ חכמה, מקדש ושאיפה לתקן עולם</a><ul class="toc-stories"><li><a href="#story-12">החכמה - תפארת כל המידות</a></li><li><a href="#story-13">מקדש אחד: מן הבמות אל האחדות</a></li><li><a href="#story-14">בת פרעה: חלום גדול שהקדים את זמנו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🌅 מהשבר אל הגאולה - ומה נשאר בלב הילד</a><ul class="toc-stories"><li><a href="#story-15">החטאים מקריים, הנשמה עצמית</a></li><li><a href="#story-16">ההתפרקות: הגוף מתפרק, השורש נשאר</a></li><li><a href="#story-17">&quot;דוד מלך ישראל חי וקיים&quot;</a></li><li><a href="#story-18">מבחן לכל מצגת ולכל דף עבודה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📖</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">ספר אחד, נביא אחד, תקווה אחת</h2></div></div>
+<p class="chapter-intro">לפני שנכנסים לפסוק הראשון כדאי להבין מה הספר הזה בא לעשות. מי שמחזיק את התמונה הגדולה, יודע איך לפרש כל פרק קטן.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מלכים א&#x27; ומלכים ב&#x27; - ספר אחד</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החלוקה ל"מלכים א'" ו"מלכים ב'" היא חלוקה מאוחרת, של הדפוס. במקור זה <strong>ספר אחד</strong>, ששמו "מלכים". חז"ל אומרים מי כתב אותו:</p>
+<blockquote>"ירמיה כתב ספרו וספר מלכים וקינות" (בבא בתרא טו ע"א)</blockquote>
+<p>כדאי לעצור על העובדה הזו. ירמיהו הוא הנביא של החורבן. הוא ראה במו עיניו את סוף המלכות, את בית המקדש בוער ואת העם יוצא לגלות. והוא, דווקא הוא, כותב את כל סיפור המלכות מתחילתו - מימי הזוהר של שלמה ועד הרגע האחרון.</p>
+<p class="bold-para">מי שכותב את סיפור המלכות מתוך החורבן, לא כותב ספר היסטוריה. הוא כותב ספר של תקווה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: למה הספר נכתב: גם כשהכול מתפרק, בית דוד נמשך ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה הספר נכתב: גם כשהכול מתפרק, בית דוד נמשך</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ספר מלכים מתאר תהליך של התפרקות. קודם המלכות המאוחדת נחלקת לשתיים - מלכות ישראל ומלכות יהודה. אחר כך מלכות ישראל נחרבת, ובסוף נחרבת גם יהודה.</p>
+<p>אבל מתחת לסיפור העצוב הזה עובר חוט אחד שלא נקרע: <strong>מלכות בית דוד נמשכת עד הסוף</strong>. גם בפרק האחרון של הספר, בגלות בבל, יהויכין מלך יהודה יוצא מבית הכלא ומקבל כבוד. השורש נשאר חי.</p>
+<p>זה המסר של ירמיהו לדורות: ההתפרקות באה מחטאינו, מחולשתנו ומהחסרונות שבנו. לא הקדוש ברוך הוא עזב אותנו - אנחנו איבדנו את הגדולה שלנו באשמתנו. ומה שהתקלקל בגלל חולשה, <strong>עתיד להיתקן</strong>.</p>
+<div class="honey-box">🍯 ספר מלכים לא נכתב כדי שנבכה על מה שהיה. הוא נכתב כדי שנדע שמה שהיה - יחזור.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: המבנה: קודם הגדולה, אחר כך הנפילה ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המבנה: קודם הגדולה, אחר כך הנפילה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמו ספרים נוספים בתנ"ך, ספר מלכים פותח <strong>בגדלות</strong>. עשרת הפרקים הראשונים מתארים את השלמות העליונה ביותר שהמלכות בישראל הגיעה אליה אי פעם - ימי שלמה המלך בירושלים. זה המימוש המלא של מה שדוד התחיל: מלך אחד, עם מאוחד, בית מקדש, שלום מכל הצדדים.</p>
+<p>רק אחרי שהקורא ראה את הגובה הזה, הספר מתחיל לתאר את הירידה.</p>
+<p>לסדר הזה יש משמעות חינוכית עצומה. ילד שפוגש קודם את השלמות יודע מה <strong>אמור</strong> להיות. כשהוא יגיע אחר כך לחטאים ולפילוג, הם יכאבו לו - כי הוא יודע ממה נפלנו. ומי שכואב לו, רוצה לחזור.</p>
+<p class="bold-para">את עשרת הפרקים הראשונים צריך ללמד כמו שמראים לילד את הבית שלו במלוא יופיו - לפני שמספרים לו שהוא נהרס.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: &quot;ולא יחם לו&quot;: כשהנשמה הכללית נחלשת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🕊️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">דוד הזקן ושלמה הענו: העברת המלכות</h2></div></div>
+<p class="chapter-intro">הספר נפתח ברגע עדין: דוד המלך הגדול זקן וחלש. איך עוברת המלכות לדור הבא בלי שתתפרק?</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ולא יחם לו&quot;: כשהנשמה הכללית נחלשת</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"והמלך דוד זקן בא בימים ויכסהו בבגדים ולא יחם לו" (מלכים א א, א)</blockquote>
+<p>כדי להבין את הפסוק הזה צריך להבין מה זה מלך בישראל. דוד הוא לא סתם שליט. הוא <strong>נשמה כללית</strong> - נשמה שמכילה וכוללת את כל נשמות ישראל. כל הכוחות המרובים של האומה מתרכזים בו ויוצאים ממנו אל הפועל.</p>
+<p>לכן כשדוד חלש, זה לא רק עניין פרטי של אדם זקן. כשלמלך "לא יחם", הביטוי של כל האומה נחלש.</p>
+<p>לשם כך מביאים את אבישג השונמית - נערה צעירה ורעננה, שתפקידה לעורר מחדש את כוחותיו של דוד ולחזק אותו. היא לא אשתו ממש, כי דוד כבר לא שייך לזה, אבל היא נמצאת אצלו בהיתר שנהג באותם ימים. לדמות שלה יהיה תפקיד גם בהמשך, בסוף פרק ב', כשאדוניהו יבקש אותה - ושם יתברר עד הסוף מי ראוי למלכות.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: בדעת צלולה: המלך דוד מעביר את המלכות ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">בדעת צלולה: המלך דוד מעביר את המלכות</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קל לקרוא את הפרק הראשון כסיפור על מלך זקן שאיבד שליטה, ועל חצר שבה כל אחד מנסה לחטוף. אבל זו קריאה שגויה.</p>
+<p>נכון, דוד בזקנתו, ויש בו סימנים של חולשה. אבל החולשה הזו <strong>לא הביאה לחוסר שליטה</strong>. כשדוד מכריז על שלמה כמלך, הוא עושה זאת מהכרה גמורה, בכוח מלא ושלם. לא רק דוד האדם הפרטי מחליט כאן, אלא <strong>דוד המלך</strong> - האדם המלכותי שבו.</p>
+<blockquote>"כי שלמה בנך ימלך אחרי והוא ישב על כסאי תחתי" (מלכים א א, ל)</blockquote>
+<p>העברת המלכות לשלמה נעשית בדעת צלולה, ומתוך הסידור של הקדוש ברוך הוא. מתוך החושך של הזקנה והמזימות, מופיע האור.</p>
+<div class="honey-box">🍯 כשמלמדים את הפרק הזה, כדאי להדגיש: גם בשעת חולשה, דוד נשאר מלך. המלכות לא נחטפה - היא נמסרה.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: אדוניהו המתנשא מול שלמה הענו ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אדוניהו המתנשא מול שלמה הענו</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אדוניהו לא היה אדם פסול. הוא היה ראוי למלכות במובן מסוים. הבעיה היא <strong>מה דחף אותו</strong> אליה:</p>
+<blockquote>"ואדניה בן חגית מתנשא לאמר אני אמלך" (מלכים א א, ה)</blockquote>
+<p>מילה אחת - "מתנשא" - ובה כל הסיפור. זו התכונה ההפוכה לתכונה של דוד. דוד, העניו הגדול, לא רדף אחרי המלכות. שמואל משח אותו, ואחר כך המלכות הגיעה אליו מתוך המציאות עצמה, בענווה גדולה. הוא לא השתלט עליה - הוא נדחף אליה.</p>
+<p>ואדוניהו? הוא פועל בעורמה. הוא מכין רכב ופרשים, מזמין חלק מהשרים ומשאיר אחרים בחוץ. וגם אחרי שהמלכות נמסרה לשלמה, העורמה ממשיכה: אחרי מות דוד הוא פונה דווקא אל בת שבע, אם שלמה, ומבקש את אבישג לאישה. שלמה, חד וער, מזהה מיד את המזימה שמאחורי הבקשה.</p>
+<p>שלמה, לעומתו, עומד <strong>בגבורה וגם בחסד</strong>. בסוף הפרק הראשון הוא עדיין לא נוגע באדוניהו. רק כשמתברר שאדוניהו לא מוותר על חזיונות המלוכה שלו, מגיע הדין.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: לילדים: למקד את התכונה העיקרית ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לילדים: למקד את התכונה העיקרית</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר להרבות כאן מאוד בפרטים. יש מה לדרוש בכל פסוק. אבל כשמלמדים את ספר מלכים בגיל צעיר - כיתות ה' ו', ואפילו ז' ח' שזה עדיין גיל צעיר - צריך <strong>למקד את התכונות העיקריות</strong>.</p>
+<p>והתכונה העיקרית כאן היא <strong>ענווה</strong>. ענווה היא התכונה המרכזית של מנהיגות ושל מלכות. ראינו אותה אצל משה רבנו, "והאיש משה ענו מאד". רואים אותה אצל דוד. והיא נמשכת אצל שלמה.</p>
+<p>לכן חשוב, כשמלמדים את שלמה, להבליט עד כמה <strong>שלמה הוא המשך של דוד</strong>: המשך של הענווה, המשך של הגבורה, המשך של החסד. הניגוד בין "המתנשא" לבין העניו מספיק כדי שילד בן עשר יבין במה בוחרים מלך בישראל.</p>
+<p class="bold-para">ילד שיצא מהפרק הזה עם המילה "מתנשא" ועם הבנה למה היא פוסלת - קיבל את העיקר.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: שלילה, חיוב, שלילה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">⚔️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">צוואת דוד: שלוש משימות שנשארו פתוחות</h2></div></div>
+<p class="chapter-intro">לפני מותו דוד מצווה את שלמה. ייתכן שציווה עוד דברים רבים, אבל לפנינו מופיעות שלוש נקודות - ולכל אחת משמעות עמוקה.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שלילה, חיוב, שלילה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בצוואת דוד בפרק ב' מופיעות שלוש נקודות מרכזיות, והן בנויות בסדר מדויק:</p>
+<ul class="story-list"><li><strong>גבורה של שלילה</strong> - כלפי יואב בן צרויה</li><li><strong>חיוב וחסד</strong> - כלפי בני ברזילי הגלעדי</li><li><strong>גבורה של שלילה</strong> - כלפי שמעי בן גרא</li></ul>
+<blockquote>"ולבני ברזלי הגלעדי תעשה חסד והיו באכלי שלחנך" (מלכים א ב, ז)</blockquote>
+<p>אלה שלושה כוחות שנותרו ממלכות דוד ולא טופלו עד הסוף. דוד לא מוסר לשלמה רק כס מלכות, אלא גם "תיק פתוח": מי שעמד לצד המלכות בשעת צרה - יש לגמול לו חסד. ומי שמסכן אותה - יש לטפל בו בחכמה.</p>
+<div class="honey-box">🍯 שימו לב לסדר: החסד לברזילי נמצא באמצע, בין שני הדינים. המלכות של שלמה עומדת על גבורה וחסד גם יחד.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: יואב: מלכות אחת, כמו מלכות שמים ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">יואב: מלכות אחת, כמו מלכות שמים</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את יואב פגשנו כבר הרבה פעמים בספר שמואל. דוד מזכיר כאן במיוחד את מה שעשה לאבנר בן נר ולעמשא בן יתר - שני שרי צבא שיואב הרג בשלום, בלי רשות המלך.</p>
+<p>ביסוד הדרך של יואב יש תפיסה שהיא <strong>סכנה למלכות</strong>. יואב, בגבורתו הגדולה, מצמצם את המשמעות של מלך ישראל. הוא פועל לבד, מחליט לבד, כאילו יש שני מרכזים.</p>
+<p>אבל המלכות בישראל אמורה להיות <strong>מלכותא דארעא כעין מלכותא דרקיעא</strong> - מלכות הארץ כדמות מלכות השמים. כמו שהקדוש ברוך הוא אחד, יחיד ומיוחד, ואין לו שותף, כך המלך הוא נשמה אחת שמוציאה לפועל את כל כוחות ישראל בשלמות. כל החלשה של האחדות הזו - במחשבה, בדיבור או במעשה - היא סכנה.</p>
+<p>הסיבות המדויקות לא מפורטות בפסוקים, ואפשר לדרוש סביבן הרבה. אבל אין צורך. ההבנה הברורה היא שהמלכות צריכה להיות נכונה בישראל דרך אישיות אחת, כי <strong>צלם אלוקים שבאדם מופיע בעם ישראל המתאחד סביב מלך אחד</strong>.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: שמעי בן גרא: הליצנות שמגרשת את השכינה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שמעי בן גרא: הליצנות שמגרשת את השכינה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שמעי בן גרא קילל את דוד כשברח מפני אבשלום. התנ"ך קורא לזה:</p>
+<blockquote>"והוא קללני קללה נמרצת ביום לכתי מחנים" (מלכים א ב, ח)</blockquote>
+<p>חז"ל דרשו את המילה "נמרצת" כראשי תיבות: <strong>נואף, מואבי, רוצח, צורר, תועבה</strong> (שבת קה ע"א). שמעי מצא כל ענן קטן סביב דמותו של דוד והפך אותו לקללה: שהוא מצאצאי רות המואביה, למרות שנפסקה ההלכה "מואבי ולא מואבית"; שהוא רצח את אוריה החיתי; ופקפוקים ביחוסו ובלידתו, כמו שמובא במדרשים שדוד היה הבן הדחוי בבית ישי.</p>
+<p>זה היה אופיו של שמעי: <strong>כל דבר שקשור לדוד - הוא פירש לשלילה</strong>. היום היינו קוראים לזה ציניות. חז"ל קוראים לזה <strong>מידת הליצנות</strong>.</p>
+<p>וכאן העומק: חז"ל מונים ארבע כיתות שאינן מקבלות פני שכינה, והראשונה שבהן היא "כת ליצים" (סוטה מב ע"א). אי אפשר שהשכינה תתגלה אצל לצים. זה מה שדוד אומר לשלמה: <strong>אם אתה רוצה לבנות מקדש, אתה חייב לבטל את הליצנות מישראל.</strong></p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: דין נורא - ולא החלטה מהבטן ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">דין נורא - ולא החלטה מהבטן</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמגיעים לדין של יואב, של אדוניהו ושל שמעי, הקורא של היום עלול להיבהל. נשמע לנו כאילו מלך אחד מחליט מהבטן מי יחיה ומי ימות.</p>
+<p>חלילה. הריגת נפש מישראל היא הדין הנורא ביותר. דין כזה נעשה בבית דין של סמוכים, שמבררים את הדין באופן שלם, שומעים גם את מי שמלמד זכות, ורק אחר כך הרוב מכריע. בית הדין של שלמה הוא סנהדרין גדולה - אנשים סמוכים, גבוהים, שיורדים עמוק לנפש האדם ולדעתו, ויודעים לקבוע מתי אדם הוא בן מוות.</p>
+<p>ושלמה לא נוגע באיש סתם. הוא פוגע רק אחרי שהאדם <strong>הוחלט אל הרע</strong> - כשהמידות המקולקלות שלו כבר קבעו את דרכו, וקיומו הוא סכנה. לא סכנה פרטית לשלמה, אלא סכנה לאומה כולה.</p>
+<p class="bold-para">לבער את הרע מן העולם זה חלק מהשלמות. אבל רק אחרי שהעמדנו לנגד עינינו את הגובה של בית הדין שעושה זאת.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: החכמה - תפארת כל המידות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">חכמה, מקדש ושאיפה לתקן עולם</h2></div></div>
+<p class="chapter-intro">מפרק ג' ואילך מתגלה הפנים האמיתיות של מלכות שלמה: חכמה שמסדרת את כל החיים, ומקדש אחד שמאחד את כל ישראל.</p>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">החכמה - תפארת כל המידות</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשה' נגלה לשלמה בגבעון ואומר לו "שאל מה אתן לך", שלמה לא מבקש עושר ולא כבוד:</p>
+<blockquote>"ונתת לעבדך לב שמע לשפט את עמך להבין בין טוב לרע" (מלכים א ג, ט)</blockquote>
+<p>החכמה היא התכונה המרכזית שמופיעה בפרקים הראשונים, והיא קובעת את ערכו של שלמה כמלך. היא תפארת כל המידות, השיא של הכול.</p>
+<p>היא באה לידי ביטוי במשפט המפורסם של שתי הנשים והתינוק, "משפט שלמה". היא באה לידי ביטוי בכל סידור המלכות: השרים, הנציבים, גינוני המלכות. והשיא שלה הוא בביקור מלכת שבא, שבאה לראות במו עיניה איך אפשר לסדר חיי מדינה, חיי כלכלה וחיי ארץ על פי רצון שמים.</p>
+<p>המלך בישראל הוא זה שהתורה קשורה על זרועו כמו תפילין, וכולו גילוי של שם ה' במציאות. זה שלמה - ששמו מעיד עליו: <strong>שלום ושלמות</strong>.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: מקדש אחד: מן הבמות אל האחדות ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מקדש אחד: מן הבמות אל האחדות</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעשרת הפרקים המרוממים האלה שלמה מוציא אל הפועל את שלמות השראת השכינה בארץ - <strong>בניין בית המקדש</strong>.</p>
+<p>עד אז עבדו את ה' גם בבמות, כל אחד במקומו:</p>
+<blockquote>"ויאהב שלמה את ה' ללכת בחקות דוד אביו רק בבמות הוא מזבח ומקטיר" (מלכים א ג, ג)</blockquote>
+<p>עם בניין המקדש מסתיים עידן הבמות. עם ישראל עובר ממדרגה של עבודה פרטית, מפוזרת, אל <strong>אחדות אחת כוללת</strong>: מקדש אחד, מזבח אחד. עבודת ה' כבר לא מרוכזת בפרט - הכול זורם בצינור הכללי.</p>
+<p>זו המשמעות של שלמות המלכות: החיבור המלא בין מלכות ומקדש. מלך אחד שמאחד את העם, ומקדש אחד שמאחד את העם עם הקדוש ברוך הוא.</p>
+<div class="honey-box">🍯 הצמד "מלכות ומקדש" הוא המפתח לכל ספר מלכים. כשהוא שלם - יש שלמות. כשהוא נסדק - מתחילה הנפילה.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: בת פרעה: חלום גדול שהקדים את זמנו ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בת פרעה: חלום גדול שהקדים את זמנו</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כבר בתחילת מלכותו מתואר שלמה מתחתן עם בת פרעה. ואחר כך הוא אוהב נשים נכריות רבות. איך מסבירים את זה לילדים בלי לטשטש ובלי לבזות?</p>
+<p>הנשמה הגדולה של שלמה, המשך נשמת דוד, שאפה <strong>לתקן את כל העולם במלכות שדי</strong>. שלמה, שחי "תחת גפנו ותחת תאנתו" בעולם של שלום, ראה בעיני רוחו עולם מתוקן ושלם, ורצה להשיב בתשובה את כל העמים - אפילו את מצרים, העם שהתקלקל יותר מכולם.</p>
+<p>למצרים יש תפקיד בעולם, אבל תפקיד ארצי, וכשהוא ארצי בלבד הוא מתקלקל ויורד לחומריות - "כמעשה ארץ מצרים אשר ישבתם בה לא תעשו" (ויקרא יח, ג). אין מצווה שמצרים תיחרב, אלא שתמצא את מקומה האמיתי. וזה מה ששלמה קיווה להשיג בנישואיו: לחבר את כל הכוחות של העולם ולמצוא להם אחיזה בקודש, בירושלים. כשהנשים עבדו עבודה זרה זה הפריע לו, אבל הוא ראה בזה שלב בהתחברות הדרגתית שבסוף תמצא את מקומה בקודש.</p>
+<p>זה לא קרה. לא היינו ראויים, והזמן עוד לא הגיע. <strong>אבל הטעות של שלמה היא טעות בדבר מצווה</strong> - טעות של אדם שטעה מתוך שאיפה לטוב. מן הטעויות לומדים. אל הטעויות לא חוזרים. אל השאיפה - כן.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: החטאים מקריים, הנשמה עצמית ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מהשבר אל הגאולה - ומה נשאר בלב הילד</h2></div></div>
+<p class="chapter-intro">אחרי שראינו את הגובה, אפשר לדבר על הנפילה. אבל רק מתוך ודאות שהיא תתוקן.</p>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">החטאים מקריים, הנשמה עצמית</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אי אפשר לדבר על הקלקולים של המלכות שבאו אחר כך, אלא מתוך <strong>ודאות של האפשרות לתקן</strong>. כפי שלימדו גדולי ישראל: החטאים בישראל הם מקריים. הם לא שייכים לעצם הנשמה. ומה שמתגלה בעשרת הפרקים הראשונים של ספר מלכים זה <strong>עצם הנשמה</strong>.</p>
+<p>נשמת האדם היחיד היא אחת, וגם נשמת האומה היא אחת. בגלות התורה הופיעה בעיקר "במטבע של פרט" - איך אדם יחיד עובד את ה'. כשלומדים מלכים לומדים "במטבע של כלל" - איך אומה שלמה עובדת את ה'. המטבעות דומים, אבל נשמת הכלל עולה לאין ערוך על נשמת הפרט.</p>
+<p>זו התכלית שהובטחה לאברהם אבינו: "ואעשך לגוי גדול" (בראשית יב, ב). דווקא בתוך הגוי הגדול יופיעו גם הפרטים בשיא שלמותם. והכלל הזה יוצא לפועל על ידי נשמה אחת כללית - הנשמה של דוד, שנבחרה בבחירה אלוקית ונמשכת אצל שלמה.</p>
+<p>ויש מי שלא אוהב לשמוע שהנשמה הזו נמשכה <strong>מתוך מורכבות</strong> - מתוך מאבקים, מזימות וטעויות. היו רוצים שתופיע עם שלט גדול. אבל כך ה' בוחר: מתוך המציאות המורכבת, כמו שראינו בספר שמואל.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: ההתפרקות: הגוף מתפרק, השורש נשאר ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ההתפרקות: הגוף מתפרק, השורש נשאר</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי מות שלמה מתחילה ההתפרקות. <strong>מלכות ישראל</strong>, החלק החומרי יותר של האומה, היא הראשונה להתפרק. כבר מההתחלה, כדי להתקיים, היא נאלצה להציב שומרים ולמנוע מהעם לעלות לירושלים. סימני ההתפרקות היו בתוכה מהיום הראשון.</p>
+<p>במלכות ישראל אין שושלת אחת. כל מלך, בחטאיו ובהתגברות החומריות אצלו, מצא את עצמו מסולק, עד שלא נשאר ממנו שריד. השלטונות התחלפו שוב ושוב.</p>
+<p><strong>מלכות יהודה</strong>, החלק הרוחני, נמשכת עד ממש סוף הספר. השורש של בית דוד נשאר. מדי פעם קמו מלכים שהיו קרובים מאוד לישועה - חזקיהו, יאשיהו, ואפילו בצדקיהו יש צד של צדיקות. אבל זה לא הספיק כדי לשנות את הכיוון שינוי מהותי.</p>
+<p>השינוי הזה דרש גלות ארוכה, בית שני, תורה שבעל פה שנכתבה, וגלות של אלפיים שנה. ורק עכשיו, בדורנו, מתחיל לחזור אלינו - עוד לא המציאות, אבל זיק של תקווה להתחדשות מלכות דוד.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: &quot;דוד מלך ישראל חי וקיים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;דוד מלך ישראל חי וקיים&quot;</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל ראש חודש, בקידוש לבנה, אנחנו אומרים:</p>
+<blockquote>"דוד מלך ישראל חי וקיים"</blockquote>
+<p>זה לא משפט נוסטלגי. הנשמה הזו <strong>חיה וקיימת</strong>. היא זורמת אלינו ישירות דרך פרקי התהילים שדוד כתב. היא זורמת אלינו דרך ספר שמואל ודרך ספר מלכים. והיא מעוררת בנו תפילה ורצון.</p>
+<p>זה מה שצריך לקבוע בילדים: לא רק ידיעות, אלא <strong>רגש</strong>. הרגש הטהור והצמא לחידוש מלכות דוד ושלמה. ילד שגמר את עשרת הפרקים הראשונים צריך לצאת עם תחושה שהוא ראה משהו נפלא, שזה שלו, ושהוא רוצה שזה יחזור.</p>
+<p class="bold-para">לא נחזור אל חטאי שלמה ולא אל טעויותיו. נחזור אל הרעיון היסודי של דוד המלך ואל המימוש היסודי של שלמה המלך.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: מבחן לכל מצגת ולכל דף עבודה ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מבחן לכל מצגת ולכל דף עבודה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מתוך הכיוון הזה מתפרשים פסוק אחר פסוק ועניין אחר עניין - בחמשת הפרקים הראשונים, בעשרת הפרקים הראשונים, וגם בהמשך הספר.</p>
+<p>ומכאן גם מבחן פשוט לכל חומר שמכינים: מצגת, דף עבודה, משחק או מערך. השאלה איננה רק אם הילדים נהנו, ולא רק אם הבינו את הפרטים. השאלה היא:</p>
+<ul class="story-list"><li>האם נקודות היסוד מובלטות מספיק?</li><li>האם הלימוד מעורר אצל הילד התעוררות - לימודית, מעשית ורגשית?</li><li>האם הפרטים מצטרפים אצלו <strong>למהלך אחד</strong>?</li></ul>
+<p>כי אפשר שהילדים ייהנו כך או אחרת, יבינו כך או אחרת, ויצאו עם המון פרטים שלא מצטרפים לשום דבר. וזה עוד לא לימוד תורה.</p>
+<div class="honey-box">🍯 לפני שמכינים עוד דף עבודה על ספר מלכים, כדאי לשאול: איזו נקודת יסוד הדף הזה מחזק? אם אין תשובה - כדאי לחשוב שוב.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
