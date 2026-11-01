@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>👑 מכתב תודה למלך: יום שלם עטוף בקדושה</title>
+<meta name="description" content="קריאת שמע של בוקר וערב, תפילת מנחה ונטילת ידיים לסעודה - ההלכות, המקורות והערכים, ואיך מלמדים אותם לילדים.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 01.11.2026 🍯</div>
+  <h1 class="hero-title">👑 מכתב תודה למלך: יום שלם עטוף בקדושה</h1>
+  <p class="hero-subtitle">קריאת שמע של בוקר וערב, תפילת מנחה ונטילת ידיים לסעודה - ההלכות, המקורות והערכים, ואיך מלמדים אותם לילדים.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-13 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/AHUebvUkSNw" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧭 מסע על פני היום ההלכתי</a><ul class="toc-stories"><li><a href="#story-1">לא &quot;תעשו ככה&quot;, אלא משקפיים</a></li><li><a href="#story-2">היום כמסע אחד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">✉️ קריאת שמע: מכתב תודה למלך</a><ul class="toc-stories"><li><a href="#story-3">&quot;ובשכבך ובקומך&quot;: מקור המצווה</a></li><li><a href="#story-4">סיפור הכפר הרחוק</a></li><li><a href="#story-5">ייחוד, יראה ואהבה</a></li><li><a href="#story-6">ברכות קריאת שמע של הבוקר</a></li><li><a href="#story-7">&quot;גאל ישראל&quot;: גאולה שלא נגמרת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">❤️ לב, עיניים ופה: איך קוראים שמע</a><ul class="toc-stories"><li><a href="#story-8">מסירות נפש בחיים</a></li><li><a href="#story-9">&quot;לכוון&quot;: מושג שחובה ללמד</a></li><li><a href="#story-10">יד על העיניים</a></li><li><a href="#story-11">&quot;אחד&quot;: לדקדק בכל אות</a></li><li><a href="#story-12">&quot;ברוך שם&quot; בלחש</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">⏰ שעון ההלכה: זמני קריאת שמע</a><ul class="toc-stories"><li><a href="#story-13">&quot;משיכיר את חברו&quot;</a></li><li><a href="#story-14">&quot;שעה זמנית&quot;: שעון שמתכווץ ומתמתח</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🌤️ מנחה: לעצור באמצע הכול</a><ul class="toc-stories"><li><a href="#story-15">התפילה של יצחק אבינו</a></li><li><a href="#story-16">כנגד תמיד של בין הערביים</a></li><li><a href="#story-17">אליהו בהר הכרמל</a></li><li><a href="#story-18">מנחה גדולה ומנחה קטנה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">💧 נטילת ידיים לסעודה</a><ul class="toc-stories"><li><a href="#story-19">למה נוטלים ידיים לפני לחם</a></li><li><a href="#story-20">&quot;מלא חפני מים&quot;</a></li><li><a href="#story-21">איך נוטלים</a></li><li><a href="#story-22">הכלי והמים</a></li><li><a href="#story-23">מה חוצץ</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🌙 ערבית: לסגור את היום בשלום</a><ul class="toc-stories"><li><a href="#story-24">צאת הכוכבים</a></li><li><a href="#story-25">עד חצות: גדר שמרחיק מעבירה</a></li><li><a href="#story-26">ברכות קריאת שמע של לילה</a></li><li><a href="#story-27">&quot;גאולה אריכתא&quot;</a></li><li><a href="#story-28">מבצע מנחה וערבית</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">מסע על פני היום ההלכתי</h2></div></div>
+<p class="chapter-intro">מכסלו ועד חנוכה: ברכות, קריאת שמע, נטילת ידיים, מנחה וערבית. סדר אחד שמלווה יום שלם.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא &quot;תעשו ככה&quot;, אלא משקפיים</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את ההלכה אפשר ללמד כרשימה: "תעשו ככה, תגידו ככה". אבל הלכה שנלמדה כך נשכחת מהר.</p>
+<p>הדרך האחרת היא להרכיב על כל הלכה משקפיים קבועים - ששת ההישגים:</p>
+<ul class="story-list"><li><strong>יסודות התורה שבעל פה</strong> - מאיפה ההלכה מגיעה.</li><li><strong>מושגים</strong> - שהילדים יפגשו שוב ושוב.</li><li><strong>אוצר מילים</strong> - לשון חכמים, שקצת קשה לילדים.</li><li><strong>מבנה</strong> - מקרה, דין וטעם.</li><li><strong>הבנה ויישום</strong> - איך ההלכה פוגשת אותי, גם כשהמציאות שלי שונה.</li><li><strong>ערכים</strong> - העולם הגדול שההלכה מחנכת אליו.</li></ul>
+<div class="honey-box">🍯 המטרה היא לגדל דור שנוהג לפי דבר ה' מתוך הבנה, ושהדברים נטועים בלבו - "גם כי יזקין לא יסור ממנה".</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: היום כמסע אחד ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">היום כמסע אחד</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנושאים של החודש הזה בנויים לפי סדר היום: קריאת שמע של שחרית, נטילת ידיים לפני הסעודה, תפילת מנחה, ותפילת ערבית עם קריאת שמע של לילה. בתוכנית הלימודים הסדר לפעמים שונה, אבל כמסע על פני היום זה מתחבר יפה.</p>
+<p>ויש בזה לימוד בפני עצמו: המעשים שלנו לא מנותקים ממה שקורה סביבנו. השמש זורחת - אנחנו מקבלים עול מלכות שמיים. היום באמצעו - אנחנו עוצרים למנחה. הכוכבים יוצאים - אנחנו קוראים שוב שמע.</p>
+<p class="bold-para">הטבע וההלכה הולכים יחד, שעה אחר שעה.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: &quot;ובשכבך ובקומך&quot;: מקור המצווה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">✉️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">קריאת שמע: מכתב תודה למלך</h2></div></div>
+<p class="chapter-intro">פותחים את היום בקבלת עול מלכות שמיים. אבל מה זה בכלל "עול מלכות שמיים"? כדאי להתחיל מסיפור.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ובשכבך ובקומך&quot;: מקור המצווה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המקור לקריאת שמע בבוקר ובערב הוא פסוק מפורש בתורה, בספר דברים:</p>
+<blockquote>"והיו הדברים האלה אשר אנכי מצוך היום על לבבך. ושננתם לבניך ודברת בם בשבתך בביתך ובלכתך בדרך ובשכבך ובקומך." (דברים ו, ו-ז)</blockquote>
+<p>"ובשכבך" - בזמן שבני אדם שוכבים; "ובקומך" - בזמן שבני אדם קמים. פעם אחת בלילה ופעם אחת ביום. ושימו לב לסדר: התורה מקדימה את השכיבה לקימה, כי היום היהודי מתחיל בערב.</p>
+<p>חשוב שהילדים יידעו לזהות: זו מצווה מן התורה, מחומש דברים, ולא רק מנהג טוב.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: סיפור הכפר הרחוק ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">סיפור הכפר הרחוק</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בכפר רחוק חיו אנשים פשוטים. בבוקר יצאו לעבודה, בערב חזרו, התפללו והלכו לישון.</p>
+<p>ערב אחד חזר אבא מעבודתו ושאל את ילדיו איך היה בבית הספר. הם סיפרו בהתלהבות על המורים, על החברים, על השולחנות והמזגנים ועל החצר היפה. אמר האבא: "אנחנו צריכים להגיד תודה למלך! הוא יושב רחוק, בעיר הגדולה, אבל הוא דואג שיהיה לנו בית ספר, מורים וכיסאות." "אבל אנחנו אנשים פשוטים, איך נגיע למלך?" "נכתוב לו מכתב!" וכתבו מכתב תודה, ופירטו בו על מה.</p>
+<p>למחרת בבוקר, בדרך לבית הספר, אמרו הילדים: "אבא, שכחנו את הכבישים! את האוטובוסים ואת הנהגים הנחמדים!" אמר האבא: "מעכשיו נכתוב למלך בכל ערב ובכל בוקר. בכל פעם נבחר משהו אחד ונודה עליו."</p>
+<p class="bold-para">זו קריאת שמע: בסגירת היום ובפתיחתו, מכתב תודה למלך, ותזכורת שהוא המלך שלנו.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ייחוד, יראה ואהבה ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ייחוד, יראה ואהבה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפסוק הראשון, "שמע ישראל ה' אלוקינו ה' אחד", אנחנו ממליכים את הקדוש ברוך הוא עלינו וממלאים את עצמנו במחשבות וברגש של שלושה דברים. המושגים מופשטים, אבל אפשר להביא אותם לילדים בפשטות:</p>
+<ul class="story-list"><li><strong>ייחוד ה'</strong> - ה' אחד, אין בלתו. בעולם הקדום עבודה זרה שלטה בכול, והיו לאנשים הרבה "אלים". לנו יש אחד, והוא אבא שלנו.</li><li><strong>יראת ה'</strong> - לא פחד מאיים, אלא הידיעה שיש מישהו מעליי. יהודי אף פעם לא לבד.</li><li><strong>אהבת ה'</strong> - הוא אבא שלי, הוא אוהב אותי ודואג לי, וכל מה שה' עושה - הכול לטובה.</li></ul>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: ברכות קריאת שמע של הבוקר ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ברכות קריאת שמע של הבוקר</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קריאת שמע עטופה בברכות, ושווה לעצור לפני כל אחת ולהזכיר לילדים על מה היא:</p>
+<ul class="story-list"><li><strong>יוצר המאורות</strong> - הברכה הראשונה. תודה על האור שבזכותו אנחנו רואים את פלאי הבריאה: עצים, פרחים, צבעים. בלי המאורות לא היינו נהנים מכל זה.</li><li><strong>אהבת עולם</strong> (ובנוסח אחר "אהבה רבה") - שבח על שה' בחר בנו מכל העמים ונתן לנו את התורה, הכלי החמדה הגדול.</li><li><strong>גאל ישראל</strong> - אחרי קריאת שמע. שבח על גאולת מצרים.</li></ul>
+<div class="honey-box">🍯 לפני כל ברכה, רגע אחד של "בואו ניזכר על מה הברכה הזו" - וכבר מתפללים אחרת.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: &quot;גאל ישראל&quot;: גאולה שלא נגמרת ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;גאל ישראל&quot;: גאולה שלא נגמרת</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בברכת "גאל ישראל" מספרים על יציאת מצרים, אבל השבח איננו רק על העבר. ה' ממשיך לגאול, כל הזמן. כמו שאומרים באותה ברכה: "ועונה לעמו בעת שועם אליו", ובסופה: "צור ישראל, קומה בעזרת ישראל".</p>
+<p>ומשם ניגשים מיד לתפילת העמידה - "סמיכת גאולה לתפילה". אחרי שבח, אמונה וציפייה להתגשמות דברי הנביאים, שבחלקם אנחנו רואים בעינינו בדורנו, אנחנו נכנסים לתפילה מתוך נחמה גדולה.</p>
+<p class="bold-para">ה' איתנו, דואג לנו ועוזר לנו - ומתוך הידיעה הזו מבקשים.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מסירות נפש בחיים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">❤️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">לב, עיניים ופה: איך קוראים שמע</h2></div></div>
+<p class="chapter-intro">קבלת עול מלכות שמיים לא נאמרת כלאחר יד. יש בה כוונה, ויש בה גם מסירות נפש.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מסירות נפש בחיים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בקריאת שמע יש מעין מסירות נפש: אני מקבל עליי עול מלכות שמיים, ומוכן למסור את נפשי עליה.</p>
+<p>ילדים שומעים "מסירות נפש" ומדמיינים יהודים שנהרגו על קידוש ה'. זה נכון, אבל יש מסירות נפש גדולה יותר - דווקא בחיים. "לא המתים יהללו יה" (תהילים קטו, יז). מקדשים את שם ה' בחיים, כשמוותרים על רצון אישי מפני רצונו.</p>
+<p>כמו שאומרת המשנה באבות (ב, ד): "בטל רצונך מפני רצונו". אני רוצה להציק לחבר - ואינני מציק, כי ה' אמר "ואהבת לרעך כמוך" (ויקרא יט, יח).</p>
+<div class="honey-box">🍯 מסירות הנפש היומיומית היא ויתור קטן, בשביל ה'.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: &quot;לכוון&quot;: מושג שחובה ללמד ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;לכוון&quot;: מושג שחובה ללמד</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה זה "לכוון"? זו מילה שהילדים חייבים להכיר. כוונה היא לעצור ולחשוב רגע מה אני עושה עכשיו. להתמקד בדבר אחד.</p>
+<p>בפסוק הראשון של קריאת שמע חובה לכוון. מי שלא כיוון בו - לא יצא ידי חובה, וצריך לחזור ולקרוא אותו שוב.</p>
+<p>ומה מכוונים? "שמע ישראל" - שמע, קבל, האמן. "ה' אלוקינו" - הוא האלוקים שלנו, אבא שלנו. "ה' אחד" - יחיד בעולם, אין עוד מלבדו, אין שום דבר שמתחרה בו.</p>
+<p class="bold-para">מה שהילד ילמד כאן ילווה אותו עד מאה ועשרים, והוא ינחיל אותו הלאה לדורות.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: יד על העיניים ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">יד על העיניים</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נוהגים להניח את יד ימין על העיניים בשעת אמירת הפסוק הראשון, כדי לא להסתכל בשום דבר שיפריע לכוונה.</p>
+<p>זו הלכה שהילדים אוהבים, והיא מלמדת משהו גדול: כדי לקבל עול מלכות שמיים צריך לסגור לרגע את כל העולם שבחוץ. העיניים רגילות לרוץ מדבר לדבר; ביד אחת אנחנו אומרים להן - עכשיו רק זה.</p>
+<p>כדאי לתרגל את זה בכיתה יחד: לעצור, לכסות את העיניים, ולומר לאט את הפסוק הראשון.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;אחד&quot;: לדקדק בכל אות ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אחד&quot;: לדקדק בכל אות</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את המילה "אחד" מאריכים, ויש בכך כוונה מיוחדת:</p>
+<ul class="story-list"><li><strong>באות ח'</strong> מאריכים ומכוונים שה' מולך בשמיים ובארץ. ח' בגימטריה שמונה - שבעת הרקיעים והארץ.</li><li><strong>באות ד'</strong> מאריכים ומכוונים שהוא מושל בארבע רוחות העולם. ד' בגימטריה ארבע.</li></ul>
+<p>את הד' מדגישים. אצל יהודי תימן, שמקפידים מאוד על ההגייה, שומעים את ההבדל בין ד' דגושה לרפויה. אם יש בכיתה ילד מבית תימני - זו הזדמנות נהדרת שידגים.</p>
+<p>בכלל, צריך להיזהר מדיבוק אותיות: "בכל לבבך" - שלא תיבלע הל' בל'; ו"וזכרתם" - להדגיש את הז'.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;ברוך שם&quot; בלחש ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;ברוך שם&quot; בלחש</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי הפסוק הראשון אומרים "ברוך שם כבוד מלכותו לעולם ועד" בלחש, חוץ מביום הכיפורים, שבו אומרים אותו בקול רם.</p>
+<p>וגם האוזניים משתתפות: טוב שהאוזן תשמע את מה שהפה אומר, כי זה מוסיף לכוונה. ולכן אומרים את קריאת שמע לאט, בלי למהר, וטוב לומר את הפסוק הראשון יחד, כל הכיתה, בכוונה גדולה.</p>
+<p class="bold-para">לב שמכוון, עיניים מכוסות, פה מדקדק ואוזן ששומעת - האדם כולו מקבל עליו את המלכות.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;משיכיר את חברו&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">⏰</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">שעון ההלכה: זמני קריאת שמע</h2></div></div>
+<p class="chapter-intro">שני מושגים שמופיעים בכל לוח זמנים: "משיכיר" ו"שעה זמנית".</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;משיכיר את חברו&quot;</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מתי מתחיל זמן קריאת שמע של שחרית? כשיש מספיק אור כדי להכיר את חברי ממרחק ארבע אמות.</p>
+<p>והנה מושג: <strong>אמה</strong> - המרחק מהמרפק עד קצה האצבע האמצעית, כחצי מטר. ארבע אמות - כשני מטרים.</p>
+<p>תדמיינו מדבר, חושך גמור, בלי תאורת רחוב. השמיים מתחילים להאיר, ופתאום אפשר לזהות חבר שעומד שני מטרים ממך. מהרגע הזה אפשר לקרוא קריאת שמע. בלוחות הזמנים זה מופיע כזמן "משיכיר".</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: &quot;שעה זמנית&quot;: שעון שמתכווץ ומתמתח ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;שעה זמנית&quot;: שעון שמתכווץ ומתמתח</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את מצוות קריאת שמע בזמנה אפשר לקיים עד סוף שלוש שעות זמניות מתחילת היום.</p>
+<p>מה זו <strong>שעה זמנית</strong>? לוקחים את כל היום, מהזריחה עד השקיעה, ומחלקים אותו לשתים עשרה. כל חלק הוא שעה זמנית. בקיץ, כשהזריחה מוקדמת והשקיעה מאוחרת, שעה זמנית יכולה להגיע לשישים וחמש ואפילו לשבעים דקות. בחורף היא מתכווצת לחמישים וחמש דקות ופחות.</p>
+<p>בגיל הזה לא צריך להרחיב, כי בשנה הבאה יבינו יותר. אבל כדאי לזרוק להם את הרעיון בצורה כללית.</p>
+<div class="honey-box">🍯 ההלכה סופרת את הזמן לפי השמש, לא לפי השעון שעל הקיר.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: התפילה של יצחק אבינו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🌤️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מנחה: לעצור באמצע הכול</h2></div></div>
+<p class="chapter-intro">שחרית פותחת את היום, ערבית סוגרת אותו. מנחה עומדת דווקא באמצע - וזה כל הסוד שלה.</p>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">התפילה של יצחק אבינו</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אברהם תיקן את תפילת שחרית, שבה פותחים את היום בהודיה. יעקב תיקן את ערבית, שבה מודים על היום שעבר. ויצחק תיקן את מנחה - בכוונה באמצע היום.</p>
+<p>ויש כאן אתגר. אתה באמצע משחק עם חברים, באמצע לימוד, באמצע עבודה. דווקא עכשיו - עצור. גם בתוך הטרדה, תזכור שיש בורא עולם, ושהוא זה שנותן לך את הכוח לכל מה שאתה עושה.</p>
+<p class="bold-para">מנחה היא התפילה של מי שעוצר כשקשה לו לעצור.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: כנגד תמיד של בין הערביים ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כנגד תמיד של בין הערביים</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תפילת מנחה נתקנה כנגד קרבן <strong>תמיד של בין הערביים</strong>. עוד מושג: בכל יום הקריבו בבית המקדש שני קרבנות תמיד - אחד בבוקר ואחד אחר הצהריים.</p>
+<p>זה היה קרבן ציבור: כל יהודי היה שותף בו דרך מחצית השקל שנתן פעם בשנה, בחודש אדר. מן הכסף הזה הקריבו קרבנות עבור כל הציבור, כדי לכפר על עם ישראל.</p>
+<p>בדרך כלל הקריבו את תמיד של בין הערביים כשתיים וחצי שעות זמניות לפני השקיעה, ולפעמים מוקדם יותר - כבר חצי שעה זמנית אחרי חצות היום. ולכן זמן מנחה מתחיל חצי שעה זמנית אחרי חצות היום ונמשך עד השקיעה.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: אליהו בהר הכרמל ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">אליהו בהר הכרמל</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"לעולם יהא אדם זהיר בתפלת המנחה, שהרי אליהו לא נענה אלא בתפלת המנחה." (ברכות ו ע"ב)</blockquote>
+<p>אוצר מילים: "זהיר" - מקפיד, נזהר. "נענה" - קיבל תשובה לבקשתו. על הר הכרמל, מול נביאי הבעל, ביקש אליהו שתרד אש מן השמיים ותאכל את הקרבן - והאש ירדה. ומתי? "ויהי בעלות המנחה ויגש אליהו הנביא" (מלכים א יח, לו).</p>
+<p>שאלה טובה לילדים: מה המקור לחשיבות תפילת מנחה? יש כאן שני ציונים - מלכים א פרק יח, וברכות דף ו. המקור להלכה הוא הגמרא במסכת ברכות. הפסוק במלכים הוא המקור לסיפור שהגמרא נשענת עליו.</p>
+<div class="honey-box">🍯 דווקא כשטרוד וקשה - ה' רוצה את התפילה שלך עכשיו, ולכן גם השכר עצום.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: מנחה גדולה ומנחה קטנה ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מנחה גדולה ומנחה קטנה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על ציר היום: חצות היום הוא סוף השעה השישית. חצי שעה זמנית אחריו מתחילה <strong>מנחה גדולה</strong>. כשתיים וחצי שעות זמניות לפני השקיעה מתחילה <strong>מנחה קטנה</strong>.</p>
+<p>לכתחילה מתפללים במנחה קטנה, סמוך לשקיעה, כמו שנאמר: "ייראוך עם שמש" (תהילים עב, ה) - שחרית עם הזריחה ומנחה סמוך לשקיעה. אבל מי שטרוד, או יודע שלא יוכל להתפלל אחר כך, יכול להתפלל כבר ממנחה גדולה.</p>
+<p>לקראת זמן מנחה צריך להיזהר: לא מתחילים סעודה גדולה, אלא אוכלים רק אכילת עראי, כמו פירות. הסעודה נמשכת, אחריה הספה, ופתאום עבר הזמן. תספורת ומרחץ קצרים - יש שנהגו להקל בהם. ואם מינה שומר להזכיר, או כיוון שעון מעורר - זה בסדר גמור.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: למה נוטלים ידיים לפני לחם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">💧</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">נטילת ידיים לסעודה</h2></div></div>
+<p class="chapter-intro">מים על הידיים לפני הלחם: זכר למקדש, ותוספת קדושה לשולחן.</p>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה נוטלים ידיים לפני לחם</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חכמים גזרו שאין אוכלים לחם בלי נטילת ידיים. הסיבה המקורית: הכהנים אכלו תרומה בטהרה, וידיים - שנוגעות בכל דבר - חשודות בטומאה. כדי שהכהנים לא יטמאו את התרומה בידיהם, תיקנו חכמים שכל ישראל ייטלו ידיים לפני אכילת לחם, וכך יתרגלו גם הכהנים.</p>
+<p>היום אין לנו בית מקדש, ועדיין נוטלים. יש בזה זיכרון וציפייה: אנחנו שמים לנגד עינינו את הרגע שבו הכהנים יחזרו לאכול תרומה בטהרה.</p>
+<p class="bold-para">הנטילה מעלה את האוכל מ"אכילה" ל"סעודה" - ומוסיפה קדושה לשולחן.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: &quot;מלא חפני מים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;מלא חפני מים&quot;</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמה מים צריך? לפחות <strong>רביעית</strong>, כשמונים ושישה סמ"ק. הנטלות שלנו מחזיקות הרבה יותר, וראוי לשפוך בנדיבות.</p>
+<p>בגמרא (שבת סב ע"ב) אומר רב חסדא: "אני נטלתי במלא חפני מים, ונתנו לי מלא חפני טובה." אוצר מילים: "חופן" - כף יד מלאה. בשכר הנטילה בשפע קיבל רב חסדא שפע של טובה וברכה.</p>
+<p>זה מקור נהדר להראות לילדים: גם הלכה קטנה כמו כמות המים מופיעה בגמרא, עם סיפור ועם הבטחה.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: איך נוטלים ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">איך נוטלים</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סדר הנטילה לסעודה:</p>
+<ul class="story-list"><li>לוקחים את הנטלה ביד ימין ומעבירים אותה ליד שמאל.</li><li>שופכים על יד ימין, ואחר כך על יד שמאל. נוהגים פעמיים על כל יד, ויש שנוהגים שלוש. בשונה מנטילת ידיים של בוקר, שבה מחליפים לסירוגין - ימין, שמאל, ימין, שמאל.</li><li>מרימים את הידיים ומברכים "אשר קדשנו במצותיו וצונו על נטילת ידים".</li><li>מנגבים היטב.</li></ul>
+<p>כאן פוגשים מושג חשוב: <strong>"עובר לעשייתן"</strong> - מברכים לפני המעשה. על תפוח מברכים "בורא פרי העץ" ורק אז אוכלים. בנטילה, הניגוב הוא חלק מהמצווה, ולכן מברכים לפניו.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: הכלי והמים ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הכלי והמים</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>הכלי</strong> - צריך להיות שלם, בלי חורים ובלי סדקים. יש מצבים מיוחדים שבהם מקלים, אבל עם ילדים צעירים אין צורך להיכנס אליהם.</p>
+<p><strong>המים</strong> - מים ראויים: לא מלוכלכים, לא סרוחים, ולא חמים מאוד. אם יש בהם מעט צבע, אבל המראה שלהם לא השתנה ממש - הם כשרים.</p>
+<p>בטיול, ליד מעיין, אפשר לטבול את הידיים במים ולברך "על טבילת ידים", וכך לא מבזבזים את מי השתייה. גם מעיין שיש בו מעט ירוקת - כשר, כל עוד המים אינם מקולקלים.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: מה חוצץ ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה חוצץ</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>חציצה</strong> היא דבר שמפריד בין המים לעור. בצק או לכלוך דביק על היד - חוצץ, וצריך להסיר אותו לפני הנטילה.</p>
+<p><strong>טבעת</strong> - נוהגים להסיר, בייחוד אם היא צמודה. אבל מי שלעולם אינה מסירה את הטבעת, גם כשהיא לשה בצק ושוטפת כלים, יש פוסקים שאומרים שאינה צריכה להסיר אותה גם לנטילה - כי הטבעת כבר כמו חלק ממנה.</p>
+<p><strong>צבע</strong> - מסירים כמה שאפשר, אבל לא צריך לגרד את העור. ומי שעובד בצביעה ויש לו מעט צבע על הידיים, שאינו מקפיד עליו - אינו חוצץ.</p>
+<p><strong>פלסטר או תחבושת</strong> - מותר, כי אני רוצה שיהיו שם.</p>
+<div class="honey-box">🍯 הכלל: מה שהאדם מקפיד עליו ורוצה להסיר - חוצץ. מה שהוא חלק מהשגרה שלו - לא.</div>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: צאת הכוכבים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌙</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">ערבית: לסגור את היום בשלום</h2></div></div>
+<p class="chapter-intro">יעקב אבינו תיקן את תפילת ערבית. בלילה חוזרת קריאת שמע, עם ברכות משלה.</p>
+<article class="story-card" id="story-24" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">צאת הכוכבים</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זמן קריאת שמע של לילה מתחיל ב<strong>צאת הכוכבים</strong> - כשנראים שלושה כוכבים קטנים. מי שקורא לפני כן לא יצא ידי חובה.</p>
+<p>ושני מושגים לפרק לילדים: "צאת הכוכבים" - השעה שבה הכוכבים נגלים בשמיים. "לא יצא ידי חובה" - לא קיים את המצווה. לנו זה שגור על הלשון, להם לא.</p>
+<p>יש בתי כנסת שמתפללים ערבית מוקדם - בערב שבת, או כשקשה לאסוף מניין שוב אחרי הפסקה. זה מותר, אבל מי שהתפלל לפני צאת הכוכבים צריך לחזור ולקרוא קריאת שמע אחרי צאת הכוכבים.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: עד חצות: גדר שמרחיק מעבירה ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עד חצות: גדר שמרחיק מעבירה</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד מתי? "ובשכבך" - כל זמן שבני אדם שוכבים, כלומר כל הלילה, עד עלות השחר, הניצנוצים הראשונים של האור.</p>
+<p>אבל חכמים אמרו לקרוא עד חצות, כדברי המשנה (ברכות א, א): "כדי להרחיק את האדם מן העבירה". אוצר מילים: <strong>גדר</strong> - גבול שמציבים לפני הגבול האמיתי, כדי לא להגיע אליו.</p>
+<p>וזה ערך לחיים: מי שיודע שהוא נשאב לטלפון ומבלה בו שעות, כדאי שיכוון שעון - "חמש דקות של הודעות, לא יותר". זו גדר. כך גם חכמים אמרו: אל תתמהמה עד שתשכח. קרא שמע עד חצות.</p>
+<div class="honey-box">🍯 גדר טובה היא מתנה לעצמך - היא שומרת עליך מפני ההרגלים שלך.</div>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: ברכות קריאת שמע של לילה ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ברכות קריאת שמע של לילה</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם בלילה קריאת שמע עטופה בברכות - שתיים לפניה ושתיים אחריה:</p>
+<ul class="story-list"><li><strong>המעריב ערבים</strong> - שבח על סדר הבריאה, על חילופי היום והלילה.</li><li><strong>אהבת עולם</strong> - על שה' בחר בנו ונתן לנו את התורה.</li><li><strong>גאל ישראל</strong> - שוב, על גאולת מצרים ועל הגאולה שנמשכת כל הזמן.</li><li><strong>השכיבנו</strong> - בקשה שה' ישכיב אותנו לשלום, יעמיד אותנו לחיים, ויפרוש עלינו סוכת שלומו.</li></ul>
+<p>אבל רגע: לא למדנו שאסור להפסיק בין גאולה לתפילה? אוצר מילים: <strong>סמיכות</strong> - צמידות. אז איך מכניסים את "השכיבנו" באמצע?</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: &quot;גאולה אריכתא&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;גאולה אריכתא&quot;</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התשובה היא מושג יפה מהגמרא: ברכת "השכיבנו" נחשבת <strong>גאולה אריכתא</strong> - גאולה ארוכה. היא חלק בלתי נפרד מברכת הגאולה, ממשיכה אותה ומאריכה אותה. וכך גם "ה' שפתי תפתח" שלפני העמידה - חלק מהתפילה עצמה.</p>
+<p>ומה עושה מי שמגיע לערבית מאוחר, ורואה שהציבור כבר עומד להתחיל תפילת עמידה? עדיף שידלג על קריאת שמע וברכותיה, יתפלל עמידה יחד עם הציבור, ואחר כך ישלים את קריאת שמע וברכותיה. הוא מפסיד את סמיכת הגאולה לתפילה, אבל זוכה לתפילה בציבור.</p>
+<p class="bold-para">שבח, אמונה וציפייה - ומתוכם ניגשים לתפילה, גם בלילה.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: מבצע מנחה וערבית ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מבצע מנחה וערבית</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סיכום היום כולו:</p>
+<ul class="story-list"><li><strong>שחרית</strong> - קריאת שמע מ"משיכיר" עד סוף שלוש שעות זמניות. קבלת עול מלכות שמיים, שתי ברכות לפניה ואחת אחריה.</li><li><strong>מנחה</strong> - בלב היום, מחצי שעה אחרי חצות ועד השקיעה. בלי קריאת שמע - רק עצירה ותפילה.</li><li><strong>ערבית</strong> - קריאת שמע מצאת הכוכבים עד חצות לכתחילה, ובדיעבד עד עלות השחר. שתיים לפניה ושתיים אחריה, ו"השכיבנו" כגאולה אריכתא.</li></ul>
+<p>ומנחה וערבית בדרך כלל לא קורות בבית. זו הזדמנות למבצע: לעודד את הילדים להתפלל בבית הכנסת ביישוב, ומי שגר רחוק, וגם הבנות, להתפלל מנחה בבית הספר. בחורף, כשחצות היום מוקדם, אפשר להתפלל כבר בהפסקה - רק לבדוק בלוח מתי מתחיל הזמן.</p>
+<p class="bold-para">אשרינו שזכינו לחנך ילדים להיות עטופים בקדושה כל היום, מהבוקר ועד הלילה.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
