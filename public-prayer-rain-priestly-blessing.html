@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌧️ מניין, גשם וברכה: הארכיטקטורה של התפילה</title>
+<meta name="description" content="הלכות תפילה בציבור, הזכרת גשמים ושאלתם וברכת כהנים, ואיך מלמדים אותן לילדים כך שיתרגשו מכל טיפה ומכל &quot;אמן&quot;.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 01.11.2026 🍯</div>
+  <h1 class="hero-title">🌧️ מניין, גשם וברכה: הארכיטקטורה של התפילה</h1>
+  <p class="hero-subtitle">הלכות תפילה בציבור, הזכרת גשמים ושאלתם וברכת כהנים, ואיך מלמדים אותן לילדים כך שיתרגשו מכל טיפה ומכל &quot;אמן&quot;.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-12 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/tS5MQYl_C3A" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧭 שיטת המשפך: ללמוד הרבה כדי ללמד נכון</a><ul class="toc-stories"><li><a href="#story-1">ידע רחב נותן ביטחון</a></li><li><a href="#story-2">ששת ההישגים: משקפיים לכל הלכה</a></li><li><a href="#story-3">איך מזהים מאיפה המקור</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">👥 המניין: הכלי שהתפילה עוברת בו</a><ul class="toc-stories"><li><a href="#story-4">&quot;עת רצון&quot;: מתי התפילה מתקבלת</a></li><li><a href="#story-5">&quot;לשתף עצמו&quot;: התפילה בלשון רבים</a></li><li><a href="#story-6">למה דווקא עשרה</a></li><li><a href="#story-7">מי נכנס לחשבון העשרה</a></li><li><a href="#story-8">הערך: אני חלק ממשהו גדול</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">⚡ הזכרת גשמים: שבח לגבורה</a><ul class="toc-stories"><li><a href="#story-9">להזכיר בלי לבקש</a></li><li><a href="#story-10">למה דווקא בברכת תחיית המתים</a></li><li><a href="#story-11">למה מתחילים דווקא בשמיני עצרת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🙏 שאלת גשמים: &quot;אבא, תן לנו גשם&quot;</a><ul class="toc-stories"><li><a href="#story-12">שאלה מלשון בקשה</a></li><li><a href="#story-13">כל מה שהגשם עושה</a></li><li><a href="#story-14">שבועיים של המתנה בשביל העולה האחרון</a></li><li><a href="#story-15">ולמה מחכים גם היום, בלי בית מקדש</a></li><li><a href="#story-16">הכהן הגדול ועוברי הדרכים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🔁 טעיתי בתפילה: מה עושים</a><ul class="toc-stories"><li><a href="#story-17">טעות בהזכרה</a></li><li><a href="#story-18">שכחתי לבקש &quot;ותן טל ומטר&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">✋ ברכת כהנים: הצינור של השפע</a><ul class="toc-stories"><li><a href="#story-19">הפסוקים שמהם יוצאת כל ההלכה</a></li><li><a href="#story-20">&quot;ואני אברכם&quot;: הכהן הוא רק צינור</a></li><li><a href="#story-21">שלוש מדרגות של שפע</a></li><li><a href="#story-22">&quot;כלום יש עבד שמברכים אותו ואינו מאזין?&quot;</a></li><li><a href="#story-23">הכהנים עולים לדוכן</a></li><li><a href="#story-24">השכינה בין האצבעות</a></li><li><a href="#story-25">מנוע רוחני שמקיים את העולם</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">שיטת המשפך: ללמוד הרבה כדי ללמד נכון</h2></div></div>
+<p class="chapter-intro">לפני שנכנסים לכיתה, המורה עצמו צריך לעמוד על קרקע רחבה. מתוך הרוחב בוחרים מה להגיש לילדים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ידע רחב נותן ביטחון</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מורה להלכה יכול ללמוד בדיוק את מה שיופיע בדף העבודה, ולהעביר אותו הלאה. זה עובד, עד שילד אחד מרים יד ושואל שאלה שלא הופיעה בדף.</p>
+<p>לכן כדאי לעבוד בשיטת המשפך: לומדים הרבה, לרוחב ולעומק, ובסוף בוחרים מתוך כל העושר הזה מה מתאים לגיל ולכיתה. המורה לא מלמד את כל מה שלמד, אבל כל מה שהוא מלמד נשען על הרבה יותר.</p>
+<p class="bold-para">ידע הוא כוח: הוא נותן למורה מרחב, ולילדים - תשובה אמיתית לכל שאלה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: ששת ההישגים: משקפיים לכל הלכה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ששת ההישגים: משקפיים לכל הלכה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על כל הלכה אפשר להסתכל דרך שש עדשות קבועות. כשהן הופכות להרגל, הילדים כבר לא זוכרים משפטים בודדים - הם מבינים איך ההלכה בנויה:</p>
+<ul class="story-list"><li><strong>יסודות התורה שבעל פה</strong> - מאיפה ההלכה מגיעה: מהתנ"ך (שמואל? תהילים? ירמיהו?), מהמשנה, מהגמרא, או מהפוסקים כמו הרמב"ם, רבי משה בן מימון.</li><li><strong>מושגים</strong> - מושג עיקרי שבלעדיו לא מבינים את הנושא, ומושג משני שיפגוש אותם שוב בהלכות אחרות.</li><li><strong>אוצר מילים</strong> - לשון חכמים, ששונה מעט מהעברית של היום.</li><li><strong>מבנה</strong> - מה המקרה, מה הדין, ומה הטעם.</li><li><strong>הבנה ויישום</strong> - איך ההלכה פוגשת את החיים, גם כשהמצב משתנה.</li><li><strong>ערכים</strong> - העולם הפנימי שההלכה מחנכת אליו.</li></ul>
+<div class="honey-box">🍯 המטרה היא להעלות את ששת ההישגים מהתת-מודע אל המודע: שהמורה יידע בכל רגע איזו עדשה הוא מפעיל עכשיו.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: איך מזהים מאיפה המקור ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">איך מזהים מאיפה המקור</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מיומנות קטנה שחוזרת בכל נושא: לדעת לזהות לפי צורת הציון מאיזה סוג של ספר מגיע המקור.</p>
+<ul class="story-list"><li>כתוב שם של ספר תנ"ך ופרק, למשל "תהילים סט" - זה פסוק מהתנ"ך.</li><li>כתוב "משנה" ושם מסכת, למשל "משנה תענית" - זו משנה.</li><li>כתוב שם מסכת עם דף ועמוד, למשל "ברכות דף ח עמוד א" - זו גמרא.</li><li>כתוב "הלכות תפילה" עם פרק והלכה - זה הרמב"ם.</li></ul>
+<p>כשהילד יודע לקרוא ציון כזה, כל ספר הלכה נפתח בפניו אחרת. הוא כבר לא רואה רשימה של מספרים, אלא שכבות של תורה: הפסוק, חכמי המשנה, האמוראים, והפוסקים שאחריהם.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: &quot;עת רצון&quot;: מתי התפילה מתקבלת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">👥</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">המניין: הכלי שהתפילה עוברת בו</h2></div></div>
+<p class="chapter-intro">שלושת הנושאים יוצרים יחד מבנה אחד: המניין הוא הכלי, הגשם הוא הבקשה, וברכת כהנים היא הצינור שהשפע יורד בו.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;עת רצון&quot;: מתי התפילה מתקבלת</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוד המלך אומר בתהילים:</p>
+<blockquote>"ואני תפלתי לך ה' עת רצון" (תהילים סט, יד)</blockquote>
+<p>ומתי היא אותה "עת רצון"? הגמרא (ברכות ח ע"א) עונה בשם רבי יוחנן משום רבי שמעון בר יוחאי: בשעה שהציבור מתפללים.</p>
+<p>הרמב"ם (הלכות תפילה ח, א) מוסיף ומסביר: תפילת הציבור נשמעת תמיד, ואפילו היו בהם חוטאים, אין הקדוש ברוך הוא מואס בתפילתם של רבים. לפיכך צריך אדם לשתף עצמו עם הציבור, ולא יתפלל ביחיד כל זמן שהוא יכול להתפלל עם הציבור.</p>
+<p class="bold-para">היחיד צריך להוכיח את עצמו. הציבור נשמע תמיד.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;לשתף עצמו&quot;: התפילה בלשון רבים ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;לשתף עצמו&quot;: התפילה בלשון רבים</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"לשתף עצמו עם הציבור" - זו לשון חכמים יפה. האדם לא רק נוכח במניין, הוא נעשה שותף. ומכאן גם הלכה מעשית: מי שמאחר לתפילה מדלג על חלק מפסוקי דזמרה, כדי להגיע לתפילת העמידה יחד עם הציבור.</p>
+<p>גם נוסח התפילה עצמו כתוב בלשון רבים: "ברך עלינו", "רפאנו", "שמע קולנו". אפילו מי שמתפלל לבד בחדרו מבקש בשם כל עם ישראל.</p>
+<p>ומאותה סיבה, כשמתפללים על חולה, מבקשים עליו "בתוך שאר חולי ישראל". לא מפרידים אדם מהכלל - כי דווקא הכלל יוצר כאן משהו גדול שהיחיד לבדו לא יכול.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: למה דווקא עשרה ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה דווקא עשרה</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל דבר שבקדושה - קדיש, קדושה, חזרת הש"ץ - נאמר רק בעשרה. הגמרא (ברכות כא ע"ב) לומדת זאת מהפסוק:</p>
+<blockquote>"ונקדשתי בתוך בני ישראל" (ויקרא כב, לב)</blockquote>
+<p>"תוך" נלמד מ"תוך" שנאמר אצל קורח ועדתו, ומשם ל"עדה" - ועל המרגלים נאמר "עד מתי לעדה הרעה הזאת". מכל המרגלים יצאו יהושע וכלב, ונשארו עשרה. מכאן ש"עדה" היא עשרה.</p>
+<p>השכינה שורה בכל מקום, אבל במקום שיש בו עשרה מישראל היא שורה ביותר. ולכן ממתינים לעשירי, גם כשזה לוקח עוד כמה דקות: בלעדיו אין קדושה.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מי נכנס לחשבון העשרה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מי נכנס לחשבון העשרה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המניין הוא עשרה גברים מגיל בר מצווה ומעלה. מרגע שנער הגיע לגיל שלוש עשרה הוא מצטרף למניין, ויכול גם לשמש שליח ציבור. החזן עצמו נמנה בתוך העשרה.</p>
+<p>כמה מקרים שכדאי להכיר:</p>
+<ul class="story-list"><li><strong>מי שעומד באמצע תפילת העמידה</strong> - אינו יכול לענות "אמן", ובכל זאת הוא נמנה. הוא נמצא שם, חלק מהציבור.</li><li><strong>מי שעומד מחוץ לאולם אך רואה את המתפללים</strong> - נחשב חלק מהם.</li><li><strong>מי שנמצא בחדר צדדי, שומע אך לא נראה</strong> - יכול לענות קדיש וקדושה עם הציבור, אך אינו משלים את המניין.</li></ul>
+<p>בימי הקורונה, כשאנשים התפללו ממרפסות ומחלונות, ההלכות האלה הפכו פתאום למעשיות מאוד.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: הערך: אני חלק ממשהו גדול ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הערך: אני חלק ממשהו גדול</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מאחורי הלכות המניין עומד רעיון שכדאי לומר לילדים במפורש: לבד, אדם לא מסוגל להרבה דברים. הוא צריך את הציבור.</p>
+<p>כשאתה חלק ממשהו גדול - כיתה, בית ספר, יישוב, קהילה - יכולת ההשפעה שלך גדלה פי כמה. יש משהו בחבורה שנותן כוח שאין ליחיד, כמה מוכשר שיהיה.</p>
+<div class="honey-box">🍯 שאלה טובה לסיום הנושא: "באילו מקומות בחיים שלך אתה חזק יותר בגלל שאתה חלק מקבוצה?"</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: להזכיר בלי לבקש ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">⚡</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">הזכרת גשמים: שבח לגבורה</h2></div></div>
+<p class="chapter-intro">שני מושגים שאם הילדים לא יבינו אותם, הנושא כולו לא נקלט: הזכרת גשמים ושאלת גשמים.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">להזכיר בלי לבקש</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>הזכרת גשמים</strong> פירושה לשבח: אני לא מבקש כלום, רק מספר על כוחו של הקדוש ברוך הוא. בברכה השנייה של תפילת העמידה, ברכת הגבורות, אומרים: "אתה גבור לעולם ה', מחיה מתים אתה, רב להושיע", ובחורף מוסיפים: "משיב הרוח ומוריד הגשם".</p>
+<p>זה חלק משלוש הברכות הראשונות, ברכות השבח. בהן לא מבקשים דבר. כמו שמשבחים את ה' על שהוא מחיה מתים, כך משבחים אותו על שהוא משיב את הרוח ומוריד את הגשם.</p>
+<p class="bold-para">הזכרה היא הכרת כוח. בקשה היא כבר עניין אחר.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: למה דווקא בברכת תחיית המתים ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה דווקא בברכת תחיית המתים</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת תענית (ב ע"א) נותנת שני הסברים, וכל אחד מהם פותח עולם:</p>
+<p>רבי יוחנן אומר: "גבורות גשמים" - מפני שהם יורדים בגבורה. ורב יוסף אומר: מתוך ששקולה ירידת גשמים כתחיית המתים, לכן קבעו אותה בברכת תחיית המתים.</p>
+<p>כדאי לעצור על זה עם הילדים. גשם הוא פלא: אדים עולים מן הארץ, מתקבצים לעננים, עוברים תהליך מדויק של קירור ועיבוי, ויורדים בזמן מסוים. מים יכלו לרדת כמפל אחד ענק ולהרוס כל שדה. במקום זה הם יורדים בטיפות נפרדות, ממרחק עצום, ומשקים בעדינות.</p>
+<div class="honey-box">🍯 "שקולה כתחיית המתים": כדי שירד גשם אחד, העולם כולו צריך לפעול בתיאום מושלם.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: למה מתחילים דווקא בשמיני עצרת ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה מתחילים דווקא בשמיני עצרת</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את הזכרת הגשמים מתחילים בתפילת מוסף של שמיני עצרת. ולמה לא קודם?</p>
+<p>כי גשם בחג הסוכות הוא סימן לא טוב - הוא מוציא אותנו מהסוכה. ולמה לא להזכיר כל השנה? כי הזמן הנכון לשבח את ה' על דבר הוא בזמן שהדבר שייך אליו. תחיית המתים יכולה לבוא בכל רגע, ולכן משבחים עליה תמיד. אבל הגשמים שייכים לחורף, ובחורף מזכירים את גבורתם.</p>
+<p>בקיץ מזכירים במקומם את הטל, ובנוסח הספרדים ועוד קהילות אומרים "מוריד הטל".</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: שאלה מלשון בקשה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🙏</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">שאלת גשמים: &quot;אבא, תן לנו גשם&quot;</h2></div></div>
+<p class="chapter-intro">בשבח לא ביקשנו כלום. כאן כבר מבקשים, ישירות.</p>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שאלה מלשון בקשה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>שאלת גשמים</strong> היא בקשה ממש: "שאלה" בלשון חכמים פירושה בקשה. בברכת השנים, הברכה התשיעית בתפילת העמידה, אני פונה לקדוש ברוך הוא ואומר לו: אבא, תן לנו גשם.</p>
+<p>בנוסח האשכנזים: "ברך עלינו ה' אלוקינו את השנה הזאת ואת כל מיני תבואתה לטובה, ותן טל ומטר לברכה" בחורף, ו"ותן ברכה" בקיץ.</p>
+<p>בנוסח הספרדים יש שני נוסחים שלמים: בקיץ "ברכנו ה' אלוקינו בכל מעשה ידינו וברך שנתנו בטללי רצון ברכה ונדבה", ובחורף "ברך עלינו ה' אלוקינו את השנה הזאת... ותן טל ומטר לברכה על כל פני האדמה, ורוה פני תבל ושבע את העולם כולו מטובך".</p>
+<p>כדאי להפגיש את הילדים עם הנוסח עצמו, מילה במילה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: כל מה שהגשם עושה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כל מה שהגשם עושה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קל לחשוב שבעידן של מתקני התפלה וברזים פתוחים, הגשם כבר לא כל כך חשוב. אבל גם מתקן התפלה יכול להיתקע, וכל דבר בעולם תלוי בסוף במים.</p>
+<p>הגשם משקה את כל השטחים הפתוחים שאיש לא משקה. בזכותו יש מרעה לצאן ולבקר; בלעדיו בעלי החוות צריכים לקנות מזון, והכול מתייקר. בזכותו ההרים ירוקים והנוריות פורחות.</p>
+<p>וגם הברק עושה עבודה: הוא מפרק את החנקן שבאוויר, והגשם שיורד אחריו מוריד אותו אל הקרקע ומדשן אותה - דישון בחינם, מן השמיים. ובדרך הגשם גם שוטף ומנקה את האוויר.</p>
+<p class="bold-para">כל טיפה היא שפע שה' מוריד עלינו בלי שום מאמץ מצדנו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: שבועיים של המתנה בשביל העולה האחרון ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שבועיים של המתנה בשביל העולה האחרון</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בארץ ישראל מתחילים לבקש גשמים רק בז' בחשוון, כשבועיים אחרי שכבר התחילו להזכיר אותם. למה לחכות?</p>
+<p>המשנה (תענית א, ג) אומרת: "בשלשה במרחשון שואלין את הגשמים. רבן גמליאל אומר: בשבעה בו, חמשה עשר יום אחר החג, כדי שיגיע אחרון שבישראל לנהר פרת."</p>
+<p>עולי הרגל הגיעו לירושלים בסוף הקיץ, בלי מעילים. לבקש גשם מיד אחרי החג פירושו להרטיב אותם בדרך הביתה. אז ממתינים חמישה עשר יום, עד שאחרון העולים, שגר הכי רחוק, יגיע עד נהר פרת.</p>
+<div class="honey-box">🍯 הארץ צמאה אחרי קיץ ארוך, ועם ישראל כולו מחכה - בשביל יהודי אחד שעוד בדרך.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: ולמה מחכים גם היום, בלי בית מקדש ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ולמה מחכים גם היום, בלי בית מקדש</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זו שאלה מצוינת לתת לילדים לחשוב עליה לפני שעונים.</p>
+<p>תשובה אחת: גם אחרי החורבן המשיכו יהודים לעלות לירושלים ברגלים, מאות שנים, אף שבית המקדש לא עמד. גם הם היו צריכים לחזור בשלום.</p>
+<p>תשובה שנייה, ואולי העמוקה יותר: אנחנו חיים כל הזמן בתודעה של בית מקדש. הוא לא זיכרון רחוק מספר היסטוריה. אנחנו מחכים לו, משתוקקים אליו, ולא עוזבים את הרעיון. כשאנחנו מעכבים את בקשת הגשם בשביל עולי רגל שאינם, אנחנו אומרים בקול: אנחנו מוכנים לרגע שהם יחזרו.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הכהן הגדול ועוברי הדרכים ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הכהן הגדול ועוברי הדרכים</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני שנכנסים לדיני "מה קורה אם טעיתי", כדאי לעצור על הכוח של בקשת הגשם עצמה.</p>
+<p>הכהן הגדול, ביום הכיפורים, אחרי שהקטיר קטורת בקודש הקודשים, התפלל תפילה קצרה. ואחד הדברים שביקש היה שלא תיכנס לפני ה' תפילת עוברי דרכים על הגשמים - אותם הולכי דרכים שמבקשים שלא ירד גשם ויפריע להם בדרכם.</p>
+<p>וכי מה ההשוואה? כהן גדול בקודש הקודשים מול אדם פשוט בדרך? אלא שתפילה מכל הלב של אדם אחד יכולה לעצור גשמים או להביא אותם.</p>
+<p class="bold-para">אם תפילה של עובר דרך כל כך חזקה, כמה חזקה התפילה של כיתה שלמה שמבקשת גשם מכל הלב.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: טעות בהזכרה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🔁</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">טעיתי בתפילה: מה עושים</h2></div></div>
+<p class="chapter-intro">הדינים הטכניים חשובים, אבל כדאי ללמד אותם אחרי הערכים, לא לפניהם.</p>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">טעות בהזכרה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>בחורף, לא אמרתי "משיב הרוח ומוריד הגשם":</strong> אם אמרתי "מוריד הטל", אינני חוזר. הטל אינו נעצר לעולם, והוא יורד כל לילה, כך שהשבח עליו אינו טעות.</p>
+<p><strong>בקיץ, אמרתי "משיב הרוח ומוריד הגשם":</strong> כאן זו כבר בעיה, כי שיבחתי על גשם בזמן שהגשם אינו ברכה. אם נזכרתי לפני שסיימתי את הברכה ("מחיה המתים"), חוזר לתחילת הברכה, "אתה גבור", ואומר כראוי. אם כבר סיימתי את הברכה, חוזר לראש התפילה.</p>
+<p>לשים את הדגש על החורף, כי אנחנו בתוכו עכשיו.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: שכחתי לבקש &quot;ותן טל ומטר&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שכחתי לבקש &quot;ותן טל ומטר&quot;</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בחורף, מי ששכח לבקש גשם צריך לתקן. יש כמה תחנות בדרך:</p>
+<ul class="story-list"><li><strong>עוד בתוך ברכת השנים</strong> - חוזר ל"ותן טל ומטר לברכה" וממשיך משם.</li><li><strong>כבר אחרי הברכה</strong> - אומר את הבקשה בברכת "שומע תפילה", המקום שנועד לבקשות אישיות, לפני החתימה "כי אתה שומע תפילת עמך ישראל ברחמים".</li><li><strong>עבר גם את שומע תפילה, ועדיין לא סיים את התפילה</strong> - חוזר לברכת השנים וממשיך משם על הסדר.</li><li><strong>סיים את התפילה ועקר את רגליו</strong> - חוזר לראש התפילה.</li></ul>
+<div class="honey-box">🍯 "עקר את רגליו" - עוד מושג ללמד: שלוש הפסיעות לאחור בסוף התפילה, שמסמנות שהתפילה נגמרה.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: הפסוקים שמהם יוצאת כל ההלכה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">✋</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">ברכת כהנים: הצינור של השפע</h2></div></div>
+<p class="chapter-intro">ה' אומר: אני רוצה לברך אתכם. והכהנים הם הדרך שבה הברכה יורדת.</p>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הפסוקים שמהם יוצאת כל ההלכה</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המילה "לאמר" או "שנאמר" לפני ציטוט מסמנת פסוק, ובדרך כלל מופיע אחריו המקור. כאן - ספר במדבר, פרק ו:</p>
+<blockquote>"דבר אל אהרן ואל בניו לאמר כה תברכו את בני ישראל אמור להם. יברכך ה' וישמרך. יאר ה' פניו אליך ויחנך. ישא ה' פניו אליך וישם לך שלום. ושמו את שמי על בני ישראל ואני אברכם." (במדבר ו, כג-כז)</blockquote>
+<p>כדאי להפגיש את הילדים עם הפסוקים עצמם, כי כמעט כל פרט בהלכות ברכת כהנים נלמד מהם. הכהנים בירכו את העם בבית המקדש, וגם אחרי החורבן, כשאין עוד עבודת כהונה, הברכה ממשיכה בכל יום.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: &quot;ואני אברכם&quot;: הכהן הוא רק צינור ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;ואני אברכם&quot;: הכהן הוא רק צינור</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפסוק מסתיים במילים "ואני אברכם". הכהנים אינם מקור הברכה. הקדוש ברוך הוא אומר: אני מברך, ואתם הצינור שדרכו השפע עובר לעם ישראל.</p>
+<p>גם "אמור להם" מלמד הלכה: קוראים לכהנים. שליח הציבור קורא "כהנים!", ואחר כך מקריא להם מילה במילה, והם חוזרים אחריו. אם יש רק כהן אחד, לא קוראים "כהנים" בלשון רבים, והוא עולה מעצמו.</p>
+<p class="bold-para">הברכה לא שייכת לכהן. היא עוברת דרכו.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: שלוש מדרגות של שפע ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלוש מדרגות של שפע</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>"יברכך ה' וישמרך"</strong> - הברכה החומרית: בריאות, פרנסה, הגנה. כמו הברכות בפרשת כי תבוא: "ובאו עליך כל הברכות האלה והשיגך" (דברים כח, ב). ורש"י מוסיף על "וישמרך": מי שנותן מתנה לעבדו אינו יכול לשמור עליה מכל אדם, ויכולים לבוא שודדים וליטול אותה. אבל הקדוש ברוך הוא נותן וגם שומר.</p>
+<p><strong>"יאר ה' פניו אליך ויחנך"</strong> - האור: מאור התורה, מאור השכינה, וחן בעיני הבריות, בדעת, בבינה ובחכמה.</p>
+<p><strong>"ישא ה' פניו אליך וישם לך שלום"</strong> - הקדוש ברוך הוא מסתכל עלינו באהבה, מקבל את תפילותינו ומעביר את כעסו. ואין ברכה גדולה מהשלום: שלום בבית, בכניסה וביציאה, עם כל אדם.</p>
+<div class="honey-box">🍯 ברכה אחת קצרה שמקיפה את כל צורכי האדם, בגוף ובנשמה, ליחיד ולעם כולו.</div>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: &quot;כלום יש עבד שמברכים אותו ואינו מאזין?&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;כלום יש עבד שמברכים אותו ואינו מאזין?&quot;</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשעת ברכת כהנים לא מדברים. הגמרא במסכת סוטה שואלת: כלום יש עבד שמברכים אותו ואינו מאזין? כל אחד שותק, מקשיב, ומתכוון לקבל את השפע שעובר דרך הכהנים.</p>
+<p>רעיון לסיום הנושא בכיתה: דף עם ציור של כהן פורש כפיו, ובתוכו כל ילד כותב כמה שיותר ממה שלמד - שהכהן הוא צינור, שקוראים להם, שהברכה כוללת הכול, שלא מסתכלים. זו גם הערכה חלופית נפלאה: רואים מיד מה נכנס ללב ומה עוד לא.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: הכהנים עולים לדוכן ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הכהנים עולים לדוכן</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמה הלכות על הכהנים עצמם, ולכל אחת יש טעם:</p>
+<ul class="story-list"><li><strong>נטילת ידיים</strong> - לפני הברכה הכהנים נוטלים ידיים, כמו לפני העבודה בבית המקדש. והלוי הוא שנוטל להם, כי הלויים נועדו לשרת את הכהנים בעבודת הקודש.</li><li><strong>בלי נעליים</strong> - חכמים תיקנו שהכהנים לא יעלו לדוכן בנעליהם. נעל מלוכלכת יכולה למשוך את העין ולהסיח את הדעת. מניחים אותן בצד, בלי "מצעד נעליים", ועולים בגרביים נקיות - גם מכבוד הציבור, וגם זכר לבית המקדש, שבו עבדו הכהנים יחפים.</li><li><strong>כיסוי בטלית</strong> - הכהנים מכסים את פניהם ואת ידיהם, כדי שהציבור לא יסתכל ויסיח את דעתו.</li></ul>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: השכינה בין האצבעות ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">השכינה בין האצבעות</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל מתארים שבזמן שבית המקדש היה קיים, הכהנים נשאו כפיהם בגלוי, והשכינה הייתה שורה בין אצבעותיהם. מי שהסתכל - עיניו נפגעו.</p>
+<p>היום השכינה אינה שורה כך בין אצבעותיהם, ובכל זאת איננו מסתכלים. אנחנו מתרגלים, כדי שכשייבנה בית המקדש, במהרה בימינו, נדע כבר איך עומדים.</p>
+<p>בסוף הברכה הציבור אומר "אדיר במרום", והכהנים אומרים: "רבונו של עולם, עשינו מה שגזרת עלינו, אף אתה עשה עמנו כמו שהבטחתנו: השקיפה ממעון קדשך מן השמים וברך את עמך את ישראל" (על פי דברים כו, טו).</p>
+<p class="bold-para">אנחנו עשינו את שלנו. עכשיו התור שלך לברך.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: מנוע רוחני שמקיים את העולם ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מנוע רוחני שמקיים את העולם</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שלושת הנושאים מתחברים לבניין אחד. המניין הוא הכלי, עת הרצון שבה הציבור מתכנס. הגשם הוא הבקשה וההודיה על השפע הגדול. וברכת כהנים היא הצינור שדרכו השפע יורד ומגן על עם ישראל כולו - גם על מי שנמצא באותו רגע רחוק, בשדה.</p>
+<p>כדאי להתחיל בכיתה דווקא מהגשמים, כי הם טריים עכשיו, ולהגיע למניין אחר כך לפי תוכנית הלימודים.</p>
+<p>תפילה בציבור איננה רק חובה. היא מנוע רוחני שמקיים את העולם. וילד שלמד את כל זה יחכה לגשם הראשון אחרת. ההתרגשות שלו מטיפה, וההודיה שלו עליה, ילוו אותו עד מאה ועשרים.</p>
+<p class="bold-para">אשרינו שזכינו לעסוק עם ילדי ישראל הקדושים.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
