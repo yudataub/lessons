@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🙏 מאה ברכות ופגישה אחת עם המלך</title>
+<meta name="description" content="ברכות השחר, מאה ברכות בכל יום ותפילת העמידה, ואיך מלמדים ילדים לעמוד לפני הקדוש ברוך הוא בשמחה ובכוונה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 01.11.2026 🍯</div>
+  <h1 class="hero-title">🙏 מאה ברכות ופגישה אחת עם המלך</h1>
+  <p class="hero-subtitle">ברכות השחר, מאה ברכות בכל יום ותפילת העמידה, ואיך מלמדים ילדים לעמוד לפני הקדוש ברוך הוא בשמחה ובכוונה.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-13 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/n1g6GfOoVjI" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌀 לימוד ספירלי: עוד קומה בכל שנה</a><ul class="toc-stories"><li><a href="#story-1">לדעת הרבה, ולתת נשמה</a></li><li><a href="#story-2">החזרה: מה כבר יודעים על הבוקר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">✈️ ברכות השחר: לכבות את הטייס האוטומטי</a><ul class="toc-stories"><li><a href="#story-3">משל הטייס האוטומטי</a></li><li><a href="#story-4">משחק המודעות: הנשימה והרוק</a></li><li><a href="#story-5">ברכה על כל תנועה</a></li><li><a href="#story-6">למה היום אומרים אותן בבית הכנסת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">💯 מאה ברכות בכל יום</a><ul class="toc-stories"><li><a href="#story-7">המגפה שנעצרה</a></li><li><a href="#story-8">איך מגיעים למאה</a></li><li><a href="#story-9">תודה שיוצאת מהלב</a></li><li><a href="#story-10">שרשרת הדורות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🏛️ הדרך אל הארמון</a><ul class="toc-stories"><li><a href="#story-11">רצים אל הפגישה</a></li><li><a href="#story-12">ביראתך: נכנסים בהכנעה</a></li><li><a href="#story-13">שעה אחת של החסידים הראשונים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">📜 מי תיקן את התפילות</a><ul class="toc-stories"><li><a href="#story-14">תפילות אבות תיקנום</a></li><li><a href="#story-15">תפילות כנגד תמידים</a></li><li><a href="#story-16">לעמוד בשמחה, כבן לפני אביו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🔥 העמידה עצמה: כמו קורבן</a><ul class="toc-stories"><li><a href="#story-17">כוונה ועמידה</a></li><li><a href="#story-18">מקום, חציצה ומלבושים</a></li><li><a href="#story-19">שבח, בקשה והודיה</a></li><li><a href="#story-20">שמונה עשרה או תשע עשרה</a></li><li><a href="#story-21">למה תיקנו נוסח קבוע</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🌱 כורעים, מזדקפים, ומתחדשים</a><ul class="toc-stories"><li><a href="#story-22">לא עוברים לפני המתפלל</a></li><li><a href="#story-23">ברוך, אתה, ה&#x27;: איך כורעים</a></li><li><a href="#story-24">&quot;אתה זה המשעמם&quot;</a></li><li><a href="#story-25">דור שמתחבר לתפילה שלו</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌀</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">לימוד ספירלי: עוד קומה בכל שנה</h2></div></div>
+<p class="chapter-intro">לימוד ההלכה עולה כמו מדרגות לולייניות: חוזרים לאותו מקום, אבל תמיד קומה אחת גבוה יותר.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לדעת הרבה, ולתת נשמה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המטרה של לימוד ההלכה לעומק היא לא רק לדעת את מה שכתוב בספר, אלא להרחיב: לתת עוד נקודות ועוד זוויות שלא תמיד מופיעות בספר ההלכה, קצת מימין וקצת משמאל. זו שיטת המשפך: לדעת הרבה, כדי לבחור בסוף מה להביא לילדים.</p>
+<p>מורה שיודע יותר יכול לענות על שאלות, להרחיב כשצריך, ובעיקר לתת בהלכה הרבה יותר נשמה.</p>
+<p>ותוך כדי הלימוד מעלים למודעות את ששת ההישגים: יסודות התורה שבעל פה (מאיפה ההלכה מגיעה: תנ"ך, משנה, גמרא, רמב"ם או פוסקים), מושגים, אוצר מילים ולשון חכמים, המבנה של מקרה, דין וטעם, הבנה ויישום ביום יום, ועולם הערכים שההלכה פותחת.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: החזרה: מה כבר יודעים על הבוקר ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החזרה: מה כבר יודעים על הבוקר</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני שעולים קומה, כדאי לרענן את הקומה הקודמת. הבוקר של יהודי מתחיל ב"מודה אני", באהבה גדולה ובשמחה גדולה, עם עצירה קטנה: "שהחזרת בי נשמתי בחמלה", עצירה, "רבה אמונתך". אתה מאמין בי, ונותן לי עוד יום להתקדם, לפרוח ולעשות.</p>
+<p>אחר כך נוטלים ידיים לסירוגין, עד שכל היד מקבלת מים: לוקחים את הנטלה ביד ימין, מעבירים לשמאל, נוטלים, ומברכים לפני הניגוב.</p>
+<p>ובכיתה מתחילים את התפילה ב"אלוקי, נשמה שנתת בי טהורה היא", ולא במודה אני, כדי לא לחזור על הטעות המוכרת מהגן. מי ששכח ברכה, ישלים בשקט בעצמו. ומי שלא נטל ידיים בבוקר, הולכים איתו ליטול ולברך.</p>
+<div class="honey-box">🍯 כדאי לפתוח כל שנה במבצע קצר שמחזק את מה שנלמד בשנה שעברה. בלי זה, הקומה החדשה נבנית על חול.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: משל הטייס האוטומטי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">✈️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">ברכות השחר: לכבות את הטייס האוטומטי</h2></div></div>
+<p class="chapter-intro">הגוף עובד בלי שנשים לב. ברכות השחר עוצרות אותנו ואומרות: תסתכל.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">משל הטייס האוטומטי</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפעמים קמים בבוקר והכול זורם: ברור שקמתי, ברור שאני הולך, ברור שאני מתמתח, ברור שיש לי מה ללבוש ומה לאכול. לא מרגישים בכלל שמישהו נותן את כל זה.</p>
+<p>זה כמו טיסה ארוכה עם טייס אוטומטי. הנוסעים שמים כיסוי עיניים, נרדמים בנחת, ומחכים להגיע ליעד. אף אחד לא חושב על מי שמחזיק את המטוס באוויר, עד שמשהו משתבש.</p>
+<p>כך גם הגוף. מתי שמים לב שיש לנו גרון? כשכואב בגרון. מתי מרגישים שיש ראש ומחשבה? כשכואב הראש. פתאום מבינים כמה מערכות עובדות בלי שחשבנו עליהן לרגע.</p>
+<p class="bold-para">ברכות השחר הן העצירה שמכבה את הטייס האוטומטי, כדי שלא נחיה את החיים בלי לראות את מי שנותן אותם.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: משחק המודעות: הנשימה והרוק ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">משחק המודעות: הנשימה והרוק</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משחק קטן שאפשר לעשות עם ילדים, והוא עובד כמעט תמיד: "שמתם לב שאתם נושמים?". ופתאום כולם נושמים בעצמם, במודע, כי מישהו הזכיר להם. "והפה שלכם מלא רוק, נכון?". ועכשיו כולם בולעים.</p>
+<p>הגוף עשה את זה כל הזמן, בלי שביקשנו. המוח משדר לגוף את מה שאנחנו רוצים, והגוף פועל, אלפי פעולות בכל רגע.</p>
+<p>מכאן קל להגיע לשאלה: אם כל זה פועל לבד, בלי שאני עושה דבר, איך אפשר לא להודות? זה בדיוק מה שברכות השחר עושות בתחילת היום: עוצרות ומכירות בחסדים הגדולים של הקדוש ברוך הוא.</p>
+<div class="honey-box">🍯 ילד שהרגיש את הנשימה שלו לרגע אחד, יאמר "אשר יצר" ו"אלוקי נשמה" אחרת.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ברכה על כל תנועה ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ברכה על כל תנועה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא (ברכות ס ע"ב) מתארת איך נאמרו ברכות השחר בתחילה: כל ברכה ברגע של הפעולה שלה.</p>
+<ul class="story-list"><li>כשמתעורר: "אלוקי, נשמה שנתת בי טהורה היא".</li><li>כששומע את קול התרנגול: "הנותן לשכוי בינה להבחין בין יום ובין לילה".</li><li>כשפוקח את עיניו: "פוקח עורים".</li><li>כשמתיישב: "מתיר אסורים". כשמזדקף: "זוקף כפופים". כל הלילה היה כפוף.</li><li>כשמניח רגליו על הארץ: "רוקע הארץ על המים". יש לי אדמה לדרוך עליה.</li><li>כשמתלבש: "מלביש ערומים". כשנועל נעליו: "שעשה לי כל צרכי". כשהולך: "המכין מצעדי גבר".</li><li>כשחוגר חגורה: "אוזר ישראל בגבורה". כשמכסה את ראשו: "עוטר ישראל בתפארה".</li><li>כשרוחץ את פניו: "המעביר שינה מעיני".</li></ul>
+<p>כאן גם מקום לאוצר מילים: "עוטר" הוא מלשון עטרה, כתר. הקדוש ברוך הוא מכתיר אותנו.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: למה היום אומרים אותן בבית הכנסת ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה היום אומרים אותן בבית הכנסת</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בימי הגמרא היו מודים על כל תנועה בשעתה. היום אנחנו אומרים את כל הברכות ברצף, מתוך הסידור, בסדר שנקבע לכל עדה. אשכנזים וספרדים נוהגים בסדר מעט שונה.</p>
+<p>למה השתנה המנהג? כי לא תמיד נצליח להתרכז בבית מיד עם הקימה, ולפעמים קמים מאוחר וממהרים. יש חשש שהברכות ייאמרו בחיפזון, בלי סדר ובלי כוונה. לכן אומרים אותן בנחת, מתוך סידור. אבל כדאי שהילדים ידעו שכך היה ראוי, ושכל ברכה היא תודה על פעולה אמיתית שכבר עשו הבוקר.</p>
+<p>ומי שהתחיל להתפלל ושכח את ברכות השחר? ברוב הברכות הוא משלים אחרי התפילה. יש ברכות שאת תוכנן כבר אמר בתוך התפילה עצמה, כמו אלוקי נשמה וברכות התורה, ובהן יש דינים מיוחדים שכדאי לברר בספר ההלכה.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: המגפה שנעצרה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">💯</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">מאה ברכות בכל יום</h2></div></div>
+<p class="chapter-intro">מי שמברך מאה פעמים ביום מזכיר לעצמו מאה פעמים שהקדוש ברוך הוא כאן.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">המגפה שנעצרה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מובא במדרש, והטור מביא זאת להלכה (אורח חיים סימן מו), שבימי דוד המלך הייתה מגפה, ובכל יום מתו מאה אנשים מישראל. דוד המלך לא הבין למה. הוא התבונן, והבין שכנראה משהו נחלש בחיבור בין עם ישראל לקדוש ברוך הוא. לכן תיקן לישראל לברך מאה ברכות בכל יום, והמגפה נעצרה.</p>
+<p>מאה ברכות הן מאה תזכורות: הקדוש ברוך הוא איתנו, כל הזמן, בכל דבר.</p>
+<p>הגמרא (מנחות מג ע"ב) מביאה רמז לכך בפסוק:</p>
+<blockquote>"וְעַתָּה יִשְׂרָאֵל מָה ה' אֱלוֹקֶיךָ שֹׁאֵל מֵעִמָּךְ" (דברים י, יב)</blockquote>
+<p>אל תקרי "מה", אלא "מאה". מה ה' שואל ממך? מאה ברכות.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: איך מגיעים למאה ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">איך מגיעים למאה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדאי לעשות עם הילדים חשבון, ולגלות שהמספר מגיע כמעט מעצמו:</p>
+<ul class="story-list"><li>ברכות השחר.</li><li>ברכות קריאת שמע, בבוקר ובערב.</li><li>שלוש תפילות עמידה ביום, בכל אחת תשע עשרה ברכות. כבר הרבה מאוד.</li><li>ברכות הנהנין, לפני האוכל ואחריו, וברכת המזון.</li></ul>
+<p>בשבת זה אתגר, כי בתפילת העמידה של שבת יש רק שבע ברכות ולא תשע עשרה. לכן נוהגים להוסיף ברכות על פירות ועל בשמים. בבתי כנסת רבים מכינים לשם כך הדסים בשבת, כדי להשלים את המניין.</p>
+<div class="honey-box">🍯 משחק טוב לכיתה: כל ילד סופר ביום אחד כמה ברכות בירך. רובם יופתעו לגלות שהם כבר קרובים למאה.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: תודה שיוצאת מהלב ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">תודה שיוצאת מהלב</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מרבני דורנו שמוסיפים כאן נקודה יפה: מאה ברכות הן לא רק נוסחים קבועים. הרעיון שלהן הוא להגיד תודה לה' כל הזמן. "תודה לה' שיש לי אוכל". "תודה לה' שהצלחתי במבחן". "תודה לה' שיש לי חברים". "תודה לה' שאני מרגיש טוב".</p>
+<p>כל תודה כזו, שיוצאת מהלב באמצע היום, היא חלק מאותו עולם של מאה ברכות.</p>
+<p>זה הערך הגדול שמסתתר מאחורי המספר: להכיר בקיומו של הקדוש ברוך הוא, ולפגוש אותו כל הזמן.</p>
+<p class="bold-para">מי שמלמד ילד לברך מאה פעמים ביום, מלמד אותו לראות את ה' מאה פעמים ביום.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: שרשרת הדורות ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שרשרת הדורות</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן זכות גדולה. מה שילד לומד היום כהלכה, מוטבע בו לכל החיים. הוא יאמר כך עד מאה ועשרים, וילמד כך את ילדיו ואת נכדיו.</p>
+<p>מי שמלמד ילדים איך לברך, איך לדבר עם הקדוש ברוך הוא ואיך לפגוש אותו בכל רגע, הופך לחוליה בשרשרת שמנחילה לדורות הבאים את הדרך הנכונה לעמוד לפני ה'.</p>
+<p>איזו זכות נתן לנו הקדוש ברוך הוא: להיות מאלה שמעבירים את זה הלאה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: רצים אל הפגישה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">הדרך אל הארמון</h2></div></div>
+<p class="chapter-intro">רצים אל המלך, ובפנים עומדים בכובד ראש ובשמחה.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">רצים אל הפגישה</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לימוד ההלכה הוא ספירלי. בשנה הקודמת לומדים על פסוקי דזמרה, ההכנה. השנה מגיעים אל הפגישה עצמה, אל תפילת העמידה. אבל לא נכנסים אל המלך סתם כך. יש דרך.</p>
+<p>הצעד הראשון: יש מצווה לרוץ לבית הכנסת, להגיע במהירות ולהראות שאני רוצה. בשחרית של ימי לימודים מתפללים בבית הספר, אז הרצון מתבטא בריצה אל בית הספר. אבל במנחה, בערבית, בשבתות ובחופשות כדאי להזכיר לילדים: רצים לבית הכנסת, מתוך התלהבות לקראת הפגישה החשובה ביותר.</p>
+<p>ובתוך הארמון עצמו הכול משתנה: שם נוהגים בנחת, ברוגע ובשלווה.</p>
+<blockquote>"בְּבֵית אֱלוֹקִים נְהַלֵּךְ בְּרָגֶשׁ" (תהלים נה, טו)</blockquote>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: ביראתך: נכנסים בהכנעה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ביראתך: נכנסים בהכנעה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוד המלך מתאר איך נכנסים:</p>
+<blockquote>"וַאֲנִי בְּרֹב חַסְדְּךָ אָבוֹא בֵיתֶךָ אֶשְׁתַּחֲוֶה אֶל הֵיכַל קָדְשְׁךָ בְּיִרְאָתֶךָ" (תהלים ה, ח)</blockquote>
+<p>מה זה "יראה"? זו מילה חשובה לאוצר המילים: כבוד, הכנעה, הבנה שעומדים לפני מישהו גדול מאוד.</p>
+<p>וכך שונה המשנה:</p>
+<blockquote>"אין עומדין להתפלל אלא מתוך כובד ראש. חסידים הראשונים היו שוהין שעה אחת ומתפללין, כדי שיכוונו את לבם למקום" (ברכות ה, א)</blockquote>
+<p>זה המקום להראות לילדים איך מזהים משנה: כשכתוב "משנה, ברכות ה, א", כלומר פרק ומשנה, ולא דף ועמוד, מדובר במשנה ולא בגמרא.</p>
+<p>בארמון מתנהגים בכבוד: לא ישנים, לא אוכלים, לא מקשקשים. יש מצבים מיוחדים שבהם מתירים דברים מסוימים, אבל הכלל ברור.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: שעה אחת של החסידים הראשונים ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שעה אחת של החסידים הראשונים</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לשאול את הילדים: מה עשו החסידים הראשונים באותה "שעה אחת" לפני התפילה?</p>
+<p>המילה "שעה" כאן איננה בהכרח שישים דקות. זה זמן של הכנה. מה עשו בו? כיוונו את המחשבה, סילקו את כל המחשבות הזרות, והרגישו כאילו הם עומדים לפני הקדוש ברוך הוא בקודש הקודשים. ורק מתוך ההרגשה הזו ניגשו להתפלל.</p>
+<p>ילדים לא יחכו שעה. אבל הם בהחלט יכולים לעצור דקה, לנשום, ולשאול את עצמם: לפני מי אני עומד עכשיו?</p>
+<div class="honey-box">🍯 גם דקה אחת של שקט לפני העמידה יכולה לשנות את כל התפילה.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: תפילות אבות תיקנום ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מי תיקן את התפילות</h2></div></div>
+<p class="chapter-intro">האבות פתחו את הדרך, והקורבנות קבעו את הזמנים.</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">תפילות אבות תיקנום</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא (ברכות כו ע"ב) אומרת: רבי יוסי ברבי חנינא אומר, תפילות אבות תיקנום.</p>
+<ul class="story-list"><li><strong>אברהם תיקן תפילת שחרית</strong>, שנאמר: "וַיַּשְׁכֵּם אַבְרָהָם בַּבֹּקֶר אֶל הַמָּקוֹם אֲשֶׁר עָמַד שָׁם" (בראשית יט, כז), ואין עמידה אלא תפילה.</li><li><strong>יצחק תיקן תפילת מנחה</strong>, שנאמר: "וַיֵּצֵא יִצְחָק לָשׂוּחַ בַּשָּׂדֶה לִפְנוֹת עָרֶב" (בראשית כד, סג), ואין שיחה אלא תפילה.</li><li><strong>יעקב תיקן תפילת ערבית</strong>, שנאמר: "וַיִּפְגַּע בַּמָּקוֹם וַיָּלֶן שָׁם" (בראשית כח, יא), ואין פגיעה אלא תפילה.</li></ul>
+<p>זו הזדמנות ללמד איך מזהים פסוק בתוך הגמרא: המילה "שנאמר" או "דכתיב", המירכאות שמסמנות ציטוט, וההפניה "בראשית" עם פרק ופסוק.</p>
+<p>וכל אחד מהאבות גילה סוד משלו. אברהם הבין שבפתיחת היום עומדים לפני בורא עולם. יצחק גילה שגם באמצע היום, בשדה, הקדוש ברוך הוא כאן. ויעקב לימד להודות בסוף היום על שה' היה איתו כל היום.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: תפילות כנגד תמידים ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">תפילות כנגד תמידים</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי יהושע בן לוי אומר שם: תפילות כנגד תמידים תיקנום. התורה אומרת:</p>
+<blockquote>"אֶת הַכֶּבֶשׂ אֶחָד תַּעֲשֶׂה בַבֹּקֶר וְאֵת הַכֶּבֶשׂ הַשֵּׁנִי תַּעֲשֶׂה בֵּין הָעַרְבָּיִם" (במדבר כח, ד)</blockquote>
+<p>כבש אחד בבוקר כנגד שחרית, וכבש אחד בין הערביים כנגד מנחה. ומה כנגד ערבית? כנגד האיברים של הקורבנות, שנשחטו ביום ונשרפו על המזבח במשך כל הלילה.</p>
+<p>והמסקנה מחברת את שתי הדעות: האבות תיקנו את התפילות, וחכמים סמכו אותן על הקורבנות. היום אין לנו בית מקדש ואין קורבנות, אבל יש "עבודה שבלב". התפילה היא הקורבן שלנו.</p>
+<p class="bold-para">הקורבנות נתנו לתפילה את הזמנים שלה, והאבות נתנו לה את הלב.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: לעמוד בשמחה, כבן לפני אביו ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לעמוד בשמחה, כבן לפני אביו</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני שעומדים להתפלל, מרוקנים את הראש, כמו החסידים הראשונים, ומבינים מול מי עומדים: מלך מלכי המלכים.</p>
+<p>ומתוך ההבנה הזו באה שמחה, לא עצבות ולא דכדוך. יש מי שאמרו שאפשר אפילו לרקוד מרוב שמחה על התפילה. כמה זכיתי, שאני יכול לעמוד לפני בורא עולם, ושאני הבן שלו.</p>
+<p>זה הערך שכדאי להכניס לתפילה של ילדים: לא "צריך להתפלל", אלא "זכיתי להתפלל".</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: כוונה ועמידה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">העמידה עצמה: כמו קורבן</h2></div></div>
+<p class="chapter-intro">חמישה עמודי תווך מחברים את התפילה לעבודה בבית המקדש.</p>
+<article class="story-card" id="story-17" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כוונה ועמידה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>כוונה:</strong> בקורבן, מחשבה פסולה פוסלת את הקורבן. גם בתפילה, מחשבות זרות מקלקלות. לכתחילה מכוונים בכל תפילת העמידה. והמינימום שבמינימום הוא ברכת אבות, שבה חייבים להתרכז: "אלוקי אברהם, אלוקי יצחק ואלוקי יעקב". אני הבן של אבות האומה. "האל הגדול הגיבור והנורא, גומל חסדים טובים וקונה הכל". אנחנו הקניין שלו. "וזוכר חסדי אבות, ומביא גואל לבני בניהם". ומי הם בני בניהם? אנחנו.</p>
+<p><strong>עמידה:</strong> התפילה נאמרת בעמידה, הרגליים צמודות וישרות, כמו המלאכים, שעליהם נאמר "וְרַגְלֵיהֶם רֶגֶל יְשָׁרָה" (יחזקאל א, ז). וגם עבודת הקורבנות נעשתה בעמידה ולא בישיבה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: מקום, חציצה ומלבושים ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מקום, חציצה ומלבושים</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>קביעות מקום:</strong> כדאי שיהיה לכל אחד מקום קבוע לתפילה. גם לקורבנות היה מקום קבוע, לכל קורבן מקומו, כמו קודשי קודשים שנשחטו בצפון המזבח.</p>
+<p><strong>בלי חציצה:</strong> לא עומדים כשמשהו מפסיק בין המתפלל לבין הקיר. אדם שעומד לפני ומתפלל באותו כיוון אינו מפריע. וכמו בקורבנות, שבהם כל חציצה פסלה.</p>
+<p><strong>מלבושים:</strong> מתלבשים בבגדים יפים ומכובדים לתפילה. בגמרא מסופר על חכמים שהקפידו להתלבש יפה לפני שעמדו להתפלל, כמו הכהנים שלבשו את בגדי הכהונה לפני העבודה.</p>
+<p>ועוד דבר: לא מחזיקים חפצים בזמן העמידה, לא טלפון ולא ארנק, כי הדאגה שלא ייפלו מטרידה את המחשבה. רק הסידור, כי הוא עוזר לכוונה. גם מי שיודע את התפילה בעל פה, כדאי לו להתפלל מתוך סידור.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: שבח, בקשה והודיה ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שבח, בקשה והודיה</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תפילת העמידה בנויה כמו פגישה עם מלך:</p>
+<ul class="story-list"><li><strong>שלוש ברכות ראשונות של שבח:</strong> קודם משבחים את המלך.</li><li><strong>ברכות האמצע, הבקשות:</strong> אחר כך מבקשים.</li><li><strong>שלוש ברכות אחרונות של הודיה:</strong> ובסוף מודים ויוצאים.</li></ul>
+<p>כך נוהג אדם שבא לפני מלך בשר ודם. קודם הוא משבח, אחר כך מבקש, ולבסוף מודה. בתפילה זה אותו סדר בדיוק.</p>
+<p>התפילה נאמרת בלחש. כמו בספרייה, או בפגישה חשובה, כל אחד עם עצמו ולא מפריע לסביבה. מי שזקוק לשמוע את עצמו כדי לכוון, אומר בלחש ממש, כך שרק הוא שומע.</p>
+<div class="honey-box">🍯 ילד שמבין את המבנה יודע תמיד איפה הוא נמצא בתפילה: עדיין משבח, כבר מבקש, או כבר מודה.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: שמונה עשרה או תשע עשרה ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שמונה עשרה או תשע עשרה</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קוראים לה "שמונה עשרה", אבל יש בה תשע עשרה ברכות. איך זה קרה?</p>
+<p>בתחילה היו באמת שמונה עשרה ברכות. אבל בימי הבית השני קמו אנשים שנראו כיהודים, אך לא האמינו בתורה שבעל פה, היו מקורבים למלכות הנכרית והלשינו על עם ישראל. הם פגעו והרסו מבפנים. לכן אמר רבן גמליאל: מי יודע לתקן ברכה נגדם? עמד שמואל הקטן ותיקן אותה (ברכות כח ע"ב). זו הברכה שפותחת "ולמלשינים אל תהי תקוה". מטרתה הייתה להרחיק אותם מבית הכנסת ומעם ישראל, ולהבהיר שהם אינם חלק מאיתנו.</p>
+<p>הברכות היו לתשע עשרה, אבל השם "שמונה עשרה" נשאר.</p>
+<p>לכן עדיף לומר "תפילת העמידה". זה מדויק בכל יום, וגם בשבת, כשיש בה רק שבע ברכות.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: למה תיקנו נוסח קבוע ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה תיקנו נוסח קבוע</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פעילות יפה לפני הלימוד: לבקש מהילדים לכתוב על דף תפילה משלהם. מה הכי חשוב לבקש? כותבים כמה דקות, ואז קוראים יחד ומסתכלים: על מה ביקשתם?</p>
+<p>בדרך כלל מגלים שרוב הבקשות הן אישיות: שאצליח, שיהיה לי, שאקבל. ועכשיו מראים את דברי הרמב"ם (הלכות תפילה פרק א). כשגלו ישראל בימי נבוכדנצר הרשע, הם התערבבו בפרס, ביוון ובשאר האומות, ונולדו להם בנים בארצות הגויים. השפה של הבנים האלה התבלבלה, והם לא ידעו לבקש את צורכיהם או לשבח את הקדוש ברוך הוא בלשון הקודש כראוי. כשראו זאת עזרא ובית דינו, תיקנו את שמונה עשרה הברכות על הסדר, "כדי שיהיו ערוכות בפי הכל".</p>
+<p>בברכות האלה יש צרכים אישיים, כמו רפואה, סליחה ופרנסה, ויש בהן גם צרכים של הכלל: קיבוץ גלויות, בניין ירושלים, הצדיקים והחסידים, והגאולה. וגם הבקשות האישיות נאמרות בלשון רבים: "רפאנו", "סלח לנו". כל אחד מתפלל על כולם.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: לא עוברים לפני המתפלל ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌱</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">כורעים, מזדקפים, ומתחדשים</h2></div></div>
+<p class="chapter-intro">פרטי העמידה הקטנים, והסוד שהופך את התפילה לחיה בכל יום מחדש.</p>
+<article class="story-card" id="story-22" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לא עוברים לפני המתפלל</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתפילת העמידה שומרים על הסביבה של המתפלל: בתוך ארבע אמות לפניו, כשני מטרים, לא עוברים. מאחוריו ולצדדים מותר לשבת. למה לא לעבור לפניו? כי זה פוגע בו ומסיט את הכוונה שלו.</p>
+<p>ומכאן עצה מעשית לילדים: מי שמתפלל בסוף הכיתה, כולם יעברו לפניו. עדיף לעמוד קרוב לקיר.</p>
+<p>אלה פעולות קטנות, אבל ילד שמתרגל אליהן עכשיו ינהג כך עד מאה ועשרים.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: ברוך, אתה, ה&#x27;: איך כורעים ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ברוך, אתה, ה&#x27;: איך כורעים</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתפילת העמידה כורעים ארבע פעמים, דווקא בנקודות החשובות ביותר: בתחילת ברכת אבות ובסופה, ובתחילת ברכת מודים ובסופה. כמו מי שבא לפני מלך ומשתחווה בכניסה וביציאה.</p>
+<p>ואיך כורעים? זה קריטי, כי ילדים רבים לא יודעים. כדאי לעצור ולהדגים:</p>
+<ul class="story-list"><li>ב"ברוך" כורעים בברכיים.</li><li>ב"אתה" מרכינים את הראש ואת הגוף לפני הקדוש ברוך הוא.</li><li>ובשם ה' כבר זקופים. מזדקפים לפני שאומרים את השם, כי ה' "זוקף כפופים".</li></ul>
+<p>מזדקפים בנחת וברוגע, בצורה מסודרת. לא כמו מי שזורק מעליו עול, אלא מתוך ההבל הקדוש של התפילה.</p>
+<div class="honey-box">🍯 שווה להקדיש לזה רגע בכיתה, לעמוד יחד ולתרגל. מה שלומדים בגוף לא נשכח.</div>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: &quot;אתה זה המשעמם&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;אתה זה המשעמם&quot;</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מספרים על הרב עדין שטיינזלץ זצ"ל, שאדם בא אליו ואמר: "התפילה משעממת. כל יום אותן מילים, אותן ברכות, הכול חוזר על עצמו".</p>
+<p>ענה לו הרב: "אני לא יודע על מה אתה מדבר. אני משתנה כל יום, ולכן התפילה שלי משתנה, והכוונה שלי משתנה. אם התפילה שלך משעממת, אולי היא לא המשעממת. אולי אתה זה שלא משתנה".</p>
+<p>הברכות הן אותן ברכות, אבל אנחנו לא אותם אנשים. בכל יום, שלוש פעמים, יש ברכה אחרת שנוגעת בנו, כי היום קרה לנו משהו אחר. התפילה כוללת ומרחיבה מספיק כדי לענות על כל מה שעובר על אדם.</p>
+<p class="bold-para">התפילה לא חוזרת על עצמה. אנחנו אלה שמגיעים אליה אחרים בכל פעם.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: דור שמתחבר לתפילה שלו ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דור שמתחבר לתפילה שלו</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חוט של זהב עובר בכל ההלכות האלה: הכוונה. התפילה איננה מטלה ואיננה טקסט יבש. היא משהו פנימי, שנובע מבפנים ויוצא החוצה.</p>
+<p>כשמצליחים להחדיר את זה ללב של ילדים, התפילה שלהם עולה קומה. הם עומדים לפני ה' בשמחה, יודעים מה הם אומרים ומרגישים לפני מי הם עומדים.</p>
+<p>כך מחנכים דור שמתחבר לתפילה שלו, ומקרב בעזרת ה' את הגאולה השלמה. אשרינו שזכינו לעסוק בזהב וביהלומים האלה, בהנחלת התורה והמצוות לילדי ישראל.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
