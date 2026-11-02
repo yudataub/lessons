@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌍 עם חכם ונבון: מה העולם רואה בנו</title>
+<meta name="description" content="שלושה דברים שהתורה מבטיחה שכל העמים יראו בעם ישראל - חוכמה, קרבת ה&#x27; ומשפטים צודקים - ואיך מסבירים אותם במילים שגם מי שאינו יהודי יבין.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 02.11.2026 🍯</div>
+  <h1 class="hero-title">🌍 עם חכם ונבון: מה העולם רואה בנו</h1>
+  <p class="hero-subtitle">שלושה דברים שהתורה מבטיחה שכל העמים יראו בעם ישראל - חוכמה, קרבת ה&#x27; ומשפטים צודקים - ואיך מסבירים אותם במילים שגם מי שאינו יהודי יבין.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-7 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/v4sf3xN1DSI" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">📜 הקדמה לפני הכניסה לארץ</a><ul class="toc-stories"><li><a href="#story-1">לא מצווה ולא הלכה - הקדמה</a></li><li><a href="#story-2">מילה אחת שחוזרת שלוש פעמים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🧠 הסיבה הראשונה: &quot;עם חכם ונבון&quot;</a><ul class="toc-stories"><li><a href="#story-3">לנצח זה עוד לא &quot;חכם ונבון&quot;</a></li><li><a href="#story-4">פרס נובל, המצאות ועם קטן מאוד</a></li><li><a href="#story-5">מאיפה החוכמה הזאת באה?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🍋 אורחים מדרום קוריאה</a><ul class="toc-stories"><li><a href="#story-6">&quot;אנחנו רוצים להיות חכמים כמו היהודים&quot;</a></li><li><a href="#story-7">ארבעת המינים בעיניים של אורחים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🙏 הסיבה השנייה: &quot;אלקים קרובים אליו&quot;</a><ul class="toc-stories"><li><a href="#story-8">לא רק שאנחנו מתפללים</a></li><li><a href="#story-9">איך מסבירים קרבה למי שלא מכיר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">⚖️ הסיבה השלישית: &quot;משפטים צדיקים&quot;</a><ul class="toc-stories"><li><a href="#story-10">&quot;צדיקים&quot; - כלומר צודקים</a></li><li><a href="#story-11">חוקים שכל אדם ישר מתפעל מהם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">✍️ לכתוב בשפה שכל העולם מבין</a><ul class="toc-stories"><li><a href="#story-12">שלוש סיבות במחברת</a></li><li><a href="#story-13">&quot;תכתוב משהו שהגוי יכול להבין&quot;</a></li><li><a href="#story-14">השליחות: להיות הדוגמה בעצמי</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">הקדמה לפני הכניסה לארץ</h2></div></div>
+<p class="chapter-intro">לפני שמשה רבנו מלמד את המצוות עצמן, הוא עוצר ומסביר למה הן כל כך מיוחדות. ארבעה פסוקים קצרים, ובתוכם תמונה שלמה של עם ישראל.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא מצווה ולא הלכה - הקדמה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש פסוקים בתורה שמצווים: עשה כך, אל תעשה כך. ויש פסוקים שהם כמו דלת כניסה: הם לא מוסיפים עוד מצווה, אלא מסבירים מה המשמעות של כל המצוות כולן. בספר דברים, רגע לפני שעם ישראל נכנס לארץ, משה רבנו אומר:</p>
+<blockquote>"ראה למדתי אתכם חקים ומשפטים כאשר צוני ה' אלקי לעשות כן בקרב הארץ אשר אתם באים שמה לרשתה. ושמרתם ועשיתם כי הוא חכמתכם ובינתכם לעיני העמים אשר ישמעון את כל החקים האלה ואמרו רק עם חכם ונבון הגוי הגדול הזה" (דברים ד, ה-ו)</blockquote>
+<p>משה לא אומר רק "תשמרו את התורה כי כך צריך". הוא אומר משהו מפתיע: כשתשמרו את התורה, <strong>כל העולם יסתכל עליכם</strong>. העמים ישמעו על החוקים שלכם, יתבוננו בכם, ויגידו בהתפעלות: איזה עם מיוחד!</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: מילה אחת שחוזרת שלוש פעמים ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מילה אחת שחוזרת שלוש פעמים</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדאי לקרוא את ההמשך לאט, ולחפש ביטוי אחד שחוזר שוב ושוב:</p>
+<blockquote>"כי מי גוי גדול אשר לו אלקים קרבים אליו כה' אלקינו בכל קראנו אליו. ומי גוי גדול אשר לו חקים ומשפטים צדיקם ככל התורה הזאת אשר אנכי נתן לפניכם היום" (דברים ד, ז-ח)</blockquote>
+<p>לא כזה קל למצוא, אבל מי שמחפש מגלה: <strong>"גוי גדול"</strong>. "הגוי הגדול הזה", "כי מי גוי גדול", "ומי גוי גדול". שלוש פעמים התורה חוזרת על אותה מילה, ובכל פעם היא מצרפת אליה סיבה אחרת.</p>
+<p class="bold-para">שלוש פעמים "גוי גדול" - שלוש סיבות למה העולם יתפעל מעם ישראל.</p>
+<ul class="story-list"><li><strong>עם חכם ונבון</strong> - החוכמה שלנו.</li><li><strong>אלקים קרובים אליו</strong> - הקשר שלנו עם הקדוש ברוך הוא.</li><li><strong>חוקים ומשפטים צדיקים</strong> - הצדק שבתורה שלנו.</li></ul>
+<div class="honey-box">🍯 כשמילה חוזרת בתורה כמה פעמים - זה סימן שכדאי לעצור. היא מסמנת לנו את מבנה הרעיון.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: לנצח זה עוד לא &quot;חכם ונבון&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🧠</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">הסיבה הראשונה: &quot;עם חכם ונבון&quot;</h2></div></div>
+<p class="chapter-intro">התורה מבטיחה שהחוכמה של עם ישראל תהיה גלויה לעיני כל העמים. והיום, אפשר ממש לראות את זה בעיניים.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לנצח זה עוד לא &quot;חכם ונבון&quot;</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כששואלים איפה רואים היום שעם ישראל הוא עם מיוחד, אחת התשובות הראשונות שעולות היא: ניצחנו במלחמה. זה נכון, ובזה רואים ניסים גדולים וכוח גדול. אבל התורה לא אמרה כאן "עם חזק" או "עם גיבור". היא אמרה <strong>"עם חכם ונבון"</strong>.</p>
+<p>חוכמה היא משהו אחר. היא לא נמדדת במה שאפשר לכבוש, אלא במה שאפשר להבין, ליצור ולתת לעולם. השאלה האמיתית היא: איפה העולם כולו, גם מי שאינו אוהב אותנו, נאלץ להודות שיש בעם הזה חוכמה מיוחדת?</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: פרס נובל, המצאות ועם קטן מאוד ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">פרס נובל, המצאות ועם קטן מאוד</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש פרס מפורסם שניתן לאנשים שהגיעו להישגים הגדולים ביותר במדע, ברפואה, בכלכלה ובספרות - פרס נובל. ומי שבודק את רשימת הזוכים מגלה דבר מדהים: חלק עצום מהזוכים לאורך השנים הם יהודים, הרבה הרבה יותר ממה שמתאים לגודל שלנו.</p>
+<p>כמה יהודים יש בעולם? פחות מאחוז אחד מאוכלוסיית העולם. אפילו לא אחוז! ובכל זאת, בכל תחום כמעט - המצאות, רפואה, טכנולוגיה, וגם בין האנשים המצליחים ביותר בעולם הכלכלה - מספר היהודים הוא "לא נורמלי", הרבה מעבר לכל חשבון.</p>
+<p class="bold-para">עם קטן כל כך, וחוכמה גדולה כל כך - זו בדיוק ההבטחה של "עם חכם ונבון הגוי הגדול הזה".</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מאיפה החוכמה הזאת באה? ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מאיפה החוכמה הזאת באה?</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפסוק לא אומר שעם ישראל חכם מטבעו, כאילו נולדנו עם מוח אחר. הוא אומר: "ושמרתם ועשיתם <strong>כי הוא</strong> חכמתכם ובינתכם". התורה עצמה היא החוכמה. מי שלומד תורה מגיל קטן, שואל שאלות, מתווכח על כל מילה, משנן, חוזר ומעמיק - מתרגל לחשוב.</p>
+<p>ילד יהודי שיושב מול חומש ומחפש איזה ביטוי חוזר שלוש פעמים, כבר מאמן את הראש שלו בדיוק במה שאחר כך עוזר לו להמציא, לפתור ולגלות.</p>
+<div class="honey-box">🍯 כל פעם שאני לומד תורה ומתאמץ להבין - אני מוסיף עוד קצת אמת למשפט "עם חכם ונבון".</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;אנחנו רוצים להיות חכמים כמו היהודים&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🍋</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">אורחים מדרום קוריאה</h2></div></div>
+<p class="chapter-intro">סיפור אמיתי מהימים שלפני סוכות, שבו אפשר לראות את הפסוק מתקיים מול העיניים.</p>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אנחנו רוצים להיות חכמים כמו היהודים&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יום לפני סוכות הגיעה לביקור בישראל קבוצה מדרום קוריאה - מדינה רחוקה, במזרח אסיה, שאין בה כמעט יהודים בכלל.</p>
+<p>למה הם באו? בדרום קוריאה הגיעו למסקנה שהיהודים הם עם חכם מאוד. והם גם רוצים להיות חכמים. אז הם שאלו את עצמם: מה הסוד? מה גורם ליהודים להיות כאלה? והתשובה שהם הגיעו אליה היא בדיוק התשובה של הפסוק: <strong>לימוד התורה והמצוות</strong>.</p>
+<p>ולכן הם באו מרחוק, כדי להכיר את היהודים מקרוב - את התורה של היהודים, את המצוות של היהודים ואת המנהגים שלהם.</p>
+<p class="bold-para">אנשים מקצה העולם עולים על מטוס כדי לראות איך יהודי חי. "אשר ישמעון את כל החקים האלה ואמרו רק עם חכם ונבון" - ממש כך.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: ארבעת המינים בעיניים של אורחים ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ארבעת המינים בעיניים של אורחים</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתמונה מהביקור רואים את האורחים עומדים ליד ארבעת המינים - אתרוג, לולב, הדסים וערבות. בשבילנו זה דבר מוכר, משהו שאנחנו רואים כל שנה. אבל בשבילם כל פרט היה פלא.</p>
+<p>הם התעניינו בכל דבר: איך היהודים שומרים תורה ומצוות, מה עושים, למה עושים, איך מתנהגים. הם שאלו "איך?" ושאלו "למה?", ורצו להבין את הטעם שמאחורי כל מנהג.</p>
+<p>כדאי לעצור ולחשוב על זה: מה שנראה לנו רגיל - נטילת ידיים, ברכה לפני האוכל, סוכה, ארבעת המינים - הוא בעיני העולם אוצר של חוכמה.</p>
+<div class="honey-box">🍯 מי שמסתכל על המצוות שלו בעיניים של אורח - מגלה פתאום כמה הן מיוחדות.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: לא רק שאנחנו מתפללים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🙏</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">הסיבה השנייה: &quot;אלקים קרובים אליו&quot;</h2></div></div>
+<p class="chapter-intro">הדבר השני שהעמים רואים בעם ישראל הוא קשר חי עם הקדוש ברוך הוא - קשר שבו קוראים, ומישהו עונה.</p>
+<article class="story-card" id="story-8" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא רק שאנחנו מתפללים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"כי מי גוי גדול אשר לו אלקים קרבים אליו כה' אלקינו בכל קראנו אליו"</blockquote>
+<p>במה מתבטא הדבר הזה? התשובה הראשונה שקופצת היא: יהודים מתפללים. וזה נכון, אבל זה רק חצי מהתמונה. גם אנשים אחרים בעולם מתפללים בדרכם.</p>
+<p>החידוש של הפסוק הוא בסוף שלו: "<strong>בכל קראנו אליו</strong>". לא רק שאנחנו מתפללים - <strong>הקדוש ברוך הוא שומע את התפילות שלנו</strong>. יהודים מתפללים, ובורא עולם שומע אותם. בכל פעם, בכל מקום, בכל מצב.</p>
+<p class="bold-para">יש לנו אבא בשמיים שקרוב אלינו, ושומע כל מילה.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: איך מסבירים קרבה למי שלא מכיר ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">איך מסבירים קרבה למי שלא מכיר</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לכתוב "עם ישראל מחובר לה'". אבל מי שאינו יהודי לא יבין מה זה "מחובר". צריך לתאר את זה במשהו שאפשר לראות.</p>
+<p>מה רואים מבחוץ? רואים עם שבכל צרה, ובכל שמחה, פונה מיד לתפילה. רואים אנשים שאומרים תהילים כשיש חייל בסכנה או חולה בבית חולים, ורואים ישועות. רואים ילד קטן שמברך לפני שהוא אוכל תפוח, כי הוא יודע שמישהו נתן לו אותו. רואים עם שמדבר עם הקדוש ברוך הוא כמו שמדברים עם מישהו שנמצא ממש כאן, בחדר.</p>
+<div class="honey-box">🍯 כשאני מתפלל, אני לא מדבר אל האוויר. אני מדבר עם מי שקרוב אליי יותר מכל אחד אחר.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: &quot;צדיקים&quot; - כלומר צודקים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">הסיבה השלישית: &quot;משפטים צדיקים&quot;</h2></div></div>
+<p class="chapter-intro">הדבר השלישי הוא אולי המפתיע מכולם: לא רק אנשים צדיקים, אלא חוקים צדיקים.</p>
+<article class="story-card" id="story-10" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;צדיקים&quot; - כלומר צודקים</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"ומי גוי גדול אשר לו חקים ומשפטים צדיקם ככל התורה הזאת"</blockquote>
+<p>כשקוראים את המילה "צדיקים", חושבים מיד על אנשים: צדיק, אדם קדוש וטוב. אבל כאן התורה לא מדברת על אנשים. היא מדברת על <strong>משפטים</strong> - על חוקים.</p>
+<p>משפטים צדיקים הם משפטים <strong>צודקים</strong>. נכונים, ישרים, יפים. משפטים שכל מי שמסתכל עליהם אומר: "איזה צודק! זה בדיוק מה שנכון לעשות". המילה "צדיק" והמילה "צודק" באות מאותו שורש, ולכן כאן הן כמעט אותו דבר.</p>
+<p class="bold-para">העמים לא רק מתפעלים מהיהודים - הם מתפעלים מהמשפט היהודי.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: חוקים שכל אדם ישר מתפעל מהם ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">חוקים שכל אדם ישר מתפעל מהם</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך זה נראה במציאות? חשבו על חוקים שבתורה: לשלם לפועל את המשכורת שלו באותו יום ולא להשהות אותה. להחזיר אבדה לבעליה. לא לנקום ולא לנטור. לשבות יום אחד בשבוע - גם העבד, גם הפועל, גם הבהמה. לכבד את ההורים. לאהוב את הגר.</p>
+<p>הרבה מהרעיונות האלה הפכו עם השנים לבסיס של חוקים במדינות רבות בעולם. ומי שמגלה שהם נכתבו בתורה לפני אלפי שנים - מתפעל.</p>
+<div class="honey-box">🍯 כל פעם שאני מחזיר אבדה, משלם בזמן או מוותר בדרך ארץ - אני מראה לעולם כמה התורה שלנו צודקת.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: שלוש סיבות במחברת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">✍️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">לכתוב בשפה שכל העולם מבין</h2></div></div>
+<p class="chapter-intro">אחרי שלומדים את שלושת הדברים, מגיע האתגר האמיתי: להסביר אותם כך שגם מי שאינו יהודי יבין ויתלהב.</p>
+<article class="story-card" id="story-12" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלוש סיבות במחברת</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עבודה קצרה וקלה: מוציאים מחברת, כותבים כותרת - "למה העולם מתפעל מעם ישראל" - ורושמים את שלוש הסיבות מהפסוקים:</p>
+<ul class="story-list"><li><strong>עם חכם ונבון</strong> - ובמה זה מתבטא היום.</li><li><strong>אלקים קרובים אליו</strong> - ובמה זה מתבטא.</li><li><strong>חוקים ומשפטים צדיקים</strong> - ובמה זה מתבטא.</li></ul>
+<p>החלק החשוב הוא "במה זה מתבטא". לא מספיק להעתיק את הפסוק. צריך להביא דוגמה מהחיים, משהו שאפשר להצביע עליו ולהגיד: הנה, כאן רואים את זה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;תכתוב משהו שהגוי יכול להבין&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;תכתוב משהו שהגוי יכול להבין&quot;</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תשובה כמו "אנחנו מחוברים לה'" היא נכונה, אבל היא לא עונה על השאלה. הפסוק מדבר על מה ש<strong>העמים</strong> רואים - "לעיני העמים". אז צריך לשאול: מה גורם לאדם מבחוץ להתלהב? מה ראו האורחים מדרום קוריאה שגרם להם לבוא מרחוק?</p>
+<p>הוא לא יתלהב ממילה שהוא לא מכיר. הוא יתלהב ממשהו שהוא רואה: ממספר הממציאים והזוכים בפרסים, מתפילה שנענית, מחוק צודק שעוזר לחלש. תשובה טובה היא כזו שאם קוראים אותה לאורח מחו"ל, הוא אומר: "וואו, איזה עם!"</p>
+<p class="bold-para">כל אחד כותב לפי הרמה שלו - העיקר שהדוגמה תהיה אמיתית ותגרום להתפעלות.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: השליחות: להיות הדוגמה בעצמי ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">השליחות: להיות הדוגמה בעצמי</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפסוקים האלה הם לא רק תיאור של מה שהעולם חושב עלינו. הם גם שליחות. התורה אומרת: "ושמרתם ועשיתם" - ואז העמים יראו. כלומר, ההתפעלות של העולם תלויה בנו, במה שאנחנו עושים כל יום.</p>
+<p>אולי יום אחד גם אתם תעמדו מול קבוצת אורחים מארץ רחוקה, והם יישבו ויקשיבו בהתרגשות למה שיש לכם לספר על התורה. אבל עוד לפני זה, כל ילד יכול להיות "קידוש ה'" קטן: בחוכמה שהוא לומד, בתפילה שהוא אומר מהלב, ובצדק ובהגינות שבהם הוא מתנהג עם החברים שלו.</p>
+<div class="honey-box">🍯 "רק עם חכם ונבון הגוי הגדול הזה" - המשפט הזה נכתב עליי. אני רק צריך להמשיך לכתוב אותו במעשים שלי.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
