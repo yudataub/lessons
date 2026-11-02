@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎤 פחות לדבר, יותר להפעיל</title>
+<meta name="description" content="שיחת משוב אמיתית אחרי צפייה בשיעור: איך מורה עם אווירה נהדרת הופך שיעור הרצאה לשיעור שבו הילדים עובדים, חושבים ומכבדים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 02.11.2026 🍯</div>
+  <h1 class="hero-title">🎤 פחות לדבר, יותר להפעיל</h1>
+  <p class="hero-subtitle">שיחת משוב אמיתית אחרי צפייה בשיעור: איך מורה עם אווירה נהדרת הופך שיעור הרצאה לשיעור שבו הילדים עובדים, חושבים ומכבדים</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-12 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/ah3SqRA_aQ4" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">😊 מתחילים ממה שעובד</a><ul class="toc-stories"><li><a href="#story-1">שנה שנייה מול כיתה</a></li><li><a href="#story-2">הדבר הכי חשוב כבר נמצא אצלך</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🗺️ מערך השיעור: מה הבטחנו ומה קרה</a><ul class="toc-stories"><li><a href="#story-3">מטרות שאפשר לבדוק</a></li><li><a href="#story-4">הפער בין הכתוב לבין מה שקרה</a></li><li><a href="#story-5">אם כתבת, זה חייב לקרות</a></li><li><a href="#story-6">לא יותר מדי, ולא פחות מדי</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🪜 קומות של חשיבה</a><ul class="toc-stories"><li><a href="#story-7">שאלות היו, חשיבה פחות</a></li><li><a href="#story-8">גם שיעור ידע יכול להיות מדהים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">⏱️ מי מדבר בכיתה?</a><ul class="toc-stories"><li><a href="#story-9">השאלה שמשנה הכול</a></li><li><a href="#story-10">אתה לא מרצה שקנו כרטיס לשמוע אותו</a></li><li><a href="#story-11">הטלפונים מספרים את האמת</a></li><li><a href="#story-12">כמה דקות ילד מסוגל להקשיב?</a></li><li><a href="#story-13">הידע נמצא במרחק כמה שניות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🧩 איך בונים שיעור שבו הילדים עובדים</a><ul class="toc-stories"><li><a href="#story-14">לחתוך את החומר לשניים</a></li><li><a href="#story-15">מוציאים את הידע מהם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🤝 מאיפה באה המשמעת</a><ul class="toc-stories"><li><a href="#story-16">למה דווקא אותו הם מכבדים</a></li><li><a href="#story-17">תקיף ומכבד: אפשר את שניהם</a></li><li><a href="#story-18">לא המלך של הכיתה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🎯 השורה התחתונה</a><ul class="toc-stories"><li><a href="#story-19">תשתחרר, ותן להם לעבוד</a></li><li><a href="#story-20">שלוש שאלות לפני כל שיעור</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">😊</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">מתחילים ממה שעובד</h2></div></div>
+<p class="chapter-intro">שיחת משוב טובה לא נפתחת ברשימת תיקונים. היא נפתחת במה שכבר קיים, ובמה שהמורה צריך לשמור עליו בכל מחיר.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שנה שנייה מול כיתה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השיחה נפתחת בשאלה פשוטה: איך אתה מרגיש השנה? והתשובה מפתיעה בכנות שלה: הרבה יותר יציב. אין כבר את ההתרגשות הגדולה של לפני כל כניסה לכיתה, ואין את הפחד.</p>
+<p>זה שלב חשוב בדרך של כל מורה. בשנה הראשונה כל הכוח הולך על לשרוד: לזכור את החומר, להחזיק את הכיתה, לא להיבהל. בשנה השנייה הרגליים כבר עומדות על הקרקע, ודווקא אז אפשר להתחיל לעבוד על הדברים העדינים, אלה שהופכים מורה טוב למורה מצוין.</p>
+<p class="bold-para">היציבות היא לא נקודת הסיום. היא הקרקע שעליה אפשר סוף סוף לבנות.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: הדבר הכי חשוב כבר נמצא אצלך ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הדבר הכי חשוב כבר נמצא אצלך</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כל הערה, המדריך אומר את מה שכבר אמר גם בשנה שעברה: כיף לראות אותך בכיתה. יש לך את האווירה, יש לך את החיוך, יש לך את השמחה ואת האנרגיות. ויש לך את מה שקשה מכל להגדיר: אווירה טובה בתוך הכיתה.</p>
+<p>זה לא מחמאה של נימוס. זה אולי הדבר הכי חשוב שיש למורה. את מערך השיעור אפשר לשפר, את סוגי השאלות אפשר ללמוד, את חלוקת הזמן אפשר לתכנן מחדש. אבל מורה שנכנס לכיתה בלי שמחה, בלי חיוך ובלי חום, יתקשה מאוד ללמוד את זה מספר.</p>
+<p>ולכן כל מה שבא אחר כך הוא לא "תיקון" של מורה חלש, אלא כוונון עדין של מורה שכבר יש לו את העיקר.</p>
+<div class="honey-box">🍯 כשנותנים משוב, מתחילים במה שצריך לשמור. מי שיודע מה החוזקה שלו, מקשיב להערות בלב פתוח.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: מטרות שאפשר לבדוק ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מערך השיעור: מה הבטחנו ומה קרה</h2></div></div>
+<p class="chapter-intro">השיעור עסק בציר הזמן של תולדות עם ישראל. המדריך עובר על המטרות האופרטיביות אחת אחת ושואל: האם זה באמת קרה בכיתה?</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מטרות שאפשר לבדוק</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מטרה אופרטיבית היא מטרה שאפשר לראות בעיניים: בסוף השיעור התלמיד יודע לעשות משהו שלא ידע קודם. במערך הזה נכתבו מטרות יפות:</p>
+<ul class="story-list"><li>התלמיד יזכור את שמונת התאריכים המרכזיים בחלק הראשון של ציר הזמן.</li><li>התלמיד יתאר במילים שלו את המשמעות של כל תחנה בציר.</li><li>התלמיד ינתח את הקשר המספרי בין תאריכים מרכזיים, למשל בין לידת אברהם אבינו לבין אירועים מאוחרים יותר.</li><li>התלמיד ישלב מידע משני חלקי ציר הזמן לתמונה רציפה אחת של תולדות עם ישראל.</li><li>התלמיד ישתמש בעיקרון "המספרים העגולים" כדי לבנות בעצמו תחנה נוספת על הציר.</li><li>התלמיד יביע את דעתו על החשיבות של הכרת שרשרת הדורות.</li></ul>
+<p>על הנייר זו רשימה עשירה, שעוברת מזכירה פשוטה ועד הבעת דעה. השאלה היא מה מתוכה עבר באמת לילדים.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הפער בין הכתוב לבין מה שקרה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הפער בין הכתוב לבין מה שקרה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשעוברים על המטרות מול מה שקרה בפועל, מתגלה פער. את התאריכים זכרו. את הרעיון של המספרים העגולים, ארבע מאות ועוד ארבע מאות, חמש מאות ועוד חמש מאות, הסבירו היטב. אבל "התלמיד יתאר במילותיו את משמעות כל תחנה"? זה כמעט לא קרה. ו"התלמיד יביע את דעתו על שרשרת הדורות"? כאן המורה עצמו מודה שזה היה קשה.</p>
+<p>העצה של המדריך פשוטה: <strong>זרוק עליהם.</strong> שאלה כמו "למה בכלל חשוב לזכור את כל הדורות שלפנינו?" לא צריכה תשובה מוכנה מהמורה. היא צריכה כיתה שחושבת עליה בקול.</p>
+<p>מטרה שכתובה במערך ולא קורה בכיתה היא לא מטרה. היא משאלה.</p>
+<div class="honey-box">🍯 לפני השיעור, תשאל על כל מטרה: באיזו דקה בדיוק היא תקרה, ומה הילדים יעשו בה?</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: אם כתבת, זה חייב לקרות ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אם כתבת, זה חייב לקרות</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה קטנה עלתה סביב שיעורי הבית: במערך הופיעה מטרה של אחריות ויוזמה, שבה התלמיד משתף את המשפחה ומביא ממנה מידע. האם זה חובה?</p>
+<p>התשובה עקרונית: לא חייבים לשים כל דבר במערך. אבל מה שכותבים במערך חייב להופיע בפועל. מערך שיעור הוא לא רשימת רעיונות טובים. הוא הבטחה: זה מה שיקרה בכיתה. אם המטרה של שיתוף המשפחה חשובה, צריך לתת לה זמן, להסביר אותה ולוודא שהילדים יוצאים עם משימה ברורה. ואם אין לה מקום, עדיף להוריד אותה מהמערך מאשר להשאיר אותה תלויה באוויר.</p>
+<p class="bold-para">מערך טוב הוא לא מערך ארוך. הוא מערך שבו כל שורה מתקיימת.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: לא יותר מדי, ולא פחות מדי ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לא יותר מדי, ולא פחות מדי</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המדריך חוזר על עיקרון שאמר כבר בשנה שעברה: הוא לא מחפש שיעור עמוס. הוא מחפש שיעור שעומד במה שהכיתה הזאת יכולה.</p>
+<p>יום אחד נכנסים לכיתה מדהימה, תלמידים חזקים ומגובשים, ושם המורה יכול להספיק הרבה. יום אחר נכנסים לכיתה של ילדים שעלו לא מזמן לארץ, ילדים בסיכון, שמתמודדים עם הרבה דברים מחוץ לכיתה. שם מספיקים הרבה פחות, וזה בסדר גמור.</p>
+<p>מה שלא בסדר הוא לא לדעת מול מי עומדים. מורה שבטוח שיש לו כיתה מצוינת ידחוס יותר מדי. מורה שמזלזל ביכולת של הכיתה ייתן פחות מדי.</p>
+<div class="honey-box">🍯 השאלה הראשונה בתכנון היא לא "כמה חומר יש לי?" אלא "מי יושב מולי היום?"</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: שאלות היו, חשיבה פחות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🪜</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">קומות של חשיבה</h2></div></div>
+<p class="chapter-intro">שאלות היו כל הזמן. אבל לא כל שאלה מפעילה את הראש באותה מידה.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שאלות היו, חשיבה פחות</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המורה מרגיש שהשיעור היה מלא שאלות, וזה נכון. אבל כשמקשיבים להן מקרוב, כולן מאותו סוג: "מי זוכר מה קרה בשנה הזאת?", "מה היה אחרי זה?". אלה שאלות ידע, והן הקומה הכי נמוכה בבניין החשיבה.</p>
+<p>בטקסונומיה המוכרת של בלום יש כמה קומות: ידע, הבנה, יישום, ניתוח, ומעליהן הערכה, שבה התלמיד שופט ומביע עמדה מנומקת. שיעור שכולו שאלות ידע הוא שיעור שבו הילדים מחפשים בזיכרון ולא חושבים.</p>
+<p>ולכן המטרה היא שבכל שיעור יהיו כמה רמות חשיבה, וכמה שיותר שאלות פתוחות. שאלה פתוחה היא שאלה שאין לה תשובה אחת נכונה בספר: "למה לדעתך...", "מה היה קורה אילו...", "מה הקשר בין...".</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: גם שיעור ידע יכול להיות מדהים ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">גם שיעור ידע יכול להיות מדהים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב לא להגזים לצד השני. לימוד ידע הוא דבר חשוב, ושיעור ידע יכול להיות שיעור נפלא. ציר זמן של תולדות עם ישראל הוא באמת ידע שצריך לדעת, וילד שזוכר את התחנות המרכזיות קיבל משהו אמיתי.</p>
+<p>הבעיה היא לא הידע. הבעיה היא הדרך שבה הוא עובר. אפשר ללמד את אותם תאריכים בדיוק ולשאול עליהם שאלות מקומות גבוהות יותר:</p>
+<ul class="story-list"><li>הבנה: "תסביר במילים שלך למה התחנה הזאת חשובה."</li><li>יישום: "לפי שיטת המספרים העגולים, נסה לבנות לבד תחנה נוספת."</li><li>ניתוח: "מה משותף לשתי התחנות האלה?"</li><li>הערכה: "איזו תחנה לדעתך הכי השפיעה על מי שאנחנו היום, ולמה?"</li></ul>
+<p class="bold-para">אותו חומר, אותם תאריכים. רק שעכשיו הילדים חושבים במקום רק לזכור.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: השאלה שמשנה הכול ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">⏱️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מי מדבר בכיתה?</h2></div></div>
+<p class="chapter-intro">זו הנקודה המרכזית של כל השיחה, וזו שהמדריך חוזר אליה שוב ושוב: כמה מהזמן דיבר המורה, וכמה עבדו הילדים.</p>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">השאלה שמשנה הכול</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השיעור נמשך בערך ארבעים ושתיים דקות. המדריך שואל שאלה אחת: לפי דעתך, כמה מהזמן הזה אתה דיברת, וכמה זמן הם עבדו?</p>
+<p>התשובה הכנה: המון. המורה דיבר את רוב השיעור. הילדים כתבו משהו קצר בסוף, על דף, וזהו.</p>
+<p>למורה יש הסבר: אחרת אי אפשר לגמור את כל החומר. והתשובה של המדריך חדה: לא מעניין אותי. אם השיעור שתכננת גורם לך לדבר ארבעים דקות, משהו בתכנון לא נכון. לא משנה כמה טוב אתה מסביר, ולא משנה כמה יפה החומר.</p>
+<p class="bold-para">שיעור נמדד לא במה שהמורה אמר, אלא במה שהילדים עשו.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: אתה לא מרצה שקנו כרטיס לשמוע אותו ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אתה לא מרצה שקנו כרטיס לשמוע אותו</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המדריך מביא דימוי שקשה לשכוח. יש מומחה עולמי להיסטוריה, שמוכר כרטיסים לערב הרצאה. אנשים משלמים מאתיים שקלים, באים מרצונם, ויושבים שעה וחצי לשמוע אותו מדבר. שם זה עובד, כי בשביל זה הם באו.</p>
+<p>כיתה היא לא אולם הרצאות. אף אחד לא קנה כרטיס. הילדים יושבים שם כי צריך, והם לא באו לשמוע אדם אחד מדבר ארבעים וחמש דקות.</p>
+<p>והמדריך מחיל את זה גם על עצמו: גם כשהוא מלמד סטודנטים במכללה, שיעור של שעה וחצי, הוא לא מדבר את כל הזמן. מי אני בכלל שאדבר שעה וחצי מול שלושים איש? יש לו את הידע ואת הניסיון, אבל זה לא הופך אותו לאדם שאנשים צריכים לשבת ולשתות ממנו בשקט.</p>
+<div class="honey-box">🍯 לפני שאתה מתכנן עוד עשר דקות של הסבר, תשאל: האם מישהו היה קונה כרטיס בשביל זה?</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הטלפונים מספרים את האמת ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הטלפונים מספרים את האמת</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש סימן פשוט שמראה שהילדים לא שותפים בשיעור: הטלפונים. מאחור, בשורה האחרונה, רואים דברים שהמורה מקדימה הכיתה לא תמיד רואה. במהלך השיעור הרבה ילדים היו עם הטלפון ביד. לא רק בהתחלה, גם באמצע. המחנך ניגש אליהם, העיר להם, ואחר כך אמר שזה לא קורה כל כך בשיעורים אחרים.</p>
+<p>למה דווקא כאן? לא כי הילדים רעים, ולא כי המורה לא נחמד. כי כל מה שנדרש מהם היה להקשיב. מי שרק מקשיב, בלי תפקיד, בלי משימה ובלי שאלה שמחכה לו, מוצא לעצמו עיסוק אחר.</p>
+<p>זה לא נאמר כדי לתפוס את המורה בטעות. זה נאמר כדי להראות את העיקרון: <strong>ילד שיש לו מה לעשות לא צריך את הטלפון.</strong></p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: כמה דקות ילד מסוגל להקשיב? ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כמה דקות ילד מסוגל להקשיב?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כלל אצבע מקובל בעולם החינוך: טווח הקשב של ילד, בדקות, הוא בערך הגיל שלו כפול שתיים. ילד בן עשר יכול להקשיב ברצף בערך עשרים דקות, ואחר כך הקשב מתחיל להתפזר. זה לא מדע מדויק, אבל זה מזכיר משהו חשוב: אף ילד לא בנוי להקשיב ארבעים דקות ברצף.</p>
+<p>וגם מבוגרים לא. המדריך מספר שהוא עצמו לא מחזיק מעמד מול מישהו שמדבר שעה וחצי, ובטח לא בזום, בבית, מול מסך.</p>
+<p>ומי שרגיל ללמוד במקום שבו הרב מדבר כל השיעור והתלמידים מקשיבים, צריך לזכור שגם שם, הלימוד האמיתי קורה אחר כך, בחברותא, כשכל אחד מתמודד עם הדברים בעצמו.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: הידע נמצא במרחק כמה שניות ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הידע נמצא במרחק כמה שניות</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עוד טיעון חזק: תגיד לי, כמה שניות של חיפוש באינטרנט לוקח למצוא את כל מה שהצגת עכשיו? המורה מתנגד: את השיטה המיוחדת שבנה, עם המספרים העגולים, לא ימצאו באינטרנט. והמדריך עונה: עזוב את השיטה. את העובדות עצמן, את ההיסטוריה, אפשר למצוא בשניות.</p>
+<p>בעולם שבו כל עובדה נמצאת בכיס, התפקיד של המורה השתנה. הוא כבר לא הצינור היחיד שדרכו עובר הידע. התפקיד שלו הוא לעזור לילדים לעשות משהו עם הידע: להבין, לקשר, לשאול, להביע דעה.</p>
+<p>והקול של הילד אומר את זה הכי טוב: אני לא רוצה לשבת ארבעים וחמש דקות ולשמוע אותך. באתי לשיעור, אני רוצה לעבוד, אני רוצה להיות פעיל, אני רוצה לעשות דברים.</p>
+<div class="honey-box">🍯 מה שהילד יכול למצוא לבד בשניות, לא צריך לקחת עשרים דקות של שיעור.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: לחתוך את החומר לשניים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🧩</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">איך בונים שיעור שבו הילדים עובדים</h2></div></div>
+<p class="chapter-intro">אחרי האבחנה מגיע הפתרון. והוא פשוט יותר ממה שנדמה.</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לחתוך את החומר לשניים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה עושים כשיש הרבה חומר ומעט זמן? התשובה של המדריך: לא נלחצים להספיק הכול. אם כדי להספיק את כל ההיסטוריה צריך לדבר את כל השיעור, זה לא השיקול הנכון. מחלקים את החומר לשניים. היום מלמדים רק חצי מציר הזמן, למשל מהתחלה ועד הבית הראשון, ובשיעור הבא ממשיכים משם ועד הבית השני.</p>
+<p>המבנה שהוא מציע לשיעור של ארבעים וחמש דקות:</p>
+<ul class="story-list"><li>בערך רבע שעה של פתיחה והסבר של המורה.</li><li>בערך עשרים דקות שבהן הילדים פעילים: עובדים, חושבים, עונים, בונים.</li><li>חמש דקות של סגירה, שבה אוספים יחד את מה שלמדו.</li></ul>
+<p class="bold-para">עדיף חצי מהחומר עם ילדים פעילים, מכל החומר עם ילדים שרק מקשיבים, ובסוף ממלאים דף.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: מוציאים את הידע מהם ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מוציאים את הידע מהם</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המדריך מתאר איך הוא עצמו בונה שיעור. הוא פותח בעשר דקות, רבע שעה לכל היותר, של דיבור שלו. זה בערך המקסימום לפני שמאבדים את כולם. אחר כך מגיעה פעילות ארוכה, חצי שעה ואפילו יותר. ובסוף כולם חוזרים יחד ומדברים על מה שעשו בפעילות.</p>
+<p>גם בשיחה הזאת הוא לא מדבר במקום הילדים. הוא נותן שאלות מנחות, והם מדברים. הרעיון הוא להוציא את הידע מהם. הרבה פעמים הם כבר יודעים, וצריך רק לכוון אותם, לסדר להם את החשיבה ולהוביל אותם בעזרת שאלות טובות. בסוף הם מגיעים לבד לכל מה שרצית להגיד.</p>
+<p>וזה נכון לכל גיל: לסטודנטים, לתיכון, וגם לילדים בבית ספר יסודי. דווקא לקטנים, שהקשב שלהם קצר יותר, זה חשוב שבעתיים.</p>
+<div class="honey-box">🍯 מורה טוב לא עונה על השאלות. הוא שואל את השאלות שמביאות את הילדים לתשובה.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: למה דווקא אותו הם מכבדים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🤝</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">מאיפה באה המשמעת</h2></div></div>
+<p class="chapter-intro">המורה טוען שביסודי הוא חייב לדבר הרבה, כי אחרת אין משמעת. התשובה של המדריך הופכת את הסדר: המשמעת היא התוצאה, לא התנאי.</p>
+<article class="story-card" id="story-16" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה דווקא אותו הם מכבדים</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המדריך מצביע על המחנך של הכיתה: אצלו יש משמעת. איך? כי הם מעריכים אותו. ולמה הם מעריכים אותו? קודם כל, כי אין אצלו התנשאות.</p>
+<p>וכאן מגיעה הבחנה עדינה: התנשאות היא לא בהכרח מילים מזלזלות. לפעמים היא מסר שקט שהמורה משדר בלי לשים לב: הידע נמצא אצלי, ואתם תשבו ותשתו ממני. גם מורה חביב ומחייך יכול לשדר את זה, אם הוא מדבר כל הזמן והילדים רק מקשיבים.</p>
+<p>מורה שנותן לילדים לפעול, שמבקש מהם להביע דעה, ושבאמת מעריך את מה שהם אומרים, מקבל מהם כבוד בחזרה. <strong>מכאן מגיעה המשמעת: מהכבוד שהמורה נותן, ולא מהשליטה שהוא דורש.</strong></p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: תקיף ומכבד: אפשר את שניהם ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">תקיף ומכבד: אפשר את שניהם</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המורה מנסה להסביר את זה אחרת: אולי הם מכבדים אותו כי הוא חזק, כי כשהוא אומר משהו, זה קורה. והמדריך מסכים, אבל לא רואה בזה סתירה. שני הדברים הולכים יחד.</p>
+<p>להיות מורה עם עמדה ברורה זה חלק מהכבוד. אני לא פסיבי, יש לי מה להגיד, יש גבולות. ובאותו זמן אני מתייחס אליך ברצינות כתלמיד. נער רוצה שיתייחסו אליו כמעט כאל מבוגר. גם ילד ביסודי רוצה שיחשיבו אותו, שיעריכו את הדעה שלו, למרות שהוא ילד.</p>
+<p>זה האלף-בית של קשר. מורה שנכנס לכיתה לא צריך לנופף בדגל ולהכריז על הסמכות שלו. הסמכות כבר שלו, מעצם זה שהוא עומד שם. השאלה היא רק מה הוא עושה איתה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: לא המלך של הכיתה ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא המלך של הכיתה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך מכבדים ילד בפועל? נותנים לו להרגיש שלדעה שלו יש ערך. גם כשהוא טועה, לא דוחים אותו בבוז, ולא משדרים: אני בעל הניסיון, אני בעל הסמכות, אני המלך פה, ואתה תוריד את הראש ותקבל.</p>
+<p>מורה שמעריך את הילדים לא צועק עליהם. הוא לא עומד בקדמת הכיתה ורואה ילד עם טלפון בצד השני, וקורא בקול רם לפני כולם: "היי, מה זה? תוריד את הטלפון!". הוא ניגש אליו בשקט, מדבר איתו בגובה העיניים, ומזכיר לו את מה שסיכמו: אנחנו לא מחרימים טלפונים, אבל בזמן הלימוד מתנהגים בכבוד, והטלפון נשאר בכיס.</p>
+<p>הילד לא הושפל מול החברים, והגבול נשמר. זו בדיוק הנקודה שבה תקיפות וכבוד נפגשים.</p>
+<div class="honey-box">🍯 הערה שנאמרת בשקט, מקרוב, משיגה יותר מצעקה מקצה הכיתה, ומשאירה את הקשר שלם.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: תשתחרר, ותן להם לעבוד ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🎯</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">השורה התחתונה</h2></div></div>
+<p class="chapter-intro">אפשר לדבר על זה עוד הרבה. אבל בסוף הכול מתכנס למשפט אחד.</p>
+<article class="story-card" id="story-19" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">תשתחרר, ותן להם לעבוד</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנקודה הסופית, זו שהמדריך מבקש לחרוט על הלב: תשתחרר. אין יותר עולם שבו המורה מדבר ארבעים וחמש דקות. תן פתיחה, תן ידע התחלתי, וזרוק לילדים את הפעילות.</p>
+<p>זה לא אומר לוותר על התוכן, ולא אומר לוותר על הסמכות. זה אומר להבין שהעבודה האמיתית של השיעור קורה כשהילדים עושים: כשהם בונים בעצמם תחנה על ציר הזמן, כשהם מסבירים במילים שלהם, כשהם מתווכחים על השאלה למה חשוב לזכור את הדורות שלפנינו.</p>
+<p>ולמורה שכבר יש לו חיוך, שמחה ואווירה טובה, זה הצעד הבא: לתת לאנרגיה הזאת לעבור לילדים.</p>
+<p class="bold-para">פתיחה קצרה, ידע התחלתי, והילדים פעילים. זה העיקר.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: שלוש שאלות לפני כל שיעור ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שלוש שאלות לפני כל שיעור</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי שהעיקרון לא יישאר רק רעיון יפה, הנה שלוש שאלות קצרות שאפשר לשאול לפני שנכנסים לכיתה:</p>
+<ul class="story-list"><li>כמה דקות אני מדבר, וכמה דקות הם עובדים? אם אני מדבר יותר מרבע שעה, כדאי לקצץ.</li><li>איזו שאלה אחת לפחות תהיה מעל קומת הידע? שאלה של הבנה, ניתוח או דעה.</li><li>מי יושב מולי היום, ומה הכיתה הזאת באמת יכולה להספיק?</li></ul>
+<p>מורה ששואל את עצמו את שלוש השאלות האלה כל בוקר יגלה מהר מאוד שהכיתה משתנה: פחות טלפונים, יותר ידיים מורמות, ויותר ילדים שיוצאים מהשיעור עם תחושה שהם עשו משהו.</p>
+<div class="honey-box">🍯 השיעור הכי טוב הוא זה שבסופו הילדים עייפים מעבודה, ולא מהקשבה.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
