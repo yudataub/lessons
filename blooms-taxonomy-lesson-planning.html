@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🪜 מדרגות החשיבה</title>
+<meta name="description" content="שש רמות החשיבה של טקסונומיית בלום, איך כותבים מטרות אופרטיביות שמתחילות במילה &quot;התלמיד&quot;, ואיך בונים מערך שיעור שבו התלמיד, ולא המורה, עומד במרכז">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 סדנה · 04.11.2026 🍯</div>
+  <h1 class="hero-title">🪜 מדרגות החשיבה</h1>
+  <p class="hero-subtitle">שש רמות החשיבה של טקסונומיית בלום, איך כותבים מטרות אופרטיביות שמתחילות במילה &quot;התלמיד&quot;, ואיך בונים מערך שיעור שבו התלמיד, ולא המורה, עומד במרכז</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-9 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/XBRAs__Tg5g" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🔺 הפירמידה: שש מדרגות של חשיבה</a><ul class="toc-stories"><li><a href="#story-1">למה צריך סולם</a></li><li><a href="#story-2">ידע: המדרגה הראשונה</a></li><li><a href="#story-3">הבנה: להסביר במילים שלי</a></li><li><a href="#story-4">יישום: לפתור בעיה שלא ראית מעולם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🏔️ שלוש המדרגות העליונות</a><ul class="toc-stories"><li><a href="#story-5">אנליזה: לפרק את השלם לחלקיו</a></li><li><a href="#story-6">סינתזה: לחבר כמה מקורות לתמונה אחת</a></li><li><a href="#story-7">הערכה: התלמיד מביא את עצמו</a></li><li><a href="#story-8">דוגמה אחת שעוברת את כל הסולם</a></li><li><a href="#story-9">החברותא כבר עושה את זה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🎯 מטרות אופרטיביות: מה התלמיד יעשה</a><ul class="toc-stories"><li><a href="#story-10">משפט שמתחיל במילה &quot;התלמיד&quot;</a></li><li><a href="#story-11">רשימת הפעלים לפי רמות חשיבה</a></li><li><a href="#story-12">המורה יורד ממרכז הבמה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🥧 העוגה: פעילויות לכל רמה</a><ul class="toc-stories"><li><a href="#story-13">כלים בפועל לכל מדרגה</a></li><li><a href="#story-14">דיון מתאים כמעט לכל רמה</a></li><li><a href="#story-15">לא את כל הסולם בכל שיעור</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🧑‍🏫 מהתיאוריה למערך: בוחרים דמות</a><ul class="toc-stories"><li><a href="#story-16">איזו דמות מתאימה</a></li><li><a href="#story-17">מה כותבים עכשיו: מטרות ומהלך</a></li><li><a href="#story-18">עובדים בשלשות, מגישים כל אחד</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🔺</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">הפירמידה: שש מדרגות של חשיבה</h2></div></div>
+<p class="chapter-intro">כל מורה רוצה שהתלמידים שלו "ילמדו". אבל ללמוד זה לא דבר אחד. יש מי שזוכר, יש מי שמבין, ויש מי שיודע לשפוט ולהכריע. הטקסונומיה מסדרת את כל אלה כסולם אחד, מדרגה אחרי מדרגה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה צריך סולם</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>טקסונומיה היא מילה מפחידה לרעיון פשוט מאוד: מיון. החוקר האמריקאי בנג'מין בלום הציע למיין את מה שקורה בראש של הלומד לפי רמות, מהפשוטה ביותר ועד המורכבת ביותר. כך נוצרה פירמידה של שש מדרגות: ידע, הבנה, יישום, אנליזה (ניתוח), סינתזה והערכה.</p>
+<p>הרעיון החשוב הוא שהמדרגות נשענות זו על זו. אי אפשר לנתח דבר שלא מבינים, ואי אפשר לשפוט ברצינות דבר שלא ניתחו. מי שמנסה לקפוץ ישר למעלה מקבל דעה בלי בסיס.</p>
+<p class="bold-para">כל מדרגה היא תנאי למדרגה שמעליה.</p>
+<p>למורה זה נותן כלי עבודה: לפני שנכנסים לכיתה, אפשר לשאול באיזו מדרגה נמצאים היום, ולאן רוצים לטפס.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: ידע: המדרגה הראשונה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ידע: המדרגה הראשונה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ברמת הידע מעניין רק דבר אחד: האם התלמיד יודע. האם הוא זוכר את המושגים, את ההגדרות, את העובדות. נניח שלומדים אלגברה. ברמת הידע רוצים לדעת אם התלמיד מכיר את מונחי היסוד: מהו משתנה, מהי משוואה, מהו מקדם.</p>
+<p>זו רמת חשיבה נמוכה, אבל היא לא פחות חשובה בגלל זה. היא נצרכת והיא קריטית, כי בלי חומרי גלם אין במה לחשוב. רק צריך לזכור שידע לבדו הוא כמו ספרים על מדף: הם נמצאים שם, אבל עוד לא עשו בהם כלום.</p>
+<div class="honey-box">🍯 ידע הוא היסוד, לא התקרה. מורה שעוצר בו בונה מרתף ושוכח לבנות את הבית.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: הבנה: להסביר במילים שלי ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הבנה: להסביר במילים שלי</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המדרגה השנייה שואלת שאלה אחרת: האם התלמיד הבין. באותה דוגמה של אלגברה, לא מספיק שהוא יודע את המושגים. רוצים לראות שהוא יודע להסביר אותם, לסדר אותם בטבלה, לחלק אותם לקטגוריות ולתת דוגמה משלו.</p>
+<p>הפעלים של רמה זו מספרים את הסיפור: התלמיד יבהיר, יסביר, יתאר, ימיין, ינסח במילים שלו. כשתלמיד מסוגל להעביר מושג במילים שלו, יודעים שהמושג לא רק "נמצא אצלו" כמו דבר ששמור בכיס, אלא נכנס פנימה.</p>
+<p class="bold-para">מי שיודע להסביר במילים שלו, הבין.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: יישום: לפתור בעיה שלא ראית מעולם ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">יישום: לפתור בעיה שלא ראית מעולם</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ברמת היישום התלמיד לוקח את המידע שכבר הבין ומשתמש בו במקום חדש. במתמטיקה נותנים לו כללים, ועכשיו הוא פותר בעיה אחרת, כזו שלא ראה מעולם.</p>
+<p>הרמות קיימות בכל כיתה ובכל גיל, ומשתנה רק הגובה שלהן. שאלת יישום בכיתה ב' שונה לגמרי משאלת יישום בכיתה י"ב. דוגמה מכיתה ב': מלמדים את הצליל של הפתח, ואחר כך כותבים על הלוח מילה שהילדים מכירים מהדיבור אבל עוד לא ראו כתובה, ושואלים איפה בתוך המילה צריך לשים פתח. זה יישום אמיתי של הכלל.</p>
+<div class="honey-box">🍯 כל מורה יודע להתאים את העיקרון לכיתה שלו. השאלה היא תמיד אותה שאלה: האם התלמיד מסוגל להשתמש במה שלמד במקום חדש?</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: אנליזה: לפרק את השלם לחלקיו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🏔️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">שלוש המדרגות העליונות</h2></div></div>
+<p class="chapter-intro">כאן מתחילה החשיבה הגבוהה: לפרק, לחבר ולשפוט. ומי שלומד גמרא בחברותא מכיר את שלושתן מבפנים.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אנליזה: לפרק את השלם לחלקיו</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אנליזה, או ניתוח, היא היכולת לקחת יחידת מידע ולפרק אותה לחלקים שמרכיבים אותה, ולראות את היחסים בין החלקים: מה נובע ממה, מה תלוי במה, מה סותר את מה.</p>
+<p>בלימוד גמרא זה טבעי לגמרי. לוקחים סוגיה, מפרקים אותה לשלביה: מי שואל, מה התשובה, על איזו שיטה נשען האמורא, באיזו משנה או ברייתא התנא תומך. הניתוח נעשה לפי כללים ידועים מראש, כמו כללי הלימוד שכל בן ישיבה מכיר.</p>
+<p class="bold-para">לנתח זה לראות איך הדבר בנוי, ולא רק מה כתוב בו.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: סינתזה: לחבר כמה מקורות לתמונה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">סינתזה: לחבר כמה מקורות לתמונה אחת</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סינתזה היא ההפך של ניתוח, ובאה אחריו: לוקחים שני מקרים או יותר ומחברים אותם להבנה אחת גדולה.</p>
+<p>לפעמים לומדים סוגיה בגמרא, והיא לבדה לא נותנת תמונה שלמה. כדי להבין באמת מה קורה צריך להביא עוד סוגיה או שתיים ממסכתות אחרות, ורק אז העניין מתבאר. תלמיד שיודע לקחת שניים או שלושה מקורות נפרדים ולחבר אותם לתמונה אחת עלה עוד מדרגה בחשיבה.</p>
+<div class="honey-box">🍯 סינתזה היא הרגע שבו התלמיד אומר "רגע, זה מתחבר למה שלמדנו שם!". כדאי לחכות לרגע הזה ולתת לו מקום.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: הערכה: התלמיד מביא את עצמו ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הערכה: התלמיד מביא את עצמו</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הערכה היא המדרגה הגבוהה ביותר. כאן התלמיד מביא את עצמו לתוך החומר: הוא מעריך, מבקר, שופט, טוען בעד צד אחד מול צד אחר ומצדיק עמדה.</p>
+<p>אבל הערכה אמיתית דורשת את כל המדרגות שמתחתיה. התלמיד צריך לדעת על מה הוא מדבר ולהבין את זה. הוא צריך ליישם ולהתנסות בפועל, כדי שלא ידבר סתם על דברים שאינו מכיר. הוא צריך לנתח את העניין ולחבר מקורות מכמה מקומות. רק אז ההערכה שלו מבוססת, נכונה וטובה.</p>
+<p class="bold-para">ביקורת בלי ידע היא רעש. ביקורת שעומדת על כל המדרגות היא חכמה.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: דוגמה אחת שעוברת את כל הסולם ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דוגמה אחת שעוברת את כל הסולם</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נניח שהמטרה היא שהתלמיד יצדיק את שיטת אחד האמוראים בסוגיה מסוימת. זו מטרה ברמת הערכה, ובדרך אליה הוא עובר את כל המדרגות.</p>
+<ul class="story-list"><li>ידע: הוא צריך לדעת מה האמורא אומר.</li><li>הבנה: הוא צריך להבין את דבריו ולהסביר אותם.</li><li>אנליזה: הוא צריך לנתח את הסוגיה ולראות על מה השיטה נשענת.</li><li>סינתזה: אולי יש דברים של אותו אמורא במסכת אחרת שמשלימים את התמונה.</li><li>הערכה: רק בסוף, כשכל המידע בידיו, הוא מצדיק את השיטה.</li></ul>
+<p>אם חסר לו פרט אחד בדרך, לא תהיה לו יכולת לשפוט נכון. לכן הסולם הוא גם מפה לתכנון, לא רק תיאור של רמות.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: החברותא כבר עושה את זה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">החברותא כבר עושה את זה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שלומד בחברותא נמצא כל הזמן בראש הפירמידה. שני לומדים מול סוגיה מפרקים אותה, מביאים ראיות ממקומות אחרים, מקשים זה על זה, מכריעים ומצדיקים. אנליזה, סינתזה והערכה קורות שם בטבעיות, כמעט בלי לשים לב.</p>
+<p>זו בשורה טובה למורה. את מה שאנחנו עושים בעצמנו כל יום, אפשר וצריך להעביר גם לתלמידים, בגובה המתאים להם.</p>
+<div class="honey-box">🍯 לא צריך להמציא שיטה חדשה. צריך לשאול איך מביאים את הדרך שבה אני לומד אל הכיתה שלי.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: משפט שמתחיל במילה &quot;התלמיד&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🎯</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">מטרות אופרטיביות: מה התלמיד יעשה</h2></div></div>
+<p class="chapter-intro">הסולם עוזר רק כשהוא הופך למשפטים מדויקים במערך השיעור. כאן נכנסות המטרות האופרטיביות, ורשימת הפעלים שהופכת את הכתיבה שלהן לקלה.</p>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">משפט שמתחיל במילה &quot;התלמיד&quot;</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מטרה אופרטיבית היא מטרה שאפשר לראות ולבדוק. היא לא אומרת "להעמיק את ההבנה", אלא מה בדיוק התלמיד יעשה. לכן היא תמיד מתחילה במילה "התלמיד", ומיד אחריה בא פועל: מה הוא מבצע.</p>
+<p>דוגמאות:</p>
+<ul class="story-list"><li>התלמיד יגדיר את המושג במילים שלו.</li><li>התלמיד ימיין את הדוגמאות לפי קטגוריות.</li><li>התלמיד יצדיק את אחת השיטות ויביא לכך שתי ראיות.</li></ul>
+<p>נוהגים לכתוב "התלמיד" ביחיד, ולא "התלמידים". המטרה מדברת על מה שכל תלמיד ותלמיד יעשה, לא על הכיתה כגוש אחד.</p>
+<p class="bold-para">אם אי אפשר לראות את זה קורה, זו עוד לא מטרה אופרטיבית.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: רשימת הפעלים לפי רמות חשיבה ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">רשימת הפעלים לפי רמות חשיבה</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי שלא צריך לחפש בכל פעם את הפועל הנכון, כדאי להחזיק לצד מערך השיעור טבלה מסודרת של פעלים לפי רמות החשיבה. כל רמה וקבוצת הפעלים שלה:</p>
+<ul class="story-list"><li>ידע: יזכיר, ימנה, יגדיר, יזהה.</li><li>הבנה: יסביר, יבהיר, יתאר, ימיין, ינסח במילים שלו.</li><li>יישום: יפתור, ישתמש, יחשב, ידגים במקרה חדש.</li><li>אנליזה: יפרק, ישווה, יבחין, יסיק.</li><li>סינתזה: יחבר, ירכיב, יתכנן, יציע.</li><li>הערכה: יעריך, יבקר, ישפוט, יצדיק, יכריע.</li></ul>
+<p>הטבלה הזו עושה סדר ומקלה מאוד על ההכנה. בוחרים את הרמה שרוצים להגיע אליה, לוקחים ממנה פועל, וכותבים משפט שמתחיל ב"התלמיד".</p>
+<div class="honey-box">🍯 לפני שמתחילים לכתוב מערך, כדאי לשאול איזה פועל מתאר את מה שאני רוצה לראות בסוף.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: המורה יורד ממרכז הבמה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">המורה יורד ממרכז הבמה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למשפט הקטן "התלמיד יבצע" יש כוח גדול. הוא מושך את המורה למקום אחר בכיתה. כשכל מטרה מתארת מה התלמיד עושה, השיעור כבר לא יכול להיות הרצאה ארוכה שבה התלמיד יושב ומקשיב.</p>
+<p>המורה הוא לא מרכז הבמה. התלמיד הוא מרכז הבמה. המורה מכין, מכוון, שואל ומלווה, והתלמיד הוא זה שמגדיר, מנתח, מחבר ושופט.</p>
+<p class="bold-para">נכנסים לשיעור כשיודעים מה התלמידים הולכים לעשות בו.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: כלים בפועל לכל מדרגה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🥧</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">העוגה: פעילויות לכל רמה</h2></div></div>
+<p class="chapter-intro">אחרי הפועל באה השאלה המעשית: באיזו פעילות התלמיד יעשה את מה שכתוב במטרה? תרשים עוגה אחד מחבר בין כל רמת חשיבה לבין הכלים שמתאימים לה.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כלים בפועל לכל מדרגה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתרשים העוגה כל פרוסה היא רמת חשיבה. בטבעת הפנימית מופיעים הפעלים, ובטבעת החיצונית הפעילויות והאסטרטגיות שבהן אפשר לממש אותם בכיתה.</p>
+<p>ברמת הידע הכלים הם כלים שמעבירים מידע: מאמר שקוראים, סרט שמקרינים, הגדרות שנכתבות על הלוח. ברמת ההערכה הכלים נראים אחרת לגמרי: עריכת משפט מבוים, הצדקה של עמדה מול עמדה, דיון קבוצתי, הערכה עצמית.</p>
+<p>כך, כשכותבים מטרה ברמה מסוימת, אפשר להציץ בעוגה ולבחור פעילות שמתאימה לה.</p>
+<div class="honey-box">🍯 מטרה ברמת הערכה ופעילות ברמת ידע לא מסתדרות. אם רוצים שהתלמיד ישפוט, צריך לתת לו במה לשפוט עליה.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: דיון מתאים כמעט לכל רמה ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">דיון מתאים כמעט לכל רמה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דיון הוא כלי גמיש במיוחד. אפשר לנהל דיון כמעט בכל מצב: דיון שמבהיר מושג, דיון שמנתח מקרה, דיון שמכריע בין שתי עמדות.</p>
+<p>העוגה ממקמת כל כלי ברמה שבה הוא מאפיין ביותר, אבל ודאי שיש כלים ששייכים לכמה רמות. השאלה היא לא רק איזה כלי בוחרים, אלא מה מבקשים מהתלמיד לעשות בתוכו. דיון שבו כל אחד רק חוזר על מה שנאמר הוא ידע. דיון שבו כל אחד צריך להצדיק עמדה הוא הערכה.</p>
+<p class="bold-para">אותו כלי יכול לעמוד בכל מדרגה. המשימה קובעת את הגובה.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: לא את כל הסולם בכל שיעור ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא את כל הסולם בכל שיעור</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה שעולה תמיד: מה עם שיעור שבו פשוט צריך להעביר חומר, כמו שיעור קבוע בכל שבוע?</p>
+<p>גם כשמעבירים חומר רוצים לוודא שהוא נקלט. לכן גם ברמת הידע יש מטרות אופרטיביות, כדי לדעת אם מה שלימדנו נכנס באמת.</p>
+<p>ואין צורך לעבור את כל רמות החשיבה בכל שיעור. בשיעור של 45 דקות זה בלתי אפשרי. מה שכן רוצים הוא לטפס עם התלמידים לאורך זמן, שבוע אחרי שבוע, עד שבסוף הם ידעו להשתמש גם ברמות החשיבה הגבוהות ביותר.</p>
+<div class="honey-box">🍯 שיעור אחד הוא מדרגה או שתיים. שנה שלמה היא כל הפירמידה.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: איזו דמות מתאימה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🧑‍🏫</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מהתיאוריה למערך: בוחרים דמות</h2></div></div>
+<p class="chapter-intro">הדרך הטובה ביותר להבין את כל זה היא לבנות מערך שיעור אמיתי. התרגיל: מערך על דמות מתרבות ישראל, בעבודה בקבוצות קטנות.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">איזו דמות מתאימה</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשימה היא לבחור דמות מהתרבות היהודית-ישראלית ולבנות עליה מערך שיעור. הכוונה לדמות שיש בה ערך תורני ויהודי, שמחוברת למקורות. היא לא חייבת להיות מלפני דורות, ויכולה להיות גם מהזמן האחרון.</p>
+<p>מה לא מתאים? זמר מוכשר, אפילו אהוב מאוד, שאין בדמותו מסר יהודי או ערכי שאפשר ללמוד ממנו. מה מתאים? למשל רבי חנינא בן דוסא, שהתנא שדורות של ישראל מספרים על תפילתו ועל אמונתו. או דמות מהדורות האחרונים, כמו הרב שלמה קרליבך, שהביא שמחה ואהבת ישראל לרבים.</p>
+<p class="bold-para">דמות טובה למערך היא דמות שהתלמיד יכול לצמוח ממנה.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: מה כותבים עכשיו: מטרות ומהלך ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מה כותבים עכשיו: מטרות ומהלך</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את מערך השיעור כותבים לפי התבנית המוכרת של מערך שיעור. בשלב הזה מתרכזים רק בשני חלקים: המטרות האופרטיביות ומהלך השיעור. את שאר החלקים, כמו הידע של המורה כמבוגר, משאירים להמשך.</p>
+<p>דרך העבודה:</p>
+<ul class="story-list"><li>לבחור דמות.</li><li>לכתוב שלוש עד חמש מטרות אופרטיביות, כל אחת מתחילה ב"התלמיד" ופועל מרשימת הפעלים.</li><li>לוודא שהמטרות מטפסות בסולם: לפחות אחת מעל רמת הידע.</li><li>לבנות מהלך שבו לכל מטרה יש פעילות מתאימה מהעוגה.</li></ul>
+<div class="honey-box">🍯 כדאי לבדוק כל שלב במהלך ולשאול איזו מטרה הוא משרת. שלב שלא משרת אף מטרה כנראה מיותר.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: עובדים בשלשות, מגישים כל אחד ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">עובדים בשלשות, מגישים כל אחד</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>העבודה נעשית בקבוצות של שלושה, כל קבוצה בחדר נפרד בזום. שלושה ראשים חושבים טוב יותר מאחד: אחד מציע דמות, השני מנסח מטרה, השלישי בודק שהפעילות באמת מתאימה לרמה.</p>
+<p>בכל זאת, כל אחד מגיש בעצמו. בראש המסמך כותבים את שמות כל חברי השלישייה, ומגישים בטבלה במערכת ההגשות. ההגשה היא באותו יום, גם אם לא הספקתם לסיים. המטרה היא לראות שהעבודה באמת נעשתה.</p>
+<p>המערך הזה לא נגמר כאן. הוא נשמר, והקבוצות יחזרו אליו לקראת מטלת הסיכום, כדי לתרגל עליו הבנה עמוקה יותר של מערך שיעור.</p>
+<p class="bold-para">הדמות שבוחרים היום תלווה את כל הדרך. כדאי לבחור דמות שאוהבים.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
