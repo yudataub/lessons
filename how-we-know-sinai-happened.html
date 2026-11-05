@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔥 חלק ב: איך יודעים שזה באמת קרה?</title>
+<meta name="description" content="השאלה הכי נועזת על מעמד הר סיני, התשובה שהתורה עצמה נותנת עליה, והסוד של &quot;שמור&quot; ו&quot;זכור&quot; שנאמרו בדיבור אחד.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 05.11.2026 🍯</div>
+  <h1 class="hero-title">🔥 חלק ב: איך יודעים שזה באמת קרה?</h1>
+  <p class="hero-subtitle">השאלה הכי נועזת על מעמד הר סיני, התשובה שהתורה עצמה נותנת עליה, והסוד של &quot;שמור&quot; ו&quot;זכור&quot; שנאמרו בדיבור אחד.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-8 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/aXpAXkZ17IE" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">⏳ מתי זה קרה</a><ul class="toc-stories"><li><a href="#story-1">חמישים יום מיציאת מצרים</a></li><li><a href="#story-2">למה התורה מספרת את זה פעמיים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔥 חמישה קולות ואש גדולה</a><ul class="toc-stories"><li><a href="#story-3">הר מלא אש ועשן</a></li><li><a href="#story-4">כמה קולות היו שם?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🤔 השאלה הנועזת</a><ul class="toc-stories"><li><a href="#story-5">&quot;כתוב בתורה&quot; זו לא תשובה</a></li><li><a href="#story-6">&quot;כי שאל נא לימים ראשונים&quot;</a></li><li><a href="#story-7">אף עם אחר לא מספר כך</a></li><li><a href="#story-8">ניסוי קטן: מה אפשר לשקר ומה לא</a></li><li><a href="#story-9">ואם מישהו המציא את זה מאוחר יותר?</a></li><li><a href="#story-10">שלשלת: מי סיפר למי</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🕯️ שמור וזכור בדיבור אחד</a><ul class="toc-stories"><li><a href="#story-11">שתי מילים, גרסה אחת</a></li><li><a href="#story-12">מה שהפה לא יכול לומר</a></li><li><a href="#story-13">מה ההבדל בפועל</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🧱 היסוד של הכול</a><ul class="toc-stories"><li><a href="#story-14">יסוד היסודות</a></li><li><a href="#story-15">עשה ולא תעשה</a></li><li><a href="#story-16">שבועות: היום שהכול נפתח</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">⏳</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">מתי זה קרה</h2></div></div>
+<p class="chapter-intro">לפני שמדברים על מה שנאמר, כדאי לשים את הדברים על ציר הזמן.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חמישים יום מיציאת מצרים</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נצייר קו ארוך. בקצה אחד: יציאת מצרים. בקצה השני: הכניסה לארץ ישראל, ארבעים שנה אחר כך. איפה על הקו הזה נמצאות עשרת הדיברות?</p>
+<p>ממש בהתחלה. חמישים יום בלבד אחרי שיצאו ממצרים. לכן אנחנו סופרים ספירת העומר: ארבעים ותשעה ימים של ספירה, וביום החמישים חג השבועות, היום שבו אנחנו חוגגים את מתן תורה.</p>
+<p class="bold-para">חמישים יום. עם שהיה עבד לפני שבעה שבועות עומד פתאום מול הר סיני ושומע את קול ה'.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: למה התורה מספרת את זה פעמיים ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה התורה מספרת את זה פעמיים</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עשרת הדיברות מופיעות בתורה בשני מקומות:</p>
+<ul class="story-list"><li><strong>בספר שמות, פרשת יתרו (פרק כ):</strong> התיאור של מה שקרה בשעה שזה קרה, בשנה הראשונה.</li><li><strong>בספר דברים, פרשת ואתחנן (פרק ה):</strong> משה רבנו חוזר עליהן בשנה הארבעים, רגע לפני הכניסה לארץ.</li></ul>
+<p>כאילו משה מקרין לדור החדש את הסרט מההתחלה. הם עומדים להיכנס לארץ, ולפני שנכנסים הוא מחזיר אותם אל הרגע שבו הכול התחיל.</p>
+<div class="honey-box">🍯 לפני כל התחלה גדולה כדאי לעשות כמו משה: לחזור רגע אל היסוד, אל מי אנחנו ולמה אנחנו כאן.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: הר מלא אש ועשן ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">חמישה קולות ואש גדולה</h2></div></div>
+<p class="chapter-intro">המעמד הזה לא היה הרצאה שקטה. התורה מתארת אותו בפירוט רב.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הר מלא אש ועשן</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך מתארת התורה את הבוקר ההוא:</p>
+<blockquote>"ויהי ביום השלישי בהית הבקר ויהי קלת וברקים וענן כבד על ההר וקל שפר חזק מאד ויחרד כל העם אשר במחנה" (שמות יט, טז)</blockquote>
+<p>ובהמשך:</p>
+<blockquote>"והר סיני עשן כלו מפני אשר ירד עליו ה' באש ויעל עשנו כעשן הכבשן ויחרד כל ההר מאד" (שמות יט, יח)</blockquote>
+<p>כל תמונה של הר סיני שראיתם בספר ילדים היא דמיון של צייר. אף צייר לא היה שם. אבל התורה מפרטת: קולות, ברקים, ענן כבד, שופר, אש, עשן, והר שרועד.</p>
+<p class="bold-para">עם שלם רעד יחד עם ההר. זה לא מסוג הדברים שאדם שוכח, ולא מסוג הדברים שאפשר להתבלבל בהם.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: כמה קולות היו שם? ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כמה קולות היו שם?</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא סופרת את הקולות בפרשה, ומגיעה לחמישה. היא אומרת שמי שמשמח חתן וכלה זוכה לתורה "שנתנה בחמשה קולות" (ברכות ו ע"ב), ומביאה את הפסוקים: קולות וברקים, קול השופר, ועוד קול השופר, עד המילים "והאלקים יעננו בקול" (שמות יט, יט).</p>
+<p>השם של מאגר לימוד התורה "הקול החמישי" מתחבר גם לזה: במתן תורה היו חמישה קולות, והקול החמישי הוא הקול שבו ה' ענה למשה.</p>
+<p>ובמדרש נאמר על הקול ההוא דבר מופלא: לקול הזה לא היה הד. כל קול בעולם חוזר מההר ומהקיר, והקול הזה נשמע ולא חזר.</p>
+<div class="honey-box">🍯 מי שלומד תורה מצטרף אל אותו קול. הוא לא נעלם ולא נגמר, ועד היום אפשר לשמוע אותו, כל פעם שפותחים חומש.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;כתוב בתורה&quot; זו לא תשובה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🤔</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">השאלה הנועזת</h2></div></div>
+<p class="chapter-intro">"מאיפה אני יודע שזה באמת היה?" זו שאלה יפה, והיא לא שאלה של חוצפה. התשובה עליה נמצאת בתורה עצמה.</p>
+<article class="story-card" id="story-5" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;כתוב בתורה&quot; זו לא תשובה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ילד פתוח שואל את השאלה הזאת באמצע הכול: איך אפשר לדעת שזה אמיתי? אולי סתם כתבו את זה?</p>
+<p>אם אומרים לו "כתוב בתורה", הוא שואל בצדק: ומי אמר שמה שכתוב בתורה נכון? אם אומרים לו "זה עבר מדור לדור", הוא ממשיך: ואולי מישהו המציא, והשאר העבירו הלאה?</p>
+<p>אסור להיבהל מהשאלה הזאת. אל תגידו לילד "אסור לשאול". זו שאלה שמכבדת את האמונה, כי מי ששואל רוצה לדעת.</p>
+<p class="bold-para">המפתיע הוא מי ענה לשאלה הזאת ראשון: התורה עצמה. היא חזתה אותה, וכתבה עליה תשובה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;כי שאל נא לימים ראשונים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;כי שאל נא לימים ראשונים&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ספר דברים, פרק ד. התורה פונה אל השואל ואומרת לו מה לעשות:</p>
+<blockquote>"כי שאל נא לימים ראשנים אשר היו לפניך למן היום אשר ברא אלקים אדם על הארץ ולמקצה השמים ועד קצה השמים הנהיה כדבר הגדול הזה או הנשמע כמהו. השמע עם קול אלקים מדבר מתוך האש כאשר שמעת אתה ויחי" (דברים ד, לב-לג)</blockquote>
+<p>איזו הצעה מדהימה. התורה לא אומרת "תאמין לי". היא אומרת: לך ותבדוק. תשאל את כל האנשים בעולם, מקצה עד קצה. ולא רק את אלה שחיים היום: תשאל את כל הדורות, מיום בריאת האדם.</p>
+<p>ושאלה אחת תשאל אותם: <strong>האם היה פעם כזה דבר? האם יש עוד עם שמספר שאלוקים דיבר אליו, לעיני כולו?</strong></p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: אף עם אחר לא מספר כך ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">אף עם אחר לא מספר כך</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן מתחילה הבדיקה. בעולם יש דתות גדולות, עם מאמינים רבים. מה הן מספרות?</p>
+<p>המסורת המוסלמית, למשל, מספרת שאלוקים נגלה למוחמד ואמר לו שיהיה נביא. נגלה למי? לאדם אחד. מישהו אחר ראה? לפי הסיפור עצמו, לא. כל השאר קיבלו זאת ממנו.</p>
+<p>זה הדגם הרגיל בדתות העולם: אדם יחיד, או קבוצה קטנה, חוו התגלות וסיפרו לאחרים.</p>
+<p>רק התורה אומרת דבר אחר לגמרי: אלוקים נגלה <strong>לעם שלם</strong>, לעיני כולם, גברים ונשים וטף.</p>
+<p>ספר הכוזרי לרבי יהודה הלוי בנה על ההבחנה הזאת את הטיעון המפורסם שלו.</p>
+<div class="honey-box">🍯 השאלה היא מדוע אף אחד אחר לא סיפר סיפור כזה. סיפור כזה היה נותן לכל דת כוח עצום. אם כך, למה רק אחת מספרת אותו?</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: ניסוי קטן: מה אפשר לשקר ומה לא ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ניסוי קטן: מה אפשר לשקר ומה לא</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נעשה ניסוי. מורה עומד מול ילדים ואומר: "היום דיברתי עם המנהלת." האם הוא יכול לשכנע אותם? בהחלט. אולי זה קרה ואולי לא, אין להם דרך לבדוק.</p>
+<p>ועכשיו הוא אומר: "היום נאמתי לעיני כל בית הספר, ואתם הייתם שם." יש סיכוי שישכנע אותם? הוא יכול לדבר שעה שלמה. הוא יכול להציע מאתיים שקלים למי שיאמין. זה לא יעזור.</p>
+<p>למה? כי הם יודעים שזה לא קרה. אם זה היה קורה, הם היו שם.</p>
+<p>מכאן ההבדל: <strong>אפשר לשכנע אנשים שלאדם אחד קרה משהו בסתר. אי אפשר לשכנע עם שלם שהוא עצמו עמד שם וראה, אם זה לא היה.</strong></p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: ואם מישהו המציא את זה מאוחר יותר? ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ואם מישהו המציא את זה מאוחר יותר?</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ננסה לעקוף את הטיעון: אולי בדור מאוחר קם מישהו וכתב ספר שאומר "אבותיכם עמדו בהר סיני"?</p>
+<p>דמיינו את הרגע הזה. הוא מגיע לעיר ואומר לאנשים: "כל הסבים של הסבים שלכם, מיליוני אנשים, ראו את ה' מדבר מתוך האש, וסיפרו על כך לילדיהם, וכולם לומדים את זה, וחוגגים על זה חג כל שנה."</p>
+<p>מה יגידו האנשים? "סבא שלי מעולם לא סיפר לי דבר כזה. אין לנו חג כזה. על מה אתה מדבר?"</p>
+<p>לכן התורה נוקטת דווקא בלשון הזאת. היא אומרת לעם שעומד מולה "אתם ראיתם". סיפור כזה, אם היה שקר, היה נופל מיד, ברגע הראשון שמישהו ניסה לספר אותו.</p>
+<p class="bold-para">וזו בדיוק הסיבה שאף עם אחר לא העז לספר אותו.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: שלשלת: מי סיפר למי ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שלשלת: מי סיפר למי</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש עוד דבר. הידיעה הזאת הגיעה אלינו מההורים, ואל ההורים מההורים שלהם. לא מאדם יחיד, אלא מעם שלם שמעביר לילדיו, כל אחד בביתו.</p>
+<p>יותר מזה: יש לנו רשימה מסודרת של מי מסר למי. פרקי אבות פותחים בה:</p>
+<blockquote>"משה קבל תורה מסיני ומסרה ליהושע, ויהושע לזקנים, וזקנים לנביאים, ונביאים מסרוה לאנשי כנסת הגדולה" (אבות א, א)</blockquote>
+<p>והרמב"ם, בהקדמה לספרו משנה תורה, מונה את השמות אחד אחד, ארבעים דורות ממשה רבנו ועד רב אשי.</p>
+<p>תעודת הזהות של יהודי נראית כך: אני יודע מי סיפר לי, ומי סיפר לו.</p>
+<div class="honey-box">🍯 כשאבא מספר בליל הסדר לילד שלו, הוא לא מספר לו אגדה. הוא מוסיף את החוליה הבאה לשלשלת שמתחילה בהר סיני.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: שתי מילים, גרסה אחת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">שמור וזכור בדיבור אחד</h2></div></div>
+<p class="chapter-intro">כל שבת אנחנו שרים את זה ב"לכה דודי". מה בעצם אנחנו אומרים?</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שתי מילים, גרסה אחת</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך שרים בקבלת שבת:</p>
+<blockquote>"שמור וזכור בדיבור אחד, השמיענו אל המיוחד, ה' אחד ושמו אחד, לשם ולתפארת ולתהלה"</blockquote>
+<p>מה פירוש? בוא נפתח חומש, ונראה דבר מעניין. בעשרת הדיברות שבספר שמות כתוב:</p>
+<blockquote>"זכור את יום השבת לקדשו" (שמות כ, ח)</blockquote>
+<p>ובעשרת הדיברות שבספר דברים כתוב:</p>
+<blockquote>"שמור את יום השבת לקדשו" (דברים ה, יב)</blockquote>
+<p>אז מה נאמר בהר סיני: זכור או שמור? הרי זו אותה דיברה. <strong>אחת משתי הגרסאות חייבת להיות שינוי, לא?</strong></p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: מה שהפה לא יכול לומר ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה שהפה לא יכול לומר</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רש"י בספר דברים עונה:</p>
+<blockquote>"שמור: ובראשונות הוא אומר זכור, שניהם בדיבור אחד ובתיבה אחת נאמרו ובשמיעה אחת נשמעו" (רש"י דברים ה, יב)</blockquote>
+<p>שתיהן נאמרו, באותו רגע ובאותה מילה. הגמרא אומרת על כך:</p>
+<blockquote>"זכור ושמור בדיבור אחד נאמרו, מה שאין יכול הפה לדבר ומה שאין האוזן יכולה לשמוע" (שבועות כ ע"ב)</blockquote>
+<p>בן אדם לא יכול להגיד שתי מילים בבת אחת. ואם אומרים לנו שתיים יחד, אנחנו לא נצליח לשמוע. זה מה שקרה בהר סיני, והוא בעצמו סימן לכך שמי שדיבר שם לא היה בן אדם.</p>
+<p class="bold-para">ומכאן השורה של "לכה דודי": את שמור וזכור השמיע לנו בדיבור אחד אל מיוחד.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: מה ההבדל בפועל ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה ההבדל בפועל</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה בעצם ההבדל בין שתי המילים? הכי פשוט לבדוק במעשים:</p>
+<p><strong>שמור</strong> זה מה שאני לא עושה: לא מדליק אור, לא קוצר, לא כותב, לא מבשל. שמירה היא גדר סביב היום, כדי שלא יפגע.</p>
+<p><strong>זכור</strong> זה מה שאני כן עושה: אני מקדש על היין, מדליק נרות לפני שבת, שר, אוכל סעודה, לובש בגד מיוחד. חז"ל למדו מ"זכור את יום השבת לקדשו": "זכרהו על היין" (פסחים קו ע"א).</p>
+<p>אדם שרק שומר, יושב בשבת בבית שקט בלי לעשות כלום, ושואל מתי זה נגמר. ואדם שרק זוכר, ישמח ויקדש ואז ידליק את האור.</p>
+<div class="honey-box">🍯 שבת שלמה צריכה את שתי הידיים: יד אחת שעוצרת, ויד אחת שמרימה כוס. כך גם בחיים: יש דברים שגדולים דווקא כשעוצרים, ויש שגדולים דווקא כשעושים.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: יסוד היסודות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🧱</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">היסוד של הכול</h2></div></div>
+<p class="chapter-intro">שלושה דברים קצרים שכדאי לקחת מכאן: האמונה שעליה הכול עומד, החלוקה לעשה ולא תעשה, והחג שבו חוגגים את המעמד.</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">יסוד היסודות</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם פותח את כל ספרו, משנה תורה, במשפט הזה:</p>
+<blockquote>"יסוד היסודות ועמוד החכמות, לידע שיש שם מצוי ראשון" (הלכות יסודי התורה א, א)</blockquote>
+<p>לפני הלכות שבת, לפני כשרות, לפני תפילה, הוא קובע: קודם כל צריך לדעת שיש מי שברא את העולם, ושהוא שם.</p>
+<p>זו גם הדיברה הראשונה: "אנכי ה' אלקיך". היא לא נראית כמו ציווי על מעשה, אבל הכול עומד עליה. אם מוציאים את היסוד, מה שנשאר הוא רשימה של כללים. אם הוא שם, כל מצווה היא שיחה עם מישהו.</p>
+<p class="bold-para">בלי היסוד הזה, שאר הבית לא עומד.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: עשה ולא תעשה ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">עשה ולא תעשה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל מצווה בתורה היא אחת משתיים:</p>
+<ul class="story-list"><li><strong>מצוות עשה:</strong> קום ועשה. תפילין, שופר, סוכה, כיבוד הורים.</li><li><strong>מצוות לא תעשה:</strong> עצור, אל תעשה. לא תגנוב, לא תרצח, לא לאכול בעל חיים שאינו כשר, כמו דוב.</li></ul>
+<p>מי שמסתכל בעשרת הדיברות רואה שגם הן מסודרות כך: בחמש הראשונות יש בעיקר ציוויים של עשייה, כמו אמונה, שבת וכיבוד הורים. בחמש האחרונות כתוב שוב ושוב "לא": לא תרצח, לא תנאף, לא תגנב, לא תענה, לא תחמד.</p>
+<p>זה גם סידור יפה: קודם בונים קשר, ואחר כך שומרים עליו.</p>
+<div class="honey-box">🍯 אותו דבר כמו שמור וזכור: גם בקטן וגם בגדול, יהודי חי בין "קום" לבין "עצור".</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: שבועות: היום שהכול נפתח ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שבועות: היום שהכול נפתח</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומכאן לחג השבועות, החג שבו חוגגים בכל שנה את מתן תורה. זה היום שבו הקדוש ברוך הוא נתן את התורה לעם ישראל, חמישים יום אחרי שיצאו ממצרים.</p>
+<p>אם מבינים את כל מה שנאמר עד כאן, החג נראה אחרת. אנחנו לא חוגגים זיכרון רחוק של אנשים מלפני שנים רבות. אנחנו חוגגים את הרגע שעם שלם שמע, ומסר הלאה, ומסר הלאה, עד שזה הגיע אלינו.</p>
+<p class="bold-para">כל שנה בחג השבועות מספרים את הסיפור שאף עם אחר בעולם לא מספר, וכולנו חוליות בו.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
