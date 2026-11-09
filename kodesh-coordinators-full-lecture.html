@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌾 השדה של יצחק: המדריך המלא לרכזת ולרכז הקודש</title>
+<meta name="description" content="מחזון של חיבור שמיים וארץ ועד הצעדים המעשיים: התמקמות בתפקיד, משנה והלכה, רצים למסכת, הערכה בתנ&quot;ך ותשובות לשאלות מהשטח.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 09.11.2026 🍯</div>
+  <h1 class="hero-title">🌾 השדה של יצחק: המדריך המלא לרכזת ולרכז הקודש</h1>
+  <p class="hero-subtitle">מחזון של חיבור שמיים וארץ ועד הצעדים המעשיים: התמקמות בתפקיד, משנה והלכה, רצים למסכת, הערכה בתנ&quot;ך ותשובות לשאלות מהשטח.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-25 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/M3AP19G-cS8" target="_blank" rel="noopener">🎬 חלק א ביוטיוב: השדה של יצחק</a> <a class="video-btn" href="https://youtu.be/fUGSzS957Hw" target="_blank" rel="noopener">🎬 חלק ב ביוטיוב: רצים למסכת והמקום של רכז הקודש</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌾 יצחק איש השדה: למה הקודש צריך סדר</a><ul class="toc-stories"><li><a href="#story-1">הר, שדה ובית</a></li><li><a href="#story-2">בשדה רואים שאי אפשר לבד</a></li><li><a href="#story-3">דירה בתחתונים – כאן ועכשיו</a></li><li><a href="#story-4">כשהתלמידים רואים שאין סדר</a></li><li><a href="#story-5">הקומה הראשונה של הבניין</a></li><li><a href="#story-6">לא באים לבדוק – באים לעזור</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔥 להיות שם: להשפיע על המשפיעים</a><ul class="toc-stories"><li><a href="#story-7">משל התפילה</a></li><li><a href="#story-8">יעדים ברורים: סיום חומש, סיום מסכת</a></li><li><a href="#story-9">שום דבר כאן לא סותר</a></li><li><a href="#story-10">מה הילד לוקח איתו לתוך המנהרה</a></li><li><a href="#story-11">ילדים בכיתה ב&#x27;, נשמות לכל החיים</a></li><li><a href="#story-12">שיעור תורה אינו &quot;עוד מקצוע&quot;</a></li><li><a href="#story-13">עם מה יוצאים משיעור תורה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🧭 רכז הקודש: תפקיד חדש ומקומו</a><ul class="toc-stories"><li><a href="#story-14">מ&quot;מובילים&quot; ל&quot;רכזים&quot;</a></li><li><a href="#story-15">עושר של חומרים – והתפקיד של הרכז</a></li><li><a href="#story-16">חלק מהצוות הפדגוגי</a></li><li><a href="#story-17">לא להישאב רק לאירועים</a></li><li><a href="#story-18">גמול – ולא להתבייש</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🪜 להתמקם בתפקיד</a><ul class="toc-stories"><li><a href="#story-19">נבחרתם – ומותר לכם לבקש</a></li><li><a href="#story-20">מה בודקים בהתחלה</a></li><li><a href="#story-21">כל בית ספר והילדים שלו</a></li><li><a href="#story-22">לאט לאט, שלב אחר שלב</a></li><li><a href="#story-23">ומה עם שעות עבודה?</a></li><li><a href="#story-24">מיפוי הקודש: לעבוד מתוך נתונים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">📜 תורה שבעל פה: מן האהבה אל הפרטים</a><ul class="toc-stories"><li><a href="#story-25">כולם אוהבים סוכה</a></li><li><a href="#story-26">למה המשנה היא האתגר הגדול</a></li><li><a href="#story-27">מסכת שלמה בכל שנה</a></li><li><a href="#story-28">כמות ואיכות</a></li><li><a href="#story-29">קבוצה לכל כיתה ולכל תחום</a></li><li><a href="#story-30">ספירלה שעולה קומה</a></li><li><a href="#story-31">טבלה מול העיניים</a></li><li><a href="#story-32">ספר הלכה לכל ילד</a></li><li><a href="#story-33">מבחן המפמ&quot;ר בתורה שבעל פה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🏃 רצים למסכת: להציל את שיעור המשנה</a><ul class="toc-stories"><li><a href="#story-34">התוכנית היחידה שבנויה לפי המסכת</a></li><li><a href="#story-35">עולם שלם לכל כיתה</a></li><li><a href="#story-36">סרטון, חוברת ומשחק</a></li><li><a href="#story-37">משחקים גם מהבית</a></li><li><a href="#story-38">במקום, לא בנוסף</a></li><li><a href="#story-39">&quot;התקציב כבר נגמר&quot;</a></li><li><a href="#story-40">לדבר בשפה של מקצוען</a></li><li><a href="#story-41">&quot;תכיני לי רשימה&quot;</a></li><li><a href="#story-42">כי בתחבולות תעשה לך מלחמה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">📋 הערכה בתנ&quot;ך: לוח הזמנים ושאלות מהשטח</a><ul class="toc-stories"><li><a href="#story-43">צמתי ההערכה: כסלו ואייר</a></li><li><a href="#story-44">אירועי ההערכה של השנה</a></li><li><a href="#story-45">לנעוץ את המבחן בלוח</a></li><li><a href="#story-46">מבחנים לחוד ומשימות הערכה לחוד</a></li><li><a href="#story-47">מפגשי עומק: ללמוד מן הנתונים</a></li><li><a href="#story-48">השתלמות שהיא העבודה עצמה</a></li><li><a href="#story-49">שאלות מעשיות לשבועות הקרובים</a></li><li><a href="#story-50">מבחני ד&#x27; ו-ו&#x27;: מה עושים עכשיו</a></li><li><a href="#story-51">&quot;אנחנו לומדים חומש אחר&quot;</a></li><li><a href="#story-52">כשמורה אומרת: &quot;אני לא צריכה מבחנים&quot;</a></li><li><a href="#story-53">מכתב להורים שלא מלחיץ</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌾</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">יצחק איש השדה: למה הקודש צריך סדר</h2></div></div>
+<p class="chapter-intro">פתיחה מפרשת תולדות: לחבר שמיים וארץ, ולתת לאור הגדול של התורה כלים בעולם המעשה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הר, שדה ובית</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על יצחק אבינו מסופר בתורה מעט מאוד, ביחס לאברהם וליעקב. ובכל זאת חז"ל נתנו לכל אחד מן האבות "קוד" משלו. במסכת פסחים (פח ע"א) נאמר שאברהם קרא למקום המקדש <strong>הר</strong>, יצחק קרא לו <strong>שדה</strong>, ויעקב קרא לו <strong>בית</strong>.</p>
+<p>למה דווקא יצחק מזוהה עם השדה? בשדה הוא מתפלל:</p>
+<blockquote>וַיֵּצֵא יִצְחָק לָשׂוּחַ בַּשָּׂדֶה לִפְנוֹת עָרֶב (בראשית כד, סג)</blockquote>
+<p>משם, מן השדה, הוא נושא עיניו ופוגש לראשונה את רבקה. ומביתו יוצא גם עשו, שהתורה מכנה אותו "אִישׁ שָׂדֶה". השדה מלווה את יצחק לכל אורך חייו. אז מה כל כך מיוחד בשדה?</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: בשדה רואים שאי אפשר לבד ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בשדה רואים שאי אפשר לבד</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נחשוב רגע מה יש בשדה. יש אדמה, יש חומר, יש עבודה קשה: חורשים, זורעים, מנכשים. אבל כל העבודה הזו לא תעלה כלום בלי מה שבא מלמעלה – הרוח והגשם. בלי גשם אין פירות, גם אם עבדנו מבוקר עד ערב.</p>
+<p>השדה הוא המקום שבו רואים בעיניים את <strong>שיתוף הפעולה בין שמיים לארץ</strong>, בין האדם לבין הקדוש ברוך הוא. האדם עושה את שלו עד הסוף, והברכה יורדת מן השמיים.</p>
+<p class="bold-para">יצחק אבינו, איש השדה, מלמד אותנו לחבר שמיים וארץ.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: דירה בתחתונים – כאן ועכשיו ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דירה בתחתונים – כאן ועכשיו</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעל "נתיבות שלום" מסביר שזו תכלית הבריאה כולה. חז"ל אמרו במדרש: "נתאווה הקדוש ברוך הוא להיות לו דירה בתחתונים". בורא העולם, הגדול שבשמיים, רוצה להיות איתנו כאן למטה.</p>
+<p>לפעמים אנחנו חושבים שהחיבור לה' שמור לרגעים מיוחדים: בבית הכנסת, בתפילה, בביקור בכותל. אבל הקדוש ברוך הוא רוצה יותר מזה. הוא רוצה שנהיה מחוברים אליו בכל רגע, בכל מעשה – גם בעבודה היומיומית, גם בישיבת צוות, גם בבניית מערכת שעות.</p>
+<div class="honey-box">🍯 זו גדלותו של האדם: לעשות מהשדה שלו, מהעבודה המעשית ביותר, מקום שבו השמיים והארץ נפגשים.</div>
+<p>וזה בדיוק התפקיד של מי שמוביל את הקודש בבית הספר: לקחת את האור הגדול של התורה ולתת לו כלים בארץ.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: כשהתלמידים רואים שאין סדר ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשהתלמידים רואים שאין סדר</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ילדים רואים הכול. במקצועות החול יש תוכנית לימודים מסודרת, כולם יודעים מה לומדים, ויש מבחנים. ובקודש? מתוך רצון טוב להוסיף תורה, מורה אומר לעצמו: "הנושא הזה לא נראה לי, אלמד משהו אחר". או: "המבחן הזה לא חובה, אז לא אעשה אותו – אני רוצה ללמד תורה, לא לבחון".</p>
+<p>הכוונה טהורה, אבל התוצאה הפוכה. בעיני הילדים, מקצוע שאין בו תוכנית ואין בו מבחן הוא <strong>מקצוע לא חשוב</strong>. משהו שאפשר "להסתדר" בו.</p>
+<p class="bold-para">התורה צריכה גם אורות וגם כלים. בלי כלים – האור נשפך.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: הקומה הראשונה של הבניין ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הקומה הראשונה של הבניין</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האמירה של החינוך הממלכתי-דתי היא לימודי הקודש. כל שאר הדברים חשובים מאוד, אבל הם הקומה השנייה והשלישית. <strong>המסד – הוא הקודש.</strong> ובמסד רוצים להיות מצוינים.</p>
+<p>כדי להיות מצוינים צריך סדר. צריך לדעת באיזו רמה בית הספר נמצא, להשוות לבתי ספר אחרים, לראות לאן אפשר להתקדם ומה הקומה הבאה. וזה דורש נתונים, מבחנים והשתלמויות.</p>
+<p>יש עוד סיבה: מורים רבים מלמדים מקצועות רבים, ובסוף מקצועות הקודש הם אלה שבהם משתלמים פחות. בגלל זה מונה רכז קודש בכל בית ספר – כדי לעשות סדר.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: לא באים לבדוק – באים לעזור ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא באים לבדוק – באים לעזור</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב לומר את זה בבירור: הסדר, המבחנים והנתונים לא נועדו לבדוק את המורים. הם נועדו לעזור להעביר לילדים מסר פשוט: <strong>מקצועות הקודש הם באמת קודש, וקודש דורש מאיתנו מצוינות.</strong></p>
+<p>יש מקום רחב להוסיף ולהרחיב, וכל בית ספר יכול לבנות קומות משלו. אבל הבסיס משותף לכולם, ועליו לא מוותרים.</p>
+<div class="honey-box">🍯 על ידי סדר אפשר להוסיף קודש בעוצמה גדולה. הסדר אינו מצמצם את התורה – הוא מה שמאפשר לה להיכנס באמת ללב.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: משל התפילה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">להיות שם: להשפיע על המשפיעים</h2></div></div>
+<p class="chapter-intro">מקצועיות ומשמעות הולכות יחד – ומה שנכנס בילד בכיתה ב' יכול ללוות אותו כל חייו.</p>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">משל התפילה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל אחד מאיתנו עומד בתפילה. לפעמים יש עשר דקות, לפעמים חצי שעה. בזמן הזה יש שתי אפשרויות: להתרכז, להיות שם באמת, לתת את המקסימום. או לעבור על המילים, ובסוף התפילה לא לזכור בכלל אם התפללנו ומה אמרנו.</p>
+<p>כך גם בלימודי הקודש. אפשר "לעבור" על החומר, ואפשר <strong>להיות שם</strong> – ללמד בצורה המדויקת ביותר, ברמה כזו שהילדים יקחו את הלימוד והוא יהפוך לחלק מהם.</p>
+<p class="bold-para">המטרה: שהתורה שנלמדה בכיתה תהיה של הילד.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: יעדים ברורים: סיום חומש, סיום מסכת ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">יעדים ברורים: סיום חומש, סיום מסכת</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשני מקצועות הקודש המרכזיים – תנ"ך, ותורה שבעל פה (משנה והלכה) – רוצים להגדיר יעדים ברורים: אילו מיומנויות נדרשות בכל שכבה, ומה אנחנו מצפים שיקרה בסוף השנה.</p>
+<p>יעד כזה יכול להיות מוחשי מאוד: <strong>סיום חומש</strong> בסוף הלימוד, <strong>סיום מסכת</strong> כשלומדים מסכת. ילד שחוגג סיום מרגיש שהשלים משהו גדול, ושהתורה היא דבר שאפשר להגיע בו להישג.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: שום דבר כאן לא סותר ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שום דבר כאן לא סותר</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מי שחושש: אם נתמקד במיומנויות, במבחנים ובתוכנית – האם לא נאבד את הערכים, החוויה והמשמעות?</p>
+<p>התשובה היא לא. ההפך. הכול נעשה בד בבד. כשהילד לומד באופן מקצועי, לפי שיטות הוראה נכונות, ותוך כדי כך חווה משמעות, רלוונטיות ועיצוב זהות – זה הופך להיות <strong>נכס צאן ברזל</strong> שלו לכל ימי חייו.</p>
+<div class="honey-box">🍯 מקצועיות היא לא האויב של החוויה. היא הקרקע שעליה החוויה יכולה לצמוח.</div>
+<p>בסוף, זה מה שהילד יזכור, ועם זה הוא ימשיך ללמוד.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: מה הילד לוקח איתו לתוך המנהרה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה הילד לוקח איתו לתוך המנהרה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחד החטופים ששבו מן המנהרות בעזה סיפר שבימים הקשים ההם, אף שהתרחק מעט משמירת תורה ומצוות, הוא ישב ועשה חשבון עם הקדוש ברוך הוא. "אמנם התרחקתי ממך," אמר, "אבל מצוות כיבוד הורים תמיד קיימתי. ולימדו אותי שעל המצווה הזו מובטחים חיים ארוכים":</p>
+<blockquote>כַּבֵּד אֶת אָבִיךָ וְאֶת אִמֶּךָ לְמַעַן יַאֲרִכוּן יָמֶיךָ עַל הָאֲדָמָה (שמות כ, יא)</blockquote>
+<p>"הבטחת – על פני האדמה. ואני כאן, מתחת לאדמה. אני את החלק שלי קיימתי – קיים אתה את שלך, והוצא אותי."</p>
+<p>מאיפה הגיע לו הדבר הזה, ברגע הקשה בחייו? מן החינוך. מן הבית, ומשיעורי התנ"ך שלו כילד.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: ילדים בכיתה ב&#x27;, נשמות לכל החיים ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ילדים בכיתה ב&#x27;, נשמות לכל החיים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>היום יושבים לפנינו ילדים בכיתה ב' ובכיתה ג'. אנחנו רואים ילדים, אבל הם נשמות, ואיננו יודעים לאן יגיעו. אולי חלקם יתרחקו. אבל מה שנכנס בהם עכשיו יכול ללוות אותם גם לרגעים שאיש מאיתנו לא יכול לדמיין.</p>
+<p class="bold-para">מורה לתנ"ך שנכנס לכיתה מחזיק בידיו השפעה עצומה.</p>
+<p>וכולנו שליחים של הקדוש ברוך הוא. רכז הקודש עומד בצומת: הוא משפיע על המשפיעים, ודרכם על כל כך הרבה ילדים.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: שיעור תורה אינו &quot;עוד מקצוע&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שיעור תורה אינו &quot;עוד מקצוע&quot;</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמדברים עם הצוות, צריך להכניס שפה: שיעור תורה אינו שיעור רגיל. מדברים על יראת שמיים, על מה זה בכלל שיעור תורה. יש המון מורות צדיקות ומורים נפלאים – אבל ברגע שהחיזוק בא מבפנים, מהרכז, בשפה אחידה ובכיוון אחד, הכול נראה אחרת.</p>
+<p>זה ממשיך גם לקירות בית הספר: מה תולים מעל הלוח – את אותיות ה-ABC, או את פרשות החומש שלומדים השנה? איפה בית הספר בוחר להתמקם?</p>
+<p>גם הפדגוגיה עוזרת כאן. כשיש מבחנים ונתונים שמגיעים למחוז ולמנהלים, פתאום התנ"ך כבר אינו משהו צדדי. המנהלת קוראת לרכזת ואומרת: "תעזרי לי". כל מורה מבין שעליו לתת דין וחשבון, ולא לסגור את הדלת ולוותר על שיעור התורה כשהוא לחוץ במקצוע אחר.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: עם מה יוצאים משיעור תורה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עם מה יוצאים משיעור תורה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחד הדברים החשובים ביותר: שבכל שיעור תורה תהיה שפה מסודרת של <strong>"מה לקחנו מכאן"</strong>. ישבנו ארבעים וחמש דקות, פתחנו ספר, למדנו שמונה פסוקים. מה לקחנו?</p>
+<p>הרמב"ן כותב באגרת ששלח לבנו:</p>
+<blockquote>וכאשר תקום מן הספר, תחפש באשר למדת אם יש בו דבר אשר תוכל לקיימו</blockquote>
+<p>כל ילד צריך לצאת מהשיעור ולשאול את עצמו: עם אילו ערכים אני יוצא? איך הפכתי ליהודי טוב יותר, מאמין יותר?</p>
+<div class="honey-box">🍯 שאלה אחת קבועה בסוף כל שיעור – "מה אני לוקח מכאן לחיים?" – יכולה לשנות את פני הלימוד בכל בית הספר.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מ&quot;מובילים&quot; ל&quot;רכזים&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">רכז הקודש: תפקיד חדש ומקומו</h2></div></div>
+<p class="chapter-intro">מ"מובילים" לרכזים רשמיים: מה התפקיד כולל, איך הוא שונה מרב בית הספר, ומה מגיע לו.</p>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מ&quot;מובילים&quot; ל&quot;רכזים&quot;</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעבר, כשלא היו רכזי קודש, רב בית הספר הוא שהוביל את התחום, ולעתים נכנס גם לצד הפדגוגי. אבל הצורך שעלה מהשטח היה ברור: בכל מקצוע יש רכז – בשפה, במתמטיקה – ואין שום סיבה שדווקא בקודש לא יהיה. הרי "מעלין בקודש".</p>
+<p>בשנה שעברה נקראו העוסקים בכך "מובילים", כי התפקיד עוד לא היה רשמי. השנה הוחלט להפוך אותו לתפקיד רשמי: <strong>רכז קודש</strong>, עם גמול תפקיד של אופק חדש, כמו אצל רכזי המקצועות האחרים.</p>
+<p class="bold-para">השנה הזו קריטית: היא תקבע איך ייראה תפקיד רכז הקודש בשנים הבאות.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: עושר של חומרים – והתפקיד של הרכז ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">עושר של חומרים – והתפקיד של הרכז</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש היום שפע שלא היה בעבר: אתרים, חומרים מובנים, סרטונים, הסברים, פתיחה וסגירה לכל שיעור, וחומרים מתוקשבים. אנשי מקצוע ומדריכים ישבו והכינו הכול. <strong>הכול קיים.</strong> השאלה היא איך משתמשים בזה נכון.</p>
+<p>מה מצופה מרכזות ומרכזי הקודש:</p>
+<ul class="story-list"><li>לעבוד עם הצוותים על הפדגוגיה, כבסיס שעליו בונים את הקומות הנוספות</li><li>לעודד את המורים להשתתף בהשתלמויות, שיש בהן מנעד רחב מאוד</li><li>לגייס את המנהלים להיות שותפים</li><li>לוודא שהמורה ניגש לכל שיעור כשהחומר יושב טוב אצלו, באמונה ובצדקת הדרך</li></ul>
+<p>תפקיד הרכז הולך ומתחדד: הוא אינו רב בית הספר. הרב מוביל את החיים התורניים, והרכז מוביל את <strong>הפדגוגיה</strong> של הקודש.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: חלק מהצוות הפדגוגי ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">חלק מהצוות הפדגוגי</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רכז הקודש חייב להיות חלק מהצוות הפדגוגי של בית הספר, בדיוק כמו שאר הרכזים. במשך שנים שמרנו על הקודש כמקום של חוויה וערכים, ופחדנו לקחת אותו למקום ה"פדגוגי" – כאילו זה יפגע בו. אבל אין כאן סתירה. רוצים פדגוגיה סדורה גם בקודש: תוכנית לימודים, שעות הוראה, מורים שמשתלמים.</p>
+<p>ולכן חשוב <strong>להנכיח</strong>: לא להסתפק במייל לצוות, שהרבה פעמים לא נקרא כמו שצריך, אלא לדבר בישיבות המליאה ובישיבות הצוות, ולהביא את הקודש לשולחן.</p>
+<div class="honey-box">🍯 מה שנאמר בקול בישיבת צוות נשמע הרבה יותר ממה שנשלח במייל.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: לא להישאב רק לאירועים ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לא להישאב רק לאירועים</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הלב של רכזי קודש רבים נמצא בחוויה: ראש חודש, מסיבות, שבתות, פעילויות. את הרוח הזו לא רוצים לעקור – היא חלק מהנשמה של הקודש. אבל צריך להיזהר לא להישאב רק לשם, לתחום החברתי-ערכי. כי אז הפדגוגיה לא באה לידי ביטוי.</p>
+<p>ההקבלה פשוטה: רכז מתמטיקה מוביל את התחום הפדגוגי, ולצד זה יש גם "יום המאה" ותחרויות. אף אחד לא קושר לו את הידיים – אבל המיקוד שלו הוא פדגוגי.</p>
+<p><strong>רב בית הספר</strong> הוא הדמות הרוחנית המשפיעה, שנותנת הדרכה בהלכה ובענייני רוח. <strong>רכז הקודש</strong> אחראי על הפדגוגיה: תוכניות לימוד, צמתי הערכה, ונוכחות הקודש בשטח. צריך לשמור על ההפרדה, כדי שהרכז לא יוצף בכל דבר – ולצד זה על החיבור, כי שניהם רוצים לראות את הקודש חי.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: גמול – ולא להתבייש ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">גמול – ולא להתבייש</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמול מדווח ביחידות, וגובהו משתנה לפי נתוני השכר של כל אחד; יחידה אחת שווה בערך כמה מאות שקלים בחודש. ההמלצה למנהלים היא לדווח לפחות שתי יחידות, וכמה שיותר.</p>
+<p>מי שעוד לא ראה את הגמול – כדאי לחכות לתלוש, ואפשר תמיד לפנות קודם למנהל, בשיח פתוח: מה גובה הגמול שדווח לי?</p>
+<p>כולנו עושים את העבודה מכל הלב והנשמה. אבל בסוף כולנו גם רוצים להיות מתוגמלים, <strong>וזו לא בושה</strong>. רכז שמרגיש שהעבודה דורשת יותר ממה שהוא מקבל – שיפנה למנהל, כמו בכל נושא אחר.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: נבחרתם – ומותר לכם לבקש ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🪜</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">להתמקם בתפקיד</h2></div></div>
+<p class="chapter-intro">התפקיד חדש, ובתי ספר רבים עוד לא יודעים "איך אוכלים אותו". הצעדים הראשונים, השעות והנתונים.</p>
+<article class="story-card" id="story-19" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">נבחרתם – ומותר לכם לבקש</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ברוב בתי הספר עוד לא היה עד היום רכז קודש שיושב בישיבות הנהלה, שמבקש, דורש ומזיז דברים. ההתמקמות דורשת אומץ, ולא לכולם זה קל באותה מידה – יש מי שזה טבעי לו, ויש מי שמתבייש.</p>
+<p>כדאי לזכור: <strong>המנהלים בחרו בכם.</strong> וכשבוחרים במישהו לתפקיד, יש לו גב לבקש.</p>
+<p>הצעד הראשון: לבקש פגישה עם המנהל או המנהלת. ובה לשאול שאלות פשוטות שעד היום אולי איש לא שאל:</p>
+<ul class="story-list"><li>מה אתם מצפים ממני בתפקיד הזה?</li><li>אילו שעות יש לי כדי לעשות אותו? (מחנכת כיתה שקיבלה תפקיד בלי שעות – איך בדיוק תעשה אותו?)</li><li>מה אנחנו חולמים שיקרה כאן בקודש?</li></ul>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: מה בודקים בהתחלה ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה בודקים בהתחלה</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החלום הוא שרכז הקודש ישב בצוות הניהול ויהיה מן המשפיעים המרכזיים בבית הספר. בדרך לשם, כמה שאלות בסיס:</p>
+<ul class="story-list"><li><strong>שעות:</strong> כמה שעות תורה יש בכל שכבה? לפעמים מתברר שבכיתה מסוימת יש שתי שעות תורה בלבד, ו"מסתדרים". כשיש רכז – זה כבר לא עובר בשקט.</li><li><strong>מבנה שיעור:</strong> האם יש מבנה אחיד? או שבכיתה אחת מלמדים כך, בשנייה הכול במצגות, ובשלישית אחרת לגמרי?</li><li><strong>חוברות עבודה:</strong> האם יש? האם המורות מרוצות מהן?</li><li><strong>מפגשי צוות:</strong> לבקש פגישה קבועה עם כל צוות התנ"ך, כדי לדבר באותה שפה.</li></ul>
+<div class="honey-box">🍯 כל זה עוד לפני הפדגוגיה שהמשרד דורש – וזו בדיוק הדרך להתמקם.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: כל בית ספר והילדים שלו ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כל בית ספר והילדים שלו</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אין בית ספר דומה לחברו. יש בתי ספר שבהם חצי מן המשפחות אינן שומרות שבת, וחלקן מסורתיות. יש בתי ספר תורניים מאוד. לא דורשים מכולם אותו הדבר.</p>
+<p>לכן צריך לשבת יחד, לחשוב, ולבנות מבנה שיעור וסדירויות שמתאימים <strong>לבית הספר הזה</strong> ולילדים האלה.</p>
+<p>זה המקום של הרכז. המקום פתוח. וברגע שהדברים ייכנסו – יתחילו להתייחס אליהם.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: לאט לאט, שלב אחר שלב ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לאט לאט, שלב אחר שלב</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש רכזות שמרגישות: "מאיפה נפל עליי הדבר הזה?" אין שעות, הגמול חלקי, ועוד מתביישים לשבת בצוות ניהול. זה מובן לגמרי.</p>
+<p>הסדר המומלץ:</p>
+<ul class="story-list"><li><strong>יסודות ותשתית סדורה</strong> – שעות, מבנה, סדירויות</li><li><strong>פורומים של תנ"ך</strong> – מפגשי צוות קבועים</li><li><strong>תוכניות לפיתוח המורים</strong></li><li><strong>יוזמות והתפתחות</strong> – רק אחרי שהבסיס עומד</li></ul>
+<p>בבית ספר אחד זה ירוץ מהר, ובאחר לאט יותר. לא באים לבדוק את הקצב.</p>
+<p>בכל מקצוע יש רכז – לשפה, לחשבון – ובתנ"ך לא היה. <strong>ובלי רכז אין ריכוז.</strong> לכן זו מהפכה של ממש. ואפשר להתבונן על זה כך: לא רק המנהלת בחרה בכם. <strong>הקדוש ברוך הוא בחר בכם</strong>, וזו השליחות שלכם.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: ומה עם שעות עבודה? ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ומה עם שעות עבודה?</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רוב רכזי הקודש לא קיבלו שעות לתפקיד, מעבר לגמול. יש מנהלים שאומרים: "עשו את זה בשעות השהייה". אבל מורה שמלמד כל היום – מתי הוא יצפה בשיעור, ישב עם צוות או ילווה מורה חדשה?</p>
+<p>התמונה אינה אחידה: יש בתי ספר שבהם גם רכזי השפה, המתמטיקה והחברה מקבלים שעות, ויש שלא. זו תחילת הדרך, וההנהגה המחוזית תעלה את הנושא מול הפיקוח והמנהלים.</p>
+<p>בינתיים, מניסיון: שעות לא מקבלים כשמבקשים "באופן כללי". מקבלים כשמראים מה בדיוק ייעשה בהן. בפגישת תיאום הציפיות עם המנהלת אפשר לשאול: "מה את רוצה שאעשה? להיכנס לכיתות, לבדוק מחברות, לשבת עם הצוות? אז איפה זה יקרה במערכת?" כשהמנהלת רואה את התוכנית – היא מבינה שהיא תצטרך לתת את הזמן.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: מיפוי הקודש: לעבוד מתוך נתונים ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מיפוי הקודש: לעבוד מתוך נתונים</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם רוצים עבודה במיקוד פדגוגי, חייבים להיות מבוססי נתונים. במתמטיקה כל מנהל יודע כמה שעות יש בכל שכבה, ואין הפתעות. בקודש, לעומת זאת, יש לא פעם "נגיסות": שיעור התורה נקבע לשעה הראשונה, ואז בפועל לא מספיקים ללמוד; לא מסיימים פרשות ולא חומשים. ומכיוון שגם לא מעריכים, אפשר לדלג קצת פה וקצת שם בלי שאיש ירגיש.</p>
+<p>מיפוי הקודש, שנשלח לכל בתי הספר, בא לומר: רוצים לדעת מה קורה באמת – כמה שעות, אילו ספרים, איך מאורגנת ההוראה. גם מי שמילא בשנה שעברה צריך למלא שוב, כי דברים משתנים: היו בתי ספר שבשנה אחת הורידו את שעות התורה לשתיים בשבוע. ואם אצלכם לא השתנה דבר – פשוט מכניסים את אותם נתונים.</p>
+<p>את המיפוי ממלאים יחד עם המנהל, שנכנס ראשון ומגדיר את הרכז. ויש כאן גם הזדמנות: פתאום המנהלת צריכה את הרכז, והוא שם.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: כולם אוהבים סוכה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">תורה שבעל פה: מן האהבה אל הפרטים</h2></div></div>
+<p class="chapter-intro">התנ"ך נותן את האהבה; המשנה וההלכה נותנות את הדרך לחיות אותה.</p>
+<article class="story-card" id="story-25" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כולם אוהבים סוכה</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התנ"ך הוא הבסיס והיסודות שלנו, וברוך ה' יש היום אהבה גדולה אליו – גם בציבור הרחב, גם אצל מי שאינם שומרי מצוות. הסיפורים נוגעים בכולם.</p>
+<p>אבל מה שהופך אותנו ליהודים שומרי מצוות הם <strong>הפרטים הקטנים של ההלכה</strong>, והם מגיעים מן התורה שבעל פה.</p>
+<p>כולם אוהבים את חג הסוכות, כולם אוהבים לשבת בסוכה. לא כולם יודעים איזו סוכה כשרה ואיזו לא.</p>
+<p class="bold-para">אם התורה שבעל פה תהיה חלשה – הילדים עלולים לצאת עם אהבת תורה, אבל בלי לדעת איך ליישם אותה.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: למה המשנה היא האתגר הגדול ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה המשנה היא האתגר הגדול</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במצב של התורה שבעל פה – משנה, הלכה וגמרא – יש מה לשפר, ובמיוחד במשנה. לכל מנהלת ברור שתלמיד לא יסיים את בית הספר בלי ללמוד את חמשת חומשי תורה. במשנה זה מבולגן יותר, משתי סיבות:</p>
+<ul class="story-list"><li><strong>היקף:</strong> שישה סדרי משנה ומסכתות רבות. לעולם לא נספיק את כולן, אלא אחוז קטן מהן.</li><li><strong>קושי:</strong> בתנ"ך יש הרבה סיפורים. במשנה בדרך כלל פחות, והיא קשה הרבה יותר.</li></ul>
+<p>התוצאה: לא פעם שיעור המשנה הוא השיעור הפחות אהוב בבית הספר. וזה בדיוק המקום שבו רכז הקודש יכול לחולל שינוי.</p>
+<p>והמציאות בשטח ידועה: כשהמורה מתקשה ונשארת לבד, שיעורי המשנה נלקחים לאט לאט לדברים אחרים – חזרה על חשבון, השלמה באנגלית, הכנה לטקס. פשוט מרוב קושי.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: מסכת שלמה בכל שנה ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מסכת שלמה בכל שנה</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעבר למדו "לקט משניות": קצת מכאן וקצת משם. יצא מזה הרבה בלבול. בשנתיים האחרונות הוחלט על שינוי: <strong>בכל שנה לומדים מסכת שלמה, מההתחלה ועד הסוף.</strong></p>
+<p>היעד ברור – <strong>סיום מסכת</strong>, כמו שעושים סיום חומש. רבים כבר מצליחים להגיע לזה, והרצון הוא שכולם יגיעו.</p>
+<p>בעקבות השינוי השתנתה תוכנית הלימודים, ואיתה ספרי הלימוד. ומכאן נקודה קריטית: מי שלומד מספרי משנה אחרים, שאינם המאושרים, לא יוכל להיעזר בכל התכנים שמגיעים מהמשרד ובקבוצות. הוא נשאר לבד, ועלול ללכת לאיבוד.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: כמות ואיכות ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כמות ואיכות</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתוכנית הלימודים במשנה יש שני צירים.</p>
+<ul class="story-list"><li><strong>כמות:</strong> היעד פשוט וברור – לסיים מסכת שלמה בכל כיתה.</li><li><strong>איכות:</strong> כמו בתנ"ך, גם במשנה הוגדרו מיומנויות שהילד צריך לרכוש לאורך השנים, למשל הבנת מבנה המשנה, זיהוי הדעות השונות וההבחנה בין שאלה לתשובה.</li></ul>
+<p>כדאי שרכזת הקודש תכיר את המיומנויות האלה היטב, ושגם המורות יכירו אותן. ככל שהמורה מכירה אותן, היא יכולה להקנות אותן לילדים בצורה מכוונת, ולא רק "לעבור על המשניות".</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: קבוצה לכל כיתה ולכל תחום ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">קבוצה לכל כיתה ולכל תחום</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לכל שכבה ולכל תחום – משנה, הלכה, תנ"ך – פועלת קבוצת וואטסאפ ארצית של מורים. מורה שמלמדת משנה בכיתה ג' לא נמצאת לבד: איתה בקבוצה עוד מאות מורות שמלמדות בדיוק את אותה מסכת, באותו שבוע. שם עולים חומרים, רעיונות, דפי עבודה ותשובות לשאלות.</p>
+<p>זה פשוט מאוד, וזה כדאי מאוד: לדאוג שכל מורה בבית הספר, בכל תחום, תהיה מחוברת לקבוצה שלה.</p>
+<div class="honey-box">🍯 משימה קטנה לרכז: לעבור על רשימת המורות ולוודא שכל אחת מצטרפת לקבוצה של הכיתה ושל המקצוע שלה.</div>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: ספירלה שעולה קומה ←</a></div>
+</article>
+<article class="story-card" id="story-30" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ספירלה שעולה קומה</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תוכנית הלימודים בהלכה שונה מזו של המשנה. כאן אין ספר אחד שמסיימים. הלימוד בנוי כמו <strong>ספירלה</strong>: בכל שנה חוזרים על כמה נושאים, ברובם לפי מעגל השנה – שבת, חגים, ברכות – ובכל שנה עולים קומה. מה שבכיתה ג' נלמד ברמת היסוד, בכיתה ה' נלמד לעומק ובפרטים רבים יותר.</p>
+<p>גם כאן כדאי להכיר את תוכנית הלימודים לפרטיה, כדי לדעת מה הילד כבר פגש ומה עוד מחכה לו.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: טבלה מול העיניים ←</a></div>
+</article>
+<article class="story-card" id="story-31" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">טבלה מול העיניים</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם במשנה וגם בהלכה יש <strong>פריסה שנתית מדויקת</strong>: מה אמורים ללמוד בכל חודש. את הטבלה הזו כדאי להדפיס ולתלות מול העיניים, אצל הרכזת ואצל כל מורה.</p>
+<p class="bold-para">מי שלא מתכנן – לא מגיע ליעד.</p>
+<p>אין שום סיכוי לסיים מסכת בלי לסלול את הדרך מראש. מסכת לא מסתיימת ביוני בזכות מרתון של שבועיים; היא מסתיימת כי בכל חודש עמדו בקצב.</p>
+<div class="honey-box">🍯 פעם בחודש להציב את הטבלה מול מה שנלמד בפועל, ולראות אם כל כיתה בקצב. פער של שבוע מתקנים בקלות; פער של שלושה חודשים כמעט אי אפשר.</div>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: ספר הלכה לכל ילד ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ספר הלכה לכל ילד</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בהלכה, מכיתה ג' ומעלה, לומדים מספר הלכה מסודר בנוסח קיצור שולחן ערוך, יחד עם חוברת עבודה. לא בכל בית ספר זה קיים עדיין, אבל לשם צריך לחתור.</p>
+<div class="honey-box">🍯 המטרה: שהילד יקלוט שיש דבר כזה <strong>ספר הלכה</strong>. כמו שמבוגר פותח את הספר שלו כשיש לו שאלה, כך גם לילד יהיה ספר שילווה אותו מכיתה ג' ועד ו'.</div>
+<p>הלחץ להשגת הספרים צריך להגיע מלמעלה, דרך הפיקוח אל המנהלים – אבל גם רכזי הקודש שותפים בזה. וזה לטובת כולנו.</p>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: מבחן המפמ&quot;ר בתורה שבעל פה ←</a></div>
+</article>
+<article class="story-card" id="story-33" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מבחן המפמ&quot;ר בתורה שבעל פה</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתורה שבעל פה יש מבחן של המפמ"ר (המפקח המרכז על המקצוע) לכיתות ה'. זהו מבחן פנימי, ואין שום צורך להילחץ ממנו – לא המורות, ובוודאי לא הרכזים.</p>
+<p>למה הוא קיים? כדי להרים את הרף. כדי שהמורות ירגישו שמישהו מסתכל, שמישהו רוצה לדעת מה קורה בשיעורי המשנה וההלכה. הוא לא נועד להעניש איש.</p>
+<p>מי שמלמד לפי תוכנית הלימודים – אין לו ממה לחשוש. ומי שעוד לא – המבחן הוא הזדמנות טובה להתחיל.</p>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: התוכנית היחידה שבנויה לפי המסכת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏃</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">רצים למסכת: להציל את שיעור המשנה</h2></div></div>
+<p class="chapter-intro">התוכנית הדיגיטלית למשנה מבפנים – ואיך רכז הקודש מביא אותה לבית הספר גם כשהתקציב נראה סגור.</p>
+<article class="story-card" id="story-34" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">התוכנית היחידה שבנויה לפי המסכת</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעקבות המעבר למסכת שלמה בכל שנה, נבנתה תוכנית דיגיטלית מלווה למשנה – <strong>רצים למסכת</strong>. נכון להיום זו התוכנית היחידה שמלווה את הוראת המשנה בדיוק לפי תוכנית הלימודים החדשה. כשליש מבתי הספר במחוז כבר רכשו אותה.</p>
+<p>זה עולה כסף, והמנהלות לא תמיד פנויות לכך. אבל בלעדיה המורה נשארת לבד מול חומר קשה, ובעזרתה הדרך לסיום המסכת פתוחה. כדי להבין למה, כדאי להיכנס פנימה ולראות מה יש בה.</p>
+</div><div class="story-next"><a href="#story-35">הקטע הבא: עולם שלם לכל כיתה ←</a></div>
+</article>
+<article class="story-card" id="story-35" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">עולם שלם לכל כיתה</h3><button class="copy-link" type="button" data-id="story-35">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשנכנסים לתוכנית כמורה (מעדכנים סיסמה פעם אחת, ומשם הכול עובד חלק), נפתחים עולמות שלמים של חוויה – עולם לכל שכבה, לפי המסכת שהיא אמורה לסיים. למשל: כיתה ג' לומדת מסכת תענית, כיתה ד' מסכת סוכה ומסכת ראש השנה, וכיתה ו' מסכת ברכות.</p>
+<p>בפתח כל עולם יש סרטון פתיחה שמכניס את הילדים לאווירה: אנחנו מטפסים על גבעות, ויש לנו משימה. יש גם שירים שמלווים את המשניות – עם מילים ובלי מילים – כך שאפשר לפתוח את השיעור בשיר.</p>
+<p>הלימוד עצמו בנוי פרק אחר פרק ומשנה אחר משנה, והמורה רואה כל הזמן את ההתקדמות: מה כבר לימדה, ואיפה היא עומדת ביחס לסיום.</p>
+</div><div class="story-next"><a href="#story-36">הקטע הבא: סרטון, חוברת ומשחק ←</a></div>
+</article>
+<article class="story-card" id="story-36" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">סרטון, חוברת ומשחק</h3><button class="copy-link" type="button" data-id="story-36">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל משנה נפתחת בסרטון קצר, יפה ומושקע, עם דמויות שהילדים מזהים. המטרה: לפתוח את השיעור בצורה חווייתית ולעורר מחשבה על הנושא עוד לפני שקוראים את המשנה.</p>
+<p>אחר כך עוברים לחוברת העבודה. החוברת מוקרנת על המסך וכל ילד מחזיק עותק מודפס, ועובדים עליה יחד. אחת המיומנויות שבה, למשל, היא <strong>צביעת המשנה בצבעים</strong> – כל דעה בצבע משלה, השאלה בצבע אחד והתשובה בצבע אחר – וכך המבנה של המשנה נעשה גלוי לעין.</p>
+<p>בסוף כל יחידה יש תרגול: חידונים ומשחקים שבודקים מה נקלט. הכיתה צוברת נקודות, והילדים מרגישים שהם מתקדמים במשימה משותפת.</p>
+</div><div class="story-next"><a href="#story-37">הקטע הבא: משחקים גם מהבית ←</a></div>
+</article>
+<article class="story-card" id="story-37" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">משחקים גם מהבית</h3><button class="copy-link" type="button" data-id="story-37">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחד הדברים המיוחדים בתוכנית: הילדים יכולים לשחק גם מהבית. ילד חוזר הביתה, מתיישב מול המחשב, ונכנס בקוד הכיתתי שלו. המשחק הוא בעצם תשובות לשאלות על המשניות שנלמדו – וכל תשובה נכונה מוסיפה נקודות לכיתה, שמתחרה ביריב וירטואלי, כביכול כיתה מעיר אחרת.</p>
+<p>מי שמנסה את המשחק בעצמו מגלה מהר שהוא ממכר ממש כמו משחק מחשב. אבל בסוף התהליך הילד יודע את כל המשניות.</p>
+<div class="honey-box">🍯 הדרך הטובה ביותר להבין את התוכנית היא לשחק בה בעצמך. כדאי לבקש קוד ולנסות – עשר דקות של משחק מסבירות יותר מכל מצגת.</div>
+</div><div class="story-next"><a href="#story-38">הקטע הבא: במקום, לא בנוסף ←</a></div>
+</article>
+<article class="story-card" id="story-38" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">במקום, לא בנוסף</h3><button class="copy-link" type="button" data-id="story-38">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב לדעת: התוכנית החדשה לא באה בנוסף לספרי המשניות הקודמים – היא באה <strong>במקומם</strong>. הספרים הישנים אינם מותאמים לתוכנית הלימודים החדשה, שבה לומדים מסכת שלמה בכל שנה.</p>
+<p>ועוד נתון מפתיע: גם בבתי הספר שכבר רכשו את התוכנית, יש כיתות שעוד לא השתמשו בה מעולם. הרישיון קיים, החוברות הגיעו, והמחשב לא נפתח.</p>
+<p class="bold-para">לכן התפקיד של הרכז אינו רק לדאוג שהתוכנית תירכש, אלא גם שהיא באמת תיכנס לכיתות.</p>
+</div><div class="story-next"><a href="#story-39">הקטע הבא: &quot;התקציב כבר נגמר&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-39" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;התקציב כבר נגמר&quot;</h3><button class="copy-link" type="button" data-id="story-39">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השאלה עולה מיד: רכישת ספרים וחוברות נעשית בדרך כלל בתחילת השנה, מתוך תקציב הגפ"ן ומפעל השאלת הספרים. אז האם יש טעם לדבר על זה עכשיו?</p>
+<p>כן. ראשית, כדי שכולם יכירו את התוכנית ויגיעו אליה לפחות בשנה הבאה. ושנית, כי לא מעט בתי ספר נשאר להם תקציב גפ"ן פנוי, והמנהלים לא תמיד זוכרים בו.</p>
+<p>אפשר להתחיל גם בקטן: הרכישה היא לפי כיתה, ומחירה כ-750 ש"ח לכיתה, כשהחוברות לילדים מגיעות איתה בלי תשלום נוסף. מי שרוכש עכשיו – מציל את שנת הלימודים במשנה.</p>
+</div><div class="story-next"><a href="#story-40">הקטע הבא: לדבר בשפה של מקצוען ←</a></div>
+</article>
+<article class="story-card" id="story-40" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לדבר בשפה של מקצוען</h3><button class="copy-link" type="button" data-id="story-40">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן בדיוק נמצא המקום של רכז הקודש. אין צורך להוציא כסף מהכיס – אבל אפשר לבוא למנהלת ולומר: "היינו במפגש הרכזים, שמענו שיש תוכנית חדשה במשנה, תוכנית מצוינת, ואפשר לממן אותה מיתרות הגפ"ן".</p>
+<p>לרוב המנהלים אין זמן להכיר את כל התוכניות והספרים בכל מקצוע. העומס עליהם עצום. וכשמישהו מגיע ומדבר איתם בשפה מקצועית, מכיר את החומר ומביא פתרון מוכן – הוא הופך להיות <strong>יד ימינם</strong>.</p>
+<div class="honey-box">🍯 רכז לא צריך לדעת הכול. מספיק שיידע איפה נמצא הידע – וזה כבר נותן לו מקום של השפעה.</div>
+</div><div class="story-next"><a href="#story-41">הקטע הבא: &quot;תכיני לי רשימה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-41" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;תכיני לי רשימה&quot;</h3><button class="copy-link" type="button" data-id="story-41">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רכזת אחת סיפרה: לאורך הזמן המנהלת ראתה שהיא יודעת בעל פה מה צריכה כל כיתה – אילו ספרים, אילו חוברות. באיזה שלב המנהלת פשוט אמרה לה: "את יודעת את זה הכי טוב. תכיני לי רשימה". הרכזת הכינה, וכמובן הכניסה לרשימה את ספרי המשנה החדשים לכל הכיתות. המנהלת אישרה.</p>
+<p>כך זה עובד: מנהלת רואה שמולה יושב מישהו שמכיר את התחום לעומק, ונותנת לו לנהל אותו.</p>
+<p>ויש גם רווח נוסף: המורות זוכרות מי הביא להן את הכלים. מורה שקיבלה תוכנית שמצילה לה את שיעורי המשנה – תעריך מאוד את הרכזת שדאגה לה.</p>
+</div><div class="story-next"><a href="#story-42">הקטע הבא: כי בתחבולות תעשה לך מלחמה ←</a></div>
+</article>
+<article class="story-card" id="story-42" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כי בתחבולות תעשה לך מלחמה</h3><button class="copy-link" type="button" data-id="story-42">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>כִּי בְתַחְבֻּלוֹת תַּעֲשֶׂה לְּךָ מִלְחָמָה (משלי כד, ו)</blockquote>
+<p>כל המהלכים האלה – לבוא עם הצעה מוכנה, להזכיר את יתרת התקציב, להיות זה שמכיר את הספרים – הם לא רק דרך להשיג חוברות. הם הדרך שבה רכז הקודש <strong>מתמקם</strong> בבית הספר: הופך למשפיע, למרכזי, למי שפונים אליו.</p>
+<p>זה אולי לא נשמע כמו עבודת קודש טהורה, אבל זה בדיוק מה שמאפשר אותה. בסוף כל זה נועד לדבר אחד: להציל את המורות, שלא יישלחו למים עמוקים בלי ספרי לימוד מתאימים, ולתת לילדים לימוד משנה שהם יאהבו.</p>
+</div><div class="story-next"><a href="#story-43">הקטע הבא: צמתי ההערכה: כסלו ואייר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📋</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">הערכה בתנ&quot;ך: לוח הזמנים ושאלות מהשטח</h2></div></div>
+<p class="chapter-intro">צמתי ההערכה של השנה, ההשתלמות והמיקוד החודשי, ותשובות לשאלות שהרכזים שואלים שוב ושוב.</p>
+<article class="story-card" id="story-43" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">צמתי ההערכה: כסלו ואייר</h3><button class="copy-link" type="button" data-id="story-43">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לאורך השנה יש שני צמתי הערכה בקודש: בכסלו ובאייר. כמו שיש שבוע הערכה במתמטיקה ושבוע הערכה בשפה, כך גם בקודש. השנה, בגלל עיכובים במיפויים ובהערכות האחרות, ניתנו לקודש שבועיים של הערכה ולא שבוע אחד – יש גמישות.</p>
+<p>סביר שיהיו תגובות: "מה קרה פתאום? למה עכשיו?" יש בתי ספר שרק עכשיו מינו רכז, ויש דרישות שעוד לא התרגלו אליהן. זה טבעי. אבל זו הדרישה, ואין מוותרים עליה.</p>
+<p class="bold-para">הקודש מקצוע לכל דבר – ושגרת הערכה היא מה שמראה לילדים שהקודש נוכח.</p>
+</div><div class="story-next"><a href="#story-44">הקטע הבא: אירועי ההערכה של השנה ←</a></div>
+</article>
+<article class="story-card" id="story-44" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אירועי ההערכה של השנה</h3><button class="copy-link" type="button" data-id="story-44">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השנה יש אירוע הערכה אחד בכל מחצית. הראשון נפתח בראש חודש כסלו, והשני – במחצית השנייה.</p>
+<ul class="story-list"><li><strong>כיתות ד' ו-ו':</strong> המבחנים חובה</li><li><strong>כיתות ג' ו-ה':</strong> רשות, ומומלץ מאוד לקיים</li><li><strong>כיתה ב':</strong> יש מטלה (השנה על פרשת וישלח), שמופיעה באתר יחד עם המיומנויות</li><li><strong>כיתה א':</strong> אין מבחן</li></ul>
+<p>המבחנים מוכנים, וגם המחוונים. הכול נמצא באתר.</p>
+<p><strong>כיתה ו', במחצית השנייה: המבחן יהיה חיצוני.</strong> הדגשים יפורסמו בהמשך ויועברו בכל הערוצים המקובלים.</p>
+</div><div class="story-next"><a href="#story-45">הקטע הבא: לנעוץ את המבחן בלוח ←</a></div>
+</article>
+<article class="story-card" id="story-45" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לנעוץ את המבחן בלוח</h3><button class="copy-link" type="button" data-id="story-45">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל מורה צריך בסוף הערכה. ובפועל, במהלך השנה פתאום "צץ" רצון לבחון באנגלית, במתמטיקה ובכל שאר המקצועות – והתנ"ך נדחק.</p>
+<p>לכן כדאי כבר עכשיו להכניס את מבחן התורה ללוח המבחנים של בית הספר. יש גמישות: אפשר לקיים אותו בטווח של כמה ימים סביב התאריך. אבל לא לדחות.</p>
+<div class="honey-box">🍯 מה שנדחה – עלול בסוף לא לקרות בכלל.</div>
+</div><div class="story-next"><a href="#story-46">הקטע הבא: מבחנים לחוד ומשימות הערכה לחוד ←</a></div>
+</article>
+<article class="story-card" id="story-46" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מבחנים לחוד ומשימות הערכה לחוד</h3><button class="copy-link" type="button" data-id="story-46">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באתר התנ"ך יש מדור של מיומנויות, הערכה ומדידה. לוחצים עליו, יורדים לאירועי ההערכה, ושם מחכים המבחנים.</p>
+<p>מלבד המבחנים יש גם <strong>משימות הערכה</strong>, וכדאי להבחין ביניהן:</p>
+<ul class="story-list"><li><strong>המבחן</strong> – מתמקד בעיקר בידע</li><li><strong>משימת ההערכה</strong> – מתמקדת יותר בערכים</li></ul>
+<p>מומלץ מאוד לקיים את שתיהן. מי שבוחר לעשות גם וגם – עדיף לקיים קודם את משימת ההערכה ואחריה את המבחן. אבל זה לא כלל ברזל, ואפשר לקיים את המשימות בזמן הנוח לכם.</p>
+</div><div class="story-next"><a href="#story-47">הקטע הבא: מפגשי עומק: ללמוד מן הנתונים ←</a></div>
+</article>
+<article class="story-card" id="story-47" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מפגשי עומק: ללמוד מן הנתונים</h3><button class="copy-link" type="button" data-id="story-47">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי המבחנים ייערכו מפגשי עומק במספר מצומצם של בתי ספר – אחד או שניים, לפי החלטת הפיקוח – ובעיקר סביב כיתות ד' ו-ו'.</p>
+<p>המטרה אינה לבחון חלילה את בית הספר או את רמת ההוראה. זהו <strong>משוב</strong>. כמו שזה עובד כבר בשפה ובמתמטיקה, רוצים לשבת יחד עם הצוות, אחרי שהנתונים הוגשו, ולחשוב: מה למדנו השנה? איפה ההיערכות למבחן שירתה אותנו?</p>
+<p>לא עוד מצגות ודיאגרמות – אלא תובנות אמיתיות שילוו את הוראת הקודש בהמשך הדרך.</p>
+<p>ולכל שאלה, קושי או התלבטות בעבודה השוטפת – המדריכים נמצאים בקבוצה המשותפת, וזמינים גם בפנייה פרטית.</p>
+</div><div class="story-next"><a href="#story-48">הקטע הבא: השתלמות שהיא העבודה עצמה ←</a></div>
+</article>
+<article class="story-card" id="story-48" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">השתלמות שהיא העבודה עצמה</h3><button class="copy-link" type="button" data-id="story-48">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההשתלמות לרכזי הקודש מעשית ופרקטית, ונועדה לתת כלים להובלה בשטח, לא להכביד. היא בנויה מעשרה מפגשים, ובהם גם כנסים ומשימות שממילא נדרשים מהרכזים במהלך השנה. מילוי המיפוי והעברת משימות ההערכה בכסלו נחשבים חלק ממנה, ומשתקללים ב-30 שעות ההשתלמות.</p>
+<p>גם מי שכבר רשום להשתלמויות אחרות – כדאי מאוד להירשם גם לזו. העבודה ממילא נעשית, וחבל שלא תוכר.</p>
+<p>בנוסף, בכל ערב ראש חודש יישלח <strong>מיקוד חודשי</strong>: מה מצופה מרכז הקודש באותו חודש, עם הקישורים הרלוונטיים. גם מנהל שרוצה לדעת מה קורה בקודש יכול לפתוח את המיקוד יחד עם הרכז.</p>
+<div class="honey-box">🍯 תמונת השנה כולה מאפשרת לגזור לאחור; המיקוד החודשי עושה סדר בהווה.</div>
+</div><div class="story-next"><a href="#story-49">הקטע הבא: שאלות מעשיות לשבועות הקרובים ←</a></div>
+</article>
+<article class="story-card" id="story-49" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שאלות מעשיות לשבועות הקרובים</h3><button class="copy-link" type="button" data-id="story-49">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד כאן התמונה הכללית של ההערכה בתנ"ך: מבחנים, משימות הערכה ומפגשי עומק. ועכשיו לשאלות המעשיות ביותר: מה עושים בשבועות הקרובים, איך מדברים עם מורה שלא רוצה להיבחן, ואיך מסבירים להורים בלי להלחיץ.</p>
+<p>העיקרון שמחבר את הכול: ההערכה לא באה לבדוק את המורים ולא לדרג את בית הספר. היא באה להראות לילדים, למורים ולמנהלים שהקודש הוא מקצוע לכל דבר – ולתת לרכז תמונה אמיתית של מה שקורה בכיתות.</p>
+</div><div class="story-next"><a href="#story-50">הקטע הבא: מבחני ד&#x27; ו-ו&#x27;: מה עושים עכשיו ←</a></div>
+</article>
+<article class="story-card" id="story-50" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מבחני ד&#x27; ו-ו&#x27;: מה עושים עכשיו</h3><button class="copy-link" type="button" data-id="story-50">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המורות כבר יודעות שיש מבחן; יצא מסמך מסודר, והוא עבר בקבוצות. מה שנשאר לרכזת:</p>
+<ul class="story-list"><li><strong>ללכת דרך המנהלת</strong>, לא לעקוף אותה ישר אל המורות</li><li><strong>לשאול כל מורה איפה היא עומדת בחומר</strong>, והאם היא ערוכה לכך שבשבועיים הקרובים יש משימת הערכה</li><li><strong>לשלוח תזכורת חודשית:</strong> "חודש טוב, אנחנו נכנסים לחודש ההערכות", ולבקש מכל מורה לכתוב איפה הכיתה שלה עומדת. כך גם המנהלת יכולה לעקוב</li><li><strong>לוודא שהתוצאות מגיעות לרכז הקודש</strong> – הוא צריך להיות מעורב בכל התהליך</li></ul>
+<p>המסמך המסודר שהופץ על ההערכה בתנ"ך כבר כולל הכול – איך נבחנים, מתי, ומה בודקים. את מה שמגיע מוכן לא צריך לכתוב מחדש: עוברים עליו, ומעבירים הלאה בצורה ברורה.</p>
+</div><div class="story-next"><a href="#story-51">הקטע הבא: &quot;אנחנו לומדים חומש אחר&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-51" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;אנחנו לומדים חומש אחר&quot;</h3><button class="copy-link" type="button" data-id="story-51">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בבתי ספר תורניים יותר, הכיתות לא תמיד לומדות לפי החלוקה הרגילה: כיתה ד' כבר בחומש במדבר, כיתה ה' בחומש דברים. מה עושים עם מבחן שנכתב לפי תוכנית הלימודים?</p>
+<p>בבתי ספר כאלה הולכים <strong>לפי החומש ולא לפי הכיתה</strong>. ואם המבחן נראה קשה מדי לילדים צעירים – יש גמישות: אפשר לקצר, להוריד שתי שאלות, להוסיף או להתאים.</p>
+<p>זכרו: זו הערכה פנימית. אף אחד לא מדרג את בית הספר על פיה. היא קיימת בשבילכם, כדי שתחזיקו ביד שיקוף אמיתי של מה שקורה בכיתה. העיקר לעשות אותה ולקבל את המשוב.</p>
+</div><div class="story-next"><a href="#story-52">הקטע הבא: כשמורה אומרת: &quot;אני לא צריכה מבחנים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-52" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כשמורה אומרת: &quot;אני לא צריכה מבחנים&quot;</h3><button class="copy-link" type="button" data-id="story-52">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רכזת פדגוגית ותיקה סיפרה: בשנים שבהן ביקשה תוכניות לימוד בהיסוס, עם מעין התנצלות – לא קיבלה אותן. כשהגיעה ואמרה בביטחון: "אנחנו עולים קומה בפדגוגיה, זו הדרישה שהגיעה מהמנהלת ומהפיקוח, ולא אני המצאתי אותה" – הדברים קרו.</p>
+<p>דרישה ברורה מקלה על שני הצדדים. כשמהססים, גם הצד השני מתחיל להתנדנד, ומושכים את העניין חודש וחצי. כשיש הוראה ברורה, תאריך הגשה ודרך פעולה – כולם יודעים מה לעשות וממשיכים הלאה.</p>
+<div class="honey-box">🍯 לדרוש בביטחון, ולהשאיר תמיד דלת פתוחה: "אשמח לשמוע את התובנות שלכם מהשטח, כדי שנשפר יחד".</div>
+</div><div class="story-next"><a href="#story-53">הקטע הבא: מכתב להורים שלא מלחיץ ←</a></div>
+</article>
+<article class="story-card" id="story-53" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מכתב להורים שלא מלחיץ</h3><button class="copy-link" type="button" data-id="story-53">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מבחן בקודש לא אמור לייצר מתח. המטרה היא שהילד ייצא עם חוויה טובה מלימוד התורה, ולא חלילה עם טעם רע. כך אפשר לנסח את ההודעה להורים:</p>
+<ul class="story-list"><li><strong>תורת חיים:</strong> אנחנו לומדים תורה כדי לחיות אותה, ובלימוד יש חוויה</li><li><strong>חומר פתוח:</strong> המבחן נעשה עם חומש פתוח, והילדים יכולים לעיין בו ולמצוא את התשובות</li><li><strong>בחירה:</strong> יש במבחן יותר שאלות ממה שצריך לענות, וכל ילד בוחר</li><li><strong>חזרה:</strong> הוקדשו שיעור או שניים לחזרה על החומר בכיתה</li></ul>
+<p>כשכל אלה יחד – לימוד, חזרה, חומר פתוח ובחירה – המבחן הופך לחוויה משמעותית, ולא למקור של לחץ.</p>
+<p class="bold-para">הקודש מקצוע שדורש מצוינות – ועושים את זה באהבה.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
