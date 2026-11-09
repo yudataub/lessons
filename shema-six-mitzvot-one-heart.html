@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💙 שש מצוות ולב אחד</title>
+<meta name="description" content="מה מסתתר בפרשה שאנחנו אומרים יותר מכל דבר אחר בעולם - שש מצוות בקריאת שמע, ואיך כולן הן בעצם מצווה אחת: לאהוב את ה&#x27;">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 09.11.2026 🍯</div>
+  <h1 class="hero-title">💙 שש מצוות ולב אחד</h1>
+  <p class="hero-subtitle">מה מסתתר בפרשה שאנחנו אומרים יותר מכל דבר אחר בעולם - שש מצוות בקריאת שמע, ואיך כולן הן בעצם מצווה אחת: לאהוב את ה&#x27;</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 4 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-6 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/Gkp2aVXn28M" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌅 המילים שאנחנו אומרים הכי הרבה</a><ul class="toc-stories"><li><a href="#story-1">כמה פעמים ביום אומרים שמע ישראל?</a></li><li><a href="#story-2">כשמשהו חוזר כל כך הרבה - הוא חשוב מאוד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">👑 המלך והאהבה</a><ul class="toc-stories"><li><a href="#story-3">מצווה ראשונה: ייחוד ה&#x27; - קבלת עול מלכות שמיים</a></li><li><a href="#story-4">מצווה שנייה: אהבת ה&#x27; - בפעם הראשונה</a></li><li><a href="#story-5">בכל לבבך, בכל נפשך, בכל מאדך</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📜 ארבע מצוות שהאהבה מולידה</a><ul class="toc-stories"><li><a href="#story-6">מצווה שלישית: תלמוד תורה - &quot;ושננתם לבניך&quot;</a></li><li><a href="#story-7">מצווה רביעית: קריאת שמע - &quot;ובשכבך ובקומך&quot;</a></li><li><a href="#story-8">מצווה חמישית: תפילין - &quot;וקשרתם&quot;</a></li><li><a href="#story-9">מצווה שישית: מזוזה - &quot;על מזזות ביתך&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">❤️ שש מצוות שהן מצווה אחת</a><ul class="toc-stories"><li><a href="#story-10">הסיכום: שש מצוות בפרשה אחת</a></li><li><a href="#story-11">בעצם יש כאן רק מצווה אחת</a></li><li><a href="#story-12">מתחיל בלב ויוצא החוצה</a></li><li><a href="#story-13">פינת לימוד: איך יודעים שרש&quot;י מתחיל פירוש חדש?</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">המילים שאנחנו אומרים הכי הרבה</h2></div></div>
+<p class="chapter-intro">יש פסוקים שאנחנו פוגשים פעם בשנה, ויש פסוקים שמלווים אותנו מהרגע שאנחנו פוקחים עיניים ועד שאנחנו עוצמים אותן. הנה החשוב שבהם.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כמה פעמים ביום אומרים שמע ישראל?</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נסו לספור. בבוקר, בתפילת שחרית - קריאת שמע. בערב, בתפילת ערבית - שוב קריאת שמע. ובלילה, רגע לפני שנרדמים במיטה - עוד פעם: "שמע ישראל". שלוש פעמים בכל יום, בלי לדלג אפילו על יום אחד.</p>
+<p>וזה נכון לכל יהודי: לילד בכיתה א' ולסבא בן תשעים, בחול ובשבת, בבית ובדרך. מגיל שמתחילים לדבר ועד הנשימה האחרונה - שמע ישראל.</p>
+<p class="bold-para">אין עוד דבר בעולם שאנחנו אומרים כל כך הרבה פעמים כמו שמע ישראל.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: כשמשהו חוזר כל כך הרבה - הוא חשוב מאוד ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשמשהו חוזר כל כך הרבה - הוא חשוב מאוד</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דברים שאומרים פעם בשנה - הם חשובים, אבל אפשר לחיות בלעדיהם רוב השנה. דברים שאומרים בכל בוקר ובכל ערב - הם כמו אוויר לנשימה. אי אפשר לעבור יום אחד בלעדיהם.</p>
+<p>לכן כדאי לעצור ולשאול: מה בדיוק אנחנו אומרים שם? מה יש בפרשה הקצרה הזאת, מספר דברים, שהתורה רצתה שנחזור עליה שוב ושוב?</p>
+<p>כשמתחילים לפרק אותה, מגלים הפתעה: בתוך כמה פסוקים בלבד מסתתרות <strong>שש מצוות שלמות</strong>. בואו נגלה אותן אחת אחת.</p>
+<div class="honey-box">🍯 מה שאומרים בכל יום - בונה את מי שאנחנו. כדאי לדעת בדיוק מה אומרים.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: מצווה ראשונה: ייחוד ה&#x27; - קבלת עול מלכות שמיים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">המלך והאהבה</h2></div></div>
+<p class="chapter-intro">שתי המצוות הראשונות הן היסוד של הכול: לדעת מי מנהיג את העולם, ולאהוב אותו בכל הכוח.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מצווה ראשונה: ייחוד ה&#x27; - קבלת עול מלכות שמיים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>שמע ישראל ה' אלוקינו ה' אחד (דברים ו, ד)</blockquote>
+<p>מה אומר הפסוק הראשון? הוא אומר: אני מאמין שיש בורא לעולם, שהוא אחד ואין עוד מלבדו, והוא המלך והמנהיג של העולם כולו. כל מה שקורה - בשמיים, בארץ ובחיים הקטנים שלי - הוא מנהל.</p>
+<p>לזה קוראים <strong>קבלת עול מלכות שמיים</strong>. "עול" הוא המוט שמניחים על השור כדי שילך בדרך הנכונה. מי שמקבל עליו עול מלכות שמיים אומר: אני לא הבוס של עצמי. יש מלך, ואני הולך בדרכו בשמחה.</p>
+<p>זו הסיבה שכשאומרים את הפסוק הזה מכסים את העיניים ומתרכזים: ברגע הזה ממליכים את ה' עלינו מחדש, כל בוקר וכל ערב.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: מצווה שנייה: אהבת ה&#x27; - בפעם הראשונה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מצווה שנייה: אהבת ה&#x27; - בפעם הראשונה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>ואהבת את ה' אלוקיך בכל לבבך ובכל נפשך ובכל מאדך (דברים ו, ה)</blockquote>
+<p>כאן קורה משהו מיוחד: בפסוקים האלה התורה מצווה במפורש, לראשונה, את המצווה הגדולה ביותר - <strong>לאהוב את ה'</strong>.</p>
+<p>זה מפתיע. היינו חושבים שאהבה היא רגש שבא או לא בא, ואי אפשר לצוות עליו. אבל התורה אומרת: אהבה אפשר לבנות. כשמתבוננים בכל הטוב שה' עושה איתנו - העיניים שרואות, ההורים, האוכל, השבת, התורה - הלב מתחיל להתמלא אהבה מעצמו.</p>
+<p class="bold-para">אהבת ה' היא לא רק הרגשה - היא דרך חיים שלמה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: בכל לבבך, בכל נפשך, בכל מאדך ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">בכל לבבך, בכל נפשך, בכל מאדך</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שלוש המילים האלה מראות עד כמה גדולה צריכה להיות האהבה, וחז"ל פירשו כל אחת מהן (ברכות נד ע"א, ורש"י על הפסוק):</p>
+<ul class="story-list"><li><strong>בכל לבבך</strong> - "בשני יצריך": לא רק בחלק הטוב שבי, אלא גם עם היצר הרע. גם הכוחות החזקים, הרצונות והתשוקות - כולם יכולים להיות מגויסים לאהבת ה'.</li><li><strong>בכל נפשך</strong> - "אפילו הוא נוטל את נפשך": אהבה שמוכנה למסירות נפש. אני אוהב את ה' אפילו יותר מהחיים שלי.</li><li><strong>בכל מאדך</strong> - "בכל ממונך": אהבה שמוכנה להוציא כסף, הרבה כסף, בשביל ה' ובשביל מצוותיו.</li></ul>
+<p>תחשבו על ילד שאוהב באמת את אבא שלו: הוא נותן לו את הלב, הוא מוכן לוותר בשבילו, והוא שמח לקנות לו מתנה מהחסכונות. כך, ועוד הרבה יותר, אוהבים את ה'.</p>
+<div class="honey-box">🍯 אהבה אמיתית לא נמדדת במילים, אלא במה שמוכנים לתת.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: מצווה שלישית: תלמוד תורה - &quot;ושננתם לבניך&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">ארבע מצוות שהאהבה מולידה</h2></div></div>
+<p class="chapter-intro">אחרי שהתורה מדברת על האהבה, היא מראה איך האהבה הזאת יוצאת החוצה: אל הבנים, אל הפה, אל הגוף ואל הבית.</p>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מצווה שלישית: תלמוד תורה - &quot;ושננתם לבניך&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>ושננתם לבניך ודברת בם בשבתך בביתך ובלכתך בדרך ובשכבך ובקומך (דברים ו, ז)</blockquote>
+<p>זו מצוות עשה מהתורה: <strong>ללמוד תורה וללמד אותה לאחרים</strong>. האבא מלמד את הבן, המורה מלמד את התלמידים, וכל מי שיודע משהו - מעביר אותו הלאה.</p>
+<p>המילה "ושננתם" באה מלשון "שנון" - חד. התורה צריכה להיות כל כך ברורה ומחודדת בפה שלנו, שאם מישהו ישאל שאלה - נדע לענות מיד, בלי לגמגם.</p>
+<p>ולמה דווקא כאן, מיד אחרי אהבת ה'? כי מי שאוהב מישהו - רוצה להכיר אותו. והדרך להכיר את ה' היא דרך התורה שלו.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מצווה רביעית: קריאת שמע - &quot;ובשכבך ובקומך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מצווה רביעית: קריאת שמע - &quot;ובשכבך ובקומך&quot;</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איפה כתוב בתורה שיש מצווה לקרוא קריאת שמע בבוקר ובערב? בדיוק באותו פסוק: "ובשכבך ובקומך".</p>
+<p>"בשכבך" - כשאני הולך לשכב בלילה. "ובקומך" - כשאני קם בבוקר. מכאן למדו חז"ל שיש מצווה לקרוא את הפרשה הזאת פעמיים ביום: בשחרית ובערבית.</p>
+<p>יוצא דבר יפה: הפרשה עצמה מצווה עלינו לקרוא אותה. היא כמו מכתב שכתוב בו "תקרא אותי שוב מחר בבוקר".</p>
+<p class="bold-para">כל יום נפתח בהמלכת ה' ונסגר בהמלכת ה'.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מצווה חמישית: תפילין - &quot;וקשרתם&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מצווה חמישית: תפילין - &quot;וקשרתם&quot;</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>וקשרתם לאות על ידך והיו לטטפת בין עיניך (דברים ו, ח)</blockquote>
+<p>כאן מופיעה מצוות <strong>תפילין</strong>: לקשור תפילין על היד ולהניח תפילין על הראש.</p>
+<p>ויש בזה סוד מתוק: מה כתוב בתוך הבתים של התפילין, על הקלף? בין השאר - פרשת "שמע ישראל" עצמה! מצוות קריאת שמע כל כך חשובה, שהיא נכנסת פנימה, לתוך התפילין.</p>
+<p>יוצא שהיהודי לא רק אומר את שמע ישראל בפה - הוא גם קושר את המילים האלה על היד, מול הלב, ועל הראש, מול המחשבה. הלב והמוח מקבלים את אותה הודעה: ה' אחד, ואני אוהב אותו.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מצווה שישית: מזוזה - &quot;על מזזות ביתך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מצווה שישית: מזוזה - &quot;על מזזות ביתך&quot;</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>וכתבתם על מזזות ביתך ובשעריך (דברים ו, ט)</blockquote>
+<p>והמצווה האחרונה: <strong>מזוזה</strong>. כותבים את הפרשה על קלף, ומניחים אותה על משקוף הפתח של הבית ושל כל חדר.</p>
+<p>וגם כאן - מה כתוב בתוך המזוזה? "שמע ישראל". אותן מילים בדיוק.</p>
+<p>כך שמע ישראל מלווה אותנו בכל מקום: בפה בבוקר ובערב, על הגוף בתפילין, ובכל פעם שנכנסים הביתה או יוצאים ממנו - במזוזה שעל הפתח. מי שנוגע במזוזה ומנשק אותה, נזכר לרגע שהבית הזה שייך למלך.</p>
+<div class="honey-box">🍯 בפעם הבאה שאתם עוברים בפתח - תזכרו שעל המזוזה כתוב "ואהבת".</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הסיכום: שש מצוות בפרשה אחת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">❤️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">שש מצוות שהן מצווה אחת</h2></div></div>
+<p class="chapter-intro">כשמסתכלים על התמונה כולה, שש המצוות מתחברות לדבר אחד גדול.</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הסיכום: שש מצוות בפרשה אחת</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בואו נספור מה מצאנו בכמה פסוקים קצרים של קריאת שמע:</p>
+<ul class="story-list"><li><strong>ייחוד ה'</strong> - "שמע ישראל ה' אלוקינו ה' אחד"</li><li><strong>אהבת ה'</strong> - "ואהבת את ה' אלוקיך"</li><li><strong>תלמוד תורה</strong> - "ושננתם לבניך"</li><li><strong>קריאת שמע</strong> - "ובשכבך ובקומך"</li><li><strong>תפילין</strong> - "וקשרתם לאות על ידך"</li><li><strong>מזוזה</strong> - "וכתבתם על מזזות ביתך"</li></ul>
+<p>שש מצוות שלמות, שאנחנו מזכירים לעצמנו כמה פעמים ביום. לא פלא שזו הפרשה החשובה ביותר שאנחנו אומרים.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: בעצם יש כאן רק מצווה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בעצם יש כאן רק מצווה אחת</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו השאלה הכי יפה: האם באמת יש כאן שש מצוות נפרדות? או שכולן הן דבר אחד?</p>
+<p>התשובה: <strong>כולן הן מצווה אחת - לאהוב את הקדוש ברוך הוא.</strong></p>
+<p>כי מה קורה למי שאוהב? הוא רוצה שהאהוב יהיה איתו כל הזמן. הוא מדבר עליו (קריאת שמע), הוא מספר עליו לילדים שלו (תלמוד תורה), הוא קושר אותו על היד ועל הראש (תפילין), והוא תולה אותו על הפתח של הבית (מזוזה). כמו ילד שתולה ציור של אבא שלו על הקיר, ושם תמונה שלו בכיס.</p>
+<p class="bold-para">מחמת אהבת ה' - אני עושה את כל הדברים האלה.</p>
+<p>כל המצוות של קריאת שמע הן פשוט אהבה אחת גדולה שיוצאת החוצה בדרכים שונות.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: מתחיל בלב ויוצא החוצה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מתחיל בלב ויוצא החוצה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שימו לב לסדר של הפסוקים. הם מתחילים בפנים - "והיו הדברים האלה... <strong>על לבבך</strong>" - בלב. אחר כך הם יוצאים אל הפה: "ודברת בם". אחר כך אל הגוף: "וקשרתם לאות על ידך". ובסוף אל הבית: "וכתבתם על מזזות ביתך".</p>
+<p>זו הדרך של אהבת ה': היא מתחילה בלב, ומשם מתפשטת לכל מה שאנחנו - לדיבור, למעשים, לבית ולמשפחה.</p>
+<div class="honey-box">🍯 בפעם הבאה שאתם אומרים שמע ישראל, נסו לומר את "ואהבת" כמו מכתב אהבה - כי זה בדיוק מה שהוא.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: פינת לימוד: איך יודעים שרש&quot;י מתחיל פירוש חדש? ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">פינת לימוד: איך יודעים שרש&quot;י מתחיל פירוש חדש?</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שלומד חומש עם רש"י פוגש לפעמים שני הסברים שונים לאותה מילה, אחד אחרי השני. איך יודעים איפה נגמר ההסבר הראשון ומתחיל השני?</p>
+<p>הסימן פשוט: כשרש"י כותב <strong>"דבר אחר"</strong> - זה סימן שכאן מתחיל פירוש חדש. עד המילים האלה - הסבר אחד, ומהן והלאה - הסבר אחר לאותו פסוק.</p>
+<p>כדאי לשים לב לזה בזמן הלימוד: לפעמים שני הפירושים משלימים זה את זה, ולפעמים הם שתי דרכים שונות לגמרי להבין את הפסוק. ומי שמבחין בכך - מבין את רש"י הרבה יותר טוב.</p>
+<div class="honey-box">🍯 "דבר אחר" ברש"י = עכשיו מתחיל פירוש חדש.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
