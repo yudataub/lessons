@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🎶 המגביהי לשבת, המשפילי לראות</title>
+<meta name="description" content="הפשט המפתיע של המזמור הראשון בהלל, ואחריו: איך הופכים סוגיה אחת לשלוש או ארבע שאלות מחקר טובות">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · הרב קליר · 10.11.2026 🍯</div>
+  <h1 class="hero-title">🎶 המגביהי לשבת, המשפילי לראות</h1>
+  <p class="hero-subtitle">הפשט המפתיע של המזמור הראשון בהלל, ואחריו: איך הופכים סוגיה אחת לשלוש או ארבע שאלות מחקר טובות</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-13 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/yyv-xaqcGEI" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🎶 מזמור קי&quot;ג: לקרוא נכון את ההלל</a><ul class="toc-stories"><li><a href="#story-1">עבדי ה&#x27;, הללו!</a></li><li><a href="#story-2">&quot;מקימי&quot; אינו &quot;מקים אותי&quot;</a></li><li><a href="#story-3">ההוכחה מתפילת חנה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">👑 בורא עולם ומנהיגו</a><ul class="toc-stories"><li><a href="#story-4">גבוה מעל גבוה, ובכל זאת מביט</a></li><li><a href="#story-5">בשביל מה משכן?</a></li><li><a href="#story-6">&quot;אשר הוצאתיך&quot; ולא &quot;אשר בראתי&quot;</a></li><li><a href="#story-7">&quot;חולי ארץ&quot;: שלושה פירושים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🧰 ארגז הכלים של החוקר</a><ul class="toc-stories"><li><a href="#story-8">ארבעה מאגרים שכדאי להכיר</a></li><li><a href="#story-9">לחפש בחכמה: כתיב מלא וכתיב חסר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🔍 משנה אחת, ארבע שאלות</a><ul class="toc-stories"><li><a href="#story-10">לא קושיות, שאלות בירור</a></li><li><a href="#story-11">מלחמת מגן ומלחמת תגרה</a></li><li><a href="#story-12">&quot;סופה&quot; פירושו תכליתה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">✍️ מהסוגיה אל העבודה</a><ul class="toc-stories"><li><a href="#story-13">מצווה הבאה בעבירה</a></li><li><a href="#story-14">תעשה ולא מן העשוי</a></li><li><a href="#story-15">השיטה בארבעה צעדים</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🎶</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">מזמור קי&quot;ג: לקרוא נכון את ההלל</h2></div></div>
+<p class="chapter-intro">בראש חודש אומרים הלל בדילוג. כדאי לפחות לדעת מה אומרים. ומתברר שמילים שכולנו שרים מילדות אינן אומרות מה שחשבנו.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">עבדי ה&#x27;, הללו!</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בראש חודש אומרים הלל בדילוג. אומרים "ה' זכרנו יברך", אבל מדלגים על "לא לנו" ועל "אהבתי כי ישמע ה'". מנהג טוב הוא ללמוד סמוך לכל ראש חודש משהו ממזמורי ההלל, כדי שנדע מה אנחנו אומרים.</p>
+<p>המזמור הראשון פותח:</p>
+<blockquote>"הללויה, הללו עבדי ה', הללו את שם ה'" (תהילים קיג, א)</blockquote>
+<p>אין הכוונה שמהללים את עבדי ה'. זו פנייה אליהם: עבדי ה', הללו את שם ה'! המילה "הללו" חוזרת פעמיים, וזו דרכה של שירת המקרא. כך בשירת דבורה, "עד שקמתי דבורה, שקמתי אם בישראל" (שופטים ה, ז), וכך בתהילים, "נשאו נהרות ה', נשאו נהרות קולם" (צג, ג).</p>
+<p>שני הפסוקים הבאים מקיפים את כל המציאות:</p>
+<blockquote>"יהי שם ה' מבורך מעתה ועד עולם. ממזרח שמש עד מבואו מהולל שם ה'" (קיג, ב-ג)</blockquote>
+<p>"מעתה ועד עולם" הוא ממד הזמן. "ממזרח שמש עד מבואו" הוא ממד המקום, מהמזרח ועד המערב. "מבואו" של השמש הוא שקיעתה, כמו "וילן שם כי בא השמש" (בראשית כח, יא), וכמו "וזרח השמש ובא השמש" (קהלת א, ה).</p>
+<p class="bold-para">שם ה' מבורך בכל זמן ומהולל בכל מקום.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: &quot;מקימי&quot; אינו &quot;מקים אותי&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;מקימי&quot; אינו &quot;מקים אותי&quot;</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן באה ההפתעה.</p>
+<blockquote>"מי כה' אלוקינו המגביהי לשבת, המשפילי לראות בשמים ובארץ. מקימי מעפר דל, מאשפות ירים אביון. להושיבי עם נדיבים, עם נדיבי עמו. מושיבי עקרת הבית אם הבנים שמחה" (קיג, ה-ט)</blockquote>
+<p>את מי הוא "מקימי"? רבים עונים בלי לחשוב: אותי. מגביהי, מגביה אותי. משפילי, משפיל אותי. מושיבי, מושיב אותי.</p>
+<p>זה אינו פשט הפסוק.</p>
+<p>האות י' בסוף המילים האלה אינה כינוי של "אותי". זו י' נוספת, צורה מיוחדת ללשון המקרא. "המגביהי" פירושו המגביה. "מקימי" פירושו המקים. "להושיבי" פירושו להושיב.</p>
+<p>דוגמאות לכך יש בכל התנ"ך:</p>
+<ul class="story-list"><li>"רצון שוכני סנה" (דברים לג, טז), כלומר השוכן בסנה</li><li>"אוסרי לגפן עירה" (בראשית מט, יא), כלומר האוסר</li><li>"הסולח לכל עווניכי, הרופא לכל תחלואיכי" (תהילים קג, ג), כלומר עוונך ותחלואיך</li></ul>
+<p>לשון המקרא, ובמיוחד לשון השירה שבתהילים, היא שפה בפני עצמה. מי שקורא אותה כאילו היא עברית של ימינו טועה במשמעות.</p>
+<div class="honey-box">🍯 בפעם הבאה שאומרים הלל: "מקימי מעפר דל" פירושו שה' מקים את הדל, ולא "מקים אותי".</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: ההוכחה מתפילת חנה ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ההוכחה מתפילת חנה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש הוכחה נוספת, ומי שמכיר את ספר שמואל שומע אותה מיד. בתפילת חנה נאמר:</p>
+<blockquote>"מקים מעפר דל, מאשפות ירים אביון, להושיב עם נדיבים, וכיסא כבוד ינחילם" (שמואל א ב, ח)</blockquote>
+<p>אלה כמעט אותן מילים, ושם כתוב בפשטות "מקים" ו"להושיב", בלי י'. חנה קדמה לדוד, שהרי היא אמו של שמואל שמשח אותו. המזמור בתהילים מהדהד את תפילתה.</p>
+<p>עכשיו הפסוקים נקראים כראוי. את מי הוא מקים? את הדל. מהיכן? מהעפר. את מי ירים מהאשפות? את האביון. ובשביל מה? כדי להושיב את הדל ואת האביון עם נדיבי עמו.</p>
+<p>וגם סוף המזמור מקביל לתפילת חנה. שם נאמר "עד עקרה ילדה שבעה" (ב, ה), וכאן "מושיבי עקרת הבית אם הבנים שמחה". "עקרת הבית" היא העקרה, האישה שלא ילדה. ה' מושיב אותה בביתה כאם שמחה בבניה. אין הכוונה כאן למי שמנהלת את הבית.</p>
+<p>גם תרגום התהילים הארמי מפרש כך, וכך כתבו המפרשים על אתר. זה פשוטו של מקרא ולא חידוש מפולפל.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: גבוה מעל גבוה, ובכל זאת מביט ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">בורא עולם ומנהיגו</h2></div></div>
+<p class="chapter-intro">הדקדוק הקטן פותח פתח לאחד מיסודות האמונה: הקדוש ברוך הוא רם מעל הכול, ועם זאת רואה כל אחד.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גבוה מעל גבוה, ובכל זאת מביט</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם "המגביהי" ו"המשפילי" אינם מדברים עליי, על מי הם מדברים? על הקדוש ברוך הוא עצמו. הוא המגביה את מושבו, והוא המשפיל את מבטו לראות בשמים ובארץ.</p>
+<p>בכך המזמור יוצא נגד תפיסה קדומה. היו הוגים בעולם העתיק שהודו שיש בורא לעולם, אבל טענו שהבורא נשגב כל כך והעולם פחות כל כך, שאין הוא מתעניין בו. ברא ועזב.</p>
+<p>המזמור מודה בחצי הראשון: "רם על כל גויים ה', על השמים כבודו". ומיד מוסיף: "מי כה' אלוקינו". דווקא מפני שהוא רם כל כך, גדולתו ניכרת בכך שהוא משפיל לראות.</p>
+<p>והלשון מדויקת: "לראות בשמים ובארץ". גם השמים הם בשבילו הבטה כלפי מטה, שהרי השמים ושמי השמים אינם מכילים אותו.</p>
+<p>כך מבאר המלבי"ם. לדעת העמים, ה' התרומם מהעולם השפל ואין מכבודו להשגיח על השפלים. העושר, הבנים והכבוד תלויים לדעתם במזל ובמערכת הכוכבים, ולכן אין שמו מבורך אצלם. המזמור אומר להפך: ההשגחה יורדת עד השפל שבשפלים, עד הדל שבעפר. הדבר קשור לסוגיה שבסוף מסכת שבת, שלפיה אין מזל לישראל.</p>
+<p class="bold-para">ה' מגביה לשבת, ועם זאת משפיל לראות. את שני הדברים יחד אנחנו מהללים.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: בשביל מה משכן? ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">בשביל מה משכן?</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרעיון הזה מסביר גם את המשכן ואת המקדש.</p>
+<p>שלמה המלך עצמו, ביום שחנך את הבית, תמה:</p>
+<blockquote>"הנה השמים ושמי השמים לא יכלכלוך, אף כי הבית הזה אשר בניתי" (מלכים א ח, כז)</blockquote>
+<p>והנביא אומר:</p>
+<blockquote>"כה אמר ה': השמים כסאי והארץ הדום רגלי, אי זה בית אשר תבנו לי ואי זה מקום מנוחתי" (ישעיהו סו, א)</blockquote>
+<p>אם מלוא כל הארץ כבודו, מה פשר הציווי לבנות לו בית? האם הוא שוכן רק שם?</p>
+<p>האברבנאל מבאר שהמשכן אינו בא לצמצם את ה' למקום אחד. הוא בא בשבילנו. הקדוש ברוך הוא רצה שיהיה בתוך המחנה מקום שבו נוכחותו מורגשת, כדי שלא יעלה על דעתנו שעזב ה' את הארץ.</p>
+<p>זו אותה אמונה שבמזמור. מי שרם על כל גויים בוחר לשכון בתוך עמו. וכמו שהוא משפיל לראות את הדל שבעפר, כך הוא קובע לו מקום בין בני אדם, שיידעו שהוא איתם.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;אשר הוצאתיך&quot; ולא &quot;אשר בראתי&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;אשר הוצאתיך&quot; ולא &quot;אשר בראתי&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי יהודה הלוי שאל את רבי אברהם אבן עזרא שאלה, ואבן עזרא מביא אותה בפירושו לעשרת הדיברות. מדוע פתח הקדוש ברוך הוא ב"אנכי ה' אלוקיך אשר הוצאתיך מארץ מצרים מבית עבדים" (שמות כ, ב), ולא אמר "אשר בראתי שמים וארץ"? הרי הבריאה גדולה לאין ערוך מיציאת מצרים.</p>
+<p><strong>תשובת אבן עזרא:</strong> הבריאה אכן נשגבה יותר, אבל בריאת יש מאין אינה מושגת לכל אדם. לא כל אחד מסוגל להבין אותה. לכן הציג ה' את עצמו בדבר שכל העומדים בסיני ראו בעיניהם: את זה אתם זוכרים, זה קרה לכם עכשיו.</p>
+<p><strong>דרכו של רבי יהודה הלוי בספר הכוזרי</strong> אחרת. "אשר הוצאתיך" הוא התואר הגבוה יותר. מי שיודע רק שה' ברא את העולם עלול לחשוב שברא ועזב, אלוקי הטבע שקבע חוקים והסתלק. "אשר הוצאתיך מארץ מצרים" אומר שהוא גם מנהיג את עולמו ומתערב בו בכל רגע.</p>
+<p>יש מי שמנסח זאת כך: האם הוא רק אלוקי הטבע, או גם אלוקי ההיסטוריה? אדם מאמין אינו מסתפק בראשון. עצם העובדה שאנחנו מתפללים מעידה שאנחנו מאמינים שהוא שומע, משגיח ומשנה.</p>
+<p>וזה בדיוק המזמור שלנו, וזו תפילת חנה: "ה' מוריש ומעשיר, משפיל אף מרומם" (שמואל א ב, ז). הוא משנה את מעמדם של הבריות, מקים דל מעפר ומשמח עקרה בבנים.</p>
+<div class="honey-box">🍯 כשאומרים "מקימי מעפר דל", מהללים את מי שברא את העולם וגם לא עזב אותו לרגע.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: &quot;חולי ארץ&quot;: שלושה פירושים ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;חולי ארץ&quot;: שלושה פירושים</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אותה י' מופיעה גם במזמור הבא, "בצאת ישראל ממצרים":</p>
+<blockquote>"מלפני אדון חולי ארץ, מלפני אלוק יעקב. ההופכי הצור אגם מים, חלמיש למעיינו מים" (תהילים קיד, ז-ח)</blockquote>
+<p>"ההופכי" כבר ברור: ההופך את הצור לאגם מים, ולא "הופך אותי". ומה פירוש "חולי ארץ"? יש שלוש אפשרויות.</p>
+<p><strong>רקדי.</strong> "חולי" הוא ציווי לארץ, מלשון מחול. זה מתאים למזמור עצמו: "ההרים רקדו כאילים, גבעות כבני צאן".</p>
+<p><strong>רעדי.</strong> "חולי" הוא ציווי מלשון חיל ורעדה, כמו "ותתחלחל המלכה מאוד" (אסתר ד, ד). הארץ רועדת מפני אדוניה.</p>
+<p><strong>מחולל הארץ.</strong> לפי מה שלמדנו על הי' הנוספת, "חולי" אינו ציווי כלל. הוא תואר לקדוש ברוך הוא: המחולל, היוצר את הארץ. השורש מוכר: "קול ה' יחולל איילות" (תהילים כט, ט), ובאיוב "חולל איילות תשמור" (לט, א). מכאן גם הביטוי "לחולל מהפכה".</p>
+<p>לפי הפירוש השלישי המזמור נקרא כשאלה ותשובה. שואלים את הים: "מה לך כי תנוס?" ואת הירדן: למה תיסוב לאחור? ואת ההרים: למה תרקדו? והם עונים: מלפני אדון, מחולל הארץ, מלפני אלוק יעקב, ההופך צור לאגם מים.</p>
+<p>הפירוש הזה נראה המסתבר ביותר בפשט הפסוק, והוא מתאים ללשון כל המזמור.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: ארבעה מאגרים שכדאי להכיר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🧰</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">ארגז הכלים של החוקר</h2></div></div>
+<p class="chapter-intro">מי שכותב עבודה תורנית צריך לדעת היכן מחפשים, ולא פחות מזה, איך מחפשים.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ארבעה מאגרים שכדאי להכיר</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עבודת חקר בנויה מתקציר, מבוא וגוף העבודה. אבל לפני שכותבים צריך למצוא חומר. אלה ארבעה מאגרים שכל כותב עבודה בתחומי היהדות צריך להכיר:</p>
+<ul class="story-list"><li><strong>רמב"י</strong>, רשימת מאמרים במדעי היהדות. מפתח ענק למאמרים שנכתבו בכל תחומי היהדות, לפי נושא ומחבר.</li><li><strong>מפתח חיפה למאמרים.</strong> יתרונו הגדול הוא שלחלק מהמאמרים יש גישה מקוונת. אין צורך לנסוע לספרייה ולחפש את כתב העת על המדף. רואים את המאמר עצמו על המסך.</li><li><strong>פרויקט השו"ת.</strong> מאגר הטקסטים התורניים הגדול: תנ"ך, תלמוד, ראשונים, אחרונים ושאלות ותשובות, עם חיפוש לפי מילים.</li><li><strong>כותר, ספרי עיון.</strong> ספרייה מקוונת שבה אפשר לדפדף בספר עצמו, לעיין בו, ואפילו להעתיק פסקה ישר למסמך.</li></ul>
+<p>הכלים האלה מועילים לכל עבודה אקדמית בתחום, ולא לעבודה אחת בלבד.</p>
+<div class="honey-box">🍯 לפני שמתחילים לכתוב, כדאי להקדיש שעה לכל מאגר ולחפש בו את נושא העבודה. רשימת המקורות תתמלא מהר.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: לחפש בחכמה: כתיב מלא וכתיב חסר ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לחפש בחכמה: כתיב מלא וכתיב חסר</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מאגר מחזיר רק את מה שמבקשים ממנו, באותיות המדויקות. לכן צריך לחפש בחכמה.</p>
+<p>נניח שמחפשים בפרויקט השו"ת את הביטוי "מצווה הבאה בעבירה". יש ספרים שבהם כתוב "בעבירה" ביו"ד, ויש שבהם כתוב "בעברה" בלי יו"ד. מי שמחפש בצורה אחת בלבד מפסיד חצי מהתוצאות.</p>
+<p>כך גם "בין אדם לחברו": לפעמים "לחברו" ולפעמים "לחבירו".</p>
+<p>הכלל: <strong>כל ביטוי מחפשים פעמיים, פעם בכתיב מלא ופעם בכתיב חסר.</strong> זה נכון לכל מאגר שבפרויקט השו"ת, וגם למאגרים אחרים.</p>
+<p>כדאי לחשוב גם על צורות נוספות של אותו מושג: ראשי תיבות לעומת מילים מלאות, לשון יחיד ולשון רבים, ארמית ועברית. חיפוש טוב הוא כמה ניסיונות, וכל אחד מהם מוסיף מקורות.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: לא קושיות, שאלות בירור ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🔍</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">משנה אחת, ארבע שאלות</h2></div></div>
+<p class="chapter-intro">הדגמה: לוקחים משנה שכולם יודעים בעל פה, ושואלים עליה שאלות שכל אחת מהן יכולה להיות פרק בעבודה.</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא קושיות, שאלות בירור</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עבודה טובה צומחת מכמה שאלות ממוקדות על סוגיה אחת, ולא מ"נושא" כללי. אלה אינן בהכרח קושיות חריפות. הן שאלות בירור, דברים שמעניין לברר.</p>
+<p>דוגמה ממשנה שכולם מכירים:</p>
+<blockquote>"כל מחלוקת שהיא לשם שמים, סופה להתקיים. ושאינה לשם שמים, אין סופה להתקיים. איזו היא מחלוקת שהיא לשם שמים? זו מחלוקת הלל ושמאי. ושאינה לשם שמים? זו מחלוקת קורח וכל עדתו" (אבות ה, יז)</blockquote>
+<p>אפשר לשאול עליה ארבע שאלות:</p>
+<ul class="story-list"><li><strong>מה ההגדרה?</strong> איך מזהים מחלוקת לשם שמים? הרי כל אדם יאמר שהמחלוקת שלו היא לשם שמים.</li><li><strong>למה "סופה להתקיים"?</strong> ההיגיון אומר להפך. מחלוקת לשם שמים אמורה להיגמר, כי שני הצדדים מחפשים פתרון, ודווקא מחלוקת של אינטרסים נמשכת בלי סוף.</li><li><strong>למה דווקא הלל ושמאי?</strong> למה לא שמעיה ואבטליון, או יהודה בן טבאי ושמעון בן שטח, או רבי מאיר ורבי יהודה?</li><li><strong>למה "קורח וכל עדתו"?</strong> מול "הלל ושמאי" היינו מצפים ל"קורח ומשה".</li></ul>
+<p>על כל שאלה כזו אפשר לחפש, למצוא ולכתוב הרבה. וכל אחת יכולה להיות פרק או תת פרק.</p>
+<p class="bold-para">קודם כול השאלה צריכה לעניין את הכותב. אחרי שהיא מעניינת, מתחילים לחקור.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: מלחמת מגן ומלחמת תגרה ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מלחמת מגן ומלחמת תגרה</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך מזהים מחלוקת לשם שמים? הרב קוק עונה על כך בספרו "עין איה" על מסכת ברכות.</p>
+<p>בסיפור העברת רבן גמליאל מנשיאותו (ברכות כז ע"ב) נאמר שהמתינו "עד שייכנסו בעלי תריסין" לבית המדרש. רש"י מפרש: תלמידי חכמים, שמנצחים זה את זה בהלכה.</p>
+<p>הרב קוק מדייק במילה. תריס הוא מגן. גם היום התריס מגן על הבית מפני השמש והרוח. ויש שני סוגי מלחמה:</p>
+<ul class="story-list"><li><strong>מלחמת תגרה</strong>, מלחמה של התקפה, שמטרתה לעקור את הצד שכנגד. כך נלחמים בעבודה זרה ובדעות שצריכות להיעקר מהעולם.</li><li><strong>מלחמת מגן</strong>, שבה כל צד מגן על עמדתו.</li></ul>
+<p>חכמים נקראים "בעלי תריסין", בעלי מגן. כששניים לומדים בחברותא וחלוקים, כל אחד מביא ראיות לדעתו. הוא אינו עסוק בלהחריב את דעת חברו, ובוודאי לא בלרמוס אותו. שניהם רוצים להגיע לאמיתה של תורה.</p>
+<p>זה הסימן: <strong>במחלוקת לשם שמים כל צד מגן על דעתו, ואינו מנסה להחריב את דעת חברו.</strong></p>
+<div class="honey-box">🍯 בוויכוח הבא כדאי לשים לב: האם אני מסביר למה אני צודק, או עסוק בלהראות שהשני טיפש? הראשון הוא מגן, והשני הוא תגרה.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;סופה&quot; פירושו תכליתה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;סופה&quot; פירושו תכליתה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומדוע מחלוקת לשם שמים "סופה להתקיים"? הרי היינו מצפים שתוכרע ותיגמר.</p>
+<p>יש מהמפרשים שביארו ש"סופה" אין פירושו כאן "מה שיקרה בסופה". פירושו <strong>תכליתה</strong>. מחלוקת לשם שמים, התכלית שלה היא קיום. היא באה לבנות, לברר ולפתור, ולכן היא מקיימת את העולם.</p>
+<p>וזה אינו רק בבית המדרש. שני מהנדסים שחלוקים איך לפתור בעיה, אם שניהם רוצים באמת את הפתרון הטוב ואין ביניהם מאבק של כבוד, גם זו מחלוקת לשם שמים. בשלב מסוים אחד מהם יאמר: אתה צודק. ושניהם ירוויחו.</p>
+<p>על השאלה השלישית, למה דווקא הלל ושמאי, אפשר לכתוב פרק שלם. הלל ושמאי עצמם כמעט לא נחלקו. מחלוקות ספורות בלבד, כפי שעולה מתחילת מסכת עדויות. המחלוקות הרבות הן של תלמידיהם, בית הלל ובית שמאי.</p>
+<p>ועל השאלה הרביעית עונה המלבי"ם: לא נאמר "קורח ומשה" כי המחלוקת שם הייתה גם בתוך המחנה של קורח. עדתו לא הייתה מאוחדת. כל אחד בא עם תביעה משלו, ורק ההתנגדות חיברה ביניהם. זה סימן נוסף. במחלוקת לשם שמים כל צד מאוחד סביב דעתו. במחלוקת שאינה לשם שמים, גם בתוך כל צד יש פירוד, והמשותף היחיד הוא נגד מי הם.</p>
+<p>משנה קצרה אחת וארבע שאלות, וכבר יש שלד של עבודה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: מצווה הבאה בעבירה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">✍️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מהסוגיה אל העבודה</h2></div></div>
+<p class="chapter-intro">אותה שיטה, הפעם על סוגיות ממסכת סוכה. לומדים, שואלים שתיים או שלוש שאלות, וכל שאלה נעשית פרק.</p>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מצווה הבאה בעבירה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפרק השלישי במסכת סוכה פותח: "לולב הגזול והיבש פסול". הגמרא שואלת: ביום הראשון מובן, שהרי נאמר "ולקחתם לכם", ודרשו חכמים "לכם", משלכם. אבל ביום השני, מה הפסול? ועונה: "אמר רבי יוחנן משום רבי שמעון בן יוחי, משום דהוה ליה מצווה הבאה בעבירה" (סוכה ל ע"א). הגמרא מביאה לכך את פסוקי מלאכי על מי שמקריב קרבן גזול: "הקריבהו נא לפחתך, הירצך או הישא פניך" (מלאכי א, ח).</p>
+<p>אחרי שלמדו את הסוגיה בחברותא, אפשר לשאול:</p>
+<ul class="story-list"><li><strong>מה הבעיה בכלל?</strong> עשיתי מצווה, ולצידה עבירה. שיירשם לי אחד בצד הזכות ואחד בצד החובה, כדברי המשנה: "העושה מצווה אחת קונה לו פרקליט אחד, והעובר עבירה אחת קונה לו קטיגור אחד" (אבות ד, יא). למה העבירה מבטלת את המצווה?</li><li><strong>מה גדר הפסול?</strong> האם הוא מהתורה או מדברי חכמים?</li><li><strong>מה פירוש "הבאה" בעבירה?</strong> התוספות שם מאריכים בזה. האם דווקא כשהעבירה היא שאפשרה את המצווה, שאלמלא גזל לא היה לו לולב? וכך בבבא קמא (צד ע"א): מי שגזל חיטים, טחן, אפה והפריש חלה, "אין זה מברך אלא מנאץ".</li><li><strong>ומה בין זה לפסולים אחרים?</strong> מדוע בלולב של עבודה זרה הגמרא נותנת טעם אחר לגמרי, שהוא עומד להישרף ונחשב כאילו אין בו שיעור?</li></ul>
+<p>שלוש או ארבע שאלות, וכל אחת פרק. עבודה של חמישה עשר עמודים אינה צריכה יותר מזה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: תעשה ולא מן העשוי ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">תעשה ולא מן העשוי</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה נוספת, מהפרק הראשון של מסכת סוכה. סוכה צריכה להיעשות, ולא להיווצר מאליה ממשהו שכבר עשוי. לכן "החוטט בגדיש לעשות לו סוכה, אינה סוכה" (סוכה טו ע"א): מי שחפר חלל בתוך ערימת תבואה לא עשה סכך. הסכך נוצר מעצמו. הדין נלמד מהפסוק:</p>
+<blockquote>"חג הסוכות תעשה לך שבעת ימים" (דברים טז, יג)</blockquote>
+<p>אילו שאלות אפשר לשאול?</p>
+<ul class="story-list"><li><strong>למה זה פוסל?</strong> התורה ציוותה לשבת בסוכה. האם יש גם דין בעשייה עצמה? ואם ישבתי בסוכה שלא אני עשיתי? כאן נכנסת מחלוקת רבי אליעזר וחכמים בסוכה שאולה. לרבי אליעזר אין אדם יוצא בסוכת חברו, ולחכמים "כל ישראל ראויים לישב בסוכה אחת" (סוכה כז ע"ב).</li><li><strong>באילו מצוות נוספות יש דין עשייה?</strong> בציצית בוודאי, שנאמר "גדילים תעשה לך על ארבע כנפות כסותך" (דברים כב, יב), וגם שם נאמר "תעשה ולא מן העשוי".</li><li><strong>ומה עם מעקה?</strong> גם שם כתוב "ועשית מעקה לגגך" (דברים כב, ח). האם גם שם יש דין כזה? אפשר לחלק: בסוכה ובציצית העשייה היא חלק מהמצווה, ובמעקה המטרה היא שלא ייפול הנופל. זו שאלה ששווה לבדוק.</li></ul>
+<p>כך נולדת שאלת מחקר טובה. מישהו בחברותא זורק מילה אחת, "מעקה", ופתאום נפתח כיוון שלא חשבו עליו.</p>
+<p class="bold-para">אין צורך להתפרס על כל התורה. נשארים צמודים לסוגיה ושואלים עליה שאלות.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: השיטה בארבעה צעדים ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">השיטה בארבעה צעדים</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זו הדרך, מהסוגיה ועד העבודה הכתובה:</p>
+<ul class="story-list"><li><strong>בוחרים סוגיה וחברותא.</strong> סוגיה אחת ומוגדרת, לא מסכת ולא נושא רחב.</li><li><strong>לומדים אותה יחד.</strong> קודם כול פשוט לומדים את הגמרא, רש"י ותוספות, עד שמבינים את המהלך.</li><li><strong>מנסחים שתיים עד ארבע שאלות.</strong> שאלות בירור שמעניינות אתכם: מה ההגדרה, מה הטעם, מה הגבול, היכן עוד מצאנו דבר דומה. גם שאלה אחת טובה מספיקה כדי להתחיל.</li><li><strong>יוצאים לחפש.</strong> כל שאלה נעשית פרק. פותחים את המאגרים, מחפשים בכתיב מלא וחסר, ואוספים ראשונים, אחרונים ומאמרים.</li></ul>
+<p>מה מפתחים בכל פרק? מציגים את המקור, מביאים את השיטות שנאמרו בו, מראים היכן הן נחלקות ומה יוצא מכל אחת, ומסכמים.</p>
+<p>כדאי לדבר על זה עם החברותא, ואפילו סתם לפטפט על הסוגיה. הרבה שאלות טובות עולות דווקא בשיחה חופשית.</p>
+<div class="honey-box">🍯 המבחן לשאלת מחקר טובה: האם היא נוגעת ישירות לסוגיה, והאם באמת מסקרן אותך לדעת את התשובה? אם שתי התשובות חיוביות, יש לך פרק.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
