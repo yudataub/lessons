@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🕎 הבית שלך הוא בית המקדש</title>
+<meta name="description" content="ארבע קושיות של &quot;מה נשתנה&quot; על חנוכה, ותשובה אחת שמאירה את כולן: נר חנוכה הוא ההמשך של מנורת המקדש, והבית שלך הוא המקדש שלה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 12.11.2026 🍯</div>
+  <h1 class="hero-title">🕎 הבית שלך הוא בית המקדש</h1>
+  <p class="hero-subtitle">ארבע קושיות של &quot;מה נשתנה&quot; על חנוכה, ותשובה אחת שמאירה את כולן: נר חנוכה הוא ההמשך של מנורת המקדש, והבית שלך הוא המקדש שלה.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-13 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/F51OLUgqBPE" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌟 חג אחד שמאיר ארבעה חודשים</a><ul class="toc-stories"><li><a href="#story-1">החג שיש לו הכי הרבה זמן</a></li><li><a href="#story-2">חידה: איך כסלו וטבת מתחלקים בחנוכה חצי-חצי?</a></li><li><a href="#story-3">האגודל: הסוד של היד</a></li><li><a href="#story-4">הקול החמישי</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">❓ מה נשתנה חנוכה מכל החגים?</a><ul class="toc-stories"><li><a href="#story-5">פרעה בפיג&#x27;מה, ושיר שמלמד</a></li><li><a href="#story-6">קושיה ראשונה: רק בבית</a></li><li><a href="#story-7">קושיה שנייה: אשתו כגופו</a></li><li><a href="#story-8">קושיה שלישית: אחד מדליק לכולם</a></li><li><a href="#story-9">קושיה רביעית: מצווה שנגמרת בשיר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🔥 הנחמה של אהרן הכהן</a><ul class="toc-stories"><li><a href="#story-10">&quot;שלך גדולה משלהם&quot;</a></li><li><a href="#story-11">הרמז לחנוכת החשמונאים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🫒 מנורה קטנה בכל בית</a><ul class="toc-stories"><li><a href="#story-12">שמן זית, כמו במקדש</a></li><li><a href="#story-13">&quot;הנרות הללו קודש הם&quot;</a></li><li><a href="#story-14">שמונה קנים ושמש אחד</a></li><li><a href="#story-15">סגולה לבנים תלמידי חכמים</a></li><li><a href="#story-16">ערב שבת ובית הכנסת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🏠 תשובה אחת לארבע הקושיות</a><ul class="toc-stories"><li><a href="#story-17">איפה יש לאדם פרטי בית מקדש?</a></li><li><a href="#story-18">מנורה אחת לכל ישראל</a></li><li><a href="#story-19">ולמה שרים? כי במקדש שרו</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌟</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">חג אחד שמאיר ארבעה חודשים</h2></div></div>
+<p class="chapter-intro">ראש חודש כסלו. עוד לפני שמדליקים נר ראשון, כדאי לעצור ולראות איפה בדיוק עומד חנוכה בלוח השנה, ולמה דווקא שם.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החג שיש לו הכי הרבה זמן</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חודש טוב! נכנסנו לחודש כסלו, החודש שזוכה בבתי הספר לפופולריות הגדולה ביותר. הסיבה פשוטה: לשאר החגים כמעט אין זמן הכנה. הלימודים מתחילים, ומיד ראש השנה. יום כיפור וסוכות עוברים בחופשה. לפני פסח יוצאים הביתה שבועיים מראש.</p>
+<p>ורק חנוכה עומד לבדו באמצע החורף. מראש חודש כסלו ועד ההדלקה הראשונה יש כמעט חודש שלם של ציפייה, וכולם מחכים למשהו שיאיר את הימים הקצרים והקרים.</p>
+<p>רואים את זה גם במספרים. במאגר חומרי הלימוד יש כ-3,400 חומרים על חנוכה לבדו. לכל חגי תשרי ביחד, אלול, ראש השנה, יום כיפור, סוכות ושמחת תורה, יש כ-4,700. חג אחד של שמונה ימים כמעט משתווה לחודש שלם של חגים.</p>
+<p class="bold-para">חנוכה הוא חג שיש זמן להתכונן אליו, ולכן יש זמן גם לאהוב אותו.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: חידה: איך כסלו וטבת מתחלקים בחנוכה חצי-חצי? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חידה: איך כסלו וטבת מתחלקים בחנוכה חצי-חצי?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חנוכה הוא החג היחיד שעובר מחודש לחודש. הוא מתחיל בכ"ה בכסלו ומסתיים בטבת. ואם מסתכלים על החורף כולו, יש בו ארבעה חודשים בלי חג מן התורה: חשוון, כסלו, טבת ושבט. רק כשנכנס אדר מרבים בשמחה. חנוכה הוצב בדיוק באמצע הארבעה, בתפר שבין כסלו לטבת, כדי להאיר את כולם.</p>
+<p>אבל האם הוא באמת מתחלק שווה בשווה? בכסלו יש שישה ימים של חנוכה ובטבת רק שניים. זה לא נראה חצי-חצי.</p>
+<p>התשובה נמצאת בנרות. בלי השמש מדליקים בחנוכה 36 נרות. בואו נספור:</p>
+<ul class="story-list"><li>בכ"ה, כ"ו, כ"ז, כ"ח וכ"ט בכסלו מדליקים 1, 2, 3, 4 ו-5 נרות. ביחד 15.</li><li>בא' ובב' בטבת מדליקים 7 ו-8 נרות. ביחד 15.</li><li>נשאר יום אחד, ל' בכסלו, שבו מדליקים 6 נרות.</li></ul>
+<p>ול' בכסלו, ברוב השנים, הוא גם היום הראשון של ראש חודש טבת. הוא שייך לשני החודשים יחד. אם מחלקים את ששת הנרות שלו, שלושה לכאן ושלושה לכאן, מקבלים 18 נרות לכסלו ו-18 נרות לטבת.</p>
+<p class="bold-para">ח"י וח"י. שני החודשים מתחלקים באור של חנוכה בדיוק חצי-חצי.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: האגודל: הסוד של היד ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האגודל: הסוד של היד</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה חשוב שחנוכה יעמוד באמצע ארבעה חודשים? בשביל זה צריך להסתכל על כף היד.</p>
+<p>ברגל כל חמש האצבעות ישרות, זו ליד זו. ביד זה אחרת: ארבע אצבעות עומדות בשורה, והאגודל עומד מולן. נסו להרים מחשב נייד בלי האגודל, או למזוג מבקבוק כשהאגודל צמוד לשאר האצבעות. הכול מחליק ונופל. האגודל הוא שנותן כוח לארבע האחרות. בזכותו היד אוחזת.</p>
+<p>כך בנוי גם העולם. יש בו ארבעה חלקים, דומם, צומח, חי ומדבר, והקדוש ברוך הוא מחיה את כולם ונותן כוח לכולם.</p>
+<p>הרמז נמצא בשם עצמו. "יד" היא י' וד'. הד', שערכה ארבע, היא ארבע האצבעות. הי' הקטנה היא האגודל שמחזיק אותן. גם בגימטרייה "יד" היא 14, כמספר פרקי האצבעות שבכף היד. וכשכותבים ה', האות ה' עצמה בנויה מד' וי' קטנה בתוכה: הארבעה, והאחד שמחיה אותם.</p>
+<div class="honey-box">🍯 בפעם הבאה שאתם אוחזים כוס, שימו לב לאגודל. בלי האחד שעומד מול הארבעה, שום דבר לא מוחזק.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הקול החמישי ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הקול החמישי</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנביא ירמיהו מתאר את שמחת הגאולה בחמישה קולות:</p>
+<blockquote>"קול ששון וקול שמחה, קול חתן וקול כלה, קול אומרים הודו את ה' צבאות כי טוב ה' כי לעולם חסדו" (ירמיהו לג, יא)</blockquote>
+<p>ארבעה קולות הם השמחה שהקדוש ברוך הוא משמח אותנו: ששון ושמחה, חתן וכלה. הקול החמישי הוא שלנו: אנחנו עומדים מולם ומודים. כמו האגודל מול ארבע האצבעות.</p>
+<p>וזה בדיוק חנוכה. ארבעה חודשי חורף חשוכים, ובאמצעם חג אחד שכולו הלל והודאה. חג שעומד כנגד הארבעה ומאיר את כולם. לא במקרה נקבעו ימי החנוכה "להודות ולהלל".</p>
+<p class="bold-para">חנוכה הוא האגודל של החורף: האחד שנותן אור וכוח לארבעה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: פרעה בפיג&#x27;מה, ושיר שמלמד ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">❓</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מה נשתנה חנוכה מכל החגים?</h2></div></div>
+<p class="chapter-intro">"מה נשתנה" שרים בליל הסדר, אבל גם לחנוכה יש ארבע קושיות משלו. ארבע הלכות שאין כמותן בשום חג אחר.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">פרעה בפיג&#x27;מה, ושיר שמלמד</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קודם כול, מילה על שירים. אחת הדרכים היפות ללמד ילדים חג היא לשיר אותו. מלמד מבני ברק, רבי אלטר, היה אומן בזה: הוא לקח מנגינות מוכרות והפך אותן לשירי לימוד לילדים. השיר המפורסם ביותר שלו הוא "פרעה בפיג'מה באמצע הלילה".</p>
+<p>ומאיפה נולד השיר? מספרים שכשהיה ילד, הרבי שלו רצה להמחיש לכיתה את מכת בכורות. הוא יצא לרגע מהחדר וחזר לבוש פיג'מה. "רואים?" אמר, "כך נראה פרעה באמצע הלילה, כשרץ ברחובות מצרים וצעק: איפה משה? איפה משה?"</p>
+<p>ויש לזה מקור. התורה אומרת:</p>
+<blockquote>"ויקם פרעה לילה" (שמות יב, ל)</blockquote>
+<p>ורש"י מפרש: "ממיטתו". פרעה, שהוזהר שעומדת לבוא מכה נוראה, הלך לישון ואף נרדם. אם קם מהמיטה, מן הסתם היה בבגדי שינה.</p>
+<p>הילד שראה את ההמחשה הזאת לא שכח אותה. כשגדל ונעשה מלמד בעצמו, עשה ממנה שיר שילדים שרים עד היום.</p>
+<div class="honey-box">🍯 המחשה אחת טובה נשארת עם ילד כל החיים, ולפעמים הוא מעביר אותה הלאה לדור שלם.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: קושיה ראשונה: רק בבית ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">קושיה ראשונה: רק בבית</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את ליל הסדר אפשר לעשות אצל סבתא, אצל חברים או בבית מלון. עוגת גבינה של שבועות אוכלים בכל מקום. בסוכות אפשר לאכול בסוכה של השכן או של בית הכנסת, ואין בזה שום בעיה.</p>
+<p>יש רק חג אחד שהמצווה שלו קשורה לבית. הגמרא במסכת שבת קובעת:</p>
+<blockquote>"מצוות חנוכה נר איש וביתו" (שבת כא, ב)</blockquote>
+<p>נר חנוכה מדליקים בבית. מי שנסע לבקר את ילדיו משש בערב ועד חצות וחוזר לביתו באותו לילה, אינו יוצא ידי חובה בהדלקה אצלם. זה הבית שלהם, לא שלו. הוא מדליק כשהוא חוזר הביתה, או שבני ביתו מדליקים שם בשבילו.</p>
+<p>מתי מקום אחר נחשב "הבית שלך"? כשאתה לן בו. מי ששכר חדר במלון ללילה, או מתארח אצל הוריו לשבת וישן שם, המקום נעשה ביתו לאותו לילה. לכן יש דיון שלם איפה מדליקים במוצאי שבת כשחוזרים הביתה מאירוח.</p>
+<p class="bold-para">בשום חג אחר אין דבר כזה. למה דווקא בחנוכה המצווה צמודה לבית?</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: קושיה שנייה: אשתו כגופו ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">קושיה שנייה: אשתו כגופו</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הכלל "אשתו כגופו" מוכר מדיני ממונות. אבל במצוות של אורח חיים הוא לא קיים. אי אפשר שהאישה תאכל מצה בליל הסדר והבעל ייצא בזה ידי חובה. אי אפשר שהיא תיטול לולב במקומו. כל אחד מקיים את המצווה שלו בעצמו.</p>
+<p>חוץ ממצווה אחת: נר חנוכה. אדם שנסע לחוץ לארץ, ואשתו מדליקה בבית, יצא ידי חובה. הוא לא שמע את הברכה ולא ראה את הנרות, ובכל זאת המצווה נחשבת גם שלו.</p>
+<p class="bold-para">איך ייתכן שאדם אחד מדליק במקום אחד, ואדם אחר במקום אחר לגמרי מקיים בזה את המצווה?</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: קושיה שלישית: אחד מדליק לכולם ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">קושיה שלישית: אחד מדליק לכולם</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפי מנהג הספרדים, רק בעל הבית מדליק, וכל בני הבית יוצאים בהדלקה שלו. הילדים, שלמדו על חנוכה חודש שלם בבית הספר, אינם מדליקים חנוכייה משלהם. יש משפחות שבהן האב מדליק את הנר הראשון ונותן לילדים להדליק את השאר, כדי שגם להם יהיה חלק. גם אורח ספרדי שמתארח אצל חמיו אינו מדליק לעצמו.</p>
+<p>אפשר לחשוב שזה דומה לקידוש, שאחד מקדש וכולם יוצאים. אבל שם יש דין "שומע כעונה": מי ששמע את הקידוש נחשב כמי שאמר אותו. בנר חנוכה אין צורך לשמוע כלום. בן הבית יכול להיות בחדר אחר, ואפילו בעיר אחרת, ובכל זאת הוא יוצא.</p>
+<p class="bold-para">איפה עוד מצאנו שאחד עושה מעשה, וכל הבית יוצא בו בלי לעשות דבר?</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: קושיה רביעית: מצווה שנגמרת בשיר ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">קושיה רביעית: מצווה שנגמרת בשיר</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האם אתם מכירים עוד מצווה שאחריה כולם פותחים בשירה? אחרי נטילת לולב לא שרים. אחרי אכילת מצה לא שרים. בחנוכה, אין בית שמדליק ושותק.</p>
+<p>יש ששרים חמש דקות, יש ששרים חצי שעה, ובחצרות חסידים יושבים מול הנרות ושרים שעות ארוכות אל תוך הלילה. דתיים וחילונים, כולם יודעים: הדלקת נרות בלי "מעוז צור" היא לא הדלקת נרות.</p>
+<p>וזו לא רק הרגשה. כך כתוב בפיוט עצמו:</p>
+<blockquote>"בני בינה ימי שמונה קבעו שיר ורננים"</blockquote>
+<p>לא כתוב שקבעו להדליק נרות. כתוב שקבעו שיר ורננים. השירה היא חלק מעצם החג.</p>
+<p class="bold-para">למה זכה חנוכה, יותר מכל חג אחר, שהמצווה שלו מתפרצת מיד לשירה?</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: &quot;שלך גדולה משלהם&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">הנחמה של אהרן הכהן</h2></div></div>
+<p class="chapter-intro">כדי לענות על ארבע הקושיות צריך לחזור הרבה לפני החשמונאים, אל המדבר, אל יום חנוכת המשכן.</p>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;שלך גדולה משלהם&quot;</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בחנוכת המשכן הקריבו שנים עשר הנשיאים, נשיא ליום, את קורבנותיהם. מיד אחר כך פותחת פרשת בהעלותך בציווי לאהרן להדליק את המנורה. למה שתי הפרשיות סמוכות?</p>
+<p>רש"י מביא את דברי המדרש: כשראה אהרן את חנוכת הנשיאים, חלשה דעתו, שלא היה עמהם בחנוכה, לא הוא ולא שבטו. אמר לו הקדוש ברוך הוא: חייך, שלך גדולה משלהם, שאתה מדליק ומיטיב את הנרות.</p>
+<p>והרמב"ן שואל: במה זו נחמה? לאהרן לא חסרות מצוות. יש לו קטורת, קורבנות, עבודת יום הכיפורים. מה שכאב לו היה שלא השתתף בחנוכת המשכן. ומה עונים לו? שיש לו מנורה. אבל המנורה אינה חלק מהחנוכה!</p>
+<p class="bold-para">מה בדיוק הרוויח אהרן בהדלקת הנרות?</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הרמז לחנוכת החשמונאים ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הרמז לחנוכת החשמונאים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ן עונה בשם המדרש: הקדוש ברוך הוא רמז לאהרן על חנוכה אחרת, שתבוא יותר מאלף שנה אחר כך. חנוכת בית חשמונאי. בה יחנכו את המקדש מחדש דווקא בניו של אהרן, כוהנים משבט לוי, ודווקא על ידי המנורה.</p>
+<p>והמדרש מוסיף עוד: הקורבנות נוהגים רק כל זמן שבית המקדש קיים. אבל הנרות, לעולם. "אל מול פני המנורה יאירו". והרי גם המנורה בטלה כשחרב הבית! אלא, אומר הרמב"ן, הכוונה לנרות חנוכת חשמונאי, שנוהגים גם אחרי החורבן, בגלותנו.</p>
+<p>ועוד מצווה אחת של אהרן נשארה איתנו אחרי החורבן: ברכת כוהנים. לכן יש נוהגים להתחיל את קריאת התורה של חנוכה מפרשת ברכת כוהנים, וכולם מסיימים אותה ביום השמיני ב"בהעלותך את הנרות". שתי המתנות של אהרן שלא בטלו.</p>
+<p class="bold-para">נר חנוכה איננו רק זכר לנס. הוא ההמשך של מנורת בית המקדש.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: שמן זית, כמו במקדש ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🫒</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מנורה קטנה בכל בית</h2></div></div>
+<p class="chapter-intro">אם נר חנוכה הוא המשך של המנורה, זה צריך להתבטא בהלכות. והנה, כשמחפשים, מוצאים את המקדש כמעט בכל פרט של ההדלקה.</p>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שמן זית, כמו במקדש</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל השמנים כשרים לנר חנוכה, וגם נרות שעווה. ובכל זאת המנהג המהודר הוא להדליק בשמן זית.</p>
+<p>פעם הסבירו שאורו של שמן הזית צלול ויפה יותר. אבל היום נר שעווה טוב דולק בלהבה יפה לא פחות, ולפעמים אפילו נוח ממנו. אז למה מתעקשים על שמן זית?</p>
+<p>כי שמן הזית מזכיר שני דברים בבת אחת. את פך השמן שבו נעשה הנס, ואת המנורה עצמה:</p>
+<blockquote>"ויקחו אליך שמן זית זך כתית למאור, להעלות נר תמיד" (שמות כז, כ)</blockquote>
+<p>במקדש הדליקו בשמן זית, ולכן גם אנחנו מדליקים בשמן זית. לא בגלל הלהבה, אלא בגלל מה שהיא ממשיכה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;הנרות הללו קודש הם&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;הנרות הללו קודש הם&quot;</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מיד אחרי ההדלקה אומרים:</p>
+<blockquote>"הנרות הללו קודש הם, ואין לנו רשות להשתמש בהם אלא לראותם בלבד"</blockquote>
+<p>זו אמירה מפתיעה. בדרך כלל חפצי מצווה אינם קדושים. את הסכך אחרי סוכות מותר להניח בצד. האתרוג והלולב הם תשמישי מצווה, לא תשמישי קדושה. קדושה ממש יש בספר תורה, בתפילין ובמזוזה, שכתוב בהם שם ה'. גם נרות שבת אינם קדושים: מותר ליהנות מאורם, ומה שנשאר מהם אין בו שום קדושה.</p>
+<p>ורק על נרות חנוכה אנחנו מכריזים "קודש הם". אסור להשתמש לאורם, ורבים נוהגים שאת השמן שנותר אין זורקים סתם אלא שורפים אותו.</p>
+<p>מאיפה באה קדושה לנר פשוט על אדן החלון? מהמנורה. המנורה במקדש הייתה כלי קודש, והנר שממשיך אותה קיבל משהו מקדושתה.</p>
+<p>מעיקר הדין הנרות צריכים לדלוק חצי שעה. נר שכבה בתוך הזמן הזה, נוהגים לחזור ולהדליקו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: שמונה קנים ושמש אחד ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שמונה קנים ושמש אחד</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם החנוכייה ממשיכה את המנורה, למה יש לה שמונה קנים ולא שבעה? קודם כול, כמניין ימי הנס. אבל יש עוד סיבה: אסור לעשות מנורה של שבעה קנים כתבנית מנורת המקדש. אנחנו מתקרבים למנורה ככל שמותר, ולא צעד אחד יותר.</p>
+<p>ומה עם השמש? הוא נועד לכך שאם נזדקק לאור, נשתמש באורו ולא באור נרות המצווה. אבל היום, כשבכל בית יש חשמל, כמעט אף אחד אינו משתמש לאור הנרות. לשם מה ממשיכים להדליק שמש?</p>
+<p>אפשר להציע שגם הוא זכר למקדש. במנורה היה נר אחד מיוחד, הנר המערבי, שממנו היו מדליקים את שאר הנרות. השמש שלנו, שעומד מעל כולם וממנו מדליקים את כולם, מזכיר אותו.</p>
+<div class="honey-box">🍯 כשאתם מחזיקים את השמש ביד, אתם מחזיקים זכר לנר המערבי, הנר שממנו נדלקה המנורה כולה.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: סגולה לבנים תלמידי חכמים ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">סגולה לבנים תלמידי חכמים</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת שבת אומרת:</p>
+<blockquote>"הרגיל בנר, הוויין ליה בנים תלמידי חכמים" (שבת כג, ב)</blockquote>
+<p>מי שמקפיד ומהדר בנר, זוכה לבנים תלמידי חכמים. למה דווקא הנר? רש"י מביא את הפסוק "כי נר מצוה ותורה אור" (משלי ו, כג): על ידי נר המצווה בא אור התורה.</p>
+<p>ואפשר להוסיף עוד עומק. על המנורה שבמקדש, שעמדה בדרום, אמרו חכמים:</p>
+<blockquote>"הרוצה שיחכים ידרים" (בבא בתרא כה, ב)</blockquote>
+<p>המנורה היא סמל החוכמה. אדם חכם מאיר את כל סביבתו: באים אליו לעצה, מקבלים ממנו רעיונות, והאור שלו מגיע רחוק. אם המנורה סגולה לחוכמה, גם נר חנוכה, שממשיך אותה, סגולה לחוכמה.</p>
+<p>לכן רבים משתדלים להדר בנרות. אחד ההידורים הגדולים הוא לתת שמן שיספיק זמן רב, עד שתכלה רגל מן השוק. בזמננו הרחובות הומים עד שעה מאוחרת, וכוסית רגילה אינה מחזיקה מעמד. מי שרוצה להדר מכין כוסיות גדולות במיוחד.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: ערב שבת ובית הכנסת ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ערב שבת ובית הכנסת</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עוד שתי הלכות שמגלות את אותו סוד.</p>
+<p><strong>ערב שבת.</strong> השנה נדליק פעמיים ביום שישי: את הנר הראשון ואת הנר השמיני. רבים נוהגים בערב שבת חנוכה להתפלל מנחה מוקדם, לפני ההדלקה. למה? כי במקדש הקריבו קודם את קורבן התמיד של בין הערביים, ורק אחריו הדליקו את המנורה. תפילת מנחה היא כנגד התמיד, ולכן היא קודמת לנרות. ויש בזה גם רווח מעשי: מי שכבר התפלל יכול להדליק סמוך ככל האפשר לכניסת השבת.</p>
+<p><strong>בית הכנסת.</strong> בכל קהילות ישראל מדליקים נר חנוכה גם בבית הכנסת, ומברכים. וזה פלא. הדלקה זו היא מנהג, והספרדים בדרך כלל אינם מברכים על מנהג. על חצי הלל של ראש חודש, למשל, הם אינם מברכים. ואילו כאן גם הם מברכים!</p>
+<p>התשובה: בית הכנסת הוא מקדש מעט, המקום הדומה ביותר לבית המקדש. הדלקה בו איננה מנהג רגיל. היא ממש זכר להדלקת המנורה. ולכן גם מעמידים את החנוכייה בצד דרום, כמקום המנורה בהיכל.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: איפה יש לאדם פרטי בית מקדש? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🏠</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">תשובה אחת לארבע הקושיות</h2></div></div>
+<p class="chapter-intro">עכשיו אפשר לחזור לארבע הקושיות. מתברר שכולן נפתחות במפתח אחד.</p>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">איפה יש לאדם פרטי בית מקדש?</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם נר חנוכה הוא המשך של מנורת המקדש, הוא צריך גם מקום שדומה למקדש. מנורה לא מדליקים בכל מקום. מדליקים אותה בבית ה'.</p>
+<p>בית הכנסת הוא מקדש מעט, אבל שם מדליק רק אחד, בשביל פרסום הנס. איפה יש לכל יהודי, באופן פרטי, מקום שדומה לבית המקדש?</p>
+<p>בבית שלו. כך אמרו חכמים:</p>
+<blockquote>"איש ואשה, זכו, שכינה ביניהם" (סוטה יז, א)</blockquote>
+<p>בית יהודי שיש בו שלום הוא מקום שהשכינה שורה בו. הוא המקדש הפרטי של המשפחה.</p>
+<p>וזו התשובה לקושיה הראשונה. את המנורה מדליקים במקדש, והמקדש שלך הוא הבית שלך. לא הבית של הילדים, שהוא המקדש שלהם. לא בית המלון, אלא אם נעשה ביתך ללילה הזה.</p>
+<p class="bold-para">"נר איש וביתו": נר חנוכה צריך בית, כי מנורה צריכה מקדש.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: מנורה אחת לכל ישראל ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מנורה אחת לכל ישראל</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמה מנורות הדליקו במשכן? אחת. הכוהן הדליק, וההדלקה הזאת הייתה של כל ישראל. איש לא נדרש לבוא, לשמוע או לראות.</p>
+<p>כך גם בבית. עיקר המצווה הוא שידלק נר אחד בבית, והוא שייך לכל מי שהבית הזה הוא ביתו. מכאן התשובה לקושיה השלישית: לכן, למנהג הספרדים, בעל הבית מדליק וכולם יוצאים. לא מדין "שומע כעונה", אלא מפני שהמנורה של הבית כבר דולקת.</p>
+<p>ומכאן גם התשובה לקושיה השנייה. "אשתו כגופו" בנר חנוכה איננו חידוש מוזר. הבעל שנמצא בחוץ לארץ לא צריך שמישהו יקיים מצווה במקומו. המצווה היא שבמקדש שלו, בבית שלו, תדלק המנורה. ואשתו הדליקה אותה שם.</p>
+<p>גם מנהג האשכנזים, שכל אחד מבני הבית מדליק לעצמו, הוא הידור שנוסף על העיקר הזה. היסוד הוא אחד: בית, ובו מנורה דולקת.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: ולמה שרים? כי במקדש שרו ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ולמה שרים? כי במקדש שרו</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נשארה הקושיה הרביעית: למה אחרי ההדלקה כולם פותחים בשיר?</p>
+<p>כי בית המקדש היה מלא שירה. לא היה בו יום בלי שיר. הלוויים עמדו על הדוכן ושרו בכל יום את שיר היום, בכינורות, בנבלים ובמצלתיים. וכשעלו ישראל לרגל, לשם מה עלו? דוד המלך אומר בתהילים קכב: "להודות לשם ה'".</p>
+<p>המקדש היה המקום שבו כולם שרים ומודים. ועכשיו, ברגע שהדלקת את החנוכייה, הבית שלך נעשה מקדש, ואתה עומד מול הנרות כמו כוהן גדול מול המנורה. מה חסר עכשיו? הלוויים. חסרה השירה.</p>
+<p>לכן, מיד אחרי ההדלקה, כל המשפחה פותחת ב"הנרות הללו" וב"מעוז צור". לכן "קבעו שיר ורננים". אנחנו לא שרים כדי להנעים את הערב. אנחנו משלימים את עבודת המקדש.</p>
+<p class="bold-para">הדלקת? אתה הכוהן. הבית? מקדש. ועכשיו שרים, כי כך עושים בבית המקדש.</p>
+<div class="honey-box">🍯 השנה, כשתעמדו מול הנרות, אל תמהרו ללכת. שבו, שירו, הודו. זו לא תוספת להדלקה. זו עבודת הלוויים של המקדש הקטן שלכם. (ואחר כך, כמובן, סופגניות.)</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
