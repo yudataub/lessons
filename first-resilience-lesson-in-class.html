@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>⚓ המפגש הראשון עם הכיתה</title>
+<meta name="description" content="מדריך מעשי למי שנכנס לכיתה עם תוכנית חוסן: איך מכירים את הכיתה דרך המחנכת, איך עובדים בצמד, ואיך בונים מפגש פתיחה שהילדים ירצו לחזור אליו.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 סדנה · 12.11.2026 🍯</div>
+  <h1 class="hero-title">⚓ המפגש הראשון עם הכיתה</h1>
+  <p class="hero-subtitle">מדריך מעשי למי שנכנס לכיתה עם תוכנית חוסן: איך מכירים את הכיתה דרך המחנכת, איך עובדים בצמד, ואיך בונים מפגש פתיחה שהילדים ירצו לחזור אליו.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 4 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-11 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/L7jmCM4gNk4" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🗝️ לפני שנכנסים: שיחה עם המחנכת</a><ul class="toc-stories"><li><a href="#story-1">דבר אחד שתפס אותך</a></li><li><a href="#story-2">מה כדאי לברר בשיחה</a></li><li><a href="#story-3">כיתה אחת, הרבה צרכים</a></li><li><a href="#story-4">כשגם המחנכת חדשה בכיתה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🧭 כיתה מאתגרת: מה עושים</a><ul class="toc-stories"><li><a href="#story-5">להפוך מנהיג שלילי למנהיג טוב</a></li><li><a href="#story-6">כשהכיתה לא מקשיבה: צעד אחורה</a></li><li><a href="#story-7">האמנה של הכיתה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🤝 לעבוד בצמד</a><ul class="toc-stories"><li><a href="#story-8">עשרים דקות על החוזקות</a></li><li><a href="#story-9">לקבוע זמן קבוע לתכנון</a></li><li><a href="#story-10">לתת גב</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🎈 המפגש הראשון, צעד אחר צעד</a><ul class="toc-stories"><li><a href="#story-11">להציג את עצמכם כמשחק ניחושים</a></li><li><a href="#story-12">&quot;הרוח נושבת&quot;, בגרסה שמתאימה לכיתה</a></li><li><a href="#story-13">לב המפגש: מה זה עוגן בשבילי</a></li><li><a href="#story-14">מהעוגן אל החוזה</a></li><li><a href="#story-15">לא חייבים להספיק הכול</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🗝️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">לפני שנכנסים: שיחה עם המחנכת</h2></div></div>
+<p class="chapter-intro">בתוכנית "עוגנים לחוסן" סטודנטים נכנסים בזוגות לכיתות יסודי ומעבירים מפגשים שבועיים שמחזקים את הכוחות של הילדים. הצעד הראשון איננו מול הכיתה, אלא מול מי שמכירה אותה הכי טוב.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דבר אחד שתפס אותך</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פגישת ההיכרות עם המחנכת היא טבילת האש הראשונה. יוצאים ממנה עם המון פרטים: מספר הילדים, היחס בין בנים לבנות, מי מסוכסך עם מי, מי נעדר הרבה.</p>
+<p>כדי לא לטבוע בפרטים, כדאי לשאול את עצמכם אחרי השיחה שאלה אחת: <strong>מה הדבר האחד שתפס אותי?</strong> אסימון שנפל, משהו שהדאיג, או להפך, רגע של קליק שנתן הרגשה שתהיה שנה טובה.</p>
+<p>הדבר האחד הזה הוא בדרך כלל מה שינחה אתכם במפגשים הראשונים. מי שיצא עם "המחנכת סומכת על הילדים שלה ורוצה לקבל מאיתנו משוב" ייכנס לכיתה אחרת ממי שיצא עם "אף אחד שם לא מכבד את השני".</p>
+<div class="honey-box">🍯 עוד טיפ קטן: אם אינכם בטוחים איך מבטאים את שמה של המחנכת, פשוט שאלו אותה. "אני אומר את השם שלך נכון?" היא שאלה שפותחת קשר טוב.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: מה כדאי לברר בשיחה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה כדאי לברר בשיחה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מהניסיון של מי שכבר עבר שנה בתוכנית, אלה הדברים שכדאי לצאת איתם מהפגישה:</p>
+<ul class="story-list"><li><strong>הרכב הכיתה.</strong> כמה בנים וכמה בנות, ואיפה מתרחשים רוב הסכסוכים.</li><li><strong>ילדים שצריכים תשומת לב מיוחדת.</strong> ילד שעבר אובדן במשפחה, ילד שנעדר הרבה, ילד שמתקשה חברתית. המחנכת תדע לומר מי זקוק ליחס אישי, ומי יכול להתאים בהמשך למפגשים הפרטניים.</li><li><strong>חלוקה לקבוצות.</strong> בקשו מהמחנכת להכין חלוקה מראש. היא יודעת מי עובד טוב עם מי, ויכולה לעדכן אותה בבוקר המפגש לפי מי שהגיע.</li><li><strong>מה מותר בכיתה.</strong> האם אפשר להזיז שולחנות? לקום מהמקומות? לא מניחים הנחות, שואלים.</li><li><strong>מה חשוב לה.</strong> יש מחנכות שחשוב להן שתציגו לעומק מי אתם ולמה באתם. כדאי לדעת את זה מראש.</li></ul>
+<p>ודבר נוסף שכדאי לומר לה במפורש: אנחנו רוצים שתהיי שותפה. שתהיי נוכחת במפגשים, ותאמרי לנו מה עבד, מה פחות, ומה כדאי לשנות בפעם הבאה. בסוף אלה הילדים שלה, והיא רוצה את הטוב ביותר בשבילם.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: כיתה אחת, הרבה צרכים ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כיתה אחת, הרבה צרכים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמעט בכל כיתה היום יש ילדים עם צרכים שונים מאוד: ילדים על הרצף האוטיסטי שמלווים בסייעת, ילד עם לקות שמיעה, ילד שמקבל טיפול תרופתי, ילד עם אלרגיה מסוכנת למזון. מאז שהורים יכולים לבחור לשלב ילד עם צרכים מיוחדים בכיתה רגילה, המורכבות בכיתות גדלה, והמורים נדרשים להרבה יותר.</p>
+<p>האם השילוב טוב לילד? אין תשובה אחת. יש ילד שפורח דווקא בכיתה רגילה, ויש ילד שפורח רק במסגרת מיוחדת. זו החלטה קשה של ההורים, והיא נכונה לכל ילד בנפרד. התפקיד שלנו אינו לשפוט את ההחלטה, אלא להתאים את עצמנו לכיתה כפי שהיא.</p>
+<p>ומה זה אומר בפועל?</p>
+<ul class="story-list"><li>כשיש ילד ששומע רק באוזן אחת: לעמוד בצד שבו הוא שומע, לדבר כשהפנים אליו כדי שיראה את השפתיים, ולהשתמש במיקרופון אם יש בכיתה.</li><li>כשיש אלרגיה: לא מביאים שום כיבוד בלי לתאם עם המחנכת.</li><li>כשיש סייעות: להכיר אותן ולשתף אותן במה שמתוכנן.</li></ul>
+<p class="bold-para">לא מתאימים את הילדים למערך. מתאימים את המערך לילדים.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: כשגם המחנכת חדשה בכיתה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשגם המחנכת חדשה בכיתה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפעמים מגיעים לפגישה ומגלים שהמחנכת עצמה עוד לא מכירה את הכיתה. היא חזרה עכשיו מחופשת לידה, או קיבלה את הכיתה ברגע האחרון. היא יודעת לומר שהכיתה "קשה", אבל עדיין אין לה מפה מדויקת של הילדים.</p>
+<p>זו התחלה פחות נוחה, כי יש מעט מידע לתכנן איתו. אבל יש בה גם יתרון: תכירו את הכיתה ביחד עם המחנכת, ותהיו שותפים אמיתיים מהיום הראשון.</p>
+<p>ודבר שחשוב לדעת מראש: המחנכת היא עוגן הסמכות של הכיתה. כשמחנכת יוצאת לחופשה באמצע השנה ומורות מחליפות מתחלפות, הסמכות נעלמת, והמפגשים נעשים קשים הרבה יותר. לכן הקשר עם המחנכת איננו עניין של נימוס. הוא תנאי להצלחה.</p>
+<p class="bold-para">נוכחות המחנכת בכיתה בזמן המפגש שווה יותר מכל משחק שתכינו.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: להפוך מנהיג שלילי למנהיג טוב ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">כיתה מאתגרת: מה עושים</h2></div></div>
+<p class="chapter-intro">שמעתם שהכיתה "כאוס", או שיש בה כמה ילדים שסוחפים את כולם? זה לא סוף הסיפור. לפעמים זו דווקא נקודת הפתיחה.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">להפוך מנהיג שלילי למנהיג טוב</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשהמחנכת מספרת שיש בכיתה כמה ילדים שכולם נגררים אחריהם, התגובה הראשונה היא חשש. אבל אפשר לשמוע את זה אחרת: יש בכיתה ילדים עם כושר מנהיגות. הכישרון כבר קיים. נשאר רק לנתב אותו למקום טוב.</p>
+<p>איך? נותנים לו תפקיד. מזמינים אותו ראשון להדגים משחק. מבקשים ממנו לעזור בחלוקת הדפים. אומרים לו מול כולם: "בחרנו בך".</p>
+<p>כך היה עם ילד אחד שהגיע לבית הספר רק לעיתים רחוקות, ובהפסקות הילדים נרתעו ממנו. בתוך המפגשים הוא נעשה העוזר הטוב ביותר. בשבוע שבו אחת המנחות חסרה, הוא ממש מילא את מקומה ועזר להעביר את הפעילות.</p>
+<p>לכן, במשחק הראשון של המפגש הראשון, שווה לבחור דווקא את הילד שהמחנכת הזהירה מפניו, ולתת לו את הבמה בלי שום היכרות קודמת ובלי שום תווית.</p>
+<p class="bold-para">ילד שמקבל במה טובה אינו צריך לחפש במה רעה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: כשהכיתה לא מקשיבה: צעד אחורה ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כשהכיתה לא מקשיבה: צעד אחורה</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יהיו מפגשים שבהם הרעש גובר ושום דבר לא עובד. מה עושים?</p>
+<p>לא צועקים ולא ממשיכים בכוח. עוצרים. עומדים בשקט מול הכיתה, אפילו כמה דקות, ומחכים. אחר כך אומרים בפשטות: "אנחנו רוצים להעביר לכם את הפעילות, אבל אנחנו צריכים שתשתפו איתנו פעולה".</p>
+<p>ובסוף המפגש מותר לומר גם את האמת: "היום התאכזבנו". ילדים מבינים את זה היטב.</p>
+<p>ומה שעוזר יותר מכול הוא להסביר להם מה המפגש הזה בשבילם. זה לא שיעור רגיל. אין בו שיעורי בית, ואין עליו מבחן. זו שעה בשבוע שהיא מתנה בשבילכם, חוויה שנועדה לכם. מי שמפריע אינו מפסיד לנו. הוא מפסיד לעצמו ולחברים שלו.</p>
+<div class="honey-box">🍯 שתיקה רגועה של מנחה שעומד ומחכה חזקה יותר מכל הרמת קול.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: האמנה של הכיתה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">האמנה של הכיתה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רעיון שעלה מהשטח, והמחנכות אימצו אותו בשמחה: במקום להכתיב לילדים כללים, נותנים להם לכתוב אותם.</p>
+<p>במפגש הראשון, אחרי שמסבירים שהתוכנית דורשת שיתוף פעולה, שואלים את הילדים: מה לדעתכם צריך כדי שיהיה לנו טוב ביחד? כותבים על הלוח את מה שהם אומרים: להקשיב, לא לצחוק על מי שמדבר, לכבד.</p>
+<p>למפגש השני מביאים בריסטול גדול, שעליו כתובים הכללים שהילדים עצמם ניסחו, ולמטה מקום לחתימות. כל ילד חותם, והאמנה נתלית על קיר הכיתה.</p>
+<p>כך היא נשארת שם גם בימים שאתם לא נמצאים. וכשמישהו מפר אותה, לא צריך לנזוף. מספיק להצביע על הקיר: "זה מה שאתם קבעתם, וזה מה שחתמתם עליו".</p>
+<p class="bold-para">כלל שילד ניסח וחתם עליו שווה עשרה כללים שהכתיבו לו.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: עשרים דקות על החוזקות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🤝</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">לעבוד בצמד</h2></div></div>
+<p class="chapter-intro">לכיתה נכנסים שניים. לפעמים אלה חברים ותיקים, ולפעמים שני אנשים שנפגשו לפני שבוע. בשני המקרים, טיב העבודה המשותפת קובע את טיב המפגש.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">עשרים דקות על החוזקות</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני שמתכננים את המפגש הראשון, כדאי להקדיש עשרים דקות לשיחה שאין בה שום תכנון: כל אחד מספר לשני במה הוא טוב.</p>
+<p>לא חוזקות באופן כללי, אלא חוזקות שנוגעות לעבודה מול כיתה. אחד מסודר, אוהב שהכול מוגדר מראש, וצריך לדעת מה עושים ולמה. אחר מאלתר היטב, ויודע להרגיש את הכיתה ולשנות כיוון תוך כדי תנועה. אחד חזק בטכנולוגיה, מכיר שפות וכתבים שונים, ויכול להביא חידות וגימיקים שילדים לא ראו מעולם. אחר הוא איש חינוך מנוסה שיודע להחזיק כיתה.</p>
+<p>כשיודעים את זה מראש, החלוקה נעשית טבעית: מי פותח, מי מסביר, מי מנהל את המשחק, מי כותב על הלוח.</p>
+<p>כדאי לדבר גם על מה שלא נוח. יש מי שאינו מוכן לבצע דבר רק מפני שכך כתוב במערך, ורוצה סיבה טובה לכל פעילות. עדיף לומר את זה עכשיו מאשר לגלות את זה מול שלושים ילדים.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: לקבוע זמן קבוע לתכנון ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לקבוע זמן קבוע לתכנון</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זוגות שעבדו טוב מספרים על הרגל אחד: שיחה קבועה לפני כל מפגש. עוברים על המערך, מחלקים תפקידים ומוודאים שהכול מוכן.</p>
+<p>כמה כללים מעשיים:</p>
+<ul class="story-list"><li><strong>לסגור מוקדם.</strong> יומיים-שלושה אחרי מפגש כבר צריך להיות ברור מה קורה במפגש הבא. לא בערב שלפני.</li><li><strong>לעבוד בתנאים נוחים.</strong> מי שאינו מסוגל לתכנן בנסיעה באוטובוס צריך לומר זאת, ולקבוע זמן שבו אפשר לשבת עם מחשב ומחברת. אפשר גם להישאר שעה בבית הספר מיד אחרי המפגש ולתכנן שם.</li><li><strong>לשלוח הדפסות שבוע מראש.</strong> בבתי ספר רבים קשה להדפיס. מה שצריך למפגש הבא שולחים למחנכת מיד אחרי המפגש הנוכחי, לא יום לפני.</li><li><strong>קבוצה משותפת עם המחנכות.</strong> כך המידע אינו תלוי באדם אחד, ואם משהו משתבש, כולם יודעים.</li><li><strong>להביא את המערך מודפס.</strong> לא נעים לעמוד מול ילדים ולהציץ בטלפון. דף ביד נראה אחרת לגמרי.</li></ul>
+<div class="honey-box">🍯 אין צורך לדקלם את המערך בעל פה. מספיק שכל אחד מכיר היטב את החלק שלו, ומציץ בדף כשצריך.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: לתת גב ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לתת גב</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה גרם לזוג ותיק לעבוד טוב שנה שלמה? הן ענו בלי היסוס: כנות ואמפתיה.</p>
+<p>כנות פירושה לומר את האמת גם כשהיא לא נוחה. "תשמעי, אני בלי מצב רוח היום". "אני חולה, אבל באתי". סטודנטים עמוסים, יש לחץ של לימודים ועבודה, ויש ימים של משבר. כשאומרים את זה בקול, השני יודע לקחת פיקוד.</p>
+<p>אמפתיה פירושה לעשות את זה בשמחה. היום אני מרים אותך, ומחר אתה אותי.</p>
+<p>וצריך לזכור שזה צוות. לא "אני צריך לעשות כך" ו"אתה צריך לעשות כך", אלא "אנחנו". כשהצוות עובד, המפגש זורם. תהיו ימים שתצאו מהכיתה מאושרים, ויהיו ימים שתצאו מתוסכלים. גם אלה וגם אלה עוברים טוב יותר כשיוצאים מהם ביחד.</p>
+<p class="bold-para">שותף טוב איננו מי שלעולם אינו נופל. הוא מי שאומר "היום קשה לי", ומי שעונה לו "אני איתך".</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: להציג את עצמכם כמשחק ניחושים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🎈</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">המפגש הראשון, צעד אחר צעד</h2></div></div>
+<p class="chapter-intro">שלוש מטרות יש למפגש הפתיחה: שהילדים יכירו אתכם, שיבינו מה התוכנית הזאת, ושיהיו סקרנים לקראת המפגש הבא. כל השאר משני.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">להציג את עצמכם כמשחק ניחושים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הדרך הרגילה להציג את עצמך היא לומר: "שלום, קוראים לי כך וכך, אני גר שם ולומד את זה". הילדים שומעים ושוכחים.</p>
+<p>יש דרך טובה יותר, שמדריך טיולים אחד השתמש בה. הוא פתח ואמר לילדים: רושם ראשוני הוא דבר חשוב, ובטח כבר יש לכם דעה עליי. בואו נבדוק אותה. "מה אתם חושבים, אני גר בעיר או במושב? מי חושב שבעיר? מי חושב שבמושב?" הילדים מצביעים, ואז הוא מגלה את התשובה.</p>
+<p>שלוש או ארבע שאלות כאלה לכל אחד מכם, לא יותר, והילדים כבר משתתפים, מנחשים וצוחקים. הם גם יגלו שהרושם הראשון לא תמיד מדויק, וזה שיעור קטן בפני עצמו.</p>
+<p>כדאי לספר גם מאיפה אתם במקור ואיפה אתם גרים. תמיד יימצא ילד שיקפוץ: "דוד שלי גר שם!" חיבורים קטנים כאלה יוצרים קרבה מהר מאוד.</p>
+<div class="honey-box">🍯 הכינו מראש שלושה פרטים מפתיעים על עצמכם. הניחוש הכי כיפי הוא זה שכל הכיתה טועה בו.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;הרוח נושבת&quot;, בגרסה שמתאימה לכיתה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;הרוח נושבת&quot;, בגרסה שמתאימה לכיתה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשחק "הרוח נושבת" הוא שובר קרח קלאסי. ילד אחד אומר: "הרוח נושבת על כל מי שיש לו עיניים חומות", וכל מי שזה נכון לגביו קם ומחליף מקום. במערך הכתוב הכיתה יושבת במעגל גדול.</p>
+<p>אבל מי שכבר העביר את המפגש הזה מזהיר: במפגש ראשון, בכיתה שעוד לא מכירים, הזזת שולחנות והחלפת מקומות יכולות לבלוע את כל הזמן. סידור הכיתה מחדש לוקח רבע שעה, ורוב המחנכות לא יסכימו לו. וכשילדים עוזבים את המקום הקבוע שלהם, קשה מאוד להחזיר את השקט.</p>
+<p>הפתרון הוא לשחק במקום. "הרוח נושבת על כל מי שאוהב גלידה", וכל מי שאוהב קם ונעמד ליד הכיסא שלו, או מניף ידיים למעלה כמו עץ ברוח. אם בוחרים בתנועת ידיים, צריך להדגים אותה קודם בעצמכם ובגדול, כי ילדים מתביישים להיות הראשונים.</p>
+<p>חמישה סבבים, שבע דקות לכל היותר, וממשיכים הלאה. המשחק הזה הוא רק מתאבן.</p>
+<p class="bold-para">שובר קרח טוב הוא קצר. אם הוא נמשך רבע שעה, הוא כבר שבר את המפגש.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: לב המפגש: מה זה עוגן בשבילי ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לב המפגש: מה זה עוגן בשבילי</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם יש חלק אחד שחייבים להספיק במפגש הראשון, זה החלק הזה: ההסבר על התוכנית ועל המילה "עוגן".</p>
+<p>כך עושים זאת:</p>
+<p><strong>שמש אסוציאציות.</strong> כותבים במרכז הלוח את המילה "עוגן", ומבקשים מהילדים לומר מה היא מזכירה להם. מכל תשובה יוצאת קרן: ספינה, ים, משהו שמחזיק, משהו כבד, משהו ששומר שלא נסחפים.</p>
+<p><strong>מהספינה אל החיים.</strong> מסבירים שעוגן מחזיק את הספינה במקומה גם כשיש גלים. גם לכל אחד מאיתנו יש דברים שמחזיקים אותו כשקשה. ושואלים: מה העוגן שלך? הילדים עונים: המשפחה, חבר טוב, הכלב שלי, כדורגל, כבוד. גם את התשובות האלה כותבים על הלוח.</p>
+<p><strong>העוגן האישי.</strong> מחלקים לכל ילד דף ובו ציור של עוגן, והוא כותב בתוכו את העוגנים שלו. מי שנתקע ואינו יודע מה לכתוב מציץ בלוח ומקבל רעיון. אפשר גם לבקש קודם שכל אחד יצייר עוגן כפי שהוא מדמיין אותו, וזה מעורר סקרנות לקראת ההסבר.</p>
+<p>ורעיון יפה מהשטח: לשמור את הדפים, ולהחזיר אותם לילדים בסוף השנה כמזכרת. "זה מה שכתבת על עצמך בתחילת הדרך".</p>
+<p>דבר אחד חשוב: במפגש הראשון לא שואלים "מה מלחיץ אותך". נכון שהתוכנית נועדה לחזק את הילדים מול מצבי לחץ, ולנושא הזה עוד יגיעו במפגשים על רגשות. אבל הפתיחה צריכה להיות חיובית ובטוחה. מדברים על מה שמחזיק אותנו, לא על מה שמפיל אותנו.</p>
+<p class="bold-para">קודם נותנים לילד עוגן, ורק אחר כך מדברים איתו על הסערה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מהעוגן אל החוזה ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מהעוגן אל החוזה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מהעוגנים של הילדים אפשר לעבור ישר לתיאום הציפיות, כמעט בלי שירגישו במעבר.</p>
+<p>אם העוגן שלי הוא כבוד, אני רוצה שבמפגשים האלה יכבדו אותי. אם העוגן שלי הוא המשפחה, אני רוצה שלא יצחקו על המשפחה שלי. אם העוגן שלי הוא חבר, אני רוצה שיהיה כאן מקום לחברות. מה שמחזיק כל אחד לחוד נעשה מה שמחזיק את הקבוצה ביחד.</p>
+<p>במערך הכתוב מוצע לחלק את הכיתה לקבוצות, כשכל קבוצה כותבת ציפיות. במפגש ראשון, ובמיוחד בכיתות הצעירות, עדיף לעשות זאת עם כל הכיתה יחד. מחלקים את הלוח לשלוש:</p>
+<ul class="story-list"><li><strong>מה אני מצפה מהמנחים?</strong> (היכונו לתשובה הנפוצה ביותר: "שיהיו משחקים!")</li><li><strong>מה אני מצפה מהחברים בכיתה?</strong></li><li><strong>מה אני רוצה ללמוד ולקבל מהמפגשים?</strong></li></ul>
+<p>את מה שנכתב על הלוח מצלמים, וממנו בונים את אמנת הכיתה שתיחתם במפגש הבא.</p>
+<p>אם נשאר זמן, מסיימים בבחירת שם לקבוצה. זה קצר, משמח, ונותן לילדים הרגשה שנוצר כאן משהו ששייך להם.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: לא חייבים להספיק הכול ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא חייבים להספיק הכול</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סוד שכדאי לדעת מראש: כמעט אף אחד אינו מספיק את כל המערך. גם מנחות מנוסות מספרות שלא סיימו מערך שלם בשום כיתה, ושהיו מערכים חשובים שהן פרשו על פני שבועיים.</p>
+<p>לכן לפני כל מפגש מחליטים מה הלב שלו, החלק שעליו לא מוותרים, ומה אפשר לקצר. במפגש הראשון הלב הוא ההסבר על התוכנית והעוגן האישי. המשחקים הם תבלין.</p>
+<p>ומותר גם לשנות תוך כדי תנועה. ניסיתם פעילות ואתם רואים שהיא לא עובדת? עוצרים בחיוך: "חברים, ניסינו. עוברים לדבר הבא". בלי דרמה ובלי תחושת כישלון.</p>
+<p>זכרו שאתם לא מלמדים חומר. אף אחד לא ייבחן על המפגש הזה. אתם מעבירים חוויה, וחוויה נמדדת במה שהילדים הרגישו, לא בכמה סעיפים סימנתם.</p>
+<p>סדר המפגש הראשון בקצרה:</p>
+<ul class="story-list"><li>הצגה עצמית במשחק ניחושים</li><li>"הרוח נושבת" במקום, חמישה סבבים</li><li>הסבר על התוכנית ושמש אסוציאציות למילה "עוגן"</li><li>דף העוגן האישי</li><li>ציפיות על הלוח, עם כל הכיתה</li><li>בחירת שם לקבוצה, אם נשאר זמן</li></ul>
+<p>המפגש השני יעסוק ביצירת אמון, בתחושת מסוגלות ובשליטה. גם אותו אפשר להעביר בזוגות, בישיבה במקום.</p>
+<p class="bold-para">מפגש טוב איננו מפגש שהספיקו בו הכול. הוא מפגש שהילדים שואלים אחריו: מתי אתם באים שוב?</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
