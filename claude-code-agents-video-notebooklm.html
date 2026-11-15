@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🤖 Claude Code: עוזר שעובד בשבילך</title>
+<meta name="description" content="לוח לבן משותף, דשבורד שמתעדכן לבד, סוכן שמתעורר פעם בחודש, עריכת וידאו בלי תוכנת עריכה וחיבור ל-NotebookLM - כל מה שאפשר לעשות היום עם Claude Code, צעד אחר צעד.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 15.11.2026 🍯</div>
+  <h1 class="hero-title">🤖 Claude Code: עוזר שעובד בשבילך</h1>
+  <p class="hero-subtitle">לוח לבן משותף, דשבורד שמתעדכן לבד, סוכן שמתעורר פעם בחודש, עריכת וידאו בלי תוכנת עריכה וחיבור ל-NotebookLM - כל מה שאפשר לעשות היום עם Claude Code, צעד אחר צעד.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-16 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/f7G2n54EW-A" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧩 סביבת עבודה שלמה בתוך Claude</a><ul class="toc-stories"><li><a href="#story-1">למה עובדים באפליקציה שעל המחשב</a></li><li><a href="#story-2">Artifacts: המהלך הגדול של Anthropic</a></li><li><a href="#story-3">הלוח הלבן: סיעור מוחות שכולם רואים</a></li><li><a href="#story-4">לוח לבן ללומדים: מה אני יודע ומה לא</a></li><li><a href="#story-5">Sheets: גיליון ש-Claude יושב בו איתכם</a></li><li><a href="#story-6">Data: דשבורד שאפשר לסמוך עליו</a></li><li><a href="#story-7">הספרייה: כל מה שיצרתם במקום אחד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🕵️ סוכן: עובד שמתעורר לבד</a><ul class="toc-stories"><li><a href="#story-8">מה זה בעצם סוכן</a></li><li><a href="#story-9">דוגמה: סוכן לכלכלת המשפחה</a></li><li><a href="#story-10">הדשבורד שמעיר הערות</a></li><li><a href="#story-11">Schedule: השעון של הסוכן</a></li><li><a href="#story-12">איך בונים סוכן בלי להשתגע</a></li><li><a href="#story-13">הטיפ ששווה הכי הרבה: לדבר, לא להקליד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🎬 עריכת וידאו בלי לפתוח תוכנת עריכה</a><ul class="toc-stories"><li><a href="#story-14">מה שעלה כסף, ועכשיו כלול</a></li><li><a href="#story-15">חמישה קטעים הופכים לסרטון אחד</a></li><li><a href="#story-16">רפרנס: ללמד אותו את הסגנון שלך</a></li><li><a href="#story-17">מצילום רחב לסטורי, והסבלנות שבדרך</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📚 NotebookLM: זיכרון ענק על חשבון Google</a><ul class="toc-stories"><li><a href="#story-18">הבעיה: נחסמים מהר מדי</a></li><li><a href="#story-19">מה זה NotebookLM</a></li><li><a href="#story-20">החיבור: Claude Code מדבר עם המחברות</a></li><li><a href="#story-21">ניקיון במחברות: עשר מחיקות בבקשה אחת</a></li><li><a href="#story-22">מחברת שמתעדכנת מעצמה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">💡 שאלות שכדאי לשאול לפני שמתחילים</a><ul class="toc-stories"><li><a href="#story-23">ואם אני עובד ב-Codex?</a></li><li><a href="#story-24">האם אפשר בחינם?</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧩</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">סביבת עבודה שלמה בתוך Claude</h2></div></div>
+<p class="chapter-intro">Claude כבר מזמן לא רק חלון של שיחה. בצד המסך מחכה אזור שלם של מסמכים, טבלאות, לוחות ודשבורדים - וכדאי להכיר אותו.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה עובדים באפליקציה שעל המחשב</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>Claude Code הוא הכלי של Claude שיודע לא רק לענות אלא גם לעשות: לפתוח קבצים, לערוך אותם, להריץ פעולות ולהחזיר תוצאה מוגמרת. הדרך הנוחה ביותר לעבוד איתו היא האפליקציה שמותקנת על המחשב, ולא הדפדפן.</p>
+<p>הסיבה פשוטה: באפליקציה הוא עובד טוב יותר, יש בה יותר אפשרויות, והוא ניגש ישר לקבצים שלך - לתיקיית ההורדות, למסמכים, לכל מה שתרשה לו.</p>
+<p>כמעט כל מה שמתואר בספר הזה עובד גם ב-Codex, הכלי המקביל מבית ChatGPT. היוצא מן הכלל היחיד הוא הפרק הראשון, שעוסק בתכונה פנימית של Claude. מי שעובד בכלי אחר יכול ליישם את שאר הפרקים אחד לאחד.</p>
+<div class="honey-box">🍯 לא צריך רקע טכנולוגי. צריך לדעת להסביר מה רוצים, ולענות על שאלות.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: Artifacts: המהלך הגדול של Anthropic ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">Artifacts: המהלך הגדול של Anthropic</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בצד שמאל של המסך יש כפתור בשם Artifacts. ארטיפקט הוא קובץ חי ש-Claude יוצר בשבילך: מסמך, מצגת, טבלה, דשבורד, דף נחיתה. פעם זו הייתה תכונה קטנה שעשו איתה בעיקר דשבורדים ודפים פשוטים. היום היא הולכת ומתרחבת.</p>
+<p>בפנים מחכים כמה סוגים:</p>
+<ul class="story-list"><li><strong>Docs</strong> - מסמכים</li><li><strong>Slides</strong> - מצגות (אפשר להגיע בדרכים אחרות למצגות יפות בהרבה, אבל הבסיס קיים)</li><li><strong>Sheets</strong> - גיליונות, כמו Excel או Google Sheets</li><li><strong>Design</strong> - עיצוב</li><li><strong>Data</strong> - ניתוח נתונים והפיכתם לדשבורד</li><li><strong>Whiteboard</strong> - לוח לבן משותף, עדיין מסומן כבטא</li></ul>
+<p>התמונה הגדולה ברורה. Anthropic, החברה שמאחורי Claude, בונה סביבת עבודה מלאה בסגנון Google או Microsoft: כמו שלאחת יש Word, Excel ו-PowerPoint ולשנייה Docs, Sheets ו-Slides, כך גם כאן. המטרה היא שאנשים יעבדו בתוך Claude עצמו, ולא רק יתייעצו איתו.</p>
+<p class="bold-para">שלושה מהסוגים האלה חדשים או מחודשים, ושווה להכיר אותם מקרוב: הלוח הלבן, הגיליונות והדאטה.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: הלוח הלבן: סיעור מוחות שכולם רואים ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הלוח הלבן: סיעור מוחות שכולם רואים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לוחצים על Whiteboard, ונפתחת שיחה חדשה. כותבים למשל "תפתח לוח לבן ריק", ובצד ימין מופיע לוח שאפשר להוסיף לו פתקים, להזיז אותם, לקבץ ולמחוק. היתרון הגדול: כמה אנשים עובדים על אותו לוח במקביל.</p>
+<p>דוגמה מהחיים: זוג שמתכנן טיול לברלין בדצמבר. שם מחשיך כבר בארבע אחר הצהריים, ולכן ביקשו מ-Claude לוח רעיונות שמחולק לשלושה: אטרקציות ליום, אטרקציות ללילה, ודברים מיוחדים לתאריכים של הטיול. Claude בנה את הלוח כולו. אחר כך כל אחד מבני הזוג גורר פתקים אל הימים: את זה ביום ראשון, את זה נעביר ליום אחר. הוויכוח הופך למשחק, והסדר נוצר מעצמו.</p>
+<p>כדי לשתף לוחצים על Share מימין למעלה. אפשר להזין כתובת מייל, ואפשר להפוך את הקישור לשיתופי, להעתיק אותו ולשלוח לכמה אנשים שרוצים.</p>
+<p>אותו רעיון מתאים לכל דבר שדורש סדר משותף:</p>
+<ul class="story-list"><li>מעבר דירה: מה עושים לפני, במהלך ואחרי, ומה כבר בוצע</li><li>חופשה משפחתית</li><li>חלוקת משימות במשרד</li><li>אפילו תכנון הארוחות של השבוע</li></ul>
+<div class="honey-box">🍯 הלוח הלבן טוב בעיקר למי שעובד בצוות - בין אם הצוות הוא משרד ובין אם הוא משפחה.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: לוח לבן ללומדים: מה אני יודע ומה לא ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לוח לבן ללומדים: מה אני יודע ומה לא</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שימוש נוסף, יפה במיוחד, מתאים לסטודנטים ולכל מי שמתכונן למבחן.</p>
+<p>לוקחים את רשימת המאמרים או הנושאים של הקורס, עם הנקודות העיקריות שבכל אחד, ונותנים הכול ל-Claude. הוא ממפה את החומר: כל נושא מקבל פתק משלו. מתחת לפתקים הוא בונה שלושה טורים:</p>
+<ul class="story-list"><li>מה אני לא יודע בכלל</li><li>מה אני יודע חלקית</li><li>מה אני יודע היטב</li></ul>
+<p>עכשיו גוררים כל נושא לטור המתאים. זה לוקח כמה דקות, וזה תרגיל מועיל בפני עצמו - פתאום רואים בעיניים איפה עומדים.</p>
+<p>וכאן החלק החכם: לפי החלוקה, Claude בונה מתחת ללוח תוכנית לימוד אישית. במה להתחיל, כמה זמן להקדיש לכל נושא, ואיך ללמוד אותו.</p>
+<p class="bold-para">במקום להרגיש שהחומר הוא הר אחד גדול, מקבלים מפה - ומסלול.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: Sheets: גיליון ש-Claude יושב בו איתכם ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">Sheets: גיליון ש-Claude יושב בו איתכם</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>Sheets דומה מאוד ל-Google Sheets ול-Excel: שורות, עמודות, קטגוריות, שורת סיכום. דוגמה טיפוסית היא רשימת מוזמנים לחתונה, מחולקת למשפחת החתן, משפחת הכלה, חברים וחברים של ההורים, עם סך הכול למטה.</p>
+<p>השאלה המתבקשת: למה לעבוד כאן ולא ב-Google Sheets, שכולם מכירים? התשובה הכנה היא שכרגע אין סיבה מכרעת. מי שממילא נמצא כל היום בתוך Claude ימצא שזה נוח יותר.</p>
+<p>אבל יש הבדל אחד מעניין. גם כאן יש כפתור Share, וכמה אנשים עובדים על אותו גיליון - <strong>ו-Claude עובד איתם, כחבר צוות נוסף</strong>. בגיליון רגיל כל אחד יכול להיעזר בבינה מלאכותית משלו, אבל האחרים לא רואים מה היא עשתה. כאן כולם רואים, וכולם מבקשים מאותו עוזר: תוסיף גרף, תוריד עמודה, תשנה את הסיכום.</p>
+<p>סביר מאוד שהרעיון הזה, בינה מלאכותית כחברה בצוות, יגיע בסוף גם ל-Excel ולגיליונות של Google. בינתיים הוא כבר כאן.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: Data: דשבורד שאפשר לסמוך עליו ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">Data: דשבורד שאפשר לסמוך עליו</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>Data אינו חדש לגמרי. Claude ידע תמיד לקבל נתונים ולהפוך אותם לדשבורד. אבל הגרסה המחודשת מוסיפה שלושה דברים קטנים למראה ומשמעותיים מאוד.</p>
+<p>ניקח חנות אינטרנטית למוצרים לכלבים ולחתולים, שמפרסמת בוואטסאפ, בפייסבוק, במייל ובגוגל. בעל החנות רוצה לדעת איך לשפר את המכירות. נותנים ל-Claude קישור לגיליון הנתונים שב-Google Sheets (החשבון צריך להיות מחובר ל-Claude), ומבקשים דשבורד: הכנסות, הזמנות, ביקורים וקניות לפי חודש, מה לשפר ומה לשמר.</p>
+<p>ומה חדש?</p>
+<ul class="story-list"><li><strong>הדשבורד חי.</strong> משנים מספר בגיליון, מרעננים - והדשבורד מתעדכן. לא צריך לבנות אותו מחדש בכל חודש.</li><li><strong>אפשר לבדוק מקורות.</strong> מסמנים מספר כלשהו, ומופיע סימן קטן של מקורות. לחיצה עליו מראה בדיוק מאיזה תא בגיליון המספר נלקח. כך יודעים שהוא לא הומצא.</li><li><strong>אפשר לתקן נקודתית.</strong> מסמנים חלק מסוים ומבקשים שינוי רק בו: עיצוב אחר, פילוח נוסף, ניסוח שונה.</li></ul>
+<div class="honey-box">🍯 השאלה הגדולה מול כל דשבורד של בינה מלאכותית היא "איך אדע שהמספרים אמיתיים?". עכשיו יש תשובה: לוחצים ורואים.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: הספרייה: כל מה שיצרתם במקום אחד ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הספרייה: כל מה שיצרתם במקום אחד</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשיוצרים הרבה ארטיפקטים, צריך גם למצוא אותם. לכן אזור ה-Artifacts הפך לספרייה של ממש, גוף בפני עצמו בתוך Claude.</p>
+<p>מה יש בה:</p>
+<ul class="story-list"><li>תצוגה כרשת של תמונות ממוזערות, או כרשימה</li><li>סינון לפי סוג: מסמך, גיליון, לוח, דשבורד</li><li>סינון לפי בעלות: מה שאני יצרתי, ומה ששיתפו איתי</li><li>חיפוש חופשי</li></ul>
+<p>זה נשמע פרט טכני, אבל הוא מה שהופך את הכלי משיחה חד-פעמית למקום עבודה. מסמך שנוצר לפני חודש לא נעלם בתוך שיחה ישנה. הוא מחכה בספרייה, ואפשר לחזור אליו, לעדכן אותו ולשתף אותו.</p>
+<p>את Design, Slides ו-Docs כדאי פשוט לפתוח ולנסות. הדרך הטובה להכיר אותם היא לבקש משהו אמיתי שצריך השבוע.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מה זה בעצם סוכן ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🕵️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">סוכן: עובד שמתעורר לבד</h2></div></div>
+<p class="chapter-intro">המילה "סוכן" נשמעת גדולה ומאיימת. בפועל זה רעיון פשוט מאוד, ואפשר לבנות אחד בתוך כמה דקות של שיחה.</p>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה זה בעצם סוכן</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סוכן הוא כמו עובד שקיבל תחום אחריות. לא שואלים אותו שאלה ומחכים לתשובה. מגדירים לו משימה קבועה - והוא מבצע אותה לבד, מתחילתה ועד סופה.</p>
+<p>כל תהליך עבודה שחוזר על עצמו מתאים לסוכן:</p>
+<ul class="story-list"><li>מייל שמגיע וצריך לקבוע בעקבותיו פגישה</li><li>יצירת תוכן: למצוא נושאים, להציע רעיונות, לכתוב פוסטים, להכין תמונות ואפילו להעלות</li><li>לקחת את הנושאים החמים של השבוע, להפוך אותם למצגת ולעצב אותה</li><li>לאסוף נתונים מכמה מקומות אל מקום אחד</li></ul>
+<p class="bold-para">השאלה היא לא "מה לשאול את הבינה המלאכותית", אלא "איזו עבודה שחוזרת על עצמה אפשר למסור לה".</p>
+<p>סוכן טוב יודע שלושה דברים: מתי להתחיל, מאיפה לקחת את החומר, ומה למסור בסוף.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: דוגמה: סוכן לכלכלת המשפחה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דוגמה: סוכן לכלכלת המשפחה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנה סוכן אמיתי, שמנהל את תמונת ההוצאות של משפחה.</p>
+<p>תחום האחריות שלו: להתעורר ב-28 בכל חודש ולהיכנס לתיקיית ההורדות במחשב. שם מחכים לו חמישה קובצי Excel: שני קבצים משני הבנקים של בני הזוג, ושלושה מחברות האשראי. הסוכן אוסף אותם, מזהה מה כל קובץ מכיל, מוצא כפילויות (חיוב אשראי שמופיע גם בבנק), ומעדכן דשבורד אחד מסודר.</p>
+<p>למה כך, כשיש שירותים שמתחברים לבנק אוטומטית? משתי סיבות. הראשונה - הם עולים כסף, עוד מנוי. השנייה - הם דורשים גישה לחשבון הבנק. גם כשאבטחת המידע שם חזקה מאוד, אנשים רבים פשוט לא מרגישים בנוח, וזה מובן.</p>
+<p>בשיטה הזו לא נותנים סיסמה, לא הרשאה ולא גישה. המשימה שלך מתחילה ונגמרת בהורדת הקבצים מהאתרים פעם בחודש. מי שרוצה יכול אפילו לשנות את שמות הקבצים, כדי שלא יהיה כתוב בהם של מי הם.</p>
+<div class="honey-box">🍯 התאריך 28 הוא סתם בחירה. קובעים את היום שנוח, ודואגים שהקבצים יחכו בתיקייה.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הדשבורד שמעיר הערות ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הדשבורד שמעיר הערות</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה מקבלים בסוף? דשבורד שאפשר לשחק איתו: חודש אחד, שלושה חודשים אחרונים, או כל התקופה.</p>
+<p>אבל החלק היפה הוא נורות האזהרה. הסוכן עובר בעצמו על כל הנתונים ומצביע על מה שדורש תשומת לב:</p>
+<ul class="story-list"><li>בכרטיס האשראי שניתן לילד יש הוצאות גבוהות מדי</li><li>הצטברו כמה מנויים קטנים שכדאי לבדוק אם עוד צריך אותם</li><li>יש מנוי שהחיוב שלו הופיע פעמיים</li></ul>
+<p>ולצד כל נורה - הצעה מה לעשות.</p>
+<p>הדשבורד גם משווה את החודש למטרות שהוגדרו מראש: הגענו או לא הגענו, ואיפה חרגנו.</p>
+<p>בדוגמה הזו הסוכן רק מציג ומייעץ. אבל אפשר להרחיב אותו גם לפעולות: לשלוח מייל, להכין מסמך, להתחיל לטפל. מתחילים בקטן, ומוסיפים לפי הצורך.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: Schedule: השעון של הסוכן ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">Schedule: השעון של הסוכן</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך הסוכן יודע להתעורר? בחלק העליון של Claude Code יש אזור בשם Schedule, תזמון. שם רואים את כל המשימות הקבועות: מה רץ, באיזה יום ובאיזו שעה. הסוכן של כלכלת המשפחה, למשל, רשום שם על ה-28 בכל חודש.</p>
+<p>אותה אפשרות קיימת גם ב-Codex, והיא עובדת שם היטב.</p>
+<p>אפשר לתזמן הרבה מאוד דברים: סקירה שבועית, עדכון של מאגר מידע, ניקוי של קבצים, דוח יומי. מי שמתרגל לזה מוצא את עצמו עם רשימה ארוכה של משימות שרצות ברקע, בזמן שהוא עסוק בדברים אחרים.</p>
+<p>כדאי רק לזכור שכל הרצה צורכת מהמכסה של המנוי. מתזמנים את מה שבאמת חוסך עבודה, ולא כל רעיון שעולה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: איך בונים סוכן בלי להשתגע ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">איך בונים סוכן בלי להשתגע</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לא צריך להבין בתיקיות, בקבצים ובשמות מוזרים. הדרך הקלה עוברת דרך <strong>סקיל</strong> - חבילת הוראות מוכנה שמלמדת את Claude איך לבנות סוכנים.</p>
+<p>התהליך:</p>
+<ul class="story-list"><li>בוחרים את הגרסה המתאימה: ל-Claude Code או ל-Codex</li><li>מעתיקים את טקסט ההתקנה ומדביקים אותו בשיחה. Claude מתקין את הסקיל בעצמו</li><li>כותבים: "אני רוצה לבנות סוכן"</li><li>Claude מתחיל לראיין: מה המשימה, מאיפה מגיע המידע, מה צריך לצאת בסוף, מתי להריץ</li><li>עונים על השאלות - והוא יוצר את הכול</li></ul>
+<p>הוא גם ישאל בעצמו אילו אוטומציות להריץ ואיפה לשמור את המידע. בסוף הראיון יש סוכן עובד.</p>
+<p class="bold-para">כל מה שנדרש הוא לדעת מה רוצים, ולענות בכנות על השאלות.</p>
+<p>אנשים בלי שום רקע טכני בנו כך סוכנים ששינו להם את שגרת העבודה. זה קל יותר ממה שזה נשמע.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: הטיפ ששווה הכי הרבה: לדבר, לא להקליד ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הטיפ ששווה הכי הרבה: לדבר, לא להקליד</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כש-Claude מראיין לקראת בניית סוכן, יש פיתוי לענות בקיצור. מילה, שתיים, והלאה. זו הטעות הנפוצה ביותר.</p>
+<p>בצד ימין של שורת הכתיבה יש כפתור הקלטה. לוחצים, מדברים, והדיבור הופך לטקסט. התמלול טוב גם בעברית, וגם כשמדברים מהר.</p>
+<p>למה זה כל כך חשוב? משתי סיבות:</p>
+<ul class="story-list"><li>זה נוח ונעים יותר מהקלדה</li><li>כשמדברים, מפרטים. בלי לשים לב נותנים הקשר, דוגמאות וחריגים שאף פעם לא היינו טורחים להקליד</li></ul>
+<p>והפירוט הוא כל הסיפור. בעבר דיברו הרבה על "הנדסת פרומפטים", על ניסוחים מיוחדים. היום הכלל פשוט בהרבה:</p>
+<p class="bold-para">כמה שיותר הקשר, וכמה שיותר ספציפי - וכך התוצאה טובה יותר.</p>
+<div class="honey-box">🍯 לא להתקמצן במילים. מסבירים לו כמו שמסבירים לעובד חדש ביום הראשון: מה עושים, למה, ומה חשוב לנו.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מה שעלה כסף, ועכשיו כלול ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🎬</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">עריכת וידאו בלי לפתוח תוכנת עריכה</h2></div></div>
+<p class="chapter-intro">חיבור קטעים, כתוביות, אנימציות ולוגו - דברים ששילמו עליהם עד לא מזמן, נעשים היום בשיחה אחת.</p>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה שעלה כסף, ועכשיו כלול</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד לא מזמן, מי שרצה סרטון ערוך לרשתות החברתיות שילם לעורך וידאו 150 עד 200 שקלים לסרטון, ולפעמים הרבה יותר. גם מי שערך לבד שילם: אפליקציות לכתוביות אוטומטיות עלו עשרות שקלים בחודש ויותר, ולצדן תוכנה לחיבור ולחיתוך.</p>
+<p>היום Claude Code עושה את כל זה, וגם Codex.</p>
+<p>גם כאן הדרך הקלה היא סקיל: חבילת הוראות לעריכת וידאו, שכוללת אנימציות, אפקטים וכתוביות. מעתיקים את טקסט ההתקנה (שמים לב לבחור בגרסה של הכלי שלכם), מדביקים בשיחה, והסקיל מותקן.</p>
+<p>מאותו רגע אפשר לדבר איתו בשפה רגילה: יש לי בדרייב כמה קטעים - קח, תחבר, תחתוך, תוסיף כתוביות.</p>
+<p class="bold-para">לא פותחים שום תוכנת עריכה. כותבים מה רוצים, ומקבלים קובץ וידאו.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: חמישה קטעים הופכים לסרטון אחד ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">חמישה קטעים הופכים לסרטון אחד</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה פשוטה. מצלמים סרטון קצר בחמישה קטעים נפרדים: פתיחה, שלוש נקודות וסיום. כל קטע באורך של 14 עד 20 שניות, וכולם נשמרים בתיקייה בדרייב.</p>
+<p>הבקשה ל-Claude: "תיכנס לדרייב. יש שם כמה קטעים שצילמתי היום וצריך לחבר לסרטון אחד. תחבר אותם."</p>
+<p>לא נאמר לו מה הסדר. הוא מסתכל על הקטעים, מבין מהתוכן מה בא לפני מה, ומחבר אותם לסרטון רציף של קצת יותר מדקה.</p>
+<p>השלב הבא: "עכשיו תוסיף כתוביות בעברית." לפני שהוא מתחיל, הוא שואל כמה שאלות: מילים שלא היה בטוח ששמע נכון, ובאיזה צבע להדגיש מילים חשובות. עונים, והכתוביות מופיעות - בצבע שנבחר, ובמקום הנכון במסך, מעט מתחת לסנטר של הדובר, בלי שמישהו ביקש זאת.</p>
+<p>אחר כך אפשר לדייק: כאן להגדיל, כאן להקטין, את המילה הזו להדגיש.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: רפרנס: ללמד אותו את הסגנון שלך ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">רפרנס: ללמד אותו את הסגנון שלך</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם רק מבקשים "תערוך יפה", התוצאה תהיה יפה - אבל כללית. והיום, כשרבים עורכים באותה דרך, סרטונים כאלה נראים דומים זה לזה.</p>
+<p>הפתרון הוא <strong>רפרנס</strong>: סרטון לדוגמה שאוהבים את הסגנון שלו. נותנים אותו ל-Claude ומבקשים: תנתח את הסרטון הזה ותגיד מה יש בו.</p>
+<p>הוא מחזיר רשימה מדויקת של מה שראה. למשל: כניסה באפקט גליץ', באנר עליון עם כמה שורות טקסט, מסגרת, ולוגו בפינה הימנית העליונה. והוא מסביר איך יישם כל אחד מהם בסרטון שלך.</p>
+<p>הניסיון הראשון לא תמיד קולע. אם התוצאה דומה מדי למקור, או משעממת - אומרים לו בדיוק את זה: זה משעמם, תוסיף תנועה, תשנה את הפתיחה. הוא בונה מחדש.</p>
+<div class="honey-box">🍯 כשמגיעים לסרטון שאוהבים, שומרים אותו בתיקיית רפרנסים. מעכשיו מספיק לומר: "זו תיקיית הרפרנסים, תסתכל ותערוך באותו סגנון."</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: מצילום רחב לסטורי, והסבלנות שבדרך ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מצילום רחב לסטורי, והסבלנות שבדרך</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אתגר קשה יותר: קטע מריאיון בטלוויזיה, שצולם לרוחב, וצריך להפוך אותו לסטורי לאורך. Claude יודע לקחת קטע כזה, לחתוך אותו מחדש, לסדר את התמונה בשני חלקים, למעלה ולמטה, ולהוסיף כתוביות.</p>
+<p>יש גם גבולות. אם בזמן הדיבור שודרה בטלוויזיה תמונה אחרת, התנועה של השפתיים לא תתאים למה שנשמע. Claude יעשה את המיטב עם החומר שקיבל, אבל הוא לא יכול ליצור צילום שלא קיים.</p>
+<p>ושני דברים שחשוב לדעת מראש:</p>
+<ul class="story-list"><li><strong>זה לוקח זמן.</strong> עיבוד וידאו אינו עניין של שנייה. נותנים לו לעבוד</li><li><strong>הפעמים הראשונות הן החשובות ביותר.</strong> בהתחלה משקיעים בהסבר: איך אוהבים את הכתוביות, איזה קצב, אילו אפקטים. אחרי כמה סרטונים הוא כבר מכיר את הטעם</li></ul>
+<p>ומה נדרש מכם לאורך כל הדרך? לענות על שאלות, לומר כן או לא, ולבקש שינוי כשצריך.</p>
+<p class="bold-para">ההשקעה היא בהתחלה. אחר כך זה פשוט עובד.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: הבעיה: נחסמים מהר מדי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📚</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">NotebookLM: זיכרון ענק על חשבון Google</h2></div></div>
+<p class="chapter-intro">מי שניסה לתת ל-Claude Code ספרים שלמים, הקלטות ארוכות או עשרות קבצים, מכיר את הקיר שנתקלים בו. יש דרך לעקוף אותו.</p>
+<article class="story-card" id="story-18" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הבעיה: נחסמים מהר מדי</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הקושי הגדול ביותר בעבודה עם Claude Code הוא כמויות גדולות של מידע. מעלים כמה קובצי PDF גדולים, ספר, הקלטות ארוכות או סרטונים - ותוך זמן קצר מגיעה ההודעה שהמכסה נגמרה. במנוי הבסיסי של 20 דולר זה קורה מהר במיוחד.</p>
+<p>הסיבה: כל מה ש-Claude קורא נספר במכסה שלו, ביחידות שנקראות טוקנים. ספר שלם שנכנס לשיחה צורך חלק גדול ממנה עוד לפני שנשאלה שאלה אחת.</p>
+<p>הפתרון הוא לא לקרוא פחות, אלא לתת למישהו אחר להחזיק את החומר.</p>
+<p class="bold-para">את המידע שומרים ב-NotebookLM של Google, ו-Claude Code רק שואל אותו שאלות.</p>
+<p>כך כל הזיכרון הגדול יושב אצל Google, ו-Claude משתמש במכסה שלו רק לחשיבה ולעבודה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: מה זה NotebookLM ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה זה NotebookLM</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>NotebookLM הוא כלי של Google שבו יוצרים מחברות. כל מחברת היא אוסף של מקורות בנושא אחד, ואפשר לשאול אותה שאלות ולקבל תשובות שמבוססות רק על המקורות שבתוכה.</p>
+<p>מה אפשר להכניס כמקור:</p>
+<ul class="story-list"><li>סרטוני יוטיוב</li><li>אתרי אינטרנט</li><li>קבצים מהדרייב</li><li>קובצי PDF</li><li>טקסט מודבק</li><li>הקלטות קול</li></ul>
+<p>גם בחשבון החינמי אפשר להכניס עד 50 מקורות למחברת אחת.</p>
+<p>סטודנט יכול להעלות את כל ההרצאות של הסמסטר. מי שלומד תחום חדש יכול לאסוף עשרות סרטונים ומאמרים. בעל עסק יכול לרכז את כל המסמכים של העסק. הכול במקום אחד, והכול ניתן לחיפוש ולשאלה.</p>
+<p>מי שעוד לא מכיר את הכלי הזה - כדאי להכיר אותו, גם בלי קשר ל-Claude.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: החיבור: Claude Code מדבר עם המחברות ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">החיבור: Claude Code מדבר עם המחברות</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמחברים את Claude Code ל-NotebookLM, הוא רואה את כל המחברות שלך ויכול לעבוד איתן. מכאן נפתחות כמה אפשרויות:</p>
+<ul class="story-list"><li><strong>שיחות ארוכות על מידע גדול.</strong> שואלים, מנתחים, משווים - בלי להעלות אף קובץ לשיחה, ובלי להיחסם</li><li><strong>בניית מחברות.</strong> במקום להכניס מקורות ביד, אחד אחד, מבקשים: לך לדרייב, קח את הקובץ הזה והכנס אותו. חפש באינטרנט מקורות טובים והוסף אותם</li><li><strong>עריכת מחברות.</strong> ניקוי, מחיקה, סידור</li><li><strong>השוואה בין מחברות.</strong> שתי שיטות, שני נושאים - והוא משווה ביניהם</li><li><strong>מוצרים מתוך הידע.</strong> אפשר לבנות ב-Claude Code כלי אינטראקטיבי שנשען על כל מה שבמחברת</li></ul>
+<p>הדוגמה הפשוטה ביותר: "בנה מחברת חדשה על נסיעה לברלין בדצמבר, עם שלושה מקורות לכל היותר." כעבור זמן קצר מופיעה ב-NotebookLM מחברת חדשה, ובה מקורות ש-Claude חיפש, בחר והכניס בעצמו.</p>
+<div class="honey-box">🍯 הגבלה של מספר המקורות מקצרת את ההמתנה. לבדיקה ראשונה שלושה מספיקים, ואחר כך מבקשים עוד.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: ניקיון במחברות: עשר מחיקות בבקשה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ניקיון במחברות: עשר מחיקות בבקשה אחת</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שמשתמש ב-NotebookLM תקופה ארוכה מכיר את התופעה: עשרות מחברות, וביניהן כאלה ריקות בלי שם, שנפתחו בטעות ונשארו.</p>
+<p>במקום למחוק אחת אחת, כותבים ל-Claude Code: "תיכנס ל-NotebookLM ותמחק את כל המחברות שאין להן שם ואין בהן מקורות."</p>
+<p>הוא לא ממהר למחוק. קודם הוא מדווח: מתוך 84 מחברות מצאתי 10 בלי שם, בכולן אפס מקורות, ואלה התאריכים שבהם נוצרו. ואז הוא מזהיר שמחיקה אינה ניתנת לשחזור, ומבקש אישור.</p>
+<p>רק אחרי שעונים "כן, למחוק" הוא מתחיל - ורואים את המחברות הריקות נעלמות מהמסך זו אחר זו.</p>
+<p class="bold-para">הוא עושה את העבודה המייגעת, אבל ההחלטה נשארת אצלך.</p>
+<p>כך כדאי לעבוד עם כל פעולה שאי אפשר לבטל: לקרוא את הדיווח שלו לפני שמאשרים.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: מחברת שמתעדכנת מעצמה ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מחברת שמתעדכנת מעצמה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הצעד הבא הוא לחבר את שני הרעיונות: מחברת ב-NotebookLM, ותזמון קבוע.</p>
+<p>נניח שמישהו עוקב אחרי שוק ההון. הוא מגדיר ל-Claude Code משימה שבועית: לערוך סקירה של מה שקרה השבוע, למצוא מקורות טובים ולהכניס אותם למחברת.</p>
+<p>אבל הוספה לבדה לא מספיקה. משימה טובה כוללת גם תחזוקה:</p>
+<ul class="story-list"><li>להסיר מקורות כפולים</li><li>להוציא מקורות ישנים שכבר אינם רלוונטיים</li><li>להוציא מקורות שאינם קשורים לנושא</li></ul>
+<p>למה זה חשוב? מחברת עמוסה במקורות מיותרים עונה לאט יותר, והתשובות שלה מדויקות פחות. מחברת נקייה היא מחברת טובה.</p>
+<p>התוצאה היא מאגר ידע שנשאר עדכני בלי שנוגעים בו. פותחים אותו כשצריך, והמידע של השבוע כבר שם.</p>
+<div class="honey-box">🍯 זו הדרך לעבוד עם כמויות אדירות של מידע: המחברת מחזיקה את החומר, התזמון מעדכן אותו, ו-Claude Code שואל ומסיק.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: ואם אני עובד ב-Codex? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">💡</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">שאלות שכדאי לשאול לפני שמתחילים</h2></div></div>
+<p class="chapter-intro">שתי שאלות שעולות כמעט תמיד: מה עם מי שעובד ב-Codex, והאם אפשר לעשות את כל זה בחינם.</p>
+<article class="story-card" id="story-23" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ואם אני עובד ב-Codex?</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ב-Codex אין תכונה בשם Artifacts, ואין ספרייה מסודרת של מסמכים בצד המסך. אבל כמעט כל מה שהארטיפקטים עושים, אפשר לקבל גם שם - פשוט מבקשים.</p>
+<p>רוצים מסמך? דשבורד? מצגת? כותבים לו, והוא יוצר קובץ שאפשר לפתוח ולעבוד עליו. מה שחסר הוא המעטפת: השיתוף הנוח, הלוח המשותף, הגיליון שכולם עורכים יחד עם הבינה המלאכותית, והספרייה שמרכזת הכול.</p>
+<p>ומנגד, יתרון שכדאי לזכור: הארטיפקטים אינם שייכים רק ל-Claude Code. הם קיימים גם ב-Claude הרגיל, זה שבדפדפן ובטלפון. גם מי שאינו משתמש ב-Claude Code בכלל יכול ליצור לוח לבן, גיליון או דשבורד, בצורה פשוטה ונגישה.</p>
+<p>כל שאר הנושאים - סוכנים, תזמון, עריכת וידאו והחיבור ל-NotebookLM - עובדים ב-Codex כמעט באותה צורה.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: האם אפשר בחינם? ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">האם אפשר בחינם?</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>Claude Code דורש מנוי בתשלום. ב-Claude הרגיל יש גרסה חינמית, אבל צריך לומר ביושר: היא מוגבלת מאוד. המכסה קטנה כל כך, שהפעלה אחת של סקיל כבד יכולה לסיים אותה לזמן רב.</p>
+<p>ההבדל מ-ChatGPT נובע מגישה שונה. שם הגרסה החינמית מאפשרת לשוחח כמעט בלי הגבלה, אבל עם מודל פשוט וזול יותר, ולא עם המודלים המתקדמים שמקבלים בתשלום. ב-Claude הגישה הפוכה: מעט מאוד בחינם, והכלי בנוי למי שבא לעבוד.</p>
+<p class="bold-para">Claude הוא כלי עבודה. מי שרוצה לעשות איתו עבודה אמיתית צריך מנוי.</p>
+<p>ומה שווה לחשב: מנוי אחד מחליף היום כמה הוצאות נפרדות - אפליקציה לכתוביות, עורך וידאו, ולפעמים גם כלי לניהול ההוצאות. למי שמשתמש בו באמת, החשבון יוצא לטובתו.</p>
+<div class="honey-box">🍯 ההמלצה המעשית: לבחור משימה אחת שחוזרת על עצמה בכל שבוע, ולבנות לה סוכן. משם כבר רואים לבד מה הדבר הבא.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
