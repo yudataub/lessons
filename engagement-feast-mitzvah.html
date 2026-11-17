@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💍 סעודת האירוסין: מצווה או סתם מסיבה?</title>
+<meta name="description" content="מסע מהמשנה בפסחים ועד שטר התנאים של ימינו: למה שמחת האירוסין נחשבת מצווה, מה ההבדל בין מנהג אשכנז למנהג ספרד, ומה כל זה מלמד על האירוסין שלנו עם בורא עולם.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 17.11.2026 🍯</div>
+  <h1 class="hero-title">💍 סעודת האירוסין: מצווה או סתם מסיבה?</h1>
+  <p class="hero-subtitle">מסע מהמשנה בפסחים ועד שטר התנאים של ימינו: למה שמחת האירוסין נחשבת מצווה, מה ההבדל בין מנהג אשכנז למנהג ספרד, ומה כל זה מלמד על האירוסין שלנו עם בורא עולם.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-9 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/LRfL4NPuosc" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🍞 חתן בדרך, וחמץ בבית</a><ul class="toc-stories"><li><a href="#story-1">המשנה שפותחת את הסיפור</a></li><li><a href="#story-2">רבי יהודה ורבי יוסי: רשות או מצווה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">💞 איזו מצווה יש כאן?</a><ul class="toc-stories"><li><a href="#story-3">כל מה שמקרב את הלבבות</a></li><li><a href="#story-4">הסתירה בשולחן ערוך: ערב פסח מול ערב שבת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📜 ומה הדין היום?</a><ul class="toc-stories"><li><a href="#story-5">סעודת התנאים של ימינו</a></li><li><a href="#story-6">מנהג הספרדים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">⛰️ כתובה בשבועות, תנאים בשבועות</a><ul class="toc-stories"><li><a href="#story-7">מתן תורה: יום החתונה</a></li><li><a href="#story-8">העולם הזה אירוסין, הגאולה נישואין</a></li><li><a href="#story-9">אשכנז וספרד: יראה ואהבה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🖋️ קוראים את שטר התנאים</a><ul class="toc-stories"><li><a href="#story-10">&quot;המגיד מראשית אחרית&quot;</a></li><li><a href="#story-11">&quot;ואל יבריחו ואל יעלימו&quot;</a></li><li><a href="#story-12">קניין, חתימה וקנס</a></li><li><a href="#story-13">בית, כבוד ושערי צדק</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🍞</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">חתן בדרך, וחמץ בבית</h2></div></div>
+<p class="chapter-intro">הכול מתחיל באדם אחד שיצא מהבית בערב פסח, ובאמצע הדרך נזכר ששכח משהו.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המשנה שפותחת את הסיפור</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ערב פסח. אדם יוצא מביתו בשמחה, בדרך לבית חמיו, שם מחכה לו סעודת האירוסין. ופתאום, באמצע הדרך, הוא נזכר: נשאר לי חמץ בבית!</p>
+<p>מה עושים? הרי חכמים חייבו כל אדם לבדוק את ביתו ולבער את החמץ בפועל, ולא להסתפק בביטול בלב. לכאורה עליו להסתובב ולחזור מיד.</p>
+<p>כאן באה המשנה במסכת פסחים (פרק ג) ומחדשת:</p>
+<blockquote>ההולך לשחוט את פסחו ולמול את בנו ולאכול סעודת אירוסין בבית חמיו, ונזכר שיש לו חמץ בתוך ביתו, אם יכול לחזור ולבער ולחזור למצוותו, יחזור ויבער. ואם לאו, מבטלו בלבו.</blockquote>
+<p>מי שהולך לדבר מצווה, ואם יחזור הביתה יפסיד את המצווה, רשאי להמשיך בדרכו ולבטל את החמץ בלבו. ושימו לב לאיזו חברה נכנסה סעודת האירוסין: קרבן פסח וברית מילה!</p>
+<p class="bold-para">המשנה מונה את סעודת האירוסין בשורה אחת עם המצוות הגדולות ביותר.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: רבי יהודה ורבי יוסי: רשות או מצווה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">רבי יהודה ורבי יוסי: רשות או מצווה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא (פסחים מט) מביאה ברייתא שנראית הפוכה: מי שהולך לסעודת אירוסין ונזכר בחמץ, יחזור מיד. איך זה מסתדר עם המשנה?</p>
+<p>התשובה: זו מחלוקת תנאים.</p>
+<blockquote>סעודת אירוסין רשות, דברי רבי יהודה. רבי יוסי אומר: מצווה.</blockquote>
+<p>לפי רבי יהודה הסעודה היא רשות, ולכן היא לא דוחה את חובת הביעור. לפי רבי יוסי היא מצווה, ולכן מותר להמשיך בדרך ולבטל בלב. המשנה שלנו הולכת בשיטת רבי יוסי.</p>
+<p>ורבי יוסי מוסיף עוד צעד: לא רק הסעודה, אלא גם ה"סבלונות", המתנות שהחתן שולח לכלתו אחרי האירוסין, הן בכלל המצווה. חתן שהולך להביא מתנה לכלתו עוסק במצווה.</p>
+<p>להלכה פסק השולחן ערוך (אורח חיים, סימן תמד) כמו המשנה: ההולך לסעודת אירוסין בבית חמיו הוא הולך לדבר מצווה, ואם אין לו שהות לחזור, מבטל בלבו.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: כל מה שמקרב את הלבבות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">💞</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">איזו מצווה יש כאן?</h2></div></div>
+<p class="chapter-intro">אוכלים, שותים ושמחים. מה בדיוק הופך את זה למצווה?</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל מה שמקרב את הלבבות</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בברית מילה המצווה ברורה. בקרבן פסח ודאי. אבל בסעודת אירוסין? המצווה היא הקידושין עצמם, והסעודה היא רק החגיגה שמסביב. ועוד יותר קשה להבין את הסבלונות: מתנה לכלה היא מצווה?</p>
+<p>ההסבר שמקובל בפוסקים הוא יסוד גדול: <strong>כל דבר שנעשה כדי לקרב את הלבבות של החתן והכלה, ושל שתי המשפחות, הוא עצמו בכלל המצווה.</strong></p>
+<p>הקמת בית בישראל היא "מצווה רבה". ובית לא נבנה רק מטבעת ומשטר. הוא נבנה מקירוב לבבות: מסעודה ששתי המשפחות יושבות בה יחד, ממתנה שנשלחת באהבה, משמחה משותפת. כל אלה הם אבני הבניין של הבית, ולכן הם חלק מהמצווה.</p>
+<div class="honey-box">🍯 מי שמשמח חתן וכלה, מי שמקרב בין שתי משפחות, ואפילו מי ששולח מתנה קטנה בלב טוב, שותף בבניין של בית בישראל.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הסתירה בשולחן ערוך: ערב פסח מול ערב שבת ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הסתירה בשולחן ערוך: ערב פסח מול ערב שבת</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן מתעוררת קושיה חזקה. בהלכות פסח פסק השולחן ערוך שסעודת אירוסין היא מצווה. ואילו בהלכות שבת (סימן רמט) הוא פוסק שאסור לקבוע בערב שבת סעודה גדולה שאינו רגיל בה בימות החול, ואפילו סעודת אירוסין, כדי שייכנס לשבת כשהוא תאב לאכול.</p>
+<p>אם זו סעודת מצווה, למה היא נאסרה בערב שבת? והרי סעודת ברית מילה ופדיון הבן מותרות בערב שבת!</p>
+<p>שני יישובים נאמרו בזה:</p>
+<ul class="story-list"><li><strong>הזמן.</strong> בערב פסח הסעודה נעשית מוקדם, כל עוד החמץ מותר. עד הלילה עוברות שעות ארוכות, וודאי שיגיע לליל הסדר תאב לאכול מצה. בערב שבת הסעודה נמשכת עד סמוך לשבת.</li><li><strong>סעודה שזמנה קבוע.</strong> ברית מילה ופדיון הבן זמנם היום, ואי אפשר לדחות אותם. סעודת אירוסין אפשר לקבוע ליום אחר. היא מצווה, אבל אין הכרח לעשות אותה דווקא בערב שבת על חשבון כבוד השבת.</li></ul>
+<p>נמצא שאין כאן סתירה. הסעודה היא סעודת מצווה גם בהלכות שבת, אלא שמצווה שאפשר לקיים ביום אחר לא דוחה את כבוד השבת.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: סעודת התנאים של ימינו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">ומה הדין היום?</h2></div></div>
+<p class="chapter-intro">בזמן הגמרא האירוסין היו קידושין ממש. היום הקידושין נעשים תחת החופה, ומה שנשאר הוא "תנאים" או "וורט".</p>
+<article class="story-card" id="story-5" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">סעודת התנאים של ימינו</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בזמן חז"ל האירוסין היו הקידושין עצמם: החתן קידש את הכלה, והיא נעשתה אשת איש לכל דבר, וזמן רב אחר כך נערכה החופה. היום שני השלבים נעשים יחד תחת החופה. מה שנעשה לפני כן הוא הסכם בין הצדדים: התנאים, סגירת השידוך.</p>
+<p>האם גם הסעודה הזו היא סעודת מצווה? הרי עדיין אין כאן קידושין, רק קניין והתחייבות.</p>
+<p>המגן אברהם הסתפק בדבר. אבל פוסקים רבים שבאו אחריו, ובהם החק יעקב והמקור חיים, הכריעו שגם סעודה זו היא סעודת מצווה, וכך מקובל להלכה.</p>
+<p>והסברה מובנת לפי היסוד שלמדנו: אם המצווה היא כל מה שמקרב את הלבבות ומקדם את בניין הבית, הרי שבסעודת התנאים שני הצדדים מתחייבים זה לזה שתהיה חתונה. מי שמתחייב לקיים מצווה כבר התחיל בה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: מנהג הספרדים ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מנהג הספרדים</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה מעניינת היא האם גם בקהילות הספרדים נהגו בסעודה כזו. המושג "תנאים", עם שטר מיוחד וקריאה חגיגית, הוא בעיקרו מנהג אשכנזי. בקהילות ספרד לא היה מקובל שטר כזה.</p>
+<p>גם בין פוסקי הספרדים האחרונים נחלקו הדעות: יש מי שנקט שסעודה של סגירת שידוך בלי קידושין אינה מצווה גמורה אלא דבר טוב ומנהג יפה, ויש מי שחלק והכריע כדעת רוב הפוסקים שהיא סעודת מצווה.</p>
+<p>ומסתבר כדעה השנייה. הקמת בית היא מצווה רבה, עד שחכמים התירו למכור אפילו ספר תורה כדי לשאת אישה. אם כך חשובה המצווה, גם ההכנה אליה וההתחייבות עליה נושאות את שמה.</p>
+<p class="bold-para">שמחה שמובילה לחופה היא כבר חלק מהחופה.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מתן תורה: יום החתונה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">⛰️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">כתובה בשבועות, תנאים בשבועות</h2></div></div>
+<p class="chapter-intro">האירוסין הגדולים בהיסטוריה נערכו למרגלות הר סיני. וגם שם יש מנהג ספרד ומנהג אשכנז.</p>
+<article class="story-card" id="story-7" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מתן תורה: יום החתונה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה בסוף מסכת תענית דורשת את הפסוק בשיר השירים:</p>
+<blockquote>ביום חתונתו, זה מתן תורה. וביום שמחת לבו, זה בנין בית המקדש.</blockquote>
+<p>מתן תורה הוא החתונה של הקדוש ברוך הוא עם ישראל. מכאן צמחו מנהגים יפים לחג השבועות. בקהילות ספרד נוהגים עד היום לקרוא בבוקר החג, לפני קריאת התורה, את ה"כתובה" שחיבר רבי ישראל נג'ארה: פיוט שכתוב כלשון כתובה, בין החתן, מלך מלכי המלכים, ובין הכלה, כנסת ישראל.</p>
+<p>בקהילות אשכנז אומרים "אקדמות", ויש קהילות שנהגו לקרוא נוסח של "שטר תנאים" בין הקדוש ברוך הוא לישראל, בנוי על לשון שטר התנאים הרגיל.</p>
+<p>למה אלה קוראים כתובה ואלה קוראים תנאים? התשובה הפשוטה: אצל הספרדים אין שטר תנאים, ולכן לא היה להם על מה לבנות נוסח כזה. אבל יש כאן גם עומק.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: העולם הזה אירוסין, הגאולה נישואין ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">העולם הזה אירוסין, הגאולה נישואין</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לכאורה הכתובה מתאימה יותר לשבועות. הרי מתן תורה נקרא "יום חתונתו", ואילו האירוסין היו עוד קודם, ביציאת מצרים. למה לקרוא בשבועות שטר של אירוסין?</p>
+<p>יש מדרש שמאיר את העניין: כל מה שהיה עד היום הוא בבחינת אירוסין, והנישואין השלמים יהיו בגאולה. כך אומר הנביא הושע:</p>
+<blockquote>וארשתיך לי לעולם, וארשתיך לי בצדק ובמשפט ובחסד וברחמים. וארשתיך לי באמונה.</blockquote>
+<p>כל זמן הגלות אנחנו כמו כלה מאורסת: קשורה לחתנה בקשר שאין לו התרה, שומרת לו אמונים, ומחכה. החתונה המלאה, הגילוי השלם של האהבה, עוד לפנינו.</p>
+<p>לפי זה שני המנהגים אמיתיים. הכתובה מספרת על מה שהתחיל בסיני, ושטר התנאים מזכיר שאנחנו עדיין בדרך לחופה.</p>
+<div class="honey-box">🍯 מי שמרגיש שהקשר שלו עם ה' עוד לא שלם, שיזכור: אנחנו מאורסים. הקשר כבר קיים וחזק, והשמחה הגדולה עוד מחכה.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: אשכנז וספרד: יראה ואהבה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אשכנז וספרד: יראה ואהבה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש הסבר נוסף, יפה מאוד. ידוע שבעבודת ה' של קהילות אשכנז בלט יותר צד היראה, ובקהילות ספרד בלט יותר צד האהבה.</p>
+<p>איפה רואים את זה? באשכנז התפתח מאוד הדקדוק בהלכה, החומרות וההקפדה על כל פרט. ובספרד פרחו השירה והפיוט, הנעימות בתפילה והבקשות. הדוגמה הבולטת היא הסליחות: מי ששמע סליחות בנוסח ספרד יודע כמה שירה וגעגוע יש בהן.</p>
+<p>ושתי הדרכים הן דרכי חיבור לבורא עולם. גם מי שמדקדק עושה זאת מאהבה: כשמשהו יקר לך באמת, אכפת לך מכל קוצו של יוד, שיהיה ישר, יפה ותקין. ובלבד שלא יגיע הדקדוק למתח ולעצבות.</p>
+<p>ועכשיו לאירוסין ולנישואין. האירוסין הם בבחינת "סור מרע": מרגע הקידושין הכלה אסורה על כל העולם. זו קדושה של גבול ושל שמירה, בחינת יראה. הנישואין הם "עשה טוב": מתחילים לחיות יחד, בחינת אהבה.</p>
+<p class="bold-para">לכן באשכנז, שם הדגישו את היראה, עשו עניין גדול מהאירוסין ומהתנאים. ובספרד, שם הדגישו את האהבה, שמו את הדגש על הכתובה ועל החופה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: &quot;המגיד מראשית אחרית&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🖋️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">קוראים את שטר התנאים</h2></div></div>
+<p class="chapter-intro">פעם אחת כדאי לעצור ולקרוא מה כתוב בשטר שקוראים בכל וורט. כל שורה שם שקולה.</p>
+<article class="story-card" id="story-10" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;המגיד מראשית אחרית&quot;</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השטר פותח בברכה: "למזל טוב יעלה ויצמח", וממשיך בפסוק ממשלי: "מצא אשה מצא טוב, ויפק רצון מה'". ואז בא המשפט הידוע: "המגיד מראשית אחרית, הוא יתן שם טוב ושארית לאלה דברי התנאים והברית שנדברו והותנו בין שני הצדדים".</p>
+<p>למה נבחר דווקא התואר הזה, "מגיד מראשית אחרית", מלשון הנביא ישעיהו?</p>
+<p>אפשר לומר שרגע האירוסין הוא רגע של ראשית. שני אנשים צעירים עומדים בתחילת הדרך ואינם יודעים מה יהיה. רק הקדוש ברוך הוא רואה כבר עכשיו את האחרית: את הבית, את הילדים, את הדורות. ממנו מבקשים "שם טוב ושארית", שם טוב והמשך.</p>
+<p>ויש בזה עוד עומק. הנישואין הם החוט שמחבר את ראשית העולם לאחריתו. מאדם הראשון ועד הגאולה השלמה העולם ממשיך להתקיים בזכות בתים שנבנים, דור אחר דור. כל זוג שמתארס הוא חוליה נוספת בשרשרת שמחברת את הראשית אל האחרית.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;ואל יבריחו ואל יעלימו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;ואל יבריחו ואל יעלימו&quot;</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחת השורות המפתיעות בשטר: "ואל יבריחו ואל יעלימו, לא זה מזו ולא זו מזה, שום הברחת ממון בעולם, רק ישלטו שניהם שווה בשווה בנכסיהם".</p>
+<p>זו התחייבות הדדית לשקיפות מלאה. הבעל לא יסתיר כסף מאשתו, והאישה לא תסתיר מבעלה. בבית הזה אין "שלי" נסתר ו"שלך" נסתר.</p>
+<p>מעניין שהלשון "שווה בשווה" הולכת רחוק יותר מעיקר הדין, שלפיו ענייני הממון בין איש לאשתו מסודרים באופן אחר. בימינו, כשגם האישה עובדת ומפרנסת, השאלות האלה נעשו מורכבות עוד יותר, והפוסקים דנים בהן בזהירות רבה. שטר התנאים מדלג מעל כל החשבונות וקובע את רוח הבית: שותפות.</p>
+<div class="honey-box">🍯 שלום בית מתחיל משקיפות. בית שבו אין סודות של כסף הוא בית שיש בו אמון, ואמון הוא היסוד של האהבה.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: קניין, חתימה וקנס ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">קניין, חתימה וקנס</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השטר לא נשאר ברמה של איחולים. יש בו התחייבויות ממשיות: מה כל צד נותן, מתי תהיה החתונה, וקנס על מי שיחזור בו. כדי שההתחייבות תחול עושים "קניין סודר": כל צד מגביה מטפחת או בגד, ובמעשה הזה הדברים מקבלים תוקף גמור.</p>
+<p>מכאן גם סדר הדברים. קודם עושים את הקניין, ורק אחר כך העדים חותמים. אם יחתמו לפני שנעשה הקניין, יצא שהשטר מעיד על דבר שעדיין לא קרה, וזה דומה ל"שטר מוקדם". גם אם באותו יום אין בכך נפקא מינה גדולה, לכתחילה מקפידים על הסדר הנכון: קניין, קריאת השטר וחתימה.</p>
+<p>והחומרה שבה מתייחסים לתנאים מלמדת כמה כבד משקלה של מילה שניתנה. לא במקרה נהגו לשבור צלחת בסיום: דבר שנסגר, נסגר.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: בית, כבוד ושערי צדק ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">בית, כבוד ושערי צדק</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספרי החסידות מבואר למה כל העסק הזה, שטר וקניין וכבוד ושמחה, נוגע לשורש הנפש.</p>
+<p>עיקר שמירת הנפש הוא על ידי הכבוד. כשאדם מכובד, נפשו מאירה. כשהכבוד נפגם, הנפש מתכווצת. ואיפה נמצא עיקר כבודו של אדם? בביתו. הבית הוא המקום שבו הנפשות מתקבצות יחד, ולכן קיבוץ של נפשות נקרא בשם "בית". ועל האישה, עיקר הבית, נאמר בתהלים: "אשתך כגפן פוריה בירכתי ביתך".</p>
+<p>לכן, כשבונים בית חדש בישראל, מתחילים מכבוד: מכבדים את החתן ואת הכלה, מכבדים את שתי המשפחות, קוראים את השטר בקול ובחגיגיות. וזה מה שביקש דוד המלך: "פתחו לי שערי צדק". שהפתח של הבית הזה ייפתח בצדק ובצדקה, ושכבוד ה' ימלא את הבית.</p>
+<p class="bold-para">כל בית יהודי שנבנה הוא משכן קטן, ושמחת האירוסין היא חנוכת היסודות שלו.</p>
+<p>וכשיוצאים מוורט או מסעודת תנאים, כדאי לזכור היכן היינו: בסעודת מצווה, במקום שבו נקשרו לבבות, נבנה בית, ונוספה חוליה בין הראשית לאחרית. יהי רצון שנזכה בקרוב גם לנישואין הגדולים, בגאולה השלמה.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
