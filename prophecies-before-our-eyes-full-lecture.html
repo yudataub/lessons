@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔭 היינו כחולמים: הנבואות שמתקיימות מול עינינו</title>
+<meta name="description" content="הרצאה שלמה: חמש ההבטחות של פרשת נצבים, הדורות שלא האמינו בהן, והדרך שבה הן מתקיימות היום – מקיבוץ הגלויות ועד המסילה לירושלים.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🔭 היינו כחולמים: הנבואות שמתקיימות מול עינינו</h1>
+  <p class="hero-subtitle">הרצאה שלמה: חמש ההבטחות של פרשת נצבים, הדורות שלא האמינו בהן, והדרך שבה הן מתקיימות היום – מקיבוץ הגלויות ועד המסילה לירושלים.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-31 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/MgMYhk6Mfek" target="_blank" rel="noopener">🎬 חלק א ביוטיוב: היינו כחולמים – הנבואות שאיש לא האמין בהן</a> <a class="video-btn" href="https://youtu.be/yPhT9D3EHRo" target="_blank" rel="noopener">🎬 חלק ב ביוטיוב: הנבואות מתקיימות מול עינינו</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🕯️ היינו כחולמים: לחיות בתוך נבואה</a><ul class="toc-stories"><li><a href="#story-1">שני סוגים של זיכרון</a></li><li><a href="#story-2">על נהרות בבל ושיר המעלות</a></li><li><a href="#story-3">מחלום למציאות</a></li><li><a href="#story-4">קבוצה מדרום קוריאה בסוכה</a></li><li><a href="#story-5">שלושה פירושים ל&quot;היינו כחולמים&quot;</a></li><li><a href="#story-6">התרופה לפחד</a></li><li><a href="#story-7">אין עוד ספר כזה בעולם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📜 חמש הבטחות בפרשת נצבים</a><ul class="toc-stories"><li><a href="#story-8">התורה לא מזכירה משיח</a></li><li><a href="#story-9">ושב ה&#x27; אלוקיך את שבותך</a></li><li><a href="#story-10">חמש הבטחות, אחת אחרי השנייה</a></li><li><a href="#story-11">לא מלפפון: הארץ הטובה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🧳 ושב וקבצך: קיבוץ גלויות</a><ul class="toc-stories"><li><a href="#story-12">כל הנביאים מדברים על זה</a></li><li><a href="#story-13">למה כתוב &quot;ושב&quot; פעמיים</a></li><li><a href="#story-14">חצי אחוז לפני מאה שנה</a></li><li><a href="#story-15">משישה אלפים ועד רוב העם</a></li><li><a href="#story-16">מאה ושתיים מדינות</a></li><li><a href="#story-17">העלייה הגדולה מברית המועצות</a></li><li><a href="#story-18">והרבך מאבתיך</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">💀 אבדה תקותנו: הנבואה שאיש לא האמין בה</a><ul class="toc-stories"><li><a href="#story-19">מאיפה באה המילה &quot;התקווה&quot;</a></li><li><a href="#story-20">אין עם שחזר מגלות</a></li><li><a href="#story-21">&quot;מטורף&quot;: מה אמרו יהודים לפני מאה שנה</a></li><li><a href="#story-22">הצהרת בלפור והמתנגדים מבפנים</a></li><li><a href="#story-23">שלוש מאות קנו, מעטים נשארו</a></li><li><a href="#story-24">הנבואה היחידה של הנצרות</a></li><li><a href="#story-25">מלך אנגליה והנביאים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🌳 וידעו הגויים: הארץ שפורחת לעיני העולם</a><ul class="toc-stories"><li><a href="#story-26">טרומן: &quot;הארץ אשר אתה שכב עליה&quot;</a></li><li><a href="#story-27">מארץ שוממה לגן עדן</a></li><li><a href="#story-28">האפיפיור על ההר</a></li><li><a href="#story-29">&quot;הברית אינה ניתנת לביטול&quot;</a></li><li><a href="#story-30">ונקדשתי בם לעיני הגויים</a></li><li><a href="#story-31">מלאות צאן אדם</a></li><li><a href="#story-32">בתי כנסיות של בבל בארץ ישראל</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🛡️ וירשתה: לרשת, לנצח ולשבת לבטח</a><ul class="toc-stories"><li><a href="#story-33">מן הייאוש אל המציאות</a></li><li><a href="#story-34">הבעיה שנראתה בלתי פתירה</a></li><li><a href="#story-35">שוב ושוב: עוזבים מעצמם</a></li><li><a href="#story-36">החשבון שהתהפך</a></li><li><a href="#story-37">כשהכול נראה אבוד</a></li><li><a href="#story-38">ששת הימים: מול צבאות שלמים</a></li><li><a href="#story-39">יום הכיפורים: הפתעה שלא הכריעה</a></li><li><a href="#story-40">באש יבוא: טילים שעוצרים טילים</a></li><li><a href="#story-41">מה הפסיד הבחור שנסע</a></li><li><a href="#story-42">כמו נעילה</a></li><li><a href="#story-43">החזון איש: לאן תברח?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🚄 פנו דרך: מסילה לירושלים ונחמה שלמה</a><ul class="toc-stories"><li><a href="#story-44">נחמו נחמו עמי</a></li><li><a href="#story-45">הפסוק מבעד לחלון</a></li><li><a href="#story-46">המכונה שבולעת הרים</a></li><li><a href="#story-47">חצי שעה לירושלים</a></li><li><a href="#story-48">ארץ של חסד</a></li><li><a href="#story-49">הקטן יהיה לאלף</a></li><li><a href="#story-50">כמו שזכינו – כך נזכה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">היינו כחולמים: לחיות בתוך נבואה</h2></div></div>
+<p class="chapter-intro">בין תשעה באב לראש השנה קוראים שבע הפטרות של נחמה. אבל הנחמה של דורנו שונה מאוד מזו שהכירו הדורות שלפנינו: היא נחמה שרואים בעיניים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שני סוגים של זיכרון</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל תיקנו לנו שלוש הפטרות של פורענות לפני תשעה באב, ואחריהן שבע הפטרות של נחמה – "שבע דנחמתא". כדי להבין מה מיוחד בנחמה, צריך לדעת שיש שני סוגים של תקנות.</p>
+<p>יש תקנות שהן <strong>זכר לחורבן</strong>: הן נועדו שלא נשכח מה איבדנו, כמה היה גדול בית המקדש וכמה גדול הכאב על חורבנו.</p>
+<p>ויש תקנות שהן <strong>זכר לבניין</strong>, או "זכר למקדש": הן לא מסתכלות אחורה אל החורבן, אלא קדימה, אל היום שבו בית המקדש ייבנה. דוגמה מוכרת היא ספירת העומר. לדעת פוסקים רבים, בזמן הזה אין מצוות ספירה מן התורה, כי אין קרבן העומר. ובכל זאת סופרים, "זכר למקדש". מי שסופר לא מתאבל; הוא מתגעגע, חולם ומקווה שבקרוב נחזור להביא את העומר.</p>
+<div class="honey-box">🍯 זכר לחורבן מלמד אותנו מה חסר. זכר לבניין מלמד אותנו לצפות למה שעומד להגיע.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: על נהרות בבל ושיר המעלות ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">על נהרות בבל ושיר המעלות</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את שני סוגי הזיכרון אפשר לראות בכל סעודה. יש הנוהגים לומר לפני ברכת המזון מזמור תהילים שמזכיר את בית המקדש. ביום חול אומרים (תהילים קלז, א):</p>
+<blockquote>על נהרות בבל שם ישבנו גם בכינו בזכרנו את ציון.</blockquote>
+<p>זה זכר לחורבן. אנחנו יושבים עם הגולים על נהרות בבל ובוכים איתם.</p>
+<p>אבל בשבת וביום טוב, ימים של שמחה, אומרים מזמור אחר (תהילים קכו, א):</p>
+<blockquote>שיר המעלות בשוב ה' את שיבת ציון היינו כחלמים.</blockquote>
+<p>זה כבר זכר לבניין. לא בוכים על מה שהיה, אלא שרים על מה שיהיה: היום שבו ה' ישיב את שבי ציון.</p>
+<p class="bold-para">יש זמן לזכור את החורבן, ויש זמן לשיר על הבניין – ושבע דנחמתא הן הזמן של השיר.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: מחלום למציאות ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מחלום למציאות</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשך דורות רבים, הנחמה הייתה בעיקרה תקווה. יהודי בגולה קרא את נבואות הנחמה ולא ראה בעיניו שום דבר מהן. לא קיבוץ גלויות, לא ארץ פורחת, לא ירושלים בנויה. ובכל זאת האמין שיבוא יום, וחי מתוך התקווה הזאת.</p>
+<p>היום המצב שונה. כדי להתנחם, כבר לא צריך לחיות רק בעבר או לדמיין את העתיד. אפשר לפתוח את התנ"ך, לקרוא נבואה, ואחר כך להרים את העיניים ולראות אותה מתקיימת. אפשר כמעט למדוד כמה אחוזים מן הנבואות כבר התגשמו.</p>
+<p>ומי שרואה כמה כבר התקיים, מבין שגם ההמשך יבוא. הנבואות לא נעצרות באמצע. מה שהתחיל להתקיים מול עינינו ימשיך הלאה, עד הגאולה השלמה.</p>
+<div class="honey-box">🍯 הנחמה של דורנו היא נחמה של עיניים פקוחות: לא רק להאמין שזה יקרה, אלא לראות שזה כבר קורה.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: קבוצה מדרום קוריאה בסוכה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קבוצה מדרום קוריאה בסוכה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בערב סוכות אחד הגיעה לסוכה קבוצה של תלמידים ומורים מדרום קוריאה. הם לא היו יהודים. הם קראו בתנ"ך שיש מצווה כזאת, "סוכה", ורצו לראות בעיניים מה זה, איך יהודי יושב בה ומה הוא עושה שם. כל הקבוצה באה, איש לא ויתר, והם ישבו והקשיבו בהתרגשות להסברים באנגלית.</p>
+<p>(זה היה בערב החג. בתוך החג עצמו נוהגים להשתדל, כדברי הזוהר, שלא להכניס גויים אל הסוכה.)</p>
+<p>בסוף הביקור הם ביקשו לשיר, ושרו בהתלהבות שיר יהודי מוכר על "אבא, מלך העולם", בדיוק כפי שהזמר היהודי שר אותו, כולל המילים ביידיש שאין להם מושג מה פירושן.</p>
+<p>באותו רגע אפשר היה לראות בעיניים את דברי הנביא (ישעיהו ב, ג):</p>
+<blockquote>והלכו עמים רבים ואמרו לכו ונעלה אל הר ה' אל בית אלוקי יעקב וירנו מדרכיו ונלכה בארחתיו כי מציון תצא תורה ודבר ה' מירושלים.</blockquote>
+<p class="bold-para">עמים רחוקים, מקצה העולם, באים לארץ ישראל כדי ללמוד מן היהודים איך עובדים את ה'.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: שלושה פירושים ל&quot;היינו כחולמים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלושה פירושים ל&quot;היינו כחולמים&quot;</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על המילים "בשוב ה' את שיבת ציון היינו כחלמים" יש שני פירושים מוכרים.</p>
+<p>לפי הפירוש האחד, כשתבוא הגאולה, כל הגלות הארוכה תיראה לנו כמו חלום רע שעבר. כמו אדם שמתעורר מסיוט ומגלה שהכול בסדר.</p>
+<p>לפי הפירוש השני, הגאולה עצמה תהיה כל כך נפלאה, שלא נאמין שזה אמיתי. נרגיש כאילו אנחנו חולמים.</p>
+<p>ואפשר להוסיף פירוש שלישי, כמעט בחיוך. מורה מלמד בכיתה, ופתאום פונה לתלמיד: "דוד, אתה חולם?" דוד יושב במקומו, עיניו פקוחות, אוזניו שומעות – אבל הוא לא כאן. הגוף נמצא, הראש במקום אחר.</p>
+<p>כך גם אנחנו. ה' מחזיר אותנו לארץ, נבואה אחרי נבואה מתקיימת מול עינינו – ואנחנו "כחולמים": רואים ושומעים, ולא קולטים שהכול מתרחש ממש לפנינו.</p>
+<div class="honey-box">🍯 הסכנה של הדור שלנו היא לא שלא נראה את הנבואות, אלא שנראה אותן ולא נשים לב.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: התרופה לפחד ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">התרופה לפחד</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש עוד סיבה שחשוב כל כך לדבר על הנבואות דווקא עכשיו, בימים שבהם האויבים מאיימים ומנסים להפחיד.</p>
+<p>אחת הדרכים הטובות ביותר שלא לפחד היא להבין איפה אתה נמצא. מי שחושב שהוא נמצא כאן במקרה, שהכול התגלגל איכשהו, עלול לחשוש בכל רגע: מי יודע מה יעשו האויבים, מי יודע מה יקרה מחר.</p>
+<p>אבל מי שמבין שהוא לא בגלות, שהוא חי בתקופה אחרת לגמרי, בתוך נבואות שמתגשמות, יודע שה' הבטיח שנבוא לכאן, שהארץ תפרח ושיהיה לנו טוב. ומי שראה איך ה' מקיים הבטחה אחרי הבטחה, סומך עליו שיקיים גם את ההמשך.</p>
+<p class="bold-para">מי שמבין שהוא חי בתוך הבטחה של ה', מחליף את הפחד בביטחון.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: אין עוד ספר כזה בעולם ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אין עוד ספר כזה בעולם</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנבואות שנביא כאן אינן רמזים ודיוקים. הן פסוקים מפורשים, ברורים, שכל אחד יכול לפתוח ולקרוא.</p>
+<p>וצריך לומר את האמת: מלבד הנבואות שבתנ"ך, אין בעולם אפילו נבואה אחת מפורטת ומפורשת של מגידי עתידות שהתגשמה. אפשר לחפש בספרי הדתות האחרות נבואה אחת ברורה על מה שיקרה בעוד אלפי שנים ושהתקיימה במלואה – ולא תמצא. קל וחומר רצף ארוך של נבואות, שכולן הולכות ומתגשמות בעקביות כבר יותר ממאה שנה, נגד כל הסיכויים.</p>
+<p>ומכאן מסקנה פשוטה. כשאתה רואה נבואה אחר נבואה מתקיימת, אתה מבין שבדור הזה החליט הקדוש ברוך הוא לקיים את הבטחותיו, ושהוא נמצא כאן, שותף לכל מה שעובר עלינו. ומי שיודע מה כבר התקיים, יכול גם לדעת מה צופן העתיד, ולקבל החלטות נכונות יותר.</p>
+<div class="honey-box">🍯 רבים מן הדברים כאן הולכים בעקבות ספרו של הרב שמואל אליהו על הנבואות שמתקיימות בדורנו.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: התורה לא מזכירה משיח ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">חמש הבטחות בפרשת נצבים</h2></div></div>
+<p class="chapter-intro">התורה עצמה, בלי שום פירוש, מבטיחה מה יקרה לעם ישראל אחרי הגלות. מי שקורא את הפסוקים לאט מוצא בהם חמש הבטחות – וכל ההמשך הוא סיפור קיומן.</p>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">התורה לא מזכירה משיח</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עובדה שכדאי לדעת: בתורה עצמה, בחמשת חומשי תורה, לא מופיע המשיח בשום מקום במפורש. יש רמז בנבואת בלעם (במדבר כד, יז):</p>
+<blockquote>אראנו ולא עתה אשורנו ולא קרוב דרך כוכב מיעקב.</blockquote>
+<p>אבל זה רמז בלבד.</p>
+<p>בנביאים המשיח מופיע פעמים רבות, וודאי שהוא יבוא; זה מעיקרי האמונה. אבל באיזה שלב של הגאולה הוא יופיע – לפני בניין בית המקדש או אחריו, בתחילת התהליך או בסופו – אין לנו פסוק מפורש שאומר.</p>
+<p>ומה שכן ברור: <strong>הגאולה יכולה להתחיל גם לפני שהמשיח מופיע.</strong> וזה בדיוק מה שהתורה מתארת. היא לא מדברת על אדם אחד שיבוא ויעשה הכול, אלא על תהליך שה' מביא על עמו.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: ושב ה&#x27; אלוקיך את שבותך ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ושב ה&#x27; אלוקיך את שבותך</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי כל הקללות הקשות של פרשת כי תבוא, מגיעה פרשת נצבים ומספרת מה יקרה בסוף (דברים ל, ג–ה):</p>
+<blockquote>ושב ה' אלוקיך את שבותך ורחמך ושב וקבצך מכל העמים אשר הפיצך ה' אלוקיך שמה. אם יהיה נדחך בקצה השמים משם יקבצך ה' אלוקיך ומשם יקחך. והביאך ה' אלוקיך אל הארץ אשר ירשו אבתיך וירשתה והיטבך והרבך מאבתיך.</blockquote>
+<p>"בקצה השמים" – גם אם תהיה באוסטרליה, באוגנדה או בכל מקום רחוק אחר שאפשר לדמיין, משם ה' יקבץ אותך ויביא אותך הביתה.</p>
+<p>ומי שמסתכל היטב רואה שהתורה חוזרת על קיבוץ הגלויות שוב ושוב: "ושב", "וקבצך", "יקבצך", "יקחך". על שום דבר אחר בפרשה היא לא מאריכה כל כך.</p>
+<div class="honey-box">🍯 מכל ההבטחות, קיבוץ הגלויות הוא זה שהתורה חוזרת עליו הכי הרבה פעמים.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: חמש הבטחות, אחת אחרי השנייה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חמש הבטחות, אחת אחרי השנייה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מתוך הפסוקים האלה עולות חמש הבטחות, וכל אחת היא חידוש בפני עצמה:</p>
+<ul class="story-list"><li><strong>קיבוץ גלויות</strong> – "וקבצך מכל העמים". היהודים ייאספו מכל קצוות תבל.</li><li><strong>שיבה לארץ הטובה</strong> – "והביאך אל הארץ". אפשר היה להתקבץ למקום אחר; ההבטחה היא שנחזור דווקא לארץ ישראל. ולא לרצועה קטנה ממנה, אלא לארץ שירשו האבות.</li><li><strong>ירושת הארץ</strong> – "וירשתה". לא כמו בימי בית שני, כשישבנו בארץ תחת שלטון זר, אלא ריבונות אמיתית.</li><li><strong>ארץ מבורכת</strong> – "והיטבך". אחרי תקופה ארוכה שבה הארץ הייתה שוממה, היא תשוב ותיתן את פירותיה.</li><li><strong>ברכה וריבוי</strong> – "והרבך מאבתיך". עם ישראל ילך ויגדל, יותר ממה שהיה אי פעם.</li></ul>
+<p>בהמשך נראה את ההבטחות האלה אחת אחת, וכמה כל אחת מהן הייתה נראית בלתי אפשרית רק לפני מאה שנה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: לא מלפפון: הארץ הטובה ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לא מלפפון: הארץ הטובה</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין את ההבטחה "והביאך אל הארץ אשר ירשו אבתיך", כדאי להסתכל על המפה שהציעה תוכנית החלוקה של האומות המאוחדות.</p>
+<p>השטח שהוקצה למדינה היהודית היה מעין "מלפפון" ארוך ודק, רצועה צרה שבמקומות רבים אפשר היה לחצות אותה בנסיעה קצרה. ירושלים לא נכללה בו כלל. היה קשה לדמיין שמדינה כזאת תוכל להתקיים.</p>
+<p>אבל התורה לא הבטיחה רצועה. היא הבטיחה "הארץ הטובה", הארץ שירשו האבות. ומה שקרה בפועל, מלחמה אחרי מלחמה, היה הרחבה של הגבולות הרבה מעבר למה שאיש העז לבקש.</p>
+<p class="bold-para">הגויים הציעו לנו מלפפון; ה' הבטיח את ארץ האבות.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: כל הנביאים מדברים על זה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🧳</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">ושב וקבצך: קיבוץ גלויות</h2></div></div>
+<p class="chapter-intro">ההבטחה הראשונה, וזו שהתורה חוזרת עליה הכי הרבה. כל הנביאים ניבאו אותה, ובמאה השנים האחרונות המפה של עם ישראל התהפכה – שלב אחרי שלב.</p>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כל הנביאים מדברים על זה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קשה למצוא נביא שדיבר על הגאולה ולא דיבר על קיבוץ הגלויות. ישעיהו אומר (יא, יב):</p>
+<blockquote>ונשא נס לגוים ואסף נדחי ישראל ונפצות יהודה יקבץ מארבע כנפות הארץ.</blockquote>
+<p>ירמיהו אומר (לא, ז):</p>
+<blockquote>הנני מביא אותם מארץ צפון וקבצתים מירכתי ארץ בם עור ופסח הרה וילדת יחדו קהל גדול ישובו הנה.</blockquote>
+<p>יחזקאל אומר (לד, יג):</p>
+<blockquote>והוצאתים מן העמים וקבצתים מן הארצות והביאתים אל אדמתם ורעיתים אל הרי ישראל באפיקים ובכל מושבי הארץ.</blockquote>
+<p>מיכה אומר (ד, ו):</p>
+<blockquote>ביום ההוא נאם ה' אספה הצלעה והנדחה אקבצה ואשר הרעתי.</blockquote>
+<p>וזכריה אומר (י, ח):</p>
+<blockquote>אשרקה להם ואקבצם כי פדיתים ורבו כמו רבו.</blockquote>
+<div class="honey-box">🍯 "קהל גדול ישובו הנה" – לא יחידים, לא קבוצה קטנה, אלא קהל גדול.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: למה כתוב &quot;ושב&quot; פעמיים ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה כתוב &quot;ושב&quot; פעמיים</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כבר ראינו שהתורה מאריכה בקיבוץ הגלויות יותר מכל הבטחה אחרת. עכשיו נדייק במילה אחת שחוזרת בפסוק (דברים ל, ג):</p>
+<blockquote>ושב ה' אלוקיך את שבותך ורחמך ושב וקבצך מכל העמים אשר הפיצך ה' אלוקיך שמה.</blockquote>
+<p>המילה "ושב" חוזרת פעמיים. מכאן אפשר ללמוד שקיבוץ הגלויות לא יהיה מאורע אחד, שבו כל היהודים קמים יום אחד ועוברים לארץ ישראל. הוא יהיה תהליך: שיבה ועוד שיבה, גל אחר גל, שלב אחר שלב.</p>
+<p>וכך גם אומר הנביא ישעיהו (נו, ח):</p>
+<blockquote>נאם ה' אלוקים מקבץ נדחי ישראל עוד אקבץ עליו לנקבציו.</blockquote>
+<p>יש קיבוץ ראשון, ואחריו "עוד אקבץ" – קיבוץ נוסף שמצטרף אל מי שכבר נקבצו.</p>
+<p class="bold-para">הגאולה אינה מגיעה בבת אחת; היא נבנית שכבה על שכבה, וכל דור מוסיף את השכבה שלו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: חצי אחוז לפני מאה שנה ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">חצי אחוז לפני מאה שנה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי לראות כמה הנבואה הזאת מדהימה, צריך לחזור רק מאה שנה אחורה ולהסתכל איפה חיו היהודים.</p>
+<p>כשבעים אחוזים מעם ישראל חיו באירופה. כעשרים ושניים אחוזים חיו באמריקה. וכמה חיו בארץ ישראל? בערך חצי אחוז. חצי אחוז בלבד.</p>
+<p>הארץ הייתה עדיין תחת שלטון הטורקים. המצב בה היה קשה מאוד, והיהודים המעטים שחיו בה היו ברובם עניים, תלויים בכספי תמיכה מחוץ לארץ.</p>
+<p>מי שהיה מסתכל אז על המספרים, ומנסה לנחש איפה יחיו היהודים בעוד מאה שנה, בוודאי לא היה מנחש: בארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: משישה אלפים ועד רוב העם ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">משישה אלפים ועד רוב העם</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין את גודל הנס, כדאי להסתכל על המספרים לאורך הדורות.</p>
+<p>בשנת תקל"ז (1777) עלתה לארץ עליית החסידים עם רבי מנחם מנדל מוויטבסק – כשלוש מאות נפש. העלייה הזאת לבדה הוסיפה כחמישה אחוזים ליהודי הארץ, כי בכל ארץ ישראל חיו אז רק אלפים בודדים של יהודים, כמספר תושבי רחוב אחד או שניים בעיר בינונית של היום.</p>
+<p>אחר כך באו העליות בזו אחר זו, ובימי המנדט הבריטי המספרים כבר גדלו. ובכל זאת, בקום המדינה בתש"ח חיו בארץ רק כשש מאות אלף יהודים – אחוזים בודדים מעם ישראל כולו.</p>
+<p>ומאז זה הלך וגדל: חגגו את העולה המיליון, ואחריו עוד מיליונים. בשנת 2020 כבר חיו בארץ כשישה מיליון ושמונה מאות אלף יהודים, וההערכות הן שבתוך שנים לא רבות רוב עם ישראל יחיה בארץ ישראל. מה שהתחיל בכמה אלפים בודדים הופך לרוב העם.</p>
+<div class="honey-box">🍯 ההיסטוריה של הדורות האחרונים היא פירוש חי למילים "ושב וקבצך".</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מאה ושתיים מדינות ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מאה ושתיים מדינות</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בדורות האחרונים עבר עם ישראל שינוי שלא קרה בו כאלף ותשע מאות שנה. יהודים התקבצו לארץ ישראל ממאה ושתיים מדינות שונות.</p>
+<p>כדי להבין את המספר הזה, צריך לדעת שכל כך הרבה מדינות קיימות רק בזמן האחרון. כשהצביעו באומות המאוחדות בכ"ט בנובמבר, היו חברות בארגון פחות משישים מדינות. כמעט כל העולם של אז מיוצג היום בין אזרחי ישראל.</p>
+<p>הם עלו לארץ, בנו בתים, סללו כבישים, הפריחו את השממה ויצרו עוצמה כלכלית, צבאית וטכנולוגית. ומי שמשווה את מה שעבר על הדור הזה לדברי הנביאים, מגלה התאמה מופלאה.</p>
+<p>הנביאים לא דיברו רק על העלייה לארץ. הם דיברו על הפרחת ארץ שהייתה שוממה אלף ותשע מאות שנה, על בניין ירושלים, על דרכים שייסללו אליה, ועל ניצחון על האויבים פעם אחר פעם.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: העלייה הגדולה מברית המועצות ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">העלייה הגדולה מברית המועצות</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחת העליות הגדולות בתולדות המדינה הייתה העלייה מברית המועצות. במשך עשרות שנים היו היהודים שם כלואים מאחורי מסך ברזל, ורבים מהם כמעט שלא יכלו לצאת. ואז, בתחילת שנות התשעים, נפתחו השערים, ותוך שנים ספורות עלה כמיליון יהודים לארץ.</p>
+<p>הקליטה לא הייתה קלה, והחיים התחילו לעיתים קרובות מאפס. אבל היום אפשר לראות את הפירות: יש קהילות שלמות של עולים מברית המועצות ששומרים תורה ומצוות, יושבים יחד בשבת בבית הכנסת, שומעים שיעורים וגדלים בתורה. מי שבא לבקר אצלם מגלה קהילה חמה ומלאת חיים, במקום שבו לפני שלושים שנה איש לא האמין שיקום דבר כזה.</p>
+<p class="bold-para">מי שנולד במקום שבו אסור היה ללמוד תורה, יושב היום בבית מדרש בארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: והרבך מאבתיך ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">והרבך מאבתיך</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באותה פרשה מבטיחה התורה (דברים ל, ה):</p>
+<blockquote>והטבך והרבך מאבתיך.</blockquote>
+<p>והנה עובדה מדהימה: ארץ ישראל היא המקום היחיד בעולם שבו מספר היהודים גדל משנה לשנה. אפשר לחפש מדינה אחת בכל רחבי העולם שבה הקהילה היהודית הולכת ומתרבה – ולא תמצא. בעיר זו או אחרת יש קהילות שגדלות, אבל בכל ארץ וארץ בכללה, הקו יורד, בגלל התבוללות ובגלל ירידה בילודה.</p>
+<p>רק כאן, בארץ ישראל, היהודים מתרבים. הפסוק "והרבך מאבתיך" מתקיים דווקא במקום שעליו הוא נאמר.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: מאיפה באה המילה &quot;התקווה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">💀</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">אבדה תקותנו: הנבואה שאיש לא האמין בה</h2></div></div>
+<p class="chapter-intro">הנביאים עצמם הזהירו שעם ישראל לא יאמין שהגאולה אפשרית. ואכן, לפני מאה שנה צחקו על הרעיון יהודים רבים, ודת שלמה בנתה את עצמה על כך שלא יתקיים.</p>
+<article class="story-card" id="story-19" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מאיפה באה המילה &quot;התקווה&quot;</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההמנון שנבחר למדינה נקרא "התקווה". ונראה שהמילה הזאת נלקחה מנבואה ידועה של יחזקאל, נבואת העצמות היבשות (יחזקאל לז, יא):</p>
+<blockquote>ויאמר אלי בן אדם העצמות האלה כל בית ישראל המה הנה אמרים יבשו עצמותינו ואבדה תקותנו נגזרנו לנו.</blockquote>
+<p>עם ישראל בגלות אומר: אין לנו תקווה. אנחנו עצמות יבשות. נישאר כאן, ובזה נגמר הסיפור. ועל זה עונה הקדוש ברוך הוא בנבואה: אני אפתח את קברותיכם, אעלה אתכם ואביא אתכם אל אדמת ישראל.</p>
+<p>הנביא לא מספר רק שהגאולה תבוא. הוא מספר מראש שהעם לא יאמין בה.</p>
+<div class="honey-box">🍯 גם הייאוש עצמו כתוב בנבואה – וגם התשובה לו.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: אין עם שחזר מגלות ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אין עם שחזר מגלות</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לשאול: יחזקאל ניבא בתחילת גלות בבל, עשרות שנים בלבד אחרי שהתחילה. איך יתכן שכבר אז התייאשו? אחרי אלפיים שנה – מובן. אבל אחרי שלושים שנה?</p>
+<p>התשובה פשוטה, ומדהימה. נסו לחשוב על כל ההיסטוריה האנושית שאנחנו מכירים: האם יש עם אחד שגלה מארצו, התפזר בין העמים, וחזר אליה? אין. עמים שגלו נבלעו בין העמים האחרים ונעלמו. אין לזה אח ורע.</p>
+<p>לכן היאוש היה מובן כבר אז. על פי כל ניסיון אנושי, עם שגלה – גמר את דרכו. ודווקא משום כך, החזרה של עם ישראל לארצו, פעם אחר פעם, היא פלא שאין לו הסבר טבעי.</p>
+<p>הנביאים מספרים שוב ושוב שעם ישראל לא יאמין שיהודים מכל העולם, מעשרות שפות, יחזרו לארץ; לא יאמין שעם שלא החזיק נשק אלפי שנים ינצח את אויביו; ולא יאמין שמדינה קטנה תשרוד מול כל הקמים עליה. ובכל זאת ה' מבטיח: מה שלא ייאמן – יתרחש.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: &quot;מטורף&quot;: מה אמרו יהודים לפני מאה שנה ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;מטורף&quot;: מה אמרו יהודים לפני מאה שנה</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כמאה שנה, הרעיון שהיהודים יחזרו לארצם נשמע מגוחך לרבים מן היהודים עצמם.</p>
+<p>בגרמניה הגיע יהודי לדרגת שופט בבית המשפט העליון, הישג שכמעט לא היה כמותו בשום מקום אחר בעולם באותם ימים. והוא כתב שיהודי שמעדיף מדינה ועם שאינם קיימים על פני גרמניה, ראוי לשים אותו תחת השגחה – לא משום שדעותיו מסוכנות, אלא משום שברור שהוא מטורף.</p>
+<p>באנגליה כתב יהודי אחר שהרעיון הזה הוא מן הסוגים הבזויים, אם לא הנאיביים ביותר, של אידאליזם שהוצעו אי פעם לשרידי עם גדול.</p>
+<p>ותנועת הרפורמה בגרמניה הכריזה: אין אנו רואים את עצמנו כעם אלא כעדה דתית, ואיננו מצפים לשיבה לארץ ישראל. הם כתבו שחזרת עם לארצו מעולם לא קרתה בשום מקום, ושגם אם תקום מדינה יהודית היא לא תוכל להגן על עצמה. הם הגיעו עד כדי כך, שמחקו מן הסידור שלהם את התפילות על קיבוץ הגלויות.</p>
+<p class="bold-para">"ואבדה תקותנו" – לא רק הגויים התייאשו; גם רבים מבני העם עצמו.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: הצהרת בלפור והמתנגדים מבפנים ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הצהרת בלפור והמתנגדים מבפנים</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשאנגליה שקלה להוציא את הצהרת בלפור, שהכירה בזכותו של העם היהודי לבית לאומי בארץ ישראל, מי היו בין המתנגדים החריפים ביותר? קבוצה של יהודים מכובדים באנגליה.</p>
+<p>הם לא האמינו שיש סיכוי שהיהודים יעלו לארץ ויקימו בה מדינה. הם חששו שהרעיון יערער את מעמדם כאזרחים נאמנים, ויגרום לשכנים לחשוב שהיהודים כולם רוצים לעזוב. הם רצו שקט, ולהשתלב בין הגויים.</p>
+<p>באותה תקופה בדיוק שהה באירופה הרב אברהם יצחק הכהן קוק. הוא יצא מן הארץ לזמן קצר, פרצה מלחמת העולם הראשונה, והוא נתקע ולא יכול היה לחזור. וכך יצא שבדיוק כשהתנהל הוויכוח על ההצהרה, הוא היה במקום, ופעל רבות כדי לחזק את מי שתמכו בה, לצד חיים ויצמן ואחרים.</p>
+<div class="honey-box">🍯 לפעמים מה שנראה כמו "נתקע במקום הלא נכון" הוא בדיוק המקום שבו ה' צריך אותך.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: שלוש מאות קנו, מעטים נשארו ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שלוש מאות קנו, מעטים נשארו</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם מי שעלה לארץ לא תמיד נשאר. לפני מלחמת העולם הראשונה, רק כמחצית מן העולים נשארו בארץ; השאר חזרו לארצות מוצאם או המשיכו לאמריקה.</p>
+<p>דוגמה מוחשית היא קריית אתא, שנוסדה בשם "כפר אתא". כשלוש מאות יהודים מוורשה קנו כאן אדמה כדי לבוא ולגור בה. בסופו של דבר עלו רק מעטים מהם. החיים היו קשים מאוד: היבול היה דל, לא היו כבישים, את התוצרת היה צריך להוביל בקושי עד חיפה. ובמאורעות תרפ"ט נשרף הכפר, והתושבים נאלצו לברוח לכפר חסידים הסמוך, עד שיעבור זעם.</p>
+<p>מי נשאר? בעיקר משפחות בודדות שמכרו את כל מה שהיה להן באירופה ועלו עם כל המשפחה. לא היה להן לאן לחזור. אחרי שהמאורעות שקטו, הן חזרו אל ביתן השרוף והתחילו מחדש.</p>
+<p>ואחרי מלחמת העולם הראשונה, כשהתחילו נדידות גדולות של יהודים, רובם הגדול נסעו – לא לארץ ישראל, אלא לארצות הברית. איש כמעט לא האמין שכאן יש עתיד.</p>
+<p class="bold-para">העיר שעומדת היום על המקום הזה היא תשובה חיה למי שלא האמין.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: הנבואה היחידה של הנצרות ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הנבואה היחידה של הנצרות</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשך מאות שנים, הנצרות הקתולית בנתה את עצמה על הנחה אחת: הקדוש ברוך הוא מאס בעם ישראל. היהודים נדחו, הם נרדפים ועלובים, ולעולם לא ישובו לארצם. במקומם, כביכול, נבחר עם אחר.</p>
+<p>בזמן שהיהודים היו מפוזרים ומושפלים, ההנחה הזאת נראתה לנוצרים מוכחת. לא היה שום סיכוי הגיוני שעם ישראל ישוב לארצו.</p>
+<p>ולכן, כשעם ישראל חזר לארץ ישראל כעם, בריבונות, והעולם כולו הכיר בזה – ה"נבואה" הזאת קרסה. מעניין שגם באנגליה, מי שתמכו בהצהרת בלפור לא היו מן הזרם הקתולי; לנוצרי קתולי היה קשה מאוד לתמוך בחזרת היהודים, כי זה סותר את יסוד אמונתו.</p>
+<div class="honey-box">🍯 כל יהודי שחי בארץ ישראל הוא, בלי לדעת, תשובה לאלפיים שנות טענות.</div>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: מלך אנגליה והנביאים ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מלך אנגליה והנביאים</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באותה תקופה היו באנגליה אנשים שהאמינו בדברי הנביאים כפשוטם. כשנפגש המלך ג'ורג' החמישי עם חיים ויצמן, אמר לו המלך דברים ברוח זו: כתוב בכתבי הקודש שעם ישראל ישוב לארצו, ואני שמח שממלכתי תסייע לכך.</p>
+<p>אבל התקופה הזאת לא נמשכה. באו מלכים אחרים ושרי חוץ אחרים, שלא אהבו במיוחד את היהודים ולא רצו שתקום כאן מדינה יהודית. וכל מי שמכיר את ימי המנדט יודע כמה צרות היו לנו עם האנגלים.</p>
+<p>אבל הזרע כבר נזרע. הבטחה שאדם מן העמים רצה לעזור בקיומה, יצאה לדרך.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: טרומן: &quot;הארץ אשר אתה שכב עליה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🌳</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">וידעו הגויים: הארץ שפורחת לעיני העולם</h2></div></div>
+<p class="chapter-intro">יחזקאל ניבא שהארץ השוממה תפרח, ושגם אומות העולם יבינו מי עשה זאת. נשיאים, אפיפיורים ועמים שלמים נאלצו להודות.</p>
+<article class="story-card" id="story-26" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">טרומן: &quot;הארץ אשר אתה שכב עליה&quot;</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשעמדה המדינה לקום, נשיא ארצות הברית הארי טרומן עמד מול מועצה שכמעט כולה התנגדה בחריפות. היועצים והמומחים הסבירו לו שליהודים אין סיכוי: צבאות ערב יפלשו מכל עבר, היהודים יפסידו, יהודי אמריקה יבקשו להציל את אחיהם, ואמריקה תיגרר למלחמה חדשה, רגע אחרי מלחמת העולם השנייה.</p>
+<p>אבל ביום שישי הוכרזה המדינה. וכעבור דקות ספורות בלבד מכניסת ההכרזה לתוקף, חתם טרומן על ההכרה בה, למרות כל יועציו. את השעה המדויקת כתב בכתב ידו על המסמך.</p>
+<p>כשנשאל אחר כך מדוע עשה זאת, סיפר: אמו לימדה אותו תנ"ך כשהיה ילד, והוא זכר שה' הבטיח ליעקב (בראשית כח, יג):</p>
+<blockquote>הארץ אשר אתה שכב עליה לך אתננה ולזרעך.</blockquote>
+<p>והוא אמר לעצמו: אם בכוחי לעזור שהבטחה של ה' תתקיים – איזו זכות גדולה יותר יכולה להיות לי? לא אכפת לי מה יגיד שר החוץ, ולא אכפת לי שיכעס עליי.</p>
+<p class="bold-para">גוי שהבין שהוא יכול להיות שותף בקיום הבטחה של ה' – ולא ויתר על הזכות.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: מארץ שוממה לגן עדן ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מארץ שוממה לגן עדן</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך מתנבא יחזקאל (לו, לג–לו):</p>
+<blockquote>כה אמר ה' אלוקים ביום טהרי אתכם מכל עונותיכם והושבתי את הערים ונבנו החרבות. והארץ הנשמה תעבד תחת אשר היתה שממה לעיני כל עובר. ואמרו הארץ הלזו הנשמה היתה כגן עדן והערים החרבות והנשמות והנהרסות בצורות ישבו. וידעו הגוים אשר ישארו סביבותיכם כי אני ה' בניתי הנהרסות נטעתי הנשמה אני ה' דברתי ועשיתי.</blockquote>
+<p>כל מי שקרא את תיאורי הנוסעים שביקרו בארץ לפני מאה וחמישים שנה יודע: הם תיארו ארץ ריקה, ביצות, אבנים, כפרים עלובים. ארץ שוממה לעיני כל עובר.</p>
+<p>והיום ישראל היא מן המובילות בעולם בחקלאות, בהשקיה ובמים. מדבר שהפך לשדות, ביצות שהפכו לעמקים פורחים. וכמו שאמר הנביא, גם הגויים מסביב מתפעלים, ומי שמתבונן מבין שלא כוחנו ועוצם ידנו עשה זאת.</p>
+<p class="bold-para">"אני ה' דברתי ועשיתי" – הפריחה של הארץ היא חתימת ידו של מי שהבטיח.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: האפיפיור על ההר ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">האפיפיור על ההר</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשנת תשכ"ד הגיע לארץ ישראל האפיפיור פאולוס השישי. כל המדינה עמדה על הרגליים לקראת הביקור.</p>
+<p>מסופר שלקחו אותו להר גבוה, ומשם ראה מרחבים עצומים, פורחים, מלאי עצים ושדות. הוא שאל של מי כל השטחים האלה, וענו לו: של היהודים. הוא הסתכל, נרעש, ופלט: נראה שה' חידש את בריתו עם העם האהוב שלו, וחזר לאהוב אותם כפי שאהב אותם בימי קדם.</p>
+<p>כשסיפרו את הסיפור לאחד הרבנים, הוא אמר שעל זה נאמר המזמור שאומרים בתפילה (תהילים סז, ו–ז):</p>
+<blockquote>יודוך עמים אלוקים יודוך עמים כלם. ארץ נתנה יבולה יברכנו אלוקים אלוקינו.</blockquote>
+<p>מתי יודו העמים? כשהארץ תיתן את יבולה. כשהם יראו את הארץ פורחת, לא תהיה להם ברירה אלא להודות.</p>
+<div class="honey-box">🍯 הפריחה של ארץ ישראל היא עדות שאפשר לראות מראש הר – גם בעיניים של מי שכל אמונתו אמרה אחרת.</div>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: &quot;הברית אינה ניתנת לביטול&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;הברית אינה ניתנת לביטול&quot;</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשנים האחרונות נעשה השינוי רשמי. מאות מיליוני נוצרים עזבו את הכנסייה הקתולית ועברו לזרמים אוונגליסטים, שרבים מהם אוהבים את עם ישראל ומאמינים שהקמת המדינה היא קיום של נבואות התנ"ך.</p>
+<p>ובשנת תשע"ו פרסם הוותיקן מסמך רשמי שבו נאמר שהברית של ה' עם עם ישראל אינה ניתנת לביטול, ושהכנסייה אינה מטילה ספק באהבתו של ה' לעמו הנבחר. אחרי אלפיים שנה, לא הייתה להם ברירה. אי אפשר להמשיך ללמד שה' עזב את עמו, כשכל אחד רואה בעיניו שהעם הזה חזר לארצו ופורח בה.</p>
+<p>מעניין שגם הביטוי "ברית חדשה", שבו השתמשו לטענותיהם, לקוח מן התנ"ך עצמו, ושם פירושו הפוך (ירמיהו לא, ל–לא):</p>
+<blockquote>הנה ימים באים נאם ה' וכרתי את בית ישראל ואת בית יהודה ברית חדשה. לא כברית אשר כרתי את אבותם.</blockquote>
+<p>הברית החדשה היא עם בית ישראל ובית יהודה: ברית שלא תופר עוד, שאחריה לא תהיה עוד גלות.</p>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: ונקדשתי בם לעיני הגויים ←</a></div>
+</article>
+<article class="story-card" id="story-30" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ונקדשתי בם לעיני הגויים</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי השואה, כשנרצחו שישה מיליון יהודים, יכול היה מישהו לחשוב שה' עזב את עמו, ושהגויים יצליחו לממש את מבוקשם שלא ייזכר עוד שם ישראל.</p>
+<p>ואז עשה הקדוש ברוך הוא ניסים ונפלאות, והרים את כבוד ישראל בין הגויים. כל מי שמתבונן בניסים שנעשו לנו בדור הזה רואה שה' לא הסיר את השגחתו ואת אהבתו מאיתנו. וכך מתקיימת נבואת יחזקאל (כח, כה):</p>
+<blockquote>כה אמר ה' אלוקים בקבצי את בית ישראל מן העמים אשר נפצו בם ונקדשתי בם לעיני הגוים וישבו על אדמתם אשר נתתי לעבדי ליעקב.</blockquote>
+<p>קיבוץ הגלויות איננו רק מתנה לעם ישראל. הוא קידוש שם שמים לעיני העולם כולו.</p>
+<p class="bold-para">כשעם ישראל שב לארצו, כל העמים רואים שה' אוהב אותו.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: מלאות צאן אדם ←</a></div>
+</article>
+<article class="story-card" id="story-31" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מלאות צאן אדם</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובהמשך אומר יחזקאל (לו, לז–לח):</p>
+<blockquote>כה אמר ה' אלוקים עוד זאת אדרש לבית ישראל לעשות להם ארבה אתם כצאן אדם. כצאן קדשים כצאן ירושלים במועדיה כן תהיינה הערים החרבות מלאות צאן אדם וידעו כי אני ה'.</blockquote>
+<p>מי שנוסע היום בגוש דן רואה את הפסוק בעיניו. מקומות שהיו שוממים מלאים אנשים, עד שאין כבר מקום על פני האדמה, ובונים רכבות מתחת לאדמה, למרחקים עצומים. הערים שהיו חרבות מלאות צאן אדם.</p>
+<div class="honey-box">🍯 הפקק בכביש, הבנייה שלא נגמרת והרכבת התחתית – כל אלה הם, בעיני מי שמתבונן, קיום של נבואה.</div>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: בתי כנסיות של בבל בארץ ישראל ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">בתי כנסיות של בבל בארץ ישראל</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת מגילה (כט, א) אומרת:</p>
+<blockquote>עתידין בתי כנסיות ובתי מדרשות שבבבל שיקבעו בארץ ישראל, שנאמר כי כתבור בהרים וכרמל בים יבא.</blockquote>
+<p>במשך דורות הבינו את הדברים כפשוטם: הבניינים עצמם יעופו לארץ ישראל. הפוסקים אף דנו אם רק הבניין יגיע או גם הקרקע שמתחתיו.</p>
+<p>מסופר על רב שהגיע לקהילה שבבית הכנסת שלה עוד לא היו מרצפות. בדרשתו אמר: כשיבוא המשיח, כל קהילה תיכנס לבית הכנסת שלה, והבניין יתעופף עם הרצפה לארץ ישראל. ואתם? בית הכנסת שלכם יעוף – ואתם תישארו כאן, כי אין לכם רצפה! הקהל נבהל, וכבר ביום ראשון ערכו מגבית וריצפו את בית הכנסת.</p>
+<p>והיום אנחנו רואים פירוש אחר לגמרי. לא האבנים הגיעו, אלא התוכן: הישיבות, הקהילות, הסגנון והשם. פוניבז', גור, סלבודקה, מיר, נובהרדוק – כל אלה עיירות בגולה שבתי המדרש שלהן נקבעו מחדש בארץ ישראל. בכל עיר בארץ אפשר למצוא בתי כנסת על שם קהילות מבבל של ימינו.</p>
+<p class="bold-para">הנבואה התקיימה – לא באבנים שעפו, אלא בתורה שעברה מארץ לארץ.</p>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: מן הייאוש אל המציאות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🛡️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">וירשתה: לרשת, לנצח ולשבת לבטח</h2></div></div>
+<p class="chapter-intro">לחזור לארץ זה דבר אחד. לרשת אותה מול אויבים רבים, לנצח מעטים מול רבים, ולשבת בה לבטח – זה כבר נס אחר נס.</p>
+<article class="story-card" id="story-33" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מן הייאוש אל המציאות</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד כאן ראינו כמה רחוק היה החלום לפני מאה שנה: יהודים שקראו למי שחולם עליו "מטורף", דת שלמה שבנתה את אמונתה על כך שלא יתקיים, ומדינאים שהיו בטוחים שהמדינה לא תחזיק מעמד.</p>
+<p>ועכשיו נעבור אל הצד השני של התמונה. מה קרה בפועל? איך נראות ההבטחות של פרשת נצבים – "וירשתה", "והיטבך", "והרבך" – כשמסתכלים על המספרים, על המלחמות, על השדות ועל הדרכים של ימינו?</p>
+<p>התשובה מפתיעה בכל פעם מחדש: כל מה שנראה בלתי אפשרי, התרחש. ולא בדרך שמישהו תכנן, אלא בדרכים שרק מי שמנהל את ההיסטוריה יכול היה לתכנן.</p>
+<p class="bold-para">הדור שאמר "אבדה תקותנו" זכה לראות את התקווה מתגשמת מול עיניו.</p>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: הבעיה שנראתה בלתי פתירה ←</a></div>
+</article>
+<article class="story-card" id="story-34" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הבעיה שנראתה בלתי פתירה</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשהחליטו האומות המאוחדות בכ"ט בנובמבר לחלק את הארץ, חיו בה כשש מאות אלף יהודים, ולצידם אוכלוסייה ערבית גדולה יותר.</p>
+<p>כדאי לעצור ולדמיין: כמה קשה לנהל מדינה דמוקרטית שבה כמחצית מהתושבים אינם רוצים בקיומה. גם היום, עם מיעוט קטן בהרבה, כל ממשלה מתקשה. מדינה כזאת הייתה עלולה להיקרע מבפנים כבר בצעדיה הראשונים.</p>
+<p>במשך עשרות שנים חזרו מומחים לדמוגרפיה והזהירו: בעוד כך וכך שנים היהודים יהיו מיעוט בארצם. היו שחישבו בפירוט, אזור אחר אזור, ויצא להם שעד שנת 2000 לא יהיה כאן רוב יהודי. החשבון נראה מדויק – אבל הוא לא לקח בחשבון את מי שמנהל את ההיסטוריה.</p>
+</div><div class="story-next"><a href="#story-35">הקטע הבא: שוב ושוב: עוזבים מעצמם ←</a></div>
+</article>
+<article class="story-card" id="story-35" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שוב ושוב: עוזבים מעצמם</h3><button class="copy-link" type="button" data-id="story-35">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתש"ח עזבו את הארץ מאות אלפי ערבים. לפי המחקרים, רבים מהם לא ראו חייל יהודי מעולם; הם יצאו כי מנהיגיהם קראו להם לצאת לזמן קצר, עד שצבאות ערב ינצחו. הם היו בטוחים שעוד מעט יחזרו – ולא חזרו עד היום.</p>
+<p>והתהליך לא נעצר שם. גם בשנים האחרונות עזבו את רצועת עזה עשרות אלפי צעירים מדי שנה, עוד לפני המלחמה. ליד רמאללה נבנתה עיר חדשה ומפוארת, בהשקעה של מאות מיליוני דולרים, עם אלפי דירות במחירים נמוכים – ובשנים הראשונות רק מאות משפחות בודדות עברו לגור בה. הבתים עמדו ריקים.</p>
+<div class="honey-box">🍯 שוב ושוב התחזיות השחורות התבדו, לא בזכות תוכנית של בני אדם, אלא בדרכים שאיש לא תכנן.</div>
+</div><div class="story-next"><a href="#story-36">הקטע הבא: החשבון שהתהפך ←</a></div>
+</article>
+<article class="story-card" id="story-36" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החשבון שהתהפך</h3><button class="copy-link" type="button" data-id="story-36">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה קרה לתחזיות? כמה דברים שאיש לא צפה.</p>
+<p>ראשית, הילודה. ככל שהחברה הערבית נעשתה מבוססת וחילונית יותר, הילודה בה ירדה. היום שיעור הילודה של הערבים בארץ נמוך מזה של היהודים – דבר שלפני דור נראה דמיוני.</p>
+<p>שנית, הסכמי אוסלו, שבזמנם נראו לרבים כאסון, הוציאו בפועל מיליוני תושבים ממניין האזרחים של מדינת ישראל, בלי זכות הצבעה לכנסת.</p>
+<p>והתוצאה: לפני כמאה שנה היו היהודים כעשרים אחוזים מתושבי הארץ, והיום המספרים התהפכו, והערבים אזרחי ישראל הם כחמישית מהאוכלוסייה. ויש שמראים שגם בכל השטח שממערב לירדן, בלי רצועת עזה, יש היום רוב יהודי – תודות לערים גדולות כמו מודיעין עילית וביתר עילית, שגדלות במהירות מדהימה.</p>
+<p class="bold-para">הקדוש ברוך הוא הבטיח שנירש את הארץ, ובכל פעם שנראה שהבעיה הדמוגרפית תכריע, היא מתפוגגת.</p>
+</div><div class="story-next"><a href="#story-37">הקטע הבא: כשהכול נראה אבוד ←</a></div>
+</article>
+<article class="story-card" id="story-37" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשהכול נראה אבוד</h3><button class="copy-link" type="button" data-id="story-37">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם בימים הקשים של המלחמה בעזה אפשר לראות את התהליך הזה. מאות אלפי תושבים נמלטו מבתיהם, ורבים מהבתים שהשאירו מאחור נהרסו. המציאות שם השתנתה מן היסוד.</p>
+<p>התמונה הגדולה חוזרת על עצמה: הייתה יכולה להיות לנו בעיה עצומה בירושת הארץ. האויבים היו רוב, הם יכלו לעשות לנו צרות בלי סוף, ויכלו לחזור ולהיות רוב. ובכל פעם, באופן אחר, הקדוש ברוך הוא דואג שהבעיה תצטמצם.</p>
+<p>אין בזה שמחה על סבלו של איש. יש בזה הכרה בכך שההבטחה "והורשתם את הארץ" מתקיימת, צעד אחר צעד, בדרכים שאיש מאיתנו לא היה מתכנן.</p>
+</div><div class="story-next"><a href="#story-38">הקטע הבא: ששת הימים: מול צבאות שלמים ←</a></div>
+</article>
+<article class="story-card" id="story-38" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ששת הימים: מול צבאות שלמים</h3><button class="copy-link" type="button" data-id="story-38">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך אומרת התורה (ויקרא כו, ח):</p>
+<blockquote>ורדפו מכם חמשה מאה ומאה מכם רבבה ירדפו ונפלו איביכם לפניכם לחרב.</blockquote>
+<p>במלחמת ששת הימים עמדה ישראל מול צבאות מצרים, סוריה וירדן. לאויבים היו פי כמה טנקים, פי כמה מטוסים ופי כמה חיילים. מבחינת כל חשבון צבאי, לא היה סיכוי.</p>
+<p>ותוך שישה ימים השתנתה המפה. ירושלים העתיקה, הכותל, יהודה ושומרון, רמת הגולן וסיני – הכול עבר לידי ישראל. מספר ההרוגים בצד שלנו, כאב גדול לכל משפחה, היה קטן פי כמה עשרות ממספר האבדות בצד האויב.</p>
+<p class="bold-para">"ורדפו מכם חמשה מאה" איננו משל; זה דיווח מן השטח.</p>
+</div><div class="story-next"><a href="#story-39">הקטע הבא: יום הכיפורים: הפתעה שלא הכריעה ←</a></div>
+</article>
+<article class="story-card" id="story-39" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">יום הכיפורים: הפתעה שלא הכריעה</h3><button class="copy-link" type="button" data-id="story-39">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מלחמת יום הכיפורים הייתה מן הקשות שידענו. המלחמה פרצה בהפתעה, ביום הקדוש בשנה, כשלצבאות מצרים וסוריה היו פי שניים ופי שלושה טנקים ותותחים. אלפים מחיילינו נפלו, והכאב לא הגליד עד היום.</p>
+<p>ובכל זאת, למרות ההפתעה ולמרות היתרון העצום, בסוף המלחמה עמדו כוחות צה"ל קרוב לקהיר ולדמשק, והאבדות בצד האויב היו גדולות פי כמה.</p>
+<p>זו אחת הסיבות שאחר כך בחר נשיא מצרים ללכת להסכם שלום. הוא הבין שאם גם בהתקפת פתע, בתנאים הטובים ביותר שאפשר לדמיין, אי אפשר לנצח את ישראל – אין טעם להמשיך.</p>
+<div class="honey-box">🍯 גם במלחמה הקשה ביותר, השורה התחתונה הייתה "ונפלו איביכם לפניכם".</div>
+</div><div class="story-next"><a href="#story-40">הקטע הבא: באש יבוא: טילים שעוצרים טילים ←</a></div>
+</article>
+<article class="story-card" id="story-40" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">באש יבוא: טילים שעוצרים טילים</h3><button class="copy-link" type="button" data-id="story-40">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנביא אומר (ישעיהו סו, טו):</p>
+<blockquote>כי הנה ה' באש יבוא וכסופה מרכבתיו.</blockquote>
+<p>בדורנו זכתה מדינת ישראל להמציא אמצעי הגנה שאין להם אח ורע בעולם. כיפת ברזל, שרביט קסמים, מערכות הגנה לטנקים, וטילי חץ, שהצליחו ליירט לראשונה בהיסטוריה טילים מחוץ לאטמוספרה. זה נשמע כמו מדע בדיוני: טיל שנורה לעבר טיל אחר, הרחק מעל השמיים, ופוגע בו.</p>
+<p>אין כמעט מקום בעולם שיש בו דברים כאלה. מדינה קטנה, צעירה ומוקפת אויבים, נעשתה מן המובילות בעולם בטכנולוגיה של הגנה. מי שמתבונן בזה רואה יד מכוונת.</p>
+</div><div class="story-next"><a href="#story-41">הקטע הבא: מה הפסיד הבחור שנסע ←</a></div>
+</article>
+<article class="story-card" id="story-41" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה הפסיד הבחור שנסע</h3><button class="copy-link" type="button" data-id="story-41">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני מלחמת ששת הימים, כשהמתח בארץ היה בשיאו, ניגש בחור מחוץ לארץ שלמד בישיבת פוניבז' אל ראש הישיבה, הגאון רבי שמואל רוזובסקי. הוריו לחצו עליו לחזור הביתה, והוא שאל: להישאר או לנסוע?</p>
+<p>ראש הישיבה ענה: הישאר כאן, כדי שלא תפסיד דברים גדולים. אבל הבחור לא עמד בלחץ ונסע.</p>
+<p>אחרי המלחמה חזר ושאל את רבו: הרב אמר שאפסיד. מה בדיוק הפסדתי?</p>
+<p>ענה לו רבי שמואל: הפסדת הרבה מאוד. כל יום שעבר עלינו כאן בארץ הקודש היה כמו יום כיפור. ובכל ימי חייך לא תוכל לעבור כל כך הרבה ימי כיפורים בזמן קצר כל כך.</p>
+<div class="honey-box">🍯 הפחד, התפילה והישועה שבאה אחריהם – הם עצמם מתנה שלא קונים בשום מקום אחר.</div>
+</div><div class="story-next"><a href="#story-42">הקטע הבא: כמו נעילה ←</a></div>
+</article>
+<article class="story-card" id="story-42" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כמו נעילה</h3><button class="copy-link" type="button" data-id="story-42">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שעבר את הימים ההם יודע. לפני המלחמה הפחד היה גדול כל כך שאי אפשר לתאר. ואחריה – הישועה הייתה כל כך גדולה, שאנשים הלכו ברחובות ולא ידעו איך לעכל את מה שראו. זה נראה כאילו המשיח הגיע.</p>
+<p>רגעים כאלה מעוררים באדם אמונה בצורה שאין לה תחליף. וחז"ל לימדו שהמיתה מכפרת על האדם. ומבארים שהכפרה מתחילה לא רק ברגע יציאת הנשמה, אלא כבר מן הרגע שפחד המוות תוקף את האדם. ימים של פחד ותפילה הם ימים של כפרה עצומה, כמו נעילה של יום כיפור.</p>
+<p>אולי יש מקומות בעולם שקטים יותר. אבל שם גם האמונה שקטה, והכול שוקע. כאן, בארץ ישראל, כל אירוע מעורר את הלבבות, ופותח אותם אל בורא עולם. וכשמסתכלים על התמונה הכללית, בהרבה מקומות בעולם נהרגים יותר אנשים באסונות שונים מאשר כאן.</p>
+<p class="bold-para">בארץ ישראל אי אפשר להירדם; וזה, בסופו של דבר, ברכה.</p>
+</div><div class="story-next"><a href="#story-43">הקטע הבא: החזון איש: לאן תברח? ←</a></div>
+</article>
+<article class="story-card" id="story-43" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החזון איש: לאן תברח?</h3><button class="copy-link" type="button" data-id="story-43">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פעם בא אדם אל החזון איש ואמר שהוא מפחד מן הערבים. הוא שאל: האם מותר לי, בגלל הפחד, לעזוב את ארץ ישראל?</p>
+<p>ענה לו החזון איש: אינני מונע ממי שרוצה לברוח. רק אמור לי לאן. איזה מקום בטוח יותר מארץ ישראל אתה מתכוון לברוח אליו?</p>
+<p>החזון איש ראה את ארץ ישראל כמקום שבו הקדוש ברוך הוא נמצא. זו הארץ שלו, ועליה נאמר (ויקרא כו, ה):</p>
+<blockquote>וישבתם לבטח בארצכם.</blockquote>
+<p>ולאן בדיוק רוצה אדם לברוח מן המקום שבו ה' נמצא?</p>
+<div class="honey-box">🍯 הביטחון בארץ ישראל איננו בחומות ובגבולות; הוא בכך שזו הארץ שה' הבטיח לנו – ומקיים.</div>
+</div><div class="story-next"><a href="#story-44">הקטע הבא: נחמו נחמו עמי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🚄</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">פנו דרך: מסילה לירושלים ונחמה שלמה</h2></div></div>
+<p class="chapter-intro">נבואת הנחמה של ישעיהו מתארת דרך ישרה לירושלים, וגאולה שבאה בזכות צדקה. מי שנוסע היום ברכבת לירושלים, ומי שמסתכל על החסד שממלא את הארץ, רואה אותה מתגשמת.</p>
+<article class="story-card" id="story-44" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">נחמו נחמו עמי</h3><button class="copy-link" type="button" data-id="story-44">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את ההפטרה הראשונה של שבע דנחמתא כולם מכירים (ישעיהו מ, א–ה):</p>
+<blockquote>נחמו נחמו עמי יאמר אלוקיכם. דברו על לב ירושלים וקראו אליה כי מלאה צבאה כי נרצה עונה כי לקחה מיד ה' כפלים בכל חטאתיה. קול קורא במדבר פנו דרך ה' ישרו בערבה מסלה לאלוקינו. כל גיא ינשא וכל הר וגבעה ישפלו והיה העקב למישור והרכסים לבקעה. ונגלה כבוד ה' וראו כל בשר יחדו כי פי ה' דבר.</blockquote>
+<p>הנביא מתאר דרך לירושלים, עיר ה'. למה צריך דרך? כדי שיהיה קל לשבים לחזור אליה. ולא סתם דרך – "מסלה". ובמסילה הזאת "כל גיא ינשא וכל הר וגבעה ישפלו".</p>
+<p>רש"י מסביר: כל מקום עמוק יתמלא, וכל הר יונמך, כדי שהדרך תהיה ישרה ונוחה, בלי ירידות ועליות. "והרכסים לבקעה" – ההרים הסמוכים זה לזה, שיש ביניהם עליות וירידות תלולות, יהיו כבקעה, ישרה וחלקה.</p>
+</div><div class="story-next"><a href="#story-45">הקטע הבא: הפסוק מבעד לחלון ←</a></div>
+</article>
+<article class="story-card" id="story-45" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הפסוק מבעד לחלון</h3><button class="copy-link" type="button" data-id="story-45">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשך כל הדורות קראו יהודים את הפסוקים האלה ודמיינו נס על טבעי: ההרים יזוזו ממקומם והגאיות יתמלאו מעצמם, כמו בימי המדבר.</p>
+<p>מסופר על יהודי שנסע לירושלים בשבוע של שבת נחמו, ובדרך עבר על ההפטרה. הוא קרא "כל גיא ינשא וכל הר וגבעה ישפלו", הרים את עיניו אל החלון – וראה את הפסוק מתגשם. הכביש החדש לירושלים עובר בגשרים מעל העמקים ובמנהרות בתוך ההרים. אין עוד צורך לעלות ולרדת בהרים.</p>
+<p>מי שזוכר את הדרך הישנה לירושלים, עם הפיתולים של עליית הקסטל, שבהם המכוניות היו נתקעות ומתחממות, יודע כמה הדרך השתנתה.</p>
+</div><div class="story-next"><a href="#story-46">הקטע הבא: המכונה שבולעת הרים ←</a></div>
+</article>
+<article class="story-card" id="story-46" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המכונה שבולעת הרים</h3><button class="copy-link" type="button" data-id="story-46">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואיך עושים שכל ההרים יישפלו? כאן נכנסת המצאה מדהימה: מכונות כרייה ענקיות, מן הגדולות בעולם. כל אחת כבדה כמו מגדל משרדים שלם, וחזיתה – קוטר של יותר מעשרה מטרים, כגובה בניין של שלוש קומות.</p>
+<p>בחזית המכונה מסתובב ראש פלדה ענק שעליו סכינים שמפוררות את הסלע הקשה. מנועים עוצמתיים דוחפים אותו קדימה, והעפר מועבר החוצה במסוע. כמות העפר שנחצבה בפרויקט כזה הייתה ממלאת מאות אלפי משאיות, שורה שאורכה פי כמה מאורכה של מדינת ישראל.</p>
+<p>ואחרי כל כמה מטרים של חציבה, המכונה עצמה מרכיבה טבעת של חלקי בטון מעוגלים, דוחפת את עצמה קדימה, וממשיכה. כמו משחק לגו ענקי, מטר אחר מטר, נבנות עשרות קילומטרים של מנהרות בלב ההרים.</p>
+<div class="honey-box">🍯 מה שהדורות דמיינו כנס על טבעי, התגשם בידי מהנדסים ופועלים – וזה לא פחות נס.</div>
+</div><div class="story-next"><a href="#story-47">הקטע הבא: חצי שעה לירושלים ←</a></div>
+</article>
+<article class="story-card" id="story-47" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חצי שעה לירושלים</h3><button class="copy-link" type="button" data-id="story-47">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו נחזור לפסוק: "כל גיא ינשא" – על אחד העמקים בדרך נבנה גשר רכבת עצום, מן הגבוהים באזור. מרחוק הוא נראה מפחיד ממש, והרכבת טסה עליו בגובה רב מעל העמק. "וכל הר וגבעה ישפלו" – ההרים לא זזו, אבל הרכבת עוברת בתוכם, במנהרות, כאילו אינם.</p>
+<p>הרכבת יוצאת מתל אביב ונוסעת בקו כמעט ישר עד ירושלים, במהירות שאיש לא דמיין, ומגיעה בתוך כחצי שעה. "פנו דרך... ישרו בערבה מסלה לאלוקינו" – מסילה, ממש כך.</p>
+<p class="bold-para">הנביא אמר "מסלה", והיום יש מסילה. הנביא אמר "כל הר וגבעה ישפלו", והיום ההרים לא עומדים בדרך לירושלים.</p>
+</div><div class="story-next"><a href="#story-48">הקטע הבא: ארץ של חסד ←</a></div>
+</article>
+<article class="story-card" id="story-48" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ארץ של חסד</h3><button class="copy-link" type="button" data-id="story-48">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנביא אומר (ישעיהו א, כז):</p>
+<blockquote>ציון במשפט תפדה ושביה בצדקה.</blockquote>
+<p>הגאולה תבוא בזכות הצדקה והחסד. והנה, בארץ ישראל פועלים עשרות אלפי ארגונים התנדבותיים: נתינת כסף ומוצרים, עזרה לחולים, הצלה ורפואה, ליווי משפחות ותמיכה בבודדים. רובם אינם נתמכים כלל בידי המדינה; הם קמו מתוך לב טוב של אנשים פשוטים.</p>
+<p>ויש תופעה שכמעט אינה קיימת בשום מקום בעולם: מאות רבות של ישראלים תרמו כליה לאנשים זרים לגמרי, בלי שום תמורה ובלי שום היכרות מוקדמת. אדם הולך לבית החולים ונותן חלק מגופו כדי להציל יהודי שמעולם לא פגש. וכיום המספר כבר גדול בהרבה.</p>
+<div class="honey-box">🍯 המשפט "ושביה בצדקה" מתקיים בכל פעם שיהודי נותן מגופו ומנפשו ליהודי אחר.</div>
+</div><div class="story-next"><a href="#story-49">הקטע הבא: הקטן יהיה לאלף ←</a></div>
+</article>
+<article class="story-card" id="story-49" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הקטן יהיה לאלף</h3><button class="copy-link" type="button" data-id="story-49">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואין תמונה שמסכמת את כל הנבואות האלה טוב יותר מתמונה אחת שצולמה ליד הכותל המערבי.</p>
+<p>סבתא בת מאה וארבע, ניצולת שואה, ביקשה מכל צאצאיה להגיע לכותל ביום השואה לצילום משותף. בשנות המלחמה עמדו חייה על חוט השערה. והנה, ברחבת הכותל עמדה סביבה משפחה עצומה: ילדים, נכדים, נינים ובני נינים, מאות נפשות.</p>
+<p>כך אומר הנביא (ישעיהו ס, כב):</p>
+<blockquote>הקטן יהיה לאלף והצעיר לגוי עצום אני ה' בעתה אחישנה.</blockquote>
+<p>אישה אחת שיצאה מן התופת, ומולה עם שלם. זה "והרבך מאבתיך" בתמונה אחת.</p>
+<p class="bold-para">מאותו מקום שבו נראה שהכול נגמר, צומח עם שלם.</p>
+</div><div class="story-next"><a href="#story-50">הקטע הבא: כמו שזכינו – כך נזכה ←</a></div>
+</article>
+<article class="story-card" id="story-50" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כמו שזכינו – כך נזכה</h3><button class="copy-link" type="button" data-id="story-50">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש עוד נבואות רבות, ועוד פסוקים רבים, שמחכים להתקיים. ומי שזכה לראות בעיניו את קיבוץ הגלויות, את הארץ הפורחת, את ניצחונות המעטים על הרבים, את המסילה לירושלים ואת הצדקה שממלאת את הארץ – יודע שכל הבטחה של הקדוש ברוך הוא מתקיימת בעיתה.</p>
+<p>כמו שזכינו לראות את מה שהדורות לא העזו לחלום, כך נזכה לראות גם את המשך הנבואה, כמו שכתוב (מלאכי ג, כד):</p>
+<blockquote>והשיב לב אבות על בנים ולב בנים על אבותם.</blockquote>
+<p>במהרה בימינו.</p>
+<div class="honey-box">🍯 מי שמתבונן בחדשות בעיניים של תנ"ך, רואה כל יום עוד פסוק מתקיים.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
