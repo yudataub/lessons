@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🕊️ חלק ב: והדבר צריך הכרע – המחלוקת על סמיכת צפת ואליהו הנביא</title>
+<meta name="description" content="למה הסמיכה שחודשה בצפת נתקעה, מה פירוש שלוש המילים המסתוריות שבסוף דברי הרמב&quot;ם, האם אליהו הנביא יוכל לסמוך – ומה כל זה מלמד על הדרך אל הגאולה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🕊️ חלק ב: והדבר צריך הכרע – המחלוקת על סמיכת צפת ואליהו הנביא</h1>
+  <p class="hero-subtitle">למה הסמיכה שחודשה בצפת נתקעה, מה פירוש שלוש המילים המסתוריות שבסוף דברי הרמב&quot;ם, האם אליהו הנביא יוכל לסמוך – ומה כל זה מלמד על הדרך אל הגאולה.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/ilO2lblRD9I" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🏔️ צפת: עיר של תורה ושל פרנסה</a><ul class="toc-stories"><li><a href="#story-1">לא רק בשביל האנוסים</a></li><li><a href="#story-2">ציון במשפט תפדה</a></li><li><a href="#story-3">למה כולם גרו בצפת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📜 שלוש מילים בסוף ההלכה</a><ul class="toc-stories"><li><a href="#story-4">הרמב&quot;ם בהלכות סנהדרין</a></li><li><a href="#story-5">הרמב&quot;ם שאינו מסתפק</a></li><li><a href="#story-6">הרלב&quot;ח: הרמב&quot;ם חזר בו</a></li><li><a href="#story-7">מי עושה את הגאולה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🔥 אליהו הנביא – הסמוך האחרון?</a><ul class="toc-stories"><li><a href="#story-8">הסמוך שלא מת</a></li><li><a href="#story-9">אשת איש ולא אשת מלאך</a></li><li><a href="#story-10">למה שרים &quot;אליהו הנביא&quot; במוצאי שבת</a></li><li><a href="#story-11">כמלאך וכאדם</a></li><li><a href="#story-12">אדם חדש או אותו אליהו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">💓 בין חיים למוות</a><ul class="toc-stories"><li><a href="#story-13">מוות קליני</a></li><li><a href="#story-14">האחות שלא ויתרה</a></li><li><a href="#story-15">מה שהעיניים לא רואות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🏛️ מהרמב&quot;ם עד קום המדינה</a><ul class="toc-stories"><li><a href="#story-16">הניסיון של הרב מימון</a></li><li><a href="#story-17">האם הרמב&quot;ם באמת הסתפק</a></li><li><a href="#story-18">האם הרבנות הראשית יכולה להיות סנהדרין</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏔️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">צפת: עיר של תורה ושל פרנסה</h2></div></div>
+<p class="chapter-intro">לפני כחמש מאות שנה התכנסו חכמי צפת וחידשו את הסמיכה. מה הניע אותם, ולמה דווקא בצפת?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא רק בשביל האנוסים</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי גירוש ספרד בשנת ה'רנ"ב (1492) נדד רבי יעקב בירב עד שהגיע לצפת. כמה עשרות שנים אחר כך, בשנת ה'רצ"ח (1538), עשו חכמי צפת את הצעד הגדול: הסכימו כולם יחד ומינו אותו לסמוך, כדברי הרמב"ם.</p>
+<p>הסיבה הגלויה הייתה האנוסים – יהודים שנאלצו לחיות כנוצרים ועברו עבירות שחייבים עליהן כרת, ורצו להיפטר מן הכרת במלקות של בית דין סמוך. אבל לא רק בשביל זה. חכמי צפת קראו את הרמב"ם וראו בו דרך לקרב את הגאולה.</p>
+<p class="bold-para">הם לא רק פתרו בעיה הלכתית של קבוצה אחת. הם רצו לפתוח את השער לגאולת ישראל כולו.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: ציון במשפט תפדה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ציון במשפט תפדה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם לומד את סדר הגאולה מפסוק בישעיהו:</p>
+<blockquote>"צִיּוֹן בְּמִשְׁפָּט תִּפָּדֶה וְשָׁבֶיהָ בִּצְדָקָה" (ישעיהו א, כז)</blockquote>
+<p>איך תיפדה ציון? <strong>במשפט</strong> – כשיעשו בה משפט כמו שצריך. קודם חוזרים השופטים, ורק אחר כך באה הפדות.</p>
+<p>הפסוק הזה חי גם היום. חבר כנסת שהוביל בשנים האחרונות שינוי במערכת המשפט נהג לפתוח את דיוני הוועדה שבראשה עמד בדיוק בפסוק הזה: "ציון במשפט תפדה". אפשר לחשוב על הדרך כך או אחרת, אבל ההבנה העמוקה נכונה – משפט ישר הוא תנאי לגאולה. ובדיוק זה מה שחכמי צפת הבינו לפני חמש מאות שנה.</p>
+<div class="honey-box">🍯 הגאולה איננה רק דבר שמחכים לו. היא נבנית כשמתקנים את המשפט.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: למה כולם גרו בצפת ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה כולם גרו בצפת</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשחכמי צפת סיימו, הם שלחו מכתב לירושלים כדי לקבל את הסכמת חכמיה. אבל בירושלים של אותם ימים היה רק קיבוץ קטן מאוד של תלמידי חכמים. רוב החכמים ישבו בצפת.</p>
+<p>למה דווקא שם? יש הסבר מעשי ופשוט: אדם צריך להתפרנס. סביב צפת זורמים נחלים, כמו נחל עמוד, ובמימיהם היו שוטפים ומעבדים את הצמר. קמה שם תעשיית אריגה ובגדים, ומפעל אחד כזה מפרנס סביבו עשרות משפחות – הסוחר, הצבעי, החלבן, החנווני. וסביב הכלכלה הזאת יכלה לגדול קהילה גדולה של תלמידי חכמים.</p>
+<p class="bold-para">תורה צריכה גם קמח. עיר של חכמים נבנית גם על פרנסה טובה.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הרמב&quot;ם בהלכות סנהדרין ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">שלוש מילים בסוף ההלכה</h2></div></div>
+<p class="chapter-intro">התשובה מירושלים לא הייתה משמחת. הכול נסוב סביב משפט קצר אחד ברמב"ם.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הרמב&quot;ם בהלכות סנהדרין</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לרמב"ם יש שני מקומות שבהם הוא כותב על חידוש הסמיכה. בפירוש המשניות הוא כותב בביטחון גמור. בספר ההלכות שלו, משנה תורה, הוא חוזר על אותו רעיון – אבל מסיים אחרת:</p>
+<blockquote>"נראין לי הדברים שאם הסכימו כל החכמים שבארץ ישראל למנות דיינים ולסמוך אותם, הרי אלו סמוכים, ויש להן לדון דיני קנסות ויש להן לסמוך לאחרים. אם כן, למה היו החכמים מצטערין על הסמיכה, כדי שלא יבטלו דיני קנסות מישראל? לפי שישראל מפוזרין, ואי אפשר שיסכימו כולן. ואם היה שם סמוך מפי סמוך, אינו צריך דעת כולן... והדבר צריך הכרע." (רמב"ם, הלכות סנהדרין ד, יא)</blockquote>
+<p>הרמב"ם מסביר גם למה רבי יהודה בן בבא מסר את נפשו: כי קשה מאוד להביא את כל החכמים להסכמה. סמוך אחד שקיבל סמיכה איש מפי איש אינו צריך לשאול אף אחד – הוא מחליט ומסמיך הלאה. ואז, בסוף, שלוש מילים: <strong>"והדבר צריך הכרע"</strong>.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: הרמב&quot;ם שאינו מסתפק ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הרמב&quot;ם שאינו מסתפק</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שרגיל ללמוד רמב"ם יודע כמה המשפט הזה מוזר. הרמב"ם כמעט אף פעם לא כותב "צריך עיון", "יש להסתפק" או "יש אומרים כך ויש אומרים כך". זו כל השיטה שלו: ספר הלכות ברור, שבו כל דין פסוק וחתוך, בלי ספקות ובלי מחלוקות, כדי שכל יהודי יוכל לדעת מה לעשות.</p>
+<p>ולכן, כשדווקא כאן כותב הרמב"ם "והדבר צריך הכרע", כל מילה נשקלת. האם הוא מסתפק בעצם הדין? או שהמילים האלה הולכות על משהו אחר? על השאלה הזאת נחלקו גדולי הדור של צפת וירושלים.</p>
+<div class="honey-box">🍯 כשגדול שאינו מסתפק אף פעם כותב פתאום "צריך הכרע" – זה הזמן לעצור ולהקשיב היטב.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: הרלב&quot;ח: הרמב&quot;ם חזר בו ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הרלב&quot;ח: הרמב&quot;ם חזר בו</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי לוי בן חביב, הרלב"ח, היה רבה של ירושלים באותה תקופה. הוא כתב לחכמי צפת שהוא מתנגד לכל המהלך.</p>
+<p>טענתו: את פירוש המשניות כתב הרמב"ם בצעירותו, ואת משנה תורה בזקנותו. בצעירותו כתב בביטחון שאין דרך אחרת, ובזקנותו סיים "והדבר צריך הכרע" – סימן שחזר בו, או לפחות התחיל להסתפק.</p>
+<p>ולמה הסתפק? כי כל מה שנוגע לימות המשיח נעלם מבני אדם. כך כותב הרמב"ם עצמו בהלכות מלכים:</p>
+<blockquote>"וכל אלו הדברים וכיוצא בהן לא ידע אדם איך יהיו עד שיהיו" (רמב"ם, הלכות מלכים יב, ב)</blockquote>
+<p>אם כן, אומר הרלב"ח, אולי לא אנחנו נחדש את הסנהדרין, אלא המשיח יעשה הכול.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מי עושה את הגאולה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מי עושה את הגאולה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זו בעצם המחלוקת הגדולה, והיא חיה גם בימינו: איך תבוא הגאולה? האם אנחנו צריכים להתחיל – לחדש, לבנות, להקים – או שעלינו לחכות שהמשיח יבוא ויסדר הכול?</p>
+<p>גם הרדב"ז, מגדולי החכמים של אותו דור, תיאר את מה שקרה: חכמי צפת סמכו, והגדול שבהם נעשה סמוך, אבל הדבר לא עלה בידם, כי החכם שבירושלים לא הסכים.</p>
+<p>ומכאן נולדה שאלה נוספת: הרמב"ם כתב שצריך שיסכימו "כל" החכמים שבארץ ישראל. האם "כל" הוא באמת כולם, או שדי ברוב? בצפת ישבו עשרות חכמים, ובירושלים מעטים. האם מיעוט קטן יכול לבטל את הסכמת הרוב? על כך נחלקו בין צפת לירושלים, והמהלך נעצר.</p>
+<p class="bold-para">השאלה "מי יעשה את הגאולה – אנחנו או המשיח" לא נולדה בדור שלנו. היא בת חמש מאות שנה לפחות.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: הסמוך שלא מת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">אליהו הנביא – הסמוך האחרון?</h2></div></div>
+<p class="chapter-intro">הרדב"ז מציע דרך אחרת לחידוש הסמיכה. היא פותחת שאלה מרתקת: מה מעמדו של אליהו הנביא?</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הסמוך שלא מת</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם הוכיח בפירוש המשניות שחייבת להיות דרך לחדש את הסמיכה בהסכמת החכמים, כי אם לא – מי יסמוך את הסמוך הראשון? המשיח לא מחדש דינים בתורה.</p>
+<p>הרדב"ז כותב שהראיה הזאת אינה מכרעת. יש מי שיכול לסמוך: אליהו הנביא. הוא היה סמוך – תלמידו של אחיה השילוני – והוא לא מת, אלא עלה בסערה השמיימה. וכך מבטיח הנביא:</p>
+<blockquote>"הִנֵּה אָנֹכִי שֹׁלֵחַ לָכֶם אֵת אֵלִיָּה הַנָּבִיא לִפְנֵי בּוֹא יוֹם ה' הַגָּדוֹל וְהַנּוֹרָא" (מלאכי ג, כג)</blockquote>
+<p>המשיח הוא אדם רגיל ואינו סמוך. אבל אליהו יבוא לפני המשיח – והוא יוכל לסמוך מחדש.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: אשת איש ולא אשת מלאך ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">אשת איש ולא אשת מלאך</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן עולה שאלה שנשמעת כמעט משעשעת, אבל היא נוגעת לשורש העניין: אליהו עלה לשמיים. מה מעמדה של אשתו? האם היא עדיין אשת איש?</p>
+<p>הרי הוא לא מת. ומצד שני, הוא כבר איננו בעולם הזה. יש מן האחרונים שכתבו בזה חידוד חריף: התורה אסרה "אשת איש" – ולא "אשת מלאך". מי שאינו נמצא עוד בעולם הזה כבן אדם, הרי הוא בגדר מלאך, ואשתו מותרת כמו אלמנה.</p>
+<p>כלומר, השאלה היא מה מעמדו של אדם שעבר מן העולם הזה לעולם העליון: האם הוא אותו אדם, עם אותן זיקות ואותם תארים, או שהוא כבר ישות אחרת.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: למה שרים &quot;אליהו הנביא&quot; במוצאי שבת ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה שרים &quot;אליהו הנביא&quot; במוצאי שבת</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא (עירובין מג, ב) שואלת: האם אליהו הנביא יכול לבוא בשבת? הבעיה היא תחום שבת – הוא יגיע מרחוק. והגמרא תולה זאת בשאלה אם יש תחומין למעלה מעשרה טפחים: מי שעף באוויר, האם הוא עובר על תחום שבת? הגמרא אינה מכריעה.</p>
+<p>לכן אנחנו נוהגים שאליהו לא יבוא בשבת, ובמוצאי שבת, כשהדרך כבר פתוחה, שרים "אליהו הנביא, אליהו התשבי" – מתפללים שיבוא עכשיו.</p>
+<p>אבל יש כאן קושיה: בברית מילה שחלה בשבת מכינים כיסא של אליהו, ובקהילות רבות שרים לכבודו ומזמינים אותו – והוא מגיע. איך זה מסתדר?</p>
+<div class="honey-box">🍯 שיר פשוט של מוצאי שבת מסתיר מאחוריו סוגיה שלמה בגמרא.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: כמלאך וכאדם ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כמלאך וכאדם</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החתם סופר מיישב את הקושיה: הכול תלוי באיזה אופן אליהו מגיע. כשהוא בא כמלאך – רואה ואינו נראה, בלי גוף של בשר ודם – לא חלים עליו דיני התורה, שנאמרו לבני אדם הלבושים בחומר. הוא יכול לעבור ממקום למקום כרצונו, גם בשבת. כך הוא מגיע לכל ברית מילה.</p>
+<p>אבל לפני הגאולה הוא יבוא אחרת: בלבוש של אדם, בגוף ממשי. הוא ידבר עם אנשים, ישיב לב אבות על בנים ולב בנים על אבותם, ויעשה שלום בין כל הצדדים והמפלגות. עבודה רבה מחכה לו. וכשיבוא כך – כאדם – יחולו עליו כל דיני האדם, וגם דיני שבת.</p>
+<p class="bold-para">אליהו של ברית המילה הוא מלאך. אליהו של הגאולה יהיה אדם בינינו.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: אדם חדש או אותו אליהו ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">אדם חדש או אותו אליהו</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומכאן אפשר להבין את המחלוקת בין הרמב"ם לרדב"ז. הרדב"ז סובר שכאשר אליהו יחזור, זה אותו אליהו – והסמיכה שקיבל עדיין בידו.</p>
+<p>הרמב"ם, כנראה, רואה זאת אחרת: גם אם אליהו יבוא בגוף של בשר ודם, הוא יהיה כמו אדם חדש. אולי אותה נשמה, אבל לא אותו אדם. מי שהלך מן העולם הזה וחזר – מתחיל הכול מן ההתחלה. הסמיכה הישנה אינה עוברת איתו.</p>
+<p>לכן היה הרמב"ם חייב למצוא דרך אחרת, והיה בטוח שהיא תתממש: יבוא יום, וכל החכמים יסכימו יחד על אדם אחד, יסמכו אותו, והוא יסמוך הלאה – עוד לפני הגאולה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: מוות קליני ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">💓</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">בין חיים למוות</h2></div></div>
+<p class="chapter-intro">השאלה "מי שחזר – האם הוא אותו אדם?" אינה רק עניין של אליהו. היא עולה גם בחדרי בית החולים.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מוות קליני</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מקרים שבהם הלב נעצר, הנשימה פוסקת, ולפי כל סימן חיצוני האדם מת. ואחרי דקות ארוכות של החייאה – הוא חוזר.</p>
+<p>לגבי אדם כזה אין שאלה הלכתית של אליהו: הוא חזר לאותו גוף, ולכן הוא אותו אדם. נישואיו קיימים, ממונו שלו, וכל מעמדו נשאר. השאלה של אליהו היא דווקא משום שגופו הקודם אינו קיים, והוא אמור לבוא בגוף אחר.</p>
+<p>מכאן גם הוויכוח הגדול על "מוות מוחי": יש מצבים שבהם המוח כבר אינו פועל, והלב עדיין פועם. ההכרעה מתי אדם נחשב מת אינה רק רפואית, והיא נוגעת לשאלות כבדות של השתלת איברים ושל פיקוח נפש.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: האחות שלא ויתרה ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">האחות שלא ויתרה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בחיפה התמוטט פעם אדם ולבו נעצר. אחות שהוזעקה למקום התחילה החייאה, ודקה רדפה דקה. רופא שהיה מגיע היה אולי קובע מוות כעבור כמה דקות – אין סיכוי, אמרו, לחזור אחרי זמן כזה.</p>
+<p>אבל לאחות אסור על פי החוק לקבוע מוות. אז היא המשיכה, ועוד המשיכה, כמעט רבע שעה, עד שהגיע האמבולנס. ואז התחילו להופיע סימני חיים. אחרי תהליך ארוך ושלושה ימים של חוסר הכרה, הוא התעורר. היום הוא הולך על רגליו כאחד האדם.</p>
+<p>בימים ההם עמדו חבריו ליד מיטתו לסירוגין, יומם ולילה, ולא הניחו לייאוש של אף אחד. זמר יהודי מפורסם, אברהם פריד, שמע על המקרה, בא לבית החולים ושר לו. כשהתעורר, סיפר שזכר את השירה. מאז הם חברים קרובים.</p>
+<div class="honey-box">🍯 לפעמים מה שמציל חיים הוא דווקא מי שלא מוכן להחליט שזה הסוף.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: מה שהעיניים לא רואות ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה שהעיניים לא רואות</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם רופאים מספרים על רגעים כאלה. רופא אחד סיפר שעשה החייאה לתינוק במשך חצי שעה, בלי לשמוע דופק. כבר הרים ידיים והלך לחתום – ופתאום חזר הדופק.</p>
+<p>אנשים רבים שחזרו ממוות קליני מספרים שראו את עצמם מלמעלה, את הרופאים סביב המיטה, ולפעמים אף לא רצו לחזור. התופעה מוכרת ונחקרת, גם אצל אנשים מכל העמים, וגם אצל אנשים שהיו רחוקים מאוד מן האמונה ובכל זאת סיפרו שראו בעיניהם שיש המשך.</p>
+<p class="bold-para">יש דברים שאי אפשר למדוד במכשיר. החיים והמוות מסורים בידי ה', ולא כל מה שנראה כסוף הוא באמת סוף.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הניסיון של הרב מימון ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מהרמב&quot;ם עד קום המדינה</h2></div></div>
+<p class="chapter-intro">המחלוקת של צפת וירושלים חזרה ועלתה מחדש עם הקמת מדינת ישראל.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הניסיון של הרב מימון</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בראשית ימי המדינה ניסה הרב יהודה לייב מימון, מראשי הציונות הדתית והשר הראשון לענייני דתות, להחזיר את הסנהדרין. הוא כינס רבנים רבים, כתב על כך ספר שלם, והאמין בכל לבו שהשעה הגיעה.</p>
+<p>אבל הניסיון לא הצליח. רבים מגדולי הדור התנגדו, וביניהם החזון איש, שנשען על סוף דברי הרמב"ם – "והדבר צריך הכרע" – ועל דברי הרדב"ז, שגם בימי צפת לא הסכימו כולם.</p>
+<p>יש שהסבירו שמעבר לשאלה ההלכתית, היה כאן גם חשש: שבימים סוערים כאלה ייכנסו למוסד כה רב כוח מי שאינם ראויים לו, ויכריעו לכל ישראל לפי דרכם.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: האם הרמב&quot;ם באמת הסתפק ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">האם הרמב&quot;ם באמת הסתפק</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובכל זאת, רבים סוברים שהרמב"ם לא חזר בו. הראיה החזקה: ראשונים רבים מעתיקים את דבריו בלי המילים "והדבר צריך הכרע". המאירי מביא את דברי הרמב"ם כדין פשוט, וכך גם בעל "כפתור ופרח", מן הראשונים שישבו בארץ ישראל. גם הבית יוסף – שהיה בעצמו מן הנסמכים בצפת – מעתיק את הדין בלי שום ספק.</p>
+<p>אם כך, יש שני פירושים אפשריים: או שהמילים לא היו בנוסח שלפניהם, או שהם הבינו ש"והדבר צריך הכרע" הולך על פרט אחר בהלכה – למשל על השאלה אם סמוך מפי סמוך צריך את הסכמת כולם – ולא על עצם האפשרות לחדש את הסמיכה.</p>
+<div class="honey-box">🍯 כשראשונים רבים מעתיקים דין בלי ספק – זה עדות חזקה איך הבינו אותו.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: האם הרבנות הראשית יכולה להיות סנהדרין ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">האם הרבנות הראשית יכולה להיות סנהדרין</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה מתבקשת: יש לנו היום רבנות ראשית לישראל. אולי היא תהיה הסנהדרין?</p>
+<p>התשובה ברורה: לא. הרב מימון עצמו כתב שאי אפשר, כי את הרבנות הראשית ממנה גוף שרובו נציגי ציבור ופוליטיקאים, ולא חכמי ישראל. יש כאן ניגוד עניינים מובנה. הסמיכה לפי הרמב"ם תלויה בהסכמת החכמים עצמם, לא בבחירה פוליטית.</p>
+<p>אם כן, כרגע אי אפשר לחדש את הסנהדרין בדרך הזאת. אבל אין זה אומר שאין מה לעשות.</p>
+<p class="bold-para">מה כן אפשר לעשות כבר היום? זה כבר המשך הדרך.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
