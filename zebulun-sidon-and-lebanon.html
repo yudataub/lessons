@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🐚 לחוף ימים: זבולון, צידון והגויים שנשארו בלבנון</title>
+<meta name="description" content="איפה ישב באמת שבט זבולון, איך הגיעה נחלתו עד צידון, ולמה דווקא עזה ולבנון הן שני המקומות שה&#x27; השאיר &quot;לנסות בם את ישראל&quot;.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🐚 לחוף ימים: זבולון, צידון והגויים שנשארו בלבנון</h1>
+  <p class="hero-subtitle">איפה ישב באמת שבט זבולון, איך הגיעה נחלתו עד צידון, ולמה דווקא עזה ולבנון הן שני המקומות שה&#x27; השאיר &quot;לנסות בם את ישראל&quot;.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/4s2FK1cAITE" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧩 החידה של זבולון</a><ul class="toc-stories"><li><a href="#story-1">&quot;וירכתו על צידן&quot;</a></li><li><a href="#story-2">דבורה לוקחת את המילים לאשר</a></li><li><a href="#story-3">את צידון לא הורישו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🗺️ הירך שבתוך נחלת אשר</a><ul class="toc-stories"><li><a href="#story-4">מובלעת לאורך החוף</a></li><li><a href="#story-5">ומה עם מפרץ חיפה?</a></li><li><a href="#story-6">למה זבולון רצה דווקא את החוף</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🐌 התכלת שבחוף</a><ul class="toc-stories"><li><a href="#story-7">&quot;ושפני טמוני חול&quot;</a></li><li><a href="#story-8">ההר של החלזונות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🏛️ צידון: ארץ ישראל לכל דבר</a><ul class="toc-stories"><li><a href="#story-9">העולה הגרמני הראשון</a></li><li><a href="#story-10">&quot;צידון מארץ הקודש&quot;</a></li><li><a href="#story-11">עד צידון, לא יותר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">⚔️ הגויים שנשארו: עזה ולבנון</a><ul class="toc-stories"><li><a href="#story-12">המלאך בבוכים</a></li><li><a href="#story-13">למען נסות בם את ישראל</a></li><li><a href="#story-14">שני מקומות בלבד</a></li><li><a href="#story-15">יום אחד לעזה, ימים ספורים לביירות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">💡 למה ה&#x27; משאיר את האויב?</a><ul class="toc-stories"><li><a href="#story-16">הרלב&quot;ג: הפחד שמחזיר בתשובה</a></li><li><a href="#story-17">המצודות: להעריך את הנס</a></li><li><a href="#story-18">לבנון: ההר הטוב</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧩</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">החידה של זבולון</h2></div></div>
+<p class="chapter-intro">התורה אומרת שזבולון ישכון לחוף ימים. הגמרא אומרת שקיבל את עכו. אבל ספר יהושע ושירת דבורה מושיבים על החוף שבט אחר.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;וירכתו על צידן&quot;</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יעקב אבינו מברך את זבולון (בראשית מט, יג):</p>
+<blockquote>זבולן לחוף ימים ישכן והוא לחוף אניות וירכתו על צידן.</blockquote>
+<p>מי שקורא את הפסוק כפשוטו מבין שנחלת זבולון היא רצועת החוף הצפונית: מאזור חיפה, דרך עכו, ועד צידון. לא בכדי קוראים לאזור שליד מפרץ חיפה "עמק זבולון", והמועצה האזורית שם נקראת "זבולון".</p>
+<p>וגם הגמרא נשמעת כך. היא מתארת (בבא בתרא קכב, א) איך חולקה הארץ: אלעזר הכהן, לבוש אורים ותומים, עמד לפני יהושע וכל ישראל, ולפניו שתי קלפיות – אחת של שמות השבטים ואחת של התחומים. ברוח הקודש היה מכריז מראש: "זבולון עולה, ותחום עכו עולה עמו" – ואז מושכים פתק מכל קלפי, ובאמת עולים זבולון ותחום עכו.</p>
+<p class="bold-para">לפי הפסוק ולפי הגמרא, זבולון יושב על הים, ליד עכו.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: דבורה לוקחת את המילים לאשר ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דבורה לוקחת את המילים לאשר</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל אז באה שירת דבורה, ושם כתוב משהו מפתיע (שופטים ה, יז):</p>
+<blockquote>אשר ישב לחוף ימים ועל מפרציו ישכון.</blockquote>
+<p>דבורה לוקחת כמעט מילה במילה את הלשון שנאמרה בתורה על זבולון – "לחוף ימים ישכן" – ואומרת אותה על שבט אשר. ועוד מוסיפה: "ועל מפרציו". המפרץ שייך לאשר.</p>
+<p>וכך גם בספר יהושע, בחלוקת הארץ (יהושע יט, כד–כו):</p>
+<blockquote>ויצא הגורל החמישי למטה בני אשר למשפחותם... ויפגע בכרמל הימה.</blockquote>
+<p>נחלת אשר מתחילה בכרמל, על הים, וממשיכה צפונה "עד צידון רבה" (שם, כח), ועד "חבל אכזיבה" (שם, כט).</p>
+<div class="honey-box">🍯 כשפסוקים נראים סותרים, זה לא סימן שמשהו לא בסדר; זה סימן שיש כאן סוד שמחכה למי שיתעמק.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: את צידון לא הורישו ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">את צידון לא הורישו</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועוד פסוק מחזק את התמונה הזאת. בתחילת ספר שופטים, ברשימת המקומות שהשבטים לא הצליחו לכבוש, כתוב (שופטים א, לא):</p>
+<blockquote>אשר לא הוריש את ישבי עכו ואת ישבי צידון.</blockquote>
+<p>כלומר: עכו וצידון היו בנחלת אשר. אשר קיבל אותן בגורל, ולא הוריש את יושביהן.</p>
+<p>ויש כאן משהו שמהדהד עד ימינו. צידון היא היום מעוז של ארגון החזבאללה, ומשם, מאזור דרום לבנון, יצאו לאורך השנים צרות רבות לעם ישראל. מקום שלא נכבש בזמנו, ממשיך להיות מוקש גם אחרי אלפי שנים.</p>
+<p>אז מי ישב על החוף, ומי "ירכתו על צידון"? זבולון או אשר?</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: מובלעת לאורך החוף ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">הירך שבתוך נחלת אשר</h2></div></div>
+<p class="chapter-intro">הגאון מווילנא מציע פתרון מחודש מאוד, שמיישב את כל הפסוקים – ומשנה את המפה שאנחנו מכירים.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מובלעת לאורך החוף</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפי שיטת הגאון מווילנא, שני הצדדים צודקים.</p>
+<p>נחלת אשר היא באמת רצועת החוף הצפונית: מן הכרמל ועד צידון. אבל בתוך הנחלה הזאת, לאורך שפת הים, הייתה <strong>מובלעת של שבט זבולון</strong>. רצועה צרה שהתחילה מעבר לעכו ועלתה צפונה עד צידון. שם היא התרחבה מעט, וקיבלה צורה של ירך.</p>
+<p>וזה בדיוק לשון הפסוק: "וירכתו על צידן". הנחלה של זבולון נראית במפה כמו ירך, שהחלק הרחב שלה יושב על צידון.</p>
+<p>כך מתיישבת גם הגמרא. "תחום עכו עולה עמו" אין פירושו שהעיר עכו עצמה של זבולון, אלא שהתחום שלו מתחיל בסמוך לעכו.</p>
+<p class="bold-para">אשר – לאורך כל החוף. זבולון – רצועה בתוכו, מעכו ועד צידון. כל הפסוקים צודקים.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ומה עם מפרץ חיפה? ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ומה עם מפרץ חיפה?</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפי זה יוצא דבר מפתיע: האזור שמן הכרמל ועד עכו, כולל מפרץ חיפה כולו, שייך לשבט אשר ולא לזבולון.</p>
+<p>וזה גם מה שאומר הפסוק במפורש: "ויפגע בכרמל הימה". הגבול של אשר נוגע בכרמל שעל הים. אז מי שגר בקריות שליד חיפה יושב, כנראה, בנחלת אשר.</p>
+<p>מעניין שהשם "מטה אשר" ניתן למועצה האזורית שבצפון, מעכו ועד ראש הנקרה. ולאזור שליד חיפה, שלפי הפסוקים הוא בעצם של אשר, ניתן השם "זבולון".</p>
+<p>למה? מי שקרא מקרא כפשוטו – "זבולן לחוף ימים ישכן... וירכתו על צידן" – הבין שכל החוף, מהכרמל ועד צידון, של זבולון. כך נקבעו השמות. אבל מי שלומד את הפסוקים לעומק, עם ספר יהושע ושירת דבורה ודברי הגאון, מגלה תמונה אחרת.</p>
+<div class="honey-box">🍯 כדי לדעת איפה אתה גר, לא מספיק לקרוא שלט; צריך לפתוח את ספר יהושע.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: למה זבולון רצה דווקא את החוף ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה זבולון רצה דווקא את החוף</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה הייתה לזבולון מובלעת דווקא לאורך החוף, עד צידון? כי זבולון היה שבט של סוחרים.</p>
+<p>חז"ל מספרים שזבולון עסק בפרקמטיה, בסחר ימי, ופרנס את יששכר שישב ולמד תורה. לזה בדיוק צריך את חוף הים, את הנמלים ואת הספינות: "והוא לחוף אניות". צידון הייתה מן הערים החשובות בעולם העתיק, נמל שאליו הגיעו ספינות מכל העולם, ומשם יצאה הסחורה לכל עבר.</p>
+<p>מי שישב שם, על החוף שבין עכו לצידון, ישב על אחד מצירי המסחר העשירים ביותר שהיו אז.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: &quot;ושפני טמוני חול&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🐌</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">התכלת שבחוף</h2></div></div>
+<p class="chapter-intro">לחוף של זבולון היה עוד אוצר, יקר מכל סחורה: החילזון שממנו מפיקים את התכלת.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;ושפני טמוני חול&quot;</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה רבנו מברך את זבולון (דברים לג, יט):</p>
+<blockquote>כי שפע ימים יינקו ושפני טמוני חול.</blockquote>
+<p>חז"ל דרשו (מגילה ו, א) ש"שפוני" זה החילזון, שממנו מפיקים את צבע התכלת שבציצית. האוצר הזה, שטמון בחול ובים, נמצא בחלקו של זבולון.</p>
+<p>כדי להבין כמה זה יקר, מספיק להסתכל על ימינו. גם היום, כשהצבע מופק בשיטות מודרניות, ציצית עם תכלת עולה מאות שקלים. בעולם העתיק, צבע התכלת והארגמן היה מן הדברים היקרים ביותר, ולבשו אותו מלכים ואצילים.</p>
+<div class="honey-box">🍯 "שפע ימים" ו"טמוני חול" – הברכה של זבולון הייתה גם במסחר שעל פני הים, וגם באוצר שמתחת לחול.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: ההר של החלזונות ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ההר של החלזונות</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני עשרות שנים מצאו חוקרים, בחפירות לאורך חוף הים בצפון, באזור דור, ערמה גבוהה מאוד של קונכיות של החילזון שממנו מפיקים צבע. כל הקונכיות היו נקובות, בדיוק במקום שממנו מוציאים את הנוזל שממנו עושים את הצבע.</p>
+<p>זה לא היה מקרה. זה היה מפעל: אלפי חלזונות שנאספו, נוקבו, והצבע שבהם הופק. הממצא הזה עזר מאוד לחוקרים להבין מאיזה חילזון הפיקו בעבר את התכלת, ואיך.</p>
+<p>כך, דרך ערמה של קונכיות שבורות, אפשר לראות בעיניים את מה שהפסוק אמר לפני אלפי שנים: לאורך החוף הזה, "טמוני חול" היו מקור של עושר.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: העולה הגרמני הראשון ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">צידון: ארץ ישראל לכל דבר</h2></div></div>
+<p class="chapter-intro">צידון איננה רק שם בפסוקים. היא חלק מארץ ישראל, ובדורות האחרונים היה יהודי שרצה להקים בה יישוב.</p>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">העולה הגרמני הראשון</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בדורות האחרונים עלו יהודים רבים מפולין, מליטא ומרוסיה. אבל מגרמניה כמעט לא עלו. למה? לא היו שם פוגרומים, היה שם שקט, הייתה פרנסה והצלחה. למה לעזוב?</p>
+<p>ולכן מיוחד מאוד הרב אליעזר ברגמן, שנחשב העולה הגרמני הראשון לארץ ישראל בתקופה החדשה. הוא עלה בשנת תקצ"ד עם משפחתו, אחרי שעברו צרות רבות, כשבנו הגדול היה בן שמונה.</p>
+<p>כדי להבין כמה קשה היה אז: עולים היו בדרך כלל עניים, ובמשך שנים רבות כמעט לא הותר ליהודים לקנות קרקע בארץ. רק אחרי המלחמה של מוחמד עלי, שליט מצרים, בשלטון העות'מאני, כשבריטניה וצרפת סייעו להחזיר את הארץ לשלטון הטורקים, התחילו נתיני המעצמות האלה לקבל זכות לקנות קרקעות. מכאן הקניות הגדולות של משה מונטיפיורי מבריטניה ושל בית רוטשילד מצרפת.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: &quot;צידון מארץ הקודש&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;צידון מארץ הקודש&quot;</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב ברגמן ישב תקופה בצידון, ומשם כתב מכתב מרתק. הוא סיפר שלמד מספר "כפתור ופרח" – ספרו של רבי אשתורי הפרחי, מן הראשונים, שהלך ברגליו לאורך הארץ וחקר את גבולותיה – שצידון היא חלק מארץ הקודש, ושיש בה כל המעלה של ארץ ישראל: מעלת הישיבה בה, ואפילו מעלת הקבורה בה.</p>
+<p>והוא הוסיף שאילו ידע את זה מראש, היה מקים שם יישוב של יהודים אשכנזים, כמו שהיו באזור יהודים ספרדים. רק אחרי מעשה למד את הדברים.</p>
+<div class="honey-box">🍯 יהודי אחד שחיפש בספרים איפה עובר הגבול, היה מוכן לבנות קהילה שלמה על סמך מה שמצא.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: עד צידון, לא יותר ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">עד צידון, לא יותר</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>צריך לדייק. גבול ההבטחה שהבטיח ה' לאבות רחב הרבה יותר, ומגיע עד נהר פרת. אבל אם שואלים איפה ישבו יהודים בפועל בזמן יהושע, התשובה ברורה: עד צידון. בצור ובצידון ישבו יהודים, והן ארץ ישראל לכל דבר. יש על כך פסוקים מפורשים רבים, ויש לכך השלכות הלכתיות, למשל בדיני שביעית.</p>
+<p>מעבר לצידון, צפונה, לביירות – אין לנו מקורות שמספרים שיהודים ישבו שם בזמן יהושע.</p>
+<p>ואם תשאלו: איך שלמה המלך נתן לחירם מלך צור ערים בגליל (מלכים א ט, יא), אם הגבול הגיע עד צידון? התשובה טמונה בספר שופטים: עם ישראל לא כבש בפועל את כל השטח שחולק לו. החלוקה הגיעה עד צידון, אבל הכיבוש נעצר לפני כן, וצור נשארה ממלכה נפרדת.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: המלאך בבוכים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">⚔️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">הגויים שנשארו: עזה ולבנון</h2></div></div>
+<p class="chapter-intro">ספר שופטים מספר אילו גויים השאיר ה' בארץ אחרי שעם ישראל לא גירש אותם. הרשימה נשמעת כמו מהדורת חדשות של ימינו.</p>
+<article class="story-card" id="story-12" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">המלאך בבוכים</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי מות יהושע עלה מלאך ה' מן הגלגל אל מקום שנקרא "בוכים", ואמר לעם בשם ה' (שופטים ב, א–ב):</p>
+<blockquote>אעלה אתכם ממצרים ואביא אתכם אל הארץ אשר נשבעתי לאבתיכם ואמר לא אפר בריתי אתכם לעולם. ואתם לא תכרתו ברית ליושבי הארץ הזאת מזבחותיהם תתצון ולא שמעתם בקלי מה זאת עשיתם.</blockquote>
+<p>במילים אחרות: אמרתי לכם לגרש את העמים מן הארץ. ואתם? השארתם אותם, כי היה נוח לעשות איתם עסקים. ועכשיו יש עונש: "וגם אמרתי לא אגרש אותם מפניכם, והיו לכם לצדים" (שם, ג). מעכשיו, גם אם תרצו לגרש אותם, לא תצליחו בקלות. הם יהיו כמו קוצים בצדכם.</p>
+<p>העם שמע, ובכה בכי גדול – ומכאן שם המקום: בוכים.</p>
+<div class="honey-box">🍯 הזדמנות שמוותרים עליה בקלות, עלולה לחזור כקושי שאי אפשר להיפטר ממנו.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: למען נסות בם את ישראל ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למען נסות בם את ישראל</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובהמשך מסביר הכתוב (שופטים ב, כ–כב):</p>
+<blockquote>ויחר אף ה' בישראל ויאמר יען אשר עברו הגוי הזה את בריתי אשר צויתי את אבותם ולא שמעו לקולי. גם אני לא אוסיף להוריש איש מפניהם מן הגוים אשר עזב יהושע וימת. למען נסות בם את ישראל השמרים הם את דרך ה' ללכת בם כאשר שמרו אבותם אם לא.</blockquote>
+<p>הגויים שנשארו אינם רק עונש. הם מבחן. דרכם הקדוש ברוך הוא בודק את עם ישראל: האם ילכו בדרכו? האם יחזרו אליו?</p>
+<p class="bold-para">האויב שנשאר על הגבול הוא לא רק בעיה צבאית; הוא שאלה שה' שואל את עמו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: שני מקומות בלבד ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שני מקומות בלבד</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו מגיעה ההפתעה. אילו גויים בדיוק השאיר ה'? כך כתוב (שופטים ג, א–ג):</p>
+<blockquote>ואלה הגוים אשר הניח ה' לנסות בם את ישראל את כל אשר לא ידעו את כל מלחמות כנען. רק למען דעת דרות בני ישראל ללמדם מלחמה רק אשר לפנים לא ידעום. חמשת סרני פלשתים וכל הכנעני והצידני והחוי ישב הר הלבנון מהר בעל חרמון עד לבוא חמת.</blockquote>
+<p>שני אזורים בלבד:</p>
+<ul class="story-list"><li><strong>חמשת סרני פלשתים</strong> – עזה, אשקלון, אשדוד, גת ועקרון: רצועת החוף הדרומית.</li><li><strong>הצידוני וישב הר הלבנון</strong> – מצידון ועד החרמון: לבנון.</li></ul>
+<p>עזה ולבנון. כתוב במפורש, מילה במילה. אלה שני המקומות שעם ישראל נענש על שלא גירש מהם את הגויים כשיכול היה, ושמאז קשה מאוד לגרש אותם.</p>
+<div class="honey-box">🍯 מי שקורא את שופטים פרק ג' מרגיש שהוא קורא את מפת החזיתות של ימינו.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: יום אחד לעזה, ימים ספורים לביירות ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">יום אחד לעזה, ימים ספורים לביירות</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וזה מזכיר מאוד את התקופה שלנו. בששת הימים נכבשה עזה ביום אחד. יום אחד בלבד. היו אז אפשרויות שלא חזרו, ואיש בעולם כמעט לא היה מוחה.</p>
+<p>ובמלחמת לבנון הראשונה, בשנת תשמ"ב, הגיע צה"ל לביירות בתוך ימים ספורים. בהתחלה זה נראה ניצחון אדיר: ארגוני המחבלים גורשו, ויאסר ערפאת עזב את לבנון. אבל אחר כך לא הייתה תוכנית. המדינה לא רצתה ליישב את האזור ולא ראתה בו חלק מארץ ישראל. ובדיוק אז, באותה שנה, התחיל להיווסד ארגון החזבאללה, ואחד הפיגועים הקשים הראשונים היה בצור, כשבניין המפקדה קרס.</p>
+<p>כמו בימי שופטים: מה שאפשר היה לעשות בקלות, לא נעשה. ומה שלא נעשה אז, נעשה קשה מאוד לעשות אחר כך.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הרלב&quot;ג: הפחד שמחזיר בתשובה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">💡</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">למה ה&#x27; משאיר את האויב?</h2></div></div>
+<p class="chapter-intro">"רק למען דעת דרות בני ישראל ללמדם מלחמה" – שני מפרשים מסבירים מה תכלית האויב שנשאר, ושני ההסברים מדברים אלינו.</p>
+<article class="story-card" id="story-16" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הרלב&quot;ג: הפחד שמחזיר בתשובה</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרלב"ג מסביר: הדור הראשון, דור יהושע, לא היה צריך ללמוד מלחמה. ה' נלחם להם, ואיש לא יכול היה לעמוד בפניהם. הם כבשו בקלות מדהימה.</p>
+<p>אבל הקדוש ברוך הוא ראה שהעם לא חוזר אליו מספיק. ולכן השאיר את האויבים, כדי שהדורות הבאים יידעו מה היא מלחמה, אם לא ישמרו את דרך ה'. הפחד מן המלחמה, הצורך לעמוד מול אויב, יחזיר את עם ישראל אל אביהם שבשמיים.</p>
+<div class="honey-box">🍯 לפעמים האיום מבחוץ הוא הקריאה מלמעלה: לחזור הביתה, אל ה'.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: המצודות: להעריך את הנס ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המצודות: להעריך את הנס</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומצודת דוד מסביר אחרת: "רק למען דעת" – כדי שיזכו לדעת את פלאי הניסים שנעשו להם.</p>
+<p>בימי יהושע, הכיבוש היה מהיר וקל. אבל מי שרגיל לניסים, מפסיק לראות אותם. לכן ה' השאיר את הגויים, כדי שהדורות הבאים יצטרכו ללמוד מלחמה. ואז, כשיראו כמה קשה להילחם בכוחות עצמם, יבינו כמה גדולים היו הניסים של הדור הקודם, ויכירו בה'.</p>
+<p>גם זה מדבר אלינו. פעם כבשו את לבנון בשבועות ספורים, ואת עזה ביום אחד. היום אנחנו רואים כמה מסובך וקשה כל מבצע. ומתוך הקושי של היום אפשר להבין איזה ניסים עשה לנו ה' אז.</p>
+<p class="bold-para">מי שמתקשה היום, יכול סוף סוף לראות כמה גדול היה הנס של אתמול.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: לבנון: ההר הטוב ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לבנון: ההר הטוב</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה מיוחד כל כך בלבנון? משה רבנו, כשהתחנן להיכנס לארץ, ביקש (דברים ג, כה):</p>
+<blockquote>אעברה נא ואראה את הארץ הטובה אשר בעבר הירדן ההר הטוב הזה והלבנון.</blockquote>
+<p>בין כל המקומות שבארץ, משה מזכיר בשמו דווקא את הלבנון. זה המקום שהוא השתוקק לראות.</p>
+<p>והכתוב בשופטים מלמד שהדרך לשם עוברת דרך ה'. גבולות הארץ אינם רק עניין צבאי או מדיני. הם שאלה של חזרה אל דרך ה', של הכרה בניסים, ושל אמונה שההבטחה תתקיים.</p>
+<div class="honey-box">🍯 בעזרת ה', נזכה שגם "ההר הטוב הזה והלבנון" ישובו להיות חלק מן הארץ שה' נתן לנו – מתוך שלום ומתוך תשובה.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
