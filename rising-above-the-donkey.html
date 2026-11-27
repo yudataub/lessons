@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🐑 לצאת מן החומר: מצרים, המילה והחמור</title>
+<meta name="description" content="למה ירדו אבותינו דווקא למקום המושחת בעולם, למה נצטוו על דם פסח ודם מילה, ומה מלמד החמור על אדם שחי רק לגופו – וכיצד יוצאים מן החומר אל התורה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · הרב ברוך רוזנבלום · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🐑 לצאת מן החומר: מצרים, המילה והחמור</h1>
+  <p class="hero-subtitle">למה ירדו אבותינו דווקא למקום המושחת בעולם, למה נצטוו על דם פסח ודם מילה, ומה מלמד החמור על אדם שחי רק לגופו – וכיצד יוצאים מן החומר אל התורה.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 8 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-18 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/54gg6VcrQqg" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">📜 החודש הזה לכם: התורה מתחילה כאן</a><ul class="toc-stories"><li><a href="#story-1">ספר ההוראות של הבריאה</a></li><li><a href="#story-2">שתי מצוות של דם</a></li><li><a href="#story-3">מצוות שמזעזעות את כל הגוף</a></li><li><a href="#story-4">שלוש מעלות של עם שראוי לתורה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🍷 &quot;החרש היה לבם&quot;: החכם ששכח את תלמודו</a><ul class="toc-stories"><li><a href="#story-5">היין והמעיינות שקיפחו עשרה שבטים</a></li><li><a href="#story-6">רבי אלעזר בן ערך בדיומסת</a></li><li><a href="#story-7">פרפראות: שלוש מכות של חושך</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🫏 החמור: סמל החומר</a><ul class="toc-stories"><li><a href="#story-8">המסע עד כה</a></li><li><a href="#story-9">למה קוראים לחמור &quot;חמור&quot;</a></li><li><a href="#story-10">היין שמרתיח את הגוף</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🌅 פי האתון: הרוח בתוך החומר</a><ul class="toc-stories"><li><a href="#story-11">מה נברא בין השמשות</a></li><li><a href="#story-12">חמור מדבר</a></li><li><a href="#story-13">אברהם ומשה – מעל השמים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">⚖️ אברהם ובלעם: שני רוכבים</a><ul class="toc-stories"><li><a href="#story-14">למה לא משה מול בלעם?</a></li><li><a href="#story-15">עין טובה: להסתפק במועט</a></li><li><a href="#story-16">&quot;הנה נא ידעתי&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🔍 איך נראה אדם-חמור</a><ul class="toc-stories"><li><a href="#story-17">עוג והצלב האדום</a></li><li><a href="#story-18">לבן מחבק</a></li><li><a href="#story-19">שר המשקים נזכר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🌑 למה ירדנו דווקא למצרים</a><ul class="toc-stories"><li><a href="#story-20">למה אברהם לא ביקש?</a></li><li><a href="#story-21">ערוות הארץ</a></li><li><a href="#story-22">ברישא חשוכא והדר נהורא</a></li><li><a href="#story-23">לצאת זכים מן הזוהמה</a></li><li><a href="#story-24">&quot;ואת חמורינו&quot; – הפחד של האחים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-8" style="background:#6a994e">👑 המילה, עמלק והחמור של המשיח</a><ul class="toc-stories"><li><a href="#story-25">הערלה – זוהמת הנחש</a></li><li><a href="#story-26">עמלק זורק כלפי מעלה</a></li><li><a href="#story-27">פשר הטעות: &quot;החרש היה לבם&quot;</a></li><li><a href="#story-28">אם אין תורה – אין קמח</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">החודש הזה לכם: התורה מתחילה כאן</h2></div></div>
+<p class="chapter-intro">פרשת בא פותחת את ספר ההוראות של העולם, ובתוכה שתי מצוות של דם שמכינות את היציאה ממצרים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ספר ההוראות של הבריאה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רש"י בתחילת בראשית מביא את דברי רבי יצחק: לא היה צריך להתחיל את התורה אלא מ"החודש הזה לכם", שהיא מצווה ראשונה שנצטוו ישראל.</p>
+<p>המהר"ל מבאר שהמילה "תורה" היא מלשון הוראה. כמו שכל מכשיר חשמלי מגיע עם חוברת הוראות שמלמדת איך להשתמש בו – להבדיל אלף אלפי הבדלות – כך הקדוש ברוך הוא ברא עולם ונתן לנו את ספר ההוראות שלו: תרי"ג מצוות. ואם התורה היא ספר הוראות, טבעי שתתחיל מן ההוראה הראשונה.</p>
+<blockquote>"החודש הזה לכם ראש חדשים ראשון הוא לכם לחדשי השנה" (שמות יב, ב)</blockquote>
+<p>בפרשה הזו נמנות עשרים מצוות – תשע מצוות עשה ואחת עשרה מצוות לא תעשה. וגם מצוות שנזכרו כבר בספר בראשית, כמו מילה וגיד הנשה, אינן נוהגות מכוח מה שנאמר לאבות, אלא מכוח מה שציווה משה: "תורה צוה לנו משה". לכן חוזרת התורה ומצווה על המילה בפרשת תזריע: "וביום השמיני ימול בשר ערלתו".</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: שתי מצוות של דם ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שתי מצוות של דם</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני היציאה ממצרים נצטוו ישראל על שתי מצוות: קרבן פסח ומילה. חז"ל מספרים שמאז מות יוסף הפסיקו רבים במצרים למול את בניהם, חוץ משבט לוי, ולכן הוצרכו כולם למול לפני היציאה – כי ערל אסור באכילת הפסח.</p>
+<p>רש"י (שמות יב, ו) מביא את דברי רבי מתיא בן חרש: הגיעה שבועה שנשבע ה' לאברהם לגאול את בניו, ולא היו בידם מצוות להתעסק בהן כדי שייגאלו, שנאמר "ואת ערום ועריה". נתן להם שתי מצוות – דם פסח ודם מילה – שמלו באותו הלילה, שנאמר "מתבוססת בדמיך", בשני דמים.</p>
+<p>וכל מי שקורא את הדברים שואל: אם צריך מצוות כדי להיגאל, למה דווקא מצוות של דם? הקדוש ברוך הוא יכול היה לתת להם מצוות צדקה או כיבוד אב ואם. מה סוד הדם שבשתי המצוות האלה?</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: מצוות שמזעזעות את כל הגוף ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מצוות שמזעזעות את כל הגוף</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החיד"א מבאר על פי היסוד הידוע: רמ"ח איברים יש באדם כנגד רמ"ח מצוות עשה, ושס"ה גידים כנגד שס"ה מצוות לא תעשה. כל מצווה מתקנת איבר, וכל עבירה מקלקלת גיד.</p>
+<p>אבל עבודה זרה איננה קלקול של איבר אחד – היא מקלקלת את כל הגוף. ועם ישראל במצרים היה שקוע בה, עד שאמר שר של מצרים: "הללו עובדי עבודה זרה והללו עובדי עבודה זרה". מצווה אחת קטנה לא תוציא מזה. צריך פעולה שמזעזעת את כל הגוף.</p>
+<p>משה אומר לפרעה: "הן נזבח את תועבת מצרים לעיניהם ולא יסקלנו?" – הרי ישראל הולכים לשחוט את האליל של מצרים! דרך הטבע, היו צריכים לאגור כוח להתגונן. אבל ה' רוצה את ההפך: שיהיו אחרי מילה, חלשים – כמו אנשי שכם "ביום השלישי בהיותם כאבים". דם הפסח עוקר את האליל מן הלב, ודם המילה מעמיד את הגוף כולו בחולשה ובמסירות.</p>
+<p class="bold-para">כדי לעקור עבודה זרה מכל הגוף, צריך מצווה שנוגעת בכל הגוף.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: שלוש מעלות של עם שראוי לתורה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלוש מעלות של עם שראוי לתורה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי יצחק אבוהב בספרו "מנורת המאור" כותב שאין אומה שראויה לקבל את התורה אלא ישראל, ומונה בהם שלוש מעלות: הם בני אברהם אוהבו של מקום, הם כרותי ברית מילה, והם מלומדים בעבדות.</p>
+<p>ובמדרש תנחומא מובא שאם אין אדם נימול, אינו יכול ללמוד תורה, שנאמר "מגיד דבריו ליעקב" – למי שמל כיעקב.</p>
+<p>כלומר, המילה איננה רק תנאי לאכילת הפסח. היא חלק מן ההכנה ליציאת מצרים ולמתן תורה. כאן נפתחת שאלה גדולה: מה הקשר בין המילה, בין מצרים ובין היכולת לקבל תורה? התשובה מחכה בסוף המסע, אחרי שנבין מה מסמל החמור.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: היין והמעיינות שקיפחו עשרה שבטים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🍷</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">&quot;החרש היה לבם&quot;: החכם ששכח את תלמודו</h2></div></div>
+<p class="chapter-intro">סיפור מזעזע מן הגמרא: גדול הדור שכח את התורה, והטעות נפלה דווקא בפסוק של פרשתנו.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">היין והמעיינות שקיפחו עשרה שבטים</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת שבת (קמז ע"ב) אומרת:</p>
+<blockquote>"אמר רבי חלבו: חמרא דפרוגיתא ומיא דדיומסת קיפחו עשרת השבטים מישראל"</blockquote>
+<p>היין המשובח של פרוגיתא והמעיינות של דיומסת, ששם היו מתרחצים ומתענגים, הם שאיבדו את עשרת השבטים. רש"י מפרש: הם היו בעלי הנאה ועסקו בתענוגות, לא עסקו בתורה, ויצאו לתרבות רעה.</p>
+<p>לא חרב ולא רדיפות קיפחו את השבטים – אלא נופש. יין טוב ומים חמים. התענוג עצמו, כשהוא הופך למטרה, מרחיק מן התורה עד כדי אובדן.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: רבי אלעזר בן ערך בדיומסת ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">רבי אלעזר בן ערך בדיומסת</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומיד הגמרא מספרת סיפור מזעזע. רבי אלעזר בן ערך היה מחמשת תלמידיו הגדולים של רבן יוחנן בן זכאי. אבא שאול אומר במשנה באבות שאם יהיו כל חכמי ישראל בכף מאזניים ורבי אלעזר בן ערך בכף השנייה – מכריע את כולם.</p>
+<p>האיש הזה הגיע לדיומסת, נמשך אחרי התענוגות של המקום, ונעקר תלמודו. כשחזר הביתה עלה לקרוא בתורה. היה צריך לקרוא "החודש הזה לכם" – וקרא "החרש היה לבם". האותיות התערבבו לו. הגמרא מוסיפה שהתפללו עליו החכמים, וחזר תלמודו.</p>
+<p>וכל מי שקורא את הגמרא שואל: למה דווקא כאן? למה הטעות נפלה בפסוק הראשון של פרק יב, במצווה הראשונה שנצטוו ישראל במצרים? התשובה תתבהר כשנבין מה פירוש היציאה ממצרים.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: פרפראות: שלוש מכות של חושך ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">פרפראות: שלוש מכות של חושך</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה יפה על הפרשה: למה בפרשת בא יש דווקא שלוש מכות – ארבה, חושך ובכורות? הסימן של רבי יהודה, דצ"ך עד"ש באח"ב, מחלק אחרת.</p>
+<p>האברבנאל עונה: שלוש המכות האלה הן מכות של חושך. בארבה נאמר שכיסה את עין הארץ ותחשך הארץ; במכת חושך – חושך ממש; ומכת בכורות הייתה בחצות הלילה. לכן הן מופיעות יחד.</p>
+<p>ויש עוד רעיון יפה שנכתב בספרים: אם בין מכה למכה עבר כחודש, ומכת בכורות הייתה בליל ט"ו בניסן, הרי שמכת חושך הייתה בסביבות ט"ו באדר – שושן פורים – ומכת ארבה בסביבות ט"ו בשבט. במקום שהארבה אכל את העצים, אנחנו אוכלים פירות בט"ו בשבט; במקום החושך – "ליהודים הייתה אורה ושמחה" בפורים; ובמקום מכת בכורות – מצות בפסח.</p>
+<div class="honey-box">🍯 על כל אחת משלוש המכות האחרונות קיבלו ישראל יום טוב משלהם.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: המסע עד כה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🫏</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">החמור: סמל החומר</h2></div></div>
+<p class="chapter-intro">חוזרים אל החמור שמלווה את הגאולה, ומגלים מה הוא באמת מסמל.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">המסע עד כה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמה יסודות כבר נבנו בדרך:</p>
+<ul class="story-list"><li>"וירכבם על החמור" – זה החמור של אברהם בעקידה, החמור של משה, והחמור שעליו יבוא המשיח.</li><li>האחים, כשהובאו לבית יוסף, פחדו שייקחו אותם לעבדים "ואת חמורינו".</li><li>יוסף שלח לאביו עשרה חמורים טעונים "מטוב מצרים" – יין ישן. ויין בארמית הוא "חמרא".</li><li>רב שילא אמר על אדם שנשא מצרית שבא על חמורה, כי על המצרים נאמר "אשר בשר חמורים בשרם".</li><li>"אם ראשונים בני אנשים – אנו כחמורים".</li><li>"משקל ידי עליי" נשקל כנגד בשר חמור, כי משקל בשר האדם ובשר החמור שווה.</li><li>העומר בא משעורים – מאכל חמורים – ושתי הלחם בשבועות באות מחיטים, מאכל בני אדם.</li></ul>
+<p>עכשיו מגיע היסוד שמחבר את הכול.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: למה קוראים לחמור &quot;חמור&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה קוראים לחמור &quot;חמור&quot;</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה מספרת שאדם הראשון נתן שמות לכל בעלי החיים:</p>
+<blockquote>"וכל אשר יקרא לו האדם נפש חיה הוא שמו" (בראשית ב, יט)</blockquote>
+<p>במדרש מובא שזו הייתה מעלתו של האדם, שהמלאכים לא ידעו לעשות כמותה. רבנו בחיי מבאר: האדם הבין בחכמתו את טבעה של כל בהמה וחיה, וקרא לכל אחת שם לפי הטבע והמידה שהכיר בה. השמות לא נשלפו סתם.</p>
+<p>ואת החמור הכיר כפתי וסכל, הכבד מכל הבהמות, הנמשך אחר תאוותיו – וקרא לו "חמור" על שם החומר. אין בבעלי החיים יצור שכולו חומר כמו החמור.</p>
+<p>ושימו לב: כל חברה בוחרת לעצמה חיה לפרסומת – אריה לרכב, דוב למזרן. לחמור אין פרסומת. כי מה יסמל? הוא לא מסמל שום מעלה, רק חומר ועצלות.</p>
+<p class="bold-para">אדם בלי תורה, שרץ אחרי תאוותיו – זה החמור. ולכן משקלו כמשקל החמור.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: היין שמרתיח את הגוף ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">היין שמרתיח את הגוף</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעל "הכתב והקבלה" מוסיף: שם החמור נגזר גם מרתיחת הדם. הדם של החמור קוצף, תמיד רוצה עוד. כך גם על מי שמעיו בוערים בתאווה נאמר "מעי חמרמרו".</p>
+<p>והיין נקרא "חמר" מאותה סיבה: הוא מרתיח את גוף השותה ומושך אותו לחומריות. מי שישב פעם בסעודה ארוכה מכיר את זה – בין מנה למנה מוזגים כוס יין, והיין לא ממלא את הבטן אלא פותח את התיאבון. כמו מאכל חריף: הוא לא משביע, הוא מושך עוד.</p>
+<p>ולכן במנחת הסוטה, שבאה משעורים, אמר רבן גמליאל: היא עשתה מעשה בהמה – לפיכך קרבנה מאכל בהמה. וכשמזהירים אותה אומרים לה: "הרבה יין עושה". היין מושך את האדם אל העבירה.</p>
+<div class="honey-box">🍯 כל מה שפותח תיאבון ואינו משביע – כדאי לשאול לאן הוא מושך אותי.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: מה נברא בין השמשות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">פי האתון: הרוח בתוך החומר</h2></div></div>
+<p class="chapter-intro">המהר"ל מגלה למה נברא דיבור בפי אתון, ולמה דווקא בערב שבת בין השמשות.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה נברא בין השמשות</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה באבות מונה עשרה דברים שנבראו בערב שבת בין השמשות, וביניהם פי האתון, הכתב, המכתב והלוחות.</p>
+<p>נוטים לדמיין את זה כמו ערב שבת בבית שלנו: הצפירה הראשונה, כולם רצים, מכינים את הפלטה ומכוונים את השעון, ובדקה האחרונה משלימים את מה שנשאר ברשימה. האם כך? היה לבורא עולם רשימה, ובערב שבת גילה שנשארו עשרה סעיפים, ומיהר לסיים?</p>
+<p>המהר"ל עונה: לא. הדברים האלה לא יכלו להיברא בשום זמן אחר. הם דברים גשמיים שנועדו לתכלית רוחנית. הלוחות הם אבן, אבל עליהם נחקקה התורה. אילו אפשר היה, היו נבראים בשבת עצמה, שכולה רוחנית. אבל בשבת שבת ה' מכל מלאכתו, ולכן נבראו ברגע הקרוב ביותר לשבת.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: חמור מדבר ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חמור מדבר</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הדיבור הוא הדבר הרוחני ביותר שבאדם. הגמרא מספרת שהיו חכמים שבראו גולם בכוח ספר יצירה – אבל הגולם לא דיבר. החכם צבי דן אם גולם מצטרף למניין, והדבר הובא גם בדברי האחרונים. למה גולם אינו מדבר? כי "נפש ממללה" רק הבורא יכול לתת.</p>
+<p>והאתון היא סמל החומר הגס ביותר. עכשיו לוקחים את הדבר הרוחני ביותר – הדיבור – ונותנים אותו לחומר הגשמי ביותר – האתון. חמור מדבר! זה נגד כל היגיון. ולכן נברא פי האתון בין השמשות: נקודת החיבור בין החומר לרוח.</p>
+<p>ובפרקי דרבי אליעזר מובא שהחמור של אברהם ושל משה הוא בנה של אותה אתון. אומר המהר"ל: "רוכב על החמור" אין פירושו שהחמור חי אלפי שנים. פירושו – שולט על החומר. אברהם שלט על החומר, משה שלט על החומר, והמשיח ישליט את כולנו על החומר.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: אברהם ומשה – מעל השמים ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אברהם ומשה – מעל השמים</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המהר"ל מצביע על שני בני אדם שהקדוש ברוך הוא העלה מעל השמים והורידם חיים, לפני מתן תורה.</p>
+<p>על אברהם נאמר "ויוצא אתו החוצה", ורש"י מביא שהוציאו מחללו של עולם והגביהו למעלה מן הכוכבים. ועל משה, כשנאמר לו לפני מכת ברד "נטה את ידך על השמים", מביא רש"י מדרש אגדה שהגביהו הקדוש ברוך הוא למעלה מן השמים.</p>
+<p>בשמים מקומם של מלאכים, שאין להם גוף. איך זכו בני אדם לעמוד שם? אומר המהר"ל: כי התנתקו מן החומר. ועל משה מעידה התורה "וזאת הברכה אשר ברך משה איש האלוקים" – ודרשו חז"ל: מחציו ולמטה איש, מחציו ולמעלה אלוקים.</p>
+<p>ואיך מתנתקים מן החומר? "בראתי יצר הרע, בראתי לו תורה תבלין". התורה, בקדושתה, היא הכוח שמאפשר לאדם להתרומם מעל החומר.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: למה לא משה מול בלעם? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">אברהם ובלעם: שני רוכבים</h2></div></div>
+<p class="chapter-intro">שניהם בלי תורה, שניהם רוכבים על אותו חמור. ההבדל ביניהם הוא כל ההבדל.</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה לא משה מול בלעם?</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה באבות (ה, יט) מעמידה את תלמידיו של אברהם אבינו מול תלמידיו של בלעם הרשע. ומתבקש היה להעמיד את משה מול בלעם – הרי "ולא קם נביא עוד בישראל כמשה", ובאומות העולם קם: בלעם.</p>
+<p>אבל ההשוואה בין משה לבלעם פשוטה מדי: למשה הייתה תורה, ולבלעם לא. ברור שמי שיש לו תורה יכול להתגבר על החומר.</p>
+<p>החידוש הוא באברהם ובלעם. לשניהם לא הייתה תורה. לשניהם ניתנו אותם כוחות. שניהם רכבו על אותו חמור – בלעם על האתון שנבראה בין השמשות, ואברהם על בנה. ואיך זה שאחד התרומם עד מעל הכוכבים, והשני התדרדר לשאול תחתית?</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: עין טובה: להסתפק במועט ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">עין טובה: להסתפק במועט</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה עונה: "עין טובה ורוח נמוכה ונפש שפלה – מתלמידיו של אברהם אבינו". בדרך כלל מבינים עין טובה כפרגון: לשמוח בהצלחה של אחר. אבל כאן מבאר הרמב"ם שעין טובה היא הסתפקות במועט וניתוק מן החומר.</p>
+<p>אברהם חוזר מן המלחמה, ומגיע לו שלל. אבל הוא אומר למלך סדום:</p>
+<blockquote>"הרמתי ידי אל ה' אל עליון קנה שמים וארץ, אם מחוט ועד שרוך נעל ואם אקח מכל אשר לך" (בראשית יד, כב–כג)</blockquote>
+<p>וזה לא קל: חז"ל אומרים שאין אדם יוצא מן העולם וחצי תאוותו בידו – יש לו מנה, רוצה מאתיים. ובלעם? עוד לא הזמינו אותו, וכבר הוא אומר: "אם יתן לי בלק מלא ביתו כסף וזהב". אף אחד לא הציע לו, אבל בדמיונו כבר מילא את כל הבית.</p>
+<div class="honey-box">🍯 עין טובה מתחילה ביכולת לומר: יש לי מספיק.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: &quot;הנה נא ידעתי&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;הנה נא ידעתי&quot;</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועוד עדות לניתוק של אברהם מן החומר. כשהגיעו למצרים אמר לשרה: "הנה נא ידעתי כי אשה יפת מראה את". רש"י מביא מדרש אגדה: עד עכשיו לא הכיר בה, מתוך הצניעות שבשניהם.</p>
+<p>נשואים עשרות שנים – ורק עכשיו הוא מבחין ביופייה? מי שחי בתוך החומר לא יכול להבין את זה. אילו היה מנותק מן החומר כמו אברהם, היה מבין.</p>
+<p>ובלעם – ההפך הגמור. מן המדרש עולה שגם אצלו גילתה האתון בדיבורה דבר מביש על הקשר ביניהם. זה שיא החומר. ובלעם הוא שיעץ להחטיא את ישראל בבנות מדין.</p>
+<p class="bold-para">אותו חמור, אותם כוחות. אברהם שלט בחומר; בלעם נשלט על ידו.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: עוג והצלב האדום ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🔍</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">איך נראה אדם-חמור</h2></div></div>
+<p class="chapter-intro">בעלי המוסר מראים, בשלוש דוגמאות מן התורה, שחמור אף פעם אינו עושה טובה סתם.</p>
+<article class="story-card" id="story-17" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">עוג והצלב האדום</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשנשבה לוט נאמר: "ויבא הפליט ויגד לאברם העברי". חז"ל מזהים את הפליט: עוג, שפלט מן המבול.</p>
+<p>על פניו, מעשה יפה. עוג בא כמו נציג של ארגון הומניטרי, דואג לבן אחיו של אברהם. אבל רש"י מגלה את כוונתו: הוא רצה שאברהם ייהרג במלחמה, וישא הוא את שרה. אברהם יצא עם שלוש מאות ושמונה עשר איש מול צבאות של ארבעה מלכים – קרב אבוד מראש בעיני עוג.</p>
+<p>שאל הגאון רבי יעקב גלינסקי: מנין לחז"ל לדעת מה היה בלבו של עוג? וענה: חמור רוצה אוכל. כך אומר הנביא: "ידע שור קנהו וחמור אבוס בעליו". חמור לא עושה טובות. אם אדם חומרי עושה מעשה טוב – חפש מה הוא מרוויח מזה.</p>
+<div class="honey-box">🍯 כשמישהו שכל עולמו חומר מציע עזרה, כדאי לשאול איפה האבוס.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: לבן מחבק ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לבן מחבק</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יעקב מגיע לחרן אחרי ארבע עשרה שנים בבית שם ועבר, בלי כלום – אליפז לקח ממנו את כל רכושו. רחל רצה הביתה, ולבן רץ לקראתו:</p>
+<blockquote>"ויחבק לו וינשק לו ויביאהו אל ביתו" (בראשית כט, יג)</blockquote>
+<p>רש"י מפרש: חיבק – כסבור שממון הוא טעון, ומישש לחפש. כשלא מצא, נישק – אמר: שמא מרגליות יש בפיו. ואחר כך הביאו הביתה – אולי יימצא שם משהו.</p>
+<p>ומנין לחז"ל לדעת זאת? כי בסוף, אחרי עשרים שנה שיעקב עבד אצלו במסירות, נאמר: "וישכם לבן בבקר וינשק לבניו ולבנותיו ויברך אתהם". ואת יעקב, החתן שנתן לו אחד עשר נכדים – לא נישק. עכשיו כבר אין מה להוציא ממנו.</p>
+<p>ויש שהוסיפו בבדיחות: "וישכם בבקר" – נישק את כולם כשהם ישנים, שלא יתעורר נכד ויבקש מתנה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: שר המשקים נזכר ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שר המשקים נזכר</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שנתיים ימים חולם פרעה את אותו חלום: פרות רזות בולעות שמנות, שיבולים דקות בולעות בריאות. החרטומים לא מוצאים פתרון, והמלך מאבד את שלוות נפשו.</p>
+<p>כל אותו זמן שותק שר המשקים, שיודע היטב שיש בבית הסוהר נער עברי שפותר חלומות. ופתאום הוא אומר: "את חטאי אני מזכיר היום". למה עכשיו?</p>
+<p>במדרש מבואר שהגיע לאוזניו שפרעה עלול למות. ואז נבהל – לא לחייו של פרעה, אלא לעצמו. מלך חדש יביא שרים חדשים, ושר המשקים יאבד את משרתו.</p>
+<p>זה החמור: כל עוד לא נוגעים באבוס שלו, לא אכפת לו שהשני סובל. רק כשהאוכל שלו בסכנה – הוא מתעורר.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: למה אברהם לא ביקש? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌑</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">למה ירדנו דווקא למצרים</h2></div></div>
+<p class="chapter-intro">שאלה עצומה של השל"ה הקדוש, ותשובה של רבי צדוק הכהן מלובלין: האור צומח מתוך החושך.</p>
+<article class="story-card" id="story-20" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה אברהם לא ביקש?</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשאברהם שומע שסדום תיהפך – עיר שאנשיה "רעים וחטאים לה' מאד", אכזרים וסדיסטים – הוא מתמקח: אולי חמישים צדיקים, אולי ארבעים, שלושים, עשרים, עשרה.</p>
+<p>אבל בברית בין הבתרים הוא שומע: "ידע תדע כי גר יהיה זרעך בארץ לא להם ועבדום וענו אתם ארבע מאות שנה". ועל זה – אף מילה. לא "אולי שלוש מאות", לא "אולי מאתיים".</p>
+<p>ומשה כן שואל: "למה הרעתה לעם הזה?" במדרש מובא שאמר: ראיתי מה עשו דור המבול ודור הפלגה, אבל מה עשה העם הזה? ואם בגלל אברהם, ששאל "במה אדע כי אירשנה" – למה לא שיעבדת גם את בני ישמעאל ואת בני עשו?</p>
+<p>ובספר "נתיבות שלום" מוסיפים: שבעים נפש צדיקים וטהורים ירדו למצרים, ויצאו שישים ריבוא שרובם שקועים בעבודה זרה. מה התועלת?</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: ערוות הארץ ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ערוות הארץ</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והשאלה מתחזקת. בפרשה שקוראים במנחה של יום הכיפורים נאמר:</p>
+<blockquote>"כמעשה ארץ מצרים אשר ישבתם בה לא תעשו" (ויקרא יח, ג)</blockquote>
+<p>ורש"י מביא את דברי חז"ל, שמעשיהם של מצרים מקולקלים מכל האומות, והמקום שישבו בו ישראל – מקולקל מן הכול. גם יוסף אמר לאחיו "לראות את ערות הארץ באתם".</p>
+<p>אם צריך גלות – שתהיה במקום נקי יותר. למה דווקא במרכז הטומאה של העולם?</p>
+<p>הגמרא בברכות (ג ע"א) מונה שלוש משמרות בלילה: "משמרה ראשונה חמור נוער". הלילה רומז לגלות, והגלות הראשונה היא גלות של חמור – שיא החומר. ויוסף רמז זאת לאביו בעשרת החמורים טעוני יין: אבא, אתה יורד לא רק לעם של חמורים, אלא לחמור שיש עמו יין – למקום שכולו תאווה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: ברישא חשוכא והדר נהורא ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ברישא חשוכא והדר נהורא</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי צדוק הכהן מלובלין מבאר יסוד: כל בנייה חדשה צומחת מתוך ריקבון. זורעים גרגר חיטה, הוא נרקב באדמה, ורק אז צומח.</p>
+<p>הגמרא בשבת (עז ע"ב) שואלת למה העיזים, השחורות, הולכות בראש העדר, והכבשים הלבנות אחריהן? ועונה: "כברייתו של עולם, דברישא חשוכא והדר נהורא" – בתחילה חושך, ואחר כך אור.</p>
+<p>כך אברהם, ראש המאמינים, יצא מבית תרח עושה הפסלים. "מי יתן טהור מטמא? לא אחד" – רק הקדוש ברוך הוא יכול.</p>
+<p>וכך חזקיהו לא רצה לישא אישה, כי ראה ברוח הקודש שייצאו ממנו בנים לא טובים. אמר לו ישעיהו: "בהדי כבשי דרחמנא למה לך?" – מה לך להתערב בחשבונות שמים? חזקיהו עצמו – שהיה ראוי להיות משיח – יצא מאחז, שסגר את בתי המדרש.</p>
+<p class="bold-para">ההנהגה של הבורא: האור מתגלה מתוך החושך.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: לצאת זכים מן הזוהמה ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לצאת זכים מן הזוהמה</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה חיפשנו במצרים? אומר רבי צדוק: אי אפשר לקבל תורה עם תאוות. בחובות הלבבות מובא שכמו שאש ומים אינם מתקבצים יחד, כך אהבת העולם הזה ואהבת העולם הבא אינן דרות יחד בלב.</p>
+<p>הגמרא בשבת (קמו ע"א) אומרת שכשבא הנחש על חוה הטיל בה זוהמה – ועל כך אמרה "הנחש השיאני". זוהמת הנחש היא התאווה, "כי תאוה הוא לעינים". כל צאצאי חוה נולדו עם הזוהמה הזו.</p>
+<p>כדי להיטהר ממנה גזרה חכמתו יתברך לרדת אל מרכז התאוות – מצרים. שרה, כשירדה לשם, נלקחה לבית פרעה. יוסף, כשירד, עמד מול אשת פוטיפר. ועם ישראל עמד מאתיים ועשר שנים בניסיון, ויצא "גן נעול... מעין חתום". רק אחת חטאה – שלומית בת דברי – והכתוב פרסם אותה, כדי לומר שהיא לבדה.</p>
+<p>לכן אברהם לא ביקש הנחה. על מה יבקש? שיגיעו טמאים להר סיני? ולכן לא ירדו בני ישמעאל ועשו: "ישראל שעמדו על הר סיני – פסקה זוהמתן; עובדי כוכבים שלא עמדו על הר סיני – לא פסקה זוהמתן".</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: &quot;ואת חמורינו&quot; – הפחד של האחים ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ואת חמורינו&quot; – הפחד של האחים</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו מובן הפחד של האחים כשהובאו לבית יוסף: "להתגולל עלינו ולהתנפל עלינו ולקחת אתנו לעבדים ואת חמרינו".</p>
+<p>הם ידעו מה זו מצרים. הם הלכו לחפש את יוסף בתוך הזוהמה. מה הדאיג אותם? לא שמא ייקחו את החמורים הממשיים – חמורים אפשר לקנות. הם פחדו על ה"חמור" שלהם, על החומר שעבדו עליו שנים כדי להתגבר עליו.</p>
+<p>כל כך עמלנו לשלוט בחומר – ועכשיו נהיה עבדים בתוך הטומאה של מצרים? מה יהיה עם כל העבודה הפנימית שלנו?</p>
+<div class="honey-box">🍯 הפחד הנכון בגלות איננו לאבד רכוש, אלא לאבד את השליטה בחומר שבתוכנו.</div>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: הערלה – זוהמת הנחש ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-8">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 8</div><h2 class="chapter-title">המילה, עמלק והחמור של המשיח</h2></div></div>
+<p class="chapter-intro">כל החוטים מתקשרים: למה המילה קודמת לפסח, מה רצה עמלק, ומה פירוש הטעות של רבי אלעזר בן ערך.</p>
+<article class="story-card" id="story-25" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הערלה – זוהמת הנחש</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו אפשר לחזור לשאלה הראשונה: למה כדי לאכול את הפסח צריך למול?</p>
+<p>הגמרא בסנהדרין אומרת שאדם הראשון "מושך בערלתו היה". ומבארים האור החיים הקדוש והכלי יקר: כשהטיל הנחש זוהמה בחוה, נכנסה התאווה לאדם, וסמלה הוא הערלה. ויש שמבארים שלכן נוהגים לטמון את הערלה בעפר – כי לנחש נאמר "ועפר תאכל כל ימי חייך". מה שהבאת על האדם, אתה תאכל.</p>
+<p>לכן לפני היציאה ממצרים, לפני הפסח ולפני מתן תורה, הדבר הראשון: תמול את עצמך. תתנתק מן החומר. מי שלא מוכן – יישאר במצרים.</p>
+<p>במדרש מובא שהקדוש ברוך הוא נשב ריח גן עדן בבשר הפסח. נמשכו כולם ובאו אל משה: תן לנו לאכול. אמר להם: לכו ומולו את עצמכם. ומלו.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: עמלק זורק כלפי מעלה ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">עמלק זורק כלפי מעלה</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומיד אחרי קריעת ים סוף בא עמלק ונלחם בישראל ברפידים. מה הוא רוצה? מרחק עצום הוא עובר רק כדי להילחם.</p>
+<p>על "ויזנב בך כל הנחשלים אחריך" מביא רש"י: מכת זנב – חותך מילות וזורק כלפי מעלה. איזה שיגעון! למה לזרוק כלפי מעלה?</p>
+<p>זו כל ההשקפה של עמלק, שממשיך את דרכו של הנחש הקדמוני: קדושה? בבקשה, בשמים. כמה שתרצה – שם למעלה. אבל כאן למטה, בעולם הזה, תן לנו לחיות כמו חמורים, עם התאוות שלנו. אנחנו לא רוצים להשתנות.</p>
+<p class="bold-para">עמלק לא מתנגד לקדושה בשמים. הוא מתנגד לקדושה שיורדת אל הגוף.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: פשר הטעות: &quot;החרש היה לבם&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">פשר הטעות: &quot;החרש היה לבם&quot;</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו מתבהרת הגמרא שבה פתחנו. היין של פרוגיתא והמים של דיומסת – מקום של תענוגות. ותענוגות ותורה אינם הולכים יחד, כמו אש ומים.</p>
+<p>רבי אלעזר בן ערך, שהכריע את כל חכמי ישראל, נמשך אחרי התענוגות – ושכח את תלמודו. ובמה טעה? דווקא ב"החודש הזה לכם", המצווה הראשונה, הצעד הראשון ביציאה מן החומר. מי שלא מתנתק מן החומר, במקום "החודש הזה לכם" יקרא "החרש היה לבם" – הלב נעשה חירש.</p>
+<p>ומי שלומד ספרי קדושה יודע ששש הפרשיות של יציאת מצרים – שמות, וארא, בא, בשלח, יתרו ומשפטים – הן ימי השובבי"ם, שהמפרשים מביאים שהם ימי תשובה מיוחדים לתיקון החומר, להינתק ממנו ולהתקרב.</p>
+<div class="honey-box">🍯 ימי השובבי"ם הם הזמנה שנתית לצאת מעט ממצרים הפרטית שלנו.</div>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: אם אין תורה – אין קמח ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">אם אין תורה – אין קמח</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל מתארים את הימים שלפני ביאת המשיח: "אין בן דוד בא עד שתכלה פרוטה מן הכיס", ועוד: "בת קמה באמה, כלה בחמותה". והקשר ביניהם פשוט: כשכל הקשר הוא חומרי – אם החמות היא רק מקור לכסף, ואבא הוא כספומט – ברגע שאין כסף, אין קשר. הכלה קמה על חמותה.</p>
+<p>ואין דור שהיו בו שכלולים חומריים כמו בדורנו. קומקום שרותח בשתי דקות כבר נראה איטי, ומכונית שמגיעה למאה בעשר שניות כבר מיושנת.</p>
+<p>המשנה באבות אומרת: "אם אין קמח אין תורה, אם אין תורה אין קמח". החלק הראשון מובן – בלי פרנסה קשה ללמוד. ומה פירוש החלק השני? בדרך הדרוש: אם אין תורה, אין קמח של חיטים – נשארים עם שעורים, מאכל בהמה. בלי תורה האדם חוזר להיות חמור. התורה היא שהופכת אותו לאדם.</p>
+<p>וככל שאדם מתנתק מן החומר, כך הוא נדבק בשכינה, כמו משה איש האלוקים. יזכנו הקדוש ברוך הוא לראות במהרה את המלך שבא "עני ורוכב על חמור" – רוכב על החומר ושולט בו – בגאולה השלמה, במהרה בימינו. אמן.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
