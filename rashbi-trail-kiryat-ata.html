@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🥾 בעקבות רשב&quot;י בשבילי קריית אתא</title>
+<meta name="description" content="מסלול הליכה קצר מיער קריית אתא אל אבן השבת וקבר רבי יהודה בן בבא, ובדרך: הסנהדרין באושא, הסמיכה שהצילה את התורה, העז של החסיד, ולמה הזוהר נלמד דווקא בדרכים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🥾 בעקבות רשב&quot;י בשבילי קריית אתא</h1>
+  <p class="hero-subtitle">מסלול הליכה קצר מיער קריית אתא אל אבן השבת וקבר רבי יהודה בן בבא, ובדרך: הסנהדרין באושא, הסמיכה שהצילה את התורה, העז של החסיד, ולמה הזוהר נלמד דווקא בדרכים</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-12 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/J1oEspdrN8E" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🗺️ עיר בלי נוסטלגיה? לא בדיוק</a><ul class="toc-stories"><li><a href="#story-1">טיול שאפשר לעשות כבר השבוע</a></li><li><a href="#story-2">החורשה שבסוף דרך מנחם בגין</a></li><li><a href="#story-3">איך מגיעים בלי רכב</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🏛️ אושא: כאן ישבה הסנהדרין</a><ul class="toc-stories"><li><a href="#story-4">הגבעה הגבוהה והגיתות</a></li><li><a href="#story-5">כפר עטא: על טהרת הקודש</a></li><li><a href="#story-6">הישיבה של רשב&quot;י באושא</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🤲 צומת סומך: הסמיכה שהצילה את התורה</a><ul class="toc-stories"><li><a href="#story-7">למה דווקא רבי יהודה בן בבא</a></li><li><a href="#story-8">גזרה בשלוש קומות</a></li><li><a href="#story-9">מה פירוש תחום שבת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🪨 אבן השבת</a><ul class="toc-stories"><li><a href="#story-10">אבן עם אותיות</a></li><li><a href="#story-11">כמה מטרים מכאן נסמכו התלמידים</a></li><li><a href="#story-12">למה לזוהר אין ישיבה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🐐 בין העיזים: החסיד והעז</a><ul class="toc-stories"><li><a href="#story-13">&quot;ליסטים מזוין בביתו של זה&quot;</a></li><li><a href="#story-14">מה הייתה הבעיה, אם זה פיקוח נפש?</a></li><li><a href="#story-15">ומה בימינו?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">💙 קבר רבי יהודה בן בבא והדרך הביתה</a><ul class="toc-stories"><li><a href="#story-16">הכיפה הכחולה</a></li><li><a href="#story-17">החזרה בתחבורה ציבורית</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">עיר בלי נוסטלגיה? לא בדיוק</h2></div></div>
+<p class="chapter-intro">קריית אתא תחגוג בקרוב מאה שנה, ונדמה שאין בה מה לראות. אבל ממש בקצה שלה עובר שביל שנגעו בו גדולי התנאים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">טיול שאפשר לעשות כבר השבוע</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לקריית אתא יש לכאורה בעיה: אין בה תיירות, אין בה מקומות נוסטלגיים, והעיר כולה צעירה יחסית. אבל דווקא כאן, בקצה העיר, יש מסלול שכמעט אף אחד מתושביה לא הלך בו, והוא אוצר של ממש. אפשר אפילו לפתח סביבו פעילות תיירותית שלמה.</p>
+<p>המסלול הזה נולד בל"ג בעומר אחד, כשמירון הייתה סגורה. אם אי אפשר להגיע לרבי שמעון בר יוחאי, אמרתי לעצמי, אפשר ללכת בעקבותיו. כי רשב"י היה כאן, ממש בשבילים שלנו.</p>
+<p>כמה פרטים מעשיים:</p>
+<ul class="story-list"><li><strong>אורך:</strong> לפי מפות גוגל כחצי שעה של הליכה (בפועל, עם עצירות, קצת יותר).</li><li><strong>למי מתאים:</strong> כמעט לכל גיל, גם לילדים צעירים וגם למבוגרים.</li><li><strong>רכב:</strong> לא חובה. אפשר להגיע ולחזור בתחבורה ציבורית בלבד.</li></ul>
+<div class="honey-box">🍯 טיול טוב לא חייב להיות רחוק. לפעמים הסיפור הגדול ביותר נמצא עשר דקות מהבית, ורק צריך מישהו שיספר אותו.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: החורשה שבסוף דרך מנחם בגין ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החורשה שבסוף דרך מנחם בגין</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בקצה קריית אתא, אחרי גבעת רם, בסוף דרך מנחם בגין, נמצאת חורשה נפלאה: יער קריית אתא. כדאי להגיע אליה בשעות הבוקר המוקדמות, או אחר הצהריים מחמש והלאה, ולהתבונן בבריאה של בורא עולם: עצים גדולים, מרחבים פתוחים, שקט. ממש מרגישים שם את שירת הבריאה.</p>
+<p>אפשר ללכת שם בדרך סלולה וישרה. אחרי כעשרים דקות הליכה מגיעים לצומת דרכים, ומשם אפשר לבחור: ימינה, אל אושא העתיקה, או שמאלה, אל אבן השבת. הטיול הזה הולך שמאלה. אבל לפני כן, כדאי לדעת מה מחכה מימין.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: איך מגיעים בלי רכב ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">איך מגיעים בלי רכב</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שרוצה להגיע בלי רכב עולה במרכז העיר על קו 24 או קו 25, שנוסעים לכיוון גבעת רם, ויורד בתחנה שבקצה, ליד הכניסה ליער. משם הליכה של כעשר דקות, ואתם בתוך יער קריית אתא.</p>
+<p>ללכת ברגל מהמרכז עד ליער אפשר, אבל זה לוקח זמן רב, ועדיף לחסוך את הכוחות לטיול עצמו.</p>
+<p>למי שמחפש הסבר מסודר על מרכז העיר עצמו, יש גם חוברת "מדריך סיור באדמת קודש", שנכתבה בשביל האורחים והתיירים שמגיעים לקריית אתא כמעט בכל שבוע. היא מספרת איך נוצר כל מקום, מי היה כאן, איפה יש מניינים. השם שלה לקוח ממכתב של רבה הראשון של כפר אתא, שכתב לאדמו"ר מפיאסצנה: "ה' יתברך הושיע לנו להתיישב מחדש על אדמת קודש בכפר אתא, סמוך לאושא, מקום ישיבת הסנהדרין". הוא ראה במקום מגוריו זכות גדולה.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הגבעה הגבוהה והגיתות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">אושא: כאן ישבה הסנהדרין</h2></div></div>
+<p class="chapter-intro">מימין לשביל, על הגבעה, ישבה פעם הסנהדרין. וסיפור השם של העיר שלנו קשור אליה בדרך מפתיעה.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הגבעה הגבוהה והגיתות</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על פי מסורת עתיקה, באושא ישבו התנאים הקדושים של הסנהדרין, אחרי שגלתה מירושלים ונדדה ממקום למקום. מדוע מזהים את המקום דווקא כאן? ראשית, זו הנקודה הגבוהה ביותר באזור. שנית, נמצאו שם ממצאים רבים, ובעיקר גיתות ובתי בד, ולצד כמעט כל אחד מהם מקווה.</p>
+<p>לשם מה צריך כל כך הרבה מקוואות ליד בתי בד, אחרי חורבן הבית, כשכבר אין מקדש ואין טהרה? התשובה: היו שם תנאים שהקפידו לאכול חולין על טהרת הקודש. בראשונים יש שני הסברים למנהג: או משום שציפו שבית המקדש ייבנה במהרה וצריך להיות מוכנים, או משום שרצו לשמור על אווירת הקדושה והטהרה גם בזמן החורבן.</p>
+<p>ואכן, יש גמרא שמספרת שבאושא היו אוכלים חולין וטובלים, וכשהחוקרים ראו את המקוואות ליד בתי הבד, הם זיהו את המקום עם הדברים האלה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: כפר עטא: על טהרת הקודש ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כפר עטא: על טהרת הקודש</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו לסיפור השם. בעבר, בערך בשנות העשרים והשלושים של המאה הקודמת, נקרא המקום "כפר עטא". באיזשהו שלב החליטה ועדת שמות שהשם אינו מתאים, וכאן מתחילים כל מיני סיפורים, על המפעל, על הגן, על מי שהציע מה. בסופו של דבר הוחלף השם ל"כפר אתא", ואחר כך "קריית אתא".</p>
+<p>בשנות קום המדינה הגיע לכאן האדמו"ר מקרעטשניף, צעיר מאוד, כמעט אחרי חתונתו. הוא היה מהשרידים הבודדים של בית רוז'ין, שרובו עלה באש השואה, ולכן התקבצו אליו רבים. מסופר שהוא אמר: למה נקרא המקום "עטא"? כי אלה ראשי התיבות של "על טהרת הקודש". וכך, כשכבר ביטלו את השם הישן, הוא חידש אותו, ובכל המסמכים שלו כתב את שם המקום בכתיב הישן.</p>
+<p>ועברו חמישים או שישים שנה. יום אחד התחילו לחפור בגבעת אושא, ומצאו את הגיתות ואת המקוואות. התברר שבאמת, לפני אלפיים שנה, ישבו כאן אנשים שאכלו חולין על טהרת הקודש.</p>
+<p class="bold-para">האדמו"ר קרא למקום "על טהרת הקודש", ורק אחרי חצי מאה גילתה האדמה שזה בדיוק מה שהיה כאן.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: הישיבה של רשב&quot;י באושא ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הישיבה של רשב&quot;י באושא</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ולמה כל הטיול נקרא "בעקבות רשב"י"? כי רבי שמעון בר יוחאי ישב כאן תקופה מסוימת, והייתה לו ישיבה באושא.</p>
+<p>המדרש (שיר השירים רבה ב, ה) מספר שבסוף תקופת השמד, אחרי גזרות הרומאים שבאו בעקבות מרד בר כוכבא, נתכנסו רבותינו לאושא. ואלו הם: רבי יהודה, רבי נחמיה, רבי מאיר, רבי יוסי, רבי שמעון בר יוחאי, רבי אליעזר בנו של רבי יוסי הגלילי ורבי אליעזר בן יעקב. הם שלחו לזקני הגליל ואמרו: כל מי שלמד יבוא וילמד, וכל מי שלא למד יבוא וילמד. נתכנסו, ולמדו, ועשו כל צורכיהם.</p>
+<p>זו הזמנה יפה: מי שכבר למד מוזמן להוסיף, ומי שלא למד מעולם מוזמן לפתוח דף חדש. אחרי חורבן כזה, התורה נבנית מחדש דווקא כאן, על הגבעה שליד הבית שלנו.</p>
+<p>מי שזוכר את סדרת הספרים "כה עשו חכמינו" של יוכבד סגל, שעליה גדלו דורות של ילדים, יכול לחשוב על הטיול הזה כעל "פה עשו חכמינו": לראות את המקום שבו הסיפורים קרו באמת.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: למה דווקא רבי יהודה בן בבא ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🤲</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">צומת סומך: הסמיכה שהצילה את התורה</h2></div></div>
+<p class="chapter-intro">הגשר שמתחתיו עוברים בדרך ליער נושא שם של אחד הרגעים הדרמטיים בתולדות התורה שבעל פה.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה דווקא רבי יהודה בן בבא</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בדרך ליער עוברים מתחת לגשר של צומת סומך. השם מזכיר את המעשה שבו נסמכו כאן, בקרבת מקום, חמישה תלמידים של רבי עקיבא.</p>
+<p>אבל למה סמך אותם רבי יהודה בן בבא, ולא רבם, רבי עקיבא? צריך להבין מה הייתה הסמיכה: הכוח לפסוק, להכריע, לדון דיני ממונות ונפשות, לקבוע את לוח השנה. זה תואר עצום, ולא נותנים אותו סתם.</p>
+<p>תלמידיו הראשונים של רבי עקיבא מתו כולם. הוא יצא לחפש תלמידים חדשים, והחמישה שמצא היו צעירים, כמעט בתחילת דרכם. רבי מאיר, למשל, היה אז בחור צעיר. אי אפשר לסמוך מי שעוד לא למד כמעט כלום. רבי עקיבא לימד אותם, והם גדלו, אבל כשהגיעו לדרגה הראויה לסמיכה, רבי עקיבא כבר לא היה בחיים. לכן פנו לרבי יהודה בן בבא.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: גזרה בשלוש קומות ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">גזרה בשלוש קומות</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת סנהדרין (יד, א) מספרת על הגזרה. הרומאים הבינו שהסמיכה היא שלשלת הדורות של עם ישראל, והחליטו לקטוע אותה. הם גזרו: כל הסומך ייהרג, וכל הנסמך ייהרג, ועיר שסומכים בה תיחרב, ותחומים שסומכים בהם ייעקרו.</p>
+<p>הגזרה הייתה מתוחכמת. הרומאים ידעו שיש יהודים שמוכנים למסור את נפשם. אבל אף אחד, חשבו, לא יעלה בדעתו להחריב עיר שלמה ואת כל סביבתה בשביל סמיכה. כך היו בטוחים שהשלשלת תיקטע.</p>
+<p>מה עשה רבי יהודה בן בבא? הגמרא מספרת שהלך וישב בין שני הרים גדולים, בין שתי עיירות גדולות, ובין שני תחומי שבת, בין אושא לשפרעם. לא בתחום של עיר זו ולא בתחום של עיר זו. כך לא תהיה עיר שהרומאים יוכלו להחריב, ולא תחום שיוכלו לעקור. ושם סמך את חמשת הזקנים: רבי מאיר, רבי יהודה, רבי שמעון, רבי יוסי ורבי אלעזר בן שמוע.</p>
+<p class="bold-para">הרומאים חשבו שסגרו כל פתח. אבל נשארה רצועת אדמה ריקה בין שני תחומי שבת, ושם המשיכה התורה.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מה פירוש תחום שבת ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה פירוש תחום שבת</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין את המעשה צריך להבין מה זה תחום שבת. בשבת אסור ליהודי ללכת יותר מאלפיים אמה מחוץ לעיר. אבל המדידה איננה פשוטה, וצריך תלמיד חכם שיודע לעשות אותה: קודם "מרבעים" את העיר, משרטטים סביבה ריבוע, ורק מקצה הריבוע מודדים אלפיים אמה.</p>
+<p>דוגמה מקומית: יש מי שסובר שמותר ללכת בשבת מקריית אתא לקריית מוצקין. איך, אם המרחק גדול מאלפיים אמה? כי קריית אתא איננה ישרה. היא נמשכת לעומק, עד הקצה הרחוק של השכונות, וכשמרבעים אותה, הריבוע מגיע כמעט עד קריית מוצקין.</p>
+<p>לעומת זאת, לכפר חסידים או לרכסים אי אפשר ללכת בשבת: בדרך יש קילומטרים של שדות ריקים, בלי בית ובלי יישוב. ככה בדיוק נראה השטח שבין אושא לשפרעם, שבו מצא רבי יהודה בן בבא את המקום שאינו שייך לאף עיר.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: אבן עם אותיות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🪨</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">אבן השבת</h2></div></div>
+<p class="chapter-intro">פונים שמאלה בצומת הדרכים, ומגיעים לאבן אחת קטנה שאולי מסמנת בדיוק את גבול העולם של אושא.</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אבן עם אותיות</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כמה שנים נמצאה כאן אבן, ועליה חרוטות אותיות יווניות, שבקושי אפשר לזהות. החוקרים משערים, בלי ודאות מלאה, שכתוב בה "שבת" או רמז למילה שבת. למה לחרוט "שבת" על אבן בשדה? כדי לסמן: עד כאן מותר ללכת בשבת. זו אבן תחום שבת.</p>
+<p>באזור יש גם אבן נוספת, שעליה המילה כתובה בבירור רב יותר.</p>
+<p>אם אכן התנאים ישבו על גבעת אושא, ומיקומה של שפרעם ידוע, האבן הזו נמצאת בערך באמצע הדרך ביניהן. זה מתאים מאוד לסיפור: כאן נגמר תחום השבת של אושא.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: כמה מטרים מכאן נסמכו התלמידים ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כמה מטרים מכאן נסמכו התלמידים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו אפשר לחבר הכול. רבי יהודה בן בבא חיפש מקום שאינו בתחום של אושא ואינו בתחום של שפרעם. אם אבן השבת היא אבן הגבול של אושא, הרי שכמה מטרים אחריה, ברצועה שבין התחומים, עומדים כמעט בדיוק במקום שבו נסמכו תלמידי רבי עקיבא, ובהם רבי שמעון בר יוחאי.</p>
+<p>זה לא ודאי. יש כמה אפשרויות, וייתכן שהתחומים עברו קצת אחרת. אבל ייתכן מאוד שכאן, בין העצים של יער קריית אתא, עמדו רבי מאיר, רבי שמעון ורבי יוסי, וקיבלו את הסמיכה שבזכותה יש לנו משנה, ברייתות ותלמוד.</p>
+<div class="honey-box">🍯 כשעוברים ליד אבן השבת, כדאי לעצור לרגע ולחשוב: ההחלטה האמיצה של זקן אחד אפשרה לתורה להמשיך אלפיים שנה, עד אלינו.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: למה לזוהר אין ישיבה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה לזוהר אין ישיבה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תוך כדי הליכה כדאי להתבונן בדבר מפתיע: בכל ספר הזוהר אין בית מדרש. רשב"י וחבריו כמעט אף פעם לא יושבים ולומדים בישיבה. הם הולכים בדרכים, בין טבריה, ציפורי וכפרי הגליל, ותוך כדי הליכה לומדים. הם פוגשים אנשים, נתקלים בהפתעות, ומכל מפגש נפתח חידוש. הדרך עצמה היא בית המדרש.</p>
+<p>באושא הייתה ישיבה, אבל שם למדו את תורת הנגלה: הלכה, משנה, הפשט. ישיבה ללימוד תורת הסוד לא הייתה. מי שרצה ללמוד סוד בימי רשב"י, למד אותו בטבע, בשבילים, אולי בדיוק בשביל שבו הולכים עכשיו.</p>
+<p>למה? יש שאמרו: כדי שלא יתגלו הסודות. אבל יש לכך הסבר עמוק יותר, ברוח דבריו של רבי משה קורדובירו (הרמ"ק) בספרו "תומר דבורה": מאז החורבן השכינה בגלות, והיא נודדת ממקום למקום. מי שרוצה לפגוש אותה, צריך לפגוש אותה דווקא בדרך.</p>
+<p class="bold-para">השכינה בגלות נמצאת על הדרך, ולכן מי שהלך בעקבותיה למד את סודות התורה בשבילים.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;ליסטים מזוין בביתו של זה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🐐</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">בין העיזים: החסיד והעז</h2></div></div>
+<p class="chapter-intro">בדרך לשפרעם רואים עדרים רבים של עיזים, והם מזכירים סיפור עצוב על רבי יהודה בן בבא עצמו.</p>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;ליסטים מזוין בביתו של זה&quot;</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השביל ממשיך לכיוון שפרעם, בין שטחי מרעה, ופוגשים בו עדרים גדולים של עיזים. רואים בבירור מה הן עושות לעצים: אוכלות את כל הענפים התחתונים, עד הגובה שהן מגיעות אליו.</p>
+<p>הגמרא במסכת בבא קמא (פ, א) מספרת:</p>
+<blockquote>מעשה בחסיד אחד שהיה גונח מלבו, ושאל לרופאים ואמרו: אין לו תקנה עד שינק חלב רותח משחרית לשחרית. והביאו לו עז וקשרו לו בכרעי המטה, והיה יונק ממנה שחרית לשחרית. לימים נכנסו חביריו לבקרו. כיון שראו אותה עז קשורה בכרעי המטה, חזרו לאחוריהם. אמרו: לסטים מזויין בביתו של זה, ואנו נכנסין אצלו?</blockquote>
+<p>למה כינו את העז "ליסטים מזוין"? כי חכמים תיקנו (משנה, בבא קמא ז, ז): "אין מגדלין בהמה דקה בארץ ישראל". העיזים אוכלות את העצים ואת שדות הזולת, וכך הן גוזלות את הרכוש של אחרים.</p>
+<p>הגמרא ממשיכה: ישבו ובדקו ולא מצאו בו אלא אותו עוון של אותה עז. ואף הוא, בשעת מיתתו, אמר: "יודע אני בי שאין בי עוון אלא עוון של אותה עז, שעברתי על דברי חבירי". ובהמשך הגמרא נאמר שבכל מקום שכתוב "מעשה בחסיד אחד", הכוונה לרבי יהודה בן בבא או לרבי יהודה ברבי אלעאי.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מה הייתה הבעיה, אם זה פיקוח נפש? ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מה הייתה הבעיה, אם זה פיקוח נפש?</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המפרשים שואלים: הרופאים אמרו שאין לו תקנה אחרת. זה פיקוח נפש! מדוע כעסו עליו חבריו?</p>
+<p>יש לכך כמה הסברים. פירוש מחודש אחד אומר שמצופה היה מצדיק כמותו לבטוח בה' ולא לחשוש לדברי הרופאים. אבל זה חידוש גדול, ורוב הפוסקים אינם הולכים בדרך זו.</p>
+<p>בספר חסידים מובא הסבר אחר: אין דבר העומד בפני פיקוח נפש, אבל המעשה הזה הביא לידי חילול ה'. השכנים שומעים בכל לילה את העז בביתו, ואינם יודעים שהוא חולה. הם יאמרו: הנה החסיד עצמו מגדל בהמה דקה ואינו חושש לדברי חכמים. לכן היה עליו לפרסם את מחלתו, או להסתיר את העז, כדי שלא תהיה תקלה.</p>
+<div class="honey-box">🍯 גם כשמותר לנו משהו, כדאי לחשוב איך זה נראה מבחוץ. לפעמים מספיק משפט הסבר אחד כדי למנוע מאחרים טעות.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: ומה בימינו? ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ומה בימינו?</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האם האיסור לגדל בהמה דקה בארץ ישראל קיים גם היום? פוסקים בדורות שבהם השדות בארץ לא היו של יהודים כתבו שאין בכך איסור: אם העז אוכלת את השדות של אחרים שאינם יהודים, ואין יישוב יהודי שנפגע, הטעם של התקנה אינו קיים.</p>
+<p>אבל עברו מאות שנים, יהודים חזרו לארץ, והרבה מאוד אדמות שייכות שוב ליהודים. האם האיסור חוזר? בזה נחלקו הפוסקים בדורות האחרונים. יש מתירים ויש אוסרים, ויש צדדים לכאן ולכאן.</p>
+<p>וכבשים? הם אינם אוכלים עצים כמו העיזים, ולכן יש מקום לומר שהדין בהם קל יותר. כמו בכל שאלה הלכתית למעשה, מי שעוסק בזה צריך לשאול רב.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הכיפה הכחולה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">💙</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">קבר רבי יהודה בן בבא והדרך הביתה</h2></div></div>
+<p class="chapter-intro">סוף המסלול: הכיפה הכחולה בשפרעם, ומשם חזרה לקריית אתא.</p>
+<article class="story-card" id="story-16" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הכיפה הכחולה</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מאבן השבת ממשיכים בעלייה כעשרים דקות, עד שמגיעים לכיכר בכניסה לשפרעם. מהכיכר פונים שמאלה, ואחרי שבע עד עשר דקות הליכה מגיעים לקבר רבי יהודה בן בבא. כבר מרחוק רואים את הצבע הכחול של המבנה.</p>
+<p>כאן קבור החסיד שמסר את נפשו כדי לסמוך את חמשת התלמידים. הגמרא מספרת שאחרי שסמך אותם הגיעו חיילי הרומאים, והוא אמר לתלמידיו: "בני, רוצו!" הם ברחו, והוא נשאר במקומו, ונהרג.</p>
+<p>יש כאן שאלה מעניינת: אם הסמיכה הייתה באזור אבן השבת, למה הוא קבור כמה קילומטרים משם? אפשר להציע כמה תשובות. אולי שפרעם של אז השתרעה קרוב יותר מאשר היום, ואולי פשוט העדיפו לקבור אותו סמוך לעיר. שפרעם הייתה בעבר עיר יהודית, יש בה בית כנסת עתיק שמפתחו נשמר עד היום, ויש בה גם בית קברות יהודי ישן.</p>
+<p>תושבים ותיקים זוכרים שכבר לפני חמישים ושישים שנה היו עולים לקבר, בדרך תלולה ומפחידה, הרבה לפני שהמקום סודר.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: החזרה בתחבורה ציבורית ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החזרה בתחבורה ציבורית</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שהגיע בלי רכב, או שהשאיר אותו ביער, יכול לחזור כך: חוזרים לכיכר שבכניסה לשפרעם. משם יוצא כל כעשרים דקות רכב קטן, מעין מיניבוס של כחמישה עשר מקומות, שנקרא שם "קו 1". הוא נוסע ברחובות הצרים והמפותלים של שפרעם, חוויה בפני עצמה, עד התחנה המרכזית של העיר. שם עולים על קו 165, שמחזיר לקריית אתא.</p>
+<p>יש מי ששאלו אם זה בטוח ללכת ברגל לשפרעם עם ילדים. כאן כל אחד צריך להחליט בעצמו. מי שעשה זאת מספר שהכול עבר בשלום, ושהתושבים המקומיים פשוט הופתעו לראות משפחה יהודית מטיילת בשבילים שלהם.</p>
+<p>וכך, בשעה וקצת, עברנו אלפיים שנה: מחורשה בקצה העיר, דרך גבעת הסנהדרין, אבן השבת והשדה שבו נסמכו התנאים, ועד קברו של מי שמסר את נפשו כדי שהתורה תמשיך.</p>
+<p class="bold-para">רשב"י לא רק היה במירון. הוא הלך גם כאן, בשבילים שלנו. וכל מי שהולך בהם ממשיך את הדרך.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
