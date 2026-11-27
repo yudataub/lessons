@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📱 קריית אתא בכף היד</title>
+<meta name="description" content="סיור באתר הקהילה החדש של קריית אתא - שיעורי תורה, מניינים, גמ&quot;חים, טיולים וזיכרונות - ומה הוא מלמד על תורה, עבודה וגמילות חסדים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">📱 קריית אתא בכף היד</h1>
+  <p class="hero-subtitle">סיור באתר הקהילה החדש של קריית אתא - שיעורי תורה, מניינים, גמ&quot;חים, טיולים וזיכרונות - ומה הוא מלמד על תורה, עבודה וגמילות חסדים</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-12 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/aIdxwSjjx6c" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🏛️ שלושה עמודים לעיר אחת</a><ul class="toc-stories"><li><a href="#story-1">על שלושה דברים העולם עומד</a></li><li><a href="#story-2">אתר שנבנה בלי להקליד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📖 תורה: מפה של כל שיעורי התורה בעיר</a><ul class="toc-stories"><li><a href="#story-3">112 שיעורים בעיר אחת</a></li><li><a href="#story-4">איך מוסיפים שיעור שחסר</a></li><li><a href="#story-5">מי שומר על הדיוק</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🕰️ עבודה: המניין הקרוב אליך</a><ul class="toc-stories"><li><a href="#story-6">שישה מנייני ותיקין</a></li><li><a href="#story-7">השורה הראשונה תמיד יודעת</a></li><li><a href="#story-8">מניין אחרי חצות וקריאת שמע</a></li><li><a href="#story-9">למה אי אפשר לשלוח שליח להתפלל</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🤝 גמילות חסדים: גמ&quot;חים, עסקים ומצווה בכל יום</a><ul class="toc-stories"><li><a href="#story-10">גמ&quot;ח לכל דבר</a></li><li><a href="#story-11">החפץ חיים והרוקח</a></li><li><a href="#story-12">בכל דרכיך דעהו</a></li><li><a href="#story-13">רעיונות שממשיכים להיוולד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🏞️ טיולים ואהבת הארץ</a><ul class="toc-stories"><li><a href="#story-14">כשהנכדים שואלים לאן הולכים</a></li><li><a href="#story-15">האם יש מצווה לטייל בארץ?</a></li><li><a href="#story-16">להסתכל על הארץ כמו שה&#x27; מסתכל</a></li><li><a href="#story-17">יעקב, המלאכים והארץ</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🖼️ זיכרונות של עיר, ושותפות של כולם</a><ul class="toc-stories"><li><a href="#story-18">ההיסטוריה של קריית אתא</a></li><li><a href="#story-19">האתר על המסך הראשי</a></li><li><a href="#story-20">כל אחד יכול לעזור</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">שלושה עמודים לעיר אחת</h2></div></div>
+<p class="chapter-intro">לפני שפותחים את האתר ומתחילים ללחוץ, כדאי להבין איך הוא בנוי. הסדר שלו לקוח ממשנה אחת קצרה שכל ילד מכיר.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">על שלושה דברים העולם עומד</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתחילת פרקי אבות, בפרק א' משנה ב', מובא מאמרו של אחד מגדולי הדורות הראשונים של בית שני:</p>
+<blockquote>שמעון הצדיק היה משיירי כנסת הגדולה. הוא היה אומר: על שלשה דברים העולם עומד - על התורה ועל העבודה ועל גמילות חסדים.</blockquote>
+<p>שלושה עמודים, ועליהם עומד העולם כולו. ואם העולם כולו עומד עליהם - גם עיר אחת, גם קהילה אחת, גם בית אחד.</p>
+<p>יש שמחברים את שלושת העמודים לשלושת האבות: אברהם אבינו הוא איש החסד, שפתח את אוהלו לכל עובר; יצחק אבינו הוא איש העבודה, שנעקד על המזבח והתפלל בשדה; ויעקב אבינו הוא איש התורה, שעליו נאמר:</p>
+<blockquote>וְיַעֲקֹב אִישׁ תָּם יֹשֵׁב אֹהָלִים (בראשית כה, כז)</blockquote>
+<p class="bold-para">כל עיר יהודית בנויה על אותם שלושה עמודים - והאתר החדש של קריית אתא בנוי בדיוק כך.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: אתר שנבנה בלי להקליד ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אתר שנבנה בלי להקליד</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האתר מחולק לשלושה חלקים גדולים: תורה - שיעורי תורה בכל העיר; עבודה - זמני תפילות ובתי כנסת; וגמילות חסדים - גמ"חים, עסקים ושירותים. ולצידם עוד כמה פינות: מסעדות וכשרות, טיולים, ההיסטוריה של העיר ואלבום התמונות שלה.</p>
+<p>הדבר המפתיע הוא איך הוא נבנה. עד לפני כמה שנים, מי שרצה אתר כזה היה צריך לשבת שבועות ולהקליד כל נתון ביד: כל שיעור, כל שעה, כל כתובת. כאן לא הוקלד כמעט דבר. נאספו מאגרי מידע, דפים ורשימות, והם נמסרו לבינה מלאכותית עם הוראה פשוטה: תעבור, תמיין, תחלק, תסדר. והיא הבינה - חילקה לפי ימים ושעות, לפי שכונות ובתי כנסת, ובנתה מזה אתר שלם.</p>
+<div class="honey-box">🍯 הכלים של היום מאפשרים לכל אחד לעשות דברים שפעם דרשו צוות שלם. השאלה היא רק מה עושים איתם - וכאן הם משמשים לתורה, לתפילה ולחסד.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: 112 שיעורים בעיר אחת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📖</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">תורה: מפה של כל שיעורי התורה בעיר</h2></div></div>
+<p class="chapter-intro">החלק הראשון באתר הוא התורה. מתברר שבקריית אתא יש הרבה יותר שיעורים ממה שנדמה.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">112 שיעורים בעיר אחת</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעמוד שיעורי התורה רשומים כבר יותר ממאה ועשרה שיעורים קבועים, וזו רק ההתחלה. אפשר לסנן לפי יום, לפי שבוע ולפי חודש, ולראות מה קורה בכל שעה: שיעורי דף היומי מוקדם בבוקר, לפני התפילה ואחריה; שיעורי בוקר קבועים בבתי הכנסת; שיעורי מוסר וגמרא בין מנחה לערבית ובערבים; שיעורי פרשת שבוע בשבת בבוקר; כוללים של פנסיונרים שלומדים כל יום; ואפילו שיעורים בזום.</p>
+<p>כל שיעור מופיע עם השעה, בית הכנסת, הכתובת ושם מוסר השיעור. מי שמחפש שיעור קרוב לביתו, בשעה שמתאימה לו - מוצא אותו בכמה שניות.</p>
+<p class="bold-para">כל שיעור שיהודי מוצא דרך האתר הוא עוד שעה של תורה בעולם.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: איך מוסיפים שיעור שחסר ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">איך מוסיפים שיעור שחסר</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המידע הראשוני נאסף ממאגרים קיימים, ולכן ברור שחסרים בו שיעורים. כאן מגיע החלק היפה: כל אחד יכול להוסיף, ולא צריך לדעת שום דבר.</p>
+<p>נכנסים לקישור, כותבים במילים פשוטות - למשל: "תוסיף שיעור דף היומי בשעה ארבע וחצי בבית הכנסת סוכת שלום" - והמערכת מבינה. אם חסר לה פרט, היא שואלת: באיזה רחוב? באילו ימים השיעור - כל השבוע, גם בשישי ובשבת? מי מוסר אותו? יש מספר טלפון ליצירת קשר? עונים על השאלות, ותוך רגע השיעור מופיע באתר, מעודכן ואונליין, לעיני כולם.</p>
+<p>מי שקשה לו לכתוב יכול גם להקליט הודעה קולית, והמערכת תבין גם אותה. המטרה הייתה שלא יהיה אדם אחד שלא יוכל להוסיף.</p>
+<div class="honey-box">🍯 לא צריך לבנות אתרים ולא ללמוד כלום. רק לספר מה אתה יודע - והמערכת תסדר.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מי שומר על הדיוק ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מי שומר על הדיוק</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם כל אחד יכול להוסיף, מי בודק שהמידע נכון? לכך יש כמה שכבות.</p>
+<p>כל שיעור שנוסף על ידי גולש מסומן ככזה, עד שמנהל האתר מאשר אותו. מי שמוסיף שיעור מתבקש להשאיר מספר טלפון, וכך אפשר לשלוח הודעה למוסר השיעור ולוודא שהפרטים נכונים. וגם אחרי האישור, אם מישהו רואה טעות - שיעור שעבר ליום אחר, שעה שהשתנתה, בית כנסת שנרשם לא נכון - הוא פשוט כותב למערכת "השיעור הזה הוא ביום שני אחרי ערבית, לא ביום רביעי", והיא מתקנת.</p>
+<p>העיקרון פשוט: האתר שייך לכולם, וכל אחד אחראי על הפינה שהוא מכיר. מי שמתפלל בבית כנסת מסוים יבדוק שהשיעורים שלו מופיעים נכון; מי שמוסר שיעור יוודא שהשעה מדויקת.</p>
+<p class="bold-para">ככה נבנה מאגר חי, שמתעדכן מעצמו, בלי שאדם אחד יצטרך לשאת את כל המשא.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: שישה מנייני ותיקין ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🕰️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">עבודה: המניין הקרוב אליך</h2></div></div>
+<p class="chapter-intro">העמוד השני הוא העבודה - התפילה. כאן נמצאים זמני התפילות בכל בתי הכנסת בעיר, ואחד השכלולים הכי מועילים באתר.</p>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שישה מנייני ותיקין</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשהייתי ילד היה בקריית אתא מניין ותיקין אחד. היום יש שישה מנייני ותיקין, ובשעה חמש וחצי בבוקר יש כבר כמה מניינים לבחירה. במנחה יש מניין כמעט בכל חצי שעה, ובערבית - מניינים לאורך כל הערב, עד מאוחר בלילה.</p>
+<p>זו לא רק סטטיסטיקה. זו תמונה של עיר שהתפילה בה מתרבה, שיהודים קמים מוקדם כדי להתפלל עם הנץ החמה, שבכל שעה מישהו עומד ומתפלל. ברוך ה'.</p>
+<p>באתר כל מניין מופיע עם השעה, בית הכנסת והנוסח - אשכנז, ספרד, עדות המזרח או תימני - כך שכל אחד יכול לחפש את המניין שמתאים למנהג שלו.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: השורה הראשונה תמיד יודעת ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">השורה הראשונה תמיד יודעת</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השכלול היפה ביותר בעמוד זמני התפילות הוא השורה הראשונה. האתר רואה מה השעה עכשיו, ובשורה העליונה הוא תמיד מציג את התפילה הקרובה ביותר. נכנסים לעמוד - ומיד יודעים לאן אפשר להספיק.</p>
+<p>אדם אחד הגיע לעיר מאוחר בלילה, אחרי אחת עשרה, והיה בטוח שאין כבר מניין לערבית. רק למחרת בבוקר, כשפתח את האתר, ראה שיש בקריית אתא מניין גם בשעה אחת עשרה וחצי בלילה. אילו פתח אותו בזמן, היה מתפלל במניין.</p>
+<div class="honey-box">🍯 כלי טוב לא רק מאחסן מידע - הוא מגיש לך אותו ברגע שאתה צריך אותו.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מניין אחרי חצות וקריאת שמע ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מניין אחרי חצות וקריאת שמע</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ליד המניין המאוחר מופיעה באתר הערה חשובה: המתפללים במניין הזה צריכים לקרוא קריאת שמע לפני חצות הלילה.</p>
+<p>למה? כי ערבית של אחת עשרה וחצי עלולה להיות כבר אחרי חצות הלילה, ולכתחילה מצוות קריאת שמע של ערבית היא עד חצות. מי שמתפלל במניין מאוחר כזה צריך לדאוג לקרוא את שמע בזמן, ולהתפלל במניין אחר כך.</p>
+<p>ומכאן עולה שאלה נוספת: אם מישהו לא מספיק, יכול חברו להתפלל בשבילו? התשובה היא לא. אפשר להתפלל עליו, לבקש עליו רחמים - אבל את התפילה שלו ואת קריאת השמע שלו הוא חייב לעשות בעצמו.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: למה אי אפשר לשלוח שליח להתפלל ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה אי אפשר לשלוח שליח להתפלל</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן מגיעה שאלה עתיקה: למה יש מצוות שאפשר לעשות על ידי שליח, ויש מצוות שאי אפשר?</p>
+<p>בחנוכה אפשר לבקש ממישהו שידליק נרות בשמי. בקידושין נאמר במפורש שהאיש מקדש בו ובשלוחו - אמנם "מצוה בו יותר מבשלוחו" (קידושין מא, א), אבל השליחות מועילה. ואילו בתפילה, בתפילין ובטלית - אי אפשר לשלוח שליח שיניח תפילין במקומי.</p>
+<p>ההסבר הפשוט הוא ההבדל בין מצווה שמוטלת על הגוף של האדם לבין מצווה שעניינה בחפץ או בפעולה שנעשית בעולם. תפילין צריכות להיות על הראש שלי ועל היד שלי; תפילה היא הלב שלי שעומד לפני הקדוש ברוך הוא. את זה אי אפשר להעביר לאחר. אבל נרות חנוכה שדולקים בביתי, או קידושין שנעשים בשמי - שם הפעולה עצמה יכולה להיעשות על ידי שליח, והיא נחשבת כאילו עשיתי אותה.</p>
+<p class="bold-para">יש דברים שאדם יכול לשלוח - ויש דברים שהוא חייב להביא בעצמו: את הלב שלו.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: גמ&quot;ח לכל דבר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🤝</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">גמילות חסדים: גמ&quot;חים, עסקים ומצווה בכל יום</h2></div></div>
+<p class="chapter-intro">החלק השלישי של האתר הוא החסד: כל הגמ"חים בעיר, והעסקים והשירותים שכל אחד צריך.</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גמ&quot;ח לכל דבר</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעמוד הגמ"חים רשומים עשרות גמ"חים בקריית אתא, מחולקים לפי נושאים: ציוד רפואי, ציוד לתינוקות ולילדים, שמחות, בגדים, תשמישי קדושה ועוד ועוד. שנזכה שלא נצטרך - אבל מי שצריך, יודע עכשיו לאן לפנות.</p>
+<p>גם כאן חסרים עוד גמ"חים רבים, וכל מי שמכיר גמ"ח שלא מופיע מוזמן להוסיף אותו. כל גמ"ח שנוסף הוא עוד דלת שנפתחת למשפחה שזקוקה לעזרה.</p>
+<p>ולצד הגמ"חים יש באתר את העסקים: שיפוצים, רפואה, מזון, חנויות, מכולות, מאפיות, אוכל מוכן לשבת, רופאים, חוגים וקבוצות. כל מה שתושב צריך - במקום אחד.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: החפץ חיים והרוקח ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">החפץ חיים והרוקח</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האם עסקים שייכים לגמילות חסדים? התשובה תלויה - במה שאדם חושב.</p>
+<p>מסופר שהחפץ חיים נכנס פעם לבית מרקחת ואמר לרוקח: "אני מקנא בך! אתה כל היום מציל נפשות." הרוקח לא הבין: "מה הרב מספר לי? אני עובד, אני מרוויח כסף, זו הפרנסה שלי." אמר לו החפץ חיים: "דע לך, אם בבוקר כשאתה נכנס לחנות תכוון שאתה עושה זאת לשם מצוות הצלת נפשות - כל היום שלך ייחשב לך מצווה. ואם לא תחשוב על זה - אתה צודק, זו רק פרנסה."</p>
+<p>אותה עבודה, אותן תרופות, אותו מדף. ההבדל היחיד הוא המחשבה שבלב. ומחשבה אחת בבוקר הופכת יום שלם של עבודה ליום של מצווה.</p>
+<div class="honey-box">🍯 לפני שיוצאים לעבודה - רגע אחד של כוונה: "אני עושה את זה כדי לעזור לאנשים, כי ה' רוצה בזה."</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: בכל דרכיך דעהו ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בכל דרכיך דעהו</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה לא רק סיפור יפה. חז"ל קבעו ש"העוסק במצווה פטור מן המצווה" (סוכה כה, א), ופוסקים דנו בכך שגם מי שעוסק בעבודה שיש בה מצווה ממש - הצלת נפשות, חסד - ומכוון לשם מצווה, נחשב עוסק במצווה. לפעמים, כשאין מי שיחליף אותו, הוא אפילו פטור ממצווה אחרת באותה שעה.</p>
+<p>זה מה שאמר שלמה המלך:</p>
+<blockquote>בְּכָל דְּרָכֶיךָ דָעֵהוּ (משלי ג, ו)</blockquote>
+<p>לא רק בבית המדרש ולא רק בבית הכנסת. גם בחנות, גם במשרד, גם בעסק. רופא שמכוון לרפא, חנווני שמכוון לפרנס בני אדם במזון כשר, בעל מקצוע שמכוון לעזור למשפחה - כולם יכולים להפוך את עבודתם לגמילות חסדים.</p>
+<p class="bold-para">העסקים של העיר הם לא רק כלכלה. הם יכולים להיות עמוד החסד שלה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: רעיונות שממשיכים להיוולד ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">רעיונות שממשיכים להיוולד</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמראים לאנשים את האתר, הם מיד מציעים רעיונות. אחד הציע שליד כל מקום יהיה כפתור שפותח את הניווט בווייז, כדי שבלחיצה אחת יגיעו לבית הכנסת, לגמ"ח או לחנות. רעיון מצוין - ומוסיפים אותו פשוט באותה דרך: כותבים למערכת "תוסיף ליד כל מקום כפתור ניווט", והיא עושה.</p>
+<p>היו גם רעיונות שצריך לחשוב עליהם פעמיים. למשל, דירוג בכוכבים לעסקים: מצד אחד זה עוזר לאנשים לבחור, ומצד שני צריך להיזהר מאוד שזה לא יהפוך לפתח של לשון הרע ופגיעה בפרנסה של יהודי. כל תוספת כזאת צריכה להיבדק על פי ההלכה.</p>
+<p>גם הכשרות במסעדות ובחנויות דורשת עבודה מסודרת: יש רמות שונות של השגחה, ומה שרשום כרגע הוא מה שנמצא במידע הקיים. הכוונה היא לשבת עם רב העיר ולסדר את הכול בדיוק.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: כשהנכדים שואלים לאן הולכים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🏞️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">טיולים ואהבת הארץ</h2></div></div>
+<p class="chapter-intro">פינה אחת באתר מיועדת בעיקר לסבים ולסבתות: מה עושים כשהנכדים מגיעים?</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כשהנכדים שואלים לאן הולכים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל סבא מכיר את השאלה: הנכדים הגיעו, ומיד שואלים - "סבא, לאן הולכים לטייל?"</p>
+<p>עכשיו יש תשובה. בעמוד הטיולים מרוכזים כל המקומות שבקריית אתא ובסביבה: קברי צדיקים ואתרים עתיקים, נחלים ומעיינות, פארקים ופינות פיקניק, גינות ציבוריות, אטרקציות בחיפה ובקריות. שפע אדיר של מקומות שרובנו בכלל לא יודעים שהם קיימים, במרחק נסיעה קצרה מהבית.</p>
+<p>ואל תשכחו: לקחת את הנכדים לטייל זה קודם כול חסד. הילדים רוצים לטייל, ומי שמשמח אותם עושה איתם טובה גדולה.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: האם יש מצווה לטייל בארץ? ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">האם יש מצווה לטייל בארץ?</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבים אומרים שיש מצווה לטייל בארץ ישראל, ומביאים את הפסוק שנאמר לאברהם אבינו:</p>
+<blockquote>קוּם הִתְהַלֵּךְ בָּאָרֶץ לְאָרְכָּהּ וּלְרָחְבָּהּ כִּי לְךָ אֶתְּנֶנָּה (בראשית יג, יז)</blockquote>
+<p>אבל זה נאמר לאברהם אבינו עצמו, כדי לקנות את הארץ לזרעו. אין מצווה כללית לכל אדם "ללכת בארץ".</p>
+<p>אז מתי הטיול הופך למצווה? כשאדם מכוון לכך. יש בארץ ישראל מצווה לא רק לגור בה, אלא גם לאהוב אותה. ואת זה רואים בכמה מקומות. דוד המלך אומר:</p>
+<blockquote>אַתָּה תָקוּם תְּרַחֵם צִיּוֹן כִּי עֵת לְחֶנְנָהּ כִּי בָא מוֹעֵד. כִּי רָצוּ עֲבָדֶיךָ אֶת אֲבָנֶיהָ וְאֶת עֲפָרָהּ יְחֹנֵנוּ (תהלים קב, יד-טו)</blockquote>
+<p>עבדי ה' רוצים את אבניה של ציון ומחוננים את עפרה - העפר שלה חביב עליהם. וגם התורה עצמה מצווה:</p>
+<blockquote>וְאָכַלְתָּ וְשָׂבָעְתָּ וּבֵרַכְתָּ אֶת ה' אֱלֹקֶיךָ עַל הָאָרֶץ הַטֹּבָה אֲשֶׁר נָתַן לָךְ (דברים ח, י)</blockquote>
+<p>אם יש מצווה להתבונן כמה הארץ טובה ולהודות עליה - סימן שהקדוש ברוך הוא רוצה שנאהב אותה.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: להסתכל על הארץ כמו שה&#x27; מסתכל ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">להסתכל על הארץ כמו שה&#x27; מסתכל</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על ארץ ישראל נאמר:</p>
+<blockquote>אֶרֶץ אֲשֶׁר ה' אֱלֹקֶיךָ דֹּרֵשׁ אֹתָהּ תָּמִיד עֵינֵי ה' אֱלֹקֶיךָ בָּהּ מֵרֵשִׁית הַשָּׁנָה וְעַד אַחֲרִית שָׁנָה (דברים יא, יב)</blockquote>
+<p>מסופר על הרב קוק שכאשר שהה בחוץ לארץ, לא מיהר להתבונן בנופים, וכשהגיע לארץ ישראל לא הפסיק להסתכל עליה. כששאלו אותו על כך, השיב: כאן כתוב "עיני ה' אלוקיך בה" - אם הקדוש ברוך הוא מסתכל על הארץ הזאת, איך אני לא אסתכל?</p>
+<p>וגם משה רבנו, שלא זכה להיכנס לארץ, קיבל מתנה אחת:</p>
+<blockquote>עֲלֵה רֹאשׁ הַפִּסְגָּה וְשָׂא עֵינֶיךָ יָמָּה וְצָפֹנָה וְתֵימָנָה וּמִזְרָחָה וּרְאֵה בְעֵינֶיךָ (דברים ג, כז)</blockquote>
+<p>אפילו לראות את הארץ יש בו ערך. מי שעומד על הכרמל ורואה את הארץ מקצה לקצה, מעכו ועד זכרון יעקב - מרגיש שמראה של מקום קדוש משפיע על האדם.</p>
+<div class="honey-box">🍯 בטיול הבא עם הנכדים - לעצור רגע, להסתכל על הנוף ולומר: "ה' מסתכל על המקום הזה. גם אנחנו."</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: יעקב, המלאכים והארץ ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">יעקב, המלאכים והארץ</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש עוד רמז נפלא לקדושת הארץ. כשיעקב אבינו יצא מארץ ישראל, ראה מלאכים - אבל בחלום:</p>
+<blockquote>וַיַּחֲלֹם וְהִנֵּה סֻלָּם מֻצָּב אַרְצָה וְרֹאשׁוֹ מַגִּיעַ הַשָּׁמָיְמָה וְהִנֵּה מַלְאֲכֵי אֱלֹקִים עֹלִים וְיֹרְדִים בּוֹ (בראשית כח, יב)</blockquote>
+<p>וכשחזר לארץ, אחרי עשרים שנה, מה כתוב?</p>
+<blockquote>וְיַעֲקֹב הָלַךְ לְדַרְכּוֹ וַיִּפְגְּעוּ בוֹ מַלְאֲכֵי אֱלֹקִים (בראשית לב, ב)</blockquote>
+<p>הפעם לא בחלום - במציאות, בהקיץ, בדרך. בארץ ישראל הקדושה כל כך קרובה, שאפשר לפגוש אותה בעיניים פקוחות.</p>
+<p>ויש שדרשו גם את דברי רש"י בתחילת פרשת עקב - "עקב תשמעון: אם המצוות הקלות שאדם דש בעקביו תשמעון" - שאחת המצוות שאדם דש בעקביו היא ההליכה בארץ ישראל עצמה. כל צעד על אדמתה, כשהוא נעשה מתוך אהבה, הוא מצווה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: ההיסטוריה של קריית אתא ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🖼️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">זיכרונות של עיר, ושותפות של כולם</h2></div></div>
+<p class="chapter-intro">הפינות האחרונות באתר מחזירות אותנו אחורה בזמן - וקדימה, אל מה שכל אחד יכול לתרום.</p>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ההיסטוריה של קריית אתא</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעמוד ההיסטוריה אפשר לטייל בזמן: מה קרה בכל שנה מאז שנוסדה העיר, איך נבנו שכונותיה, מצגות, כתבות וסיפורים רבים. אפשר להיזכר באנשים שהיו כאן פעם - רבנים, מחנכים, בעלי חסד, דמויות שכל ותיק זוכר - ולקרוא את הסיפורים שלהם.</p>
+<p>ולצידו - אלבום התמונות. תמונות של קריית אתא של פעם: חתונות של רבני העיר, בית הכנסת הישן, הספרייה הישנה, הבאר, הסנדלר שכולם הכירו. ותיקים מזהים את עצמם כילדים, את ההורים, את הרבנים שבאו אליהם לשאול שאלות. אוצר של זיכרונות שהיה מפוזר במגירות, ועכשיו הוא פתוח לכולם.</p>
+<p class="bold-para">עיר שזוכרת את שורשיה יודעת גם לאן היא הולכת.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: האתר על המסך הראשי ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האתר על המסך הראשי</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי שהאתר יהיה תמיד בהישג יד, כדאי להוסיף אותו למסך הראשי של הטלפון. כך הוא נראה ומתנהג כמו אפליקציה: לחיצה אחת, ומיד רואים את המניין הקרוב, את השיעורים של היום ואת הגמ"חים.</p>
+<p>ברוב הטלפונים עושים זאת כך: פותחים את האתר בדפדפן, לוחצים על תפריט הדפדפן (שלוש הנקודות או כפתור השיתוף), ובוחרים "הוסף למסך הבית". מי שמסתבך - ישאל את הנכדים, הם יעשו את זה בחצי דקה.</p>
+<p>כך האתר הופך לחלק מהיום-יום: לפני שיוצאים מהבית, לפני שבת, כשמחפשים שיעור או גמ"ח.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: כל אחד יכול לעזור ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כל אחד יכול לעזור</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המטרה אינה רק להראות אתר יפה. המטרה היא שכל אחד יהיה שותף.</p>
+<p>לא צריך לדעת כלום. ראית עוד בית כנסת שלא מופיע? עוד מניין, עוד שיעור, עוד גמ"ח? תכתוב. קשה לכתוב? תקליט. המערכת תבין ותוסיף.</p>
+<p>וחשבו מה זה אומר: כל פרט שמישהו מוסיף, יכול להביא יהודי אחר לשיעור שמתאים לו בדיוק, לתפילה בשעה שנוחה לו ליד הבית, לגמ"ח שיציל לו יום קשה. תוספת של דקה אחת - ותורה, תפילה וחסד מתרבים בעיר.</p>
+<div class="honey-box">🍯 שלושה עמודים מחזיקים את העולם - ובקריית אתא, כל אחד יכול להוסיף להם עוד לבנה.</div>
+<p class="bold-para">תורה, עבודה וגמילות חסדים - בכף היד של כל תושב.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
