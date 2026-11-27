@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>❤️ מהפכת הרגש: מהאקדמיה ועד בית המדרש</title>
+<meta name="description" content="איך גילה העולם, רק לפני שנים מעטות, שהאדם אינו רק שכל – ואיך התורה, מסילת ישרים והבעל שם טוב ידעו זאת הרבה לפני כן.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">❤️ מהפכת הרגש: מהאקדמיה ועד בית המדרש</h1>
+  <p class="hero-subtitle">איך גילה העולם, רק לפני שנים מעטות, שהאדם אינו רק שכל – ואיך התורה, מסילת ישרים והבעל שם טוב ידעו זאת הרבה לפני כן.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/yxReeJwSvpY" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌈 עולם בלי רגש הוא עולם מת</a><ul class="toc-stories"><li><a href="#story-1">מתנה שאנחנו לא שמים לב אליה</a></li><li><a href="#story-2">הברכה היחידה על רגשות</a></li><li><a href="#story-3">&quot;על שאנחנו מודים לך&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🧠 השכל מול הרגש: מהפכה באקדמיה</a><ul class="toc-stories"><li><a href="#story-4">אלפי שנים של שלטון השכל</a></li><li><a href="#story-5">אינטליגנציה רגשית</a></li><li><a href="#story-6">גאון שלא יודע להתחבר</a></li><li><a href="#story-7">את השכל קשה לשנות – את הרגש אפשר</a></li><li><a href="#story-8">החלוצים – כמעט כולם יהודים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📖 ביהדות: מצוות הלב</a><ul class="toc-stories"><li><a href="#story-9">&quot;ועיקר כל המצוות ליישר הלב&quot;</a></li><li><a href="#story-10">חובות הלבבות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🗝️ ויכוח החכם והחסיד</a><ul class="toc-stories"><li><a href="#story-11">מסילת ישרים בגרסה אחרת</a></li><li><a href="#story-12">חסיד – לפני החסידות</a></li><li><a href="#story-13">&quot;האם הוצאת עשירית הזמן?&quot;</a></li><li><a href="#story-14">חמישה חלקים – ואחד בלבד נלמד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🔥 הבעל שם טוב: מהפכת הלב</a><ul class="toc-stories"><li><a href="#story-15">יהודי פשוט – ולבו כולו לה&#x27;</a></li><li><a href="#story-16">למה התורה לא ציוותה לקום בפני בעל רגש?</a></li><li><a href="#story-17">מה זו בעצם חסידות?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">☀️ בארץ ישראל הלב נפתח</a><ul class="toc-stories"><li><a href="#story-18">כשהכול מתערבב</a></li><li><a href="#story-19">ההבטחה: &quot;ומל ה&#x27; אלוקיך את לבבך&quot;</a></li><li><a href="#story-20">חינוך שלא יכול בלי לב</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌈</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">עולם בלי רגש הוא עולם מת</h2></div></div>
+<p class="chapter-intro">לפני שמדברים על מחקרים ועל ספרים – כדאי לעצור ולהודות על עצם היכולת להרגיש.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מתנה שאנחנו לא שמים לב אליה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרגש הוא תחום חשוב מאין כמותו בחיי האדם. בלעדיו לא הייתה משמעות כמעט לשום חוויה. אילו לא טבע הקדוש ברוך הוא באדם רגשות, הכול היה טכני וקר: יום שמח ויום עצוב, יום חם ויום קר, אהבה וגעגוע – הכול היה אותו דבר. כלום.</p>
+<p>ובכל זאת, המחקר המדעי של הרגש הוא תחום חדש יחסית, והיישום שלו חדש עוד יותר. עד לפני שנים מעטות כמעט לא היה תחום כזה באקדמיה.</p>
+<p><strong>וכמו בתחומים רבים אחרים – גם כאן הקדימה התורה את האקדמיה.</strong> לא רק בהבנה שהרגש חשוב, אלא גם בדרכים המדויקות לשפר את חיי הרגש.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: הברכה היחידה על רגשות ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הברכה היחידה על רגשות</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חידה: איפה במעגל החיים אנחנו מודים לקדוש ברוך הוא על הרגשות עצמם? כמעט כל הברכות עוסקות במציאות: "פוקח עיוורים", "מלביש ערומים", "בורא פרי העץ". אין ברכה על רגש.</p>
+<p>חוץ ממקום אחד – בשבע ברכות שתחת החופה:</p>
+<blockquote>"אשר ברא ששון ושמחה, חתן וכלה, גילה רינה דיצה וחדוה, אהבה ואחוה ושלום ורעות"</blockquote>
+<p>למה דווקא שם? כי כמעט אין רגע בחיים שבו הרגשות מגיעים לשיא כמו ביום החתונה. ברגע הזה, כשהלב מוצף, מודים לבורא על שברא באדם את היכולת לשמוח, לאהוב ולהתרגש.</p>
+<div class="honey-box">🍯 על הרגש לא מברכים כל יום, כי אי אפשר למדוד אותו – אבל מותר לכל אחד להודות עליו בלבו כמה שירצה.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: &quot;על שאנחנו מודים לך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;על שאנחנו מודים לך&quot;</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף "מודים דרבנן", שהציבור אומר בשעה שהחזן חוזר על התפילה, יש מילים מפתיעות: "על שאנחנו מודים לך".</p>
+<p>על מה בדיוק מודים כאן? על עצם הרגש של הכרת הטוב. מי שמודה למישהו שעזר לו – מרגיש טוב, נהנה מעצם ההודיה. זו תחושה נפלאה. והקדוש ברוך הוא ברא באדם את הרגש הזה, ועל כך אנחנו מודים: שנתת בלבנו את היכולת להודות לך.</p>
+<p>הפסיכולוגיה המודרנית גילתה את אותו דבר. הכרת הטוב היא אחד הרגשות החשובים ביותר בה. במחקרים נמצא שהיא מרימה את האדם מעצבות לשמחה מהר יותר כמעט מכל דבר אחר. לכן יש היום אינספור יומנים, תרגילים וחוברות של הודיה.</p>
+<p class="bold-para">מה שהמחקר גילה עכשיו, אנחנו אומרים שלוש פעמים ביום.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: אלפי שנים של שלטון השכל ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🧠</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">השכל מול הרגש: מהפכה באקדמיה</h2></div></div>
+<p class="chapter-intro">אלפי שנים נמדד האדם לפי שכלו בלבד. ואז משהו השתנה.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אלפי שנים של שלטון השכל</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לאורך ההיסטוריה עמדו השכל והרגש כמו שני צדדים של מתרס, כאילו הם סותרים זה את זה. והשכל כמעט תמיד שלט.</p>
+<p>הפילוסופיה היוונית העלתה את חשיבות השכל, ולא השאירה מקום לרגש. אנשים רגשנים נחשבו חלשי אופי. כל המסורות הפילוסופיות המערביות שבאו אחריה ראו בשכל ובהיגיון כוחות שעומדים מול הרגשות. השכל הקר נתפס כמי שמעבד מידע מדויק, והרגש – כרעש רקע מפריע שיש להתעלם ממנו.</p>
+<p>בפועל, המודד כמעט היחיד לשאלה אם אדם "טוב" או "מוצלח" היה כמה שכל יש לו. כך קיבלו לעבודה, כך מיינו ללימודים, כך החליטו מי ראוי.</p>
+<p>כמובן, במחקר מדעי צריך שכל נקי: לחקור את העובדות כפי שהן, בלי שהרגש יטה את התוצאה. אבל החיים עצמם אינם מעבדה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: אינטליגנציה רגשית ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אינטליגנציה רגשית</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כשלושה עשורים חלה תזוזה משמעותית. הפסיכולוגיה התחילה לראות בשכל וברגש שני צדדים של אותו מטבע, ולא שני כוחות מנוגדים.</p>
+<p>התהליך התחיל בשנות התשעים, ומאז נעשו מחקרים רבים כדי להגדיר את המושג "אינטליגנציה רגשית", לפתח כלים למדוד אותה, ולבדוק כמה הרגש משפיע על הצלחת האדם בתחומים רבים כל כך.</p>
+<p>הנושא קיבל תנופה אדירה בעקבות ספרו רב המכר של דניאל גולמן, "אינטליגנציה רגשית", שיצא בשנת 1995. הספר טען שהרגש חשוב להצלחה בחיים, להתמודדות עם בעיות, לקשרים חברתיים – ולא פחות מהשכל.</p>
+<p class="bold-para">העולם התחיל להבין: אי אפשר למדוד אדם רק לפי השכל.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: גאון שלא יודע להתחבר ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גאון שלא יודע להתחבר</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קחו לדוגמה מורה. אפשר להיות גאון עצום, לדעת את החומר על בוריו – ועדיין להיכשל. מי אמר שהתלמידים ירצו לקבל ממנו? אם הוא לא יודע להתחבר אליהם, להקשיב, להלהיב – מה יועיל כל ידענו?</p>
+<p>לכן החוקרים טוענים שיש צורך במבחנים לתחום הרגש, במיוחד במקצועות שבהם הרגש חשוב אולי יותר מהשכל: מורים, עובדים סוציאליים, אנשי מכירות.</p>
+<p>נכון, יש תחומים שבהם השכל הוא העיקר. ממהנדס תוכנה מבקשים קודם כל שיהיה מבריק, גם אם הוא פחות חברותי. אבל ברוב התחומים שבהם אדם עובד עם אנשים – הרגש מכריע.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: את השכל קשה לשנות – את הרגש אפשר ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">את השכל קשה לשנות – את הרגש אפשר</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש כאן תגלית מעודדת. את רמת המשכל של אדם קשה מאוד לשנות. אפשר לשפר מעט – מי שלומד גמרא שנים, מתחדד – אבל להפוך אדם לגאון כמעט בלתי אפשרי.</p>
+<p>לעומת זאת, את האינטליגנציה הרגשית אפשר לשפר. גם אדם שהיה קר ומרוחק יכול, בעבודה ובאימון, להתחמם לאט לאט. רואים זאת אצל עולים מארצות קרות, שעם השנים נפתחים ומתחממים בחברה החדשה.</p>
+<div class="honey-box">🍯 אינך חייב להישאר כפי שנולדת. את הלב אפשר לחמם.</div>
+<p>ולכן נכנס הנושא בשנים האחרונות למערכות חינוך רבות. בכל המגזרים כותבים היום ספרים ותוכניות ללמד ילדים להכיר את רגשותיהם ולנהל אותם.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: החלוצים – כמעט כולם יהודים ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">החלוצים – כמעט כולם יהודים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ודבר מעניין: כמעט בכל הצמתים של התחום הזה עומדים יהודים.</p>
+<p>זיגמונד פרויד, אבי הפסיכואנליזה. ויקטור פרנקל, שהראה כמה חשובה לאדם תחושת משמעות. מרטין זליגמן, אבי הפסיכולוגיה החיובית. ודניאל גולמן, שהביא את האינטליגנציה הרגשית לכל בית.</p>
+<p>בתחום הזה, יותר אולי מבכל תחום אחר, רוב פורצי הדרך הראשונים היו יהודים. אולי אין זה מקרה: עם שמצוותיו כוללות אהבה, יראה, שמחה ובטחון – יודע מבפנים כמה הלב חשוב.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: &quot;ועיקר כל המצוות ליישר הלב&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📖</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">ביהדות: מצוות הלב</h2></div></div>
+<p class="chapter-intro">האם ביהדות מה שחשוב הוא רק המעשה? האבן עזרא עונה בחריפות.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;ועיקר כל המצוות ליישר הלב&quot;</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מי שחושב שבעיני ה' רק המעשה קובע, ומה שאדם מרגיש או חושב אינו משנה. האבן עזרא דוחה זאת בתוקף, ומביא ראיות רבות מהפסוקים.</p>
+<p>התורה מוכיחה פעם אחר פעם את מי שיש לו "לב חרש מחשבות און" (משלי ו, יח), ומשבחת את ישרי הלב. ויותר מזה: כל ההבדל העצום שהתורה עושה בין שוגג למזיד – מה הוא אם לא ההבדל שבלב? אותו מעשה בדיוק, ופעם הוא עם הלב ופעם בלי הלב, והדין שונה לגמרי.</p>
+<p>האבן עזרא מחלק את המצוות לשלושה סוגים – מצוות הלב, מצוות הלשון ומצוות המעשה – וקובע שמצוות הלב הן העיקריות והנכבדות מכולן. ובלשונו: <strong>"ועיקר כל המצוות ליישר הלב".</strong></p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: חובות הלבבות ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">חובות הלבבות</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואכן, ביהדות יש לא מעט מצוות שכל עניינן הוא הלב.</p>
+<ul class="story-list"><li><strong>אהבת ה'</strong> – לא מעשה, אלא רגש.</li><li><strong>יראת ה'</strong> – תחושה של התבטלות ויראת כבוד.</li><li><strong>בטחון בה'</strong> – לא מסקנה שכלית, אלא שלוות לב.</li><li><strong>שמחה בעבודת ה'</strong> – שהיא כל כך מרכזית, עד שהתורה תולה בחסרונה את הצרות.</li></ul>
+<p>לא בכדי נקרא אחד מספרי היסוד של המוסר "חובות הלבבות". יש חובות שאי אפשר לקיים בידיים – רק בלב.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: מסילת ישרים בגרסה אחרת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🗝️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">ויכוח החכם והחסיד</h2></div></div>
+<p class="chapter-intro">כתב יד נשכח של הרמח״ל חושף את הגרסה המקורית של מסילת ישרים – ואת השאלה החריפה שבלבה.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מסילת ישרים בגרסה אחרת</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כולם מכירים את "מסילת ישרים" של הרמח״ל. אבל לפני כשלושים שנה התגלה כתב יד מפתיע, שהתברר כגרסה אחרת של הספר.</p>
+<p>מכון אופק השיג את כתב היד, ומי שזיהה אותו היה חוקר הקבלה יוסף אביבי, מומחה לזיהוי כתבי קבלה. כל כמה דורות השתנתה שפת הקבלה – לפני האר״י, אחרי האר״י, אחרי רבי חיים ויטאל – ומתוך הלשון אפשר לזהות מתי חי הכותב ומי הוא.</p>
+<p>התברר שהרמח״ל כתב את מסילת ישרים בשתי צורות: הצורה הרגילה שכולם מכירים, וצורה נוספת – כוויכוח, דיאלוג בין "חכם" ל"חסיד". הספר יצא לאור בשם "מסילת ישרים – מהדורת הוויכוח". ההבדלים הגדולים ביותר הם דווקא בהקדמה ובפתיחה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: חסיד – לפני החסידות ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חסיד – לפני החסידות</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב לדעת: כשהרמח״ל כותב "חסיד", אין הכוונה לתנועת החסידות. הרמח״ל חי לפני כשלוש מאות שנה, עוד לפני שהבעל שם טוב גילה את דרכו, ותנועת החסידות עדיין לא קמה.</p>
+<p>אצל הרמח״ל, "חסיד" הוא מי שעובד את ה' יותר ממה שחייב – מי שמבקש לעשות נחת רוח לבוראו מעבר לשורת הדין. זו גם "מידת החסידות" שבמסילת ישרים עצמה.</p>
+<p>והנה, בוויכוח שבין השניים – דווקא החסיד הוא שמוכיח את החכם.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;האם הוצאת עשירית הזמן?&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;האם הוצאת עשירית הזמן?&quot;</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החסיד פונה אל החכם בשאלה חדה: אתה השקעת כל כך הרבה זמן בחקירת דינים, בהעמקה בסוגיות, בפלפול בחכמות. האם הוצאת אפילו עשירית מהזמן הזה בחקירת היראה והאהבה, בטהרת הכוונה ובנקיות הלב?</p>
+<p>החכם עונה בביטול: מה יש ללמוד שם? כולם יודעים מה זה יראת שמים ואהבת ה'. זה פשוט.</p>
+<p>זה בדיוק הלך הרוח שהרמח״ל רצה לערער: התחושה שעבודת הלב היא דבר מובן מאליו, שאין בו מה לחקור.</p>
+<p class="bold-para">מה שנראה פשוט מדי ללמוד – הוא לפעמים מה שהכי פחות למדנו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: חמישה חלקים – ואחד בלבד נלמד ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חמישה חלקים – ואחד בלבד נלמד</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החסיד מביא ראיה מפסוק שבו סיכם משה רבנו את כל מה שה' מבקש:</p>
+<blockquote>"ועתה ישראל, מה ה' אלוקיך שאל מעמך, כי אם ליראה את ה' אלוקיך, ללכת בכל דרכיו ולאהבה אתו, ולעבד את ה' אלוקיך בכל לבבך ובכל נפשך. לשמר את מצות ה' ואת חקתיו אשר אנכי מצוך היום, לטוב לך" (דברים י, יב-יג)</blockquote>
+<p>חמישה דברים: יראה, הליכה בדרכיו, אהבה, עבודה בלב – ושמירת המצוות. וכל הדינים והפסקים שהחכם עסק בהם הם רק החלק החמישי. למה הפסוק מונה אותם בנפרד, והרי שמירת המצוות כוללת הכול? כי מצוות הלב הן סוג בפני עצמו – והפסוק הקדים אותן, כי הן החשובות יותר. היראה והאהבה הן שני העמודים שכל העבודה נשענת עליהם.</p>
+<div class="honey-box">🍯 "באחד נתעסקת וארבעה הנחת" – מי שלומד רק את הדינים, עסק בחמישית מהתורה.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: יהודי פשוט – ולבו כולו לה&#x27; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">הבעל שם טוב: מהפכת הלב</h2></div></div>
+<p class="chapter-intro">מה שקרה באקדמיה לפני שלושים שנה, קרה בעולם היהודי לפני כמאתיים וחמישים שנה.</p>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">יהודי פשוט – ולבו כולו לה&#x27;</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בדומה למה שקרה בעולם הרחב, גם בעולם היהודי שלט השכל במשך דורות. יהודי נמדד לפי יכולתו בלימוד: המתמיד, הבקי, החריף, הפוסק. יהודים פשוטים, שעבדו את ה' בכל לבם ונפשם, נדחקו לשוליים. הרגש לא קיבל מקום של כבוד.</p>
+<p>הבעל שם טוב היה הראשון שהעלה את עולם הרגש למרכז עבודת ה'. הוא התייחס ביחס מיוחד אל היהודי הפשוט שמתפלל בכל לבו, שמלא אהבת ה' ותמימות.</p>
+<p class="bold-para">יהודי שאתה רואה אותו מלא אהבת ה' – הוא יהודי יקר מאוד, ולא פחות מגדול בתורה.</p>
+<p>כמה מהפכני היה השינוי הזה? מסופר שאפילו גדול תלמידי הבעל שם טוב, המגיד ממזריטש, התקשה תחילה לקבל את יחסו המיוחד של רבו לאנשים פשוטים – עד שזכה לראות בעצמו כמה יקרה לפני ה' עבודה בלב תמים.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: למה התורה לא ציוותה לקום בפני בעל רגש? ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה התורה לא ציוותה לקום בפני בעל רגש?</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מצווה לכבד תלמיד חכם:</p>
+<blockquote>"מפני שיבה תקום והדרת פני זקן" (ויקרא יט, לב)</blockquote>
+<p>וחז״ל דרשו: "אין זקן אלא זה שקנה חכמה" (קידושין לב ע״ב). אז למה אין מצווה לקום בפני אדם מלא רגש של עבודת ה'?</p>
+<p>כנראה כי את הרגש אי אפשר למדוד. חכמה רואים; רגש – לא. גם היום, החוקרים עובדים קשה מאוד לפתח מבחנים שיגלו מה מרגיש אדם, וההצלחה חלקית בלבד. יש מבחני "מנת משכל רגשית", אבל הם רחוקים מלהיות מדויקים.</p>
+<p>זו כנראה הסיבה שבעולם היהודי לא הבליטו אנשים כאלה: קשה לזהות אותם. והבעל שם טוב לימד לראות גם את מה שאי אפשר למדוד.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: מה זו בעצם חסידות? ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מה זו בעצם חסידות?</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם מנסים לסכם במילה אחת מה עניינה של החסידות – זו לא רק שמחה, ולא רק פנימיות. כל ספרי החסידות, מהתניא ועד אחרון הספרים, עוסקים בשאלה אחת: <strong>איך לא עובדים את ה' ביובש.</strong> איך מכניסים לתוך המצוות שמחה, התלהבות, אהבה – איך נותנים למצווה "יקוד" ואש.</p>
+<p>כשפותחים ספר הלכה, מחפשים בו דינים, שאלות ודיונים. כשפותחים ספר חסידי, מחפשים בו את הדרך לעשות את אותן מצוות עצמן – עם הלב.</p>
+<p>כך נוצר במשך דורות פער. בישיבות ליטא העריכו את העמקות והחריפות, ובחצרות החסידים מדדו בחור גם לפי הדבקות שלו בתפילה ולפי השמחה שבה הוא עובד את ה'. השכל והרגש עמדו שוב משני צדי המתרס.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: כשהכול מתערבב ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">☀️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">בארץ ישראל הלב נפתח</h2></div></div>
+<p class="chapter-intro">פולין וליטא נחרבו, והכול נפגש מחדש בארץ ישראל – ארץ חמה, שהובטח בה דבר מיוחד.</p>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשהכול מתערבב</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי החורבן הגדול של יהדות אירופה, נפגשו כל השבטים בארץ ישראל. וכאן כבר אין כמעט הבדל חד בין חסידים לליטאים. הישיבות החסידיות לומדות בעיון רב, ובישיבות הליטאיות נכנס הרבה רגש – שיחות מוסר, התעוררות, תפילה בהתלהבות. כל אחד לקח משהו מהשני.</p>
+<p>וגם מזג האוויר משפיע. יש הבדל ידוע בין אופי של אנשים בארצות קרות לאופי של אנשים בארצות חמות. במקום קר ואפור הרגשות נוטים להיות מאופקים, ובמקום חם ושמשי – חמים ופתוחים.</p>
+<p>בארץ ישראל השמש זורחת רוב ימות השנה. <strong>הארץ עצמה פותחת את הלב.</strong></p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: ההבטחה: &quot;ומל ה&#x27; אלוקיך את לבבך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ההבטחה: &quot;ומל ה&#x27; אלוקיך את לבבך&quot;</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה כמעט אינה מפרטת מה יקרה כשעם ישראל ישוב לארצו, מלבד שמירת המצוות. אבל בפרשת נצבים יש הבטחה אחת מיוחדת:</p>
+<blockquote>"ומל ה' אלוקיך את לבבך ואת לבב זרעך, לאהבה את ה' אלוקיך בכל לבבך ובכל נפשך, למען חייך" (דברים ל, ו)</blockquote>
+<p>הלב האטום והסגור – "ערלת הלב" – יוסר לאט לאט. הלב ייפתח, וירצה מאוד לאהוב את הקדוש ברוך הוא.</p>
+<p>ואפשר לראות את זה היום בעיניים. בכל מקום מתעוררת כמיהה לחיבור, לרגש, לאהבת ה' שמרגישים אותה ולא רק יודעים אותה.</p>
+<div class="honey-box">🍯 מה שקורה היום בלבבות אינו מקרה – זו הבטחה של התורה שמתקיימת.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: חינוך שלא יכול בלי לב ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חינוך שלא יכול בלי לב</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ולכן גם בחינוך אי אפשר עוד לעבוד כמו פעם. מחנכים רבים מבינים היום שתוכנית חינוך שבנויה רק על שכל – "תלמדו כך וכך וכך" – לא תחזיק. רוב הסיכויים שלא יישארו הרבה בוגרים מחוברים אחרי שנים של לימוד יבש.</p>
+<p>הדור הזה צריך חינוך עם הרבה מאוד רגש: חוויה, חיבור, שמחה, משמעות. לא במקום השכל – אלא יחד איתו.</p>
+<p><strong>המהפכה שהעולם גילה לפני שלושים שנה, התורה ציוותה עליה מאז ומעולם: "בכל לבבך".</strong> והשאלה הגדולה היא רק איך עושים את זה בפועל – איך מחברים את הלב לכל מצווה ולכל יום.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
