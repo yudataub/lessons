@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🍎 לאכול פחות, להתענג יותר</title>
+<meta name="description" content="איך הופכים כל פרי לרגע של התפעלות ותודה: אכילה מודעת בדרך התורה, מן הקופה של רבי אלעזר ועד הקליפה, הריח והלחם של ימות המשיח.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🍎 לאכול פחות, להתענג יותר</h1>
+  <p class="hero-subtitle">איך הופכים כל פרי לרגע של התפעלות ותודה: אכילה מודעת בדרך התורה, מן הקופה של רבי אלעזר ועד הקליפה, הריח והלחם של ימות המשיח.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-11 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/SNXs0-5alRo" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">👁️ כל מה שראתה עינו ולא אכל</a><ul class="toc-stories"><li><a href="#story-1">דין וחשבון על פרי שלא טעמת</a></li><li><a href="#story-2">לא לסחוף הכול</a></li><li><a href="#story-3">הקופה של רבי אלעזר</a></li><li><a href="#story-4">מתנת אהבה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🕯️ להיות עשיר בעיניים עצומות</a><ul class="toc-stories"><li><a href="#story-5">השמש שלא הייתה שוקעת</a></li><li><a href="#story-6">&quot;פוקח עורים&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🍇 אכילה מודעת בדרך התורה</a><ul class="toc-stories"><li><a href="#story-7">מודעת או רגשית</a></li><li><a href="#story-8">הבורא יכול היה לברוא גלולות</a></li><li><a href="#story-9">&quot;בחן בחסד וברחמים&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🌳 פירות מגן עדן</a><ul class="toc-stories"><li><a href="#story-10">חג לפירות, לא לירקות</a></li><li><a href="#story-11">&quot;כל עץ נחמד למראה&quot;</a></li><li><a href="#story-12">למה לא הכול תענוג?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🍊 האריזה המושלמת</a><ul class="toc-stories"><li><a href="#story-13">קליפה שמדברת</a></li><li><a href="#story-14">צינורות הקליפה</a></li><li><a href="#story-15">אריזה שחוזרת לאדמה</a></li><li><a href="#story-16">מוצק ונוזל יחד</a></li><li><a href="#story-17">הריח, ומה שאין צריך לבשל</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🥖 גלוסקאות על האילן</a><ul class="toc-stories"><li><a href="#story-18">לחם שגדל על העצים</a></li><li><a href="#story-19">הסבתא שקמה בארבע</a></li><li><a href="#story-20">כלים לקבל את העונג</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">👁️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">כל מה שראתה עינו ולא אכל</h2></div></div>
+<p class="chapter-intro">ערב ט"ו בשבט, ומאמר מפתיע בירושלמי: אדם ייתן דין וחשבון גם על מה שלא אכל.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דין וחשבון על פרי שלא טעמת</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה אוכלים בט"ו בשבט כל כך הרבה פירות? יש שאוכלים רק פירות ארץ ישראל, ששבחה בהם התורה – וזה מתאים לראש השנה לאילן. ויש שאוכלים מכל הבא ליד, גם פירות שהגיעו מטורקיה ומארצות רחוקות. על מה הם סומכים?</p>
+<p>בסוף מסכת קידושין בירושלמי נאמר משפט מפתיע: עתיד אדם ליתן דין וחשבון על כל מה שראתה עינו ולא אכל.</p>
+<p>מה פירוש? הרי התורה מלמדת להתגבר על תאוות! אלא שתכלית הבריאה היא שהאדם יכיר את טובו של הבורא. אם הייתה לך הזדמנות להכיר את טובו בפרי מיוחד, שהיה מרומם אותך ומעורר אותך לתודה – והחמצת אותה, תישאל על כך.</p>
+<p class="bold-para">לא כל אכילה היא תאווה. יש אכילה שהיא הכרת טובה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: לא לסחוף הכול ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא לסחוף הכול</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב להבין מה המאמר הזה איננו אומר. אין הכוונה שעכשיו צריך לאכול כל מה שרואים, לסחוף את כל הקערות ולאכול בלי חשבון.</p>
+<p>הכוונה היא לדבר שאתה מרגיש שאם תאכל אותו, משהו בך יתרומם: טעם חדש, פרי שלא טעמת השנה, מאכל מיוחד שמעורר התפעלות. על דבר כזה יש מצווה לאכול. וכך הובא בדברי האחרונים: מצווה לאכול מעט מכל מין חדש בשנה, כדי להראות שחביבים עליו מעשיו של הקדוש ברוך הוא, שהאדם מתאווה ומתפעל מהם.</p>
+<p>לכן גם מי שאוכל בט"ו בשבט פירות מכל העולם, עליו לבחור דבר שמעורר בו התפעלות – לא סתם לאכול עוד ועוד.</p>
+<div class="honey-box">🍯 המבחן איננו כמה אכלת, אלא כמה התפעלת.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: הקופה של רבי אלעזר ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הקופה של רבי אלעזר</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הירושלמי ממשיך ומספר: רבי אלעזר חשש לשמועה הזו, והיה חוסך פרוטות, ופעם אחת בשנה היה אוכל בהן מכל מאכל.</p>
+<p>כדי להבין את גודל המעשה צריך להכיר את רבי אלעזר בן פדת, מגדולי האמוראים ותלמידו של רבי יוחנן. הגמרא בתענית (כה ע"א) מספרת שהיה עני גדול כל ימיו. פעם הקיז דם לרפואה – ואחרי הקזה צריך לאכול משהו מחזק, אחרת מתעלפים (כמו שגם היום נותנים לתורם הדם שתייה ועוגה). חיפש בבית ולא מצא דבר, חוץ משן של שום. אכל אותה, חלשה דעתו ונרדם.</p>
+<p>בחלומו שאל את הקדוש ברוך הוא: עד מתי אהיה בצער הזה? ענה לו: אלעזר בני, ניחא לך שאחריב את העולם ואבראנו מחדש, אולי תיוולד בשעה של מזונות?</p>
+<p>אדם כזה, שלא היה לו לחם, היה מניח בצד פרוטה ועוד פרוטה בקופת חיסכון – כדי לקנות פעם בשנה דובדבן אחד, משמש אחד, אגוז אחד, ולברך עליהם.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: מתנת אהבה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מתנת אהבה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה עשה זאת? כי כל פרי חדש הוא הזדמנות להתרגש מחסדי הבורא ולומר תודה. הפרי נברא בשבילנו, כמתנת אהבה מבורא עולם.</p>
+<p>עני מרוד היה מוותר על מה שהכסף יכול לקנות – לחם, בגד – כדי לזכות לומר תודה בלב מלא אהבה על טובו של הבורא, המתגלה בפירות המגוונים.</p>
+<p>זה אחד המקורות לכך שאוכלים פירות בט"ו בשבט: לא כדי להתמלא, אלא כדי להתרגש ולהתלהב ממה שהקדוש ברוך הוא ברא.</p>
+<p class="bold-para">רבי אלעזר חסך מפיתו, כדי שלא יחסר לו אף פרי שעליו לא אמר תודה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: השמש שלא הייתה שוקעת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">להיות עשיר בעיניים עצומות</h2></div></div>
+<p class="chapter-intro">רבי אברהם אבן עזרא, העני המפורסם, מלמד איך מגיעים לשמחה גם בלי כלום.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">השמש שלא הייתה שוקעת</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי אברהם אבן עזרא היה עני כל ימיו, ומיוחס לו שיר מפורסם שבו הוא מתאר את מזלו בחיוך עצוב: אילו היה סוחר בנרות – השמש לא הייתה שוקעת עד יום מותו; ואילו היה עוסק בתכריכים – בני אדם היו מפסיקים למות.</p>
+<p>מסופר שתלמידיו החליטו לעזור לו. פיזרו מטבעות על הדרך שבה הלך כל בוקר לבית הכנסת, ואמרו: ירים אותם, ויהיה לו כסף לקנות משהו טוב. הסתתרו וחיכו לראות.</p>
+<p>והנה, רגע לפני שהגיע למקום המטבעות, עצם רבי אברהם את עיניו, והלך כמו עיוור, צעד אחר צעד, עד שעבר את כל המטבעות. רק אז פקח את עיניו.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;פוקח עורים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;פוקח עורים&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התלמידים לא התאפקו, רצו אליו ושאלו: רבי, מה זה היה?</p>
+<p>אמר להם: הלכתי להתפלל, וכל אדם בא לפני בורא עולם עם רשימה של דברים להודות עליהם. ואני? אין לי בית, המשפחה רחוקה, אין לי כלום. על מה אודה? איך לא אתבייש לפני הקדוש ברוך הוא בברכות השחר?</p>
+<p>אז החלטתי להיות עשיר. עשיר הוא מי שמכיר במה שיש לו: עיניים, ידיים, רגליים. עצמתי את עיניי והלכתי כמו עיוור, ודמיינתי מה היה קורה לו באמת לא הייתי רואה. וכשהגעתי לבית הכנסת ופקחתי את עיניי, ואמרתי "ברוך אתה ה' פוקח עורים" – איזו שמחה הייתה בלבי!</p>
+<p>זו דוגמה למה שהיום קוראים "דמיון מודרך": אדם יכול לשמוח גם במצב קשה, כשהוא מתבונן במה שכבר יש לו.</p>
+<div class="honey-box">🍯 לפני ברכות השחר, עצום עיניים לרגע. כשתפקח אותן – הברכה תצא מן הלב.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מודעת או רגשית ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🍇</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">אכילה מודעת בדרך התורה</h2></div></div>
+<p class="chapter-intro">בעולם התזונה מדברים על אכילה מודעת. ליהודי יש לזה עומק נוסף: לראות את הבורא בכל ביס.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מודעת או רגשית</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעולם התזונה מבחינים בין שני סוגי אכילה. אכילה רגשית היא אכילה שאינה באה מרעב, אלא ממצב רוח: לחץ, עצב, שעמום. אדם פותח את המקרר לא כי הגוף ביקש, אלא כי משהו בפנים מרגיש ריק.</p>
+<p>אכילה מודעת היא ההפך: אדם מקשיב לגוף, אוכל כשהוא רעב, שם לב למה שהוא אוכל, לטעם ולמרקם, ויודע מתי לעצור.</p>
+<p>תרגיל מפורסם בתחום הוא "תרגיל הצימוק": לוקחים צימוק אחד ומתבוננים בו דקות ארוכות – בצורה, בקמטים, במשקל, בריח – ורק אז מכניסים לפה ומרגישים כל רגע. מי שמתנסה בזה מגלה כמה דברים פספס באלפי צימוקים שבלע בלי לשים לב.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: הבורא יכול היה לברוא גלולות ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הבורא יכול היה לברוא גלולות</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל לנו יש דרך עמוקה יותר. לא רק לשים לב לגוף – אלא להתפעל ממה שהקדוש ברוך הוא ברא.</p>
+<p>העולם היה יכול להתקיים מצוין גם בלי הטעם והיופי של הפירות. הבורא היה יכול לייצר גלולות מולטי-ויטמין שגדלות על העצים. או לברוא אותנו כמו פרות: פרה אוכלת חציר מן הבוקר עד הערב – חציר, ועוד חציר, ועוד חציר – וטוב לה.</p>
+<p>אבל הקדוש ברוך הוא לא עשה כך. הוא ברא לנו בשר ודגים, תבואה וירקות, ופירות לאין ספור: תמרים וענבים, תאנים ורימונים, שזיפים ומנגו ואפרסמונים. ולא רק טעם – גם תבלינים: פלפל, קינמון, כורכום ועוד. למה? כדי שנהנה, ומתוך ההנאה – נכיר טובה.</p>
+<p class="bold-para">כל טעם שאפשר היה בלעדיו הוא הוכחה שהבורא רוצה שנתענג.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: &quot;בחן בחסד וברחמים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;בחן בחסד וברחמים&quot;</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בברכת המזון אנו אומרים שהקדוש ברוך הוא "הזן את העולם כולו בטובו, בחן בחסד וברחמים". מה פירוש "בחן"?</p>
+<p>החן הוא היופי שמעבר לצורך. יש כאן מינים רבים של מזון, כל אחד בצורתו ובצבעו, כל פרי עם הקליפה המתאימה לו – נחמד למראה וטוב למאכל.</p>
+<p>תראו כמה יפים הפירות: יש כיכר שעל שם התפוח, כיכר הרימון, כיכר האגס. בכניסה לעיר מציבים פסל של פרי. אבל מעולם לא ראיתי כיכר על שם העגבנייה או המלפפון, ובוודאי לא על שם השום. התפוח הוא סמל של יופי.</p>
+<div class="honey-box">🍯 לפני שאתה מברך על פרי, הבט בו רגע. החן שבו הוא חלק מן המתנה.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: חג לפירות, לא לירקות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🌳</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">פירות מגן עדן</h2></div></div>
+<p class="chapter-intro">למה יש חג לפירות ואין חג לירקות? התשובה מובילה עד גן עדן.</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חג לפירות, לא לירקות</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שימו לב: יש ראש השנה לאילן, חגיגה שלמה לפירות. אין אף חג לירקות.</p>
+<p>ועוד: ארץ ישראל השתבחה בפירות – "ארץ חטה ושערה וגפן ותאנה ורמון, ארץ זית שמן ודבש". מעולם לא מצאנו שהיא משתבחת בירקות. ומי כן השתבחה בירקות? מצרים. נאמר "כגן ה' כארץ מצרים", ורש"י מפרש: לזרעים. וכשהתורה משווה את ארץ ישראל למצרים היא אומרת על מצרים "והשקית ברגלך כגן הירק".</p>
+<p>כמובן שבארץ ישראל יש היום הכול, גם ירקות משובחים. אבל השבח של הארץ בתורה הוא בשבעת המינים – רובם פירות האילן.</p>
+<p>וגם במציאות שמו לב לדבר מעניין: ענף המטעים בארץ קשור יותר ביהודים, והירקות – יותר במגזר הערבי. אחד מאנשי החקלאות הסביר זאת כך: בפירות העבודה היא בגובה, בקומה זקופה; בירקות היא בכפיפה, מול האדמה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;כל עץ נחמד למראה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;כל עץ נחמד למראה&quot;</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בגן עדן לא היו ירקות. נאמר:</p>
+<blockquote>"ויצמח ה' אלוקים מן האדמה כל עץ נחמד למראה וטוב למאכל" (בראשית ב, ט)</blockquote>
+<p>בגן עדן היו רק עצים. העצים הם בריאה נעלה ומשוכללת, וגם אחרי חטא אדם הראשון נשארו בפירות הרבה ניצוצות של גן עדן.</p>
+<p>והירקות? אחרי החטא נאמר לאדם "ואכלת את עשב השדה". הירק שייך לעולם שאחרי הירידה, לעולם של "בזעת אפך".</p>
+<p>לכן הפרי הוא נחמד למראה, גדל בגובה, ונאכל כמו שהוא. בפרי אפשר עדיין לראות טעימה קטנה מגן עדן.</p>
+<div class="honey-box">🍯 כשאתה אוכל פרי, אתה טועם משהו ממה שהיה לפני החטא.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: למה לא הכול תענוג? ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה לא הכול תענוג?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם כן, הקדוש ברוך הוא רצה לברוא עולם שכולו תענוג. למה לא ברא עולם שיש בו רק פירות, רק טוב, בלי עבודה ובלי קושי?</p>
+<p>כי כשיש יותר מדי, האדם לא עומד בזה. "וישמן ישורון ויבעט". האדם במצבו היום אינו מסוגל להכיל שפע גדול ולהישאר מפוקס. תראו את הבעיה הגדולה של העולם המערבי: לא רעב – אלא השמנה, ומחלות שבאות מעודף.</p>
+<p>לכן צריך גם עבודה קשה, גם קושי. ולקראת התיקון השלם יגיע העולם לשלב שבו האדם יוכל לקבל תענוג גדול ולהישאר נורמלי, ממוקד ומאוזן, בלי לבלוע יותר מדי.</p>
+<p class="bold-para">התענוג הוא תכלית הבריאה. הכלים לקבל אותו נבנים לאט.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: קליפה שמדברת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🍊</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">האריזה המושלמת</h2></div></div>
+<p class="chapter-intro">קליפה, צבע, מיץ וריח: מסע התבוננות בפרי אחד, שאף מפעל עוד לא הצליח לחקות.</p>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">קליפה שמדברת</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מזלזלים בקליפה. "קליפה" נשמעת כמו משהו מיותר. אבל תראו מה היא יודעת לעשות.</p>
+<p>אף מפעל עוד לא הצליח לייצר קרטון חלב שלפי הצבע שלו תדע אם החלב טרי או מקולקל. לכל היותר, קופסת שימורים מתנפחת כשמשהו השתבש. ואילו הפרי – הקליפה שלו מספרת הכול: קלמנטינה ירוקה עוד לא בשלה; כתומה יפה – מוכנה; ואם היא משחירה – מקולקלת.</p>
+<p>ולמה דווקא שחור? כמעט אין מאכל שחור בטבע, והאדם בדרך כלל לא נמשך לאכול דבר שחור. הבורא ברא כך בכוונה: כשהאוכל לא טוב, הוא משנה את צבעו לצבע שמרחיק אותנו ממנו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: צינורות הקליפה ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">צינורות הקליפה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויותר מזה: בעץ, הקליפה היא מערכת התחבורה כולה. מי שיבחן אותה במיקרוסקופ יראה בה מאות צינורות דקים, שמעבירים מים ומזון מן השורש עד העלים העליונים, גם בעצים בגובה עצום – בכוח היניקה, בלי משאבה.</p>
+<p>ולכן, אם מסירים מעץ טבעת של קליפה סביב כל הגזע, אפילו ברוחב קטן, העץ מת. החיים שלו זורמים בקליפה.</p>
+<p>כל זה נמצא בדבר שאנחנו זורקים לפח בלי מחשבה. מי שעוצר לרגע ומתבונן, מוצא בקליפה אחת שיעור שלם בחכמת הבורא.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: אריזה שחוזרת לאדמה ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">אריזה שחוזרת לאדמה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>היום עובדים קשה על סביבה נקייה. מנסים להפחית כלים חד-פעמיים, מחפשים אריזות שיתפרקו ולא יישארו לנצח.</p>
+<p>והנה, הקדוש ברוך הוא ברא את האריזה המושלמת. פרי שאיש לא אכל נופל לאדמה – ולאט לאט נרקב, נטמע בקרקע, הזרע שבו נובט, והשאר חוזר להזין את האדמה.</p>
+<p>נסו לדמיין: אילו כל פרי היה כמו כוס חד-פעמית, שאינה מתכלה – ביערות שאיש לא דורך בהם היו הפירות נערמים שנה אחר שנה, עד שהכול היה נחנק. העולם מתקיים רק בזכות יצירה מופלאה שעוד אין לה חיקוי: הפרי נהפך, מתכלה ונעלם.</p>
+<div class="honey-box">🍯 אם תצליח לייצר אריזה כזו – תוכל להתחרות בבורא עולם. עד אז, אפשר רק להתפעל.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מוצק ונוזל יחד ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מוצק ונוזל יחד</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועוד פלא: חיבור של מוצק ונוזל. מי שנגס פעם בעגבנייה שלמה מכיר את הסכנה – פריץ אחד, והחולצה כולה מוכתמת.</p>
+<p>אבל תפוז מלא מיץ, כמויות עצומות, וכולם אוכלים אותו בהפסקת הצהריים – ושום דבר לא נשפך. המיץ והציפה מאוחדים בצורה חכמה, בתוך שקיקים זעירים, כך שאפשר ללעוס את הפרי בלי שהמשקה יברח החוצה.</p>
+<p>תפוח ותפוז הם בעצם כוס מלאה מיץ, גדושה ויטמינים, שמרווה את הצמא ומשביעה כאחד. ואין צורך בכוס, בפקק או בקש.</p>
+<p>זו בדיוק אכילה מודעת בדרך התורה: לא רק לשים לב לטעם, אלא להתפעל מחסדי הבורא בכל פרט.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: הריח, ומה שאין צריך לבשל ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הריח, ומה שאין צריך לבשל</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התזונאים טוענים שעיקר ההנאה מן האוכל באה מן הריח. מי שרוצה הוכחה – ייזכר בימי הקורונה. הקורונה לא פגעה בחוש הטעם, אלא בחוש הריח, ואנשים אמרו: אין טעם לשום דבר. בלי ריח, הלשון מבחינה רק בטעמים בסיסיים – מתוק, חמוץ, מר ומלוח. כל השאר הוא ריח. והבורא נטע בפירות ריחות נפלאים, שעוזרים לנו לאכול בשמחה ובתיאבון.</p>
+<p>ועוד הבדל בין פירות לירקות: כמעט אין פרי שצריך בישול. אולי החבוש, וגם אותו יש שאוכלים חי. לעומת זאת ירקות רבים צריכים בישול – תפוח אדמה, גזר, קישוא, חציל.</p>
+<p>גם זה מתאים למה שראינו: הפרי בא מעין גן עדן, מוכן ומושלם; הירק שייך לעולם הזה, שבו צריך לעבוד ולהכין.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: לחם שגדל על העצים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🥖</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">גלוסקאות על האילן</h2></div></div>
+<p class="chapter-intro">נבואה של חז"ל על ארץ ישראל, הסבר מפתיע של הרמב"ם, וסבתא שקמה בארבע בבוקר.</p>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לחם שגדל על העצים</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל אומרים: עתידה ארץ ישראל שתוציא גלוסקאות – כיכרות לחם משובחות. איך זה יקרה? יצמחו כיכרות לחם על העצים?</p>
+<p>לרמב"ם הייתה כאן בעיה מיוחדת. שיטתו היא שימות המשיח לא יהיו עולם דמיוני, כמו באגדות שאנשים אוהבים לספר. העולם ימשיך כמנהגו, אלא שישראל ישבו בארצם בשלום ויעסקו בתורה ובחכמה.</p>
+<p>לכן מבאר הרמב"ם שדברי חז"ל כאן הם דרך משל: שיהיה קל מאוד להשיג לחם, כמו שקל לקטוף פרי מן העץ. אדם לא יצטרך לעמול כדי לאכול לחם – הוא יהיה מוכן וזמין כמו פרי שמושיטים אליו יד.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: הסבתא שקמה בארבע ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הסבתא שקמה בארבע</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין כמה הדברים האלה נוגעים לנו, צריך לשמוע סיפור של סבתא. היא סיפרה שבילדותה, לפני שמונים שנה בערך, היו מעירים אותה בארבע לפנות בוקר. למה? כדי שכשאבא יחזור מתפילת שחרית יהיה לו לחם.</p>
+<p>היה צריך לקום, ללוש, להסיק את התנור, לאפות – וכך, אחרי שעות של עבודה, היה לחם על השולחן.</p>
+<p>והיום? חוזרים מבית הכנסת, קופצים בדרך למכולת, ובשבע וחצי יש לחם טרי וטעים, מוכן, בכמה שקלים.</p>
+<p>צריך לומר לרמב"ם: לא היה צורך לדמיין. זה כבר כאן. ארץ ישראל מוציאה גלוסקאות – ואיזה מבחר! לחם לבן ולחם מלא, לחם שיפון ובייגל ולחמניות.</p>
+<div class="honey-box">🍯 בפעם הבאה שתקנה לחם טרי בבוקר – זכור את הסבתא שקמה בארבע, ואמור תודה.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: כלים לקבל את העונג ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כלים לקבל את העונג</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אנחנו חיים בתוך הגשמה של נבואות, ולא תמיד שמים לב. מה שהיה פעם חלום על ימות המשיח הוא היום דבר שגרתי, שקל מאוד לקחת כמובן מאליו.</p>
+<p>וזה בדיוק הלקח של הכול: אכילה מודעת בדרך התורה היא היכולת לעצור, להתבונן ולהתפעל. לראות בפרי מתנת אהבה, בלחם של הבוקר – הגשמת נבואה, ובכל טעם וריח – חסד של הבורא.</p>
+<p>העולם ימשיך להתקדם, והשפע ילך ויגדל. וככל שנהיה כלים טובים יותר לקבל את העונג הנפלא שהקדוש ברוך הוא שולח – לאכול פחות ולהתענג יותר, לאכול מתוך הכרת טובה ולא מתוך ריקנות – כך הוא יוכל להשפיע עלינו עוד ועוד, בעזרת ה' יתברך.</p>
+<p class="bold-para">לא הכמות עושה את התענוג – אלא העיניים שרואות את הנותן.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
