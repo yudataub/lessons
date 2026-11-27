@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🧺 סל של אהבה: הביכורים וחיבת הארץ</title>
+<meta name="description" content="למה התורה ציוותה לקחת סל קטן של פירות למסע של ימים עד ירושלים, ומה מצוות הביכורים מלמדת כל יהודי שזוכה לגור בארץ ישראל – או שעדיין לא.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🧺 סל של אהבה: הביכורים וחיבת הארץ</h1>
+  <p class="hero-subtitle">למה התורה ציוותה לקחת סל קטן של פירות למסע של ימים עד ירושלים, ומה מצוות הביכורים מלמדת כל יהודי שזוכה לגור בארץ ישראל – או שעדיין לא.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-11 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/rRqita2staM" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌅 והיה כי תבוא: השמחה של ביאת הארץ</a><ul class="toc-stories"><li><a href="#story-1">הפרשה השביעית והמאה השביעית</a></li><li><a href="#story-2">אין &quot;והיה&quot; אלא לשון שמחה</a></li><li><a href="#story-3">ייסורי זקנה וייסורי לידה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🧺 ארבע תמיהות במצוות הביכורים</a><ul class="toc-stories"><li><a href="#story-4">מצווה שמחכה לחזור</a></li><li><a href="#story-5">תמיהה ראשונה: למה צריך לקרוא?</a></li><li><a href="#story-6">תמיהה שנייה: למה דווקא לבית המקדש?</a></li><li><a href="#story-7">תמיהה שלישית ורביעית: שבעת המינים ובעל הקרקע</a></li><li><a href="#story-8">מתי הביאו ביכורים?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">✈️ חובה או אהבה: לעלות לארץ ישראל</a><ul class="toc-stories"><li><a href="#story-9">האם יש חובה לעלות?</a></li><li><a href="#story-10">לעלות היה קשה</a></li><li><a href="#story-11">קונטרס שנכתב נגדו – והסכמה שנתן לו</a></li><li><a href="#story-12">מה ישאלו אותנו בשמיים</a></li><li><a href="#story-13">גם מי שכבר כאן צריך להתעורר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">💚 הסוד של הביכורים: להתעורר מחדש</a><ul class="toc-stories"><li><a href="#story-14">אף מילה על הפירות</a></li><li><a href="#story-15">&quot;ארמי אובד אבי&quot; – לזכור מאיפה באנו</a></li><li><a href="#story-16">מסע שורשים אמיתי</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🎁 כל התמיהות נפתחות</a><ul class="toc-stories"><li><a href="#story-17">למה קוראים, ולמה עולים לירושלים</a></li><li><a href="#story-18">למה רק שבעת המינים</a></li><li><a href="#story-19">המצווה המעוצבת</a></li><li><a href="#story-20">הודיה צריכה להיות צבעונית</a></li><li><a href="#story-21">למה דווקא בעל הקרקע</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">והיה כי תבוא: השמחה של ביאת הארץ</h2></div></div>
+<p class="chapter-intro">פרשת כי תבוא נפתחת במילה אחת שמסתתרת בה כל השמחה של עם ישראל בארצו.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הפרשה השביעית והמאה השביעית</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מקובל בשם הגאון מווילנה רעיון מופלא: כל אחת מפרשיות ספר דברים מכוונת כנגד מאה שנה באלף השישי. דברים, ואתחנן, עקב, ראה, שופטים, כי תצא – והפרשה השביעית היא "והיה כי תבוא אל הארץ".</p>
+<p>המאה השביעית של האלף השישי היא שנות ה'ת"ש ואילך – בדיוק המאה שבה חזרו יהודים בהמוניהם אל ארץ ישראל, הקימו בה בתים, שתלו בה כרמים והחזירו לה את החיים.</p>
+<p>מי שקורא את הפרשה הזו היום, קורא בעצם על עצמו.</p>
+<p class="bold-para">"והיה כי תבוא אל הארץ" – זו הפרשה של הדור שלנו.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: אין &quot;והיה&quot; אלא לשון שמחה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אין &quot;והיה&quot; אלא לשון שמחה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל לימדו שהמילה "והיה" באה בתורה כלשון של שמחה. האור החיים הקדוש עומד על כך שהתורה פותחת דווקא כך את פרשת הכניסה לארץ, ומלמד שאין שמחה גדולה ושלמה כמו השמחה של ישיבת ארץ ישראל.</p>
+<p>כך גם אמר דוד המלך על שיבת ציון:</p>
+<blockquote>"אָז יִמָּלֵא שְׂחוֹק פִּינוּ וּלְשׁוֹנֵנוּ רִנָּה" (תהלים קכו, ב)</blockquote>
+<p>המשמעות למעשה פשוטה ועמוקה: יהודי שנמצא בארץ ישראל צריך להיות שמח. לא משנה מה קרה בחדשות, מי ניצח בבחירות ומה המצב הכלכלי. אנחנו נמצאים בביתו של בורא עולם, והקדוש ברוך הוא עוזר כאן בכל צעד.</p>
+<div class="honey-box">🍯 לפני שמתלוננים על משהו בארץ – לזכור לרגע איפה אנחנו עומדים.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: ייסורי זקנה וייסורי לידה ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ייסורי זקנה וייסורי לידה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר על רב אחד ששאלו אותו: למה עלית לארץ ישראל? גם כאן יש צרות, גם שם יש צרות. מה ההבדל?</p>
+<p>ענה להם במשל. אדם מבוגר מתחיל לסבול – כאן כואב, שם כואב. הולך לרופא ושומע: "זו זקנה". הוא נבהל, כי הוא יודע לאן זה מוביל. כל כאב הוא סימן לסוף.</p>
+<p>לעומתו, אישה בהריון גם היא סובלת, ולפעמים לא פחות. אבל כששואלת את הרופא, היא שומעת: "אלו חבלי לידה". ופתאום אותו כאב עצמו ממלא אותה שמחה, כי כל כאב מקרב את הרגע שבו ייוולד הילד.</p>
+<p>"הייסורים בחוץ לארץ," אמר הרב, "הם ייסורי זקנה. הייסורים בארץ ישראל הם חבלי לידה. בגלל זה עליתי."</p>
+<p class="bold-para">כל הקושי שרואים בארץ – מתוכו נולד משהו חדש ונפלא.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: מצווה שמחכה לחזור ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🧺</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">ארבע תמיהות במצוות הביכורים</h2></div></div>
+<p class="chapter-intro">מצוות הביכורים אינה נוהגת היום, אבל מי שמתבונן בה מגלה שהיא שונה מכל מצווה אחרת – בארבעה דברים.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מצווה שמחכה לחזור</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בזמן שאין בית המקדש אין מביאים ביכורים, ולכן רוב ההלכות שלה נמצאות ברמב"ם ולא בשולחן ערוך. ובכל זאת, יש מי שעובדים כדי להחיות אותה.</p>
+<p>מכון שעוסק במצוות התלויות בארץ, שישב בעבר בכפר דרום שבגוש קטיף, הוציא ספר שלם על מצוות הביכורים: ביקשו מרבנים רבים בארץ ישראל לכתוב מאמרים בהלכה ובאגדה, כדי שהמצווה תחזור להיות חלק מהחיים של עם ישראל. הספר זמין גם לקריאה במחשב.</p>
+<p>מי שמתבונן במצווה הזו מגלה בה ארבע תמיהות. כשנבין אותן, נבין מה הביכורים רוצים מאיתנו גם היום.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: תמיהה ראשונה: למה צריך לקרוא? ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">תמיהה ראשונה: למה צריך לקרוא?</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יחד עם הבאת הביכורים יש מצוות עשה נפרדת: <strong>מקרא ביכורים</strong>. האדם מגיע לבית המקדש, מניח את הסל ואומר פרשה שלמה – "ארמי אובד אבי", אותה פרשה שאנחנו קוראים בליל הסדר.</p>
+<p>אין עוד מצווה כזו. אדם מביא עולה או חטאת ואינו פותח בדרשה. רק כאן התורה אומרת: לא מספיק להביא – צריך גם לדבר.</p>
+<p>ודבר מעניין: בליל הסדר קוראים מפרשת הביכורים ארבעה פסוקים בלבד. את הפסוק החמישי, שבו מסיים מביא הביכורים את דבריו, לא קוראים:</p>
+<blockquote>"וַיְבִאֵנוּ אֶל הַמָּקוֹם הַזֶּה וַיִּתֶּן לָנוּ אֶת הָאָרֶץ הַזֹּאת אֶרֶץ זָבַת חָלָב וּדְבָשׁ" (דברים כו, ט)</blockquote>
+<p>כדאי לזכור את הפסוק הזה. הוא המפתח לכל המצווה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: תמיהה שנייה: למה דווקא לבית המקדש? ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">תמיהה שנייה: למה דווקא לבית המקדש?</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל מתנות הכהונה של "ראשית" – תרומה, חלה, בכור – נותנים לכהן. אפשר ללכת לשכן שהוא כהן, לתת לו, וסיימנו.</p>
+<p>ביכורים שונים. אי אפשר לתת אותם לכהן שגר בעיר. חובה לעלות איתם עד בית המקדש בירושלים.</p>
+<p>ולא מדובר בנסיעה של שעתיים ברכב. זה היה מסע של כמה ימים ברגל, עם השיירה, עם השוורים ועם החלילים. כל זה בשביל סל קטן של פירות? אילו המטרה הייתה רק לומר תודה על הפירות, היה מספיק לתת אותם לכהן הקרוב.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: תמיהה שלישית ורביעית: שבעת המינים ובעל הקרקע ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">תמיהה שלישית ורביעית: שבעת המינים ובעל הקרקע</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תרומות ומעשרות חלות מדרבנן על כל גידולי הקרקע. ביכורים – רק משבעת המינים, וחכמים לא הרחיבו אותם לשום פרי אחר. מי שיש לו בגינה עץ תפוזים או קלמנטינות, לא יביא ממנו ביכורים. מי שרוצה להתכונן ליום שבו ייבנה המקדש, כדאי שיטע בחצרו גפן, תאנה או רימון.</p>
+<p>והתמיהה הרביעית: בכל המצוות התלויות בארץ, החובה תלויה במי שהפירות שלו. בביכורים החובה תלויה בבעלות על הקרקע. מי שקנה פירות ואין לו קרקע – אינו מביא ביכורים.</p>
+<p class="bold-para">ארבע תמיהות, ותשובה אחת שפותרת את כולן.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מתי הביאו ביכורים? ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מתי הביאו ביכורים?</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה קוראת לחג השבועות "חג הביכורים". מאותו יום אפשר להתחיל להביא, ואפשר להמשיך עד חג הסוכות.</p>
+<p>מי שמתבונן בטבע של ארץ ישראל רואה שהיא נשארה נאמנה לסדר של התורה. שבעת המינים מבשילים בערך לפי הסדר שבפסוק: חיטה ושעורה בשבועות; ענבים בסוף סיוון – כמו שנאמר על המרגלים שיצאו בסוף סיוון: "וְהַיָּמִים יְמֵי בִּכּוּרֵי עֲנָבִים" (במדבר יג, כ); אחר כך התאנה והרימון בקיץ, ולקראת ראש השנה הזית והתמר.</p>
+<p>לכן יש מגדולי האחרונים שכתבו שהזמן הטבעי להבאת ביכורים מכל המינים יחד היה בסביבות ראש חודש אלול, כשכל הפירות כבר בשלים. גם מתיאור המשנה עולה שמסע הביכורים לא היה צמוד לעלייה לרגל, אלא מסע בפני עצמו.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: האם יש חובה לעלות? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">✈️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">חובה או אהבה: לעלות לארץ ישראל</h2></div></div>
+<p class="chapter-intro">לפני שחוזרים לביכורים צריך להבין מצווה שאינה כתובה במפורש, אבל עומדת מאחורי הרבה מצוות: מצוות חיבת הארץ.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">האם יש חובה לעלות?</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה גדולה: האם יהודי שגר בחוץ לארץ חייב לעלות לארץ ישראל?</p>
+<p>רבי משה פיינשטיין, בתשובה מפורסמת באגרות משה, פסק שמצוות יישוב ארץ ישראל היא <strong>מצווה קיומית</strong> ולא חובה. כמו ציצית: אם לובשים בגד של ארבע כנפות, חייבים להטיל בו ציצית. אבל אין חובה ללבוש בגד כזה מלכתחילה. מי שלובש – מקיים מצווה; מי שלא – לא עבר על כלום. כך גם בארץ ישראל: מי שבא לגור בה מקיים מצווה גדולה, אבל אין חובה לבוא.</p>
+<p>יש ראיה חזקה לדבריו: בכל ספרות חז"ל, האמוראים והגאונים, כמעט לא מוצאים דיון "למה אינך עולה לארץ ישראל?". חכמי בבל ישבו בבבל דורות רבים, ואיש לא תבע מהם לעלות כחובה גמורה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: לעלות היה קשה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לעלות היה קשה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב להבין את התמונה ההיסטורית. במשך רוב שנות הגלות הארץ הייתה שוממה ועלייה אליה הייתה קשה מאוד. העלייה המפורסמת של "שלוש מאות רבני צרפת ואנגליה", בעלי התוספות, מונה כמה מאות אנשים בלבד – מספר שהיום מגיע לארץ ביום רגיל. ובכל זאת היא נחשבת אחת העליות הגדולות בתולדות עם ישראל.</p>
+<p>גם הרמב"ם הגיע לארץ ישראל ולא הצליח להתפרנס בה, ולבסוף ירד למצרים.</p>
+<p>מנגד, תלמידי הגאון מווילנה עלו לארץ מתוך אמונה שהעלייה עצמה תקרב את הגאולה. לא מפני שזו חובה הלכתית, אלא מפני שזו הדרך שבה מתחילה הגאולה לצמוח.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: קונטרס שנכתב נגדו – והסכמה שנתן לו ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">קונטרס שנכתב נגדו – והסכמה שנתן לו</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר על בחור מישיבת הסדר שאהב מאוד את ארץ ישראל וכתב קונטרס שלם, להוכיח שיש חובה לעלות – בניגוד לפסק של רבי משה פיינשטיין. לא הרבה אחר כך הוא נרצח בפיגוע בשומרון.</p>
+<p>בני משפחתו וחבריו החליטו להוציא את הקונטרס לאור לזכרו, ועשו דבר מפתיע: שלחו אותו לרבי משה פיינשטיין עצמו וביקשו ממנו הסכמה.</p>
+<p>ורבי משה נתן הסכמה. הוא כתב שאף שאינו מסכים עם המסקנה, טוב שיצאו לאור דיונים בדברי תורה, וחשוב שהדברים ייאמרו.</p>
+<div class="honey-box">🍯 גדלות אמיתית: לברך דברי תורה שכתובים נגדך, כי האמת והאהבה לארץ חשובות יותר מניצחון בוויכוח.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: מה ישאלו אותנו בשמיים ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה ישאלו אותנו בשמיים</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם לפי רבי משה, אין כאן סוף הסיפור. נכון שאין חובה במובן של מצוות עשה, אבל יש <strong>מצוות חיבת הארץ</strong>.</p>
+<p>בספר חרדים כתב שצריך כל איש מישראל לחבב את ארץ ישראל ולבוא אליה מאפסי הארץ בתשוקה גדולה, כבן אל חיק אמו. כלומר: אולי לא ישאלו אדם בשמיים "למה לא קיימת מצוות יישוב הארץ?", אבל יכולים לשאול אותו: "למה לא אהבת אותה? למה לא היה לך הגעגוע שהיה מביא אותך לכאן?"</p>
+<p class="bold-para">מי שאוהב – מגיע. לא כי חייבים, אלא כי אי אפשר אחרת.</p>
+<p>יש כאן גם צד כואב. סבים וסבתות שלנו, במרוקו, בגרמניה ובכל מקום, התפללו כל יום להגיע לארץ ישראל. היום הארץ פתוחה, ולא תמיד רואים את אותה אהבה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: גם מי שכבר כאן צריך להתעורר ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">גם מי שכבר כאן צריך להתעורר</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מצוות חיבת הארץ אינה רק לבני חוץ לארץ. אדם יכול לעלות לארץ ישראל, ואחרי כמה שנים הוא כבר שקוע כולו בחיים: בחשבונות, בפקקים, בבחירות, במה שלא הצליח ובמה שמרגיז. הוא כמעט שוכח שהוא גר בארץ ישראל.</p>
+<p>פעם היו רבנים שעברו מעיר לעיר ומבית כנסת לבית כנסת, ודיברו על אהבת הארץ ועל השמחה של לגור בה. היום כמעט אין מי שעושה זאת.</p>
+<p>ויהודי שגר בארץ צריך לעורר את עצמו שוב ושוב: אני זוכה לגור כאן, באחד הדברים הנפלאים ביותר שקיימים בעולם.</p>
+<p>וזה בדיוק – כך נראה מיד – מה שמצוות הביכורים באה לעשות.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: אף מילה על הפירות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">💚</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">הסוד של הביכורים: להתעורר מחדש</h2></div></div>
+<p class="chapter-intro">מי שקורא את פרשת מקרא ביכורים מתחילתה ועד סופה מגלה שאין בה תודה על הפירות.</p>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אף מילה על הפירות</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה אומר מביא הביכורים כשהוא מגיע לכהן?</p>
+<blockquote>"הִגַּדְתִּי הַיּוֹם לַה' אֱלֹקֶיךָ כִּי בָאתִי אֶל הָאָרֶץ אֲשֶׁר נִשְׁבַּע ה' לַאֲבֹתֵינוּ לָתֶת לָנוּ" (דברים כו, ג)</blockquote>
+<p>הוא לא אומר "תודה על הענבים" ולא "תודה על התאנים". הוא אומר: <strong>באתי אל הארץ.</strong> ואחר כך הוא מספר את כל הסיפור – מאבינו הארמי, דרך מצרים והשעבוד, ועד "וַיְבִאֵנוּ אֶל הַמָּקוֹם הַזֶּה".</p>
+<p>מטרת מסע הביכורים לא הייתה להודות על כמה פירות. המטרה הייתה לעורר את האהבה לארץ ישראל: אני מכיר בכך שבורא עולם הביא אותי לכאן.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: &quot;ארמי אובד אבי&quot; – לזכור מאיפה באנו ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;ארמי אובד אבי&quot; – לזכור מאיפה באנו</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה צריך לספר את כל ההיסטוריה? כי אדם שוכח מהר מאוד. אחרי כמה דורות בארץ, הכול נראה מובן מאליו: ברור שיש לי שדה, ברור שיש לי בית, ברור שאני כאן.</p>
+<p>לכן מביא הביכורים מספר: לא תמיד היינו כאן. היו שנים רבות של גלות, של עבדות ושל צעקה. "וַנִּצְעַק אֶל ה' אֱלֹקֵי אֲבֹתֵינוּ" – והקדוש ברוך הוא שמע והוציא אותנו והביא אותנו לכאן.</p>
+<p>בימינו אפשר לתרגם את זה בקלות. אנחנו דור שעוד זוכר את השואה שפרצה לפני שמונים שנה ומעט. מי שזוכר מאיפה באנו, לא יכול להתייחס לארץ ישראל כאל דבר רגיל.</p>
+<p class="bold-para">אפילו מי שמשפחתו כאן מאה או מאתיים שנה, צריך לעורר בליבו את השמחה ואת האהבה לארץ.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מסע שורשים אמיתי ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מסע שורשים אמיתי</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>היום נוהגים לצאת ל"מסעות שורשים" לעיירות במזרח אירופה או בצפון אפריקה, לראות איפה גרו הסבים. זה כבוד למשפחה, אבל השורשים האמיתיים של עם ישראל נמצאים כאן.</p>
+<p>השורשים שלנו הם בחברון, במערת המכפלה ובקריית ארבע; בשכם, במקום שבו קנה יעקב אבינו את חלקת השדה; בהר גריזים ובהר עיבל, שעליהם נאמרו הברכות והקללות.</p>
+<p>מי שעומד על אחת התצפיות בשומרון ורואה מלמעלה את כל עמק שכם, את שני ההרים ואת המקומות שבהם הלכו האבות – יודע שזה מסע שורשים אמיתי.</p>
+<div class="honey-box">🍯 מסע בארץ ישראל הוא "מקרא ביכורים" של ימינו: לעמוד במקום ולומר – באתי אל הארץ.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: למה קוראים, ולמה עולים לירושלים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🎁</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">כל התמיהות נפתחות</h2></div></div>
+<p class="chapter-intro">מרגע שמבינים שהביכורים הם מצווה של אהבת הארץ, כל אחת מן התמיהות מקבלת תשובה.</p>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה קוראים, ולמה עולים לירושלים</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>למה יש מקרא ביכורים?</strong> אילו המטרה הייתה להודות על הפירות, לא היה צורך בפרשה שלמה. מספיק לתת, כמו בתרומה ובמעשר. אבל המטרה היא לעורר את האדם שיבין כמה נפלא שהוא בארץ – ולכן חייבים לספר.</p>
+<p><strong>למה דווקא לבית המקדש?</strong> כי התעוררות של הלב לא קורית בבית. כך נאמר במזמור לתודה:</p>
+<blockquote>"בֹּאוּ שְׁעָרָיו בְּתוֹדָה חֲצֵרֹתָיו בִּתְהִלָּה" (תהלים ק, ד)</blockquote>
+<p>מי שרוצה להודות באמת – שלא יישאר בבית. בית המקדש היה המקום שבו הלב נפתח. המסע הארוך, השיירה והשירה – כולם היו חלק מההתרגשות.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: למה רק שבעת המינים ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה רק שבעת המינים</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מביא הביכורים אינו בא להודות על הפירות שלו – לזה יש תרומות ומעשרות. הוא בא לספר כמה טובה ארץ ישראל. ובמה מספרים בשבחה של הארץ? בדיוק בפירות שהתורה עצמה משבחת אותה בהם:</p>
+<blockquote>"אֶרֶץ חִטָּה וּשְׂעֹרָה וְגֶפֶן וּתְאֵנָה וְרִמּוֹן אֶרֶץ זֵית שֶׁמֶן וּדְבָשׁ" (דברים ח, ח)</blockquote>
+<p>ולכן גם היה דין להביא רק מן המובחר: לא פירות פגומים או בינוניים, אלא את היפים ביותר. כשמשבחים את הארץ – מביאים את הטוב שבה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: המצווה המעוצבת ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">המצווה המעוצבת</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לביכורים יש עוד ייחוד: זו המצווה שעוטרה. העשירים הביאו את הביכורים בסלים של כסף ושל זהב, וכולם קישטו את הסלים. השור שהלך בראש השיירה היה מעוטר, וחלילים ניגנו לפניו.</p>
+<p>אפשר לדמיין את המראה: לפני הכניסה לירושלים עוצרות השיירות, וכל אחד מסדר את הסל שלו כמו שצריך – הפירות היפים למעלה, ענפים ופרחים מסביב – ורק אז נכנסים לעיר.</p>
+<p>האם שמעתם פעם על תרומה מעוצבת? על מעשר ראשון מקושט? אין דבר כזה. רק הביכורים. עד היום, בכל גן ילדים, ביכורים פירושם סלים מקושטים ושמחה.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: הודיה צריכה להיות צבעונית ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הודיה צריכה להיות צבעונית</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכאן יסוד חשוב: <strong>הודיה צריכה להיות צבעונית.</strong> אפשר לומר תודה בשחור-לבן, וזה נחמד. אבל רגש לא הבאת.</p>
+<p>למה עוטפים מתנה? אדם רוצה לומר לחברו: הייתי רוצה לתת לך עולם ומלואו, ארמון שלם. התקציב לא מאפשר. אבל אני רוצה שתדע כמה אני אוהב אותך – אז אני עוטף, מוסיף פרח, משקיע. העטיפה מראה את עומק הלב.</p>
+<p>כך עם ישראל בביכורים: כל אחד הראה לבורא עולם כמה הוא שמח ואוהב אותו על מתנת ארץ ישראל.</p>
+<div class="honey-box">🍯 כשמודים למישהו – לאשתך, להורים או לחבר – כדאי להשקיע גם בצורה. היופי הוא חלק מהתודה.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: למה דווקא בעל הקרקע ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה דווקא בעל הקרקע</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והתמיהה האחרונה מתורצת מעצמה. בכל המצוות התלויות בארץ, מי שהפירות שלו – הוא החייב. בביכורים – בעל הקרקע.</p>
+<p>כי הביכורים אינם תודה על הפירות. הם תודה על <strong>האדמה</strong>, על חלקת ארץ ישראל שהקדוש ברוך הוא נתן לי. מי שאין לו קרקע בארץ – על מה יודה? מביא הביכורים אומר "מֵרֵאשִׁית פְּרִי הָאֲדָמָה אֲשֶׁר נָתַתָּה לִּי ה'" (דברים כו, י) – מן האדמה שנתת לי.</p>
+<p><strong>הביכורים הם סל של אהבה לארץ ישראל.</strong> הסל קטן, אבל המסע גדול, והלב שמעורר אותו גדול עוד יותר. וגם היום, בלי מקדש, כל אחד יכול לעצור לרגע, להסתכל סביבו ולומר: באתי אל הארץ אשר נשבע ה' לאבותינו לתת לנו.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
