@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌲 לבנון: מסע בזמן</title>
+<meta name="description" content="מאברהם אבינו שרדף עד דן, דרך צור וצידון ועד מלחמות לבנון בימינו - ומה אומרת התורה על הגבול הצפוני של ארץ ישראל">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🌲 לבנון: מסע בזמן</h1>
+  <p class="hero-subtitle">מאברהם אבינו שרדף עד דן, דרך צור וצידון ועד מלחמות לבנון בימינו - ומה אומרת התורה על הגבול הצפוני של ארץ ישראל</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/VsnHKHCfGno" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">📜 לבנון בתנ&quot;ך: המלחמות הראשונות בצפון</a><ul class="toc-stories"><li><a href="#story-1">אברהם אבינו רודף עד דן</a></li><li><a href="#story-2">יהושע כובש עד צידון</a></li><li><a href="#story-3">ההיסטוריה חוזרת על עצמה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">⛵ צור וצידון: יהודים בצפון לאורך הדורות</a><ul class="toc-stories"><li><a href="#story-4">ממלכה עד נהר פרת</a></li><li><a href="#story-5">בספינה מצור לצידון</a></li><li><a href="#story-6">בית הכנסת בצידון</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🪜 סולמה של צור</a><ul class="toc-stories"><li><a href="#story-7">הלוואי יהיה חלקי בארץ הזאת</a></li><li><a href="#story-8">למה קוראים לזה סולם?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🗺️ מבצע חירם ומבצע ליטני</a><ul class="toc-stories"><li><a href="#story-9">1948: מבצע חירם</a></li><li><a href="#story-10">1978: מבצע ליטני</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">⚔️ מלחמת לבנון הראשונה</a><ul class="toc-stories"><li><a href="#story-11">המהפך, הכור והבחירות</a></li><li><a href="#story-12">ימית, לונדון וביירות</a></li><li><a href="#story-13">ניצחון בלי תוכנית</a></li><li><a href="#story-14">מה יאמרו הגויים</a></li><li><a href="#story-15">אינני יכול עוד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🕊️ לבנון: חלק מארץ ישראל</a><ul class="toc-stories"><li><a href="#story-16">טבריה - בטבורה של הארץ</a></li><li><a href="#story-17">מגבול הלבנון ועד מדבר מצרים</a></li><li><a href="#story-18">מתי יבוא השקט</a></li><li><a href="#story-19">על הארץ אשר אתם יושבים בה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">לבנון בתנ&quot;ך: המלחמות הראשונות בצפון</h2></div></div>
+<p class="chapter-intro">יוצאים לטיול ארוך - בעבר, בהווה ובעתיד. התחנה הראשונה: הפעם הראשונה שהצפון מופיע בתורה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אברהם אבינו רודף עד דן</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתחילת האלף השלישי לבריאת העולם מתרחשת המלחמה הראשונה שמתוארת בתורה: ארבעה מלכים מן הצפון ומן המזרח באים לארץ, נלחמים בחמשת מלכי סדום וחבריה, ושובים את לוט בן אחי אברהם. אברהם אבינו יוצא למלחמה כדי להציל את לוט:</p>
+<blockquote>וַיָּרֶק אֶת חֲנִיכָיו יְלִידֵי בֵיתוֹ שְׁמֹנָה עָשָׂר וּשְׁלֹשׁ מֵאוֹת וַיִּרְדֹּף עַד דָּן (בראשית יד, יד)</blockquote>
+<p>למה דווקא עד דן? רש"י מסביר: "שם תשש כחו, שראה שעתידין בניו להעמיד שם עגל." בדן, בצפון הארץ, העמיד ירבעם בן נבט לימים את אחד מעגלי הזהב. אברהם ראה ברוח קודשו את החטא העתידי - וכוחו נחלש.</p>
+<p class="bold-para">כבר במלחמה הראשונה, הצפון קשור לשאלה של כוח רוחני.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: יהושע כובש עד צידון ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">יהושע כובש עד צידון</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כארבע מאות שנה מאוחר יותר, כשיהושע בן נון נכנס לארץ, מתכנסים נגדו כל מלכי הצפון למלחמה גדולה מאוד, ליד מי מרום. זו הייתה מלחמה קשה ורצינית, אבל ה' היה עם יהושע:</p>
+<blockquote>וַיִּתְּנֵם ה' בְּיַד יִשְׂרָאֵל וַיַּכּוּם וַיִּרְדְּפוּם עַד צִידוֹן רַבָּה (יהושע יא, ח)</blockquote>
+<p>לפני כן הייתה מלחמת הדרום, שבה ירדו על האויבים אבני ברד מן השמים (יהושע י, יא). שתי מלחמות גדולות - בדרום ובצפון - ובשתיהן ה' נלחם לישראל.</p>
+<p>כך מגיע עם ישראל כבר בימי יהושע עד צור וצידון, בלב מה שנקרא היום לבנון.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: ההיסטוריה חוזרת על עצמה ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ההיסטוריה חוזרת על עצמה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דבר מעניין מאוד מופיע בספר שופטים. התנ"ך מונה את העמים שנשארו בארץ ולא הורשו, ומדגיש שני מקומות:</p>
+<blockquote>חֲמֵשֶׁת סַרְנֵי פְלִשְׁתִּים וְכָל הַכְּנַעֲנִי וְהַצִּידֹנִי וְהַחִוִּי יֹשֵׁב הַר הַלְּבָנוֹן (שופטים ג, ג)</blockquote>
+<p>בדרום - הפלשתים, באזור עזה. בצפון - הצידונים, בצור ובצידון ובהר הלבנון.</p>
+<p>קשה שלא לראות את הדמיון לימינו. אותם שני אזורים שנשארו אז בידי הגויים - הדרום סביב עזה והצפון בלבנון - הם בדיוק המקומות שמהם באות הצרות גם היום.</p>
+<div class="honey-box">🍯 מי שמכיר את התנ"ך, מבין טוב יותר את העיתון.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: ממלכה עד נהר פרת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">⛵</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">צור וצידון: יהודים בצפון לאורך הדורות</h2></div></div>
+<p class="chapter-intro">התחנה השנייה: מימי שלמה המלך, דרך ימי בית שני, ועד בית הכנסת בצידון בימינו.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ממלכה עד נהר פרת</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בימי דוד ושלמה הגיעה מלכות ישראל לשיאה. על שלמה נאמר:</p>
+<blockquote>וּשְׁלֹמֹה הָיָה מוֹשֵׁל בְּכָל הַמַּמְלָכוֹת מִן הַנָּהָר אֶרֶץ פְּלִשְׁתִּים וְעַד גְּבוּל מִצְרָיִם (מלכים א ה, א)</blockquote>
+<p>"הנהר" הוא נהר פרת. השלטון הגיע הרחק צפונה, מעבר ללבנון של היום.</p>
+<p>האם גרו יהודים בכל השטח הזה? זו שאלה מעניינת, וקשה לקבוע בדיוק מבחינה היסטורית. ייתכן שבחלקים מסוימים גרו יהודים, ובאחרים היה רק שלטון. בצור עצמה, למשל, ישב חירם מלך צור, ידידם ובן בריתם של דוד ושלמה, ובעיר גרו גויים. כמו שבימינו יש ערים בתוך מדינת ישראל שגרים בהן בעיקר ערבים - כך היה בצור.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: בספינה מצור לצידון ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">בספינה מצור לצידון</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בימי בית שני כבר רואים במפורש חיים יהודיים באזור. בגמרא (שבת יט, א) נאמר שאין מפליגים בספינה בים הגדול פחות משלושה ימים לפני שבת. הטעם שהובא בדברי המפרשים: בימים הראשונים של הפלגה האדם סובל ממחלת ים, וקשה לו להתענג בשבת.</p>
+<p>אבל לנסיעה קצרה מותר להפליג אפילו בערב שבת - והגמרא מביאה דוגמה: מצור לצידון. מרחק קצר לאורך החוף, שיוצאים בבוקר ומגיעים בצהריים.</p>
+<p>מכאן לומדים שבתקופת בית שני יהודים נסעו בקביעות באוניות בין צור לצידון. האזור הזה היה חלק מהמפה היהודית היומיומית, עד כדי כך שחז"ל קבעו לגביו הלכה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: בית הכנסת בצידון ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">בית הכנסת בצידון</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשך כל הדורות כמעט לא פסק היישוב היהודי בצור ובצידון. היו שם תנאים ואמוראים, ואחריהם קהילות יהודיות לאורך מאות שנים. יש אפילו מי שהקים אתר מיוחד שמתעד את כל הרבנים שחיו בערים האלה.</p>
+<p>בית הכנסת העתיק בצידון עומד עד היום. בזמן מלחמת לבנון הגיעו אליו חיילים יהודים, ונאמר שאף הוציאו משם ספר תורה.</p>
+<p>אז מה רואים בקיצור? אברהם אבינו הגיע לשם, יהושע כבש, דוד ושלמה שלטו, בבית שני יהודים חיו ונסעו שם, ולאורך כל ההיסטוריה היה שם יישוב יהודי.</p>
+<p class="bold-para">הקשר של עם ישראל ללבנון לא התחיל אתמול - הוא בן אלפי שנים.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: הלוואי יהיה חלקי בארץ הזאת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🪜</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">סולמה של צור</h2></div></div>
+<p class="chapter-intro">התחנה השלישית חוזרת לאברהם אבינו - לרגע שבו ראה לראשונה את ארץ ישראל.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הלוואי יהיה חלקי בארץ הזאת</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המדרש מספר מה ראה אברהם אבינו כשהגיע מארם נהרים, מאזור עיראק של היום, אל ארץ כנען:</p>
+<blockquote>אמר רבי לוי: בשעה שהיה אברהם מהלך בארם נהרים ובארם נחור, ראה אותם אוכלים ושותים ופוחזים. אמר: הלוואי לא יהא לי חלק בארץ הזאת. וכיון שהגיע לסולמה של צור, ראה אותם עסוקים בניכוש בשעת הניכוש, בעידור בשעת העידור. אמר: הלוואי יהא חלקי בארץ הזאת. אמר לו הקדוש ברוך הוא: לזרעך אתן את הארץ הזאת. (בראשית רבה לט)</blockquote>
+<p>בחוץ לארץ ראה אברהם אנשים שכל עיסוקם אכילה, שתייה והוללות. וכשהגיע לסולמה של צור - המקום הראשון שבו נכנס לארץ - ראה אנשים עובדים כמו שצריך, כל עבודה בעונתה. לא עצלנים, לא הוללים.</p>
+<p class="bold-para">הפעם הראשונה שאברהם פוגש את ארץ ישראל - זה בצפון, בסולמה של צור.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: למה קוראים לזה סולם? ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה קוראים לזה סולם?</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"סולמה של צור" או "סולם צורי" היה מושג מוכר בזמן חז"ל. אבל למה סולם? איפה יש שם סולם?</p>
+<p>המקום הוא רכס ראש הנקרה והשטח שמצפון לו, בדרך לצור. במפה עתיקה מראשית המאה התשע עשרה, שצייר אחד מחכמי ירושלים, מופיע הרכס הזה בצורה של סולם: מראש הנקרה הוא עולה בשלבים, כמו סולם חבלים, לכיוון צור. ייתכן שזה המקור לשם - רכס הרים שיורד אל הים במדרגות, וההולכים לאורך החוף עולים בו כמו בסולם.</p>
+<p>עד כמה הציור תואם את המציאות - קשה לדעת בלי לראות את המקום. זה נושא מעניין לחקור, גם מבחינה ארכיאולוגית.</p>
+<div class="honey-box">🍯 בפעם הבאה שעומדים בראש הנקרה ומסתכלים צפונה - לזכור: מכאן נכנס אברהם אבינו לארץ.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: 1948: מבצע חירם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מבצע חירם ומבצע ליטני</h2></div></div>
+<p class="chapter-intro">עכשיו קופצים לתקופה שלנו - לימי קום המדינה ואחריהם.</p>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">1948: מבצע חירם</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במלחמת העצמאות, באוקטובר 1948, יצא צה"ל למבצע בצפון. המבצע נקרא "מבצע חירם" - על שם חירם מלך צור, ידידו של שלמה המלך. הוא כוון בעיקר נגד צבא ההצלה של קאוקג'י, שפעל בגליל העליון ועשה צרות ביישובים.</p>
+<p>במבצע נכבש כל הגליל העליון, ויחידות של צה"ל המשיכו אל תוך לבנון, וחלקן הגיעו עד נהר הליטני.</p>
+<p>למה לא נשארו שם? בהסכמי שביתת הנשק בשנת 1949 נסוג צה"ל אל הגבול הבינלאומי, שסוכם עוד בשנות העשרים בין הבריטים לצרפתים. בין הסיבות היה גם החשש מצרפת, שראתה בלבנון את ביתם של הנוצרים במזרח התיכון, והחשש מסבך מדיני נוסף.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: 1978: מבצע ליטני ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">1978: מבצע ליטני</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשך שנים רבות היה הגבול עם לבנון שקט יחסית. לבנון לא השתתפה במלחמת ששת הימים, והיא נחשבה מדינה שבה לנוצרים יש משקל רב, בלי עניין מיוחד להילחם בישראל.</p>
+<p>הכול השתנה בשנת 1970. אחרי שגורשו מירדן, הגיעו ארגוני הטרור הפלסטיניים בראשות אש"ף לדרום לבנון, והתחילו לבצע משם פיגועים רבים בישראל.</p>
+<p>בשנת 1978, אחרי פיגוע קשה, יצא צה"ל ל"מבצע ליטני" וכבש את דרום לבנון עד הנהר. אחרי כשלושה חודשים נסוג, והגבול חזר להיות הגבול הקודם - אבל השקט לא חזר לאורך זמן.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: המהפך, הכור והבחירות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">⚔️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מלחמת לבנון הראשונה</h2></div></div>
+<p class="chapter-intro">התחנה הבאה היא אחת התקופות הסוערות בתולדות המדינה - שנות השמונים.</p>
+<article class="story-card" id="story-11" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">המהפך, הכור והבחירות</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד שנת 1977 שלטה במדינה תמיד מפלגת השמאל, בגלגולים שונים. ב-1977 התרחש מהפך אדיר: פעם ראשונה מאז קום המדינה עלה הימין לשלטון, ומנחם בגין נהיה ראש הממשלה.</p>
+<p>אבל ב-1981 נראה היה שהממשלה עומדת ליפול. האינפלציה דהרה מעל מאה אחוז בשנה, היו קשיים מדיניים רבים, ושרים עזבו. רבים היו בטוחים שבבחירות הקרובות השלטון יחזור לשמאל.</p>
+<p>ואז קרו שני דברים. ביוני 1981, ערב חג השבועות, השמידו מטוסי חיל האוויר את הכור הגרעיני בעיראק - מבצע נועז שהצליח במלואו. ובאותם ימים נאמר בעצרת בחירות של המערך נאום מזלזל כלפי ציבור שלם, שעורר סערה גדולה. בבחירות זכה הליכוד בהפרש זעום, והמשיך לשלוט.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: ימית, לונדון וביירות ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ימית, לונדון וביירות</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בממשלה החדשה נכנס אריאל שרון לתפקיד שר הביטחון. באפריל 1982, במסגרת הסכם השלום עם מצרים, פונתה העיר ימית בסיני. היה זה פינוי קשה וכואב, ובתים נהרסו בדחפורים.</p>
+<p>מי שחשב שעכשיו יגיע השקט, טעה. שישה שבועות אחר כך, ביוני 1982, ירו מחבלים בשגריר ישראל בלונדון, שלמה ארגוב, ופצעו אותו קשה. ישראל תקפה את מפקדות המחבלים בלבנון, והם הגיבו בהפגזות כבדות על כל יישובי הצפון.</p>
+<p>צה"ל יצא למבצע "שלום הגליל". התוכנית המקורית דיברה על כארבעים קילומטר בלבד - להרחיק את הקטיושות מיישובי הצפון. אבל בהנהגת שר הביטחון שרון והרמטכ"ל רפאל איתן, התגלגל המבצע הרבה מעבר לכך, עד ביירות עצמה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: ניצחון בלי תוכנית ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ניצחון בלי תוכנית</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מבחינה צבאית, זה נראה כמו ניצחון אדיר. בתיווך אמריקני הוסכם שכל אנשי אש"ף, ובראשם יאסר ערפאת, יעלו על אוניות ויגלו מלבנון לתוניס. היה נדמה שהבעיה נפתרה.</p>
+<p>אבל לא הייתה תוכנית ברורה ליום שאחרי. מה רוצים להשיג? לשלוט בלבנון? לצאת? מה המטרה? צבא - ובמיוחד חיילים יהודים - צריכים מטרה ברורה. כשיש מטרה, יש תמריץ, ויודעים לאן הולכים. כשאין, הישיבה בשטח נעשית קשה ומתישה.</p>
+<p>ואז נרצח בשיר ג'ומאייל, נשיא לבנון הנבחר ובעל בריתה של ישראל. בתגובה נכנסו אנשי הפלנגות הנוצרים למחנות הפליטים סברה ושתילה וטבחו בהם מאות אנשים. חיילי צה"ל לא היו שותפים לטבח, אבל השטח היה בשליטתם.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מה יאמרו הגויים ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מה יאמרו הגויים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הטבח עורר סערה עצומה בארץ ובעולם. ונשאלת השאלה: אם לא יהודים עשו את המעשה - מה העבירה כאן?</p>
+<p>כאן צריך לזכור את טענתו של משה רבנו, כשביקש רחמים על ישראל אחרי חטא העגל:</p>
+<blockquote>לָמָּה יֹאמְרוּ מִצְרַיִם לֵאמֹר בְּרָעָה הוֹצִיאָם (שמות לב, יב)</blockquote>
+<p>מה יאמרו הגויים - זו שאלה של כבוד שמים. כשעם ישראל נקשר, אפילו בעקיפין, למעשה נורא, יש בכך פגיעה בשם ישראל ובשם שמים.</p>
+<p>בגין הקים ועדת חקירה. היא קבעה אחריות עקיפה של כמה מבכירי מערכת הביטחון, ובראשם שר הביטחון. שרון הועבר מתפקידו, אך נשאר בממשלה כשר.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: אינני יכול עוד ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">אינני יכול עוד</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואז הגיע אחד הרגעים המדהימים בתולדות המדינה. כמה דברים התחברו יחד: המלחמה שהסתבכה, הנפגעים, הלחצים - ובסוף 1982 נפטרה אליזה, אשתו של בגין. ובשנת 1983 הודיע בגין לממשלה: "אינני יכול עוד."</p>
+<p>הוא היה חלש כל כך, שלא הלך בעצמו להגיש את מכתב ההתפטרות לנשיא המדינה. מזכיר הממשלה הוא שהביא את המכתב. בגין הסתגר בביתו, ולמעשה לא יצא ממנו כמעט עד יום מותו, כעבור כתשע שנים.</p>
+<p>אחריו עלה יצחק שמיר. בבחירות של 1984 היה כמעט תיקו בין הגושים, ולראשונה הוקמה ממשלת אחדות ברוטציה: שמעון פרס ראש ממשלה בשנתיים הראשונות, ושמיר אחריו. הממשלה הזו הצליחה לייצב את הכלכלה, ובשנת 1985 החליטה לצאת מרוב שטח לבנון ולהשאיר את "רצועת הביטחון" בדרום. בה נשאר צה"ל עד היציאה מלבנון בשנת 2000.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: טבריה - בטבורה של הארץ ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🕊️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">לבנון: חלק מארץ ישראל</h2></div></div>
+<p class="chapter-intro">התחנה האחרונה היא לא בעבר אלא בעתיד: מה אומרת התורה על המקום הזה, ומתי יבוא השקט.</p>
+<article class="story-card" id="story-16" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">טבריה - בטבורה של הארץ</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל הסיפורים האלה באים ללמד שלבנון, או לפחות חלקה הדרומי, הוא חלק מארץ ישראל. רמז נפלא לכך יש בשמה של טבריה.</p>
+<p>הפירוש הפשוט הוא שהורדוס אנטיפס בנה את העיר וקרא לה על שם הקיסר טיבריוס. אבל חז"ל ביקשו לראות בשם גם משמעות רוחנית:</p>
+<blockquote>ולמה נקרא שמה טבריא? שיושבת בטבורה של ארץ ישראל (מגילה ו, א)</blockquote>
+<p>ורש"י מסביר: כמו שהטבור באדם הוא באמצע הגוף. אבל איך טבריה יושבת באמצע ארץ ישראל? היא קרובה מאוד לגבול הצפוני של היום! התשובה: רק אם ארץ ישראל ממשיכה הרבה יותר צפונה - אל צור, צידון והלבנון - טבריה נמצאת באמת קרוב לאמצע.</p>
+<div class="honey-box">🍯 גם שם של עיר יכול ללמד אותנו איפה עוברים גבולות הארץ.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: מגבול הלבנון ועד מדבר מצרים ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מגבול הלבנון ועד מדבר מצרים</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם בתפילה שמתפללים בבתי הכנסת בכל שבת לשלום חיילי צה"ל, הוכנס הגבול הזה:</p>
+<blockquote>מי שברך אבותינו אברהם יצחק ויעקב, הוא יברך את חיילי צבא ההגנה לישראל, העומדים על משמר ארצנו וערי אלוקינו, מגבול הלבנון ועד מדבר מצרים, ומן הים הגדול עד לבוא הערבה, ביבשה באויר ובים.</blockquote>
+<p>"מגבול הלבנון" - לא מגבול הגליל ולא מגבול המטולה, אלא מגבול הלבנון. בתפילה הזאת אנחנו מבקשים שה' ישמור על חיילינו בכל מרחב הארץ, ושיגשים את ההבטחה.</p>
+<p>ולצד התפילה - ההבטחה: שבבוא היום, בעזרת ה', קרוב, יהיה החבל הזה חלק מארץ ישראל גם בפועל.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: מתי יבוא השקט ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מתי יבוא השקט</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השאלה שמעניינת את כולם היא: מתי סוף סוף יהיה שקט בצפון? התורה עונה במפורש, בפרשת מסעי:</p>
+<blockquote>וְהוֹרַשְׁתֶּם אֶת הָאָרֶץ וִישַׁבְתֶּם בָּהּ כִּי לָכֶם נָתַתִּי אֶת הָאָרֶץ לָרֶשֶׁת אֹתָהּ (במדבר לג, נג)</blockquote>
+<p>למה כתוב פעמיים "ירושה"? רש"י מסביר: "והורשתם את הארץ - והורשתם אותה מיושביה, ואז - וישבתם בה, תוכלו להתקיים בה, ואם לאו לא תוכלו להתקיים בה."</p>
+<p>והתורה ממשיכה ומזהירה:</p>
+<blockquote>וְאִם לֹא תוֹרִישׁוּ אֶת יֹשְׁבֵי הָאָרֶץ מִפְּנֵיכֶם וְהָיָה אֲשֶׁר תּוֹתִירוּ מֵהֶם לְשִׂכִּים בְּעֵינֵיכֶם וְלִצְנִינִם בְּצִדֵּיכֶם וְצָרְרוּ אֶתְכֶם עַל הָאָרֶץ אֲשֶׁר אַתֶּם יֹשְׁבִים בָּהּ (במדבר לג, נה)</blockquote>
+<p>"צנינים בצדיכם" - קוצים בצד, מה שבימינו נקרא אולי "מטען צד".</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: על הארץ אשר אתם יושבים בה ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">על הארץ אשר אתם יושבים בה</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האור החיים הקדוש מדייק במילים "וצררו אתכם על הארץ אשר אתם יושבים בה": לא רק שהגויים יחזיקו בחלק מהארץ שלא זכיתם בו, אלא שהם יציקו לכם גם על החלק שכן זכיתם בו, ויטענו שגם הוא שלהם.</p>
+<p>זו תמונה מוכרת מאוד. הצרות שלנו באות דווקא מהחלקים של ארץ ישראל שלא הורשו, או שנכבשו והוחזרו. התורה כותבת לנו שהשלום האמיתי יבוא כאשר נעשה את מה שכתוב בה.</p>
+<p>ואם אדם מפחד - איך נעשה, מה יגידו - עליו לזכור את הניסים שראינו בעינינו. במלחמת ששת הימים, תוך ימים ספורים, שוחררו עזה, השומרון, ירושלים העתיקה, חברון, סיני ורמת הגולן. מי שזוכר את העבר, יודע שמי שעזר לאבותינו יעזור גם לנו.</p>
+<p class="bold-para">לבנון היא לא רק כותרת בחדשות - היא פרק בסיפור הארוך של עם ישראל וארצו, שעוד לא נגמר.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
