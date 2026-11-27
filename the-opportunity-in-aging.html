@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌅 בא בימים: ההזדמנות שבהזדקנות</title>
+<meta name="description" content="מה התורה רואה בשנים המאוחרות של החיים: לא שקיעה אלא זריחה, לא סוף אלא שבת, ואיך הופכים את הזקנה לפסגה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🌅 בא בימים: ההזדמנות שבהזדקנות</h1>
+  <p class="hero-subtitle">מה התורה רואה בשנים המאוחרות של החיים: לא שקיעה אלא זריחה, לא סוף אלא שבת, ואיך הופכים את הזקנה לפסגה.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/o5O0Mu6UYe8" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">👴 סבא, סבתא ושמות הגיל</a><ul class="toc-stories"><li><a href="#story-1">&quot;סבא&quot; איננה מילה עברית</a></li><li><a href="#story-2">משבע לסבא?</a></li><li><a href="#story-3">גיל הזהב, הגיל השלישי ומחצית החיים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🕯️ השבת של החיים</a><ul class="toc-stories"><li><a href="#story-4">האברבנאל: השמיטה של האדם</a></li><li><a href="#story-5">שית אלפי שני: העולם שהופך לרוחני</a></li><li><a href="#story-6">עולם, שנה, נפש</a></li><li><a href="#story-7">המהר&quot;ל: כשהגוף נחלש, השכל מתחזק</a></li><li><a href="#story-8">רב יוסף עושה מסיבה בגיל שישים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">☀️ לבוא אל היום ולא אל הלילה</a><ul class="toc-stories"><li><a href="#story-9">שבע השנים של שרה</a></li><li><a href="#story-10">&quot;בא בימים&quot; או בא בלילות</a></li><li><a href="#story-11">סוף סוף יש זמן</a></li><li><a href="#story-12">החכמה של מי שראה את התמונה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">👑 השיער הלבן: עטרת תפארת</a><ul class="toc-stories"><li><a href="#story-13">אברהם ביקש זקנה</a></li><li><a href="#story-14">עתיק יומין: שער כצמר נקי</a></li><li><a href="#story-15">רבי אלעזר בן עזריה: כבן שבעים שנה</a></li><li><a href="#story-16">אור החכמה שעל הפנים</a></li><li><a href="#story-17">הרחוב והתורה: שני מושגים של יופי</a></li><li><a href="#story-18">ההזמנה לבית המשפט</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">⚖️ הכול תלוי במי</a><ul class="toc-stories"><li><a href="#story-19">&quot;דומה לקוף&quot; או &quot;דעתן מתיישבת&quot;</a></li><li><a href="#story-20">&quot;זקן בבית – פח בבית&quot;</a></li><li><a href="#story-21">הערך של הזקן מחוץ לבית</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">👴</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">סבא, סבתא ושמות הגיל</h2></div></div>
+<p class="chapter-intro">לפני שנכנסים לעומק, כדאי להתחיל במילים עצמן. איך קוראים לגיל הזה, ומה זה מגלה עלינו?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;סבא&quot; איננה מילה עברית</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חפשו בתורה את המילה "סבא" ולא תמצאו אותה. גם "סבתא" לא תמצאו. אלה מילים ארמיות.</p>
+<p>התורה אומרת:</p>
+<blockquote>מפני שיבה תקום והדרת פני זקן (ויקרא יט, לב)</blockquote>
+<p>ואונקלוס מתרגם: "מן קדם דסביר באוריתא תקום ותהדר אפי סבא". כלומר, מפני מי שמבין בתורה תקום, ותהדר פני "סבא". מכאן הגיעה המילה לשפת הגמרא.</p>
+<p>בגמרא ובזוהר "סבא" הוא תואר של כבוד. רבים מכירים את "ההוא סבא", הזקן החכם שמופיע פתאום ואומר דבר חכמה עמוק. אצל חז"ל, להיות "סבא" פירושו להיות מקור של חכמה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: משבע לסבא? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">משבע לסבא?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מאיפה צמחה המילה? יש כמה אפשרויות, וכאן מדובר בהשערה בלבד ולא בקביעה.</p>
+<p>יש שקשרו את "שיבה" ל"ישיבה": אדם מבוגר יושב, נח, ויושב ולומד. ויש הצעה מעניינת במיוחד, שהמילה קשורה ל"שבע". המשנה במסכת אבות (ה, כא) אומרת "בן שבעים לשיבה". בגיל שבעים אדם נכנס לעשור השביעי של חייו, ואולי מתוך "שבע", בחילוף ש' בס', נולד ה"סבא".</p>
+<p>אם כך, יש כאן רמז נפלא: הזקן הוא אדם שנכנס ל"שבע" של החיים, לשבת שלהם. מיד נראה כמה עמוק הרעיון הזה.</p>
+<div class="honey-box">🍯 לפעמים מילה אחת מסתירה השקפת עולם שלמה.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: גיל הזהב, הגיל השלישי ומחצית החיים ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">גיל הזהב, הגיל השלישי ומחצית החיים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעברית של היום יש שמות רבים לגיל הזה: "אזרח ותיק", "הגיל השלישי", "גיל הזהב". יש מי שאוהבים אותם ויש מי שלא.</p>
+<p>הביטוי החדש שמקובל היום באוניברסיטאות ובספרים הוא "המחצית השנייה של החיים". זה ביטוי שאיש לא נפגע ממנו, והוא גם מכוון: הוא לא מדבר על סוף אלא על מחצית, על שלב שלם בחיים שיש בו משמעות משלו.</p>
+<p>ולפני הכול, אזהרה חשובה מסיפור חסידי. אדם אחד קרא במשנה "אל תאמין בעצמך עד יום מותך" (אבות ב, ד), ואמר לעצמו: "אני כבר זקן, היצר הרע כבר עזב אותי." מן השמיים העמידו אותו בניסיון קשה, ורק אז הבין שכל עוד אדם חי יש לו תפקיד, ויש לו גם יצר.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: האברבנאל: השמיטה של האדם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">השבת של החיים</h2></div></div>
+<p class="chapter-intro">התורה רואה בשנים המאוחרות לא סוף אלא שבת: זמן מקודש, רוחני, מלא אור.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">האברבנאל: השמיטה של האדם</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האברבנאל נותן טעם מיוחד למצוות השמיטה. ימי האדם שבעים שנה, ובמקביל ציווה הקדוש ברוך הוא שש שנים לעבוד את האדמה ובשנה השביעית לשבות.</p>
+<p>זה רמז לחיי האדם. כחמישים או שישים שנה אדם עובד, זורע וקוצר, בונה ומפרנס. אבל כשהוא מגיע לעשור האחרון, ל"שנה השביעית" של חייו, אין ראוי שימשיך להשתעבד לעסקים הגשמיים כמקודם. אז צריכה להיות לו "שבת שבתון", שבת לה'.</p>
+<p>למה? כדי להדביק את הנפש בבוראה ולהתכונן לעלייה למעלה.</p>
+<p class="bold-para">כמו שהשמיטה איננה הפסקה ריקה אלא שנה של קדושה, כך גם השנים המאוחרות.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: שית אלפי שני: העולם שהופך לרוחני ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שית אלפי שני: העולם שהופך לרוחני</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת סנהדרין (צז ע"א) אומרת: "שית אלפי שני הוו עלמא וחד חרוב", ששת אלפים שנה העולם קיים, ואלף אחד חרב, שנאמר "ונשגב ה' לבדו ביום ההוא" (ישעיה ב, יא).</p>
+<p>מה פירוש "חרוב"? בספר "מגיד מישרים", המיוחס לרבי יוסף קארו, מובא פירוש מיוחד ששמע מן המגיד שהיה מתגלה אליו: אין הכוונה שהעולם ייחרב ממש. הכוונה שהיצר הרע והתאוות יתבטלו. ה"חורבן" הוא חורבן הגשמיות, והעולם יהפוך רוחני הרבה יותר.</p>
+<p>כלומר, האלף השביעי איננו סוף העולם אלא השבת שלו, הזמן שבו העולם כולו עולה למדרגה רוחנית.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: עולם, שנה, נפש ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עולם, שנה, נפש</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספר יצירה יש יסוד גדול: "עולם, שנה, נפש". כמעט כל דבר בבריאה מופיע בשלושה ממדים: במקום (עולם), בזמן (שנה) ובאדם (נפש). דוגמה: הקודש שבעולם הוא ארץ ישראל, הקודש שבזמן הוא השבת, והקודש שבנפש הוא עם ישראל.</p>
+<p>ומה שקורה בעולם קורה גם באדם. העולם קיים ששת אלפים שנה, ובאלף השביעי נעשה רוחני, "יום שכולו שבת". כך גם אדם: כשהוא בן שישים ונכנס לעשור השביעי של חייו, הוא נכנס לימים שכולם שבת. אלה "ימות המשיח" שלו.</p>
+<div class="honey-box">🍯 הזקנה איננה ירידה מן הבמה. היא הכניסה לשבת הפרטית שלך.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: המהר&quot;ל: כשהגוף נחלש, השכל מתחזק ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המהר&quot;ל: כשהגוף נחלש, השכל מתחזק</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה בסוף מסכת קנים אומרת: "זקני תורה, כל זמן שמזקינין דעתן מתיישבת עליהן, שנאמר: בישישים חכמה ואורך ימים תבונה" (איוב יב, יב).</p>
+<p>המהר"ל מסביר שבחולשת הגוף כוח השכל גובר. כשהגוף כבר לא תובע כל כך, השכל משתחרר. לאדם מושפע שכל נבדל, נקי, והוא משיג דברים רוחניים שלא יכול היה להשיג קודם.</p>
+<p>זה בדיוק תפקידה של השבת: הגשמיות נחה, והנשמה מתעוררת.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: רב יוסף עושה מסיבה בגיל שישים ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">רב יוסף עושה מסיבה בגיל שישים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת מועד קטן (כח ע"א) מספרת על רב יוסף שכאשר מלאו לו שישים שנה, עשה יום טוב לחכמים. למה? אמר: "יצאתי מכלל כרת." כרת הוא עונש של מיתה לפני גיל שישים, ומי שעבר את הגיל הזה ראה סימן שאיננו בכלל העונש הזה.</p>
+<p>לפי מה שלמדנו יש בזה עומק נוסף. ההגעה לגיל שישים היא הכניסה ל"עשור השביעי", לשבת של החיים. מי שיש עליו כרת, ניתוק, לא יכול להגיע לשבת הזו. עצם ההגעה מראה שהנשמה מחוברת.</p>
+<div class="honey-box">🍯 יום הולדת בגיל מבוגר הוא באמת סיבה למסיבה: זו הכניסה לשבת.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: שבע השנים של שרה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">☀️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">לבוא אל היום ולא אל הלילה</h2></div></div>
+<p class="chapter-intro">אותן שנים עצמן יכולות להיות לילה ויכולות להיות יום. הכול תלוי במה שאדם רואה בהן.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שבע השנים של שרה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על הפסוק "ויהיו חיי שרה מאה שנה ועשרים שנה ושבע שנים" (בראשית כג, א) שאלו המפרשים: למה במאה ובעשרים נאמר "שנה", ובשבע נאמר "שנים"?</p>
+<p>הכלי יקר מבאר: החסידים אף על פי שהם שלמים, קונים יותר שלמות בשנים האחרונות, הקרובות לשערי המוות, מאשר בימים הקודמים. בעיניהם כל שנה בשנים המאוחרות שווה כמו שנים רבות, ואילו השנים הקודמות נחשבות מעטות.</p>
+<p>לכן המספר הגדול נכתב בלשון יחיד, "שנה", והמספר הקטן בלשון רבים, "שנים". שנה אחת בזקנה יכולה להכיל עולם שלם.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: &quot;בא בימים&quot; או בא בלילות ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;בא בימים&quot; או בא בלילות</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על אברהם נאמר "ואברהם זקן בא בימים" (בראשית כד, א). מה פירוש "בא בימים"? הפשט: הרבה ימים. אבל לכלי יקר יש פירוש מרתק.</p>
+<p>אצל הרשעים, הוא אומר, ימי הנעורים הם ה"יום". אז הכול פרח: הצלחה, כבוד, הנאות. כשהם מזקינים, זה נראה להם לילה: "מה אני עושה עכשיו? זרקו אותי מהעבודה, הילדים לא באים, אין לי כלום." מי שכל עולמו הנאות העולם הזה, הזקנה בשבילו היא חושך.</p>
+<p>אצל הצדיקים זה הפוך. הם באים מן הלילה אל היום. בזקנותם הם קונים חכמה, ולכן נאמר עליהם "בא בימים": הזקנה היא היום שלהם.</p>
+<p class="bold-para">אותו גיל, אותן שנים: לאחד לילה ולשני זריחה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: סוף סוף יש זמן ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">סוף סוף יש זמן</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לראות את זה במציאות. יש אנשים שעבדו קשה כל חייהם. שעה או שעתיים של לימוד ביום היו מותרות בשבילם. כשהם יוצאים לגמלאות, נפתח לפניהם עולם: זמן ללמוד, להתפלל, לבנות את עצמם, לחזק קשרים ולהתנדב.</p>
+<p>אבל זמן פנוי לבדו איננו העיקר. יש גם מי שיש להם זמן והם "משועממים". מה הופך את הזמן ל"יום"? המטרה. מי שיודע לשם מה הוא חי, מגלה שעכשיו הגיע זמן החיים.</p>
+<div class="honey-box">🍯 שאלו את עצמכם: אילו היו לי עוד שעתיים ביום, למה הייתי מקדיש אותן? זו התשובה לשאלה מה יהיה ה"יום" שלכם.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: החכמה של מי שראה את התמונה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">החכמה של מי שראה את התמונה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה מיוחד באדם המבוגר? לא רק הזמן. גם לא רק הידע המקצועי שצבר.</p>
+<p>ילד חי מיום ליום. הוא לא יודע מה יהיה מחר, והכול חדש ומפתיע בעיניו. המבוגר כבר ראה הרבה. הוא מתחיל לראות, אם לא את כל התמונה, את רובה: איך מתגלגלים החיים, שלא הכול טוב ולא הכול רע, ושאחרי רוב הסערות בא שקט.</p>
+<p>זו החכמה שעושה את המבוגר ל"בא בימים": הוא רואה את הימים מלמעלה, ומבין לאן הכול מוביל ומה התפקיד. החכמה הזו שווה זהב, ומי שזוכה להקשיב לה מקבל עצה שאי אפשר לקנות בכסף.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: אברהם ביקש זקנה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">השיער הלבן: עטרת תפארת</h2></div></div>
+<p class="chapter-intro">העולם רואה בשיער הלבן משהו להסתיר. התורה רואה בו כתר.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אברהם ביקש זקנה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת בבא מציעא (פז ע"א) מספרת: עד אברהם לא הייתה זקנה. אב ובן נראו אותו דבר, ומי שבא לדבר עם אברהם דיבר עם יצחק, ומי שבא לדבר עם יצחק דיבר עם אברהם. ביקש אברהם רחמים, והייתה זקנה, שנאמר "ואברהם זקן בא בימים".</p>
+<p>בקשה מוזרה! היום אנשים צובעים את השיער ומותחים את העור כדי להיראות צעירים. ואברהם אבינו מבקש להיראות זקן.</p>
+<p>המפרשים מסבירים שגם לפני אברהם הייתה חולשת הגוף, וכבר שרה אמרה "אחרי בלתי היתה לי עדנה ואדני זקן" (בראשית יח, יב). אבל לא היה על האדם סימן חיצוני לזקנה. אברהם ביקש שיראו על האדם שהוא זקן, כדי שידעו לכבד אותו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: עתיק יומין: שער כצמר נקי ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">עתיק יומין: שער כצמר נקי</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בנבואת דניאל מתואר החזון של מעלה:</p>
+<blockquote>ועתיק יומין יתב, לבושה כתלג חיור ושער ראשה כעמר נקא (דניאל ז, ט)</blockquote>
+<p>כבוד הזקנה מגיע עד למראות הנבואה. הזקנה היא פסגה אנושית, ולא בכדי.</p>
+<p>ושלמה המלך אומר:</p>
+<blockquote>עטרת תפארת שיבה בדרך צדקה תמצא (משלי טז, לא)</blockquote>
+<blockquote>תפארת בחורים כחם והדר זקנים שיבה (משלי כ, כט)</blockquote>
+<p>לכל גיל יש היופי שלו. לבחורים, הכוח. לזקנים, השיבה. ובעיני התורה השיבה היא עטרה, כתר מפואר על ראשו של מי שעבר בהצלחה את ניסיון החיים.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: רבי אלעזר בן עזריה: כבן שבעים שנה ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">רבי אלעזר בן עזריה: כבן שבעים שנה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת ברכות (כז ע"ב) מספרת שכאשר העבירו את רבן גמליאל מן הנשיאות, ביקשו למנות את רבי אלעזר בן עזריה. הוא הלך להתייעץ עם אשתו. היא אמרה לו: "אולי יעבירו גם אותך?" ועוד: "אין לך שיער לבן." הוא היה אז בן שמונה-עשרה שנה בלבד.</p>
+<p>באותם ימים, כדי שאנשים "יריחו" חכמה באדם ויכבדו אותו כראש ישיבה, היה צורך בזקן לבן. נעשה לו נס, והופיעו בזקנו שמונה-עשרה שורות של שיער לבן. לכן אמר: "הרי אני כבן שבעים שנה", ולא "בן שבעים".</p>
+<p>שימו לב: הנס כדי שיכבדו אותו לא היה בכוח או ביופי צעיר, אלא בשיבה.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: אור החכמה שעל הפנים ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אור החכמה שעל הפנים</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה הקשר בין שיער לבן לכבוד? יש שמבארים: בזקנה, כשכוחות הגוף נחלשים, מתגברת השפעת כוח הנשמה, וזה ניכר במיוחד בהארת הפנים, כמו שנאמר "חכמת אדם תאיר פניו" (קהלת ח, א). השיער הלבן הוא כמו קרינת אור סביב הפנים.</p>
+<p>כשרואים אדם עם זקן לבן ופנים מאירות, מרגישים שיש לפניו משהו מיוחד. ומסופר במדרש שאברהם אמר לפני הקדוש ברוך הוא: איך יכירו שאני מיוחד, אם אני נראה כמו כל צעיר? ונעשה לו שיער לבן, סימן של הדר.</p>
+<div class="honey-box">🍯 אם אתה מחפש עצה טובה, חכמה מיושבת, לך אל מי שעבר את החיים. השיבה שלו היא ההמלצה.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: הרחוב והתורה: שני מושגים של יופי ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הרחוב והתורה: שני מושגים של יופי</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ברחוב המילים האלה כמעט חסרות משמעות. שם היופי הוא צעירות: צובעים את השיער, בונים שרירים, מסתירים כל קמט. זה בדיוק ההפך ממה שהתורה מלמדת.</p>
+<p>למה? כי יופי אמיתי הוא התאמת הדבר לתכליתו. אם תכלית האדם היא ליהנות מן הגוף, אז הגוף הצעיר הוא היפה, כי בו הנאות הגוף חזקות יותר. אבל אם תכלית האדם היא לקנות דעת, להכיר את בורא עולם, לאהוב אותו ולהתקרב אליו, אז הזקן הוא היפה. דווקא בזקנה אדם יכול להכיר את בוראו יותר מתמיד.</p>
+<p class="bold-para">מה שאדם רואה כיופי מגלה מה הוא רואה כתכלית חייו.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: ההזמנה לבית המשפט ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ההזמנה לבית המשפט</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההלכה אוסרת על איש ללקט שערות לבנות מתוך השחורות (שבת צד ע"ב, שולחן ערוך יורה דעה קפב). זה נלמד מ"לא ילבש גבר שמלת אשה" (דברים כב, ה), כי זה מנהג של התייפות נשית. להסתפר כרגיל ולהוריד הכול מותר. אסור רק לבור את הלבנות כדי להיראות צעיר.</p>
+<p>יש שהוסיפו בזה רמז יפה. השיער הלבן, מלבד הכבוד, בא להזכיר לאדם שהזמן קצר והמלאכה מרובה, ושצריך להתכונן לעולם הבא. מי שמלקט את השערות הלבנות דומה לאדם שקיבל הזמנה לבית המשפט, כעס, קרע אותה, וחשב שבזה נפטר מן המשפט.</p>
+<div class="honey-box">🍯 השערה הלבנה איננה אויב. היא תזכורת אוהבת: יש עוד זמן להכין את מה שתיקח איתך.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: &quot;דומה לקוף&quot; או &quot;דעתן מתיישבת&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">הכול תלוי במי</h2></div></div>
+<p class="chapter-intro">חז"ל משבחים את הזקנה, אבל לפעמים גם מתארים אותה בצבעים קשים. אין כאן סתירה.</p>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;דומה לקוף&quot; או &quot;דעתן מתיישבת&quot;</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המדרש בקהלת רבה מתאר את הזקן בצורה קשה: בסוף ימיו האדם דומה לקוף, משתנה ממראהו, שואל על כל דבר, אוכל ושותה ומשחק כתינוק, ואפילו בני ביתו מזלזלים בו.</p>
+<p>איך זה מסתדר עם כל מה שלמדנו? חז"ל עצמם מבחינים: זה נאמר בעמי הארץ. אבל בבני תורה כתוב "והמלך דוד זקן", אף על פי שהוא זקן, הוא מלך.</p>
+<p>וכך במשנה בסוף מסכת קנים: "זקני עם הארץ, כל זמן שמזקינין דעתן מיטרפת עליהן", אבל "זקני תורה, כל זמן שמזקינין דעתן מתיישבת עליהן". יש זקן שיושב ברחוב ומחפש מה לעשות עם הזמן, ויש זקן שכל יום מוסיף לו חכמה.</p>
+<p class="bold-para">הזקנה איננה גורל. היא תוצאה של מה שאדם בנה בתוכו לאורך כל החיים.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: &quot;זקן בבית – פח בבית&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;זקן בבית – פח בבית&quot;</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת בחוקותי מופיעים דיני ערכין: אדם שאמר "ערך פלוני עלי" משלם לפי גילו ומינו של אותו אדם. בכל הגילים ערך האיש גבוה מן האישה, אבל מגיל שישים הפער מצטמצם מאוד.</p>
+<p>רש"י (ויקרא כז, ז) מביא את הגמרא בערכין (יט ע"א): "דאמרי אינשי: סבא בביתא פחא בביתא, סבתא בביתא סימא בביתא". זקן בבית הוא כמו פח, דבר שבור. זקנה בבית היא אוצר וסימן טוב בבית, כי היא עדיין מועילה בעבודות הבית.</p>
+<p>קשה: אם הזקן הוא "פח", דבר חסר ערך, למה בכלל משלמים עליו ערך?</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: הערך של הזקן מחוץ לבית ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הערך של הזקן מחוץ לבית</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרבי מליובאוויטש מבאר: דקדקו בלשון. לא נאמר "סבא פחא", אלא "סבא <strong>בביתא</strong> פחא בביתא". בתוך הבית, בעבודות הבית, הזקן אולי כבר לא מועיל. כוחותיו מעטו והוא לפעמים אפילו שובר דברים.</p>
+<p>אבל מחוץ לבית, בבית המדרש, בכולל ובקהילה, ערכו של הזקן איננו פוחת כלל. אדרבה, החכמה והניסיון שלו מגיעים שם לשיא. כשאדם אמר "ערך פלוני עלי", הוא התכוון לערך הנמוך ביותר. לכן מעריכים את הזקן לפי ערכו בין כותלי הבית, אבל זה רק צד אחד שלו.</p>
+<div class="honey-box">🍯 אל תמדדו אדם מבוגר לפי מה שהוא כבר לא יכול לעשות בבית. מדדו אותו לפי מה שהוא יכול לתת לעולם.</div>
+<p class="bold-para">השנים המאוחרות הן הזדמנות: לצאת מן הבית אל בית המדרש, מן הלילה אל היום, מן החול אל השבת.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
