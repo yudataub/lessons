@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💎 טובה הארץ: דיבת הארץ וכבודה</title>
+<meta name="description" content="למה התורה מחמירה כל כך במי שמדבר בגנותה של ארץ ישראל, איך ההלכה שומרת על כבודה בכל מקום – מן הים הגדול ועד פורים – ואיך כל יהודי יכול לנשק את הארץ בכל יום.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">💎 טובה הארץ: דיבת הארץ וכבודה</h1>
+  <p class="hero-subtitle">למה התורה מחמירה כל כך במי שמדבר בגנותה של ארץ ישראל, איך ההלכה שומרת על כבודה בכל מקום – מן הים הגדול ועד פורים – ואיך כל יהודי יכול לנשק את הארץ בכל יום.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/9Rj_7pQsLA0" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🤝 ידבקו בני ישראל: מצווה של אהבה</a><ul class="toc-stories"><li><a href="#story-1">לא &quot;יגורו&quot; – &quot;ידבקו&quot;</a></li><li><a href="#story-2">הרמב&quot;ן, רש&quot;י והרמב&quot;ם</a></li><li><a href="#story-3">הרמב&quot;ן עצמו גר בספרד</a></li><li><a href="#story-4">האם יש מצווה לנשק את הכלה?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🗣️ דיבת הארץ: איסור שמפתיע</a><ul class="toc-stories"><li><a href="#story-5">איסור שעליו מתו</a></li><li><a href="#story-6">אבל מה עם המפלים בניאגרה?</a></li><li><a href="#story-7">המתנה של רוטשילד</a></li><li><a href="#story-8">זה האיסור</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">👑 כבודה של ארץ ישראל בהלכה</a><ul class="toc-stories"><li><a href="#story-9">עבד שברח לארץ</a></li><li><a href="#story-10">הים הגדול</a></li><li><a href="#story-11">הנהר הגדול – נהר פרת</a></li><li><a href="#story-12">יהודי פשוט מהארץ ורב מחוץ לארץ</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🕎 ארץ ישראל בחגים</a><ul class="toc-stories"><li><a href="#story-13">פורים: למה דווקא מימות יהושע?</a></li><li><a href="#story-14">חנוכה: יום העצמאות של בית שני</a></li><li><a href="#story-15">סוכות: האתרוג מאיפה?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🍇 לנשק את הארץ בכל יום</a><ul class="toc-stories"><li><a href="#story-16">מה בכוס הקידוש?</a></li><li><a href="#story-17">&quot;כמה נשקת השנה את ארץ ישראל?&quot;</a></li><li><a href="#story-18">כי רצו עבדיך את אבניה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🤝</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">ידבקו בני ישראל: מצווה של אהבה</h2></div></div>
+<p class="chapter-intro">איפה כתוב בתורה שצריך לאהוב את ארץ ישראל? ואם זו מצווה – איך יהודים חיו אלפי שנים מחוצה לה?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא &quot;יגורו&quot; – &quot;ידבקו&quot;</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף ספר במדבר, בפרשת בנות צלפחד, נאמר:</p>
+<blockquote>"כִּי אִישׁ בְּנַחֲלַת מַטֵּה אֲבֹתָיו יִדְבְּקוּ בְּנֵי יִשְׂרָאֵל" (במדבר לו, ז)</blockquote>
+<p>התורה לא כתבה "יגורו" ולא "ישבו". היא כתבה <strong>ידבקו</strong>. ואיפה עוד מופיעה בתורה המילה הזו? בדבקות בקדוש ברוך הוא – "וּבוֹ תִדְבָּקוּן"; ובקשר שבין איש לאשתו – "וְדָבַק בְּאִשְׁתּוֹ וְהָיוּ לְבָשָׂר אֶחָד".</p>
+<p>יש מי שדייק מכאן שהקשר של יהודי לארץ ישראל צריך להיות כמו האהבה הגדולה ביותר שיש: כמו דבקות בבורא עולם, כמו אהבת איש ואשתו.</p>
+<p class="bold-para">לגור בארץ ישראל אינו רק כתובת. זו דבקות.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: הרמב&quot;ן, רש&quot;י והרמב&quot;ם ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הרמב&quot;ן, רש&quot;י והרמב&quot;ם</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המקור המפורסם ביותר למצוות יישוב הארץ נמצא בפרשת מסעי:</p>
+<blockquote>"וְהוֹרַשְׁתֶּם אֶת הָאָרֶץ וִישַׁבְתֶּם בָּהּ כִּי לָכֶם נָתַתִּי אֶת הָאָרֶץ לָרֶשֶׁת אֹתָהּ" (במדבר לג, נג)</blockquote>
+<p>הרמב"ן לומד מכאן שיש מצוות עשה לרשת את הארץ ולשבת בה, ומונה אותה בין המצוות. אבל הרמב"ם אינו מונה מצווה כזו כלל. ורש"י על המקום מפרש את הפסוק אחרת: הישיבה בארץ איננה הציווי עצמו, אלא התוצאה – אם תורישו את יושבי הארץ, תוכלו להתקיים בה.</p>
+<p>ונשארת קושיה גדולה: אם לפי הרמב"ן זו מצווה מן התורה, איך מותר לגור בחוץ לארץ? בתפילין אין "אני עייף" ואין "אין לי זמן". יהודי חייב להניח תפילין, וזהו. איך ייתכן שבמצוות יישוב הארץ מותר לוותר?</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: הרמב&quot;ן עצמו גר בספרד ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הרמב&quot;ן עצמו גר בספרד</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והקושיה מתחזקת: הרמב"ן עצמו, שמנה את המצווה, חי רוב ימיו בספרד. רק בסוף ימיו עלה לארץ.</p>
+<p>וגם העלייה שלו לא באה מתוכנית מסודרת. הוא הוכרח להתווכח בפני מלך ספרד עם כומר שהמיר את דתו, וניצח בוויכוח – ומספרים שהמלך אף נתן לו מתנה. אבל מי שמנצח כומר בוויכוח פומבי מבין שלא כדאי לו להישאר במקום. הרמב"ן ברח מספרד, ובסוף הגיע לארץ ישראל.</p>
+<p>אם כן – מצווה מן התורה, ואפילו מי שמנה אותה לא קיים אותה רוב חייו? מה הפשט?</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: האם יש מצווה לנשק את הכלה? ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האם יש מצווה לנשק את הכלה?</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תשובה נפלאה: ארץ ישראל לא ניתנה לנו כמצווה רגילה של ציווי וחובה.</p>
+<p>משל: האם יש מצווה על חתן לנשק את הכלה? ודאי שלא. ולמה? כי אם זו הייתה מצווה, זו כבר לא הייתה נשיקה. כל העניין הוא שזה בא מן הלב, מבחירה ומאהבה. אילו ציוו עליו, הכול היה מתקלקל.</p>
+<p>כך ארץ ישראל. הקדוש ברוך הוא מספר לנו בתורה אינספור פעמים כמה היא טובה – "אֶרֶץ טוֹבָה וּרְחָבָה", "אֶרֶץ זָבַת חָלָב וּדְבָשׁ". הוא מצפה שנבין לבד כמה היא שווה, ושנבוא אליה מאהבה ולא מכפייה.</p>
+<div class="honey-box">🍯 יש דברים שאם מצווים עליהם – מאבדים אותם. אהבת הארץ היא אחד מהם.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: איסור שעליו מתו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🗣️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">דיבת הארץ: איסור שמפתיע</h2></div></div>
+<p class="chapter-intro">התורה מחמירה מאוד במי שמוציא דיבה על ארץ ישראל. אבל מה אסור בדיוק – לומר את האמת?</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">איסור שעליו מתו</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש איסור מן התורה להוציא דיבה על ארץ ישראל, והתורה מלמדת אותו בחומרה גדולה. על המרגלים נאמר:</p>
+<blockquote>"וַיָּמֻתוּ הָאֲנָשִׁים מוֹצִאֵי דִבַּת הָאָרֶץ רָעָה בַּמַּגֵּפָה לִפְנֵי ה'" (במדבר יד, לז)</blockquote>
+<p>לא איסור קל ולא הידור. אנשים גדולים, נשיאי שבטים, מתו בגלל מה שאמרו על הארץ.</p>
+<p class="bold-para">מי שמדבר על ארץ ישראל – צריך לדעת שהוא מדבר על דבר שהקדוש ברוך הוא אוהב.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: אבל מה עם המפלים בניאגרה? ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אבל מה עם המפלים בניאגרה?</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו קושיה אמיתית. בעזרת ה' לעתיד לבוא ארץ ישראל תהיה המקום היפה בעולם, כמו שנאמר "וַיָּשֶׂם מִדְבָּרָהּ כְּעֵדֶן וְעַרְבָתָהּ כְּגַן ה'". אבל כרגע – יש בעולם מקומות יפים ממנה. יש לנו מפל יפה בבניאס, אבל המפלים בניאגרה הם מן המרשימים בעולם.</p>
+<p>אדם עומד מול ניאגרה ואומר: "מפל כזה לא ראיתי בארץ ישראל." אדם נוסע על כביש מהיר באירופה ואומר: "כבישים כאלה אין אצלנו." זו המציאות! מה האיסור לומר את האמת?</p>
+<p>מי שיוצא לטיול בחוץ לארץ בלי ללמוד את ההלכות האלה – כמעט בטוח שייכשל בהן. כמעט אי אפשר לטייל בעולם בלי להשוות.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: המתנה של רוטשילד ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המתנה של רוטשילד</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תשובה נפלאה שלח פעם רב אחד, במשל.</p>
+<p>היה אדם שהיה קרוב משפחה וידיד נפש של רוטשילד. כשהתחתן, הגיע רוטשילד לחתונה עם קופסה של מתנה, וכולם היו סקרנים לדעת מה יש בה. בשבע ברכות שאלה הדודה את החתן: "נו, מה הביא לך רוטשילד?"</p>
+<p>אמר החתן בזלזול: "סידור ישן ובלוי. אפשר להתפלל ממנו, וזהו."</p>
+<p>אבל בדף הראשון של הסידור היה כתוב שמו של בעליו: ישראל בן אליעזר – הבעל שם טוב. זה היה הסידור שממנו התפלל הבעל שם טוב, ועל דפיו עוד ניכרים סימני הדמעות שלו. כמה שווה סידור כזה? אין לו מחיר.</p>
+<p>האם החתן "אמר את האמת" כשקרא לו סידור בלוי? בעצם הוא הוציא דיבה על רוטשילד. הוא הקטין מתנה שאין כדוגמתה בעולם.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: זה האיסור ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">זה האיסור</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ארץ ישראל היא הדבר שבורא עולם אומר עליו: זה היקר לי מכל מה שיש על האדמה. הוא חוזר על כך בתורה שוב ושוב – "ארץ טובה", "ארץ זבת חלב ודבש" – ונשבע לאברהם, ליצחק וליעקב לתת אותה. מי שפותח חומש רואה שאצל בורא עולם אין דבר נעלה ממנה.</p>
+<p>כשאדם עומד מול נוף בחוץ לארץ ואומר "אין כזה בארץ ישראל", בדרך כלל מסתתרת מאחורי הדברים מחשבה: בסך הכול ארץ ישראל לא שווה הרבה. הוא לוקח את המתנה היקרה ביותר ומודד אותה בסרגל של נוף, של כבישים ושל פירות גדולים יותר.</p>
+<p class="bold-para">דיבת הארץ היא לקרוא לסידור של הבעל שם טוב "סידור בלוי".</p>
+<div class="honey-box">🍯 אפשר להתפעל ממפל בחוץ לארץ. אסור לשכוח שהיופי של ארץ ישראל נמדד בסרגל אחר לגמרי.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: עבד שברח לארץ ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">כבודה של ארץ ישראל בהלכה</h2></div></div>
+<p class="chapter-intro">מכיוון שהתורה כל כך מקפידה על כבוד הארץ, אפשר למצוא בהלכה רשימה שלמה של דינים שנקבעו בגללו.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">עבד שברח לארץ</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מצווה מן התורה:</p>
+<blockquote>"לֹא תַסְגִּיר עֶבֶד אֶל אֲדֹנָיו אֲשֶׁר יִנָּצֵל אֵלֶיךָ מֵעִם אֲדֹנָיו" (דברים כג, טז)</blockquote>
+<p>ספר החינוך מבאר שמדובר בעבד שברח מאדוניו שבחוץ לארץ אל ארץ ישראל. לא מחזירים אותו לחוץ לארץ. ומה הטעם? כתב החינוך שזה לכבוד הארץ: שמי שבורח אליה יינצל מעבדות, כדי שנבין בלבנו כמה גדול כבוד המקום.</p>
+<p>בורא עולם רצה שנרגיש כמה יקרה ארץ ישראל, ולכן נתן מצווה: מי שהגיע אליה – אל תוציא אותו ממנה.</p>
+<p>יש שמעלים מכאן שאלה גם לימינו: האם מותר להסגיר לחוץ לארץ אדם שנמלט לישראל? זו שאלה סבוכה, ובמקרה ההוא מדובר בעבד ולא באדם שעבר עבירות. אבל רוח הפסוק ברורה: מי שהגיע לארץ ישראל – כבר אינו דומה למי שנשאר בחוץ.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הים הגדול ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הים הגדול</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשנה במסכת ברכות נאמר שהרואה את הים הגדול מברך "ברוך שעשה את הים הגדול".</p>
+<p>איזה ים הוא "הים הגדול"? יש מפרשים שהכוונה לים התיכון, הים שעליו עוברים לארץ ישראל. אבל הים התיכון רחוק מלהיות הים הגדול בעולם – האוקיינוסים גדולים ממנו פי כמה!</p>
+<p>אלא שהים התיכון נקרא גדול בגלל חשיבותה של ארץ ישראל. הוא נוגע בארץ – ולכן הוא גדול.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הנהר הגדול – נהר פרת ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הנהר הגדול – נהר פרת</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דבר דומה מופיע בתורה: "עַד הַנָּהָר הַגָּדֹל נְהַר פְּרָת".</p>
+<p>בפרשת בראשית מנויים ארבעה נהרות שיוצאים מעדן: פישון, גיחון, חידקל ופרת. רש"י מפרש שפישון הוא הנילוס, הנהר הגדול ביותר. ופרת? הוא האחרון ברשימה, ובוודאי אינו הנהר הגדול שבהם.</p>
+<p>למה, אם כן, התורה קוראת לו "הנהר הגדול"? רש"י מתרץ: "מפני שנזכר עם ארץ ישראל קוראו גדול". נהר פרת אינו בתוך ארץ ישראל; הוא רק הגבול שלה. ועצם זה שהוא נוגע בארץ הופך אותו לגדול.</p>
+<p class="bold-para">אפילו נהר, רק משום שהוא סמוך לארץ ישראל, נקרא "גדול".</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: יהודי פשוט מהארץ ורב מחוץ לארץ ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">יהודי פשוט מהארץ ורב מחוץ לארץ</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר על המלבי"ם שיום אחד חיכו בפתח ביתו שני אורחים: יהודי פשוט, שליח מארץ ישראל, ורב של קהילה חשובה. כשהמשמש שאל את מי להכניס קודם, השיב המלבי"ם: את היהודי מארץ ישראל.</p>
+<p>הרב נפגע. כשנכנס לבסוף שאל: "מה, היהודי הזה אמר לפניך חידושי תורה גדולים?"</p>
+<p>ענה המלבי"ם: "חידושים הוא לא אמר. אבל נזכרתי ברש"י על 'הנהר הגדול'. אם נהר, גוף דומם שרק נוגע בגבולה של ארץ ישראל, נקרא גדול – יהודי חי, שמקיים מצוות וגר בתוך ארץ ישראל, על אחת כמה וכמה שהוא אדם גדול."</p>
+<p>התורה עצמה פסקה עליו שהוא "גדול". ומכאן חוזרים לדיבת הארץ: מי שמקטין את הארץ הקדושה הזו לעומת נוף או נהר, מבזה את מה שהתורה קראה "גדול".</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: פורים: למה דווקא מימות יהושע? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🕎</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">ארץ ישראל בחגים</h2></div></div>
+<p class="chapter-intro">כמעט בכל חג אפשר למצוא את ארץ ישראל – לפעמים במקום שבו לא היינו מחפשים אותה.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">פורים: למה דווקא מימות יהושע?</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עיר שהייתה מוקפת חומה קוראת את המגילה בט"ו באדר, כמו שושן. אבל השאלה היא: חומה מאיזו תקופה? היה טבעי לקבוע לפי ימי אחשוורוש, שבהם היה הנס. ובכל זאת חכמים קבעו: עיר שהייתה מוקפת חומה <strong>מימות יהושע בן נון</strong>.</p>
+<p>הרמב"ם מבאר את הטעם: כדי לחלוק כבוד לארץ ישראל, שהייתה חרבה באותו זמן. בימי אחשוורוש לא הייתה בארץ ישראל אף עיר מוקפת חומה – הכול היה הרוס. אילו קבעו לפי ימי אחשוורוש, לא הייתה אף עיר בארץ שקוראת בט"ו. לכן קבעו לפי ימי יהושע, כדי שערי ארץ ישראל ייחשבו מוקפות.</p>
+<p>והרמב"ם מוסיף: כדי שיהיה זיכרון לארץ ישראל בנס הזה. נס שקרה בפרס – וגם בו חכמים דאגו שנזכור את ארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: חנוכה: יום העצמאות של בית שני ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חנוכה: יום העצמאות של בית שני</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שפותח את הרמב"ם בהלכות חנוכה רואה שעיקר השמחה אינו רק נס פך השמן. הרמב"ם כותב שהחשמונאים ניצחו את היוונים, "וחזרה מלכות לישראל" יותר ממאתיים שנה.</p>
+<p>בתקופת בית שני הייתה הארץ רוב הזמן תחת שלטון זר: פרס, אחר כך יוון, עם מלחמות וצרות בלי סוף. רק בימי החשמונאים חזרה עצמאות אמיתית לעם ישראל בארצו.</p>
+<p>אם שואלים איפה "יום העצמאות" של בית שני – זה חנוכה. השמחה הגדולה היא שחזרה מלכות ישראל לארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: סוכות: האתרוג מאיפה? ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">סוכות: האתרוג מאיפה?</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כמאה וחמישים שנה פרצה מחלוקת גדולה בעולם היהודי: מאיפה להביא אתרוגים לסוכות? מן היוונים באי קורפו, שהיו מוכרים ומבוססים, או מארץ ישראל, שבה רק התחילו לגדל אתרוגים מחדש?</p>
+<p>בעל ערוך השולחן כתב בזמנו דברים נלהבים: הנכון לאיש הישראלי להקדים את פרי ארצנו הקדושה על פני פרי ארצות העמים. זהו כבודו של הקדוש ברוך הוא, כבוד התורה הקדושה שפסוקים רבים בה משבחים את הארץ, וכבוד משה רבנו שהתחנן "אֶעְבְּרָה נָּא וְאֶרְאֶה אֶת הָאָרֶץ הַטּוֹבָה".</p>
+<p>והוא מזכיר את מה שמספרת הגמרא על חכמי ארץ ישראל:</p>
+<blockquote>"רבי אבא מנשק כיפי דעכו... רבי חייא בר גמדא מיגנדר בעפרה, שנאמר: כי רצו עבדיך את אבניה ואת עפרה יחוננו" (כתובות קיב, א)</blockquote>
+<p>רבי אבא נישק את סלעי עכו, ורבי חייא בר גמדא התגלגל בעפרה של הארץ. ואנחנו – נעדיף פרי מארץ אחרת?</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מה בכוס הקידוש? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🍇</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">לנשק את הארץ בכל יום</h2></div></div>
+<p class="chapter-intro">מדברי ערוך השולחן עולה הלכה מעשית שכל אחד יכול לקיים כבר היום, בחנות שליד הבית.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מה בכוס הקידוש?</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השאלה של ערוך השולחן נוגעת גם לימינו. נכנסים לחנות: תפוחים מארץ ישראל ותפוחים מיובאים. יין מהגליל ויין ממדינה אחרת. מה בוחרים?</p>
+<p>לפעמים כואב הלב לראות כמה יין ומיץ ענבים מגיעים מחוץ לארץ. אדם עושה קידוש בליל שבת ואינו יודע שהיין הגיע מארץ רחוקה. גם על בקבוקי מיץ ענבים כדאי להסתכל – לא כולם מענבי הארץ.</p>
+<p>נכון, לפעמים המיובא זול יותר. אבל כדאי לדעת מה מונח על כפות המאזניים.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: &quot;כמה נשקת השנה את ארץ ישראל?&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;כמה נשקת השנה את ארץ ישראל?&quot;</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וזה החידוש הגדול של ערוך השולחן. אם הגמרא מספרת שחכמים נישקו את אבני הארץ ואת עפרה, קל וחומר שראוי לנו לבחור את פירותיה.</p>
+<p>לנשק את האדמה ממש – לא תמיד יוצא. אולי ביום שחוזרים מחוץ לארץ. אבל יש הזדמנות בכל יום: כשבוחרים בחנות פרי של ארץ ישראל, כביכול מנשקים אותה. ולא רק מנשקים – אוכלים את פירותיה, מכניסים את ארץ ישראל אל תוך הגוף.</p>
+<p>אבל צריך מחשבה. מי שקונה סתם, בלי לחשוב, לא עשה כלום. מי שבוחר ואומר בלבו "אני בוחר בפרי של ארץ ישראל מפני שהיא יקרה לי" – מקיים את דברי חכמים.</p>
+<div class="honey-box">🍯 חידה: מתי נישקת לאחרונה את ארץ ישראל? תשובה: היום בבוקר, כשבחרתי עגבנייה מהארץ.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: כי רצו עבדיך את אבניה ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כי רצו עבדיך את אבניה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף ספר הכוזרי מובא רעיון עצום, וגם בעל ספר חרדים והשל"ה הקדוש כתבו כך: הגאולה תלויה באהבת ישראל לארץ ישראל. הראיה מסדר הפסוקים בתהלים:</p>
+<blockquote>"אַתָּה תָקוּם תְּרַחֵם צִיּוֹן כִּי עֵת לְחֶנְנָהּ כִּי בָא מוֹעֵד. כִּי רָצוּ עֲבָדֶיךָ אֶת אֲבָנֶיהָ וְאֶת עֲפָרָהּ יְחֹנֵנוּ" (תהלים קב, יד-טו)</blockquote>
+<p>מתי יקום הקדוש ברוך הוא וירחם על ציון? כאשר עבדיו ירצו את אבניה ויחוננו את עפרה. כשעם ישראל יאהב את ארץ ישראל וישמח במתנה שבורא עולם נתן לו – אז תבוא הגאולה.</p>
+<p class="bold-para">מי שאוהב את ארץ ישראל, משבח אותה ובוחר בפירותיה – מקרב את הגאולה.</p>
+<p>ולכן, במקום לחפש את המקום שבו הנוף יפה יותר, כדאי להתרגל לומר את מה שבורא עולם אמר עליה כבר בתורה: טובה הארץ מאוד מאוד.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
