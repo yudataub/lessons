@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏞️ והורשתם את הארץ: המצווה שחיכתה אלפיים שנה</title>
+<meta name="description" content="מה זו מצוות ירושת הארץ, במה היא שונה מישיבת הארץ ומיישובה, איך מקיימים אותה בלי מלחמה, ולמה דווקא הדור שלנו צריך ללמוד אותה מחדש.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🏞️ והורשתם את הארץ: המצווה שחיכתה אלפיים שנה</h1>
+  <p class="hero-subtitle">מה זו מצוות ירושת הארץ, במה היא שונה מישיבת הארץ ומיישובה, איך מקיימים אותה בלי מלחמה, ולמה דווקא הדור שלנו צריך ללמוד אותה מחדש.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-14 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/N7qcDPvNPdw" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧭 שלוש מצוות של ארץ ישראל</a><ul class="toc-stories"><li><a href="#story-1">כשהלימוד מביא את המעשה</a></li><li><a href="#story-2">ישיבת הארץ, יישוב הארץ וירושת הארץ</a></li><li><a href="#story-3">קופת ארץ ישראל שבכל בית</a></li><li><a href="#story-4">למה כמעט אף אחד לא כתב על המצווה הזאת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📜 הפסוק: והורשתם את הארץ</a><ul class="toc-stories"><li><a href="#story-5">שתי פעמים &quot;והורשתם&quot;</a></li><li><a href="#story-6">דרכו של הרמב&quot;ן: לגרש ולשלוט</a></li><li><a href="#story-7">דרכו של רש&quot;י: בלי להתיישב לא תחזיקו</a></li><li><a href="#story-8">אפשר לשבת בלי לרשת?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🧱 כמה חשובה כל אמה בארץ</a><ul class="toc-stories"><li><a href="#story-9">לקנות שדה מגוי אפילו בשבת</a></li><li><a href="#story-10">למה לעלייה לא התירו, ולקניית קרקע כן</a></li><li><a href="#story-11">סיפור של שבת אחת</a></li><li><a href="#story-12">קונים את הארץ דונם אחר דונם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🌵 מה קורה כשלא מורישים</a><ul class="toc-stories"><li><a href="#story-13">שכים בעיניכם וצנינים בצדיכם</a></li><li><a href="#story-14">זה כבר קרה בימי השופטים</a></li><li><a href="#story-15">החזון כמצפן</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🕊️ גלות, שבועות, ואיך יודעים שהגיע הזמן</a><ul class="toc-stories"><li><a href="#story-16">מצווה שנוהגת גם בגלות</a></li><li><a href="#story-17">למה הרמב&quot;ם לא מנה את המצווה</a></li><li><a href="#story-18">חתן וכלה: למה בגלות אין מצווה</a></li><li><a href="#story-19">כשאומות העולם קוראות לבוא</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🤝 ירושה בלי מלחמה</a><ul class="toc-stories"><li><a href="#story-20">שלושת המכתבים של יהושע</a></li><li><a href="#story-21">תש&quot;ח: הם ברחו מעצמם</a></li><li><a href="#story-22">הגבעונים: איזו ברית מותרת</a></li><li><a href="#story-23">מה הגדר היום</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">שלוש מצוות של ארץ ישראל</h2></div></div>
+<p class="chapter-intro">לפני שנכנסים למצווה עצמה, צריך לעשות סדר: יש שלוש קומות במצוות ארץ ישראל, וכל אחת מהן היא עולם בפני עצמו.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשהלימוד מביא את המעשה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מצוות שהן עניין של לוח השנה, ויש מצוות שהן עניין של השעה. מצוות ירושת הארץ שייכת לסוג השני: זו מצווה שעם ישראל עומד מולה ממש עכשיו, בימים האלה.</p>
+<p>חז"ל אמרו (קידושין מ, ב):</p>
+<blockquote>גדול תלמוד שהתלמוד מביא לידי מעשה.</blockquote>
+<p>כשאדם לומד דבר לעומק, מבין את גדריו ואת חשיבותו, הלימוד עצמו מקרב את המעשה. יש בזה סגולה רוחנית, ויש בזה גם פשט פשוט: מי שלומד מצווה ומבין אותה, מתחיל לרצות לקיים אותה. רצון שנולד מתוך תורה הוא כוח שמזיז מציאות.</p>
+<div class="honey-box">🍯 לפעמים הצעד הראשון לקיום מצווה גדולה הוא פשוט להבין אותה.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: ישיבת הארץ, יישוב הארץ וירושת הארץ ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ישיבת הארץ, יישוב הארץ וירושת הארץ</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לחלק את מצוות ארץ ישראל לשלושה חלקים:</p>
+<ul class="story-list"><li><strong>ישיבת הארץ</strong> – המצווה המפורסמת: כל יהודי מצווה לעלות לארץ ישראל ולגור בה.</li><li><strong>יישוב הארץ</strong> – גם מי שעדיין לא זכה לגור בארץ מצווה לדאוג שהיא תהיה בנויה ומיושבת: לתרום, לבנות, להשקיע, לנטוע.</li><li><strong>ירושת הארץ</strong> – לדאוג שהארץ תהיה בבעלות יהודית, שהשלטון בה יהיה שלטון של עם ישראל.</li></ul>
+<p>שני החלקים הראשונים מוכרים לכל אחד. החלק השלישי הוא הנושא שלנו, והוא גם המסובך שבהם: מה בדיוק נחשב בעלות? בעלות של קרקעות פרטיות, או ריבונות של מדינה? ומה המצווה דורשת מאיתנו כלפי מי שגר בארץ ואינו יהודי?</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: קופת ארץ ישראל שבכל בית ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קופת ארץ ישראל שבכל בית</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יישוב הארץ אינו המצאה חדשה. מאז שעלו החסידים עם רבי מנחם מנדל מוויטבסק בשנת תקל"ז, ואחריהם תלמידי הגר"א, הקימו היהודים "קופת ארץ ישראל" כדי שיהיה ליושבי הארץ ממה להתפרנס.</p>
+<p>כמעט בכל בית יהודי באירופה עמדה קופה קטנה, ובני הבית הכניסו אליה מטבעות למען ארץ ישראל. אצל החסידים זה הפך למפעל עצום. בימים ההם לא היה ויכוח בין "ציונים" ל"לא ציונים": כולם אהבו את הארץ וכולם תרמו לה, כי כל יהודי ידע שגם אם הוא גר רחוק, מוטלת עליו מצווה לדאוג שארץ ישראל תהיה מיושבת.</p>
+<p class="bold-para">אהבת הארץ הייתה פעם נחלת כל עם ישראל, בלי מחנות ובלי מחיצות.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: למה כמעט אף אחד לא כתב על המצווה הזאת ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה כמעט אף אחד לא כתב על המצווה הזאת</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שמחפש את גדרי מצוות ירושת הארץ מגלה שכמעט אין חומר. אין פרק בשולחן ערוך, אין סימן מסודר ברמב"ם, וגם הראשונים והאחרונים כמעט שלא עסקו בה.</p>
+<p>הסיבה פשוטה: אדם כותב על דברים שהוא חושב עליהם וחולם עליהם. במשך אלפיים שנה אף אחד לא העלה בדעתו שיום אחד הארץ תחזור לבעלות יהודית בלי ביאת המשיח. וכשהמשיח יבוא – הוא כבר יסתדר. בגמרא יש ביטוי ל"הלכתא למשיחא", הלכה שאין בה צורך מעשי עד ימות המשיח, ובדרך כלל לא טרחו לברר הלכות כאלה לעומק.</p>
+<p>והנה המציאות גדולה מכל דמיון. אנחנו חיים במציאות שהדורות לא העזו לחלום עליה, "היינו כחולמים", אבל זה אמיתי. ולכן אנחנו נדרשים לחזור למקורות הראשונים ממש: לפסוקי החומש, לדברי רש"י והרמב"ן, ולסוגיה אחת בגמרא, ולדלות מהם את גדרי המצווה. רק בדורות האחרונים החלו לכתוב על כך הרבה, כי השאלות נעשו מעשיות מאוד.</p>
+<div class="honey-box">🍯 הקושי למצוא מקורות הוא בעצם עדות לנס: הדורות לא כתבו, כי הם לא העזו לחלום על מה שאנחנו זוכים לחיות.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: שתי פעמים &quot;והורשתם&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">הפסוק: והורשתם את הארץ</h2></div></div>
+<p class="chapter-intro">פסוק אחד בפרשת מסעי הוא שורש המצווה, ובתוכו שתי מילים שנראות זהות אבל אומרות דברים שונים.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שתי פעמים &quot;והורשתם&quot;</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך אומרת התורה (במדבר לג, נא–נג):</p>
+<blockquote>דבר אל בני ישראל ואמרת אלהם כי אתם עברים את הירדן אל ארץ כנען. והורשתם את כל ישבי הארץ מפניכם ואבדתם את כל משכיתם ואת כל צלמי מסכתם תאבדו ואת כל במותם תשמידו. והורשתם את הארץ וישבתם בה כי לכם נתתי את הארץ לרשת אתה.</blockquote>
+<p>המילה "והורשתם" מופיעה פעמיים: פעם "והורשתם את כל יושבי הארץ", ופעם "והורשתם את הארץ". האם זה אותו דבר? ואם כן, למה התורה חוזרת?</p>
+<p>ושאלה נוספת: למה התורה כותבת "והורשתם" ולא "והרגתם"? כי מצוות "לא תחיה כל נשמה" (דברים כ, טז) נאמרה רק על שבעת העממים. כלפי כל השאר הלשון היא "הורשה", כלומר להוציא אותם מהשליטה בארץ, לא לפגוע בהם.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: דרכו של הרמב&quot;ן: לגרש ולשלוט ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דרכו של הרמב&quot;ן: לגרש ולשלוט</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ן ומפרשים נוספים חילקו בין שני חלקי הפסוק:</p>
+<ul class="story-list"><li><strong>"והורשתם את כל יושבי הארץ"</strong> – להוציא את יושבי הארץ מפניכם.</li><li><strong>"והורשתם את הארץ"</strong> – את הארץ עצמה הרי אי אפשר לגרש. הכוונה היא שעם ישראל יהיה הריבון והשליט בארץ.</li></ul>
+<p>לפי זה, הורשת הארץ פירושה ירושה במובן של בעלות: שהארץ תהיה שלנו. סוף הפסוק מחזק את הפירוש הזה: "כי לכם נתתי את הארץ <strong>לרשת</strong> אתה" – זו בוודאי לשון ירושה ובעלות.</p>
+<p>וכך כתב הרמב"ן בהשגותיו לספר המצוות (מצוות עשה ד):</p>
+<blockquote>שנצטווינו לרשת את הארץ אשר נתן האל יתעלה לאבותינו לאברהם ליצחק וליעקב, ולא נעזבה ביד זולתנו מן האומות או לשממה.</blockquote>
+<p class="bold-para">שני חלקים במצווה אחת: שהארץ לא תהיה ביד אומה אחרת, ושהיא לא תהיה שוממה.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: דרכו של רש&quot;י: בלי להתיישב לא תחזיקו ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דרכו של רש&quot;י: בלי להתיישב לא תחזיקו</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רש"י על הפסוק הולך בדרך אחרת. לדבריו גם "והורשתם את הארץ" פירושו להוריש אותה מיושביה, ואז "וישבתם בה" – תוכלו להתקיים בה. ואם לא תורישו – לא תוכלו להתקיים בה.</p>
+<p>לפי רש"י, אין בחלק הזה של הפסוק ציווי נפרד על בעלות, ולכאורה חסר לנו מקור לכך שצריך להיות בעלים על הארץ. אבל סוף הפסוק, "כי לכם נתתי את הארץ לרשת אתה", מבטא בבירור שהארץ ניתנה לנו לירושה, וגם רש"י לא יחלוק על כך שהתורה רוצה שהארץ תהיה שלנו.</p>
+<p>הרמב"ן מונה את ירושת הארץ ואת יישובה כמצוות עשה אחת. ובאחרונים דנו: מה עיקר ומה טפל? האם הירושה נועדה כדי שנוכל לשבת בארץ, או שהישיבה נועדה כדי שהארץ תהיה שלנו?</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: אפשר לשבת בלי לרשת? ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אפשר לשבת בלי לרשת?</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לכאורה אפשר. במשך כל דורות הגלות ישבו יהודים בארץ תחת שלטון זר: תחת הטורקים, ואחר כך תחת הבריטים. סבים רבים עלו לארץ בשנות השלושים והארבעים, גרו כאן, בנו וגידלו משפחות, והשלטון לא היה בידי עם ישראל. יש ישיבה בלי ירושה.</p>
+<p>אבל אי אפשר להקים כך בית לאומה שלמה. יהודים בודדים יכולים לשבת בארץ תחת שלטון זר; עם ישראל כולו, כמדינה של כל היהודים, צריך שהארץ תהיה שלו.</p>
+<p>רוב האחרונים נקטו שלשני החלקים תכלית אחת: שהארץ תהיה ירושה שלנו. ובשביל זה צריך גם בעלות וגם ישיבה בפועל, כי מקום שלא מיישבים אותו הולך ונשמט מן הידיים. כך רואים במציאות: הדרך הטובה ביותר להחזיק במקום היא ליישב אותו – לבנות, לנטוע עצים, להביא אנשים. מקום שעומד ריק, בסוף מישהו אחר תופס אותו.</p>
+<div class="honey-box">🍯 ישיבה בלי ירושה אפשרית ליחיד; ירושה בלי ישיבה לא מחזיקה מעמד. המצווה השלמה צריכה את שתיהן.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: לקנות שדה מגוי אפילו בשבת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🧱</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">כמה חשובה כל אמה בארץ</h2></div></div>
+<p class="chapter-intro">ההלכה מראה עד כמה היא מעריכה כל פיסת קרקע בארץ ישראל שעוברת לידיים יהודיות.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לקנות שדה מגוי אפילו בשבת</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת גיטין (ח, ב) והשולחן ערוך (אורח חיים סימן שו) פוסקים: הקונה בית או שדה בארץ ישראל מגוי – מותר לומר לגוי לכתוב את שטר הקנייה אפילו בשבת.</p>
+<p>זה חידוש עצום. אמירה לגוי לעשות מלאכה בשבת אסורה, ובמלאכה שהיא איסור תורה הדבר חמור במיוחד. גם לצורך ברית מילה לא התירו בפשטות אמירה לגוי. ובכל זאת, כדי שעוד קרקע בארץ ישראל תעבור לבעלות יהודית, חכמים לא גזרו. וכך אומרת הגמרא: משום יישוב ארץ ישראל לא גזרו רבנן.</p>
+<p class="bold-para">כל דונם בארץ ישראל שעובר לידי יהודים חשוב כל כך, עד שחכמים ויתרו בשבילו על גזרה של שבת.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: למה לעלייה לא התירו, ולקניית קרקע כן ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה לעלייה לא התירו, ולקניית קרקע כן</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן שאלה מעניינת. לצורך עלייה לארץ ישראל, אדם פרטי לא קיבל היתר לומר לגוי לעשות בשבילו מלאכה בשבת. ואילו לקניית קרקע מגוי – התירו. מה ההבדל?</p>
+<p>ההסבר: העלייה היא מצווה של היחיד. אדם עולה, והמצווה היא שלו. אבל כשקרקע בארץ ישראל עוברת לבעלות יהודית, זו מצווה של הרבים, של כל עם ישראל ולכל הדורות. זו הצלה של חלק מארץ ישראל, ובשביל מצווה כזאת התירו גם את מה שבדרך כלל אסור.</p>
+<div class="honey-box">🍯 יש מצוות שאדם עושה לעצמו, ויש מצוות שאדם עושה בשביל כל העם. ירושת הארץ היא מהסוג השני.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: סיפור של שבת אחת ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">סיפור של שבת אחת</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר שבתקופה של הקפאת בנייה ביהודה ושומרון נקבע כלל: מה שכבר התחילו לבנות – מותר להשלים, ומה שלא התחילו – לא. ומהי התחלה? הוגדר שרק מקום שכבר יש בו יציקת בטון נחשב "התחלה". ואיך יבדקו? מטוס יעבור מעל השטח ביום ראשון ויצלם, ומה שיצולם – יישאר.</p>
+<p>ביום חמישי התברר מתי יעבור המטוס. בכמה מקומות עוד לא היה בטון, ובני המקום הבינו שכל מטר שייצק עד יום ראשון הוא עוד בית בארץ ישראל. הזמינו כל משאית אפשרית וכל פועל שהסכים לבוא, ועבדו יומם ולילה. כשהתקרבה השבת שאלו את הרב מרדכי אליהו: האם פועלים שאינם יהודים יכולים להמשיך ולעבוד בשבת?</p>
+<p>התשובה שנמסרה בשמו הייתה: אין לך הצלת ארץ ישראל גדולה מזו. כל בית שיזכו לו – ינצל עוד חלק מארץ ישראל. ובאותה שבת המשיכו משאיות הבטון לנוע הלוך וחזור, עד שהספיקו עוד ועוד בתים לפני שהגיע המטוס.</p>
+<p>זו דוגמה חיה להלכה מן הגמרא: מצוות יישוב הארץ וירושתה כל כך חשובה, שמשום יישוב ארץ ישראל לא גזרו רבנן.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: קונים את הארץ דונם אחר דונם ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">קונים את הארץ דונם אחר דונם</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בדורות שלפני קום המדינה, המצווה התבטאה בעיקר בקניית קרקעות. הקרן הקיימת לישראל קנתה עוד ועוד קרקעות, בלי סוף.</p>
+<p>אחד המפורסמים בתחום היה יהושע חנקין, שרחובות רבים בארץ נקראים על שמו. כל ימיו עסק בגאולת קרקעות: הוא היה מומחה בתיווך בין בעלי הקרקעות הערבים לבין המוסדות היהודיים. כך נקנו אדמות רבות בעמקים ובצפון, ולעיתים קרובות היו הבעלים משפחות עשירות שגרו בכלל מחוץ לארץ, בלבנון או במקומות אחרים, ואדמת עיר שלמה הייתה שייכת למשפחה אחת. החוזים קיימים עד היום, ובהם כתוב כמה שולם על כל חלקה.</p>
+<p>בדורות הגלות זו הייתה דרך קיום המצווה: לקנות. היום, כשיש מדינה, המצווה מתרחבת גם לבעלות ולריבונות של העם כולו.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: שכים בעיניכם וצנינים בצדיכם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🌵</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מה קורה כשלא מורישים</h2></div></div>
+<p class="chapter-intro">התורה לא הסתפקה בציווי. היא גם כתבה מה יקרה אם לא נקיים אותו, והדברים נשמעים כאילו נכתבו על ימינו.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שכים בעיניכם וצנינים בצדיכם</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מיד אחרי הציווי ממשיכה התורה (במדבר לג, נה):</p>
+<blockquote>ואם לא תורישו את ישבי הארץ מפניכם והיה אשר תותירו מהם לשכים בעיניכם ולצנינם בצדיכם וצררו אתכם על הארץ אשר אתם ישבים בה.</blockquote>
+<p>לכאורה, למה צריך להוסיף "על הארץ אשר אתם יושבים בה"? ברור שאם יפגעו בנו, זה יהיה במקום שבו אנחנו גרים.</p>
+<p>אור החיים הקדוש מסביר את הכוונה: לא רק שהם יחזיקו בחלק מהארץ שלא זכיתם בו, אלא שהם יצרו לכם גם על החלק שכבר זכיתם בו ואתם יושבים בו. כלומר, מי שנשאר בארץ לא יסתפק בשטח משלו; הוא ימשיך להציק ולפגוע גם במקום שאמור להיות שלכם.</p>
+<p class="bold-para">התורה מלמדת שהשארת אויב בתוך הארץ איננה מביאה שקט – היא מביאה צרה גם לבית שלך.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: זה כבר קרה בימי השופטים ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">זה כבר קרה בימי השופטים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שקורא את ספר שופטים מגלה שהסיפור אינו חדש. אחרי ימי יהושע היו שבטים שלא הורישו את יושבי הארץ. אולי מתוך רחמנות, אולי מתוך מחשבה שהם שכנים נחמדים ואין סיבה להוציא אותם.</p>
+<p>והתורה כבר הזהירה, ואחר כך באה התוכחה (שופטים ב, ג):</p>
+<blockquote>וגם אמרתי לא אגרש אותם מפניכם והיו לכם לצדים ואלהיהם יהיו לכם למוקש.</blockquote>
+<p>בהתחלה היה אפשר להוריש אותם בקלות יחסית. אחר כך זה כבר נעשה קשה מאוד. הזדמנות שהוחמצה לא חוזרת באותה צורה. מי שקורא את התנ"ך בעיניים פקוחות רואה את ההיסטוריה חוזרת על עצמה, ומבין עד כמה התורה מדויקת.</p>
+<div class="honey-box">🍯 התנ"ך איננו רק סיפור על העבר; הוא מפה שמראה לנו לאן מוביל כל שביל.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: החזון כמצפן ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">החזון כמצפן</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תמיד שואלים: נניח שזו המצווה – מה אפשר לעשות עכשיו? המציאות מסובכת, העולם לוחץ, ואין בידינו להחליט הכול.</p>
+<p>התשובה הראשונה: חשוב מאוד שיהיה יעד. כל מי שהולך היום לאימון אישי – בזוגיות, בחינוך הילדים או בעסק – שומע קודם כול את השאלה "מה החזון שלך?". גם כשנדמה שאין סיכוי, מבקשים ממנו לדמיין את מה שהוא רוצה שיהיה. ובמציאות רואים שוב ושוב: מי שחי את החזון שלו מתקרב אליו, ומי שאין לו חזון לא יגיע לשום מקום.</p>
+<p>כך גם בכלל ישראל. כשעם ישראל יודע שיש מצווה מן התורה שהארץ תהיה שלו, והוא מחזיק בזה כחזון, הקדוש ברוך הוא עוזר, ובדרכים שאיננו מדמיינים הדבר מתקרב. מודעות היא כבר התחלה של מעשה: כשציבור שלם מבין מה התורה רוצה, זה משפיע על החלטות, על הצבעות ועל כל אדם בביתו.</p>
+<p class="bold-para">לפני שיודעים מה לעשות, צריך לדעת לאן רוצים להגיע.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מצווה שנוהגת גם בגלות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🕊️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">גלות, שבועות, ואיך יודעים שהגיע הזמן</h2></div></div>
+<p class="chapter-intro">אם זו מצווה מן התורה, למה הרמב"ם לא מנה אותה? והאם היא נוהגת גם בזמן הגלות?</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מצווה שנוהגת גם בגלות</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לדעת הרמב"ן ורבים אחרים, מצוות ירושת הארץ נמנית במניין המצוות כמצווה הנוהגת לדורות, ואפילו בזמן הגלות.</p>
+<p>איך אפשר לקיים בגלות מצווה של בעלות על הארץ? הרי עם ישראל איננו שולט בה. התשובה היא שבגלות המצווה מתקיימת במה שאפשר: לקנות קרקעות, לבנות, להחזיק בכל מה שאפשר להחזיק. זה מה שעשו הדורות שקנו דונם אחר דונם.</p>
+<p>ומה עם "שלוש השבועות" שבגמרא (כתובות קיא, א), שבהן השביע הקדוש ברוך הוא את ישראל שלא יעלו בחומה? הרמב"ן אינו מזכיר אותן כלל ואינו מתייחס אליהן בהלכה, ונאמרו הסברים רבים למה.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: למה הרמב&quot;ם לא מנה את המצווה ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה הרמב&quot;ם לא מנה את המצווה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם אינו מונה מצווה של ירושת הארץ או של כיבושה במניין תרי"ג המצוות.</p>
+<p>רבי יצחק די ליאון, בחיבורו "מגילת אסתר" על ספר המצוות, מסביר: לדעת הרמב"ם מצווה זו נהגה רק בזמן כניסת העם לארץ ועד שגלו, ומצווה שאינה נוהגת לדורות אינה נמנית במניין המצוות. על הדעה הזאת נסמכו רבים מאלה שלא עלו לארץ: אם אנחנו עדיין בגלות, המצווה לא חלה.</p>
+<p>הסבר אחר: ירושת הארץ היא אמצעי. הרמב"ם אינו מונה מצוות שהן הכשר למצוות אחרות, וארץ ישראל היא הכלי שבו מתקיימות מצוות רבות כל כך – התרומות והמעשרות, השמיטה, ועוד – ושבו אפשר לבער עבודה זרה ולקיים את התורה כולה. לפי זה, גם לדעת הרמב"ם יש כאן ערך עצום, אלא שהוא מתבטא דרך המצוות שהארץ מאפשרת.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: חתן וכלה: למה בגלות אין מצווה ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">חתן וכלה: למה בגלות אין מצווה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את דעת "מגילת אסתר" אפשר להבין במשל. נישואים צריכים שני צדדים: החתן רוצה בכלה והכלה רוצה בחתן. אין מצווה לכלה להינשא לחתן שאינו רוצה בה, ואין מצווה לחתן לבוא אל כלה שאינה מעוניינת.</p>
+<p>הקשר בין הקדוש ברוך הוא, עם ישראל וארץ ישראל הוא כעין נישואים. בשיר השירים (ב, ז) נאמר:</p>
+<blockquote>השבעתי אתכם בנות ירושלים בצבאות או באילות השדה אם תעירו ואם תעוררו את האהבה עד שתחפץ.</blockquote>
+<p>מכאן למדו חז"ל את השבועות: עד שתחפץ, עד שיהיה ברור שהקדוש ברוך הוא חפץ בכך, לא יעלו כל ישראל יחד בחומה. יחידים יכולים לעלות; עלייה של העם כולו מחכה לרצון מלמעלה.</p>
+<p>אבל איך יודעים שהגיע ה"עד שתחפץ"?</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: כשאומות העולם קוראות לבוא ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כשאומות העולם קוראות לבוא</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מובא בשם רבי מאיר שמחה מדווינסק, בעל "משך חכמה", סימן שמראה שהקדוש ברוך הוא חפץ שנעלה: כשהגויים עצמם קוראים ליהודים לבוא לארץ ישראל. מטבעו של עולם, אומה זרה אינה קוראת ליהודים להקים לעצמם בית. כך היה בראשית בית שני, כשכורש קרא ליהודים לעלות. וכשבאה הצהרת בלפור, ואחריה החלטות המעצמות הגדולות שהכירו בזכות היהודים על הארץ, ראו בזה סימן שהגיע הזמן.</p>
+<p>ואם שלוש מעצמות קוראות לנו – קל וחומר כשרוב העולם מחליט. בכ"ט בנובמבר החליט ארגון האומות המאוחדות, אותו ארגון שאנחנו מכירים היום כמה הוא "אוהב" אותנו, להקים מדינה יהודית. ולהחלטה כזאת לא הספיק רוב רגיל; היה צורך ברוב של שני שלישים. ויש שאמרו שכל קיומו של הארגון הזה נועד רק לרגע אחד: שתהיה מי שתחליט שעם ישראל חוזר לארצו.</p>
+<p class="bold-para">כשכל העולם קורא לעם ישראל לחזור הביתה, אין סימן ברור מזה שהגיע "עד שתחפץ".</p>
+<div class="honey-box">🍯 לפי זה, גם לשיטת הרמב"ם ייתכן שבימינו המצווה חזרה לחול.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: שלושת המכתבים של יהושע ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🤝</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">ירושה בלי מלחמה</h2></div></div>
+<p class="chapter-intro">הגדר החשוב ביותר: ירושת הארץ איננה מצוות מלחמה. היא מצווה לדאוג שהארץ תהיה בבעלות יהודית, ויש לכך דרכים רבות.</p>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלושת המכתבים של יהושע</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מצוות ירושת הארץ איננה "לך והילחם". המצווה היא שהארץ תהיה בבעלות יהודית, והדרך לשם יכולה להיות גם דרך שלום.</p>
+<p>בתלמוד הירושלמי (שביעית ו, א) מסופר שלפני הכניסה לארץ שלח יהושע שלושה מכתבים ליושבי הארץ: מי שרוצה לפנות – יפנה, מי שרוצה להשלים – ישלים, מי שרוצה לעשות מלחמה – יעשה. והגרגשי פינה והלך לו לאפריקה.</p>
+<p>זו אפשרות אחת: האומות רואות את כוחו של עם ישראל, מבינות שאין טעם להילחם, ומחליטות מעצמן ללכת. בלי מלחמה ובלי שפיכות דמים.</p>
+<p class="bold-para">ירושה איננה בהכרח כיבוש בחרב; היא יכולה להיות גם פינוי מרצון והשלמה.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: תש&quot;ח: הם ברחו מעצמם ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">תש&quot;ח: הם ברחו מעצמם</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דבר דומה קרה בתקומת המדינה. לפי כל ההערכות, ערב קום המדינה היו בארץ ערבים רבים יותר מיהודים. והנה, מאות אלפי ערבים עזבו את הארץ.</p>
+<p>למה? מנהיגיהם אמרו להם לצאת לזמן קצר: עוד מעט ינצחו צבאות ערב, ואז תחזרו ותקבלו הכול פי שניים. הם גם היו בטוחים שהיהודים יתנהגו כמו שהם עצמם היו מתנהגים בניצחון, ונמלטו מפחד. כך התרוקנו כפרים ושכונות שלמים, גם באזור הקריות ובעוד מקומות רבים. הם הלכו ולא חזרו.</p>
+<p>זו בדיוק הדרך של הגרגשי: בלי שהיה צורך לגרש, הם בחרו לפנות. מי שקורא את התנ"ך רואה כאן את דבר ה' מתגלגל בהיסטוריה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: הגבעונים: איזו ברית מותרת ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הגבעונים: איזו ברית מותרת</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם אפשר להשלים, נשאלת שאלה מפורסמת: מה היה פסול בגבעונים, שבאו ברמאות לכרות ברית עם יהושע? אם שלום מותר, למה היו צריכים להתחפש?</p>
+<p>יש מן הראשונים שסברו שאחרי הכניסה לארץ כבר אי אפשר להשלים, ולכן הגבעונים, שבאו מאוחר מדי, נזקקו לרמאות. ויש שסברו שאפשר להשלים תמיד, אלא שהבעיה הייתה בסוג הברית שכרתו. הם כרתו ברית של שותפות, ברית שווה: אתם תעזרו לנו ואנחנו נעזור לכם. ברית כזאת אסור לכרות עם עמי הארץ.</p>
+<p>הברית המותרת היא כמו שכתוב (דברים כ, יא): "והיו לך למס ועבדוך". כלומר, ברית שבה ברור מי הריבון: הם מקבלים את שלטון ישראל ואת חוקי התורה, וחיים תחתיו בשלום. ריבונות משותפת, שלטון כפול – זה מה שהתורה אינה מתירה.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: מה הגדר היום ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה הגדר היום</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכאן עולה הבחנה חשובה. המצווה היא שתהיה לנו בעלות על הארץ. מי שמסכים לחיות תחת ריבונות יהודית, בשלום ובנאמנות – כבר יש עליו בעלות, ולפי הגדר הזה אין מצווה לגרש אותו. התורה גם איננה מכריחה איש להתגייר, ומעולם לא גיירנו בכפייה.</p>
+<p>אבל מי שאינו מוכן לקבל שלטון יהודי, ששואף לפגוע בעם ישראל ולסלק אותו מארצו, הרי הוא בדיוק "השכים בעיניכם והצנינים בצדיכם" שהתורה מזהירה עליהם. את מה שקרה בשמחת תורה תשפ"ד, ואת השמחה ברחובות על רצח יהודים, ראה כל העולם.</p>
+<p>בין שני הקצוות האלה יש עוד שאלות רבות שצריכות בירור: מה הדין בהבאת פועלים זרים לארץ, האם כל אדם פרטי שמזמין עובד מחוץ לארץ נוגע במצווה, ומה התורה רוצה מאיתנו בכל מקרה ומקרה. אלה פרטים שעוד דורשים לימוד.</p>
+<div class="honey-box">🍯 הגדר המרכזי: לא שנאה ולא נקמה, אלא ריבונות. השאלה היא תמיד מי בעל הבית בארץ.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
