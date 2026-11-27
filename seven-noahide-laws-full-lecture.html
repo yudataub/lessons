@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🕎 אור לגויים: שבע מצוות בני נח – מהרמב&quot;ם ועד איראן</title>
+<meta name="description" content="הרצאה שלמה: מי הם שלושת סוגי הגויים בהלכה, מה כתב הרמב&quot;ם על החובה ללמד את כל באי העולם, ואיך חוברת אחת של הרב יואל שוורץ בערבית הצילה חיים והגיעה עד טורקיה ואיראן.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🕎 אור לגויים: שבע מצוות בני נח – מהרמב&quot;ם ועד איראן</h1>
+  <p class="hero-subtitle">הרצאה שלמה: מי הם שלושת סוגי הגויים בהלכה, מה כתב הרמב&quot;ם על החובה ללמד את כל באי העולם, ואיך חוברת אחת של הרב יואל שוורץ בערבית הצילה חיים והגיעה עד טורקיה ואיראן.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-25 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/LVgyBLIvAqc" target="_blank" rel="noopener">🎬 חלק א ביוטיוב: אור לגויים – החובה ללמד את העולם</a> <a class="video-btn" href="https://youtu.be/xg4FvvxL8Ao" target="_blank" rel="noopener">🎬 חלק ב ביוטיוב: הרב יואל שוורץ ושבע מצוות בני נח</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🕯️ קומי אורי: אור לגויים</a><ul class="toc-stories"><li><a href="#story-1">החושך יכסה ארץ – ועלייך יזרח ה&#x27;</a></li><li><a href="#story-2">לא רק עם חכם – עם שמלמד איך לחיות</a></li><li><a href="#story-3">למה דווקא המנורה</a></li><li><a href="#story-4">ויבין כל יצור: התפילה הגדולה של ראש השנה</a></li><li><a href="#story-5">ונהרו אליו כל הגוים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">⚖️ שלושה סוגי גויים</a><ul class="toc-stories"><li><a href="#story-6">גר תושב: מי שקיבל את המצוות בפני בית דין</a></li><li><a href="#story-7">בן נח: מי ששומר מעצמו</a></li><li><a href="#story-8">מי שעובר על המצוות בשיטה</a></li><li><a href="#story-9">למה צריך לדעת את החלוקה הזו היום</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📜 הרמב&quot;ם המפתיע ומה הוא באמת אומר</a><ul class="toc-stories"><li><a href="#story-10">לשון הרמב&quot;ם</a></li><li><a href="#story-11">למה ההלכה הזו קשה כל כך</a></li><li><a href="#story-12">כשלומדים רמב&quot;ם בלי המפרשים</a></li><li><a href="#story-13">תשובה שנכתבה אחרי קיביה</a></li><li><a href="#story-14">&quot;איני יודע מקורו&quot;</a></li><li><a href="#story-15">&quot;לא ישבו בארצך&quot;</a></li><li><a href="#story-16">מחלוקת הרמב&quot;ם והרמב&quot;ן</a></li><li><a href="#story-17">&quot;מפני שאינו עושה עמנו מלחמה&quot;</a></li><li><a href="#story-18">ומכאן – החובה ללמד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">👑 ממלכת כהנים: החובה ללמד את העולם</a><ul class="toc-stories"><li><a href="#story-19">שני נימוקים שמשלימים זה את זה</a></li><li><a href="#story-20">שני נימוקים לחובה</a></li><li><a href="#story-21">למה לא עשו את זה במשך דורות</a></li><li><a href="#story-22">השכן שלך מחכה</a></li><li><a href="#story-23">&quot;אמרת את זה הבוקר&quot;</a></li><li><a href="#story-24">עם סגולה וממלכת כהנים</a></li><li><a href="#story-25">תמיד במרכז העולם</a></li><li><a href="#story-26">יונה הנביא ואנשי נינוה</a></li><li><a href="#story-27">ויאתיו כל לעבדך</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🚀 הרב יואל שוורץ: רב שמקדים את דורו</a><ul class="toc-stories"><li><a href="#story-28">ישיבה ששמה &quot;דבר ירושלים&quot;</a></li><li><a href="#story-29">מאות ספרים כשלא היו ספרים</a></li><li><a href="#story-30">הרב הראשון של בדיקת התולעים</a></li><li><a href="#story-31">משגיח בגיל עשרים ושמונה, ורב הנח&quot;ל החרדי</a></li><li><a href="#story-32">&quot;אור לעמים&quot;: הספר ששכב במגירה</a></li><li><a href="#story-33">סידור לבני נח</a></li><li><a href="#story-34">כמרים בגלימות שחורות בירושלים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">📗 מהחוברת בערבית ועד ההזמנה לאיראן</a><ul class="toc-stories"><li><a href="#story-35">פגישה בתחנה</a></li><li><a href="#story-36">איך בודקים תרגום שאי אפשר לקרוא</a></li><li><a href="#story-37">תיכון ערבי מחלק את החוברת</a></li><li><a href="#story-38">&quot;אנחנו חייבים לך את חיי הבן שלנו&quot;</a></li><li><a href="#story-39">במחיר של טיל אחד</a></li><li><a href="#story-40">הנדיב מטורקיה</a></li><li><a href="#story-41">החלום על טהרן</a></li><li><a href="#story-42">שבע המצוות בערבית, בשיר ובכרטיס</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🧭 ומה עושים היום?</a><ul class="toc-stories"><li><a href="#story-43">את מי מביאים לארץ</a></li><li><a href="#story-44">רעיון לעסק: עובדים ששומרים שבע מצוות</a></li><li><a href="#story-45">הדרוזים, והחינוך שקובע</a></li><li><a href="#story-46">מסע הסברה: מה שבידינו לעשות עכשיו</a></li><li><a href="#story-47">מהלכה לחיים: שני צדדים של אותה שליחות</a></li><li><a href="#story-48">&quot;רק לא, לא, לא?&quot;</a></li><li><a href="#story-49">אמונה, תפילה וברכה</a></li><li><a href="#story-50">כבוד שמיים והתבוננות</a></li><li><a href="#story-51">הנהגות טובות: רחמנות, ענווה וכיבוד הורים</a></li><li><a href="#story-52">וצדקה? מה שהשכל מחייב</a></li><li><a href="#story-53">&quot;בגן האמונה&quot; לעולם כולו</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">קומי אורי: אור לגויים</h2></div></div>
+<p class="chapter-intro">לפני שנכנסים להלכות, צריך לראות את התמונה הגדולה: הנביאים מבטיחים שיבוא יום והעולם כולו יבוא ללמוד מעם ישראל איך חיים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החושך יכסה ארץ – ועלייך יזרח ה&#x27;</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בהפטרה של "קומי אורי" ישעיהו הנביא מתאר עולם שלם שמגשש באפלה, ובתוכו נקודת אור אחת:</p>
+<blockquote>"קומי אורי כי בא אורך וכבוד ה' עלייך זרח. כי הנה החושך יכסה ארץ וערפל לאומים ועלייך יזרח ה' וכבודו עלייך יראה. והלכו גוים לאורך ומלכים לנגה זרחך" (ישעיה ס, א-ג)</blockquote>
+<p>החושך כאן אינו רק חושך של לילה. זה מצב שבו בני האדם לא יודעים מה הדרך הנכונה, איך מוצאים סדר בעולם, מה טוב ומה רע. והנביא מבטיח שבמצב כזה כולם יפנו אל עם ישראל.</p>
+<p class="bold-para">עם ישראל נועד להיות המורה של העולם כולו – לא רק בחכמה, אלא בדרך החיים.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: לא רק עם חכם – עם שמלמד איך לחיות ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא רק עם חכם – עם שמלמד איך לחיות</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>העולם כבר רואה היום שעם ישראל הוא עם חכם בצורה שקשה לתפוס אותה בשכל אנושי: בטכנולוגיה, ברפואה, ביכולת לעמוד מול אויבים רבים. אבל הנבואה מבטיחה הרבה יותר מזה.</p>
+<p>היא מבטיחה שיבואו ללמוד מאיתנו <strong>איך צריך להתנהג</strong>: מה הצורה שבה אדם צריך לחיות, מה היושר, מה הצדק, מי ברא את העולם ומה הוא מבקש מבני האדם.</p>
+<p>הנביא חוזר על כך שוב ושוב:</p>
+<blockquote>"ונתתיך לאור גוים להיות ישועתי עד קצה הארץ" (ישעיה מט, ו)</blockquote>
+<blockquote>"אני ה' קראתיך בצדק ואחזק בידך ואצרך ואתנך לברית עם לאור גוים" (ישעיה מב, ו)</blockquote>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: למה דווקא המנורה ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה דווקא המנורה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשבחרו את סמל מדינת ישראל, נבחרה המנורה. אחד הנימוקים שנכתבו אז היה בדיוק זה: ישראל נולד להיות אור לגויים, אור לעולם. האור שלו הוא המנורה שדלקה בבית המקדש הראשון והשני והפיצה אור לעולם כולו, וגם בימינו, ימי התקומה, המנורה צריכה להאיר לעם ולעולם.</p>
+<p>כלומר, הסמל שמופיע על כל מסמך רשמי של המדינה מזכיר לנו את התפקיד: לא להסתגר, אלא להאיר.</p>
+<div class="honey-box">🍯 המנורה על סמל המדינה היא תזכורת יומיומית: אנחנו לא רק עם שצריך לשרוד – אנחנו עם שצריך להאיר.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: ויבין כל יצור: התפילה הגדולה של ראש השנה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ויבין כל יצור: התפילה הגדולה של ראש השנה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ביום הדין, בתפילה החשובה ביותר של השנה, אנחנו לא מתפללים רק על עצמנו:</p>
+<blockquote>"מלוך על כל העולם כולו בכבודך, והנשא על כל הארץ ביקרך, והופע בהדר גאון עוזך על כל יושבי תבל ארצך. וידע כל פעול כי אתה פעלתו, ויבין כל יצור כי אתה יצרתו, ויאמר כל אשר נשמה באפו ה' אלוקי ישראל מלך ומלכותו בכל משלה"</blockquote>
+<p>שימו לב למדרגות: "פעול", "יצור", "נשמה באפו". וגם הידיעה עולה: קודם "וידע", אחר כך "ויבין" – הבנה עמוקה יותר, ובסוף "ויאמר" – מוציאים את האמונה החוצה, בפה.</p>
+<p>יש שפירשו ש"פעול" כולל אפילו את בעלי החיים, כמו שנאמר על אחרית הימים "וגר זאב עם כבש... כי מלאה הארץ דעה את ה' כמים לים מכסים" (ישעיה יא, ו-ט). הדעת תגיע לכל מקום, גם לנמוך ביותר.</p>
+<p class="bold-para">והשאלה הגדולה: האם רק מתפללים שזה יקרה – או שגם צריך לפעול כדי שזה יקרה?</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ונהרו אליו כל הגוים ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ונהרו אליו כל הגוים</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ישעיהו הנביא רואה את אחרית הימים:</p>
+<blockquote>"והיה באחרית הימים נכון יהיה הר בית ה' בראש ההרים ונשא מגבעות ונהרו אליו כל הגוים. והלכו עמים רבים ואמרו לכו ונעלה אל הר ה' אל בית אלוקי יעקב וירנו מדרכיו ונלכה בארחתיו כי מציון תצא תורה ודבר ה' מירושלים" (ישעיה ב, ב-ג)</blockquote>
+<p>והפסוק הבא מגלה מה יצא מזה:</p>
+<blockquote>"ושפט בין הגוים והוכיח לעמים רבים וכתתו חרבותם לאתים וחניתותיהם למזמרות לא ישא גוי אל גוי חרב ולא ילמדו עוד מלחמה" (שם, ד)</blockquote>
+<p class="bold-para">כשהעמים ילמדו מירושלים איך לחיות, החרבות יהפכו לכלי עבודה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: גר תושב: מי שקיבל את המצוות בפני בית דין ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">שלושה סוגי גויים</h2></div></div>
+<p class="chapter-intro">כדי לדעת איך מתייחסים לכל אדם, ההלכה מבחינה בין שלושה מצבים שונים מאוד של מי שאינו יהודי.</p>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גר תושב: מי שקיבל את המצוות בפני בית דין</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסוג הראשון והגבוה ביותר הוא <strong>גר תושב</strong>. זה אדם שלא התגייר, אבל בא לפני בית דין של ישראל וקיבל עליו בפניהם את שבע מצוות בני נח.</p>
+<p>לפי הרמב"ם, רק מי שקיבל כך מותר לו לשבת בארץ ישראל. ויותר מזה – אנחנו מצווים לעזור לו ולהחיות אותו, כמו שכתוב "וכי ימוך אחיך... גר ותושב וחי עמך" (ויקרא כה, לה). אם הוא נצרך, נותנים לו אפילו צדקה.</p>
+<p>כיוון שקיבל את המצוות בפני בית דין, התורה מחזיקה אותו כ"מצווה ועושה", והשכר שלו גדול הרבה יותר.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: בן נח: מי ששומר מעצמו ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">בן נח: מי ששומר מעצמו</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסוג השני הוא מי שההלכה קוראת לו <strong>בן נח</strong> – אדם שלא בא לפני בית דין, אבל למד את הנושא, הגיע למסקנה שצריך לשמור את שבע המצוות, ומקיים אותן בפועל.</p>
+<p>זה אדם טוב, נורמלי, חיובי. הוא לא עובד עבודה זרה, לא רוצח ולא גוזל. ודאי שאסור לפגוע בו בשום צורה.</p>
+<p>אבל כיוון שלא קיבל את המצוות בפני בית דין, הוא נחשב "כמי שאינו מצווה ועושה". יש לו שכר, אבל פחות. חז"ל אמרו במסכת עבודה זרה (ג, א) שגדול המצווה ועושה ממי שאינו מצווה ועושה – מי שמקיים מתוך ציווי, עומד מול יצר שמתנגד לו, ושכרו גדול יותר.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מי שעובר על המצוות בשיטה ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מי שעובר על המצוות בשיטה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסוג השלישי הוא מי שעובר על שבע המצוות בגלוי ובכוונה. לא מדובר באדם שנכשל פעם אחת, אלא במי שזו דרכו ושיטתו: עובד עבודה זרה, או חי בחברה שמחנכת לרצח ולגזל, וכך מלמדים את הילדים מגיל צעיר.</p>
+<p>כלפי אדם כזה, לשון חז"ל חריפה: אין עלינו חובה לעזור לו ולהחיות אותו. הסיבה היא שהוא עובר על הדברים המינימליים, שכל בן אדם אמור להבין מעצמו שחייבים לשמור.</p>
+<p>אבל חשוב להדגיש מיד את מה שהרמב"ם עצמו כותב: לפגוע באדם כזה בידיים – אסור. "מפני שאינו עושה עמנו מלחמה" (הלכות עבודה זרה י, א). וגם במקומות שבהם יש מקום לחומרה, כדאי מאוד לא להיכנס לזה, כי זה יכול לגרום לנזק גדול.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: למה צריך לדעת את החלוקה הזו היום ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה צריך לדעת את החלוקה הזו היום</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה נשמע אולי כמו נושא תאורטי, אבל הוא נוגע לשאלות מעשיות מאוד: לאיזה גויים מותר לגור בארץ ישראל? את מי כדאי להביא לעבוד כאן? איך מתייחסים לשכן, לפועל, לעובד הזר?</p>
+<p>מי שמבין את שלושת הסוגים, מבין שההבדל ביניהם עצום. גוי שמאמין בבורא העולם, לא עובד עבודה זרה ולא מתחנך לרצח – הוא אדם שהתורה רואה בו ערך ורוצה בקיומו. ומעל הכול: התורה רוצה שכל אדם יעלה מדרגה – מהסוג השלישי לשני, ומהשני לראשון.</p>
+<p class="bold-para">החלוקה הזו איננה כדי לדחות אנשים, אלא כדי לדעת לאן לקדם אותם.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: לשון הרמב&quot;ם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">הרמב&quot;ם המפתיע ומה הוא באמת אומר</h2></div></div>
+<p class="chapter-intro">אחת ההלכות המיוחדות והקשות ביותר ברמב"ם עוסקת בשאלה של מי התפקיד לדאוג שהעולם יכיר את שבע המצוות – והרב שאול ישראלי מסביר אותה לעומק.</p>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לשון הרמב&quot;ם</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בהלכות מלכים (פרק ח, הלכה י) כותב הרמב"ם:</p>
+<blockquote>"משה רבינו לא הנחיל התורה והמצוות אלא לישראל, שנאמר מורשה קהלת יעקב, ולכל הרוצה להתגייר משאר האומות... אבל מי שלא רצה, אין כופין אותו לקבל תורה ומצוות. וכן צוה משה רבינו מפי הגבורה לכוף את כל באי העולם לקבל מצוות שנצטוו בני נח, וכל מי שלא יקבל יהרג"</blockquote>
+<p>והלכה אחריה (הלכה יא) הוא מוסיף שגוי שמקבל את שבע המצוות ונזהר לעשותן "הרי זה מחסידי אומות העולם ויש לו חלק לעולם הבא" – בתנאי שהוא מקיים אותן משום שכך ציווה הקדוש ברוך הוא בתורה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: למה ההלכה הזו קשה כל כך ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה ההלכה הזו קשה כל כך</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן כמה חידושים שקשה לקבל כפשוטם.</p>
+<p>ראשית, הרמב"ם אומר שעם ישראל נצטווה לכוף את כל העולם לקבל את שבע המצוות. אבל מתי בהיסטוריה היו יהודים בעמדה כזו? לאורך הדורות היה בדיוק להפך – הגויים כפו על היהודים, לא היהודים על הגויים.</p>
+<p>שנית, "כל מי שלא יקבל – יהרג". האם הכוונה שכל אדם בעולם שלא קיבל את שבע המצוות חייב מיתה? זה דבר שלא נשמע מעולם.</p>
+<p>ושלישית, הרמב"ם דורש שהגוי יקיים את המצוות לא כי השכל מחייב, אלא כי כך ציווה הקדוש ברוך הוא בתורה. זה חידוש עצום בפני עצמו.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: כשלומדים רמב&quot;ם בלי המפרשים ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כשלומדים רמב&quot;ם בלי המפרשים</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>היו מי שלמדו את הרמב"ם הזה כפשוטו, וניסו להוציא ממנו הלכה מעשית חמורה: שמותר לפגוע בגויים כמה שרוצים. כך נכתב ספר שעורר סערה גדולה ("תורת המלך").</p>
+<p>אבל רבנים רבים מאוד יצאו נגד הדרך הזו, והראו שאי אפשר ללמוד כך את הרמב"ם. הרמב"ם עצמו כותב במפורש במקום אחר שאסור לפגוע בגוי בידיים "מפני שאינו עושה עמנו מלחמה".</p>
+<div class="honey-box">🍯 רמב"ם שנשמע קיצוני הוא סימן שצריך ללמוד אותו לעומק – לא היתר לעשות מה שכתוב בשורה אחת.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: תשובה שנכתבה אחרי קיביה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">תשובה שנכתבה אחרי קיביה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב שאול ישראלי היה חכם עצום, והתשובה שלו בנושא נוגעת להמון שאלות: איך מתייחסים לגויים שנמצאים בארץ, מי רשאי לגור בה, ומה מותר במלחמה.</p>
+<p>הוא כתב אותה בתקופה של פעולות התגמול בשנות המדינה הראשונות. אחרי פעולת קיביה, שבה נהרגו עשרות מתושבי הכפר, עלתה שאלה קשה: האם מותר לפעול כך כדי ללמד את האויב לקח? מתוך השאלה הזו הוא נכנס לבירור יסודי של הרמב"ם.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: &quot;איני יודע מקורו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;איני יודע מקורו&quot;</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב ישראלי פותח בהודאה כנה: הרמב"ם שכתב שנצטווינו לכוף את כל באי העולם – אין הכוונה שהחיוב עלינו להפיץ את ההכרה בה' ובמצוות בכל העולם בכוח, כי מקור לכך בתורה ובחז"ל אינו ידוע לו.</p>
+<p>ועוד הוא שואל: אם צריך להילחם בכל מי שלא קיבל את שבע המצוות, אז כל מלחמה היא מלחמת מצווה! איך יש בכלל מושג של "מלחמת רשות"? הרי זה כמו הג'יהאד – לצאת נגד כל הכופרים בעולם. מי שמע כזה דבר?</p>
+<p class="bold-para">ודאי שלא. הרמב"ם לא התכוון שיוצאים להרוג גויים בעולם.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: &quot;לא ישבו בארצך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;לא ישבו בארצך&quot;</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אלא, מסביר הרב ישראלי, הרמב"ם מדבר על מקום שכבר נכבש במלחמה ונעשה חלק מארץ ישראל. שם חל האיסור מן התורה:</p>
+<blockquote>"לא ישבו בארצך פן יחטיאו אותך לי" (שמות כג, לג)</blockquote>
+<p>אסור להשאיר בארץ ישראל גויים שאינם שומרים את שבע המצוות. ולכן כשכובשים מקום, אי אפשר לעשות שלום עם יושביו אלא בתנאי שיקבלו את שבע המצוות. זה מה שכתב הרמב"ם בהלכות מלכים (פרק ו), שכאשר קוראים לשלום – התנאי הוא מס, שעבוד וקבלת שבע המצוות.</p>
+<p>הדרישה לקבל את המצוות איננה מבצע עולמי. היא תנאי לישיבה בארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מחלוקת הרמב&quot;ם והרמב&quot;ן ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מחלוקת הרמב&quot;ם והרמב&quot;ן</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפי זה מובנת היטב מחלוקת הראשונים על הפסוק "כי תקרב אל עיר להלחם עליה וקראת אליה לשלום" (דברים כ, י).</p>
+<p>לדעת הרמב"ם, אין שלום בלי קבלת שבע המצוות. זה תנאי מראש.</p>
+<p>לדעת הראב"ד והרמב"ן, די במס ובשעבוד. אחרי שהשלימו, נדון איתם בשבע המצוות כמו בכל מקום – אם יעברו עליהן בפועל, יש לכך דין, אבל זה לא תנאי לשלום.</p>
+<p>ושורש המחלוקת הוא בגדר של גר תושב: לרמב"ם, גוי שלא קיבל את המצוות אין לו זכות לגור בארץ ישראל. לכן כשהוא נמצא בארץ, חייבים לדרוש ממנו לקבל אותן.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: &quot;מפני שאינו עושה עמנו מלחמה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;מפני שאינו עושה עמנו מלחמה&quot;</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם עצמו כותב בהלכות עבודה זרה (פרק י, הלכה א) שאין כורתים ברית לעובדי עבודה זרה כדי להשאיר אותם בעבודתם. אבל באותה הלכה הוא מדגיש: לאבד אותו בידיים, או לדחוף אותו לבור – אסור, "מפני שאינו עושה עמנו מלחמה".</p>
+<p>מעניין שבהרבה דפוסים ישנים המילים "עובדי כוכבים" הוחלפו בגלל הצנזורה, ורק במהדורות של ימינו, כשכבר לא חוששים, החזירו את הנוסח המקורי.</p>
+<p>המסקנה ברורה: לא הולכים להרוג סתם גויים. זה לא התפקיד שלנו. רק במלחמה, כשנלחמים על מקום, עומדת הברירה – קבלת המצוות או המשך המלחמה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: ומכאן – החובה ללמד ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ומכאן – החובה ללמד</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה לומדים מכל זה? אם התורה מקפידה כל כך על קיום שבע המצוות, עד שבשעת מלחמה מי שאינו מקבל אותן אין לו זכות לשבת בארץ – מכאן שהתורה מאוד רוצה שהגויים ישמרו אותן.</p>
+<p>המצב הקשה של מלחמה הוא מקרה של חוסר ברירה. אבל לכתחילה, התורה רוצה שנדאג שהם ילמדו וידעו. כך למד הרמב"ם שחובה עלינו ללמד את כל באי העולם את שבע המצוות.</p>
+<div class="honey-box">🍯 הכפייה היא המוצא האחרון בשעת מלחמה. הדרך הראשונה, והעיקרית, היא ללמד.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: שני נימוקים שמשלימים זה את זה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">ממלכת כהנים: החובה ללמד את העולם</h2></div></div>
+<p class="chapter-intro">מהרבי מליובאוויטש ועד הרב יואל שוורץ: למה ללמד את הגויים את שבע המצוות זו חובה, ולמה דווקא עכשיו.</p>
+<article class="story-card" id="story-19" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שני נימוקים שמשלימים זה את זה</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש שתי דרכים להגיע לאותה מסקנה. הדרך האחת עוברת דרך ההלכה: הרמב"ם כותב שמשה רבנו נצטווה מפי הגבורה שכל באי העולם יקבלו את שבע המצוות, והרבי מליובאוויטש למד מכאן חובה מעשית על כל יהודי.</p>
+<p>הדרך השנייה עוברת דרך הסידור והתנ"ך: "הודיעו בעמים עלילותיו", "ממלכת כהנים", יונה שנשלח לנינוה, והתפילה "ויאתיו כל לעבדך". כך היה מלמד הרב יואל שוורץ.</p>
+<p>שתי הדרכים נפגשות באותה נקודה: <strong>השליחות לעולם איננה תוספת. היא חלק מהגדרת עם ישראל עצמו.</strong></p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: שני נימוקים לחובה ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שני נימוקים לחובה</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החל משנת תשמ"א, ובעיקר משנת תשמ"ג, חזר הרבי מליובאוויטש שוב ושוב על כך שהרמב"ם הזה הוא הלכה למעשה.</p>
+<p><strong>הנימוק הראשון:</strong> בתורה כתובים במפורש רק חלק ממצוות בני נח – הציווי לאדם הראשון, והציווי לנח אחרי המבול על שפיכות דמים ועל אבר מן החי. השאר נלמד בתורה שבעל פה. התורה ניתנה לעם ישראל, ושם כתוב מה הגויים חייבים. אם כן, איך אפשר לצפות מהם שידעו? מי שמחזיק את הידיעה – חייב למסור אותה.</p>
+<p><strong>הנימוק השני:</strong> התורה ניתנה לישראל, ולכן עליהם האחריות שהיא תתקיים בעולם – כולל החלק שלה שנוגע לבני נח.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: למה לא עשו את זה במשך דורות ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה לא עשו את זה במשך דורות</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שמחפש ספרות ישנה על שבע מצוות בני נח, כמעט לא ימצא. היום יש רשימה ענקית של ספרים בנושא, רובם באנגלית – אבל כמעט כולם נכתבו בחמישים השנים האחרונות. גם מי שעסק בגיור וחיפש חומר כתוב, גילה שכמעט אין.</p>
+<p>הרבי הסביר את זה כך: במשך הדורות זה היה מסוכן. יהודי שהיה פונה לגוי ואומר לו לעזוב את דתו, היה מסכן את עצמו ואת כל הקהילה. לכן לא עסקו בזה.</p>
+<p>אבל היום, אמר הרבי, המצב השתנה. אין סכנה, ורבים ישמחו לשמוע. אם כך – החובה חוזרת למקומה במלואה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: השכן שלך מחכה ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">השכן שלך מחכה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרבי לא השאיר את זה כתאוריה. הוא אמר: יש לך שכן גוי שמעריך אותך? אם תגיד לו שהוא צריך לקיים את שבע מצוות בני נח, הוא ישמע לך. זו חובה גמורה, ואין עליה תירוצים.</p>
+<p>בעקבות הדברים האלה יצאו שליחים רבים מאוד, והרבה גויים בכל מיני מקומות בעולם התחילו לשמור את שבע המצוות. עד היום יש מי שממשיכים ללכת וללמד.</p>
+<p>ואם מישהו שואל "האם הם באמת ישמעו?" – לא כולם ישמעו, אבל הרבה ישמעו. מי שגדל על דת שאין בה אמת, למה שלא יקבל את האמת כשהיא מוצגת לו בפשטות?</p>
+<p class="bold-para">לא כל אחד ישמע – אבל מי שלא מדבר, ודאי שלא ישמעו ממנו.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: &quot;אמרת את זה הבוקר&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;אמרת את זה הבוקר&quot;</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כששאלו את הרב שוורץ "מאיפה אתה יודע שצריך ללמד את הגויים?", הוא לא היה מצטט את הרמב"ם. הוא היה עונה בפשטות: אמרת את זה הבוקר בתפילה!</p>
+<blockquote>"הודו לה' קראו בשמו הודיעו בעמים עלילותיו" (דברי הימים א טז, ח)</blockquote>
+<blockquote>"ספרו בגוים את כבודו בכל העמים נפלאותיו" (שם, כד)</blockquote>
+<p>"מה אתה חושב," היה אומר, "שרק אומרים את זה בפה ולא שמים לב? כתוב 'הודיעו בעמים' – צריך להודיע!"</p>
+<div class="honey-box">🍯 לפעמים המקור הכי חזק נמצא בסידור, במילים שאנחנו אומרים כל בוקר בלי לשים לב.</div>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: עם סגולה וממלכת כהנים ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">עם סגולה וממלכת כהנים</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בהקדמה לספריו היה הרב שוורץ חוזר על הפסוק "ואתם תהיו לי ממלכת כהנים וגוי קדוש" (שמות יט, ו). למה ממלכת כהנים? כהן הוא מי שמלמד ומחבר אחרים לבורא.</p>
+<p>כך מפרש הספורנו על המקום: בזה תהיו סגולה מכל העמים, כי תהיו ממלכת כהנים – "להבין ולהורות לכל המין האנושי לקרוא כלם בשם ה' ולעבדו שכם אחד", כמו שנאמר "ואתם כהני ה' תקראו", וכמו שנאמר "כי מציון תצא תורה".</p>
+<div class="honey-box">🍯 "עם סגולה" איננו תואר של התנשאות. זה תיאור תפקיד: להיות כהנים לעולם כולו.</div>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: תמיד במרכז העולם ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">תמיד במרכז העולם</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב שוורץ היה מראה תופעה מפליאה בהיסטוריה: הקדוש ברוך הוא תמיד מציב את היהודים במקום המשפיע ביותר בעולם באותה תקופה.</p>
+<p>אברהם אבינו – בארם, מרכז התרבות של זמנו. עם ישראל במצרים – המעצמה הגדולה. בחורבן הבית הראשון – אשור ובבל, אחר כך פרס, אחר כך רומי. ספרד בתקופת הזוהר שלה, וכשגורשו היהודים מספרד – ספרד שוקעת ואירופה עולה, והיהודים באירופה. והיום – מרכז גדול של יהודים באמריקה.</p>
+<p>למה? כדי שהיהודים ישפיעו על האומות שבמרכז העולם, ומשם ההשפעה תגיע לכל העולם כולו.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: יונה הנביא ואנשי נינוה ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">יונה הנביא ואנשי נינוה</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ראיה נוספת הביא הרב שוורץ מספר יונה, שקוראים במנחה של יום הכיפורים. יונה נשלח להחזיר בתשובה את אנשי נינוה – גויים. הוא לא רצה ללכת וברח. הוא חשש שתשובתם של הגויים תהיה קטרוג על עם ישראל, שאינו חוזר בתשובה.</p>
+<p>אבל הקדוש ברוך הוא אמר לו: לך. גם הם ברואים שלי, ואכפת לי מהם. וזה כל סיפור הקיקיון והתולעת בסוף הספר.</p>
+<p>והנה, תשובת אנשי נינוה נעשתה דווקא סמל לעם ישראל. המשנה במסכת תענית (ב, א) מביאה אותם כדוגמה לתשובה אמיתית:</p>
+<blockquote>"וירא האלקים את מעשיהם כי שבו מדרכם הרעה" (יונה ג, י)</blockquote>
+<p class="bold-para">כשמחזירים את הגויים לדרך טובה, זה מעורר גם את עם ישראל למלא את תפקידו.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: ויאתיו כל לעבדך ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ויאתיו כל לעבדך</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתפילת הימים הנוראים אנחנו שרים אחד הפיוטים המפורסמים:</p>
+<blockquote>"ויאתיו כל לעבדך ויברכו שם כבודך ויגידו באיים צדקך... ויתנו לך כתר מלוכה"</blockquote>
+<p>הרב שוורץ היה אומר: מה אתה חושב, שזה יקרה לבד? אתה צריך לעשות מה שאתה יכול כדי שזה יתחיל לקרות, לאט לאט.</p>
+<p>התפילה הזו איננה רק בקשה. היא תוכנית עבודה.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: ישיבה ששמה &quot;דבר ירושלים&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🚀</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">הרב יואל שוורץ: רב שמקדים את דורו</h2></div></div>
+<p class="chapter-intro">מי שלקח את החובה הזו ברצינות מעשית, הרבה לפני שזה היה מקובל.</p>
+<article class="story-card" id="story-28" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ישיבה ששמה &quot;דבר ירושלים&quot;</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ישעיהו מבטיח: "כי מציון תצא תורה ודבר ה' מירושלים" (ישעיה ב, ג). את השם מן הפסוק הזה נתן הרב יואל שוורץ זכר צדיק לברכה לישיבה שבה כיהן שנים רבות: ישיבת "דבר ירושלים".</p>
+<p>זה לא היה רק שם יפה. הרב שוורץ היה מהראשונים שלקחו את הפסוק ברצינות מעשית, ופעלו כדי שדבר ה' באמת ייצא מירושלים אל העולם – גם אל אומות העולם.</p>
+<p>הסיפור שלו הוא דוגמה חיה לכך שהנבואה הזו אינה רק חלום רחוק. היא כבר התחילה.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: מאות ספרים כשלא היו ספרים ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מאות ספרים כשלא היו ספרים</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>היום קשה לדמיין, אבל לפני כמה עשרות שנים כמעט לא היו ספרי הלכה בשפה פשוטה. מי שרצה ללמוד הלכות סוכה או ארבעת המינים, נשאר עם השולחן ערוך, המשנה ברורה או כף החיים – ולא היה הרבה מעבר לזה. כמעט כל ספרות ההלכה המודרנית, ספרי הקיצורים והסיכומים שכולם מכירים היום, יצאה רק מאוחר יותר.</p>
+<p>הרב שוורץ היה מהראשונים שכתבו ספרים מסודרים וברורים על כל נושא שראה שחסר בו ספר. בחייו הספיק לכתוב כשלוש מאות ספרים.</p>
+<div class="honey-box">🍯 הרב שוורץ לא שאל "מי עוד עושה את זה?" – הוא שאל "מה חסר?", והלך לכתוב.</div>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: הרב הראשון של בדיקת התולעים ←</a></div>
+</article>
+<article class="story-card" id="story-30" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הרב הראשון של בדיקת התולעים</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה מפורסמת: עד שנות המ' בערך לא היה כמעט שום ספר או דף הוראות על בדיקת ירקות מתולעים. אמא שרצתה לדעת איך בודקים חסה – לא היה לה איפה לבדוק.</p>
+<p>כשהתחילו לגדל ירקות עליים נקיים מחרקים, היה צריך מי שיסביר לציבור שזה אפשרי ואמין. הציבור לא האמין שיכולה להיות חסה בלי תולעים. הרב שוורץ היה הרב הראשון שעמד מאחורי זה, הסביר ופרסם, ובמשך שנים היה הכתובת לנושא.</p>
+<p>וגם הבחנה מעשית שהיה מלמד: חרקים קטנים מסוימים יורדים בשטיפה, אבל יש תולעים שנדבקות לעלה ולא יורדות בשטיפה בלבד. לכן צריך לדעת מה בודקים ואיך.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: משגיח בגיל עשרים ושמונה, ורב הנח&quot;ל החרדי ←</a></div>
+</article>
+<article class="story-card" id="story-31" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">משגיח בגיל עשרים ושמונה, ורב הנח&quot;ל החרדי</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כבר בגיל עשרים ושמונה היה משגיח בישיבות גדולות – מחנך של בחורים כמעט בני גילו. בעיקר עסק בישיבות לחוזרים בתשובה, כמו ישיבת "דבר ירושלים" וישיבות רבות נוספות.</p>
+<p>כשהוקם הנח"ל החרדי, חיפשו רב. אף רב לא מיהר להיכנס לתחום כזה, כי כולם ידעו מה מחכה למי שייכנס. הרב שוורץ ראה שיש בחורים שזקוקים למסגרת, ושאף אחד לא נכנס – ולכן הסכים.</p>
+<p>הוא סבל לא מעט ביקורת ומחאות על כך. אבל זה לא עצר אותו. הוא שאל רק דבר אחד: מה צריך לעשות?</p>
+<p class="bold-para">מי שמחכה שכולם יסכימו – לא יתחיל אף פעם.</p>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: &quot;אור לעמים&quot;: הספר ששכב במגירה ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;אור לעמים&quot;: הספר ששכב במגירה</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב שוורץ כתב ספר בשם "אור לעמים" – על החשיבות והחובה ללמד את הגויים את שבע המצוות שהם חייבים בהן, ועם כל הדינים: מה כלול בכל מצווה ואיך מקיימים אותה בפועל.</p>
+<p>במשך זמן רב הספר חיכה. מי יסתכל עליו? מי ירצה? עד שיום אחד החליט: אין דבר כזה, אני מדפיס. אחרי כמה שנים הספר הגיע לידי גויים שהתלהבו ממנו, ובאו לבקש שילמד אותם את ההלכות. הספר תורגם לאנגלית, צרפתית, גרמנית, ספרדית, רוסית ושפות נוספות.</p>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: סידור לבני נח ←</a></div>
+</article>
+<article class="story-card" id="story-33" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">סידור לבני נח</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב שוורץ הבין שלא מספיק ללמד "מה אסור". צריך לחבר את האדם לבורא העולם לאורך כל היום. לכן חיבר סידור תפילה לבני נח, וספר שמסביר את תפקידם של אומות העולם ואת המהלך האלוקי הכללי של העולם.</p>
+<p>כך קיבל בן נח שלוש קומות: את ההלכות – מה עליו לעשות; את הרעיון – מה תפקידו בעולם; ואת התפילה – איך מדברים עם הבורא כל יום.</p>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: כמרים בגלימות שחורות בירושלים ←</a></div>
+</article>
+<article class="story-card" id="story-34" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כמרים בגלימות שחורות בירושלים</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הספר הגיע לידיו של ונדיל ג'ונס, מטיף בפטיסטי לשעבר מארצות הברית וארכיאולוג, שעבר תהפוכה רוחנית והקים תנועה של בני נח. כך התחילו להגיע גויים לבית של הרב בשכונת מאה שערים בירושלים.</p>
+<p>זה היה מחזה שלא נראה כמותו: כמרים בגלימות שחורות דופקים על דלת ביתו של רב ירושלמי. גם סטודנטים נוצרים מגרמניה הגיעו ושאלו שאלות, עד שראו את האמת. בזכות הביקוש הספר המשיך להיות מתורגם לעוד ועוד שפות.</p>
+<p class="bold-para">ספר אחד שיצא מהמגירה פתח דלת לאנשים מכל העולם.</p>
+</div><div class="story-next"><a href="#story-35">הקטע הבא: פגישה בתחנה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📗</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">מהחוברת בערבית ועד ההזמנה לאיראן</h2></div></div>
+<p class="chapter-intro">איך שיחה מקרית בתחנת אוטובוס הגיעה לתיכונים ערביים, הצילה חיים, וכמעט הגיעה עד טהרן.</p>
+<article class="story-card" id="story-35" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">פגישה בתחנה</h3><button class="copy-link" type="button" data-id="story-35">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פעם ישב הרב שוורץ על ספסל בתחנה ציבורית, ולידו ישב ערבי מבוגר עם משניות ביד. הרב שאל אותו: לשם מה אתה צריך משניות?</p>
+<p>האיש סיפר שהוא עובד באוניברסיטה העברית, ותרגם את ששת סדרי המשנה לערבית.</p>
+<p>הרב הציע לו: יש לי רעיון טוב יותר. יש לי ספר שמלמד מה הגויים חייבים לפי התורה. בוא, אשלם לך ותתרגם אותו לערבית. זה יכול להביא תועלת עצומה.</p>
+</div><div class="story-next"><a href="#story-36">הקטע הבא: איך בודקים תרגום שאי אפשר לקרוא ←</a></div>
+</article>
+<article class="story-card" id="story-36" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">איך בודקים תרגום שאי אפשר לקרוא</h3><button class="copy-link" type="button" data-id="story-36">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הערבי תרגם. אבל אז עלה חשש: אולי הכניס לתוך התרגום דברים מהקוראן? הרב לא קרא ערבית – איך ידע?</p>
+<p>במזל טוב, באחת הישיבות לחוזרים בתשובה למד בוגר שלמד קודם באוניברסיטה בשפה הערבית. הרב ביקש ממנו לעבור על התרגום. התרגום עבר את הבדיקה – הכול היה כתוב בדיוק כמו במקור.</p>
+<p>כך יצאה לאור חוברת שבע מצוות בני נח בערבית. הרב לא ידע כמה תועלת תצא ממנה, אבל היא הצליחה. פועלים קנו אותה, והיא עברה מיד ליד.</p>
+</div><div class="story-next"><a href="#story-37">הקטע הבא: תיכון ערבי מחלק את החוברת ←</a></div>
+</article>
+<article class="story-card" id="story-37" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">תיכון ערבי מחלק את החוברת</h3><button class="copy-link" type="button" data-id="story-37">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יום אחד החליט תיכון ערבי לחלק את החוברת לכל התלמידים. איך זה קרה?</p>
+<p>בחברה הערבית יש עד היום בעיה קשה מאוד של אלימות ורצח בתוך החברה עצמה. מחפשים כל דרך כדי שהצעירים לא יפגעו זה בזה. ובחוברת כתוב בפשטות, בשם הבורא: אסור לרצוח. אם המילים האלה ישפיעו – למה לא?</p>
+<p>כך חוברת שנכתבה בירושלים הגיעה לכיתות של תיכון ערבי, כפתרון לבעיה שלהם.</p>
+</div><div class="story-next"><a href="#story-38">הקטע הבא: &quot;אנחנו חייבים לך את חיי הבן שלנו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-38" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;אנחנו חייבים לך את חיי הבן שלנו&quot;</h3><button class="copy-link" type="button" data-id="story-38">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יום אחד הגיע טלפון למי שהפיץ את החוברות. משפחה ערבית אמרה: אנחנו חייבים את החיים של הבן שלנו לחוברת הזאת.</p>
+<p>מה קרה? הבן שלהם רצה להגיע לעולם הבא, ושכנעו אותו שהדרך לשם היא למות כ"שהיד" בפיגוע. ואז החוברת הגיעה לידיו, והוא קרא בה שאפשר לזכות לעולם הבא בלי למות ובלי להרוג – אם מקיימים את מה שהבורא ציווה על כל בני האדם. אין צורך באמונות מסובכות, רק דברים פשוטים: להאמין באל אחד, לא לרצוח, לא לגזול.</p>
+<p>הוא חשב: אם אפשר לחיות, לקיים את רצון הבורא ולזכות לעולם הבא – למה למות? והוא עזב את התוכנית.</p>
+<p class="bold-para">חוברת אחת הצליחה במקום שבו נשק לא הצליח: היא שינתה את הרצון.</p>
+</div><div class="story-next"><a href="#story-39">הקטע הבא: במחיר של טיל אחד ←</a></div>
+</article>
+<article class="story-card" id="story-39" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">במחיר של טיל אחד</h3><button class="copy-link" type="button" data-id="story-39">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב שוורץ לא התבייש ולא חיכה. הוא פנה לגורמי הביטחון ואמר: יש לי פתרון לבעיה אסטרטגית. קחו את המחיר של טיל אחד, והשקיעו אותו בהוראת שבע מצוות בני נח – בחוברות, בהרצאות, ברבנים שילמדו בכל מיני דרכים.</p>
+<p>לצערנו, לא הסכימו לשמוע. ועדיין הרעיון עומד: לימוד כזה עשוי להועיל לא פחות מנשק, ובמחיר קטן בהרבה.</p>
+<div class="honey-box">🍯 לפעמים הפתרון לבעיה הגדולה ביותר זול יותר מכל מה שמנסים: ללמד אדם שיש בורא שאוסר לרצוח.</div>
+</div><div class="story-next"><a href="#story-40">הקטע הבא: הנדיב מטורקיה ←</a></div>
+</article>
+<article class="story-card" id="story-40" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הנדיב מטורקיה</h3><button class="copy-link" type="button" data-id="story-40">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החוברת בערבית הגיעה לאיש עסקים עשיר מטורקיה, שהתלהב ממנה מאוד והזמין את הרב שוורץ לבוא לטורקיה.</p>
+<p>הרב לא רצה לנסוע. הוא ידע אנגלית, אבל לא באופן שוטף, וחשש שלא יוכל להסביר את הדברים כראוי. במקומו נשלחה משלחת של רבנים מישראל.</p>
+<p>בטורקיה קיבלו אותם בכבוד רב. הכניסו אותם למסגד, לפני אנשי הדת המוסלמים, והם הסבירו שם על שבע מצוות בני נח.</p>
+</div><div class="story-next"><a href="#story-41">הקטע הבא: החלום על טהרן ←</a></div>
+</article>
+<article class="story-card" id="story-41" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החלום על טהרן</h3><button class="copy-link" type="button" data-id="story-41">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואז אמר אחד מאנשי הדת הטורקים שיש לו קשר עם השליט העליון של איראן. "בוא אנסה לשכנע אותו להזמין אותך," הציע. "תבוא ללמד באיראן את שבע מצוות בני נח!"</p>
+<p>העניין הגיע לחדשות, שעשו ממנו כותרת גדולה: רב ישראלי הוזמן לאיראן. אשתו של הרב, כמובן, לא הסכימה בשום אופן. ובפועל זה לא התקיים – אולי הצד השני לא הסכים, ואולי הרעיון נשאר רק אצל איש הדת הטורקי.</p>
+<p>אבל עצם העובדה מדהימה: חוברת קטנה מירושלים הגיעה לטורקיה, ומשם כמעט עד איראן. והיו לה הדים גם באיטליה ובמקומות נוספים.</p>
+</div><div class="story-next"><a href="#story-42">הקטע הבא: שבע המצוות בערבית, בשיר ובכרטיס ←</a></div>
+</article>
+<article class="story-card" id="story-42" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שבע המצוות בערבית, בשיר ובכרטיס</h3><button class="copy-link" type="button" data-id="story-42">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>העבודה ממשיכה גם היום. חב"ד הפיקו סרטון שבו שרים בערבית, בסגנון חזנות, את שבע מצוות נח "עליו השלום" – בשפה ובצורה שהשומעים מכירים ואוהבים.</p>
+<p>הודפסו גם כרטיסים בערבית עם שבע המצוות, ויש מי שמוביל את הפרויקט ומוזמן לדבר על כך בפני קהלים ערביים בארץ.</p>
+<p class="bold-para">כשמדברים אל אדם בשפה שלו ובסגנון שלו – הוא שומע.</p>
+</div><div class="story-next"><a href="#story-43">הקטע הבא: את מי מביאים לארץ ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">ומה עושים היום?</h2></div></div>
+<p class="chapter-intro">מהתאוריה אל המעשה: מי גר בארץ, מה בידינו לעשות, ואיך נראים חיים מלאים של בן נח.</p>
+<article class="story-card" id="story-43" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">את מי מביאים לארץ</h3><button class="copy-link" type="button" data-id="story-43">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאר הראשונים לא החמירו כמו הרמב"ם. לדעתם, רק גוי שעובר על שבע המצוות בגלוי אין לו זכות לגור בארץ. אבל מי שאינו עובר עליהן בפועל, גם אם לא קיבל אותן בפני בית דין – מותר לו להישאר. ובימינו סומכים על כך פעמים רבות.</p>
+<p>ובכל זאת, מי ששואל את עצמו את מי להביא לעבודה בארץ, כדאי שישתדל להביא גויים שמאמינים בבורא העולם ואינם עובדים עבודה זרה. מי שקיבל על עצמו את שבע המצוות – זה הטוב ביותר שיכול להיות.</p>
+<p>לגבי שהייה זמנית, יש מי שמחמיר אפילו בזה, ויש פוסקים שמקלים בשעת הצורך, כמו כשיש חולה שזקוק לטיפול. אבל מי שיכול – עדיף מאוד שימצא עובד ששומר את שבע המצוות.</p>
+</div><div class="story-next"><a href="#story-44">הקטע הבא: רעיון לעסק: עובדים ששומרים שבע מצוות ←</a></div>
+</article>
+<article class="story-card" id="story-44" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">רעיון לעסק: עובדים ששומרים שבע מצוות</h3><button class="copy-link" type="button" data-id="story-44">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן גם הזדמנות. אדם שיפתח חברה שמביאה עובדים זרים שקיבלו על עצמם את שבע מצוות בני נח, יכול להצליח מאוד. כל אדם ירא שמיים שצריך עובד בבית, בגינה או בבניין, יעדיף עובד כזה.</p>
+<p>וזה לא רק עסק טוב – זו דרך מעשית להפיץ את שבע המצוות בעולם. העובד לומד, משפחתו בארץ מוצאו שומעת, והאור מתפשט.</p>
+</div><div class="story-next"><a href="#story-45">הקטע הבא: הדרוזים, והחינוך שקובע ←</a></div>
+</article>
+<article class="story-card" id="story-45" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הדרוזים, והחינוך שקובע</h3><button class="copy-link" type="button" data-id="story-45">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה מעשית: העדה הדרוזית. רובם לא קיבלו את שבע המצוות בפני בית דין, אבל הם מאמינים בבורא העולם, אינם עובדים עבודה זרה, והחינוך שלהם אינו מחנך לרצח ולגזל. גם אם יש יחידים שנכשלים, זו לא הדרך שמלמדים שם. לכן לדעת שאר הראשונים אין שום בעיה שיגורו בארץ.</p>
+<p>לעומת זאת, במקום שבו החינוך עצמו מקדש רצח – ונלמד לילדים כשיטה – המצב שונה לגמרי. שם ההלכה רואה בעיה יסודית.</p>
+<p class="bold-para">השאלה איננה מה דתו של האדם על הנייר, אלא על מה מחנכים אותו.</p>
+</div><div class="story-next"><a href="#story-46">הקטע הבא: מסע הסברה: מה שבידינו לעשות עכשיו ←</a></div>
+</article>
+<article class="story-card" id="story-46" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מסע הסברה: מה שבידינו לעשות עכשיו</h3><button class="copy-link" type="button" data-id="story-46">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם כשאין אפשרות מעשית לשנות את המצב בכוח, נשארת חובה ברורה: לשכנע. להסביר לכל אדם את החובה ואת הזכות העצומה שבשמירת שבע מצוות בני נח.</p>
+<p>סמינרים, חוברות, הרצאות – בשפה שלהם, בגובה העיניים. יש כאלה שכבר ניסו, ויש רבים שמוכנים לשמוע, אבל עדיין לא השקיעו בזה כמו שצריך.</p>
+<p>רבנים כמו הרב אורי שרקי מלמדים ומפיצים את שבע המצוות בעולם באופן קבוע. ובסוף התהליך הזה יתקיים מה שכתוב:</p>
+<blockquote>"אז יאמרו בגוים הגדיל ה' לעשות עם אלה" (תהלים קכו, ב)</blockquote>
+<div class="honey-box">🍯 לפני שמתווכחים מי צריך לגור כאן – אפשר להתחיל ללמד. זה בידיים שלנו כבר היום.</div>
+</div><div class="story-next"><a href="#story-47">הקטע הבא: מהלכה לחיים: שני צדדים של אותה שליחות ←</a></div>
+</article>
+<article class="story-card" id="story-47" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מהלכה לחיים: שני צדדים של אותה שליחות</h3><button class="copy-link" type="button" data-id="story-47">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השאלות ההלכתיות – מי רשאי לגור בארץ, את מי כדאי להביא לעבוד בה – הן צד אחד של הנושא. הן מגדירות את המינימום: מי ששומר את שבע המצוות הוא אדם שהתורה רוצה בקיומו.</p>
+<p>אבל הצד השני חשוב לא פחות: מה ממלא את חייו של מי שקיבל את שבע המצוות? כאן נכנסת העבודה החיובית – אמונה, תפילה, ברכה, צדקה ומידות טובות. מי שמלמד את הגויים רק "מה אסור", עוצר באמצע הדרך.</p>
+<div class="honey-box">🍯 המטרה איננה רק גויים שלא עוברים עבירות, אלא בני אדם שמכירים את בוראם ושמחים בו.</div>
+</div><div class="story-next"><a href="#story-48">הקטע הבא: &quot;רק לא, לא, לא?&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-48" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;רק לא, לא, לא?&quot;</h3><button class="copy-link" type="button" data-id="story-48">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שבע המצוות הן ברובן איסורים: לא לעבוד עבודה זרה, לא לקלל את הבורא, לא לרצוח, לא לגזול, לא לעריות, לא לאכול אבר מן החי. רק מצווה אחת היא מעשה חיובי – להקים מערכת משפט.</p>
+<p>לכן באו גויים אל הרב ושאלו: הקמנו קהילה של בני נח. מה אנחנו עושים? רק לא עובדים עבודה זרה ולא מקללים ולא רוצחים? מה כן?</p>
+<p>השיטה של הרב שוורץ הייתה שבני נח יכולים להכניס לחייהם עוד הרבה דברים טובים, ותוך כך לבנות חיי רוח של ממש.</p>
+</div><div class="story-next"><a href="#story-49">הקטע הבא: אמונה, תפילה וברכה ←</a></div>
+</article>
+<article class="story-card" id="story-49" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אמונה, תפילה וברכה</h3><button class="copy-link" type="button" data-id="story-49">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתוך מצוות האמונה כלולה גם <strong>אהבת ה'</strong>: אדם שמאמין באמת מגיע לאהוב את מי שברא אותו.</p>
+<p><strong>תפילה</strong> – גם בן נח יכול להתפלל. בדברי חז"ל מובאת טענה כלפי נח: למה לא התפללת על בני דורך כשבנית את התיבה?</p>
+<p><strong>ברכה על האוכל</strong> – אברהם אבינו היה מלמד את האורחים שלו, אחרי שאכלו ושתו, לברך את מי שנתן להם את המזון. מכאן שגם לבן נח ראוי לברך את הבורא, לפחות על הסעודה העיקרית של היום.</p>
+<p><strong>ביטחון</strong> – גם הוא ראוי לבן נח, ולומדים זאת מיוסף, שנתבע על כך שבטח בשר המשקים ולא בה' לבדו.</p>
+</div><div class="story-next"><a href="#story-50">הקטע הבא: כבוד שמיים והתבוננות ←</a></div>
+</article>
+<article class="story-card" id="story-50" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כבוד שמיים והתבוננות</h3><button class="copy-link" type="button" data-id="story-50">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>כבוד שמיים</strong> – "כל הנקרא בשמי ולכבודי בראתיו" (ישעיה מג, ז). כל אדם נברא כדי לגלות את כבוד הבורא, ולכן גם בן נח צריך לעשות מעשים שמקדשים את שם שמיים, ולהיזהר מחילול השם.</p>
+<p><strong>התבוננות בבריאה</strong>:</p>
+<blockquote>"שאו מרום עיניכם וראו מי ברא אלה" (ישעיה מ, כו)</blockquote>
+<p><strong>התבוננות בהיסטוריה</strong>:</p>
+<blockquote>"זכור ימות עולם בינו שנות דור ודור" (דברים לב, ז)</blockquote>
+<p>ואפשר גם לומר פסוקים שמחזקים את האמונה. הרב שוורץ אף בחר עבורם חלקים מתוך שלושה עשר עיקרי האמונה.</p>
+</div><div class="story-next"><a href="#story-51">הקטע הבא: הנהגות טובות: רחמנות, ענווה וכיבוד הורים ←</a></div>
+</article>
+<article class="story-card" id="story-51" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הנהגות טובות: רחמנות, ענווה וכיבוד הורים</h3><button class="copy-link" type="button" data-id="story-51">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב שוורץ מנה גם מצוות שאינן חובה, אבל ראוי שבן נח יקיים:</p>
+<ul class="story-list"><li>להימנע מדם מן החי, כמו שיש בני נח שקיבלו על עצמם</li><li>להמית בהמה בצורה שאינה מצערת אותה</li><li>להעדיף מאכלים כשרים, כי מאכל אסור מטמטם את הלב</li><li>רחמנות, ענווה, צניעות ואמת</li><li>כיבוד הורים – כמו שרואים מחם, שנענש על שלא כיבד את אביו</li></ul>
+<p>מעניין שהוא כתב שלא ראוי לבן נח להיות צמחוני: מי שמרכז את כל הרחמים שלו בבעלי חיים, פעמים רבות זה בא על חשבון הרחמים על בני אדם.</p>
+</div><div class="story-next"><a href="#story-52">הקטע הבא: וצדקה? מה שהשכל מחייב ←</a></div>
+</article>
+<article class="story-card" id="story-52" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">וצדקה? מה שהשכל מחייב</h3><button class="copy-link" type="button" data-id="story-52">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה עם צדקה? היא לא מופיעה בין שבע המצוות. ובכל זאת, הקדוש ברוך הוא החריב את סדום – ועל מה? על שלא החזיקו ביד עני ואביון.</p>
+<p>הראשונים שואלים: איפה כתוב שבני נח מצווים על צדקה? והתירוץ המקובל: כל מצווה שהשכל הישר של בן אדם מחייב אותה – גם בן נח מחויב בה. אין צורך בציווי מפורש כדי לדעת שאסור להתאכזר לעני.</p>
+<div class="honey-box">🍯 שבע המצוות הן הרצפה, לא התקרה. כל מה שהשכל הישר מחייב – מחייב כל אדם.</div>
+</div><div class="story-next"><a href="#story-53">הקטע הבא: &quot;בגן האמונה&quot; לעולם כולו ←</a></div>
+</article>
+<article class="story-card" id="story-53" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;בגן האמונה&quot; לעולם כולו</h3><button class="copy-link" type="button" data-id="story-53">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה אחרונה: הרב שלום ארוש היה בצעירותו תלמיד בישיבת "דבר ירושלים" של הרב שוורץ. הוא כתב את "בגן האמונה", ספר שהצליח מאוד – ורבים מהקוראים שלו היו גויים.</p>
+<p>כשראה זאת, הוציא מהדורה מיוחדת לבני נח, "בגן האמונה העולמי", שתורגמה לשפות רבות. קהלים של גויים במקומות שונים בעולם הזמינו אותו לדבר על אמונה ועל הדרך הנכונה לחיות, והם מתלהבים.</p>
+<p>ובאחת ההרצאות שלו הוא מציע לכל אחד: בשעת ההתבודדות היומית, להקדיש לפחות עשר דקות לתפילה שכל בני האדם בעולם יזכו לאמונה בבורא. אין תרומה גדולה מזו לבריאה כולה.</p>
+<p class="bold-para">התלמיד המשיך את דרך הרב: דבר ה' יוצא מירושלים אל העולם.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
