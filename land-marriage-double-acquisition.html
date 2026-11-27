@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💒 חלק ב: קניין כפול – הארץ, האישה והעולם הבא</title>
+<meta name="description" content="למה אברהם התעקש לשלם, מה בין אירוסין ונישואין ל&quot;והורשתם את הארץ וישבתם בה&quot;, ולמה מי שקונה קרקע בארץ ישראל קונה בעצם מערה כפולה">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">💒 חלק ב: קניין כפול – הארץ, האישה והעולם הבא</h1>
+  <p class="hero-subtitle">למה אברהם התעקש לשלם, מה בין אירוסין ונישואין ל&quot;והורשתם את הארץ וישבתם בה&quot;, ולמה מי שקונה קרקע בארץ ישראל קונה בעצם מערה כפולה</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 8 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-14 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/ZRk3tX5vdRA" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🪙 למה לא בחינם? הסיבה הראשונה</a><ul class="toc-stories"><li><a href="#story-1">שני קניינים, ועכשיו – הקשר ביניהם</a></li><li><a href="#story-2">שלושה מקומות שנקנו בכסף מלא</a></li><li><a href="#story-3">דווקא שם הוויכוח הגדול</a></li><li><a href="#story-4">שלושת העמודים של העולם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">❤️ מה שמשלמים עליו – אוהבים</a><ul class="toc-stories"><li><a href="#story-5">חיבור של הנפש, לא רק של הגוף</a></li><li><a href="#story-6">&quot;עם זו קנית&quot; – כחפץ הקנוי בדמים יקרים</a></li><li><a href="#story-7">המורה שאסר ללמד בחינם</a></li><li><a href="#story-8">שני הטעמים יחד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">💍 אירוסין ונישואין: סור מרע ועשה טוב</a><ul class="toc-stories"><li><a href="#story-9">שני חלקי החתונה</a></li><li><a href="#story-10">שלב ראשון: אסורה על כל העולם</a></li><li><a href="#story-11">כמו התורה כולה: מתרחקים ומתחברים</a></li><li><a href="#story-12">להתמסר רק לאחד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🏞️ &quot;והורשתם את הארץ וישבתם בה&quot;</a><ul class="toc-stories"><li><a href="#story-13">גם לארץ – אירוסין ונישואין</a></li><li><a href="#story-14">פרשה אחת על שני חיבורים</a></li><li><a href="#story-15">שליש מהמשכורת – על ארץ ישראל</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🌌 מערה כפולה: קרקע כאן, חלק בעולם הבא</a><ul class="toc-stories"><li><a href="#story-16">&quot;לעולם יירשו ארץ&quot;</a></li><li><a href="#story-17">הגוף והנשמה של הארץ</a></li><li><a href="#story-18">לא שתי מערות, ולא מערה אחת</a></li><li><a href="#story-19">קניין נצחי מול דירה שכורה</a></li><li><a href="#story-20">ומי שקנה בלי לכוון?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">⛰️ כשיהודי קונה – גם האדמה עולה</a><ul class="toc-stories"><li><a href="#story-21">קרקע ביד נכרי</a></li><li><a href="#story-22">&quot;ויקם שדה עפרון&quot;</a></li><li><a href="#story-23">פדיון שבויים – של אדמה</a></li><li><a href="#story-24">&quot;יה ריבון&quot; על קבר רבי ישראל נג&#x27;ארה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🔁 חמש פעמים: כמה חביב בעיני ה&#x27;</a><ul class="toc-stories"><li><a href="#story-25">מעלה לחיים ולמתים</a></li><li><a href="#story-26">&quot;אשר קנה אברהם&quot; – שוב ושוב</a></li><li><a href="#story-27">גלגול מחילות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-8" style="background:#6a994e">🔗 שני חיבורים, שני עולמות</a><ul class="toc-stories"><li><a href="#story-28">פרשה כפולה</a></li><li><a href="#story-29">גם הנישואין ממשיכים שם</a></li><li><a href="#story-30">חותמים בתפילה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🪙</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">למה לא בחינם? הסיבה הראשונה</h2></div></div>
+<p class="chapter-intro">עפרון הציע את המערה במתנה, ואברהם סירב. יש לכך שתי סיבות, והראשונה שבהן נוגעת לכל הדורות.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שני קניינים, ועכשיו – הקשר ביניהם</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת חיי שרה יש שני סיפורי קנייה: אברהם קונה את מערת המכפלה, ואליעזר מביא את רבקה ליצחק. ראינו כבר כמה הם דומים: בשניהם קונים פעמיים, בשניהם צריך שני אישורים, ובשניהם מודים לה' פעמיים. אבל דמיון בצורה עוד איננו קשר בתוכן. מה בעצם בין חלקת אדמה בחברון לבין אישה? הרי זה בכלל לא אותו דבר.</p>
+<p>כדי להבין את זה צריך קודם לשאול שאלה פשוטה: למה אברהם בכלל לא רצה לקבל את המערה בחינם? כשמציעים לך משהו במתנה, אתה לא מתעקש לשלם. ואברהם לא רק התעקש לשלם, הוא שילם "כסף מלא", בלי הנחה. מתברר שיש לכך שני טעמים, ושניהם מאירים גם את קניין האישה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: שלושה מקומות שנקנו בכסף מלא ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלושה מקומות שנקנו בכסף מלא</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הטעם הראשון: כדי שהמקח יעמוד לדורות, ושאיש לא יוכל לערער עליו גם אחרי אלפי שנים. רבנו בחיי מעיר שאף על פי שעם ישראל כבש את ארצו בחרב ובחנית, שלושה מקומות, המעולים מכל המקומות, באו לידו דווקא בקנייה בכסף.</p>
+<p>אלה שלושת המקומות:</p>
+<ul class="story-list"><li><strong>מערת המכפלה בחברון</strong> – אברהם קנה אותה מעפרון.</li><li><strong>הר הבית בירושלים</strong> – דוד המלך קנה את הגורן מארונה היבוסי, ושם נבנה בית המקדש.</li><li><strong>שכם</strong> – יעקב אבינו קנה את חלקת השדה, ושם נקבר יוסף.</li></ul>
+<p>כך אמרו גם במדרש (בראשית רבה עט, ז): אלה שלושה מקומות שאין אומות העולם יכולים לומר לישראל "גזולים הם בידכם".</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: דווקא שם הוויכוח הגדול ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דווקא שם הוויכוח הגדול</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והנה פלא: דווקא על שלושת המקומות האלה, שקנינו בכסף מלא ושהקנייה שלהם כתובה בתנ"ך במפורש, יש עד היום הכי הרבה מחלוקת. על הר הבית נאבקים בלי סוף. במערת המכפלה לא נתנו ליהודים להיכנס במשך כשבע מאות שנה, וגם אחר כך הדרך לשם עברה בכמה מלחמות; עד היום עולים בשבת חיי שרה אלפים לחברון כדי לחזק את היישוב שם. ובשכם, בקבר יוסף, מה שקורה ידוע לכולם.</p>
+<p>התורה ידעה מראש שעל המקומות האלה יתווכחו, ולכן דאגה שהבעלות עליהם תהיה כתובה ומפורשת, שטר קנייה חתום לכל הדורות.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: שלושת העמודים של העולם ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלושת העמודים של העולם</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה דווקא שלושת המקומות האלה? פירוש מעניין אומר: לכל דבר קדוש יש יסוד, ולעולם יש שלושה יסודות. שמעון הצדיק אומר (אבות א, ב):</p>
+<blockquote>עַל שְׁלֹשָׁה דְבָרִים הָעוֹלָם עוֹמֵד, עַל הַתּוֹרָה וְעַל הָעֲבוֹדָה וְעַל גְּמִילוּת חֲסָדִים</blockquote>
+<p>ושלושת העמודים האלה נעוצים בשלושת המקומות:</p>
+<ul class="story-list"><li><strong>תורה – שכם.</strong> ליד שכם, בהר גריזים והר עיבל, קיבלו ישראל את ברית התורה, ובשכם כרת יהושע ברית עם העם (יהושע פרק כד).</li><li><strong>עבודה – הר הבית.</strong> שם עמד בית המקדש, מקום העבודה.</li><li><strong>חסדים – חברון.</strong> אברהם, עמוד החסד, קנה את המערה כדי לעשות חסד עם שרה ולקבור אותה.</li></ul>
+<p><strong>מי שמבקש לערער את העולם, מנסה לערער דווקא את עמודיו.</strong> אולי זה הסוד שבגללו דווקא שם הוויכוח הקשה ביותר.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: חיבור של הנפש, לא רק של הגוף ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">❤️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מה שמשלמים עליו – אוהבים</h2></div></div>
+<p class="chapter-intro">הטעם השני לתשלום לא נוגע למוכר ולא לבית הדין, אלא ללב של הקונה.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חיבור של הנפש, לא רק של הגוף</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הטעם השני: בשביל הקונה עצמו. המצווה בארץ ישראל איננה רק להחזיק בה, אלא להתחבר אליה, ובעיקר בנפש: באהבה ובדבקות. הרמב"ם כותב (הלכות מלכים ה, י) שגדולי החכמים היו מנשקים את גבולות ארץ ישראל, מנשקים את אבניה ומתגלגלים על עפרה, וכן הוא אומר:</p>
+<blockquote>כִּי רָצוּ עֲבָדֶיךָ אֶת אֲבָנֶיהָ וְאֶת עֲפָרָהּ יְחֹנֵנוּ</blockquote>
+<p>ולכן דווקא על ארץ ישראל צריך לשלם, ולשלם במלואו. כי דבר שאדם משלם עליו, הוא מתחבר אליו בנפשו.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;עם זו קנית&quot; – כחפץ הקנוי בדמים יקרים ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;עם זו קנית&quot; – כחפץ הקנוי בדמים יקרים</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשירת הים נאמר על עם ישראל:</p>
+<blockquote>עַד יַעֲבֹר עַמְּךָ ה' עַד יַעֲבֹר עַם זוּ קָנִיתָ</blockquote>
+<p>ורש"י מפרש: "קנית" – חיבבת מכל האומות, כחפץ הקנוי בדמים יקרים שחביב על האדם.</p>
+<p>כלומר, ה"קנייה" עצמה היא ביטוי של אהבה. מה שקנית ביוקר – יקר לך. מה שקיבלת בלי מאמץ – קל להניח בצד ולשכוח.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: המורה שאסר ללמד בחינם ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המורה שאסר ללמד בחינם</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קרוב משפחה אחד למד ייעוץ נישואין. הוא מלמד בישיבה, ותלמידים רבים שלו מתחתנים ובאים אליו להתייעץ. הוא ראה כמה צורך יש בעזרה כזו, ורצה לעזור לכולם בחינם, מתוך רחמים. אבל המורה שלו כעס עליו מאוד ולא הסכים: "אתה לא תייעץ בחינם!"</p>
+<p>למה? לא בגלל הכסף. כי כשאדם מקבל משהו בחינם, הוא לא מעריך אותו. הוא לא בא בזמן, לא עושה את התרגילים, ובקלות מוותר. כשהוא משלם, אפילו סכום קטן, הוא מחשיב את מה שקיבל ומתחבר אליו.</p>
+<p>כך גם במכללות שמחייבות סטודנטים להתנסות מעשית: מי שמבקש ייעוץ או אימון אצל מתלמד, לא מקבל אותו בחינם לגמרי. מבקשים ממנו לתרום, למשל מאתיים שקל, למכללה או לצדקה. לפעמים המורה בכלל לא לוקח את הכסף, העיקר שהמקבל ייתן.</p>
+<div class="honey-box">🍯 הנתינה לא נועדה בשביל המקבל אלא בשביל הנותן: מה ששילמת עליו, נכנס לך ללב.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: שני הטעמים יחד ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שני הטעמים יחד</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך מתבארים שני הטעמים של אברהם:</p>
+<ul class="story-list"><li><strong>בשביל המקח</strong> – שהקרקע תהיה קנויה לעם ישראל לעולם, ואיש לא יוכל לטעון שהיא גזולה.</li><li><strong>בשביל הקונה</strong> – שיקנה אותה מכל הלב, וירגיש חיבור עמוק למקום.</li></ul>
+<p>וזה בדיוק ה"קניין" שבקידושי אישה. כשהגמרא לומדת "קיחה קיחה משדה עפרון", היא לא לומדת רק טכניקה משפטית של כסף. היא לומדת קניין של חיבור. ואולי לא במקרה "כסף" הוא מלשון כיסופים: הכסף מבטא את הכיסופים והגעגוע אל הדבר שקונים.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: שני חלקי החתונה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">💍</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">אירוסין ונישואין: סור מרע ועשה טוב</h2></div></div>
+<p class="chapter-intro">חתונה בנויה משני שלבים. מה המשמעות של כל אחד מהם, ולמה דווקא בסדר הזה?</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שני חלקי החתונה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חתונה יהודית בנויה משני חלקים: קידושין (נקראים גם אירוסין) ונישואין. היום עושים את שניהם באותו ערב, תחת אותה חופה; אבל בעבר היה ביניהם פער של זמן, לפעמים שנה שלמה.</p>
+<p><strong>קידושין</strong> – החתן נותן לכלה טבעת ואומר: "הרי את מקודשת לי בטבעת זו כדת משה וישראל".</p>
+<p><strong>נישואין</strong> – החתן מכניס את הכלה לחופה, לרשותו, אומרים שבע ברכות, ואחר כך הם נכנסים יחד לחדר ייחוד, לבית שלהם.</p>
+<p>מה פשר שני השלבים? למה לא די בשלב אחד? ולמה זה נקרא "אירוסין" וזה "נישואין"?</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: שלב ראשון: אסורה על כל העולם ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שלב ראשון: אסורה על כל העולם</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אישה איננה חפץ. כשאדם מתחתן, הוא לא קונה אותה כמו שקונים חבילת דפים בעשרים שקל; היא לא שייכת לו כמו עבד. הקניין כאן הוא חיבור.</p>
+<p>מה קורה אחרי הקידושין? הכלה נעשית אסורה על כל העולם. הגמרא (קידושין ב ע"ב) מסבירה את המילה "מקדש": שאוסר אותה על כל העולם כהקדש. בשלב הזה היא עוד לא חיה עם בעלה, אבל היא כבר מיועדת לו בלבד, ואסורה לכל אדם אחר. אפשר לראות רמז גם במילה "אירוסין" – לשון איסור.</p>
+<p>רק בשלב השני, בנישואין, היא נעשית שלו ממש, והם מתחילים לחיות יחד.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: כמו התורה כולה: מתרחקים ומתחברים ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כמו התורה כולה: מתרחקים ומתחברים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה בדיוק הסדר של "סור מרע ועשה טוב". קודם מתרחקים מכל מה שמפריע, ורק אחר כך מתחברים.</p>
+<p>כך גם בקשר שלנו עם הקדוש ברוך הוא. בתורה יש שס"ה מצוות לא תעשה ורמ"ח מצוות עשה. כדי להתחבר לבורא עולם צריך קודם להתרחק מכל הדברים הרעים: מן המאכלים האסורים, מן העבירות שמטמטמות את האדם. ואחר כך לעשות מצוות ולהתחבר אליו.</p>
+<p class="bold-para">אי אפשר להתחבר באמת למישהו כל זמן שהלב פתוח לכל העולם. קודם "אסורה על כולם", אחר כך "שלי".</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: להתמסר רק לאחד ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">להתמסר רק לאחד</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה אישה יכולה להיות נשואה רק לאיש אחד? המהות של אישה היא התמסרות. היא נותנת את כל כולה, את כל לבה, למי שהיא אוהבת. ואי אפשר להתמסר בכל הלב לשניים; או לזה או לזה.</p>
+<p>מי שראה פעם אישה ליד מיטת בעלה החולה, מבין את זה. היא יושבת שם מהבוקר עד הלילה. כשסבא חלה, היו צריכים כמעט להוציא את סבתא בכוח מבית החולים כדי שתאכל משהו ותנוח מעט, והיא לא הסכימה לזוז ממנו. זו מסירות נפש. ומסירות נפש אמיתית, שלמה, אפשר לתת רק לאחד.</p>
+<p>ולכן גם הקידושין מתחילים בכך שהיא "אסורה על כולם": בלי זה, החיבור לא יכול להיות שלם.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: גם לארץ – אירוסין ונישואין ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🏞️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">&quot;והורשתם את הארץ וישבתם בה&quot;</h2></div></div>
+<p class="chapter-intro">אותם שני שלבים בדיוק מופיעים גם במצוות ירושת הארץ.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גם לארץ – אירוסין ונישואין</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מצוות ישוב ארץ ישראל נאמרת בתורה כך:</p>
+<blockquote>וְהוֹרַשְׁתֶּם אֶת הָאָרֶץ וִישַׁבְתֶּם בָּהּ כִּי לָכֶם נָתַתִּי אֶת הָאָרֶץ לָרֶשֶׁת אֹתָהּ</blockquote>
+<p>שימו לב: שני שלבים, ממש כמו בקידושין.</p>
+<p><strong>"והורשתם את הארץ"</strong> – שולטים בארץ ומוציאים ממנה את מי שאסור שיישב בה, כמו שנאמר "לֹא יֵשְׁבוּ בְּאַרְצְךָ פֶּן יַחֲטִיאוּ אֹתְךָ לִי". זה ה"סור מרע", השלב שבו הארץ נעשית "אסורה על כולם".</p>
+<p><strong>"וישבתם בה"</strong> – יושבים בה, בונים, נוטעים, עושים אותה פורחת ויפה. זה ה"עשה טוב", הנישואין עצמם.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: פרשה אחת על שני חיבורים ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">פרשה אחת על שני חיבורים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו מובן למה התורה הניחה בפרשה אחת את קניין ארץ ישראל ואת קניין האישה, וכל אחד מלמד על השני.</p>
+<p>כשם שקידושי אישה אינם קניין ממוני בלבד, אלא כל מהותם ברית של אהבה, אחווה, שלום ורעות, כך גם קניין ארץ ישראל איננו עסקה של נדל"ן. המטרה היא להתחבר לארץ, כביכול להתחתן איתה. לא מספיק שהיא תהיה שלנו; צריך לאהוב אותה.</p>
+<p>ואולי לא במקרה הקנייה הראשונה הייתה דווקא בחברון. <strong>חברון – מלשון חיבור.</strong> מטרת הקניין היא החיבור.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: שליש מהמשכורת – על ארץ ישראל ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שליש מהמשכורת – על ארץ ישראל</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחת הסיבות שגם בימינו הקדוש ברוך הוא מסדר שנשלם על ארץ ישראל כל כך הרבה, היא כדי שנתחבר אליה.</p>
+<p>חשבו על משכנתא: מגיל עשרים ומשהו ועד גיל שבעים, עשרות שנים, משלמים חודש אחרי חודש. יש מי שחישב שבערך שליש מהמשכורת של אדם בישראל הולך על הקרקע שלו בארץ. מי שלא עוצר לחשוב, מרגיש רק את העול. אבל מי שמתבונן רואה: אני משקיע הון עתק בארץ ישראל. בשביל מה? זה לא לחינם.</p>
+<div class="honey-box">🍯 כל תשלום משכנתא בארץ ישראל הוא עוד טבעת קידושין קטנה: כסף מלשון כיסופים, עוד חוט שקושר אותך לארץ.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: &quot;לעולם יירשו ארץ&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🌌</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מערה כפולה: קרקע כאן, חלק בעולם הבא</h2></div></div>
+<p class="chapter-intro">מי שקונה קרקע בארץ ישראל לא קונה רק אדמה. הוא עושה קניין כפול.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;לעולם יירשו ארץ&quot;</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה בסנהדרין (צ ע"א) אומרת:</p>
+<blockquote>כָּל יִשְׂרָאֵל יֵשׁ לָהֶם חֵלֶק לָעוֹלָם הַבָּא, שֶׁנֶּאֱמַר: וְעַמֵּךְ כֻּלָּם צַדִּיקִים לְעוֹלָם יִירְשׁוּ אָרֶץ</blockquote>
+<p>לכאורה תמוה: המשנה מדברת על העולם הבא, והראיה מדברת על ירושת "ארץ". השפת אמת מבאר שהפסוק מדבר כפשוטו על ארץ ישראל, ומכל מקום זה הסימן שיש לישראל חלק לעולם הבא: מה שהם משתוקקים בעולם הזה להידבק בארץ ישראל, שהיא שורש כל נפשות ישראל.</p>
+<p>כלומר: החלק בארץ הוא הצד הגלוי של החלק בעולם הבא.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: הגוף והנשמה של הארץ ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הגוף והנשמה של הארץ</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בזוהר הקדוש מובא שיש ארץ ישראל של מטה וארץ ישראל של מעלה. ארץ ישראל שלנו היא כביכול הגוף, והעולם הבא הוא הנשמה שלה. ולכן מי שזוכה בארץ זוכה גם בעולם הבא, כמו שאמר דוד המלך:</p>
+<blockquote>אֶתְהַלֵּךְ לִפְנֵי ה' בְּאַרְצוֹת הַחַיִּים</blockquote>
+<p>ארץ ישראל היא "ארץ החיים": מי שזוכה לחיות בה, נוגע כבר כאן בחיים הנצחיים.</p>
+<p>ולכן קנייה של קרקע בארץ ישראל היא קניין לא פשוט בכלל. מי שקונה כאן חלקה, קונה כנגדה חלקה בעולם הבא.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: לא שתי מערות, ולא מערה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לא שתי מערות, ולא מערה אחת</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו מתבאר השם "מערת המכפלה". יש הבדל בין "שתי מערות" לבין "מערה כפולה". שתי מערות הן שני דברים נפרדים. מערה אחת היא דבר אחד. ומערה כפולה היא דבר אחד שיש בו שני חלקים: שניים שהם אחד.</p>
+<p>אברהם לא קנה שתי מערות, וגם לא מערה אחת פשוטה. הוא קנה מערה כפולה. כך היא הארץ והעולם הבא: לא שני עולמות שונים, וגם לא אותו דבר עצמו, אלא קומה מעל קומה של אותה מציאות.</p>
+<p>וזה בדיוק גם סוד הנישואין. האם החתן קונה את הכלה כמו חפץ, כך שהיא נעשית "שלו"? לא. האם הם נשארים שני אנשים נפרדים, אני כאן והיא שם? גם לא. <strong>נישואין הם שניים שהם אחד.</strong> בדיוק מערה כפולה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: קניין נצחי מול דירה שכורה ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">קניין נצחי מול דירה שכורה</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש בחוץ לארץ ששואלים: למה לעלות לארץ ישראל? הרי יש בה מלחמות ופיגועים, החיים בה לא פשוטים.</p>
+<p>אחת התשובות: כאן כל קניין הוא קניין נצחי. בחוץ לארץ כל מה שאדם קונה דינו להיעלם: היום, בשבוע הבא, בעוד עשרים שנה – הכול מתפורר בסופו של דבר. קהילות יהודיות רבות בחוץ לארץ נודדות ממקום למקום בעקבות העבודה; הרבה משפחות שם בכלל לא קונות דירות, רק שוכרות, ועוברות מעיר לעיר.</p>
+<p>כאן זה אחרת. מה שאדם קונה בארץ ישראל נשאר, גם בעולם הזה וגם כחלק בעולם הבא. זה קניין כפול.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: ומי שקנה בלי לכוון? ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ומי שקנה בלי לכוון?</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה עם אדם שכבר קנה דירה בארץ ישראל, ולא חשב בכלל על כל זה? האם אפשר לתקן?</p>
+<p>ייתכן שמועילה כוונה גם אחר כך. אבל הדרך הטובה ביותר: כשעוזרים לילדים או לנכדים לקנות דירה, לתת את העזרה מתוך כוונה מלאה לקיים מצוות ישוב הארץ. כך המעשה שלהם מצטרף למחשבה שלך.</p>
+<p>חז"ל אמרו (קידושין מ ע"א): "מחשבה טובה הקדוש ברוך הוא מצרפה למעשה". בספרי החסידות שואלים: למה לא נאמר "מחשיבה כמעשה"? ומבארים: יש מעשה בלי כוונה, ויש כוונה בלי מעשה, ושניהם חסרים. הקדוש ברוך הוא כמו צורף: מחבר את המחשבה הטובה אל המעשה, ומהם יחד יוצא מעשה שלם.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: קרקע ביד נכרי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">⛰️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">כשיהודי קונה – גם האדמה עולה</h2></div></div>
+<p class="chapter-intro">הקנייה לא משנה רק את האדם. היא משנה את הקרקע עצמה.</p>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קרקע ביד נכרי</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן השפעה כפולה: לא רק האדם מתעלה כשהוא מתחבר לארץ, אלא גם הקרקע מתעלה.</p>
+<p>לפי הרבה פוסקים, קרקע בארץ ישראל שנמצאת בבעלות גוי חסרה בקדושתה: אין נוהגות בה מצוות התלויות בארץ כמו בקרקע של יהודי. על זה בנוי "היתר המכירה" בשנת השמיטה: מוכרים את הקרקע לגוי, כדי שלא יחולו עליה דיני שביעית. כלומר, כשהקרקע עוברת לגוי, משהו מן הקדושה שלה נעלם.</p>
+<p>וכשיהודי קונה אותה בחזרה, היא חוזרת לקדושתה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: &quot;ויקם שדה עפרון&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;ויקם שדה עפרון&quot;</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה כותבת אחרי הקנייה:</p>
+<blockquote>וַיָּקָם שְׂדֵה עֶפְרוֹן אֲשֶׁר בַּמַּכְפֵּלָה אֲשֶׁר לִפְנֵי מַמְרֵא</blockquote>
+<p>מה פירוש "ויקם"? רש"י אומר: "תקומה היתה לו, שיצא מיד הדיוט ליד מלך". השדה עצמו קם, התרומם. כשאברהם קנה אותו, המקום עלה מדרגה וקיבל קדושה מיוחדת.</p>
+<p class="bold-para">כל קנייה של יהודי בארץ ישראל היא "ויקם": עוד חלקה שקמה לתחייה.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: פדיון שבויים – של אדמה ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">פדיון שבויים – של אדמה</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מצווה מן התורה, "והורשתם את הארץ", שכל הארץ תהיה בידינו. למה? לא רק בגלל הביטחון, ולא בגלל שחסר מקום. יש בזה עומק:</p>
+<ul class="story-list"><li><strong>בשבילנו</strong> – כל קרקע בארץ ישראל משפיעה קדושה. ככל שיש יותר ארץ בידינו, יש יותר קדושה, כמו שככל שיש יותר לומדי תורה, יש יותר קדושה.</li><li><strong>בשביל הארץ</strong> – כשחלק מארץ ישראל נמצא בידי נכרים, הוא כביכול שבוי. יש מצווה גדולה לפדות יהודי שנפל בשבי, וכך גם חלקה של ארץ ישראל ששבויה בידי זרים: לא שומעים אותה, אבל היא זועקת "פדו אותי".</li></ul>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: &quot;יה ריבון&quot; על קבר רבי ישראל נג&#x27;ארה ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;יה ריבון&quot; על קבר רבי ישראל נג&#x27;ארה</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעזה היה פעם יישוב יהודי, ובה קבור רבי ישראל נג'ארה, מחבר הפיוט "יה ריבון עלם ועלמיא" שרבים שרים בשבת.</p>
+<p>מיד אחרי מלחמת ששת הימים נסע האדמו"ר מוויז'ניץ לנפוש בחוף הים, וראה שלט: לעזה – ימינה. הוא שאל את הנהג: "אפשר להגיע לעזה?" – "כן, כבשו אותה, ברוך ה'." – "אם כן, ניסע." הם נסעו ברכב גדול ומרשים, וילדי העיר התאספו מסביב בהתפעלות. איש לא הזיק להם.</p>
+<p>הם הגיעו לקברו של רבי ישראל נג'ארה. האדמו"ר לא הצליח לרדת אל הקבר עצמו, ולכן עמד מלמעלה, והחסידים למטה, ושר בהתלהבות עצומה את "יה ריבון" ליד קבר מחברו.</p>
+<p>זו תמונה של מה שקורה כשמקום חוזר לידי ישראל: פתאום אפשר שוב לשיר שם.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: מעלה לחיים ולמתים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔁</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">חמש פעמים: כמה חביב בעיני ה&#x27;</h2></div></div>
+<p class="chapter-intro">התורה איננה מבזבזת מילים. ובכל זאת על הקנייה הזו היא חוזרת שוב ושוב.</p>
+<article class="story-card" id="story-25" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מעלה לחיים ולמתים</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה נכתבה בכלל כל הפרשה הארוכה של קניית המערה? האבן עזרא עונה: להודיע מעלת ארץ ישראל לחיים ולמתים.</p>
+<p>מעלה לחיים – שיש להם קרקע בארץ ישראל. ומעלה למתים – שנקברים באדמתה, וכמו שנאמר בשירת האזינו:</p>
+<blockquote>וְכִפֶּר אַדְמָתוֹ עַמּוֹ</blockquote>
+<p>האדמה של ארץ ישראל מכפרת על מי שנקבר בה.</p>
+<p>הרמב"ן שואל: אולי אברהם קבר את שרה בחברון פשוט מפני שזה היה המקום הקרוב? אבל אם רק מקום קבורה היה חסר, היו בסביבה די שטחי הפקר. למה היה צריך לקנות, ובכסף מלא? כי קרקע שבידי נכרי חסרה בקדושת הארץ. רק כשאברהם קנה אותה, היא קיבלה קדושת ארץ ישראל, ואז שרה נקברה באדמה קדושה באמת.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: &quot;אשר קנה אברהם&quot; – שוב ושוב ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;אשר קנה אברהם&quot; – שוב ושוב</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספר בראשית חוזרת התורה על קניית המערה כמה וכמה פעמים: בפרשה עצמה, בקבורת אברהם בסוף הפרשה, בציווי של יעקב לבניו לקבור אותו שם, ובקבורת יעקב. ובכל פעם מזכירה מחדש: "השדה אשר קנה אברהם מאת עפרון החתי".</p>
+<p>מה, מישהו שכח? למה צריך להזכיר את זה שוב בכל פעם?</p>
+<p>כשאדם אוהב משהו, הוא חוזר עליו. כמו שיר שאוהבים, ששרים אותו שוב ושוב בלי להתעייף. התורה חוזרת על קניית המערה כדי לומר לנו: <strong>ראו כמה חביב בעיני בורא עולם יהודי שקונה קרקע בארץ ישראל.</strong></p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: גלגול מחילות ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גלגול מחילות</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל (כתובות קיא ע"א) מספרים שהמתים שנקברו בחוץ לארץ יגיעו לארץ ישראל בתחיית המתים דרך "גלגול מחילות": יתגלגלו במחילות תחת האדמה עד שיגיעו לכאן. ויש בספרים שמי שבא לארץ רק אחרי מותו, ולא טרח לבוא בחייו, הארץ אינה מקבלת אותו בשמחה: בחייך לא באת, ועכשיו אתה בא?</p>
+<p>המסקנה פשוטה: את החיבור לארץ ישראל עושים בחיים. קונים בה, גרים בה, אוהבים אותה עכשיו.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: פרשה כפולה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-8">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🔗</div><div><div class="chapter-num">פרק 8</div><h2 class="chapter-title">שני חיבורים, שני עולמות</h2></div></div>
+<p class="chapter-intro">כל הדברים מתחברים לתמונה אחת: פרשה כפולה על קניין כפול.</p>
+<article class="story-card" id="story-28" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">פרשה כפולה</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לא רק המערה כפולה – כל הפרשה כפולה. היא פותחת בקניין ארץ ישראל ומסיימת בקניין אישה, ומלמדת שבשניהם יש אותו יסוד: אלה אינם קניינים ממוניים שתכליתם "שיהיה שלי". בשניהם יש קניין כפול: קניין בכסף, ובעיקר קניין של הנפש – להתחבר, לאהוב, לשמוח.</p>
+<p>לגבי אישה כולם מבינים את זה. מי שחושב שאדם קונה אישה כדי שתהיה רכושו, מצבו לא טוב. אבל התורה באה לומר שגם על ארץ ישראל צריך לחשוב כך: לא רק לקנות, אלא להתחבר אליה ולאהוב אותה.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: גם הנישואין ממשיכים שם ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">גם הנישואין ממשיכים שם</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש עוד הקבלה. כשם שקרקע בארץ ישראל היא חלקה כאן וחלקה בעולם הבא, כך גם הנישואין. האור החיים הקדוש כותב, על דברי לאה "עתה הפעם ילוה אישי אלי", שהקשר בין איש לאשתו יכול להימשך גם בעולם הנצח.</p>
+<p>לא כל זוג זוכה לכך מאליו. מי שחי את החיבור הזה בעולם הזה, שרצה בו ושמח בו, החיבור ממשיך איתו. מי שלא חיפש אותו כאן, לא ימצא אותו שם.</p>
+<div class="honey-box">🍯 מה שאוהבים בעולם הזה באמת, בכל הלב, ממשיך הלאה. גם אישה, גם ארץ.</div>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: חותמים בתפילה ←</a></div>
+</article>
+<article class="story-card" id="story-30" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">חותמים בתפילה</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי ששם לב, רואה שכל העניין עומד על רצון. ככל שאדם רוצה דבר יותר, ומעריך אותו יותר, כך גדל הסיכוי שיזכה בו. גם בחיים רואים זאת: אדם שמח משפיע שמחה על כל מי שלידו, ואדם מפוחד מפיץ פחד. מה שבלב עובר הלאה.</p>
+<p>ולכן נתפלל שנזכה לקנות את ארץ ישראל בכל הבחינות: בכסף מלא, באהבה, וגם בשני השלבים – "והורשתם" ו"וישבתם", סור מרע ועשה טוב. שנזכה לשבת בה כולה, ולהתחבר אליה באהבה ואחווה, בשלום ורעות.</p>
+<p class="bold-para">כמו חתן וכלה: לא רק שתהיה שלנו – שנהיה שלה.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
