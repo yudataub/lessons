@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏃 חלק א: כלי מחזיק ברכה – התורה בעד גוף חזק</title>
+<meta name="description" content="מה כתבו הרמב&quot;ם, החפץ חיים והחזון איש על התעמלות ובריאות, למה &quot;אין השכינה שורה אלא על גיבור&quot; – ואיך גוף בריא הופך לכלי שמחזיק את כל הברכות">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🏃 חלק א: כלי מחזיק ברכה – התורה בעד גוף חזק</h1>
+  <p class="hero-subtitle">מה כתבו הרמב&quot;ם, החפץ חיים והחזון איש על התעמלות ובריאות, למה &quot;אין השכינה שורה אלא על גיבור&quot; – ואיך גוף בריא הופך לכלי שמחזיק את כל הברכות</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/EOyKAQVn1aY" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🩺 הרמב&quot;ם: הרופא שהקדים את זמנו</a><ul class="toc-stories"><li><a href="#story-1">התעמלות כהלכה</a></li><li><a href="#story-2">מה עדיף: אוכל טוב או תנועה?</a></li><li><a href="#story-3">התרופה: לשחק בשמחה</a></li><li><a href="#story-4">אין תחליף לתנועה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🏛️ &quot;נפש בריאה בגוף בריא&quot; – מי אמר?</a><ul class="toc-stories"><li><a href="#story-5">המשפט שלא נכתב ברמב&quot;ם</a></li><li><a href="#story-6">מה הרמב&quot;ם כן אמר</a></li><li><a href="#story-7">מחנה קיץ עם שיעור התעמלות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🛠️ גדולי ישראל על שמירת הבריאות</a><ul class="toc-stories"><li><a href="#story-8">החזון איש: מצווה וחובה</a></li><li><a href="#story-9">החפץ חיים מכבה את האורות</a></li><li><a href="#story-10">רבי שמשון רפאל הירש: כלי מחזיק ברכה</a></li><li><a href="#story-11">&quot;הנני מוכן ומזומן&quot; – לפני הריצה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🍇 המרגלים: ללכת אל הגשמיות</a><ul class="toc-stories"><li><a href="#story-12">למה המרגלים לא רצו להיכנס?</a></li><li><a href="#story-13">י&#x27; ו-ה&#x27;: שני עולמות שמתחברים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🦁 גיבור: כוח שיש בו שכינה</a><ul class="toc-stories"><li><a href="#story-14">מתאבק שהפך לתלמיד חכם</a></li><li><a href="#story-15">נוי, כוח ועושר</a></li><li><a href="#story-16">&quot;אין השכינה שורה אלא על גיבור&quot;</a></li><li><a href="#story-17">שלוש דרכים להבין את הגבורה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌟 &quot;ועצמותיך יחליץ&quot;: המעולה שבברכות</a><ul class="toc-stories"><li><a href="#story-18">המכתב האחרון</a></li><li><a href="#story-19">המהר&quot;ל: כלי שמכיל הכול</a></li><li><a href="#story-20">סיכום: הצד המאיר</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🩺</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">הרמב&quot;ם: הרופא שהקדים את זמנו</h2></div></div>
+<p class="chapter-intro">הרבה לפני שהרופאים בעולם דיברו על חשיבות הפעילות הגופנית, הרמב"ם כתב על כך – ובמקום הכי פחות צפוי: בספר הלכה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">התעמלות כהלכה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספר "משנה תורה" של הרמב"ם, בהלכות דעות, העוסקות במידות ובדרך הנכונה של האדם, משולבת הדרכה רפואית שלמה. ובתוכה כותב הרמב"ם (הלכות דעות ד, יד–טו):</p>
+<blockquote>ועוד כלל אחר אמרו בבריאות הגוף: כל זמן שאדם מתעמל ויגע הרבה, ואינו שבע, ומעיו רפין – אין חולי בא עליו וכחו מתחזק, ואפילו אוכל המאכלות הרעים.</blockquote>
+<p>ובצד השני:</p>
+<blockquote>וכל מי שהוא יושב לבטח ואינו מתעמל... אפילו אוכל המאכלות הטובים ושומר עצמו על פי הרפואה – כל ימיו יהיו מכאובים וכחו תשש.</blockquote>
+<p class="bold-para">לפי הרמב"ם, התנועה חשובה לבריאות אפילו יותר מן התזונה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: מה עדיף: אוכל טוב או תנועה? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה עדיף: אוכל טוב או תנועה?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן חידוש מפתיע. הרמב"ם משווה בין שני אנשים: האחד אוכל מאכלים לא בריאים, אבל מתעמל ואינו אוכל יותר מדי. השני אוכל רק מאכלים טובים ושומר על כל כללי הרפואה – אבל יושב כל היום ואינו זז.</p>
+<p>מי בריא יותר? לפי הרמב"ם – הראשון. אפשר לומר זאת כך: עדיף לאכול מעט, גם אם האוכל אינו מושלם, מאשר הרבה אוכל טוב בלי תנועה.</p>
+<p>ומעניין: להלכה הזו אין מקור בגמרא. בגמרא יש הלכות רבות מאוד הנוגעות לרפואה, אבל על התעמלות – כמעט כלום. זה חידוש של הרמב"ם, מתוך הידע הרפואי שלו.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: התרופה: לשחק בשמחה ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">התרופה: לשחק בשמחה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספר רפואי אחר שכתב, "פרקי משה", הרמב"ם אף ממליץ איזו פעילות לבחור. היום יש אינספור אפשרויות: הליכה, ריצה, שחייה, משחקי כדור. מה כדאי?</p>
+<p>תשובתו מפתיעה: פעילות גופנית שנעשית בכפייה ובלי חשק – אינה מועילה כל כך. הפעילות הטובה ביותר היא זו שיש בה הנאה ושמחה, כמו משחק בכדור, שהנפש נהנית ממנו. כי, כך הוא כותב, רבים נרפאו ממחלותיהם רק מחמת השמחה ששמחו.</p>
+<div class="honey-box">🍯 הספורט הכי טוב הוא זה שאתה נהנה ממנו. השמחה עצמה היא חצי מן הרפואה.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: אין תחליף לתנועה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אין תחליף לתנועה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובספרו "הנהגת הבריאות" הרמב"ם מגדיל עוד יותר: אין דבר שיכול לבוא במקום התנועה וההתעמלות. היא מעוררת את החום הטבעי של הגוף, ומסלקת את רוב הנזקים שאנשים גורמים לעצמם בהרגלים רעים.</p>
+<p>הוא אף מגדיר מהי התעמלות: תנועה, חזקה או חלשה, שמשנה את הנשימה – עד שהאדם מתחיל לנשום מהר יותר.</p>
+<p>וכמה עושים את זה בפועל? בישראל, לפי ההערכות, רק כעשרים עד שלושים אחוזים מן האנשים עוסקים בפעילות גופנית קבועה. כולם מסכימים שזה חשוב, ובכל זאת מעטים עושים.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: המשפט שלא נכתב ברמב&quot;ם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">&quot;נפש בריאה בגוף בריא&quot; – מי אמר?</h2></div></div>
+
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המשפט שלא נכתב ברמב&quot;ם</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבים בטוחים שהמשפט "נפש בריאה בגוף בריא" הוא של הרמב"ם. אבל זה לא נכון.</p>
+<p>מי שכתב אותו היה משורר רומי בשם יובנאליס, שחי בערך במאה השנייה. הוא כתב: "עליך להתפלל לנפש בריאה בגוף בריא." משם הגיע המשפט, ומשם התפשט בעולם כולו.</p>
+<p>הרמב"ם אמר משהו אחר, ועמוק יותר.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: מה הרמב&quot;ם כן אמר ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה הרמב&quot;ם כן אמר</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במורה נבוכים מחלק הרמב"ם את מעשי האדם לסוגים, ומסביר שאותה פעולה יכולה להיחשב שטות אצל אדם אחד וחשובה מאוד אצל אחר. למשל: התעמלות, משחק בכדור, היאבקות או תרגילי נשימה – יש שרואים בהם "צחוק", בזבוז זמן; ואילו מי שמבין ברפואה יודע שתועלתם עצומה.</p>
+<p>ואת הנקודה העיקרית כותב הרמב"ם ב"שמונה פרקים", ההקדמה שלו למסכת אבות: הכוונה בבריאות הגוף היא שהנפש תמצא כלים בריאים ושלמים, כדי לקנות את החכמות ואת המידות הטובות.</p>
+<p class="bold-para">לא "נפש בריאה בגוף בריא", אלא: גוף בריא – כדי שהנפש תוכל לעלות.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מחנה קיץ עם שיעור התעמלות ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מחנה קיץ עם שיעור התעמלות</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגישה של הרמב"ם כמעט לא חדרה לישיבות. אחת היוצאות מן הכלל הייתה בארצות הברית: הרב יעקב קמינצקי, מגדולי התורה באמריקה וראש ישיבת "תורה ודעת", סבר שימי בין הזמנים בקיץ צריכים לשמש גם לחיזוק גופם של התלמידים, והקים לשם כך מחנה קיץ.</p>
+<p>מסופר שפעם הגיע למחנה רב נודע לומר דברי תורה, וביקשו לקצר את זמן הפעילות הגופנית כדי לפנות לו זמן. הרב קמינצקי סירב: גם זה שיעור חשוב.</p>
+<p>הוא גם הקפיד שכל תלמיד יידע לשחות. נימוקו: הגמרא (קידושין כט, א) מונה בין חובות האב כלפי בנו גם ללמדו לשחות. אם האב חייב ללמד – ודאי שהבן עצמו צריך לדעת.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: החזון איש: מצווה וחובה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🛠️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">גדולי ישראל על שמירת הבריאות</h2></div></div>
+<p class="chapter-intro">למה, בעצם, אין שיעורי התעמלות בישיבות? הסיבה עמוקה יותר מן החשש לביטול תורה. אבל קודם כול חשוב לראות: על עצם החשיבות של הבריאות – אין מחלוקת.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">החזון איש: מצווה וחובה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החזון איש כותב שההשתדלות הטבעית לשמירת הבריאות היא בעיניו מצווה וחובה – אחת החובות שבהן משלים האדם את צורתו, כפי שהטביע הבורא בעולמו.</p>
+<p>ויותר מזה: ההקפדה על אמצעי הבריאות, כך כתב, היא עבודה אהובה לפני ה'.</p>
+<p>כלומר, מי שהולך לישון בזמן, אוכל כראוי ושומר על גופו – אינו עוסק בעניין "חילוני" שבצד. הוא עובד את ה'.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: החפץ חיים מכבה את האורות ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">החפץ חיים מכבה את האורות</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החפץ חיים הקפיד מאוד שתלמידי הישיבה לא יפגעו בבריאותם בגלל הלימוד, וישמרו על שינה נכונה ועל אכילה נאותה.</p>
+<p>מסופר – ואין לדעת עד כמה הסיפור מדויק – שבצעירותו לא שם לב לבריאותו כלל, ולמד בלי הפסקה, עד שגופו נחלש מאוד. הרופא קבע שעליו לנוח שנה שלמה בלי לפתוח ספר, והוא עמד בכך.</p>
+<p>מאז, כך מספרים, היה נכנס לבית המדרש באחת בלילה, ואם מצא בחורים שעדיין לומדים – כיבה את האורות ושלח אותם לישון.</p>
+<p>ובמכתב כתב משל: לכל בעל מלאכה יש כלי עבודה משלו – לסנדלר הפטיש, לנגר המסור. ולתלמיד חכם? הבריאות. היא הכלי שבלעדיו אי אפשר ללמוד.</p>
+<div class="honey-box">🍯 הגוף הוא כלי העבודה של הנשמה. מי ששומר עליו – שומר על התורה שלו.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: רבי שמשון רפאל הירש: כלי מחזיק ברכה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">רבי שמשון רפאל הירש: כלי מחזיק ברכה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי שמשון רפאל הירש כותב בספרו "חורב" שעל האדם להשתדל בכל לבו לכלכל את גופו בתבונה, כדי שיישאר תמיד כלי מחזיק ברכה – בריא וחזק לפעולות חייו. עליו להתרחק מכל מה שעלול להחליש את הגוף, ולהשתמש במה שמוסיף לו כוח, בריאות ואומץ.</p>
+<p>בעקבות דרכו קם בירושלים תלמוד תורה "חורב", שמטרתו הייתה לשלב תורה עם חינוך מלא – כולל חינוך גופני. המוסד הזה, והישיבה שצמחה ממנו, פועלים עד היום.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;הנני מוכן ומזומן&quot; – לפני הריצה ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;הנני מוכן ומזומן&quot; – לפני הריצה</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יהודי שלמד בישיבה בארצות הברית, שבה נהגו להתעמל, עלה לארץ וראה שכאן כמעט אין זה נהוג. הדבר הטריד אותו, והוא כתב ספר על חשיבות ההתעמלות, תחילה באנגלית ואחר כך בעברית, ויצא אף בהוצאת מוסד הרב קוק. הוא עצמו, בגיל שמונים ושבע, עדיין מתאמן כל יום וכמעט אינו חולה.</p>
+<p>בהקדמה הוא מספר: שנים למד בחברותא עם רבי שלום שבדרון, "המגיד מירושלים", בחמש לפנות בוקר. בארבע היה קם ורץ חצי שעה. בוקר אחד, בזמן הריצה, ראה מולו את רבי שלום עצמו. הוא נבוך מאוד, מיהר הביתה, החליף בגדים, והגיע לחברותא מוכן לשמוע תוכחה.</p>
+<p>אחרי הלימוד שאל אותו רבי שלום רק שאלה אחת: "האם אמרת לפני הריצה 'הנני מוכן ומזומן לקיים מצוות עשה של ונשמרתם מאד לנפשותיכם'?" והסביר: כל מה שאתה עושה כדי לשמור על בריאותך, כדי לעבוד את בוראך – הוא מצווה. "בכל דרכיך דעהו" (משלי ג, ו).</p>
+<p class="bold-para">גם ריצת בוקר יכולה להתחיל ב"לשם ייחוד".</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: למה המרגלים לא רצו להיכנס? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🍇</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">המרגלים: ללכת אל הגשמיות</h2></div></div>
+
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה המרגלים לא רצו להיכנס?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן קשר עמוק לפרשת שלח. המרגלים חזרו מן הארץ והוציאו את דיבתה רעה. אבל למה? חסידות מסבירה: הם לא היו סתם רשעים. הייתה להם אידיאולוגיה.</p>
+<p>במדבר עם ישראל אכל מן מן השמים, שתה מבארה של מרים, ולא היה צריך לעבוד. כל היום היו פנויים לתורה ולמצוות. ובארץ ישראל? יצטרכו לחרוש, לזרוע, לקצור, להתפרנס. איך יעבדו את ה' כשהם עסוקים כל היום בשדה?</p>
+<p>לכן אמרו: עדיף להישאר במדבר. מי צריך את כל הבלגן הזה?</p>
+<p>אבל טעותם הייתה שלא הבינו: הקדוש ברוך הוא רוצה שיעבדו אותו לא רק בתורה, אלא גם בתוך העולם הזה. "בכל דרכיך דעהו".</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: י&#x27; ו-ה&#x27;: שני עולמות שמתחברים ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">י&#x27; ו-ה&#x27;: שני עולמות שמתחברים</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל אומרים שהעולם הזה נברא באות ה', והעולם הבא באות י', כמו שנאמר "כי ביה ה' צור עולמים". רש"י מביא זאת על הפסוק "אלה תולדות השמים והארץ בהבראם" (בראשית ב, ד): "בהבראם" – בה' בראם.</p>
+<p>כשאדם עובד את ה' גם בענייני העולם הזה – הוא מחבר את ה' של העולם הזה עם הי' של העולם הבא. הוא מכניס רוחניות לתוך הגשמיות.</p>
+<p>ועכשיו מובן מה עשה משה כשקרא להושע "יהושע". רש"י (במדבר יג, טז) מסביר שהתפלל עליו: "י-ה יושיעך מעצת מרגלים". הוא הוסיף לו את האות י' – כאילו אמר: אם תדע לחבר את הרוחניות לגשמיות, תינצל מעצת המרגלים, ותבין שאפשר לעבוד את ה' גם בתוך החיים בארץ.</p>
+<div class="honey-box">🍯 העבודה הגדולה אינה לברוח מן העולם, אלא להכניס בו קדושה.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מתאבק שהפך לתלמיד חכם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🦁</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">גיבור: כוח שיש בו שכינה</h2></div></div>
+<p class="chapter-intro">עד כאן דיברנו על בריאות. אבל האם יש ערך גם בכוח עצמו – בגוף חזק, בגבורה?</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מתאבק שהפך לתלמיד חכם</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רפאל הלפרין היה מתאבק מפורסם, שהחליט להפוך לאלוף ולהעלות את כבודם של היהודים. היה לו כוח עצום בידיים, וקרביו משכו המוני צופים; מסופר על קרב מפורסם מול מתאבק גרמני, שנים לא רבות אחרי השואה, שרבים ראו בו מעין תיקון לכבוד היהודי – והוא הסתיים כמעט מיד בניצחונו.</p>
+<p>אבל הלפרין היה אדם של קצוות. יום אחד עזב את ההיאבקות וכל כולו נכנס לתורה. הוא סיים את הש"ס, חיבר ספרים רבים, ואף תרם לשכונות ולערים רבות מערכות רמקולים שמנגנות מנגינת שבת במקום הצפירה הישנה בכניסת השבת.</p>
+<p>זה מעורר שאלה: האם יש ערך בכוח עצמו?</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: נוי, כוח ועושר ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">נוי, כוח ועושר</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מקורות רבים שמשבחים את הכוח. המשנה במסכת עדויות (ב, ט) אומרת:</p>
+<blockquote>האב זוכה לבן בנוי ובכח ובעושר ובחכמה ובשנים.</blockquote>
+<p>כלומר, הכוח, כמו היופי והעושר, הוא דבר שאב מוריש לבנו – ולפי פשוטו מדובר גם בכוח הגופני.</p>
+<p>ובפרקי אבות (ו, ח):</p>
+<blockquote>הנוי והכח והעושר והכבוד והחכמה והזקנה והשיבה והבנים – נאה לצדיקים ונאה לעולם.</blockquote>
+<p>גם חז"ל מונים כוח בין המעלות שבהן צריך הכהן הגדול להיות גדול מאחיו. רואים שהכוח הוא דבר מכובד ויפה.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: &quot;אין השכינה שורה אלא על גיבור&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;אין השכינה שורה אלא על גיבור&quot;</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והמקור החזק ביותר: הגמרא (שבת צב, א) אומרת:</p>
+<blockquote>אין השכינה שורה אלא על חכם גבור עשיר ובעל קומה.</blockquote>
+<p>ואם נשאל, האם הכוונה לגבורה גופנית? הגמרא במקום אחר (נדרים לח, א) מביאה ראיה ממשה רבנו – שהוא עצמו פרש את האוהל על המשכן. והמדרש אומר: ראה כמה גדולה הייתה גבורתו של משה, שהקים לבדו את המשכן!</p>
+<p>נסו לדמיין: יריעה באורך של כחמישה עשר מטרים, ולפרוס אותה לבד בגובה המשכן. או להרים לבד קרשים באורך עשר אמות, כמעט חמישה מטרים, עבים וכבדים. כנראה שגם אלוף העולם בהרמת משקולות לא היה מצליח.</p>
+<p class="bold-para">לפי פשוטו, משה רבנו היה גם גיבור במובן הפשוט ביותר.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: שלוש דרכים להבין את הגבורה ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שלוש דרכים להבין את הגבורה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך מבינים את הגמרא הזו? יש שלושה פירושים.</p>
+<p>הרמב"ם מוציא אותה מפשוטה. "חכם" – בעל מעלות השכל. "עשיר" – מי שמסתפק במה שיש לו, כמו שנאמר באבות: "איזהו עשיר? השמח בחלקו". ו"גיבור" – "איזהו גיבור? הכובש את יצרו": מי שמנהיג את עצמו לפי השכל והאמת, ולא לפי הרגש.</p>
+<p>הר"ן חולק: זה דרש יפה, אבל אינו מתאים לגמרא, שהרי היא מביאה ראיה מגבורתו הגופנית של משה. לדבריו, הגבורה נדרשת דווקא מנביא שמדבר אל העם. אנשים מושפעים מאוד ממראהו של המנהיג: מי שעומד זקוף וחזק – דבריו נשמעים. היום קוראים לזה "כריזמה".</p>
+<p>המהר"ל מוסיף פירוש שלישי, שבו הכוח הוא מעלה בפני עצמה – ועליו בפרק הבא.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: המכתב האחרון ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌟</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">&quot;ועצמותיך יחליץ&quot;: המעולה שבברכות</h2></div></div>
+
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המכתב האחרון</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זבולון המר, שכיהן כשר החינוך, כתב לקראת סוף ימיו מכתב על חשיבות ההתעמלות. הוא כתב שהתעמלות היא פעילות יסוד, שמחזקת את הקשר העצמי של האדם עם גופו – תנאי לקליטת הרוח והעולם העליון. לכן, כתב, כל מערכת החינוך צריכה להיות קשובה ללימוד הדרכים להפעלת הגוף, כי שמירת הגוף היא שמירת הנפש, והיא יכולה להביא לחיי קדושה וטהרה.</p>
+<p>ואת דבריו ביסס על פסוק בישעיהו (נח, יא): "וְעַצְמֹתֶיךָ יַחֲלִיץ". על הברכה הזו אמר רבי אלעזר בגמרא (יבמות קב, ב): "זו מעולה שבברכות".</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: המהר&quot;ל: כלי שמכיל הכול ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המהר&quot;ל: כלי שמכיל הכול</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה דווקא גוף חזק ובריא הוא "המעולה שבברכות"? המהר"ל מסביר: כאשר האדם חזק וזריז, זהו היסוד והעיקר לכל הברכות. כי אז הוא בריאה שלמה, ומוכן לקבל הכול.</p>
+<p>כמו כלי: אם הכלי שבור או סדוק, כל מה שתשפוך לתוכו ייאבד. אבל כלי שלם וחזק יכול להחזיק שפע רב. גוף בריא, חזק ומתוקן הוא כלי שאפשר להכניס לתוכו הרבה מאוד ברכה.</p>
+<div class="honey-box">🍯 לפני שמבקשים עוד ברכות – כדאי לדאוג לכלי שיחזיק אותן.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: סיכום: הצד המאיר ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">סיכום: הצד המאיר</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ראינו את הצד החיובי של היחס לפעילות גופנית:</p>
+<ul class="story-list"><li><strong>הרמב"ם</strong> ראה בהתעמלות את הסיבה העיקרית לבריאות, חשובה אפילו יותר מן התזונה – ובלבד שתיעשה בשמחה, ולשם שמים.</li><li><strong>החזון איש, החפץ חיים ורבי שמשון רפאל הירש</strong> ראו בשמירת הבריאות מצווה וחובה, ובגוף – כלי לעבודת ה'.</li><li><strong>"אין השכינה שורה אלא על גיבור"</strong> – הרמב"ם הבין זאת כגבורה על היצר; הר"ן – כגבורה פשוטה, שבזכותה ישמעו לנביא; והמהר"ל – כגוף שלם, שהוא כלי לכל הברכות.</li></ul>
+<p>אבל אם כל כך הרבה גדולים היו בעד, למה כמעט אין שיעורי התעמלות בישיבות? לשם כך צריך להכיר את הצד השני של הסיפור – הצד ההיסטורי, והפחד הגדול מ"יהדות השרירים".</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
