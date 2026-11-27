@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>👑 ללמוד את הגאולה: הלכות מלך המשיח</title>
+<meta name="description" content="למה הלימוד על הגאולה כבר מקרב אותה, מה כותב הרמב&quot;ם על מלך המשיח – ולמה ייתכן שחלק גדול מהגאולה קורה לנגד עינינו עוד לפני שהמשיח מתגלה">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">👑 ללמוד את הגאולה: הלכות מלך המשיח</h1>
+  <p class="hero-subtitle">למה הלימוד על הגאולה כבר מקרב אותה, מה כותב הרמב&quot;ם על מלך המשיח – ולמה ייתכן שחלק גדול מהגאולה קורה לנגד עינינו עוד לפני שהמשיח מתגלה</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-9 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/VzDtRfi_M8Y" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🔑 למה ללמוד הלכות של העתיד?</a><ul class="toc-stories"><li><a href="#story-1">הלימוד עצמו בונה את הגאולה</a></li><li><a href="#story-2">הלכה למעשה – אולי מהר מכפי שחושבים</a></li><li><a href="#story-3">טעימה מערב שבת</a></li><li><a href="#story-4">הרמב&quot;ם – היחיד שכתב גם על העתיד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📜 ארבעת המעשים של מלך המשיח</a><ul class="toc-stories"><li><a href="#story-5">ההלכה שהכול מתחיל ממנה</a></li><li><a href="#story-6">רגע, ואיך אנחנו כאן?</a></li><li><a href="#story-7">מכונת הזמן: מאה שנה אחורה</a></li><li><a href="#story-8">שתי דרכים לקרוא את הרמב&quot;ם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🔍 איפה כתוב משיח בתורה?</a><ul class="toc-stories"><li><a href="#story-9">כופר בתורה – אבל איפה?</a></li><li><a href="#story-10">הפסוקים שהרמב&quot;ם מביא</a></li><li><a href="#story-11">התורה מתקיימת מול העיניים</a></li><li><a href="#story-12">דוד והמשיח בנבואת בלעם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">⚖️ הוויכוח הגדול: האם המשיח הוא עיקר?</a><ul class="toc-stories"><li><a href="#story-13">ספר העיקרים חולק</a></li><li><a href="#story-14">היינו כחולמים</a></li><li><a href="#story-15">תשובה מתוך לשון הרמב&quot;ם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🕍 הגאולה לפי סדר שמונה עשרה</a><ul class="toc-stories"><li><a href="#story-16">המשיח מגיע באמצע</a></li><li><a href="#story-17">אולי גם המקדש?</a></li><li><a href="#story-18">יום אחד יצחקו עלינו</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🔑</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">למה ללמוד הלכות של העתיד?</h2></div></div>
+<p class="chapter-intro">לפני שפותחים את הרמב"ם, שאלה פשוטה: מה הטעם ללמוד הלכות שעוד לא הגיע זמנן? מתברר שיש לכך שלוש תשובות, וכל אחת מהן מפתיעה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הלימוד עצמו בונה את הגאולה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל לימדו שמי שעוסק בתורת הקרבנות נחשב כאילו הקריב אותם בפועל. האדם יושב ולומד את דיני העולה – ובשמיים זה נחשב כאילו עלה לבית המקדש והקריב עולה.</p>
+<p>הרבי מליובאוויטש היה מדגיש, בעיקר בימי בין המצרים, שאותו דבר נכון בלימוד הלכות הגאולה. מי שלומד את הפרקים האחרונים של הלכות מלכים ברמב"ם, העוסקים במלך המשיח, לא רק יודע מה יקרה. הלימוד עצמו פועל: הוא מעורר את הגאולה ומזרז אותה, וגם מכניס אותה כבר עכשיו ללב של הלומד.</p>
+<p class="bold-para">הלימוד על הגאולה הוא כבר חתיכה מן הגאולה עצמה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: הלכה למעשה – אולי מהר מכפי שחושבים ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הלכה למעשה – אולי מהר מכפי שחושבים</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסיבה השנייה מעשית לגמרי. הרמב"ם כתב בפירוט את הלכות בית הבחירה: איך בונים את המקדש, מה מידותיו ומה סדר העבודה בו. למה לכתוב את כל זה בגלות? כי כשם שצריך לדעת איך להתפלל ואיך לשמור שבת, צריך לדעת איך לבנות בית לה'.</p>
+<p>נסו לדמיין: בעוד כמה שנים, בדרך שאיש מאיתנו אינו יודע לצייר היום, נפתחת אפשרות ממשית לבנות את בית המקדש. מה יעשו? בונים או לא בונים? מי בונה? התשובה תהיה תלויה לגמרי באיך כל רב ופוסק למד את ההלכות האלה. מה שלומדים היום – כך יפסקו מחר.</p>
+<div class="honey-box">🍯 ההלכות של העתיד אינן פילוסופיה. הן ההכנה לרגע שבו יבקשו מאיתנו תשובה.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: טעימה מערב שבת ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">טעימה מערב שבת</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסיבה השלישית לקוחה מעולם השבת. על פי ההלכה, יש מצווה לטעום בערב שבת מן התבשילים שהוכנו לשבת, וכך אומרים בתפילת מוסף של שבת: "טועמיה חיים זכו".</p>
+<p>החסידים למדו מכאן משל: כשם שבערב שבת טועמים מטעם השבת, כך בערב הגאולה ה' מזמין אותנו לטעום מטעמה של הגאולה. שבת וגאולה הולכות יחד – הרי השבת היא "מעין עולם הבא", ובפיוט "לכה דודי" הן שזורות זו בזו.</p>
+<p>ואיך טועמים? הדרך המיוחדת ביותר היא הלימוד. מי שלומד את הלכות ימות המשיח מתחיל להרגיש, כבר עכשיו, את הטעם של העולם המתוקן.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הרמב&quot;ם – היחיד שכתב גם על העתיד ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הרמב&quot;ם – היחיד שכתב גם על העתיד</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בין כל חכמי ישראל שכתבו ספרי הלכה, הרמב"ם הוא היחיד שכתב ספר על <strong>כל</strong> התורה כולה. הפוסקים האחרים כתבו בעיקר את מה שנוגע למעשה בזמנם. הרמב"ם כתב גם הלכות שיחולו רק בעתיד: בית המקדש, הקרבנות, המלך – ועד הלכות מלך המשיח.</p>
+<p>לכן המקור המרכזי ללימוד הזה הוא ספר "משנה תורה" לרמב"ם. מעניין שהלכות הגאולה מופיעות בו בשני מקומות: בהלכות תשובה, כי התשובה והגאולה הולכות יחד, ובסוף הלכות מלכים, כי מלך המשיח הוא קודם כול מלך, והתורה קובעת גם איך הוא ינהג.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ההלכה שהכול מתחיל ממנה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">ארבעת המעשים של מלך המשיח</h2></div></div>
+<p class="chapter-intro">ההלכה הראשונה בפרק יא של הלכות מלכים קצרה מאוד, ובכל זאת אפשר לדון בה בלי סוף.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ההלכה שהכול מתחיל ממנה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך פותח הרמב"ם (הלכות מלכים יא, א):</p>
+<blockquote>המלך המשיח עתיד לעמוד ולהחזיר מלכות דוד ליושנה לממשלה הראשונה, ובונה המקדש, ומקבץ נדחי ישראל, וחוזרין כל המשפטים בימיו כשהיו מקודם, מקריבין קרבנות ועושין שמיטין ויובלות ככל מצותה האמורה בתורה.</blockquote>
+<p>בקיצור, ארבעה דברים עושה המשיח:</p>
+<ul class="story-list"><li>מחזיר את מלכות בית דוד</li><li>בונה את בית המקדש</li><li>מקבץ את נדחי ישראל מכל הגלויות</li><li>מחזיר את כל משפטי התורה: קרבנות, שמיטות ויובלות</li></ul>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: רגע, ואיך אנחנו כאן? ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">רגע, ואיך אנחנו כאן?</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו שאלה פשוטה, שקשה לא לשאול: אם מלך המשיח הוא זה שמקבץ את נדחי ישראל – איך אנחנו נמצאים כאן? מיליוני יהודים חיים בארץ ישראל, וחלק גדול מקיבוץ הגלויות כבר קרה. מי קיבץ אותם?</p>
+<p>זו שאלה אדירה, הרבה יותר ממה שנדמה. היא שואלת: האם ייתכן שחלקים מן הגאולה קורים בלי משיח? ואם קיבוץ הגלויות התחיל בלעדיו – אולי גם דברים אחרים מן הרשימה יכולים לקרות לפני שהוא מתגלה?</p>
+<p class="bold-para">השאלה איך קוראים שורה אחת ברמב"ם קובעת איך מסתכלים על כל המציאות שלנו.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מכונת הזמן: מאה שנה אחורה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מכונת הזמן: מאה שנה אחורה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בואו ניכנס לרגע למכונת זמן ונחזור מאה שנה אחורה, לבית מדרש באירופה. נשמע שם צעקות. חלק מן היהודים קוראים לאחרים "כופרים", והאחרים קוראים להם "מרגלים".</p>
+<p>אלה שרצו לעלות לארץ ישראל אמרו על מי שנשאר בגלות שהם כמו המרגלים, המוציאים דיבה על הארץ. ואלה שנשארו אמרו על העולים שהם כופרים – הרי כתוב מפורש שמלך המשיח יקבץ את ישראל, ומי אתם שתעשו זאת לבד?</p>
+<p>היו שניסו ליישב: אנחנו רק מכינים את הקרקע, כמה אלפי עולים, לא יותר, והמשיח יבוא וישלים. אבל היום, מאה שנה אחרי הוויכוח, עם רוב העם היהודי בארץ, קשה לומר שזו רק הכנה קטנה.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: שתי דרכים לקרוא את הרמב&quot;ם ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שתי דרכים לקרוא את הרמב&quot;ם</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לקרוא את הרמב"ם בשתי צורות. לפי הקריאה הראשונה, אלה הם תפקידיו הבלעדיים של המשיח: רק הוא יקבץ, ורק הוא יבנה.</p>
+<p>לפי הקריאה השנייה, הרמב"ם מתאר את מה שהמשיח <strong>ישלים</strong>. כשיבוא, הוא יתקן את כל מה שעוד חסר: אם עם ישראל עוד לא התקבץ – יקבץ אותו. אם כבר עלו – מצוין. אם בית המקדש לא נבנה – יבנה אותו. ואם נבנה – בסדר גמור.</p>
+<p>לצערנו, עד היום אין הסכמה על הפירוש, ויש לכך השלכות עצומות. אחת הסיבות לכך שאלפי יהודים שומרי תורה בארצות הברית אינם עולים לארץ היא ההבנה שעליהם לחכות עד שהמשיח יביא אותם. נסו לדמיין איך הייתה נראית הארץ אילו כל שומרי התורה מאמריקה היו עולים – מהפכה שקשה לתאר.</p>
+<div class="honey-box">🍯 הלכה אחת ברמב"ם, ופירוש אחד שלה, יכולים לשנות את פני הדור.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: כופר בתורה – אבל איפה? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🔍</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">איפה כתוב משיח בתורה?</h2></div></div>
+<p class="chapter-intro">הרמב"ם קובע שמי שאינו מאמין במשיח כופר בתורה. אבל כשמחפשים את המשיח בחומש – מגלים הפתעה.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כופר בתורה – אבל איפה?</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם ממשיך וכותב: מי שאינו מאמין במלך המשיח, או מי שאינו מחכה לביאתו, לא בשאר נביאים בלבד הוא כופר, אלא בתורה ובמשה רבנו – שהרי התורה העידה עליו.</p>
+<p>זה מעורר שאלה: איפה בתורה מופיע מלך המשיח? בנביאים הוא מופיע במפורש, למשל בישעיהו (יא, א–ב):</p>
+<blockquote>וְיָצָא חֹטֶר מִגֵּזַע יִשָׁי וְנֵצֶר מִשָּׁרָשָׁיו יִפְרֶה. וְנָחָה עָלָיו רוּחַ ה' רוּחַ חָכְמָה וּבִינָה רוּחַ עֵצָה וּגְבוּרָה רוּחַ דַּעַת וְיִרְאַת ה'.</blockquote>
+<p>אבל בחמשת חומשי תורה? יש רמזים, אבל מילה מפורשת על מלך המשיח – אין.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הפסוקים שהרמב&quot;ם מביא ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הפסוקים שהרמב&quot;ם מביא</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם עצמו מביא את הפסוקים מפרשת נצבים (דברים ל, ג–ה):</p>
+<blockquote>וְשָׁב ה' אֱלֹקֶיךָ אֶת שְׁבוּתְךָ וְרִחֲמֶךָ וְשָׁב וְקִבֶּצְךָ מִכָּל הָעַמִּים אֲשֶׁר הֱפִיצְךָ ה' אֱלֹקֶיךָ שָׁמָּה. אִם יִהְיֶה נִדַּחֲךָ בִּקְצֵה הַשָּׁמָיִם מִשָּׁם יְקַבֶּצְךָ ה' אֱלֹקֶיךָ וּמִשָּׁם יִקָּחֶךָ. וֶהֱבִיאֲךָ ה' אֱלֹקֶיךָ אֶל הָאָרֶץ אֲשֶׁר יָרְשׁוּ אֲבֹתֶיךָ וִירִשְׁתָּהּ וְהֵיטִבְךָ וְהִרְבְּךָ מֵאֲבֹתֶיךָ.</blockquote>
+<p>אבל קראו שוב: מי מקבץ כאן? "וקבצך ה' אלוקיך". הקדוש ברוך הוא בעצמו. התורה מבטיחה במפורש שיבוא יום ונצא מן הגלות – אבל את המשיח היא אינה מזכירה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: התורה מתקיימת מול העיניים ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">התורה מתקיימת מול העיניים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדאי לעצור על הפסוקים האלה, כי הם מתקיימים ממש בימינו, מילה במילה. הרב שמואל אליהו כתב על כך ספר שלם, המראה איך כל ביטוי בנבואה הזו מתגשם.</p>
+<p>"אם יהיה נדחך בקצה השמים" – יהודים הגיעו לכאן מקצוות העולם, מאתיופיה ועד אוסטרליה; בישראל חיים יהודים שבאו ממעל מאה מדינות.</p>
+<p>"והביאך אל הארץ אשר ירשו אבותיך" – לא אוגנדה ולא שום מקום אחר, אלא דווקא הארץ הזו.</p>
+<p>"והרבך מאבותיך" – כמעט בכל מקום בעולם מספר היהודים הולך ופוחת. יש מקום אחד שבו הוא גדל משנה לשנה: ארץ ישראל.</p>
+<p class="bold-para">מה שכתוב בתורה – רואים בעיניים.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: דוד והמשיח בנבואת בלעם ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">דוד והמשיח בנבואת בלעם</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם מביא רמז נוסף מנבואת בלעם (במדבר כד), ומפרש אותה כנבואה על שני משיחים: הראשון הוא דוד, שהושיע את ישראל מיד אויביהם, והאחרון הוא מלך המשיח. "אראנו ולא עתה" – זה דוד; "אשורנו ולא קרוב" – זה מלך המשיח. "דרך כוכב מיעקב" – זה דוד; "וקם שבט מישראל" – זה מלך המשיח.</p>
+<p>למה דוד נקרא משיח? כי הוא היה המלך הראשון שהשליט שלטון יהודי יציב, שהגויים לא הצליחו לנצח אותו. לפניו היו ניצחונות ומפלות לסירוגין; מדוד והלאה – ממלכה מבוססת.</p>
+<p>ועל "משיח בן יוסף" – זהו מושג שמופיע בעיקר בקבלה, ובגמרא הוא מוזכר פעם אחת בלבד. הרמב"ם אינו מזכיר אותו כלל.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: ספר העיקרים חולק ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">הוויכוח הגדול: האם המשיח הוא עיקר?</h2></div></div>
+<p class="chapter-intro">לא כל הראשונים הסכימו עם הרמב"ם שהאמונה במשיח היא עיקר מעיקרי התורה. והתשובה לשאלה הזו מפתיעה מאוד.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ספר העיקרים חולק</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי יוסף אלבו, בעל "ספר העיקרים", חולק על הרמב"ם. לדעתו אין שלושה עשר עיקרים, אלא שלושה בלבד: מציאות ה', תורה מן השמים, ושכר ועונש.</p>
+<p>הוא מזהיר שקביעת עיקרים היא עניין מסוכן מאוד, כי מי שמכחיש עיקר יוצא מכלל ישראל. ואז הוא שואל: בגמרא (סנהדרין צט, א) מובאים דברי רבי הלל: "אין להם משיח לישראל, שכבר אכלוהו בימי חזקיה". אם האמונה במשיח היא עיקר, רבי הלל היה צריך להיחשב כופר! והרי הגמרא מביאה את דבריו בכבוד, כאחד מחכמי ישראל.</p>
+<p>לכן, אומר ספר העיקרים, הגאולה ודאית – אבל המשיח עצמו אינו תנאי שבלעדיו אין אמונה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: היינו כחולמים ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">היינו כחולמים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר להציע תשובה פשוטה מאוד. חזרו מאתיים או שלוש מאות שנה אחורה, לכל קהילה יהודית בעולם. כמעט אף אחד לא העלה בדמיונו שאפשר להגיע לארץ ישראל בלי משיח. מי ייתן לנו לצאת? ואם ייתנו – איך נגיע? ומה נעשה בארץ שולטים בה אחרים, מלאה סכנות ומלחמות? קבוצות שניסו לעלות, כמו עולי תימן בשנים ההן, עברו בדרך צרות איומות, ורבים מהם לא הגיעו.</p>
+<p>כשהרמב"ם קרא בתורה שכל היהודים יבואו מכל קצוות העולם, ישבו בארצם והארץ תפרח – היה לו ברור שזה יקרה על ידי מלך המשיח. מי עוד יכול לעשות דבר כזה? זה כל כך מובן מאליו, שלא היה צריך לכתוב אותו בתורה.</p>
+<blockquote>בְּשׁוּב ה' אֶת שִׁיבַת צִיּוֹן הָיִינוּ כְּחֹלְמִים (תהלים קכו, א)</blockquote>
+<p>אנחנו חיים בתוך החלום הזה, ולכן כבר לא מתפלאים. ראיה לכך: חפשו בכל הדורות מי שהקשה על הרמב"ם "איפה כתוב בתורה משיח?" – כמעט לא תמצאו. רק בדורות האחרונים, כשקיבוץ הגלויות קרה מול העיניים, הקושיה התעוררה.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: תשובה מתוך לשון הרמב&quot;ם ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">תשובה מתוך לשון הרמב&quot;ם</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מפרשים שמצאו את התשובה בתוך לשונו של הרמב"ם עצמו. שימו לב לסדר: "לא בשאר נביאים בלבד הוא כופר, אלא בתורה ובמשה רבנו". למה להתחיל בנביאים ורק אחר כך לעלות לתורה?</p>
+<p>התשובה: בדברי הנביאים כתוב במפורש שקיבוץ הגלויות יהיה על ידי מלך המשיח. בתורה כתובה רק הגאולה. אבל כיוון שהנביאים מפרשים את התורה, מי שכופר בדבריהם כופר גם בתורה עצמה. התורה הבטיחה גאולה, והנביאים גילו לנו איך היא תיראה.</p>
+<div class="honey-box">🍯 התורה מבטיחה את הגאולה, והנביאים מגלים מי יביא אותה.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: המשיח מגיע באמצע ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🕍</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">הגאולה לפי סדר שמונה עשרה</h2></div></div>
+<p class="chapter-intro">את סדר הגאולה אפשר למצוא במקום שכולנו פוגשים שלוש פעמים ביום: בסידור.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">המשיח מגיע באמצע</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם התורה אינה מזכירה את המשיח, ייתכן שהוא אינו תנאי לתחילת הגאולה, ושהוא מתגלה באחד השלבים שלה. באיזה שלב? אולי אחרי קיבוץ הגלויות, אולי אחרי בניין ירושלים.</p>
+<p>הגמרא במסכת מגילה (יז, ב) מלמדת שתפילת שמונה עשרה מסודרת לפי סדר הגאולה. קודם ברכת השנים – הארץ נותנת את פריה בשפע. אחר כך "תקע בשופר גדול לחרותנו" – קיבוץ הגלויות. אחר כך "השיבה שופטינו כבראשונה" – תיקון מערכת המשפט. אחר כך "ולירושלים עירך ברחמים תשוב" – בניין ירושלים.</p>
+<p>ורק אחרי כל אלה מגיעה הברכה "את צמח דוד עבדך מהרה תצמיח" – מלכות בית דוד.</p>
+<p class="bold-para">פתחו את הסידור ותראו: המשיח מופיע רק אחרי שהרבה דברים כבר קרו.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: אולי גם המקדש? ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">אולי גם המקדש?</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה לא מחייב, כמובן, אבל זו התמונה הפשוטה העולה מן הגמרא: הרבה דברים קורים לפני גילוי המשיח. ייתכן שאפילו בניין ירושלים, ואולי גם בית המקדש, יתחילו לפניו.</p>
+<p>כשמציגים את הרעיון הזה, כמעט כולם מגיבים באותה צורה: "אין סיכוי! בית מקדש בלי משיח? מי ייתן? איך זה יקרה?"</p>
+<p>אבל זו בדיוק התגובה שהייתה לכל יהודי לפני חמש מאות שנה, אילו סיפרו לו על קיבוץ גלויות בלי משיח. גם הוא היה אומר: אין סיכוי. וכאן אנחנו.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: יום אחד יצחקו עלינו ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">יום אחד יצחקו עלינו</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יבוא יום – אולי בימינו, אולי בימי הנכדים – ויקראו את הדברים האלה ויחייכו: "הם חשבו שאין סיכוי? בואו תראו את המציאות!"</p>
+<p>וכמה זמן זה ייקח? זה תלוי מאוד בתודעה של האנשים. עד שבני אדם משנים את דרך המחשבה שלהם ומוכנים לקבל רעיון חדש, עובר זמן רב. ולכן הלימוד של ההלכות האלה כל כך חשוב: מי שלומד ומבין מה המשיח חייב לעשות ומה יכול לקרות גם לפניו – מצפה אחרת, מתכונן אחרת, ומקרב את הגאולה.</p>
+<div class="honey-box">🍯 התודעה שלנו היא חלק מן הגאולה. מי שמאמין שהיא אפשרית – כבר עושה אותה קרובה יותר.</div>
+<p>יהי רצון שנזכה לראות את כל זה במהרה בימינו.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
