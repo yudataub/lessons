@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌙 חמה ולבנה: לחבר את המוח והלב בעבודת ה&#x27;</title>
+<meta name="description" content="למה יש אינספור יועצים לשלום בית ואף לא אחד לקשר עם ה&#x27;, מה מלמד אותנו עיבור השנה על המוח והלב, ואיך עושים מצוות מתוך אהבה ולא מתוך כורח.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🌙 חמה ולבנה: לחבר את המוח והלב בעבודת ה&#x27;</h1>
+  <p class="hero-subtitle">למה יש אינספור יועצים לשלום בית ואף לא אחד לקשר עם ה&#x27;, מה מלמד אותנו עיבור השנה על המוח והלב, ואיך עושים מצוות מתוך אהבה ולא מתוך כורח.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-16 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/hCGtomNF3jg" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">💞 יעוץ זוגי – ביני לבין בוראי</a><ul class="toc-stories"><li><a href="#story-1">שוק פורח – ותחום אחד ריק</a></li><li><a href="#story-2">עבד, בן ורעיה</a></li><li><a href="#story-3">למה לא מחפשים עזרה?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🌕 חודש בחודשו: סוד הלבנה</a><ul class="toc-stories"><li><a href="#story-4">למה החודש שלנו הולך לפי הלבנה</a></li><li><a href="#story-5">הלבנה ומחזור החיים</a></li><li><a href="#story-6">עשרים ושמונה עיתים</a></li><li><a href="#story-7">הצב והארנבת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">☀️ שנת חמה: &quot;שמור את חודש האביב&quot;</a><ul class="toc-stories"><li><a href="#story-8">למה השנה הולכת לפי השמש</a></li><li><a href="#story-9">פברואר, ארבע, מאה וארבע מאות</a></li><li><a href="#story-10">&quot;אין שנה ללבנה ואין חודש לחמה&quot;</a></li><li><a href="#story-11">&quot;כי היא חכמתכם ובינתכם&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🧠 חמה היא המוח, לבנה היא הלב</a><ul class="toc-stories"><li><a href="#story-12">&quot;מח&quot; בתוך חמה, &quot;לב&quot; בתוך לבנה</a></li><li><a href="#story-13">אותה דחיפה – רגשות הפוכים</a></li><li><a href="#story-14">לא כועסים בגלל מה שקרה</a></li><li><a href="#story-15">ומה עם החורף והעייפות?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🧭 למה אנחנו עושים מצוות?</a><ul class="toc-stories"><li><a href="#story-16">הטייס האוטומטי</a></li><li><a href="#story-17">שכר ועונש – ומה יגידו</a></li><li><a href="#story-18">&quot;וחדלת מעזב לו?&quot;</a></li><li><a href="#story-19">עיקרון העונג ועיקרון המציאות</a></li><li><a href="#story-20">&quot;ובתורתו יהגה&quot; – התורה שלו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">📱 לחבר חמה ולבנה – בפועל</a><ul class="toc-stories"><li><a href="#story-21">הטלפון בכולל</a></li><li><a href="#story-22">&quot;והשבת אל לבבך&quot;</a></li><li><a href="#story-23">שתי דרכים לשכנע לומר מחמאה</a></li><li><a href="#story-24">עוגות בערב לימוד</a></li><li><a href="#story-25">קורס ליהנות ממס הכנסה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">👑 נעשה ונשמע: מי שיודע שאוהבים אותו</a><ul class="toc-stories"><li><a href="#story-26">שני כתרים</a></li><li><a href="#story-27">&quot;עמא פזיזא&quot; – עם פזיז</a></li><li><a href="#story-28">הבן שלא רצה לחתום</a></li><li><a href="#story-29">ההבנה הגדולה בבריאה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">💞</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">יעוץ זוגי – ביני לבין בוראי</h2></div></div>
+<p class="chapter-intro">שאלה פשוטה שאין לה תשובה פשוטה: למה כולם מחפשים איך לחזק את הקשר בבית, וכמעט אף אחד לא מחפש איך לחזק את הקשר עם ה'?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שוק פורח – ותחום אחד ריק</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בדור שלנו פורח תחום הייעוץ הזוגי. אנשים רבים פונים ליועצים ומשלמים לא מעט כדי שהשלום בית שלהם יהיה תקין. והמחירים גבוהים – סימן שיש ביקוש.</p>
+<p>ומכאן שאלה מעניינת: <strong>למה כמעט אין קורס או מומחה שמלמד איך מתקנים "שלום בית" עם בורא עולם?</strong> איך מחברים את הלב לקיום המצוות? איך יוצרים קשר רגשי חי עם הקדוש ברוך הוא?</p>
+<p>גם בישיבות כמעט אין מקצוע כזה. לומדים גמרא, לומדים הלכה, לומדים מוסר – אבל מי מלמד איך להרגיש קרבת ה'? ואם מישהו רוצה להיות מאושר יותר – למה הוא לא הולך ללמוד איך להיות מאושר בקיום המצוות?</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: עבד, בן ורעיה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">עבד, בן ורעיה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הקשר בינינו לבין בורא עולם נמשל בשלוש צורות. בתפילת ראש השנה אומרים: "אם כבנים אם כעבדים". ובשיר השירים יש צורה שלישית: הדוד והרעיה.</p>
+<p><strong>עבד ואדון</strong> – קשר של יראה. בגלות, מחוץ לביתו של הקדוש ברוך הוא, זה היה עיקר הקשר: אין לנו מי שישמור עלינו מלבדו. לא בכדי סוגיית החורבן נמצאת במסכת גיטין – כביכול מעין גירוש. ואהבת ארץ ישראל נמצאת במסכת כתובות – הארץ היא כמו הכתובה, הבית שמחבר אותנו לבורא.</p>
+<p><strong>אב ובן</strong> – קשר תמידי שאינו תלוי במעשים. "בין כך ובין כך אתם קרויים בנים" (קידושין לו ע״א).</p>
+<p><strong>איש ואשתו</strong> – קשר של "פרפרים וכאבים". יש ימי אהבה וימים קשים, הארת פנים והסתר פנים. קשר חי, תוסס, עולה ויורד.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: למה לא מחפשים עזרה? ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה לא מחפשים עזרה?</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כששאלו את השאלה הזאת אנשי מקצוע בתחום, עלו כמה תשובות.</p>
+<p>תשובה אחת: זה עניין של זמן. התחום הזוגי עצמו התפתח לפי דרישת הדור, ומי שעוסקת בתחום רואה הבדל עצום בין הדרך שבה הדריכו אותה לבין הדרך שבה מדריכים היום את בתה. גם הקשר עם ה' יגיע לשם.</p>
+<p>תשובה שנייה, וחדה יותר: לא מרגישים את החיסרון. כשאין שלום בית – זה כואב בכל תחום. קשה להיכנס הביתה. ומי שסובל, מחפש פתרון. אבל מי שעובד את ה' בלי רגש חושב שזה נורמלי, שכך כולם. הוא לא סובל – אז הוא לא מחפש.</p>
+<p>ויש עוד נקודה: למי שמאמין באמת, יש "משוב" בכל רגע. כל מה שקורה לו ביום – בפרנסה, בבית, ברחוב – הוא תשובה מבורא עולם. <strong>מי שמרגיש את זה, יודע שהקשר הזה הוא המתגמל מכולם.</strong></p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: למה החודש שלנו הולך לפי הלבנה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌕</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">חודש בחודשו: סוד הלבנה</h2></div></div>
+<p class="chapter-intro">פעם בכמה שנים מוסיפים לשנה חודש. כדי להבין למה – צריך להבין קודם את הלבנה.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה החודש שלנו הולך לפי הלבנה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשנה מעוברת מוסיפים חודש – אדר שני. סימן מסורתי לשנים המעוברות במחזור של תשע עשרה שנה: גו״ח אדז״ט – השנים ג, ו, ח, יא, יד, יז, יט. בממוצע יוצא עיבור בערך פעם בשנתיים-שלוש.</p>
+<p>הרמב״ם פותח את הלכות קידוש החודש: "חדשי השנה הם חדשי הלבנה, שנאמר 'עולת חדש בחדשו'". מאיפה יודעים שהכוונה ללבנה?</p>
+<p>הערוך השולחן מסביר: המילה "חודש" פירושה התחדשות. הלבנה נראית כדבר חדש – בחצי הראשון היא הולכת וגדלה, בחצי השני הולכת ומתמעטת עד שנעלמת, ושוב מתחדשת. בחודשי החמה אין שום שינוי נראה לעין. מה ההבדל בין פברואר למרץ? כלום. <strong>אם התורה אמרה "חודש", סימן שמדובר במשהו שמתחדש – וזו הלבנה.</strong></p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: הלבנה ומחזור החיים ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הלבנה ומחזור החיים</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבים עמדו על הדמיון בין מחזור הלבנה למחזור הגוף של האישה. הלבנה מתחילה מאפס, עולה ומתמלאת עד אמצע החודש, ומשם הולכת ומתמעטת עד שנעלמת. וגם מחזור הגוף בנוי באופן דומה: עלייה עד אמצע המחזור, ומשם ירידה עד לסיומו והתחלה חדשה.</p>
+<p>הקשר כל כך הדוק, שחז״ל אף קבעו בהלכה "וסת החודש" – החשש שמה שקרה בתאריך מסוים בחודש אחד יחזור באותו תאריך בחודש הבא.</p>
+<p>אבל יש קושי: מחזור הלבנה נמשך כעשרים ותשעה ימים וחצי, ואילו אורך המחזור הממוצע של אישה הוא כעשרים ושמונה ימים. היכן הדמיון המדויק?</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: עשרים ושמונה עיתים ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עשרים ושמונה עיתים</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והנה, יש מקורות שאומרים במפורש שהלבנה עושה סיבוב של עשרים ושמונה ימים – ארבעה עשר של מילוי וארבעה עשר של חיסרון – כנגד עשרים ושמונה העיתים שמנה שלמה המלך בקהלת: "עת ללדת ועת למות, עת לטעת ועת לעקור..." – ארבעה עשר חיוביים וארבעה עשר שליליים.</p>
+<p>וגם בבעל הטורים, על הפסוק הראשון בתורה: "בראשית ברא אלוקים את השמים ואת הארץ" – שבע מילים ועשרים ושמונה אותיות, ונאמר שהן כנגד עשרים ושמונה ימי הלבנה.</p>
+<p>אבל איך זה יכול להיות? כל אחד יודע שבין מולד למולד עוברים עשרים ותשעה ימים וחצי! האם אפשר לחלוק על המציאות?</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: הצב והארנבת ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הצב והארנבת</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התשובה מופלאה. הלבנה גומרת את הסיבוב שלה סביב כדור הארץ אחרי כעשרים ושבעה ימים ושליש. אבל בינתיים גם השמש "זזה" (ביחס אלינו) – והלבנה לא פוגשת אותה באותה נקודה.</p>
+<p>מולד הלבנה הוא הרגע שבו הלבנה עומדת בדיוק בין כדור הארץ לשמש, ולכן אין רואים ממנה דבר. כדי לחזור למצב הזה, הלבנה צריכה להשלים סיבוב – ועוד "להשיג" את השמש שהתקדמה. השמש מסיימת סיבוב בשנה, הלבנה בחודש – כלומר הלבנה מהירה בערך פי שתים עשרה. בזמן שהלבנה עושה סיבוב, השמש מתקדמת כברת דרך, וללבנה לוקח עוד כיומיים להגיע אליה.</p>
+<p>כמו צב וארנבת במרוץ עגול: כשהארנבת חוזרת לנקודת ההתחלה, היא לא פוגשת שם את הצב – כי הוא כבר התקדם.</p>
+<div class="honey-box">🍯 הסיבוב האמיתי של הלבנה הוא כעשרים ושמונה ימים, והיומיים הנוספים הם רק המרדף אחרי השמש.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: למה השנה הולכת לפי השמש ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">☀️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">שנת חמה: &quot;שמור את חודש האביב&quot;</h2></div></div>
+<p class="chapter-intro">החודשים לפי הלבנה, השנים לפי החמה – ורק עם ישראל מחבר בין השניים.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה השנה הולכת לפי השמש</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ממשיך הרמב״ם: "והשנים שאנו מחשבין הם שני החמה, שנאמר 'שמור את חדש האביב'". ועוד כתוב בשבועות "חג הקציר", ובסוכות "חג האסיף".</p>
+<p>וידוע לכולם שגידול התבואה, קצירתה ואסיפתה תלויים בשמש. בחמה תלויים חילופי העונות – הקור והחום, הקיץ והחורף. את כמות הגשמים לא מודדים לפי חודש שבט אלא לפי ינואר ופברואר.</p>
+<p>אם התורה אמרה שפסח יהיה באביב וסוכות בזמן האסיף – סימן שהשנה צריכה להתאים לשמש. שנת החמה ארוכה משנת הלבנה בכאחד עשר ימים, ולכן מוסיפים חודש שלם פעם בכמה שנים, והשנה הזאת היא בת שלושה עשר חודשים: אדר ראשון ואדר שני.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: פברואר, ארבע, מאה וארבע מאות ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">פברואר, ארבע, מאה וארבע מאות</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם הלוח הלועזי מתמודד עם אותה בעיה. שנת חמה אינה בדיוק 365 ימים, אלא קצת יותר – כרבע יום. לכן פעם בארבע שנים מוסיפים לפברואר יום, והוא בן עשרים ותשעה ימים.</p>
+<p>אבל רבע יום הוא קצת יותר מהאמת. לכן בשנה שמתחלקת במאה – לא מוסיפים. בשנת 1900 היה פברואר בן עשרים ושמונה, וכך יהיה גם בשנת 2100.</p>
+<p>ואז מגיע תיקון נוסף: שנה שמתחלקת בארבע מאות – כן מוסיפים. לכן בשנת 2000 היה פברואר בן עשרים ותשעה ימים.</p>
+<p>גם בגמרא ובספרי החשבון יש סוגיות רבות של חשבון התקופות – תקופת ניסן, תקופת תשרי ותקופת טבת. ומי שרוצה להבין אותן, חייב להכיר גם את הלוח הלועזי.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: &quot;אין שנה ללבנה ואין חודש לחמה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אין שנה ללבנה ואין חודש לחמה&quot;</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש הבדל גדול בין הלוחות. הנוצרים מונים לחמה בלבד. ולמה חילקו את השנה לשתים עשרה חודשים, ולא לעשרה? יש אפשרות שלמדו זאת מהיהודים, שלוחם היה הקדום.</p>
+<p>המוסלמים מונים ללבנה בלבד. ולכן החודש שלהם, הרמדאן, נודד על פני כל עונות השנה – פעם בקיץ ופעם בחורף.</p>
+<p>יש כלל יפה: <strong>"אין שנה ללבנה ואין חודש לחמה".</strong> בלבנה לא קורה כלום אחרי שנה, ובחמה לא קורה כלום אחרי חודש.</p>
+<p>ועם ישראל הוא היחיד בעולם שמחבר בין חמה ללבנה – חודש לפי הלבנה, שנה לפי החמה. זו גם המצווה הראשונה שנצטוו ישראל עוד במצרים: "החדש הזה לכם ראש חדשים" (שמות יב, ב).</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;כי היא חכמתכם ובינתכם&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;כי היא חכמתכם ובינתכם&quot;</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשך דורות, חכמת העיבור והחשבון הייתה אחת הסיבות שהגויים העריכו מאוד את היהודים. מי שרצה ללמוד אסטרונומיה, מצא שהיהודים מומחים בה: כמה הולכת החמה, כמה הולכת הלבנה, איך משלבים ביניהן. סוד העיבור עבר מדור לדור אצל תלמידי החכמים.</p>
+<p>גוי מלומד שפגש יהודי מלומד – מצא איתו שפה משותפת. ובזה התקיים הפסוק:</p>
+<blockquote>"כי היא חכמתכם ובינתכם לעיני העמים" (דברים ד, ו)</blockquote>
+<p>וחז״ל אמרו שהפסוק הזה נאמר על חישוב התקופות והמזלות (שבת עה ע״א).</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;מח&quot; בתוך חמה, &quot;לב&quot; בתוך לבנה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🧠</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">חמה היא המוח, לבנה היא הלב</h2></div></div>
+<p class="chapter-intro">רמז קטן באותיות פותח הבנה גדולה על הרגשות שלנו.</p>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;מח&quot; בתוך חמה, &quot;לב&quot; בתוך לבנה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במילה <strong>חמה</strong> מסתתרות האותיות <strong>מח</strong>. במילה <strong>לבנה</strong> מסתתרות האותיות <strong>לב</strong>.</p>
+<p>מה הקשר? ללבנה אין אור משלה. כל אורה הוא השתקפות של אור החמה. ואם החמה לא תאיר עליה – היא חשוכה לגמרי.</p>
+<p>כך גם הלב. הוא לא מתרגש "סתם" בגלל שקרה משהו. הלב מגיב לפירוש שהמוח נותן למציאות. המוח מפרש – והלב מרגיש לפי הפירוש.</p>
+<p class="bold-para">אין לבנה בלי חמה, ואין רגש בלי פירוש.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: אותה דחיפה – רגשות הפוכים ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אותה דחיפה – רגשות הפוכים</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דמיינו שמישהו דוחף אתכם מאחור. מה תרגישו?</p>
+<p>זה תלוי לגמרי במה שתראו כשתסתובבו. אם תראו חבר קרוב שמשתעשע איתכם – תחייכו ותרגישו חום. אם תראו אדם זר ומאיים – תרגישו כעס או פחד. ילדה קטנה שנדחפה ומסתובבת ורואה את אמא שלה – מתמלאת שמחה.</p>
+<p>הדחיפה הייתה בדיוק אותה דחיפה. מה השתנה? רק הפירוש שהמוח נתן לה. ולפיו – הלב הגיב.</p>
+<p>על העיקרון הזה בנוי מודל מוכר בטיפול הקוגניטיבי-התנהגותי: <strong>אירוע – פירוש – רגש – תוצאה.</strong></p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: לא כועסים בגלל מה שקרה ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא כועסים בגלל מה שקרה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה נשמע מוזר, אבל זו המציאות: אדם אף פעם לא כועס בגלל מה שקרה. הוא כועס בגלל הפירוש שנתן למה שקרה.</p>
+<p>אדם מזמין משלוח קבוע מהמכולת, משלם כל חודש – והיום לא הגיע חלב. אם הוא מפרש "בעל המכולת רשלן, לוקח כסף ולא עומד בהתחייבות" – הוא כועס. אם הוא יודע שהספק פשוט לא הביא חלב היום – הוא לא כועס כלל.</p>
+<p>אדם חוזר הביתה ואין ארוחת צהריים. אם הוא מפרש "לאשתי לא אכפת ממני" – הוא כועס. אם הוא מגלה שאמה הייתה צריכה אותה בדחיפות בבית החולים – הוא מתמלא רחמים.</p>
+<p>מכאן מגיע תרגול: לפני שמגיבים – לעצור, לנשום, ולשאול: איך עוד אפשר לראות את זה? "אל תדין את חברך עד שתגיע למקומו" (אבות ב, ד).</p>
+<div class="honey-box">🍯 מי שתופס שהרגש בא מהפירוש – יכול להינצל מהמון כעס מיותר.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: ומה עם החורף והעייפות? ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ומה עם החורף והעייפות?</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לשאול: הרי ברור שגם מצב הגוף משפיע. בחורף האפור אנשים מצוברחים יותר, ואדם עייף מתרגז מהר יותר.</p>
+<p>זה נכון לגמרי. עייפות, רעב, מזג אוויר – כולם משפיעים. הם יכולים להעצים רגש שכבר נוצר, להפוך כעס קטן לגדול פי עשרה.</p>
+<p>אבל הם לא יוצרים את הרגש מאפס. אם הפירוש היה טוב, גם בחורף ובעייפות לא היה מתפוצץ שום דבר. ואם הפירוש רע – גם בקיץ ובשמש אפשר לכעוס. <strong>השורש נשאר הפירוש.</strong> הגוף רק מגביר את הווליום.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הטייס האוטומטי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">למה אנחנו עושים מצוות?</h2></div></div>
+<p class="chapter-intro">שלושה מניעים נפוצים – ומה שהתורה באמת רוצה.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הטייס האוטומטי</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המניע הראשון, והנפוץ מאוד, נקרא בפסיכולוגיה "טייס אוטומטי". רוב הפעולות שאדם עושה ביום – יש המעריכים שבעים אחוז – נעשות פשוט מתוך הרגל.</p>
+<p>מצד אחד זו ברכה עצומה. אילו היה צריך לחשוב על כל צעד – איך הולכים, איך מתניעים רכב, איך מדברים – לא היה מגיע לשום מקום. בזכות ההרגל אפשר לנהוג ולדבר בטלפון בלי לחשוב על כל תנועה.</p>
+<p>מצד שני, פעולה שנעשית באוטומט נעשית קרה, בלי משמעות. מי שמעשן יכול לבדוק כמה סיגריות עישן כי באמת רצה, וכמה פשוט כי שתה קפה והיד הלכה לבד.</p>
+<p>וכך גם מצוות: אפשר לעשות אותן שנים, בלי שהלב נוכח בהן בכלל.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: שכר ועונש – ומה יגידו ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שכר ועונש – ומה יגידו</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המניע השני: שכר ועונש. אדם יודע שיש עולם הבא, שיש שכר למצוות ועונש על עבירות. זה דבר נפלא ואמיתי.</p>
+<p>המניע השלישי: שמירה על הצביון. אדם ממשיך בדרך כי "מה יגידו" – ההורים, החברים, השכנים. ולפעמים גם כלפי עצמו: "אני אדם דתי, לא שייך שלא אלך לתפילה".</p>
+<p>מה המשותף לכל אלה? בכולם פועל רק המוח. האדם עושה כי צריך, כי כדאי, כי כך מתאים. <strong>אבל הלב אינו שם.</strong></p>
+<p>והקדוש ברוך הוא רוצה יותר: שאדם יעשה מצוות מתוך שכל ומתוך רגש יחד – מתוך רצון, מתוך הרגשה כמה הן טובות לו.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: &quot;וחדלת מעזב לו?&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;וחדלת מעזב לו?&quot;</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה מפרשת משפטים:</p>
+<blockquote>"כי תראה חמור שנאך רבץ תחת משאו, וחדלת מעזב לו – עזב תעזב עמו" (שמות כג, ה)</blockquote>
+<p>חז״ל דרשו מ"וחדלת" שיש מצבים שבהם פטורים, כמו זקן שאינו לפי כבודו. אבל יש כאן גם פירוש לפי הפשט: התורה שואלת שאלה רטורית – "וחדלת מעזב לו?" האם באמת תוכל לעבור ולהשאיר אותו כך? ודאי שלא! עזוב תעזוב.</p>
+<p>כמו אדם שרואה מישהו תקוע בצד הכביש, בלי אפשרות לנסוע ובלי מי שיעזור לו. למה עוצרים? כמובן שיש מצווה. אבל התורה רוצה שיעצור כי <strong>הלב שלו לא נותן לו לעבור הלאה.</strong></p>
+<p>המצווה היא להרגיש שאתה רוצה לעזור. זה חיבור של שכל ורגש יחד.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: עיקרון העונג ועיקרון המציאות ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">עיקרון העונג ועיקרון המציאות</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פרויד חילק את כל המניעים האנושיים לשני עקרונות. ילד קטן פועל לפי "עיקרון העונג": מחפש הנאה ובורח מסבל. ילד שמכים אותו מחזיר מכה גם לילד גדול ממנו, בלי לחשב שיקבל פי חמישה.</p>
+<p>בגיל מסוים נכנס "עיקרון המציאות": הילד מבין שאי אפשר לעשות כל מה שבא לו, כי הגננת תכעס. המבוגר לומד גם כשלא מתחשק לו, כי בלי מקצוע לא תהיה פרנסה.</p>
+<p>לפי פרויד, כל הבעיות של העולם נובעות מהמאבק בין שני העקרונות.</p>
+<p>ויש מי שחי כך גם את היהדות: מגיע זמן ללמוד, ואילו היה תלוי בעיקרון העונג – היה נשאר לקרוא חדשות. אבל עיקרון המציאות אומר: מה יגידו ההורים, ראש הישיבה, המשגיח. אז הוא הולך. <strong>זה מצב קיים – אבל זה לא האידיאל.</strong> כאן יש רק "חמה", רק מוח.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: &quot;ובתורתו יהגה&quot; – התורה שלו ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;ובתורתו יהגה&quot; – התורה שלו</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנצי״ב מוולוז׳ין היה מרבה להזכיר את הפסוק:</p>
+<blockquote>"נתתי את תורתי בקרבם ועל לבם אכתבנה" (ירמיהו לא, לב)</blockquote>
+<p>התורה צריכה להיכנס לקרביים שלנו ולהיות חלק מאיתנו.</p>
+<p>ובתהלים נאמר: "כי אם בתורת ה' חפצו, ובתורתו יהגה יומם ולילה" (תהלים א, ב). בתחילת הפסוק היא "תורת ה'", ובסופו "תורתו" – של האדם. וחז״ל אמרו שאחרי שאדם עמל בה, היא נקראת על שמו (עבודה זרה יט ע״א).</p>
+<p>זה האידיאל: אדם שהולך ללמוד לא רק כי כדאי או כי מה יגידו, אלא כי שם הוא מוצא את עצמו, שם הוא מרגיש חי. מי שנכנס לסוגיה שהוא באמת צריך – לכתוב תשובה, להכריע הלכה – קשה להוציא אותו משם. <strong>ברוך ה', רבים זוכים להגיע לזה.</strong></p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: הטלפון בכולל ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📱</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">לחבר חמה ולבנה – בפועל</h2></div></div>
+<p class="chapter-intro">דוגמאות מעשיות לאיחוד בין השכל לרגש, במקום מלחמה ביניהם.</p>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הטלפון בכולל</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אברך מתלבט כל בוקר: לקחת את הטלפון לכולל או לא? אולי יתקשרו ממשהו חשוב. ואולי יהיה נחמד להציץ מדי פעם, להתרענן.</p>
+<p>אפשרות אחת: עיקרון העונג אומר "קח". אפשרות שנייה: עיקרון המציאות עונה – ספרי המוסר כותבים כמה חמור להפסיק באמצע הלימוד, ראש הכולל לא יהיה מרוצה. לפעמים זה עובד ולפעמים לא.</p>
+<p>אבל יש אפשרות שלישית. מחקרים מראים שהלימוד נקלט באמת במוח רק כשאדם מרוכז. אז החיבורים במוח מתחזקים, והחומר נשאר. מי שלומד עם חצי ראש בטלפון – זה כמו לנסוע בדרך לא סלולה. אולי יזכור עד מחר, ובסוף החודש לא יישאר כמעט כלום. וגם: ריכוז עמוק מביא הנאה, חשק ומרץ.</p>
+<p>האברך ששמע זאת משאיר את הטלפון בבית – לא במלחמה, אלא כי <strong>הוא רוצה</strong>. העונג והמציאות התחברו. חמה ולבנה יחד.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: &quot;והשבת אל לבבך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;והשבת אל לבבך&quot;</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך כתוב במפורש בתורה:</p>
+<blockquote>"וידעת היום והשבת אל לבבך, כי ה' הוא האלוקים בשמים ממעל ועל הארץ מתחת, אין עוד" (דברים ד, לט)</blockquote>
+<p>לא מספיק לדעת. צריך להשיב את הידיעה אל הלב.</p>
+<p>איך עשו זאת בעבר? בשיטת המוסר של רבי ישראל סלנטר: לוקחים ספר מוסר וחוזרים על המשפט שוב ושוב, בהתעוררות, עד שהוא חודר ללב.</p>
+<p>אבל היום, לצערנו, פחות ופחות מגיעים לסדר המוסר. ואיומים בעונש כבר לא עובדים כמו פעם. גם במקומות עבודה למדו שעבודה מתוך פחד מורידה את התפוקה, ומחפשים דרכים לתגמל ולחבר את העובד למה שהוא עושה.</p>
+<div class="honey-box">🍯 היום, "והשבת אל לבבך" פירושו להראות לאדם כמה הדבר טוב לו – עד שלבו מתחבר.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: שתי דרכים לשכנע לומר מחמאה ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שתי דרכים לשכנע לומר מחמאה</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נניח שרוצים לשכנע בעל לומר מחמאות לאשתו.</p>
+<p>דרך אחת: "אם לא תחמיא לה, היא תהיה עצבנית, תכעס עליך, לא יהיה לה כוח". זה פועל מתוך פחד, מתוך המוח בלבד. אולי יעבוד קצת, אבל לא לאורך זמן.</p>
+<p>דרך שנייה: "נסה להיזכר בפעם האחרונה שאמרת לה מחמאה, ואיך היא קרנה מאושר. בכמה מילים אתה יכול לגרום לה עונג עצום". ועוד: אחד הדברים שהכי משמחים בעל הוא לדעת שאשתו מאושרת בזכותו. אתה רוצה להיות מאושר? שמח אותה.</p>
+<p>בדרך השנייה המוח והלב פועלים יחד. השכל מבין, והלב רוצה.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: עוגות בערב לימוד ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">עוגות בערב לימוד</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דרך נוספת לחבר את הלב היא חוויה. כשאדם חווה חוויה טובה סביב דבר מסוים, המוח מקשר מעצמו בין הדבר לבין החוויה.</p>
+<p>תגלית מוכרת: כשמגישים כיבוד בערב לימוד, מספר המשתתפים גדל מאוד. למה? כשאדם מתלבט אם ללכת, לא רק השכל מחליט – גם הרגש. ואצלו כבר נקשר: ערב לימוד = משהו טוב.</p>
+<p>כך גם אצל ילדים: לבנות סביב המצווה חוויה טובה, ואז הלב נקשר אליה. פרסים לבדם הם זמניים, והרגל לבדו עלול להפוך לטייס אוטומטי. <strong>החוויה היא שמחברת את הלב.</strong></p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: קורס ליהנות ממס הכנסה ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קורס ליהנות ממס הכנסה</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו התשובה לשאלה שפתחה את הכול: למה אין יועצים לקשר עם ה'?</p>
+<p>כי רוב האנשים פשוט לא מאמינים שאפשר ליהנות ממצוות. כשאומרים לאדם "בוא ותלמד איך ליהנות מקיום המצוות", הוא שומע את זה כמו "בוא לקורס איך ליהנות מתשלום מס הכנסה". מי היה בא?</p>
+<p>הוא חושב: היו צדיקים שנהנו מהמצוות, אדמו״רים וגדולי ישראל. אבל מה לי ולזה?</p>
+<p>זו טעות. כל אדם, אם רק ילמד את הדרך ומישהו יעזור לו וידריך אותו, יראה שכל פעולה שהוא מחבר ללב – כמה תיטיב לו, כמה תרומם אותו – נעשית מקור של שמחה ואהבה.</p>
+<p>ולמה בשנה מעוברת יש דווקא <strong>שלושה עשר</strong> חודשים? כי שלוש עשרה בגימטריה <strong>אחד</strong>. כשמאחדים חמה ולבנה, מוח ולב – זו האחדות. ואהבה אמיתית נולדת רק מפעולות שמחוברות ללב.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: שני כתרים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">נעשה ונשמע: מי שיודע שאוהבים אותו</h2></div></div>
+<p class="chapter-intro">מה ראו המלאכים במילים "נעשה ונשמע" – ומה ראה בהן מי שלא הבין.</p>
+<article class="story-card" id="story-26" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שני כתרים</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף פרשת משפטים אמרו ישראל לפני מתן תורה: "נעשה ונשמע" (שמות כד, ז).</p>
+<p>וחז״ל מספרים: "בשעה שהקדימו ישראל נעשה לנשמע, ירדו ששים ריבוא של מלאכי השרת, לכל אחד ואחד מישראל קשרו לו שני כתרים – אחד כנגד נעשה ואחד כנגד נשמע" (שבת פח ע״א).</p>
+<p>מה כל כך מיוחד בהקדמת "נעשה" ל"נשמע"? המילים האלה ריגשו כל כך את הדורות, שאפילו ספר חסידי מפורסם נקרא על שמן – "בשעה שהקדימו".</p>
+<p class="bold-para">כדי להבין, צריך לשמוע איך פירש אותן מי שלא הבין אותן.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: &quot;עמא פזיזא&quot; – עם פזיז ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;עמא פזיזא&quot; – עם פזיז</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא שם מספרת: רבא ישב ולמד, שקוע בסוגיה. הוא ישב על אצבעותיו ולחץ עליהן, ולא הרגיש שזב מהן דם – כל כך היה שקוע.</p>
+<p>ראה אותו מין אחד, ופירש את מה שראה בעקמומיות: "עמא פזיזא, דקדמיתו פומייכו לאודנייכו" – עם פזיז, שהקדמתם את פיכם לאוזניכם! הייתם צריכים קודם לשמוע מה כתוב, ורק אחר כך להחליט אם לקבל. ואתם עדיין בפזיזותכם – יושבים ולא מרגישים כלום.</p>
+<p>זוכרים את העיקרון? הרגש תלוי בפירוש. אותו מראה בדיוק – אדם שקוע בתורה עד שאינו מרגיש כאב – ואחד רואה בו גדלות, ואחר רואה בו ניתוק ופזיזות.</p>
+<p>ענה לו רבא: "אנן דסגינן בשלימותא, כתיב בן 'תמת ישרים תנחם'; הנך אינשי דסגן בעלילותא, כתיב בהו 'וסלף בוגדים ישדם'" (משלי יא, ג). אנחנו הולכים בתמימות – בלב שלם.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: הבן שלא רצה לחתום ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הבן שלא רצה לחתום</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משל: אדם עשיר מאוד, בעל מפעל מצליח, הגיע לגיל שמונים. הוא החליט להעביר את המפעל לבנו היחיד כבר בחייו. הזמין עורך דין, והכול הוכן כחוק.</p>
+<p>כשהגישו לבן לחתום – הוא סירב. "אני לא יודע מה כתבת כאן. אני אביא עורך דין משלי שיבדוק".</p>
+<p>האב התפרץ בכעס: "מה, אתה לא מכיר אותי? שמונים שנה אני חי – מה אתה חושב שאני מחפש? להרע לך? אני נותן לך את כל מה שיש לי, ואתה צריך לבדוק?"</p>
+<p><strong>זה בדיוק "נעשה ונשמע".</strong> אנחנו מכירים את הקדוש ברוך הוא. הוא הוציא אותנו ממצרים, עשה לנו ניסים ונפלאות. הבנו דבר אחד: הוא לא מחפש איך לקחת מאיתנו, אלא איך לתת לנו. התורה והמצוות נועדו "לטוב לך" – בעולם הבא, וגם כאן. אז למה לבדוק לפני שחותמים?</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: ההבנה הגדולה בבריאה ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ההבנה הגדולה בבריאה</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מי שחושב עד היום שהקדוש ברוך הוא מחפש איך לתקוע לנו מקל בגלגלים. הוא מחשב כל הזמן: כדאי לי? לא כדאי לי? שווה? לא שווה? זה המין שראה את רבא – עם "פזיז" שלא בדק את החוזה.</p>
+<p>אבל עם ישראל ראה את התורה אחרת. הוא הבין שכל מה שהקדוש ברוך הוא רוצה זה להיטיב לנו. לכן ירדו המלאכים וקשרו כתרים: "נעשה ונשמע" לא היו סתם מילים. <strong>זו אולי ההבנה החזקה ביותר שאדם יכול להגיע אליה: שאלוקים מחפש רק איך לתת לו.</strong></p>
+<p>ומי שמתייחס כך לתורה – עושה את המצוות מתוך שמחה, אהבה ורצון. החמה והלבנה מתאחדות: השכל יודע מי נותן, והלב שמח במתנה.</p>
+<div class="honey-box">🍯 שנזכה להרגיש כל יום את ה"נעשה ונשמע" – שהקדוש ברוך הוא מחפש איך לתת לנו אושר, בעולם הזה ובעולם הבא.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
