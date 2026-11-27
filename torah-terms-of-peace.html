@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🕊️ שלום של תורה: דיני שלום בשעת מלחמה</title>
+<meta name="description" content="מה התורה קוראת &quot;שלום&quot;, במה הוא שונה מהסכמי השלום של ימינו, ולמה פסוקים שישנו כמעט שלושת אלפים שנה חוזרים פתאום להיות שאלה מעשית.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🕊️ שלום של תורה: דיני שלום בשעת מלחמה</h1>
+  <p class="hero-subtitle">מה התורה קוראת &quot;שלום&quot;, במה הוא שונה מהסכמי השלום של ימינו, ולמה פסוקים שישנו כמעט שלושת אלפים שנה חוזרים פתאום להיות שאלה מעשית.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 4 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-6 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/rOU3JORZVFI" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">⏰ כשהפסוקים מתעוררים משנתם</a><ul class="toc-stories"><li><a href="#story-1">שאלה פשוטה שכמעט איש לא שאל</a></li><li><a href="#story-2">ללמוד זה דבר אחד, ליישם זה עולם אחר</a></li><li><a href="#story-3">שלושת אלפים שנה של המתנה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📜 קוראים לשלום: רש&quot;י והרמב&quot;ם</a><ul class="toc-stories"><li><a href="#story-4">שיטת רש&quot;י: רק במלחמת הרשות</a></li><li><a href="#story-5">שיטת הרמב&quot;ם: שלום מציעים לכולם</a></li><li><a href="#story-6">חידת הגבעונים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🤝 מה זה &quot;שלום&quot; לפי התורה</a><ul class="toc-stories"><li><a href="#story-7">שלום עם תנאים</a></li><li><a href="#story-8">&quot;ופתחה לך&quot;: שטחים תמורת שלום, בכיוון ההפוך</a></li><li><a href="#story-9">&quot;למס ועבדוך&quot;: מי שחי בשלום, משתתף בנטל</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🗺️ שלום כן, ברית לא: הארץ שייכת לעם ישראל</a><ul class="toc-stories"><li><a href="#story-10">למה ברית אסורה</a></li><li><a href="#story-11">&quot;זה לא מעשי&quot;. מי החליט?</a></li><li><a href="#story-12">גם בימי השופטים זה לקח זמן</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">⏰</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">כשהפסוקים מתעוררים משנתם</h2></div></div>
+<p class="chapter-intro">יש פסוקים שקוראים אותם כל שנה בפרשת השבוע, ממשיכים הלאה, ולא נתקלים בהם בחיים. ופתאום הם עומדים מול העיניים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שאלה פשוטה שכמעט איש לא שאל</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת כי תצא אנחנו קוראים:</p>
+<blockquote>"כי תצא למלחמה על איביך ונתנו ה' אלוקיך בידך ושבית שביו" (דברים כא, י)</blockquote>
+<p>אבל שבוע קודם, בפרשת שופטים, למדנו מה עושים כשמנצחים במלחמה. קודם קוראים לשלום; אם העיר לא משלימה, צרים עליה; ובסוף:</p>
+<blockquote>"ונתנה ה' אלוקיך בידך והכית את כל זכורה לפי חרב" (דברים כ, יג)</blockquote>
+<p>אם כל הזכרים נהרגים, מי נשאר לשבי? התשובה הפשוטה נמצאת בפסוק הבא: "רק הנשים והטף והבהמה וכל אשר יהיה בעיר... תבז לך". אבל הדבר המעניין הוא אחר: כמעט שום מפרש לא עוצר כאן לשאול איך זה עובד הלכה למעשה. מי היו השבויים? מה דינו של מי שנכנע באמצע? איך נראה הדבר בפועל?</p>
+<p class="bold-para">גם השאלות הפשוטות ביותר נשארו פתוחות, כי במשך אלפי שנים איש לא היה צריך לקיים את הפסוקים האלה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: ללמוד זה דבר אחד, ליישם זה עולם אחר ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ללמוד זה דבר אחד, ליישם זה עולם אחר</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כלל גדול: יש הבדל של שמיים וארץ בין ללמוד דבר לבין לצאת ולקיים אותו. כל עוד הלימוד תאורטי, הכול נראה חלק וברור. ברגע שמגיעים למעשה, צצות מאות שאלות וספקות.</p>
+<p>כך גם במלחמה ובמדינה. ראשי ממשלה רבים אמרו שקל לנאום, וקשה לעמוד מול המציאות. וכך גם בפסוקים: דור אחרי דור קראו יהודים את פרשות המלחמה, דנו בהן ועברו הלאה. הן לא נגעו לאף אחד הלכה למעשה.</p>
+<div class="honey-box">🍯 כשתורה עוברת מהספר אל החיים, היא מתחילה לשאול שאלות שאיש לא העלה מעולם. זו לא חולשה, זו הזמנה ללמוד מחדש.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: שלושת אלפים שנה של המתנה ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלושת אלפים שנה של המתנה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מתי בפעם האחרונה היו הפסוקים האלה מעשיים? כיבוש הארץ, קריאה לשלום, מצור על עיר, דיני השבי: כל אלה היו חיים ונושמים בימי יהושע, השופטים ודוד המלך. מאז, כמעט שלושת אלפים שנה, הם נשארו בספר.</p>
+<p>וברוך ה', עם ישראל שב לארצו. פתאום כל המילים האלה נוגעות למעשה: איך מתנהגים במלחמה, עם מי עושים שלום, ומה מותר ואסור. ואז מגלים שכמעט אין ספרות הלכתית לסמוך עליה. לפעמים צריך ללמוד מדיוקים קטנים ממש, כי איש לא כתב על כך פסקים מעשיים.</p>
+<p>לכן צריך לגשת לנושא בענווה ובזהירות: לראות מה כתוב, מה מובן, מה מוטל בספק, ומה עושים כשאי אפשר לקיים הכול. ובכל זאת, דבר אחד ברור: אין כאן מצווה שאפשר להתעלם ממנה. זו תורה, והיא מחכה שנבין איך מקיימים אותה.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: שיטת רש&quot;י: רק במלחמת הרשות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">קוראים לשלום: רש&quot;י והרמב&quot;ם</h2></div></div>
+<p class="chapter-intro">"כי תקרב אל עיר להלחם עליה וקראת אליה לשלום". על איזו מלחמה מדובר? כאן נחלקו שני ענקים.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שיטת רש&quot;י: רק במלחמת הרשות</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה אומרת:</p>
+<blockquote>"כי תקרב אל עיר להלחם עליה וקראת אליה לשלום" (דברים כ, י)</blockquote>
+<p>רש"י מפרש: "במלחמת הרשות הכתוב מדבר". כלומר, הקריאה לשלום נאמרה רק כשעם ישראל יוצא למלחמה מחוץ לארץ, מלחמה שאינה חובה. אבל על שבעת העממים שבארץ כנען נאמר: "לא תחיה כל נשמה". שם, לפי רש"י, אין מקום להצעת שלום.</p>
+<p>זו גם התשובה של רש"י לקושיה מפרשת כי תצא: "ושבית שביו" נאמר במלחמת הרשות. במלחמת שבעת העממים אין שבי בכלל.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: שיטת הרמב&quot;ם: שלום מציעים לכולם ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שיטת הרמב&quot;ם: שלום מציעים לכולם</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם (הלכות מלכים פרק ו, הלכה א) פוסק אחרת: אין עושים מלחמה עם שום אדם בעולם עד שקוראים לו לשלום, אחד מלחמת הרשות ואחד מלחמת מצווה. גם לשבעת העממים מציעים שלום, ואם הם מסכימים לתנאים, לא הורגים אותם.</p>
+<p>לפי הרמב"ם, "לא תחיה כל נשמה" נאמר רק על מי שסירב לשלום ועמד במלחמתו. מי שקיבל את התנאים, חי.</p>
+<p class="bold-para">לפי הרמב"ם, הדלת לשלום פתוחה לכל אומה. השאלה היא רק מה עומד מאחוריה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: חידת הגבעונים ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חידת הגבעונים</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל אם הרמב"ם צודק, עולה שאלה גדולה. בספר יהושע (פרק ט) מסופר על הגבעונים, מיושבי הארץ, שהתחפשו לאנשים מארץ רחוקה. הם לבשו בגדים בלויים, לקחו לחם יבש ונאדות קרועים, וכך הצליחו לכרות ברית עם יהושע. אם מותר היה לעשות איתם שלום ממילא, בשביל מה התחפושת?</p>
+<p>הרמב"ם עצמו עונה: הגבעונים לא ידעו את הדין. הם היו בטוחים שאין להם שום סיכוי, ולכן הלכו בעורמה. באמת יכלו לבוא בגלוי ולקבל את תנאי השלום.</p>
+<p>וכאן שאלה שנייה: אם כך, למה כעסו בני ישראל על הגבעונים ועל הנשיאים שנשבעו להם? כאן מגיע החילוק החשוב של הרמב"ם: שלום מותר, אבל ברית אסורה. הגבעונים לא קיבלו עליהם שלום על פי תנאי התורה. הם השיגו ברית, הסכם שמשאיר אותם עצמאים בארץ, וזה דבר שהתורה אסרה: "לא תכרת להם ברית" (דברים ז, ב).</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: שלום עם תנאים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🤝</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">מה זה &quot;שלום&quot; לפי התורה</h2></div></div>
+<p class="chapter-intro">היום "שלום" פירושו בדרך כלל: אל תתקוף אותי, ונחיה זה לצד זה. התורה מגדירה שלום אחרת לגמרי.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שלום עם תנאים</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלו אדם ברחוב מה זה שלום, והוא יענה: שלא יהרגו אותנו. שנוכל להיכנס ולצאת, שיהיו יחסי שכנות טובים, ואולי שיעבדו אצלנו ונעבוד אצלם.</p>
+<p>התורה מדברת על מצב אחר: עם שנמצא בשליטתך או בתוך ארץ ישראל, אחרי שיצאת נגדו למלחמה. לשלום כזה יש תנאים, והתורה מפרטת אותם:</p>
+<blockquote>"והיה אם שלום תענך ופתחה לך והיה כל העם הנמצא בה יהיו לך למס ועבדוך" (דברים כ, יא)</blockquote>
+<p>זה לא שלום של מילים ולא שלום של טקסים. זה שלום שיש בו כללים ברורים, והצד המובס הוא שמקבל אותם.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;ופתחה לך&quot;: שטחים תמורת שלום, בכיוון ההפוך ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;ופתחה לך&quot;: שטחים תמורת שלום, בכיוון ההפוך</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התנאי הראשון: "ופתחה לך". העיר פותחת את שעריה. אין עוד שטח סגור שאסור להיכנס אליו. מרגע השלום מותר לכוחות הביטחון להיכנס לכל מקום, לבדוק מה קורה, להיכנס ולצאת בלי לבקש רשות.</p>
+<p>אפשר לתאר זאת במילים של ימינו: "שטחים תמורת שלום", אבל בכיוון הנכון. לא אנחנו מוותרים על שטח כדי לקבל שקט, אלא הם פותחים בפנינו את שטחם, ובתמורה הם מקבלים מאיתנו את השלום.</p>
+<p class="bold-para">בתורה, לא המנצח מתחנן לשלום. המובס מבקש אותו, ומקבל אותו בתנאים.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: &quot;למס ועבדוך&quot;: מי שחי בשלום, משתתף בנטל ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;למס ועבדוך&quot;: מי שחי בשלום, משתתף בנטל</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התנאי השני: "יהיו לך למס". מי שמקבל שלום משלם מס למלכות ישראל. לא כסף שזורם לשלטון נפרד שלהם, אלא תשלום שמבטא שהם חיים תחת ריבונות ישראל, כמו כל תושב שמשלם ארנונה ומיסים למדינה שבה הוא גר.</p>
+<p>התנאי השלישי: "ועבדוך". הם מקבלים עליהם את מרות ישראל ואינם שולטים בארץ. והרמב"ם מוסיף עוד תנאי יסודי: הם מקבלים עליהם את שבע מצוות בני נח. השלום של התורה איננו רק הפסקת אש. הוא שינוי של דרך חיים.</p>
+<div class="honey-box">🍯 שלום אמיתי, לפי התורה, הוא לא רק "אל תפגע בי". הוא סדר חדש: הארץ פתוחה, השלטון ברור, והצד השני מקבל עליו חיים של מוסר.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: למה ברית אסורה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">שלום כן, ברית לא: הארץ שייכת לעם ישראל</h2></div></div>
+<p class="chapter-intro">למה אי אפשר לכרות ברית עם מי שגר בתוך ארץ ישראל? והאם כל זה בכלל מעשי בימינו?</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה ברית אסורה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ברית, במובן שהתורה אוסרת, היא הסכם שמעניק לצד השני מעמד של שותף ושלטון בארץ. וכאן הבעיה: הקדוש ברוך הוא ציווה את עם ישראל לרשת את הארץ. היא ניתנה לנו, וכל גבולותיה שייכים לעם ישראל.</p>
+<p>כשכורתים ברית עם מי שיושב בתוך הארץ, לא משנה מי הוא, נותנים לו בפועל חלק בשלטון על ארץ ישראל. זה בדיוק מה שהתורה אוסרת. מותר לחיות בשלום עם תושב שמקבל את התנאים, אבל אי אפשר לחלק איתו את הבעלות על הארץ.</p>
+<p>לכן ההבדל בין שלום לברית איננו עניין של ניסוח. זה ההבדל בין מי שגר בארץ ישראל לבין מי ששולט בה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;זה לא מעשי&quot;. מי החליט? ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;זה לא מעשי&quot;. מי החליט?</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשלומדים את הדינים האלה, מיד עולה הטענה: זה לא מעשי! אנחנו חיים בעולם, יש אומות, יש לחצים. וחוץ מזה, כבר כבשנו והחזרנו, ובשטחים רבים לא החלנו ריבונות. מה אפשר לעשות?</p>
+<p>התשובה פשוטה וכנה: נכון, כרגע המדינה לא מתנהגת לפי מה שכתוב בתורה. אבל זו לא הוכחה שהתורה איננה מעשית. זה תיאור של המקום שבו אנחנו עומדים היום. הבעיה היא שלא החלטנו להתנהג כך, לא שאי אפשר.</p>
+<p class="bold-para">התפקיד שלנו הוא קודם כול לדעת מה התורה רוצה. מי שיודע לאן צריך להגיע, יכול להתקדם לשם צעד אחר צעד.</p>
+<p>ואנחנו מקווים ומתפללים שלאט לאט, בדרכי נועם ובתשובה, תתחיל גם המציאות להתנהל לאור התורה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: גם בימי השופטים זה לקח זמן ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גם בימי השופטים זה לקח זמן</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שמתייאש מהפער בין התורה למציאות, כדאי שיפתח את ספר שופטים. כבר בפרק הראשון מסופר שהשבטים לא הורישו את כל יושבי הארץ. בכל רחבי הארץ נשארו מובלעות של עמים, והמלחמות נמשכו עוד מאות שנים.</p>
+<p>רק בימי דוד המלך הגיעה הארץ לשלטון מלא של עם ישראל. עד אז היו הצלחות וכישלונות, התקדמות ונסיגה.</p>
+<div class="honey-box">🍯 הגאולה, גם בימי קדם, לא הגיעה במכה אחת. היא נבנתה דור אחרי דור. הפער של היום איננו סוף הדרך, הוא חלק ממנה.</div>
+<p>לכן חשוב כל כך ללמוד את הסוגיות האלה עכשיו. מי שלא יודע מה התורה אומרת, לא ידע לאן לכוון כשיגיע היום.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
