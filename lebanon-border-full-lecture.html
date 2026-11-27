@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🗺️ גבול לבנון: מן ההיסטוריה ועד התורה</title>
+<meta name="description" content="הרצאה אחת שלמה: מי שרטט את הקו מראש הנקרה למטולה ולמה דווקא שם, איפה ישב באמת שבט דן, ואיפה עובר גבול הצפון לפי התורה, יהושע, ערי המקלט ונבואת זכריה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🗺️ גבול לבנון: מן ההיסטוריה ועד התורה</h1>
+  <p class="hero-subtitle">הרצאה אחת שלמה: מי שרטט את הקו מראש הנקרה למטולה ולמה דווקא שם, איפה ישב באמת שבט דן, ואיפה עובר גבול הצפון לפי התורה, יהושע, ערי המקלט ונבואת זכריה.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-19 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/eoJeYifOuhE" target="_blank" rel="noopener">🎬 חלק א ביוטיוב: מדן ועד באר שבע: איך נולד גבול לבנון</a> <a class="video-btn" href="https://youtu.be/1Ls2YuSW38I" target="_blank" rel="noopener">🎬 חלק ב ביוטיוב: עד צידון רבה – איפה עובר גבול הצפון לפי התורה</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧭 גבול בלי סיבה: איך נולד הקו</a><ul class="toc-stories"><li><a href="#story-1">אין נהר, אין ים, אין הר</a></li><li><a href="#story-2">האצבע של מטולה</a></li><li><a href="#story-3">כשכל המזרח התיכון היה מדינה אחת</a></li><li><a href="#story-4">סייקס ופיקו</a></li><li><a href="#story-5">המלחמה על המים</a></li><li><a href="#story-6">&quot;מדן ועד באר שבע&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔍 איפה ישב באמת שבט דן?</a><ul class="toc-stories"><li><a href="#story-7">גוש דן ושמשון</a></li><li><a href="#story-8">שבט שחיפש נחלה</a></li><li><a href="#story-9">ליש: שקט ובוטח</a></li><li><a href="#story-10">&quot;רחוקים המה מצידונים&quot;</a></li><li><a href="#story-11">אברהם רודף עד דן – ומעבר לו</a></li><li><a href="#story-12">המאסף לכל המחנות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📜 1924: הקו נחתם</a><ul class="toc-stories"><li><a href="#story-13">ההסכם בין בריטניה לצרפת</a></li><li><a href="#story-14">למה מטולה? בגלל הקרקעות של היהודים</a></li><li><a href="#story-15">מה רצתה צרפת בלבנון?</a></li><li><a href="#story-16">מדינה קטנה או מדינה גדולה</a></li><li><a href="#story-17">יהודים בביירות</a></li><li><a href="#story-18">כמה פעמים כבר היינו שם</a></li><li><a href="#story-19">מאה שנה בלי הסכם חדש</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📖 גבולות התורה: שלושה קווים</a><ul class="toc-stories"><li><a href="#story-20">מן ההיסטוריה אל התורה</a></li><li><a href="#story-21">למה זה חשוב גם היום</a></li><li><a href="#story-22">גבול ההבטחה: עד נהר פרת</a></li><li><a href="#story-23">&quot;מן המדבר והלבנון&quot;</a></li><li><a href="#story-24">גבול עולי מצרים: הארץ של פרשת מסעי</a></li><li><a href="#story-25">גבול עולי בבל: מה ששבו אליו מן הגלות</a></li><li><a href="#story-26">בבא סאלי ונתיבות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">⛰️ החידה של &quot;הר ההר&quot;</a><ul class="toc-stories"><li><a href="#story-27">הפסוקים של גבול הצפון</a></li><li><a href="#story-28">שיטה ראשונה: הרי טורקיה</a></li><li><a href="#story-29">למה קשה לומר כך</a></li><li><a href="#story-30">שיטה שנייה: ההר שעל הים בביירות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">⚔️ יהושע ושבט אשר: עד צידון רבה</a><ul class="toc-stories"><li><a href="#story-31">&quot;והארץ נשארה הרבה מאד לרשתה&quot;</a></li><li><a href="#story-32">נחלת אשר: עד צידון רבה</a></li><li><a href="#story-33">יהושע רודף עד צידון – ועוצר</a></li><li><a href="#story-34">בעל גד שתחת החרמון</a></li><li><a href="#story-35">ואיפה זבולון? שאלה בפני עצמה</a></li><li><a href="#story-36">האצבע המוזרה</a></li><li><a href="#story-37">&quot;בבקעת הלבנון תחת הר חרמון&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🕊️ ערי המקלט ונבואת זכריה</a><ul class="toc-stories"><li><a href="#story-38">שתי שורות שבכרם</a></li><li><a href="#story-39">&quot;ושלשת&quot;: שלושה חלקים שווים</a></li><li><a href="#story-40">מה יוצא במפה</a></li><li><a href="#story-41">&quot;ודמשק מנחתו&quot;</a></li><li><a href="#story-42">&quot;וגם חמת תגבל בה, צר וצידון&quot;</a></li><li><a href="#story-43">&quot;תרא אשקלון ותירא&quot;</a></li><li><a href="#story-44">&quot;הנה מלכך יבוא לך&quot;</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">גבול בלי סיבה: איך נולד הקו</h2></div></div>
+<p class="chapter-intro">לבנון בעבר, בהווה ובעתיד. נקודת המוצא: הגבול הצפוני של היום לא נקבע על ידי הטבע, אלא סביב שולחן של מנצחים.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אין נהר, אין ים, אין הר</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רוב הגבולות בעולם נוצרים מתוך הטבע: נהר שקשה לחצות, רכס הרים גבוה, ים. גם לארץ ישראל יש גבולות כאלה: הים התיכון במערב, הירדן, הכנרת וים המלח במזרח.</p>
+<p>אבל בצפון אין שום דבר כזה. מי שעומד בראש הנקרה או בקריית שמונה ומסתכל צפונה, רואה את אותם הרים, את אותם עמקים ואת אותו נוף, ממשיכים הלאה בלי הפסקה. אפשר ללכת ישר הלאה בלי לחצות שום מכשול.</p>
+<p class="bold-para">אם כך, מי החליט שכאן נגמרת הארץ, ולמה דווקא כאן?</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: האצבע של מטולה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האצבע של מטולה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תסתכלו במפה. הגבול יוצא מראש הנקרה והולך בקו כמעט ישר מזרחה. ואז, פתאום, הוא עולה צפונה בבליטה צרה וארוכה, כמו אצבע, ובקצה שלה – מטולה.</p>
+<p>היום, כשרמת הגולן בידינו, הבליטה הזאת מתחברת לגולן ופחות בולטת לעין. אבל בעבר, כשהגולן היה בידי סוריה, האצבע הזאת הייתה בולטת מאוד: רצועה דקה שנכנסת עמוק בין לבנון לסוריה.</p>
+<p>למה הגבול משתולל כך? כדי להבין, צריך לחזור מאה שנה אחורה.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: כשכל המזרח התיכון היה מדינה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשכל המזרח התיכון היה מדינה אחת</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד לפני כמאה שנה, בכל המזרח התיכון שלטה ממשלה אחת: האימפריה העות'מאנית, הטורקים.</p>
+<p>הטורקים חילקו את השטח למחוזות מנהליים, אבל החלוקה הזאת לא דמתה כלל לגבולות של היום. מחוז אחד, שבירתו ביירות, כלל גם את עכו, צפת וחלק גדול מצפון הארץ, ואפילו את שכם. ירושלים הייתה מחוז נפרד.</p>
+<p>כלומר, בעיני השלטון לא היה שום הבדל בין ביירות, עכו וקריית שמונה של היום. כל אחד יכול היה לנסוע מביירות לגליל בלי לעבור שום גבול. הכול היה ארץ אחת.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: סייקס ופיקו ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">סייקס ופיקו</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במלחמת העולם הראשונה הצטרפו הטורקים לגרמנים. בריטניה וצרפת החליטו שהגיע הזמן לסיים את האימפריה העות'מאנית, יצאו להילחם בה, וכבשו את כל המזרח התיכון עד גבולות טורקיה.</p>
+<p>בסוף המלחמה נוצר חלל עצום: מצרים, ארץ ישראל, ירדן, סוריה, לבנון, עיראק – שטח אסטרונומי שצריך לחלק. היו שני מנצחים, ושניהם רצו חלק.</p>
+<p>כבר במהלך המלחמה ישבו שני דיפלומטים, סייקס הבריטי ופיקו הצרפתי, ושרטטו ביניהם מפה. אבל ההצעה הזאת לא התקבלה כמות שהיא.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: המלחמה על המים ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המלחמה על המים</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הבריטים, שקיבלו את ארץ ישראל, לא הסכימו לקו של סייקס-פיקו. הסיבה העיקרית: מים. לפי הקו המקורי, מקורות הירדן והליטני היו נשארים בצד הצרפתי, ולארץ ישראל לא היו מספיק מים.</p>
+<p>גם חיים ויצמן וחבריו בתנועה הציונית לחצו להכניס את מקורות המים לתחומי הארץ. בשלב מסוים אף רצו לכלול בה את צור.</p>
+<p>אבל צריך להבין: באותם ימים אף אחד לא ידע בדיוק איפה נגמרת ארץ ישראל. במפות של אותה תקופה כל אחד צייר את "פלשתינה" אחרת. גם המנהיגים הציונים עצמם לא היו בטוחים מה לבקש.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;מדן ועד באר שבע&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;מדן ועד באר שבע&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואז התקבלה החלטה מעניינת מאוד: אם רוצים להקים בית לאומי ליהודים, נבדוק בתנ"ך איפה הייתה ארץ היהודים. והתנ"ך מגדיר את גבולותיה במשפט מפורסם, שחוזר שוב ושוב: "מִדָּן וְעַד בְּאֵר שָׁבַע".</p>
+<p>החשבון היה פשוט: באר שבע ידועה. נשאר רק לברר איפה דן.</p>
+<p>הבריטים נעזרו הרבה במפות של ג'ורג' אדם סמית, איש דת וחוקר סקוטי שהיה מומחה לגאוגרפיה ההיסטורית של ארץ ישראל. כנראה שהוא הסתמך על המקום שנקרא "תל דן", ליד מקורות הירדן, והבין שזה גבולו הצפוני של שבט דן.</p>
+<div class="honey-box">🍯 הגבול הצפוני של מדינת ישראל נקבע, לפחות בחלקו, לפי פסוק בתנ"ך.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: גוש דן ושמשון ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔍</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">איפה ישב באמת שבט דן?</h2></div></div>
+<p class="chapter-intro">אם הגבול נקבע לפי דן, כדאי לברר: האם תל דן הוא באמת קצה נחלתו? התנ"ך מספר סיפור שמשנה את התמונה.</p>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גוש דן ושמשון</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נחלתו המקורית של שבט דן הייתה במרכז הארץ. לכן עד היום קוראים לאזור תל אביב, בני ברק ופתח תקווה "גוש דן".</p>
+<p>גם שמשון הגיבור, משבט דן, פעל באזור הזה. הוא נולד בין צרעה ואשתאול, באזור בית שמש של היום, ושם גם קבור.</p>
+<p>אז איך הגיע שבט דן מן המרכז אל הצפון הרחוק?</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: שבט שחיפש נחלה ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שבט שחיפש נחלה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ספר שופטים מספר:</p>
+<blockquote>"בַּיָּמִים הָהֵם אֵין מֶלֶךְ בְּיִשְׂרָאֵל, וּבַיָּמִים הָהֵם שֵׁבֶט הַדָּנִי מְבַקֶּשׁ לוֹ נַחֲלָה לָשֶׁבֶת, כִּי לֹא נָפְלָה לּוֹ עַד הַיּוֹם הַהוּא בְּתוֹךְ שִׁבְטֵי יִשְׂרָאֵל בְּנַחֲלָה" (שופטים יח, א)</blockquote>
+<p>מה פירוש "לא נפלה לו"? הרי שבט דן קיבל נחלה! המפרשים מסבירים שהוא לא הצליח לרשת את כולה. האמורי לחץ עליו ולא נתן לו לרדת לעמק (שופטים א, לד), והשטח שנשאר בידו היה צפוף וקטן מדי.</p>
+<p>בדיוק כמו היום בגוש דן: צפוף, ואין מספיק מקום.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: ליש: שקט ובוטח ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ליש: שקט ובוטח</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שבט דן שלח חמישה אנשים לרגל ולחפש מקום. הם הגיעו צפונה, לעיר בשם ליש:</p>
+<blockquote>"וַיֵּלְכוּ חֲמֵשֶׁת הָאֲנָשִׁים וַיָּבֹאוּ לָיְשָׁה, וַיִּרְאוּ אֶת הָעָם אֲשֶׁר בְּקִרְבָּהּ יוֹשֶׁבֶת לָבֶטַח כְּמִשְׁפַּט צִדֹנִים, שֹׁקֵט וּבֹטֵחַ... וּרְחֹקִים הֵמָּה מִצִּדֹנִים, וְדָבָר אֵין לָהֶם עִם אָדָם" (שופטים יח, ז)</blockquote>
+<p>הם ראו עם שקט, בלי צבא ובלי בני ברית. ובמיוחד: רחוקים מצידון, כך שצידון לא תבוא לעזור להם.</p>
+<p>הם חזרו לאחיהם ואמרו: בואו נעלה. שבט דן כבש את ליש, ובנה אותה מחדש, וקרא לה דן.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: &quot;רחוקים המה מצידונים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;רחוקים המה מצידונים&quot;</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן מסתתר רמז חשוב. הפסוק מדגיש שאנשי ליש חיו "כמשפט צידונים", כלומר כמנהג אנשי צידון, ושהם "רחוקים מצידונים" – רחוקים מספיק כדי שצידון לא תבוא לעזרתם.</p>
+<p>אבל מי שחי כמנהג צידון, וכל החשש שלו הוא האם צידון תבוא לעזור, כנראה לא נמצא רחוק מאוד מצידון. נראה שמדובר באזור שנמצא הרבה יותר צפונה מתל דן של היום, אולי עמוק בתוך דרום לבנון.</p>
+<p>איפה בדיוק? קשה לדעת בוודאות. אבל הפסוקים לא מתיישבים בקלות עם הקו שנקבע ליד מטולה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: אברהם רודף עד דן – ומעבר לו ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אברהם רודף עד דן – ומעבר לו</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם בתורה עצמה יש רמז. כשאברהם אבינו יצא להציל את לוט מידי ארבעת המלכים, כתוב:</p>
+<blockquote>"וַיִּרְדֹּף עַד דָּן" (בראשית יד, יד)</blockquote>
+<p>והפסוק הבא ממשיך:</p>
+<blockquote>"וַיַּכֵּם וַיִּרְדְּפֵם עַד חוֹבָה אֲשֶׁר מִשְּׂמֹאל לְדַמָּשֶׂק" (בראשית יד, טו)</blockquote>
+<p>כלומר, אברהם ממשיך לרדוף עד הרחק צפונה, עד מעבר לדמשק. כל האזור הזה הוא המרחב שבו מתרחש הסיפור.</p>
+<p>וחז"ל אומרים (בכורות נה, א) שהירדן נקרא כך משום שהוא "יורד מדן". הירדן נובע בצפון ויורד דרומה – ודן היא המקום שממנו הוא יורד.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: המאסף לכל המחנות ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המאסף לכל המחנות</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דבר מעניין: כשבני ישראל הלכו במדבר, שבט דן הלך אחרון:</p>
+<blockquote>"וְנָסַע דֶּגֶל מַחֲנֵה בְנֵי דָן מְאַסֵּף לְכָל הַמַּחֲנֹת" (במדבר י, כה)</blockquote>
+<p>שבט דן אסף את כל מי שנשאר מאחור, ושמר על המחנה מאחור. ובארץ ישראל – הוא נמצא בקצה הצפוני ביותר, שומר על הגבול.</p>
+<p class="bold-para">דן הוא הקצה: האחרון במחנה, והרחוק ביותר בארץ.</p>
+<p>בסופו של דבר, לא ברור מה בדיוק קרה כשנקבע הקו: האם הבינו שדן נמצאת בתל דן, או שהחליטו לא לדקדק בתנ"ך. יש כמה גרסאות. אבל הקו נקבע, פחות או יותר, כמו שהוא היום.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: ההסכם בין בריטניה לצרפת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">1924: הקו נחתם</h2></div></div>
+<p class="chapter-intro">אחרי שנים של ויכוחים, הבריטים והצרפתים חותמים על הקו הסופי. ומאחורי כל עיקול בו יש סיפור.</p>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ההסכם בין בריטניה לצרפת</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתחילת שנות העשרים סוכם הקו הסופי בין הבריטים, ששלטו בארץ ישראל, לבין הצרפתים, ששלטו בלבנון ובסוריה. ההסכם נכנס לתוקף בשנת 1924.</p>
+<p>מאז ועד היום, הגבול הבינלאומי בין ישראל ללבנון הוא הקו הזה. הוא עובר מראש הנקרה מזרחה, עולה צפונה סביב מטולה, ומשם ממשיך לכיוון מקורות הירדן. הוויכוח העיקרי היה על המים.</p>
+<p>ושימו לב לשינוי: הקו שנחתם בפועל זז הרבה מאוד צפונה לעומת הקו המקורי של סייקס-פיקו. אילו נשאר הקו הישן, מצבנו בצפון היה קשה הרבה יותר.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: למה מטולה? בגלל הקרקעות של היהודים ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה מטולה? בגלל הקרקעות של היהודים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו מתבררת האצבע המוזרה. בסוף המאה התשע עשרה, שנים רבות לפני מלחמת העולם הראשונה, קנה הברון רוטשילד אדמות באזור מטולה, והוקמה שם מושבה יהודית.</p>
+<p>כשבאו לשרטט את הגבול, היו שם כבר יהודים, והקרקעות היו שלהם. אי אפשר היה להשאיר את המושבה מחוץ לארץ ישראל.</p>
+<p>לכן הקו, שהלך ישר מראש הנקרה מזרחה, עולה פתאום צפונה ויוצר רצועה צרה – רק כדי לכלול את מטולה ואת אדמותיה.</p>
+<div class="honey-box">🍯 כל עיקול בגבול מספר סיפור. האצבע של מטולה היא עדות לכך שהתיישבות יהודית יוצרת עובדות שגם מעצמות מתחשבות בהן.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: מה רצתה צרפת בלבנון? ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה רצתה צרפת בלבנון?</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לצרפת היו מושבות רבות: אלג'יריה, מרוקו ועוד. אבל בלבנון היה לה עניין מיוחד: היא רצתה להקים מדינה לנוצרים.</p>
+<p>הנוצרים בלבנון פחדו מאוד. במלחמת העולם הראשונה טבחו הטורקים בארמנים, עם נוצרי, והנוצרים בלבנון חששו שגורל דומה יפקוד אותם בידי המוסלמים. הצרפתים רצו לתת להם מדינה משלהם, שתגן עליהם.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מדינה קטנה או מדינה גדולה ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מדינה קטנה או מדינה גדולה</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואז קרה דבר מעניין. הצרפתים שאלו את הנוצרים: מה אתם רוצים, מדינה קטנה או מדינה גדולה?</p>
+<p>מדינה קטנה פירושה רק האזורים שבהם גרים נוצרים, בעיקר הר הלבנון. מדינה גדולה פירושה שטח רחב הרבה יותר, שכולל גם אזורים מלאים במוסלמים, בדרום ובעמק הבקאע.</p>
+<p>הנוצרים בחרו במדינה הגדולה. הם חשבו שיוכלו לשלוט במוסלמים ולהשתמש בהם כפועלים.</p>
+<p>זו הייתה טעות מרה. עם השנים התרבו המוסלמים, והפכו לרוב. מדינת לבנון, שהוקמה כבית לנוצרים, נקרעה במלחמות פנימיות, ורבים מהנוצרים עזבו אותה. הצרות שלבנון סובלת מהן עד היום התחילו בבחירה הזאת.</p>
+<p class="bold-para">לפעמים "יותר" הוא בעצם פחות.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: יהודים בביירות ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">יהודים בביירות</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מעט ידוע שבלבנון חיה קהילה יהודית גדולה ומבוססת. בביירות היו בתי כנסת, ובשכונה היהודית, ואדי אבו ג'מיל, חיו יהודים רבים. היו ביניהם בנקאים וסוחרים חשובים, שהיו מעורבים מאוד בכלכלה הלבנונית.</p>
+<p>הקהילה התקיימה עשרות שנים, עד שבמלחמת האזרחים בלבנון, ובמיוחד מאז שאש"ף התבסס שם, עזבו רוב היהודים. רבים מהם עלו לארץ, ויש משפחות כאלה גם בקהילות שלנו.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: כמה פעמים כבר היינו שם ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כמה פעמים כבר היינו שם</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומעניין: עם ישראל כבר עמד בדרום לבנון כמה פעמים בדורנו. במלחמת העצמאות הגיע צה"ל עד נהר הליטני, ובן גוריון אמר שהגבול עם מטולה הוא גבול משונה, ושאפשר היה לפחות ליישר אותו. אבל השטח הוחזר.</p>
+<p>במבצע ליטני ובמלחמת לבנון הראשונה שוב הגיע צה"ל עמוק בדרום לבנון, ואחר כך יצא. כמה פעמים עמדנו שם, וכמה פעמים חזרנו.</p>
+<p class="bold-para">לא חסרו הזדמנויות. מה שחסר היה הידיעה הברורה שזו ארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: מאה שנה בלי הסכם חדש ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מאה שנה בלי הסכם חדש</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מאז 1924 לא ישבו ישראל ולבנון לחתום על הסכם גבול יבשתי. הקו שקבעו הבריטים והצרפתים ממשיך לשמש את שני הצדדים: לבנון קמה כמדינה, מדינת ישראל קמה ב-1948, והקווים נשארו.</p>
+<p>הפעם היחידה שבה נחתם בשנים האחרונות הסכם בין ישראל ללבנון הייתה בעניין הגבול הימי, סביב שדות הגז שבים. ומעניין: בצד הישראלי נמצא גז, ובצד הלבנוני – עד כה לא נמצא. בלבנון יש מי שטוענים שהיהודים "שיחדו" את החברה שלא תמצא...</p>
+<p>עד כאן ההיסטוריה. עכשיו השאלה האמיתית: מה אומרת התורה על הגבול?</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: מן ההיסטוריה אל התורה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📖</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">גבולות התורה: שלושה קווים</h2></div></div>
+<p class="chapter-intro">ההיסטוריה סיפרה מי שרטט את הקו. התורה מספרת איפה הוא היה צריך לעבור.</p>
+<article class="story-card" id="story-20" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מן ההיסטוריה אל התורה</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד כאן ראינו איך שרטטו מעצמות זרות את הקו שבצפון: לפי מים, לפי קרקעות של יהודים, ולפי פסוק אחד שלא דקדקו בו. עכשיו נשאל את השאלה מצד התורה: איפה היא קובעת את גבול הצפון של ארץ ישראל?</p>
+<p>כדי לענות צריך קודם להבחין בין שלושה גבולות שונים. בכל אחד מהם יש השלכות הלכתיות אחרות, ובלבול ביניהם הוא שורש רוב המחלוקות על השאלה "עד איפה":</p>
+<ul class="story-list"><li><strong>גבול ההבטחה</strong> – מה שהקדוש ברוך הוא הבטיח לאברהם אבינו.</li><li><strong>גבול עולי מצרים</strong> – הארץ שהתורה משרטטת בפרשת מסעי, שיהושע נצטווה לכבוש ולחלק.</li><li><strong>גבול עולי בבל</strong> – השטח שבו התיישבו השבים מגלות בבל בימי בית שני.</li></ul>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: למה זה חשוב גם היום ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה זה חשוב גם היום</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זו לא שאלה של לימוד בלבד. במשך ההיסטוריה של המדינה, מה שחשבו גדולי התורה על הגבולות השפיע מאוד על החלטות המדינה.</p>
+<p>כשמנחם בגין החזיר את סיני למצרים, הוא אמר שהוא מבין שלדעת רבנים רבים סיני אינו חלק מארץ ישראל. אילו היה ברור לכולם שסיני הוא ארץ ישראל, אולי לא היה מחזיר אותו כל כך מהר.</p>
+<p>ומנגד, הרב גורן כתב לו שגם אם היה מי שאמר שסיני אינו ארץ ישראל, זה לא נאמר על כל השטח שהוחזר.</p>
+<div class="honey-box">🍯 הלימוד על גבולות הארץ איננו גאוגרפיה יבשה. הוא מעצב את המציאות.</div>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: גבול ההבטחה: עד נהר פרת ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גבול ההבטחה: עד נהר פרת</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בברית בין הבתרים הבטיח הקדוש ברוך הוא לאברהם:</p>
+<blockquote>"לְזַרְעֲךָ נָתַתִּי אֶת הָאָרֶץ הַזֹּאת, מִנְּהַר מִצְרַיִם עַד הַנָּהָר הַגָּדֹל נְהַר פְּרָת" (בראשית טו, יח)</blockquote>
+<p>ומשה רבנו חוזר על זה לפני הכניסה לארץ:</p>
+<blockquote>"בֹּאוּ הַר הָאֱמֹרִי וְאֶל כָּל שְׁכֵנָיו... אֶרֶץ הַכְּנַעֲנִי וְהַלְּבָנוֹן, עַד הַנָּהָר הַגָּדֹל נְהַר פְּרָת" (דברים א, ז)</blockquote>
+<p>הלבנון נזכר כאן במפורש, כחלק מן הארץ המובטחת.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: &quot;מן המדבר והלבנון&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;מן המדבר והלבנון&quot;</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובפרשת עקב התורה אומרת:</p>
+<blockquote>"כָּל הַמָּקוֹם אֲשֶׁר תִּדְרֹךְ כַּף רַגְלְכֶם בּוֹ לָכֶם יִהְיֶה, מִן הַמִּדְבָּר וְהַלְּבָנוֹן, מִן הַנָּהָר נְהַר פְּרָת וְעַד הַיָּם הָאַחֲרוֹן יִהְיֶה גְּבֻלְכֶם" (דברים יא, כד)</blockquote>
+<p>לפי הפשט: מן המדבר בדרום עולים ישר עד הלבנון בצפון, ומן הנהר, נהר פרת, במזרח, עד הים התיכון במערב. גבול ההבטחה מגיע הרחק צפונה, עד אזור נהר פרת שבצפון סוריה.</p>
+<p>אם כן, לפחות לפי גבול ההבטחה, אין ספק: הלבנון בכלל הארץ.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: גבול עולי מצרים: הארץ של פרשת מסעי ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גבול עולי מצרים: הארץ של פרשת מסעי</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגבול השני הוא <strong>גבול עולי מצרים</strong>. זה הגבול שהתורה משרטטת במפורש ובפירוט בפרשת מסעי (במדבר לד), נקודה אחר נקודה: עד כאן כובשים, וכאן מחלקים לשבטים.</p>
+<p>זה הגבול שיהושע נצטווה לכבוש ולחלק, ובכל השטח הזה חלה קדושת הארץ לגבי מצוות התלויות בארץ.</p>
+<p>למה הגבול של מסעי קטן הרבה יותר מגבול ההבטחה? כי מי שנכנס לארץ לא צריך לכבוש מיד עד טורקיה. אין מי שיתיישב שם, ואף אחד לא ירצה לגור כל כך רחוק מן המרכז. והמרכז תמיד היה ירושלים והאזור שסביבה. קודם בונים את הלב, ורק אחר כך מתרחבים.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: גבול עולי בבל: מה ששבו אליו מן הגלות ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גבול עולי בבל: מה ששבו אליו מן הגלות</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגבול השלישי הוא <strong>גבול עולי בבל</strong>, השטח שבו התיישבו היהודים שחזרו מגלות בבל בימי עזרא ונחמיה. הוא קטן יותר מגבול עולי מצרים.</p>
+<p>לגבול הזה יש משמעות מיוחדת בהלכה. בתוכו קדושת הארץ חמורה יותר: מברכים על הפרשת תרומות ומעשרות, ופירות שביעית שלא שמרו עליהם את דיני השמיטה נאסרים. מחוץ לו, אבל עדיין בגבול עולי מצרים, יש דינים קלים יותר.</p>
+<p>ויש שאלה מעניינת: האם עדיף לגור בתוך גבול עולי בבל מאשר בחלקים של הארץ שנמצאים רק בגבול עולי מצרים? האם מי שגר בדרום הרחוק או בצפון הרחוק גר במקום קדוש פחות?</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: בבא סאלי ונתיבות ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בבא סאלי ונתיבות</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השאלה הזאת לא נשארה עיונית. כשהבבא סאלי חשב לעבור לגור בנתיבות, הוא שאל את הרב יששכר מאיר, ראש ישיבת הנגב שבנתיבות: האם נתיבות היא ארץ ישראל קדושה, או שאולי היא מחוץ לגבול עולי בבל?</p>
+<p>הרב השיב לו בכתב: זה ראש הנגב, וזו ודאי ארץ ישראל לכל דבר ועניין. כל מה שנאמר על עולי בבל נוגע לדינים מסוימים – תרומות ומעשרות, ברכה ועוד כמה דברים. אבל קדושת ארץ ישראל יש כאן בוודאות.</p>
+<p>הבבא סאלי קיבל את התשובה, עבר לנתיבות וגר בה עד סוף ימיו.</p>
+<div class="honey-box">🍯 כל פינה בגבול עולי מצרים היא ארץ ישראל של ממש. ההבדלים בין הגבולות הם בדינים מסוימים, לא בקדושת הארץ עצמה.</div>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: הפסוקים של גבול הצפון ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">⛰️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">החידה של &quot;הר ההר&quot;</h2></div></div>
+<p class="chapter-intro">התורה מתארת את גבול הצפון בפרשת מסעי. הכול מתחיל בנקודה אחת שקשה לזהות.</p>
+<article class="story-card" id="story-27" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הפסוקים של גבול הצפון</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך מתארת התורה את הגבול המערבי והצפוני של הארץ:</p>
+<blockquote>"וּגְבוּל יָם וְהָיָה לָכֶם הַיָּם הַגָּדוֹל וּגְבוּל, זֶה יִהְיֶה לָכֶם גְּבוּל יָם. וְזֶה יִהְיֶה לָכֶם גְּבוּל צָפוֹן, מִן הַיָּם הַגָּדֹל תְּתָאוּ לָכֶם הֹר הָהָר. מֵהֹר הָהָר תְּתָאוּ לְבֹא חֲמָת, וְהָיוּ תּוֹצְאֹת הַגְּבֻל צְדָדָה" (במדבר לד, ו–ח)</blockquote>
+<p>הגבול המערבי פשוט להבנה: הים התיכון, שהתורה קוראת לו "הים הגדול". אבל גבול הצפון יוצא מן הים אל מקום שנקרא "הר ההר", ומשם פונה מזרחה, "לבוא חמת".</p>
+<p class="bold-para">כל השאלה היא אחת: איפה נמצא הר ההר?</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: שיטה ראשונה: הרי טורקיה ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שיטה ראשונה: הרי טורקיה</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מן הראשונים שהשוו את גבול מסעי לגבול ההבטחה. לדעתם, גבול הצפון של מסעי מגיע עד המקום שבו נגמרת ההבטחה – עד נהר פרת.</p>
+<p>איך מחליטים איזו נקודה בפרת? הנהר עצום. הוא יורד מטורקיה, עובר בסוריה ובעיראק ומגיע עד המפרץ הפרסי. נראה שלקחו את הנקודה של הפרת שקרובה ביותר לים התיכון, במקום שבו הנהר עוד רחב וגדול, מול טורקיה. צפונה משם הוא כבר נעשה צר, כמעט נחל.</p>
+<p>לפי זה, הר ההר נמצא אי שם בהרי אמנוס, בדרום טורקיה. במפה זה יוצא בערך 475 קילומטר מקריית שמונה. גבול עצום.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: למה קשה לומר כך ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה קשה לומר כך</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השיטה הזאת קשה מאוד מבחינת הפסוקים.</p>
+<p>קודם כול, יהושע לא כובש מעבר לצידון. בכל ספר יהושע אין שום רמז לכיבוש צפונה משם. אם ארץ ישראל של מסעי מגיעה עד טורקיה, יוצא שיהושע כבש רק חלק קטן ממנה, ואין על השאר אף מילה.</p>
+<p>ושנית, חלוקת הארץ לשבטים. אם הארץ מגיעה עד טורקיה, שבט אשר, שנחלתו לאורך החוף הצפוני, היה מקבל רצועה באורך מאות קילומטרים, בזמן שלשבטים אחרים יש עשרות בודדות. זה לא מתקבל על הדעת.</p>
+<p>לכן רבים מבינים שהר ההר נמצא הרבה יותר קרוב.</p>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: שיטה שנייה: ההר שעל הים בביירות ←</a></div>
+</article>
+<article class="story-card" id="story-30" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שיטה שנייה: ההר שעל הים בביירות</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפי ההסבר האחר, הגבול המערבי הולך לאורך חוף הים, מנחל מצרים בדרום עד הר ההר בצפון – וההר הזה נמצא באזור ביירות. העיר ביירות אכן יושבת על הר שיורד אל הים.</p>
+<p>רש"י מתאר את הר ההר כהר שבפינה הצפונית-מערבית של הארץ, שראשיו נכנסים לתוך הים, כך שיש ים משני צדדיו. וזה בדיוק מראה האזור הזה: לשון יבשה הררית שהמים מקיפים אותה.</p>
+<p>משם פונה הגבול חדות מזרחה, "לבוא חמת", לכיוון העיר חמה שבסוריה, ממשיך לצדד ולזפרון, עד חצר עינן, ומשם יורד דרומה דרך שפם ורבלה – אזור מקורות הבניאס – אל הכנרת, אל הירדן ואל ים המלח.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: &quot;והארץ נשארה הרבה מאד לרשתה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">⚔️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">יהושע ושבט אשר: עד צידון רבה</h2></div></div>
+<p class="chapter-intro">כדי לדעת איפה עובר הגבול, הדרך הטובה ביותר היא לראות מה עשה מי שנצטווה לכבוש ולחלק.</p>
+<article class="story-card" id="story-31" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;והארץ נשארה הרבה מאד לרשתה&quot;</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף ימיו של יהושע אומר לו הקדוש ברוך הוא:</p>
+<blockquote>"אַתָּה זָקַנְתָּה בָּאתָ בַיָּמִים, וְהָאָרֶץ נִשְׁאֲרָה הַרְבֵּה מְאֹד לְרִשְׁתָּהּ" (יהושע יג, א)</blockquote>
+<p>והוא מפרט מה עוד לא נכבש, ובתוך זה:</p>
+<blockquote>"כָּל יֹשְׁבֵי הָהָר מִן הַלְּבָנוֹן עַד מִשְׂרְפֹת מַיִם, כָּל צִידֹנִים, אָנֹכִי אוֹרִישֵׁם מִפְּנֵי בְּנֵי יִשְׂרָאֵל, רַק הַפִּלֶהָ לְיִשְׂרָאֵל בְּנַחֲלָה כַּאֲשֶׁר צִוִּיתִךָ" (יהושע יג, ו)</blockquote>
+<p>כלומר: אתה כבר זקן, ואינך יודע כמה זמן נשאר לך. אל תחכה עד שתכבוש הכול. חלק עכשיו את כל הארץ לשבטים – גם את מה שעוד לא נכבש. הכיבוש ימשיך אחר כך.</p>
+<p class="bold-para">החלוקה של יהושע היא המפה של מה שהתורה ציוותה לרשת.</p>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: נחלת אשר: עד צידון רבה ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">נחלת אשר: עד צידון רבה</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואיך יהושע מחלק את הצפון? הנה נחלת שבט אשר:</p>
+<blockquote>"וַיֵּצֵא הַגּוֹרָל הַחֲמִישִׁי לְמַטֵּה בְנֵי אָשֵׁר לְמִשְׁפְּחוֹתָם" (יהושע יט, כד)</blockquote>
+<p>הנחלה מתחילה באזור מפרץ חיפה, ועולה צפונה דרך עברון, רחוב, חמון וקנה – "עַד צִידוֹן רַבָּה". ומשם:</p>
+<blockquote>"וְשָׁב הַגְּבוּל הָרָמָה וְעַד עִיר מִבְצַר צֹר... וַיִּהְיוּ תֹצְאֹתָיו הַיָּמָּה מֵחֶבֶל אַכְזִיבָה" (יהושע יט, כט)</blockquote>
+<p>הכתוב אומר במפורש: יהושע מחלק לשבט אשר עד צידון. לא ביירות, ולא צפונה ממנה. שם נגמרת החלוקה.</p>
+<p>מכאן שהחובה הראשונה, מה שיהושע נצטווה לכבוש לפי פרשת מסעי, מגיעה עד צידון.</p>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: יהושע רודף עד צידון – ועוצר ←</a></div>
+</article>
+<article class="story-card" id="story-33" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">יהושע רודף עד צידון – ועוצר</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויהושע לא רק חילק עד צידון. הוא גם הגיע לשם בפועל.</p>
+<p>כשיבין מלך חצור שמע על ניצחונות ישראל בדרום, הוא אסף את כל מלכי הצפון – מן ההר, מן הכנרת ומן השפלה – והם התכנסו ליד מי מרום להילחם בישראל. הקדוש ברוך הוא אמר ליהושע: "אַל תִּירָא מִפְּנֵיהֶם". יהושע נפל עליהם פתאום, והכתוב מספר:</p>
+<blockquote>"וַיִּתְּנֵם ה' בְּיַד יִשְׂרָאֵל וַיַּכּוּם וַיִּרְדְּפוּם עַד צִידוֹן רַבָּה וְעַד מִשְׂרְפוֹת מַיִם" (יהושע יא, ח)</blockquote>
+<p>עד צידון הגיע, ושם עצר. כך שהחלוקה והכיבוש מתאימים זה לזה: שניהם נגמרים באותו מקום.</p>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: בעל גד שתחת החרמון ←</a></div>
+</article>
+<article class="story-card" id="story-34" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בעל גד שתחת החרמון</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש עוד פסוק שמראה עד כמה רחוק הגיע יהושע:</p>
+<blockquote>"מִן הָהָר הֶחָלָק הָעוֹלֶה שֵׂעִיר וְעַד בַּעַל גָּד בְּבִקְעַת הַלְּבָנוֹן תַּחַת הַר חֶרְמוֹן" (יהושע יא, יז)</blockquote>
+<p>בקעת הלבנון נמצאת מתחת להר החרמון, בין רכס הלבנון לרכס החרמון. כלומר, גם בצד המזרחי הגיע יהושע עד עמוק בתוך לבנון של היום.</p>
+<div class="honey-box">🍯 כשהכיבוש של יהושע, החלוקה לשבטים והפסוקים של מסעי מצביעים כולם על אותו אזור, אפשר לסמוך על המסקנה: גבול הצפון הראשון של התורה עובר באזור צור וצידון.</div>
+</div><div class="story-next"><a href="#story-35">הקטע הבא: ואיפה זבולון? שאלה בפני עצמה ←</a></div>
+</article>
+<article class="story-card" id="story-35" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ואיפה זבולון? שאלה בפני עצמה</h3><button class="copy-link" type="button" data-id="story-35">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וכאן מתעוררת שאלה מעניינת. יעקב אבינו בירך את זבולון:</p>
+<blockquote>"זְבוּלֻן לְחוֹף יַמִּים יִשְׁכֹּן, וְהוּא לְחוֹף אֳנִיֹּת, וְיַרְכָתוֹ עַל צִידֹן" (בראשית מט, יג)</blockquote>
+<p>זבולון אמור לשבת על חוף הים, ונחלתו מגיעה עד צידון. אבל כשמסתכלים במפות הנפוצות של נחלות השבטים, נחלת זבולון נמצאת בגליל התחתון, באזור עמק יזרעאל ונצרת, ונראית רחוקה מן הים. ולאורך החוף הצפוני יושב דווקא שבט אשר.</p>
+<p>איך זה מתיישב? איפה החוף של זבולון? ואיך "ירכתו על צידון", אם צידון בנחלת אשר?</p>
+<p>בקריות שליד חיפה יש "עמק זבולון" ו"מועצה אזורית זבולון", אבל לפי המפות שנבנות מספר יהושע, החוף שם שייך לאשר. זו סוגיה שלמה בפני עצמה, ויש בה דעות רבות. אבל לשאלה שלנו היא לא משנה: בין שהחוף של זבולון ובין שהחוף של אשר, הנחלה מגיעה עד צידון.</p>
+</div><div class="story-next"><a href="#story-36">הקטע הבא: האצבע המוזרה ←</a></div>
+</article>
+<article class="story-card" id="story-36" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האצבע המוזרה</h3><button class="copy-link" type="button" data-id="story-36">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נחזור אל האצבע של מטולה. מראש הנקרה הוא הולך ישר מזרחה, ואז עולה פתאום צפונה ברצועה צרה – "אצבע הגליל" – עד מטולה.</p>
+<p>עכשיו תעשו ניסוי פשוט. במקום הצורה המשונה הזאת, תשרטטו גבול נורמלי וישר. מתחילים ממטולה וממשיכים מערבה בקו ישר עד הים. לאן מגיעים? בערך לצור.</p>
+<p>ומה אם מתחילים מן החרמון, שנמצא עוד יותר צפונה, ומותחים קו ישר מערבה עד הים? מגיעים כמעט לצידון, באמצע הדרך בין צור לצידון.</p>
+</div><div class="story-next"><a href="#story-37">הקטע הבא: &quot;בבקעת הלבנון תחת הר חרמון&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-37" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;בבקעת הלבנון תחת הר חרמון&quot;</h3><button class="copy-link" type="button" data-id="story-37">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וזה בדיוק מה שאומר הפסוק: יהושע הגיע "עד בעל גד בבקעת הלבנון תחת הר חרמון". אם יורדים מן החרמון מערבה, נכנסים ללבנון. קו ישר מן החרמון אל הים מגיע לאזור שבין צור לצידון – בדיוק המקום שבו יהושע עצר ושבו נגמרה נחלת אשר.</p>
+<p>במילים אחרות, הגבול של יהושע הוא פשוט קו ישר ונורמלי. האצבע של מטולה היא החריגה, לא הוא.</p>
+<p>בצד המזרחי, מעבר לירדן, ישבו שבטי ראובן, גד וחצי המנשה, וגם שם הגבול המשיך צפונה, עד הבשן.</p>
+</div><div class="story-next"><a href="#story-38">הקטע הבא: שתי שורות שבכרם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🕊️</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">ערי המקלט ונבואת זכריה</h2></div></div>
+<p class="chapter-intro">ראיה אחרונה מן המשנה על ערי המקלט, ואחריה האופק: מה שהנביא מבטיח לעתיד.</p>
+<article class="story-card" id="story-38" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שתי שורות שבכרם</h3><button class="copy-link" type="button" data-id="story-38">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה מצווה להבדיל ערי מקלט, שאליהן יברח הרוצח בשגגה. הגמרא במסכת מכות (ט, ב) מתארת איך הן היו מסודרות:</p>
+<blockquote>"שלש ערים הבדיל משה בעבר הירדן, וכנגדן הבדיל יהושע בארץ כנען, ומכוונות היו כמין שתי שורות שבכרם: חברון ביהודה כנגד בצר במדבר, שכם בהר אפרים כנגד ראמות בגלעד, קדש בהר נפתלי כנגד גולן בבשן"</blockquote>
+<p>שלוש ערים מעבר לירדן, ושלוש ממולן בארץ כנען, כמו שתי שורות גפנים בכרם, זו מול זו. קדש של שבט נפתלי, הצפונית שבהן, מזוהה על פי המסורת באזור שליד הגבול של היום.</p>
+</div><div class="story-next"><a href="#story-39">הקטע הבא: &quot;ושלשת&quot;: שלושה חלקים שווים ←</a></div>
+</article>
+<article class="story-card" id="story-39" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ושלשת&quot;: שלושה חלקים שווים</h3><button class="copy-link" type="button" data-id="story-39">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והגמרא ממשיכה, על הפסוק "וְשִׁלַּשְׁתָּ אֶת גְּבוּל אַרְצְךָ" (דברים יט, ג):</p>
+<blockquote>"שיהא מדרום עד חברון כמחברון לשכם, ומחברון לשכם כמשכם לקדש, ומשכם לקדש כמקדש לצפון"</blockquote>
+<p>הערים חילקו את הארץ לחלקים שווים, כדי שכל אדם, בכל מקום שיהיה, יוכל להגיע לעיר מקלט במרחק דומה. המרחק מקדש עד הגבול הצפוני אמור להיות כמו המרחק משכם לקדש.</p>
+<p>המשמעות ברורה: מעבר לקדש יש עוד חלק שלם של הארץ. גבול הצפון לא נמצא ליד קדש, אלא רחוק ממנה.</p>
+</div><div class="story-next"><a href="#story-40">הקטע הבא: מה יוצא במפה ←</a></div>
+</article>
+<article class="story-card" id="story-40" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה יוצא במפה</h3><button class="copy-link" type="button" data-id="story-40">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קשה למדוד את זה בדיוק. לא ברור אם מודדים בקו אווירי או לפי הדרך שאדם הולך ברגליו, והדרכים של אז שונות משל היום. אבל גם מדידה גסה מלמדת הרבה: מקדש עד צור בקו אווירי יש בערך שלושים קילומטר, ובין הערים שמדרום יש מרחקים של עשרות קילומטרים.</p>
+<p>אם מוסיפים מקדש צפונה עוד חלק, כמו שאר החלקים, מגיעים לאזור צור וצידון. כלומר, גם ערי המקלט מעידות שהגבול נגמר בערך בצידון – באותו מקום שבו יהושע כבש ושבו חילק לשבט אשר.</p>
+<div class="honey-box">🍯 שלוש ראיות מכיוונים שונים – הכיבוש, החלוקה וערי המקלט – נפגשות באותה נקודה.</div>
+</div><div class="story-next"><a href="#story-41">הקטע הבא: &quot;ודמשק מנחתו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-41" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ודמשק מנחתו&quot;</h3><button class="copy-link" type="button" data-id="story-41">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך פותחת נבואת זכריה:</p>
+<blockquote>"מַשָּׂא דְבַר ה' בְּאֶרֶץ חַדְרָךְ, וְדַמֶּשֶׂק מְנֻחָתוֹ, כִּי לַה' עֵין אָדָם וְכֹל שִׁבְטֵי יִשְׂרָאֵל" (זכריה ט, א)</blockquote>
+<p>המפרשים מסבירים שהקדוש ברוך הוא מבטיח: יבוא יום ודבר ה' יגיע עד ארץ חדרך, והשכינה תשרה עד דמשק. אז כל בני האדם יישאו עיניהם אל ה', וקל וחומר כל שבטי ישראל.</p>
+</div><div class="story-next"><a href="#story-42">הקטע הבא: &quot;וגם חמת תגבל בה, צר וצידון&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-42" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;וגם חמת תגבל בה, צר וצידון&quot;</h3><button class="copy-link" type="button" data-id="story-42">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והנבואה ממשיכה:</p>
+<blockquote>"וְגַם חֲמָת תִּגְבָּל בָּהּ, צֹר וְצִידוֹן כִּי חָכְמָה מְאֹד. וַתִּבֶן צֹר מָצוֹר לָהּ, וַתִּצְבָּר כֶּסֶף כֶּעָפָר וְחָרוּץ כְּטִיט חוּצוֹת. הִנֵּה אֲדֹנָי יוֹרִשֶׁנָּה..." (זכריה ט, ב–ד)</blockquote>
+<p>חמת – אותה "לבוא חמת" של פרשת מסעי, המקום שהגיעו אליו המרגלים – תהיה בגבול. וגם צור וצידון, אף שהן חכמות מאוד, עשירות מאוד ובנו לעצמן מבצרים, יהיו חלק מן הארץ.</p>
+<p>הנביא מבטיח במפורש שעם ישראל יגיע עד דמשק, חמת, צור וצידון.</p>
+</div><div class="story-next"><a href="#story-43">הקטע הבא: &quot;תרא אשקלון ותירא&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-43" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;תרא אשקלון ותירא&quot;</h3><button class="copy-link" type="button" data-id="story-43">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה יקרה בעקבות זה? הנביא מוסיף:</p>
+<blockquote>"תֵּרֶא אַשְׁקְלוֹן וְתִירָא, וְעַזָּה וְתָחִיל מְאֹד, וְעֶקְרוֹן כִּי הֹבִישׁ מֶבָּטָהּ, וְאָבַד מֶלֶךְ מֵעַזָּה, וְאַשְׁקְלוֹן לֹא תֵשֵׁב" (זכריה ט, ה)</blockquote>
+<p>כשאנשי עזה, אשקלון ועקרון יראו שהלבנון, צור וצידון החזקות נפלו לפני ישראל, הם יבינו: אם אפילו הן לא עמדו, מה הסיכוי שלנו? המלוכה תיעלם מעזה, ואשקלון תתרוקן.</p>
+<p class="bold-para">הניצחון בצפון שובר את הלב של האויב בדרום.</p>
+</div><div class="story-next"><a href="#story-44">הקטע הבא: &quot;הנה מלכך יבוא לך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-44" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;הנה מלכך יבוא לך&quot;</h3><button class="copy-link" type="button" data-id="story-44">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובסוף הנבואה מגיע הפסוק המפורסם:</p>
+<blockquote>"גִּילִי מְאֹד בַּת צִיּוֹן, הָרִיעִי בַּת יְרוּשָׁלִַם, הִנֵּה מַלְכֵּךְ יָבוֹא לָךְ, צַדִּיק וְנוֹשָׁע הוּא, עָנִי וְרֹכֵב עַל חֲמוֹר" (זכריה ט, ט)</blockquote>
+<p>הנבואה שמתחילה בדמשק, בחמת, בצור ובצידון, ומגיעה עד עזה, נגמרת בביאת המשיח לירושלים. הגבולות אינם רק עניין של מפה. הם חלק מן הדרך אל הגאולה.</p>
+<div class="honey-box">🍯 גבול מסעי, עד צידון, הוא המשימה של עכשיו. גבול ההבטחה, עד דמשק וחמת ועד הפרת, הוא האופק שאליו הולכים, צעד אחר צעד, עד "הנה מלכך יבוא לך".</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
