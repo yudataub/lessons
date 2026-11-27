@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔥 נקמה לשם שמיים: מתי נקמה היא מצווה</title>
+<meta name="description" content="הרצאה שלמה: האם נקמה היא רגש פסול או מידה קדושה – מנקמת מדין ומשפט אייכמן, דרך אחאב, שמשון ושמעון ולוי, ועד ההבדל בין נקמה אישית לנקמת ה&#x27;.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 27.11.2026 🍯</div>
+  <h1 class="hero-title">🔥 נקמה לשם שמיים: מתי נקמה היא מצווה</h1>
+  <p class="hero-subtitle">הרצאה שלמה: האם נקמה היא רגש פסול או מידה קדושה – מנקמת מדין ומשפט אייכמן, דרך אחאב, שמשון ושמעון ולוי, ועד ההבדל בין נקמה אישית לנקמת ה&#x27;.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-25 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/UBWhe5-ivVk" target="_blank" rel="noopener">🎬 חלק א ביוטיוב: גדולה נקמה – מתי נקמה היא מצווה</a> <a class="video-btn" href="https://youtu.be/uCHBrYRUaKc" target="_blank" rel="noopener">🎬 חלק ב ביוטיוב: נקמה לשם שמיים – סיפורים מן התנ&quot;ך</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">❓ השאלה: האם מותר לנקום?</a><ul class="toc-stories"><li><a href="#story-1">המילים שנחרטו לפני המוות</a></li><li><a href="#story-2">פקודת &quot;מטח כבוד&quot; בשג&#x27;אעייה</a></li><li><a href="#story-3">על מה בדיוק הוויכוח</a></li><li><a href="#story-4">&quot;נקום נקמת בני ישראל&quot;</a></li><li><a href="#story-5">למה כעס משה</a></li><li><a href="#story-6">הסתירה שבין הפסוקים</a></li><li><a href="#story-7">כל אחד דואג לכבוד השני</a></li><li><a href="#story-8">&quot;תביא קודם לרבנית&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">⚖️ &quot;גדולה נקמה&quot; – וגם הסכנה שבה</a><ul class="toc-stories"><li><a href="#story-9">לכל דבר יש מקום</a></li><li><a href="#story-10">&quot;אל נקמות ה&#x27;&quot; – בכל יום רביעי</a></li><li><a href="#story-11">שלושה דברים שבין שני שמות</a></li><li><a href="#story-12">נקמה אחת לטובה ואחת לרעה</a></li><li><a href="#story-13">רגש בלי מידה</a></li><li><a href="#story-14">מעגל שאין לו סוף</a></li><li><a href="#story-15">מהי הנקמה הפסולה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">👁️ בשביל מה נקמה: כבוד, צדק ו&quot;לעינינו&quot;</a><ul class="toc-stories"><li><a href="#story-16">הכבוד שהושפל</a></li><li><a href="#story-17">העוול שזועק</a></li><li><a href="#story-18">משפט אייכמן: נקמה שריפאה</a></li><li><a href="#story-19">הצדיק ששמח</a></li><li><a href="#story-20">&quot;איפה היה אלוקים?&quot;</a></li><li><a href="#story-21">משה מתאווה לראות</a></li><li><a href="#story-22">דעה, מקדש ונקמה – מה הקשר?</a></li><li><a href="#story-23">מי ששונא את ישראל</a></li><li><a href="#story-24">למה כתוב דווקא &quot;לעינינו&quot;</a></li><li><a href="#story-25">כשרשע מת בשקט – משהו חסר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">💧 נקמה טהורה ונקמה אישית</a><ul class="toc-stories"><li><a href="#story-26">כשהאגו שלי נפגע</a></li><li><a href="#story-27">שותף לנקמה האלוקית</a></li><li><a href="#story-28">ואם יש גם רגש?</a></li><li><a href="#story-29">גואל הדם</a></li><li><a href="#story-30">בחזרה לשג&#x27;אעייה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">👑 אחאב ופנחס: מי שוויתר ומי שקינא</a><ul class="toc-stories"><li><a href="#story-31">מן העיקרון אל הסיפורים</a></li><li><a href="#story-32">&quot;אלוקי הרים&quot; – הגאווה של מלך ארם</a></li><li><a href="#story-33">מאה אלף ביום אחד</a></li><li><a href="#story-34">&quot;העודנו חי? אחי הוא&quot;</a></li><li><a href="#story-35">&quot;נפשך תחת נפשו&quot;</a></li><li><a href="#story-36">למה היה צריך לנקום במי שנכנע?</a></li><li><a href="#story-37">פנחס: הצד השני של המטבע</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🦁 שמשון הגיבור: הנוקם של ישראל</a><ul class="toc-stories"><li><a href="#story-38">&quot;כאשר עשו לי כן עשיתי להם&quot;</a></li><li><a href="#story-39">&quot;דן ידין עמו&quot; – ברכת יעקב לשמשון</a></li><li><a href="#story-40">&quot;לישועתך קיויתי ה&#x27;&quot;</a></li><li><a href="#story-41">מי שצוחק אחרון</a></li><li><a href="#story-42">כל חמשת הסרנים במכה אחת</a></li><li><a href="#story-43">שכר עין אחת – והעין השנייה</a></li><li><a href="#story-44">&quot;למען יחיד צוררים דש&quot;</a></li><li><a href="#story-45">המים מן הלחי</a></li><li><a href="#story-46">מתפילה עתיקה לשירה של היום</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🕊️ שמעון ולוי והמהר&quot;ל: מותר – אבל האם צריך?</a><ul class="toc-stories"><li><a href="#story-47">הרמב&quot;ם: כל אנשי שכם היו חייבים</a></li><li><a href="#story-48">הרמב&quot;ן: הם היו רשעים, אבל...</a></li><li><a href="#story-49">שכם על הדגל של שמעון</a></li><li><a href="#story-50">יעקב אבינו: &quot;עכרתם אותי&quot;</a></li><li><a href="#story-51">&quot;ארור אפם&quot; – הכעס שעולה מעל הראש</a></li><li><a href="#story-52">שיטת המהר&quot;ל: דין של מלחמה בין עמים</a></li><li><a href="#story-53">&quot;צרור את המדינים&quot;</a></li><li><a href="#story-54">&quot;הרנינו גוים עמו&quot; – הנקמה האחרונה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">❓</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">השאלה: האם מותר לנקום?</h2></div></div>
+<p class="chapter-intro">מילה אחת שנכתבה בימי השואה, פקודה אחת שניתנה בשג'אעייה, וציווי נדיר בתורה – נקום נקמת בני ישראל.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המילים שנחרטו לפני המוות</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בימי השואה נמצאו במקומות שבהם נרצחו יהודים כתובות קצרות ביידיש: "יידן, נקמה!" – יהודים, נקמה! יהודי שידע שעוד מעט ירצחו אותו לא ביקש כסף, לא ביקש כבוד. הוא ביקש דבר אחד: שמישהו ינקום את דמו.</p>
+<p>אחרי המלחמה אף קמה קבוצה של יהודים שקראו לעצמם "הנוקמים", ויצאו לפעול נגד רוצחים נאצים.</p>
+<p>הצעקה הזאת מעמידה אותנו מול שאלה שהעולם המערבי מעדיף לא לשאול: האם נקמה היא רגש שלילי שצריך להתבייש בו, או שיש מקום שבו היא צודקת, ואפילו קדושה?</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: פקודת &quot;מטח כבוד&quot; בשג&#x27;אעייה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">פקודת &quot;מטח כבוד&quot; בשג&#x27;אעייה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בקיץ תשע"ד, במבצע צוק איתן, נהרג סרן דימיטרי לויטס הי"ד, מפקד פלוגה בגדוד 82 של חטיבה 7. מחבל ירה לעבר הכוח מתוך מבנה בשכונת שג'אעייה בעזה – מבנה ששימש קודם מרפאה של אונר"א ונעזב.</p>
+<p>למחרת, בשעת הלוויה, הורה מפקד הגדוד לירות פגזים לעבר אותו מבנה, ואמר בקשר שזה "מטח כבוד" לזכרו של המפקד שנהרג. ההקלטה דלפה לתקשורת.</p>
+<p>כעבור כשנה נחקר האירוע. מבחינה מבצעית לא נמצא פגם: הירי היה מוצדק ולא פגע בחפים מפשע. אבל הפרקליט הצבאי הראשי קבע שהבעיה היא במילים, בנימוק. "מטח כבוד" הוא בעצם דרך מנומסת לומר: אנחנו נוקמים את דמו. המפקד ננזף, והומלץ שלא לקדם אותו.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: על מה בדיוק הוויכוח ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">על מה בדיוק הוויכוח</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב לדייק. איסור הנקמה שבתורה נאמר כלפי ישראל:</p>
+<blockquote>"לֹא תִקֹּם וְלֹא תִטֹּר אֶת בְּנֵי עַמֶּךָ" (ויקרא יט, יח)</blockquote>
+<p>כלפי אויב שנלחם בנו האיסור הזה אינו קיים כלל. לכן השאלה איננה "האם עבר על לאו". השאלה עמוקה יותר: האם נקמה היא דבר פסול מעצם טבעו, כמו שחושבים רבים היום, או שיש נקמה שהיא חיובית, ואולי צדק דווקא המפקד?</p>
+<p class="bold-para">כדי לענות, צריך לפתוח את התורה ולראות מה היא עצמה אומרת על נקמה.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: &quot;נקום נקמת בני ישראל&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;נקום נקמת בני ישראל&quot;</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמעט אין בתורה ציווי כזה. הקדוש ברוך הוא אומר למשה:</p>
+<blockquote>"נְקֹם נִקְמַת בְּנֵי יִשְׂרָאֵל מֵאֵת הַמִּדְיָנִים, אַחַר תֵּאָסֵף אֶל עַמֶּיךָ" (במדבר לא, ב)</blockquote>
+<p>המדיינים החטיאו את ישראל בזנות ובעבודה זרה של בעל פעור, ובעקבות זה מתו במגפה עשרים וארבעה אלף מישראל. עכשיו התורה מצווה לצאת ולנקום.</p>
+<p>ויש כאן חידוש: זו לא מלחמה רגילה. במלחמה רגילה נלחמים בלוחמים, ואין טעם לפגוע במי שאינו נלחם. כאן יש דיני נקמה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: למה כעס משה ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה כעס משה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החיילים יצאו ונלחמו כמו במלחמה רגילה: "וַיַּהַרְגוּ כָּל זָכָר" (במדבר לא, ז). את הנשים השאירו בחיים, כי הרי נשים לא החזיקו נשק ולא יצאו לקרב.</p>
+<p>משה רבנו קצף עליהם: "הַחִיִּיתֶם כָּל נְקֵבָה?" (במדבר לא, טו). לא יצאתם למלחמה, יצאתם לנקום! ומי שהחטיא את ישראל בפעור היו דווקא בנות מדין. נקמה פירושה להעניש את מי שעשה את הרע, ולכן דווקא הן היו צריכות להיות הראשונות.</p>
+<p>מכאן רואים שנקמה בתורה איננה התפרצות עיוורת. יש לה כתובת ברורה: מי שגרם לחטא ולאסון.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: הסתירה שבין הפסוקים ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הסתירה שבין הפסוקים</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קראו בעיון. הקדוש ברוך הוא אמר "נקום <strong>נקמת בני ישראל</strong>". אבל כשמשה מעביר את הציווי לעם, הוא אומר משהו אחר:</p>
+<blockquote>"הֵחָלְצוּ מֵאִתְּכֶם אֲנָשִׁים לַצָּבָא, וְיִהְיוּ עַל מִדְיָן לָתֵת <strong>נִקְמַת ה'</strong> בְּמִדְיָן" (במדבר לא, ג)</blockquote>
+<p>אז מה נכון? זו נקמה על דם היהודים שנהרגו, או נקמה על כבודו של הקדוש ברוך הוא שחולל?</p>
+<p>במדיין היו שני חטאים: הם החטיאו את ישראל בעבודה זרה, שהיא פגיעה ישירה בכבוד שמיים, והם גרמו למותם של עשרים וארבעה אלף מישראל. הקדוש ברוך הוא חס על כבודם של ישראל, ולכן אמר "נקמת בני ישראל". משה רבנו חס על כבוד ה', ולכן אמר "נקמת ה'".</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: כל אחד דואג לכבוד השני ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כל אחד דואג לכבוד השני</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה יחס של אהבה אמיתית. כל אחד מחפש את טובת השני ולא את טובת עצמו.</p>
+<p>בשיר הכבוד אנחנו אומרים: "פְּאֵרוֹ עָלַי וּפְאֵרִי עָלָיו". חז"ל אומרים (ברכות ו, א) שגם הקדוש ברוך הוא כביכול מניח תפילין. בתפילין שלנו כתוב "שמע ישראל, ה' אלוקינו, ה' אחד" – אנחנו משבחים אותו. ובתפילין שלו כתוב "ומי כעמך ישראל גוי אחד בארץ" – הוא משבח אותנו.</p>
+<p>כך גם כאן: הקדוש ברוך הוא אומר "נקמת ישראל", ומשה אומר "נקמת ה'". <strong>שני אוהבים נאמנים, שכל אחד חושב על כבוד רעהו.</strong></p>
+<div class="honey-box">🍯 באהבה אמיתית – בין אדם למקום ובין איש לרעהו – כל צד דואג קודם לכבודו של השני.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;תביא קודם לרבנית&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;תביא קודם לרבנית&quot;</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סיפור יפה ממחיש את המידה הזאת. הגאון רבי חיים פנחס שיינברג מירושלים ורעייתו זכו לחיות יחד שנים רבות מאוד, עד גיל מופלג. מסופר שהגיעו אליהם אפילו מספר השיאים של גינס, כדי לתעד אותם כאחד הזוגות שנשואים הכי הרבה שנים בעולם.</p>
+<p>בזקנתם היה מי שעזר להם. פעם ביקש הרב כוס מים. העוזר ניגש למלא, והרב אמר לו: הרבנית אמרה משהו, לך תשאל מה היא רוצה. הרבנית ביקשה גם היא כוס מים. כשבא להגיש לה, אמרה: מה הרב ביקש? קודם תביא לרב.</p>
+<p>בגמרא (קידושין לא, א) נשאלת השאלה: אבא אומר "השקני מים" ואמא אומרת "השקני מים" – מי קודם? אבל המקרה שבו אבא אומר "תן לאמא" ואמא אומרת "תן לאבא" – זה כבר לא מופיע. זו המדרגה שמעל הדין.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: לכל דבר יש מקום ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">&quot;גדולה נקמה&quot; – וגם הסכנה שבה</h2></div></div>
+<p class="chapter-intro">ביהדות כמעט אין מידה רעה לגמרי. לנקמה יש מקום – אבל יש בה גם סכנות אמיתיות.</p>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לכל דבר יש מקום</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האהבה – במקומה, וכן השנאה. השלום – במקומו, וכן המלחמה. הרחמנות – במקומה, וכן האכזריות והנקמה.</p>
+<p>בתרבות המערבית של היום הנקמה נחשבת לדבר פסול מעיקרו. אסור אפילו להרגיש אותה, וכל מי שמזכיר אותה נחשד באכזריות. אבל ביהדות זה לא כך. דווקא מי שמבטל את המושג נקמה לחלוטין, מעוות אותו.</p>
+<p class="bold-para">אין מידה צודקת יותר ממידת הנקמה – במקומה, בזמנה ובמידתה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: &quot;אל נקמות ה&#x27;&quot; – בכל יום רביעי ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;אל נקמות ה&#x27;&quot; – בכל יום רביעי</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הראיה הגדולה ביותר נמצאת בסידור. בכל יום רביעי, בשיר של יום, אנחנו אומרים:</p>
+<blockquote>"אֵל נְקָמוֹת ה', אֵל נְקָמוֹת הוֹפִיעַ. הִנָּשֵׂא שֹׁפֵט הָאָרֶץ, הָשֵׁב גְּמוּל עַל גֵּאִים" (תהלים צד, א-ב)</blockquote>
+<p>אם נקמה היא דבר רע, איך אנחנו מתארים בה את הקדוש ברוך הוא, ועוד בתפילה הקבועה של כל שבוע?</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: שלושה דברים שבין שני שמות ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שלושה דברים שבין שני שמות</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת ברכות (לג, א) אומרת:</p>
+<blockquote>"גדולה דעה שניתנה בין שתי אותיות, שנאמר: כי אל דעות ה'... גדול מקדש שניתן בין שתי אותיות, שנאמר: פעלת ה' מקדש ה' כוננו ידיך"</blockquote>
+<p>"שתי אותיות" כאן הן שני שמות של הקדוש ברוך הוא. דעה מופיעה בין "אל" ובין "ה'". מקדש מופיע בין "ה'" ובין "ה'". דבר שעומד בין שני שמות של בורא עולם – גדול הוא.</p>
+<p>ומקשה שם רב אדא קרחינאה: אם כך, גדולה גם נקמה, שהרי כתוב "אל נקמות ה'"! והתשובה מפתיעה:</p>
+<blockquote>"אין, במילתה מיהא גדולה היא"</blockquote>
+<p>כן. במקומה – היא באמת גדולה. רש"י מסביר: במקום שצריך נקמה, דבר גדול הוא.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: נקמה אחת לטובה ואחת לרעה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">נקמה אחת לטובה ואחת לרעה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא ממשיכה ומביאה את דברי עולא: למה כתובות שתי נקמות בפסוק "אל נקמות ה' אל נקמות הופיע"? אחת לטובה ואחת לרעה. לטובה – כמו שכתוב "הוֹפִיעַ מֵהַר פָּארָן" (דברים לג, ב), כשהקדוש ברוך הוא נגלה לתת את התורה לישראל. לרעה – "אֵל נְקָמוֹת הוֹפִיעַ", כשהוא נגלה להעניש את הרשעים.</p>
+<p>שני הצדדים של אותה הופעה: מי שרואה את הקדוש ברוך הוא מעניש את הרשעים, רואה גם את הטוב שהוא נותן לצדיקים.</p>
+<div class="honey-box">🍯 נקמה במקומה היא לא רגש של שנאה. היא הופעה של צדק בעולם.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: רגש בלי מידה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">רגש בלי מידה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסכנה הראשונה היא שנקמה תוביל לתגובה שאינה במידה. מי שפועל מתוך סערת רגשות לא יודע איפה יעצור. הוא לא מחשב, לא שוקל, לא עוצר לשאול מה יקרה אחר כך.</p>
+<p>כבר בתורה אנחנו פוגשים את זה בשמעון ולוי, שהכעס שלהם עלה לפעמים מעל הראש.</p>
+<p>מוסרי הדורות מזהירים שמי שכל מטרתו היא לפרוק את הכאב בנקמה, הולך ומאבד את הפרופורציה. הוא מחפש עצה אחר עצה, ולא שם לב לנזקים שהוא גורם. לפעמים הוא לא מצליח לפגוע באויב, אבל פוגע באלף מאוהביו, או בעצמו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מעגל שאין לו סוף ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מעגל שאין לו סוף</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסכנה השנייה היא מעגל הדמים. אני נוקם בך, אתה נוקם בי, ושוב אני נוקם. כל צד מרגיש שהוא רק מחזיר, ואף אחד לא מרגיש שהוא התחיל. כך נולדות מלחמות בין משפחות ובין שבטים שנמשכות דורות.</p>
+<p>מצד שני, גם מי שמתעלם לגמרי מהנקמה טועה. אם לעולם לא מענישים את הרשע, אין צדק בעולם, והרשע רק מתחזק.</p>
+<p class="bold-para">צריך למצוא את הקו: מתי הנקמה חיובית, ומתי היא הורסת.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: מהי הנקמה הפסולה ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מהי הנקמה הפסולה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בעל "הכתב והקבלה" מגדיר את שורש המילה נקם: זו הסערה הפנימית, ההתרגשות של הלב, שמביאה את האדם להתלהט בכעס ובחמה.</p>
+<p>זו הנקמה הבעייתית: אדם שפועל מתוך זעם פנימי. הוא לא מחשב, הוא מתפוצץ. הרגש הזה גורם לבני אדם לעשות מעשים בלי קשר למה שיקרה בעקבותיהם.</p>
+<p>ויש שאלה פילוסופית נוספת: כשמענישים מישהו, האם זו נקמה על מה שעשה, או הרתעה כדי שאחרים לא יעשו כמוהו? לפעמים קשה להבחין, ולפעמים שניהם יחד.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הכבוד שהושפל ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">👁️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">בשביל מה נקמה: כבוד, צדק ו&quot;לעינינו&quot;</h2></div></div>
+<p class="chapter-intro">למה הנקמה מתוקה, למה הצדיק שמח בה, ולמה אנחנו מבקשים לראות אותה דווקא בעינינו.</p>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הכבוד שהושפל</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמישהו פוגע באדם, מלבד הנזק הגופני, יש גם פגיעה בנפש. הדבר הראשון הוא הכבוד: איך עשו לי דבר כזה?</p>
+<p>תראו את ההבדל: אם אותו נזק בדיוק נגרם בשגגה, בלי כוונה, האדם כועס הרבה פחות. התוצאה זהה, אבל הכבוד לא נפגע.</p>
+<p>כשהנקמה באה, הכבוד חוזר. הנה הראיתי שאני לא חלש, שאי אפשר לדרוס אותי, שאני יכול להגיע אליך גם אם אתה רחוק מאוד.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: העוול שזועק ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">העוול שזועק</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הדבר השני הוא תחושת הצדק. לאדם כואב מאוד לראות עוול שנשאר בלי תשובה. הרשע ממשיך לחיות בשלווה, כאילו לא קרה דבר, והעולם נראה הפקר.</p>
+<p>כשבאה הנקמה, האדם נרגע: יש צדק בעולם. מי שעשה רע – קיבל את שלו.</p>
+<div class="honey-box">🍯 שני דברים מרגיעים את הנפש אחרי פגיעה: שהכבוד חוזר, ושרואים שיש צדק. זה סוד המתיקות של הנקמה – וגם המפתח להבין מתי היא כשרה.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: משפט אייכמן: נקמה שריפאה ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">משפט אייכמן: נקמה שריפאה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשפט אייכמן העידו יותר ממאה עדים, והוגשו כ-1,600 מסמכים. אלפים ישבו באולם או הצטופפו ליד מכשירי הרדיו, ועיתונאים מכל העולם סיקרו. התובע, גדעון האוזנר, פתח במילים שנחרתו בזיכרון:</p>
+<blockquote>"במקום הזה, שבו אני עומד לפניכם, שופטי ישראל, ללמד קטגוריה על אדולף אייכמן – אינני עומד יחידי. עמדי עומדים כאן, בשעה זו, שישה מיליון קטגורים. אך הם לא יוכלו לקום על רגליהם, לשלוח אצבע מרשיעה כלפי תא הזכוכית ולזעוק כלפי היושב שם: אני מאשים."</blockquote>
+<p>המשפט הזה עזר מאוד לניצולי שואה רבים להשתחרר מהכאב. למה? כי שני הדברים קרו יחד. הכבוד היהודי חזר: היהודים תפסו את הרוצח בקצה העולם, הביאו אותו לירושלים ושפטו אותו. והצדק נראה בעיניים: יש דין, ויש דיין.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: הצדיק ששמח ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הצדיק ששמח</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוד המלך כותב בתהלים:</p>
+<blockquote>"יִשְׂמַח צַדִּיק כִּי חָזָה נָקָם, פְּעָמָיו יִרְחַץ בְּדַם הָרָשָׁע. וְיֹאמַר אָדָם: אַךְ פְּרִי לַצַּדִּיק, אַךְ יֵשׁ אֱלֹקִים שֹׁפְטִים בָּאָרֶץ" (תהלים נח, יא-יב)</blockquote>
+<p>למה צדיק, אדם רחמן ונקי, שמח כל כך כשהוא רואה נקמה? הסוף של הפסוק עונה: "אך יש אלוקים שופטים בארץ". הצדיק לא שמח בסבל של הרשע. הוא שמח כי סוף סוף כולם רואים שהעולם אינו הפקר.</p>
+<p>מכאן אמרו שמצווה גדולה לנקום את נקמת הצדיק שהושפל מן הרשע, ומי שמוותר על זה לגמרי ושולל את הנקמה – אכזרי הוא כלפי הנרדפים.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: &quot;איפה היה אלוקים?&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;איפה היה אלוקים?&quot;</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשהרשעות שולטת ומדכאת את הצדיק, עולה באופן טבעי השאלה הכואבת: איפה אלוקים? כך שאלו רבים אחרי השואה.</p>
+<p>התורה עצמה מתארת את זה בתקופת הסתר פנים:</p>
+<blockquote>"וְאָמַר בַּיּוֹם הַהוּא: הֲלֹא עַל כִּי אֵין אֱלֹקַי בְּקִרְבִּי מְצָאוּנִי הָרָעוֹת הָאֵלֶּה" (דברים לא, יז)</blockquote>
+<p>ניצחון הרשע הוא החילול הנורא ביותר, כי הוא נראה כאילו הוא מוכיח שאין דין ואין דיין.</p>
+<p>ולכן, כשהקדוש ברוך הוא "מתעורר", כמו שכתוב "וַיִּקַץ כְּיָשֵׁן ה', כְּגִבּוֹר מִתְרוֹנֵן מִיָּיִן" (תהלים עח, סה), ונוקם את נקמת עמו – זו ההוכחה הגלויה שיש אלוקים חי בעולם.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: משה מתאווה לראות ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">משה מתאווה לראות</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל במדרש מספרים שמשה רבנו התאווה לראות בנקמת מדין לפני שימות, וביקש על כך. לא רק רצה – התאווה.</p>
+<p>למה משה, העניו מכל האדם, משתוקק לראות נקמה? כי הוא רוצה לראות בעיניו שיש אלוקים שופטים בארץ. זו לא תאווה לדם. זו תאווה לגילוי כבוד שמיים.</p>
+<p class="bold-para">כשהשמחה בנקמה היא שמחה על כך שהקדוש ברוך הוא מתגלה – היא דבר גדול מאוד.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: דעה, מקדש ונקמה – מה הקשר? ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">דעה, מקדש ונקמה – מה הקשר?</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו אפשר להבין את הגמרא בברכות. למה דווקא שלושת הדברים האלה – דעה, מקדש ונקמה – עומדים בין שני שמות של הקדוש ברוך הוא?</p>
+<ul class="story-list"><li><strong>דעה</strong> – אדם שמכיר את בורא עולם ויודע את ה'.</li><li><strong>בית המקדש</strong> – המקום שבו מרגישים בגלוי את נוכחות השכינה.</li><li><strong>נקמה</strong> – הרגע שבו כל העולם רואה שיש מי שמנהיג אותו.</li></ul>
+<p>לגבי דעה ומקדש, ברור שהם מביאים לידיעת ה'. החידוש הוא שגם נקמה היא סוג של דעה. מי שזוכה לראות את נקמת ה' ברשעים, זוכה לאמונה חושית: הוא רואה בעיניו את ההשגחה, את השכר ואת העונש.</p>
+<div class="honey-box">🍯 נקמת ה' היא שיעור באמונה שכל העולם לומד בבת אחת.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: מי ששונא את ישראל ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מי ששונא את ישראל</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו מתבארת גם הסתירה בפרשת מדין. רש"י מסביר שהעומד כנגד ישראל כאילו עומד כנגד הקדוש ברוך הוא. ובמקום אחר, על הפסוק "קומה ה' ויפוצו אויביך, וינוסו משנאיך מפניך" (במדבר י, לה), מסבירים חז"ל שכל מי ששונא את ישראל, שונא את מי שאמר והיה העולם.</p>
+<p>למה בכלל שונאים את היהודים? כי הם השליחים של בורא עולם בעולם. השנאה אליהם היא בעומק שנאה למה שהם מייצגים.</p>
+<p>לכן אין כאן באמת סתירה: נקמת בני ישראל היא היא נקמת ה'. מי שפוגע בעם ישראל פוגע בכבוד שמיים, ומי שנוקם את דם ישראל מחזיר את כבוד שמיים לעולם.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: למה כתוב דווקא &quot;לעינינו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה כתוב דווקא &quot;לעינינו&quot;</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באבינו מלכנו אנחנו מבקשים: "אבינו מלכנו, נקום לעינינו נקמת דם עבדיך השפוך". גם בתהלים כתוב:</p>
+<blockquote>"יִוָּדַע בַּגּוֹיִם לְעֵינֵינוּ נִקְמַת דַּם עֲבָדֶיךָ הַשָּׁפוּךְ" (תהלים עט, י)</blockquote>
+<p>למה ההדגשה החוזרת על "לעינינו"? הרי אם הרשע נענש, מה זה משנה אם ראינו את זה או לא?</p>
+<p>התשובה מגלה מה עומד בבסיס הנקמה שהתורה מדברת עליה. <strong>המטרה איננה שהרשע יסבול.</strong> המטרה היא שיתגדל כבוד שמיים, ושכולם יראו בעיניהם שהקדוש ברוך הוא מנהיג את העולם.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: כשרשע מת בשקט – משהו חסר ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כשרשע מת בשקט – משהו חסר</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נניח שאויב אכזר, שפגע ביהודים רבים, הולך לעולמו בשקט על מיטתו. מבחינת העונש האישי שלו, אולי הוא כבר יקבל את מה שמגיע לו בעולם האמת. אבל משהו חסר: אף אחד לא ראה את הדין. העולם ממשיך לחשוב שאפשר לפגוע בעם ישראל בלי חשבון.</p>
+<p>לעומת זאת, כשיהודים רואים בעיניהם איך מי שפגע בהם נופל, מתרבה כבוד שמיים. כולם מבינים שיש מי ששומר על עמו.</p>
+<div class="honey-box">🍯 נקמה כשרה נמדדת בשאלה אחת: האם היא מגדלת את כבוד שמיים בעולם, או רק משקיטה כעס אישי?</div>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: כשהאגו שלי נפגע ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">💧</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">נקמה טהורה ונקמה אישית</h2></div></div>
+<p class="chapter-intro">אם כך, מה ההבדל בין הנקמה שהתורה אוסרת לנקמה שהיא משבחת? ואיך זה נוגע לפקודה בשג'אעייה?</p>
+<article class="story-card" id="story-26" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כשהאגו שלי נפגע</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"לא תקום ולא תטור" נאמר בעיקר על נקמה אישית – כשמישהו פגע בי, באגו שלי, ואני רוצה להחזיר לו.</p>
+<p>במקרה כזה התורה מלמדת את ההפך: לוותר. חז"ל אומרים (שבת פח, ב): "הנעלבין ואינן עולבין, שומעין חרפתן ואינן משיבין... עליהן הכתוב אומר: ואוהביו כצאת השמש בגבורתו". ועוד אמרו (ראש השנה יז, א): "כל המעביר על מדותיו, מעבירין לו על כל פשעיו".</p>
+<p>אבל כשגוי שונא את ישראל ופוגע בהם רק משום שהם עם ה', זה כבר לא עניין אישי. זה חילול השם. ובמקרה כזה, אדרבה, מצווה להחזיר את כבוד שמיים שחולל.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: שותף לנקמה האלוקית ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שותף לנקמה האלוקית</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב אריאל מסכם את העניין כך: הנקמה החיובית היא רק כשאדם פועל כשותף לנקמה האלוקית, בלי שום פנייה אישית. נקמנות אנושית, שבאה לפרוק יצרים – פסולה. אבל נקמה טהורה ושקולה, שיוצאת להביא צדק לעולם – חיובית ורצויה.</p>
+<p>זו כוונת הפסוק "הָאֵל הַנּוֹתֵן נְקָמוֹת לִי" (תהלים יח, מח). הנקמה שייכת לקדוש ברוך הוא, והאדם הוא רק שליח.</p>
+<p>ושימו לב לשני חלקי הפסוק "הנשא שופט הארץ, השב גמול על גאים": "הנשא שופט הארץ" – שיתרבה כבוד שמיים; "השב גמול על גאים" – שיהיה צדק ויושר בעולם. אלה בדיוק שני הדברים שהנקמה מתקנת: הכבוד שהושפל והצדק שנפגע.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: ואם יש גם רגש? ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ואם יש גם רגש?</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההגדרה הזו קשה מאוד. מי יכול להיות נקי לגמרי מרגש אישי?</p>
+<p>אפשר להציע שאולי די בכך שהאדם יודע שיש כאן נקמת ה', גם אם יש בו גם יצר של נקמה. אולי זה עומק ההבדל בין "נקמת בני ישראל" לבין "נקמת ה'": הקדוש ברוך הוא אמר נקמת ישראל, כלומר גם הכאב של העם מקבל מקום, ומשה הוסיף שבתוך זה יש גם כבוד שמיים.</p>
+<p>כמובן, מי שבא לפסוק ולפעול צריך להיות אדם נקי, כי הרגש משחד. אבל כשהמעשה עצמו נכון וצודק, אולי מותר לגייס גם את הרגש לטובתו.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: גואל הדם ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גואל הדם</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש לכך ראיה מהתורה עצמה. בפרשת מסעי התורה מכירה ב"גואל הדם" – קרוב משפחתו של הנרצח, שרשאי להמית את הרוצח. ויש מן הראשונים שרואים בכך אפילו מצווה.</p>
+<p>והרי גואל הדם פועל מתוך מניע אישי מובהק! הדם של אחיו זועק. ובכל זאת התורה נותנת לו מקום, כי המעשה מביא צדק לעולם ומעניש את מי שראוי לעונש.</p>
+<p class="bold-para">כשהמעשה עצמו מביא צדק, התורה מרשה גם לרגש להיות שותף.</p>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: בחזרה לשג&#x27;אעייה ←</a></div>
+</article>
+<article class="story-card" id="story-30" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בחזרה לשג&#x27;אעייה</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו אפשר לחזור לפקודה של מפקד הגדוד. בלי מילים מכובסות: הוא רצה לנקום את דמו של המפקד שנהרג. הירי עצמו היה חוקי ומוצדק מבחינה מבצעית. אילו היה יורה על חפים מפשע, זה היה סיפור אחר לגמרי.</p>
+<p>לפי ההגדרה המחמירה, נקמה כשרה היא רק כשהכוונה כולה לשם שמיים, ומי יודע אם זו הייתה הכוונה. אבל כשמדובר במעשה נכון וצודק, נראה שמותר לשתף בו גם את רגש הנקמה. כך גם עשו מפקדים רבים, שלפני הכניסה לקרב עוררו בחיילים את רגש הנקמה על מה שנעשה לעמם, כי הרגש נותן כוח.</p>
+<p>אפשר לדון אם היה נכון לומר את הדברים בקשר. אבל לפסול את המעשה עצמו, רק בגלל הרגש שעמד מאחוריו – לפי התורה, קשה מאוד.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: מן העיקרון אל הסיפורים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">אחאב ופנחס: מי שוויתר ומי שקינא</h2></div></div>
+<p class="chapter-intro">מן העיקרון אל הסיפורים – ראשית, שני אנשים שעמדו מול חילול כבוד שמיים ובחרו הפוך.</p>
+<article class="story-card" id="story-31" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מן העיקרון אל הסיפורים</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד כאן העיקרון: יש נקמה אישית שהתורה מבקשת לוותר עליה, ויש נקמה שכולה כבוד שמיים, שהיא מצווה גדולה. אבל עקרונות מתבררים באמת רק כשרואים אותם בחיים.</p>
+<p>התנ"ך מלא בסיפורים שמראים את שני הצדדים: מלך שוויתר על נקמה שנצטווה עליה ושילם בחייו, גיבור שנקם את נקמת ישראל עד נשימתו האחרונה, ושני אחים שעשו מעשה מותר – ובכל זאת אביהם כעס עליהם.</p>
+<p class="bold-para">שני הצדדים משלימים זה את זה: מצד אחד, אסור לוותר על כבוד שמיים; מצד שני, גם מה שמותר צריך לשקול בשכל ולא בכעס.</p>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: &quot;אלוקי הרים&quot; – הגאווה של מלך ארם ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;אלוקי הרים&quot; – הגאווה של מלך ארם</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בימי אחאב מלך ישראל קם בן הדד מלך ארם והציק לישראל שוב ושוב. בפעם הראשונה הוא עלה למלחמה ונחל מפלה. אבל עבדיו מצאו לו הסבר שנשמע להם הגיוני:</p>
+<blockquote>"אֱלֹקֵי הָרִים אֱלֹקֵיהֶם עַל כֵּן חָזְקוּ מִמֶּנּוּ" (מלכים א כ, כג)</blockquote>
+<p>כלומר: האלוקים של ישראל אוהב הרים. הרי את התורה נתן על הר סיני. בואו נילחם בהם במישור, ושם ננצח.</p>
+<p>זו כבר לא רק מלחמה על שטח. זה עלבון ישיר לכבוד שמיים, כאילו כוחו של הקדוש ברוך הוא מוגבל למקום אחד.</p>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: מאה אלף ביום אחד ←</a></div>
+</article>
+<article class="story-card" id="story-33" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מאה אלף ביום אחד</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מיד בא נביא אל אחאב ואמר לו בשם ה': מכיוון שארם אמרו שה' הוא אלוקי הרים ולא אלוקי עמקים, אתן את כל ההמון הגדול הזה בידך, "וִידַעְתֶּם כִּי אֲנִי ה'" (מלכים א כ, כח).</p>
+<p>וכך היה. המלחמה פרצה במישור, וישראל ניצחו ניצחון עצום. הכתוב מספר שהכו מארם מאה אלף רגלי ביום אחד. זה ניצחון שמזכיר את הנסים הגדולים של מלחמות ישראל, שבהם כוחות עצומים קרסו בתוך שעות.</p>
+<p>בן הדד ברח לעיר מבצר, והחומה נפלה. הוא הבין שזה הרגע האחרון.</p>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: &quot;העודנו חי? אחי הוא&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-34" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;העודנו חי? אחי הוא&quot;</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בן הדד שאל את יועציו: מה הנשק של הרגע האחרון? הם השיבו לו: מלכי ישראל הם מלכי חסד. נלבש שקים, נבוא בהכנעה, ונבקש על חייך.</p>
+<p>שליחיו באו אל אחאב ואמרו: "עבדך בן הדד אומר: תחי נא נפשי". ואחאב השיב במשפט מפורסם:</p>
+<blockquote>"הַעוֹדֶנּוּ חַי? אָחִי הוּא" (מלכים א כ, לב)</blockquote>
+<p>הוא העלה את בן הדד למרכבה שלו, כרת איתו ברית ושלח אותו לשלום לביתו. לכאורה, סוף טוב: אויב נכנע, ושלום שורר.</p>
+</div><div class="story-next"><a href="#story-35">הקטע הבא: &quot;נפשך תחת נפשו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-35" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;נפשך תחת נפשו&quot;</h3><button class="copy-link" type="button" data-id="story-35">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל אז בא נביא ואמר לאחאב דברים קשים:</p>
+<blockquote>"יַעַן שִׁלַּחְתָּ אֶת אִישׁ חֶרְמִי מִיָּד וְהָיְתָה נַפְשְׁךָ תַּחַת נַפְשׁוֹ וְעַמְּךָ תַּחַת עַמּוֹ" (מלכים א כ, מב)</blockquote>
+<p>הנבואה התקיימה. כעבור זמן שוב פרצה מלחמה עם ארם, ושם "אִישׁ מָשַׁךְ בַּקֶּשֶׁת לְתֻמּוֹ" (מלכים א כב, לד) – חץ אקראי פגע באחאב, והוא מת במלחמה.</p>
+<p class="bold-para">החסד שאחאב עשה עם בן הדד עלה לו בחייו.</p>
+</div><div class="story-next"><a href="#story-36">הקטע הבא: למה היה צריך לנקום במי שנכנע? ←</a></div>
+</article>
+<article class="story-card" id="story-36" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה היה צריך לנקום במי שנכנע?</h3><button class="copy-link" type="button" data-id="story-36">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זו שאלה גדולה. בן הדד הרים דגל לבן. הוא נכנע. מה רע בכך שאחאב חס עליו?</p>
+<p>רש"י מסביר שמראש הנביא אמר לאחאב לצאת למלחמה כדי להעניש את ארם על דבריהם, ולהראות לכל העולם שה' מנצח גם במישור. בן הדד לא היה סתם אויב שנכנע. הוא היה מי שחילל את כבוד שמיים בפומבי, והמלחמה כולה נועדה לתקן את החילול הזה.</p>
+<p>אחאב העדיף את כבודו האישי ואת התדמית של "מלך חסד" על פני כבוד שמיים. הוא נצטווה לנקום ולא נקם, ולכן נענש.</p>
+<div class="honey-box">🍯 רחמנות היא מידה נפלאה, אבל רחמנות על מי שמחלל את שם שמיים, נגד ציווי ה', היא רחמנות במקום הלא נכון.</div>
+</div><div class="story-next"><a href="#story-37">הקטע הבא: פנחס: הצד השני של המטבע ←</a></div>
+</article>
+<article class="story-card" id="story-37" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">פנחס: הצד השני של המטבע</h3><button class="copy-link" type="button" data-id="story-37">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מול אחאב עומד פנחס. פנחס ראה את כבוד שמיים מחולל בפרהסיה, וקם ועשה מעשה. הוא לא חיפש כבוד לעצמו, והוא לא פעל מתוך שנאה. הוא קינא את קנאת ה'.</p>
+<p>ושכרו היה גדול: הוא זכה לברית כהונת עולם. ובהמשך, משה שלח אותו בראש הצבא למלחמת מדין, לנקום את נקמת ה' במדין (במדבר לא, ו).</p>
+<p>שני הסיפורים יחד מלמדים את אותו לקח מכיוונים הפוכים: מי שמוותר על כבוד שמיים מפסיד, ומי שעומד על כבוד שמיים לשם שמיים, זוכה.</p>
+</div><div class="story-next"><a href="#story-38">הקטע הבא: &quot;כאשר עשו לי כן עשיתי להם&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🦁</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">שמשון הגיבור: הנוקם של ישראל</h2></div></div>
+<p class="chapter-intro">שמשון הוא אחד הגיבורים שכל ילד מתעורר כשהוא שומע עליהם. אבל חז"ל והמפרשים רואים בו הרבה יותר מאיש חזק.</p>
+<article class="story-card" id="story-38" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;כאשר עשו לי כן עשיתי להם&quot;</h3><button class="copy-link" type="button" data-id="story-38">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כששמשון היכה בפלשתים, באו אליו אנשי יהודה בפחד:</p>
+<blockquote>"הֲלֹא יָדַעְתָּ כִּי מֹשְׁלִים בָּנוּ פְּלִשְׁתִּים וּמַה זֹּאת עָשִׂיתָ לָּנוּ? וַיֹּאמֶר לָהֶם: כַּאֲשֶׁר עָשׂוּ לִי כֵּן עָשִׂיתִי לָהֶם" (שופטים טו, יא)</blockquote>
+<p>אנשי יהודה רצו שקט. הם חששו שכל מכה בפלשתים רק תרגיז את השליט. שמשון חשב אחרת: מי שפוגע בישראל צריך לדעת שיש לזה מחיר. שתיקה מול אויב רק מזמינה עוד פגיעה.</p>
+</div><div class="story-next"><a href="#story-39">הקטע הבא: &quot;דן ידין עמו&quot; – ברכת יעקב לשמשון ←</a></div>
+</article>
+<article class="story-card" id="story-39" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;דן ידין עמו&quot; – ברכת יעקב לשמשון</h3><button class="copy-link" type="button" data-id="story-39">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יעקב אבינו, בברכותיו לבניו, אומר על שבט דן:</p>
+<blockquote>"דָּן יָדִין עַמּוֹ כְּאַחַד שִׁבְטֵי יִשְׂרָאֵל" (בראשית מט, טז)</blockquote>
+<p>רש"י מפרש שזו נבואה על שמשון, שינקום נקמת עמו מפלשתים, כמו "כִּי יָדִין ה' עַמּוֹ". כלומר, יעקב אבינו משבח את שמשון דווקא על כך שנקם את נקמת ישראל.</p>
+<p>הרמב"ן מוסיף שלא כל מי שהכה באויב נקרא "נוקם נקמת ישראל". שמשון הכה בפלשתים מכה גדולה כל כך, עד שכולם ראו שיש לעם ה' עוצמה. זה מה שהפך את מעשיו לקידוש שם שמיים.</p>
+</div><div class="story-next"><a href="#story-40">הקטע הבא: &quot;לישועתך קיויתי ה&#x27;&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-40" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;לישועתך קיויתי ה&#x27;&quot;</h3><button class="copy-link" type="button" data-id="story-40">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באמצע ברכת דן, יעקב אבינו קורא פתאום:</p>
+<blockquote>"לִישׁוּעָתְךָ קִוִּיתִי ה'" (בראשית מט, יח)</blockquote>
+<p>למה דווקא כאן? רש"י מסביר שיעקב ראה בנבואה את סופו של שמשון: הפלשתים ינקרו את עיניו, והוא ימות יחד איתם, ויבקש "זכרני נא וחזקני נא אך הפעם".</p>
+<p>במדרש מובא שיעקב ראה את שמשון וחשב שאולי הוא המשיח. כשראה שגם הוא מת, אמר: גם זה אינו הגואל השלם, "לישועתך קיויתי ה'". הישועה האמיתית תבוא רק מאת ה'.</p>
+</div><div class="story-next"><a href="#story-41">הקטע הבא: מי שצוחק אחרון ←</a></div>
+</article>
+<article class="story-card" id="story-41" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מי שצוחק אחרון</h3><button class="copy-link" type="button" data-id="story-41">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דלילה בגדה בשמשון. הפלשתים תפסו אותו, ניקרו את עיניו והורידו אותו לעזה, לבית האסורים. השיער שלו התחיל לצמוח מחדש.</p>
+<p>ביום חגם התכנסו כל סרני פלשתים לבית דגון, והביאו את שמשון כדי לשחק בו. הם צחקו על הגיבור העיוור של האויב. אבל מי שצוחק אחרון צוחק הכי טוב. שמשון התפלל:</p>
+<blockquote>"ה' אֱלֹקִים זָכְרֵנִי נָא וְחַזְּקֵנִי נָא אַךְ הַפַּעַם הַזֶּה הָאֱלֹקִים, וְאִנָּקְמָה נְקַם אַחַת מִשְּׁתֵי עֵינַי מִפְּלִשְׁתִּים" (שופטים טז, כח)</blockquote>
+<p>הוא הטה את העמודים, והבית נפל על כל הנמצאים בו. "וַיִּהְיוּ הַמֵּתִים אֲשֶׁר הֵמִית בְּמוֹתוֹ רַבִּים מֵאֲשֶׁר הֵמִית בְּחַיָּיו" (שופטים טז, ל).</p>
+<p>גם כאן המטרה לא הייתה רק לנקום. הוא רצה להראות לפלשתים: גם אם תפסתם אותי, לא ניצחתם. מי שנוגע בעם ישראל לא יוצא נקי.</p>
+</div><div class="story-next"><a href="#story-42">הקטע הבא: כל חמשת הסרנים במכה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-42" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כל חמשת הסרנים במכה אחת</h3><button class="copy-link" type="button" data-id="story-42">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפלשתים היו חמש ערים מרכזיות: עזה, אשדוד, אשקלון, גת ועקרון, ובראש כל אחת עמד סרן. כל ימיו רדף שמשון אחריהם. והנה ביום אחד כולם נאספו למקום אחד, לעזה, והבית נפל על כולם יחד.</p>
+<p>ומעניין: ארבעה מתוך חמשת המקומות האלה, אשדוד, אשקלון ואזורי גת ועקרון, נמצאים היום בידי ישראל ויהודים גרים בהם. דווקא עזה, המקום שבו נפל הבית, היא "הקליפה" הקשה ביותר.</p>
+<p>את קבר שמשון מראים ליד בית שמש, באזור צרעה ואשתאול, ואפשר לבקר בו. מסופר שכשבני משפחתו באו לקחת את גופתו מבין ההריסות, זיהו אותו כי כל הפלשתים נפלו עם הראש למטה, ורק הוא נשאר עם הראש למעלה.</p>
+</div><div class="story-next"><a href="#story-43">הקטע הבא: שכר עין אחת – והעין השנייה ←</a></div>
+</article>
+<article class="story-card" id="story-43" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שכר עין אחת – והעין השנייה</h3><button class="copy-link" type="button" data-id="story-43">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שמשון ביקש לנקום "נקם אחת משתי עיני". ומה עם העין השנייה? חז"ל אומרים (ירושלמי סוטה א, ח; במדבר רבה ט):</p>
+<blockquote>"אמר לפניו: רבונו של עולם, תן לי שכר עיני אחת בעולם הזה, ושכר עיני אחת תהא מתוקנת לי לעתיד לבוא"</blockquote>
+<p>אפשר להבין שהעין השנייה שמורה לגן עדן. ויש שמסבירים גם שהיא שמורה לעם ישראל: יום יבוא, ויהודים יחזרו להילחם באותו מקום, ואז תעמוד להם הנקמה על העין השנייה, והקדוש ברוך הוא יעזור להם.</p>
+<div class="honey-box">🍯 "לישועתך קיויתי ה'" – כל כוח וכל ניצחון, גם של הגיבור הגדול ביותר, הם רק שליחות. הישועה עצמה באה מה'.</div>
+</div><div class="story-next"><a href="#story-44">הקטע הבא: &quot;למען יחיד צוררים דש&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-44" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;למען יחיד צוררים דש&quot;</h3><button class="copy-link" type="button" data-id="story-44">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בהושענות של הושענא רבה, כשמחזיקים את הערבות, אנחנו אומרים:</p>
+<blockquote>"למען יחיד צוררים דש, אשר לנזיר הוקדש, ממכתש לחי הבקעת לו מים"</blockquote>
+<p>מי זה? זה שמשון. "יחיד" – כי היה בן יחיד לאמו, וגם כי לחם לבדו. "צוררים דש" – דש את הפלשתים כמו שדשים תבואה. "לנזיר הוקדש" – נזיר אלוקים מבטן. "ממכתש לחי הבקעת לו מים" – הנס שקרה לו אחרי המלחמה בלחי החמור.</p>
+<p>כך מפרש גם רבי אלעזר מגרמייזא בפירושו על ההושענות.</p>
+</div><div class="story-next"><a href="#story-45">הקטע הבא: המים מן הלחי ←</a></div>
+</article>
+<article class="story-card" id="story-45" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המים מן הלחי</h3><button class="copy-link" type="button" data-id="story-45">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי ששמשון הכה אלף איש בלחי החמור, הוא אמר: "בִּלְחִי הַחֲמוֹר חֲמוֹר חֲמֹרָתָיִם". ואז הוא צמא מאוד, וקרא אל ה': אתה נתת ביד עבדך את התשועה הגדולה הזאת, ועכשיו אמות בצמא?</p>
+<blockquote>"וַיִּבְקַע אֱלֹקִים אֶת הַמַּכְתֵּשׁ אֲשֶׁר בַּלֶּחִי וַיֵּצְאוּ מִמֶּנּוּ מַיִם" (שופטים טו, יט)</blockquote>
+<p>לכן בהושענא רבה, היום שבו נחתם דין המים לשנה כולה, אנחנו מזכירים את שמשון: כמו שבקעת לו מים מן המכתש, תן לנו מים ושפע בזכותו.</p>
+<p class="bold-para">אותו גיבור שנקם את נקמת ישראל הוא גם סמל לכך שה' דואג לכל צורכי מי שמוסר נפשו בשבילו.</p>
+</div><div class="story-next"><a href="#story-46">הקטע הבא: מתפילה עתיקה לשירה של היום ←</a></div>
+</article>
+<article class="story-card" id="story-46" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מתפילה עתיקה לשירה של היום</h3><button class="copy-link" type="button" data-id="story-46">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי המלחמה הגדולה שפרצה בשמחת תורה, כתב מישהו תפילה בנוסח דברי שמשון: "זכרני נא וחזקני נא אך הפעם הזה האלוקים", על ספר תורה אחד ויהודי אחד בשמחת תורה, וסיים: "לישועתך קיויתי ה'".</p>
+<p>השיר "זכרני נא" הפך לאחד השירים שיהודים שרים ברגעים של מאבק. פעם אחת, ביום ירושלים, זיקוקים שנזרקו לעבר יהודים פגעו בעצים, והעצים עלו באש. מלמטה עמדו יהודים ושרו בדיוק את השיר הזה.</p>
+<div class="honey-box">🍯 הפסוקים של התנ"ך אינם היסטוריה רחוקה. הם המילים שעם ישראל מתפלל בהן גם היום.</div>
+</div><div class="story-next"><a href="#story-47">הקטע הבא: הרמב&quot;ם: כל אנשי שכם היו חייבים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🕊️</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">שמעון ולוי והמהר&quot;ל: מותר – אבל האם צריך?</h2></div></div>
+<p class="chapter-intro">הסיפור הקשה ביותר: מעשה שהרמב"ם והרמב"ן מתירים, ויעקב אבינו כועס עליו. ובסוף – התקווה לנקמה השלמה.</p>
+<article class="story-card" id="story-47" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הרמב&quot;ם: כל אנשי שכם היו חייבים</h3><button class="copy-link" type="button" data-id="story-47">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שמעון ולוי באו על שכם והרגו את כל הגברים שבה. איך מותר לעשות דבר כזה?</p>
+<p>הרמב"ם (הלכות מלכים ט, יד) מסביר: אחת משבע מצוות בני נח היא מצוות "דינים" – חובה להקים בתי משפט ולשפוט צדק. בן נח שעבר על אחת משבע המצוות חייב מיתה. ולכן:</p>
+<blockquote>"ומפני זה נתחייבו כל בעלי שכם הריגה, שהרי שכם גזל, והם ראו וידעו ולא דנוהו"</blockquote>
+<p>כלומר, הבעיה לא הייתה רק בשכם בן חמור. כל העיר ראתה את העוול ושתקה. הם לא העמידו אותו לדין.</p>
+</div><div class="story-next"><a href="#story-48">הקטע הבא: הרמב&quot;ן: הם היו רשעים, אבל... ←</a></div>
+</article>
+<article class="story-card" id="story-48" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הרמב&quot;ן: הם היו רשעים, אבל...</h3><button class="copy-link" type="button" data-id="story-48">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ן חולק על הרמב"ם בהסבר. לדעתו, מצוות דינים אינה מחייבת להעמיד לדין, אלא היא מצווה לקבוע דינים. אבל גם הוא כותב שאנשי שכם היו רשעים: הם עבדו עבודה זרה, גזלו ועברו על עבירות רבות, ולכן היו חייבים מיתה.</p>
+<p>שמעון ולוי, לדבריו, רצו להינקם מהם בחרב על מה שעשו לאחותם.</p>
+<p>כך יוצא ששני הגדולים מסכימים בשורה התחתונה: מצד הדין, המעשה לא היה פסול. ואם כך, נשאלת שאלה גדולה: למה יעקב אבינו כעס כל כך?</p>
+</div><div class="story-next"><a href="#story-49">הקטע הבא: שכם על הדגל של שמעון ←</a></div>
+</article>
+<article class="story-card" id="story-49" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שכם על הדגל של שמעון</h3><button class="copy-link" type="button" data-id="story-49">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש עדות מפתיעה לכך שהמעשה לא נחשב חטא. התורה אומרת שכל שבט חנה במדבר "עַל דִּגְלוֹ בְאֹתֹת לְבֵית אֲבֹתָם". חז"ל (במדבר רבה ב) מספרים שלכל שבט היה דגל בצבע האבן שלו בחושן. הדגל של שמעון היה ירוק, ועליו מצוירת העיר שכם.</p>
+<p>אם מעשה שכם היה חטא גמור, האם הקדוש ברוך הוא היה מצווה להניף אותו על הדגל, לעיני כל ישראל? המפרשים אומרים שהדגל מבטא את הגבורה ואת מסירות הנפש של שמעון ולוי, שעמדו על כבוד אחותם כשכולם שתקו.</p>
+<p><strong>"הַכְזוֹנָה יַעֲשֶׂה אֶת אֲחוֹתֵנוּ?"</strong> (בראשית לד, לא) – זו התשובה שלהם, והתורה מסיימת בה את הפרשה.</p>
+</div><div class="story-next"><a href="#story-50">הקטע הבא: יעקב אבינו: &quot;עכרתם אותי&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-50" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">יעקב אבינו: &quot;עכרתם אותי&quot;</h3><button class="copy-link" type="button" data-id="story-50">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אז מה כן הפריע ליעקב? הוא לא אמר להם שזה אסור. הוא אמר:</p>
+<blockquote>"עֲכַרְתֶּם אֹתִי לְהַבְאִישֵׁנִי בְּיֹשֵׁב הָאָרֶץ... וַאֲנִי מְתֵי מִסְפָּר, וְנֶאֶסְפוּ עָלַי וְהִכּוּנִי" (בראשית לד, ל)</blockquote>
+<p>יעקב חשב על התוצאות. אנחנו מעטים, וכל יושבי הארץ ישמעו ויתאספו נגדנו. בלשון של היום: גם אם מותר – צריך להיות מעשי. לא כל מה שמותר עושים.</p>
+<p>זה עיקרון חשוב לכל החלטה בחיים, ובמיוחד בהחלטות גדולות: השאלה אינה רק "האם זה מותר", אלא גם "מה יקרה אחר כך".</p>
+</div><div class="story-next"><a href="#story-51">הקטע הבא: &quot;ארור אפם&quot; – הכעס שעולה מעל הראש ←</a></div>
+</article>
+<article class="story-card" id="story-51" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ארור אפם&quot; – הכעס שעולה מעל הראש</h3><button class="copy-link" type="button" data-id="story-51">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני מותו חזר יעקב לעניין:</p>
+<blockquote>"שִׁמְעוֹן וְלֵוִי אַחִים, כְּלֵי חָמָס מְכֵרֹתֵיהֶם... אָרוּר אַפָּם כִּי עָז" (בראשית מט, ה-ז)</blockquote>
+<p>רש"י מדייק: אפילו בשעת תוכחה לא קילל אלא את אפם, כלומר את הכעס, לא אותם.</p>
+<p>יעקב ראה דפוס. גם במכירת יוסף, שמעון ולוי היו המובילים. הכעס שלהם עלה לפעמים מעל הראש, והם פעלו מהר מדי, מתוך סערת רגשות, בלי לחשוב על התוצאות.</p>
+<div class="honey-box">🍯 גם כשהצדק לגמרי בצד שלך, אל תתן לכעס לנהוג במקומך. כעס יכול להוביל אדם לדברים שלא תכנן.</div>
+</div><div class="story-next"><a href="#story-52">הקטע הבא: שיטת המהר&quot;ל: דין של מלחמה בין עמים ←</a></div>
+</article>
+<article class="story-card" id="story-52" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שיטת המהר&quot;ל: דין של מלחמה בין עמים</h3><button class="copy-link" type="button" data-id="story-52">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המהר"ל, בפירושו גור אריה, מציע דרך אחרת להבין את שכם. לדבריו, מה שעשו שמעון ולוי היה מלחמה של עם מול עם, שהתורה התירה.</p>
+<p>אבל הרי התורה אומרת "כִּי תִקְרַב אֶל עִיר לְהִלָּחֵם עָלֶיהָ וְקָרָאתָ אֵלֶיהָ לְשָׁלוֹם" (דברים כ, י). איפה הקריאה לשלום בשכם?</p>
+<p>המהר"ל עונה: חובת הקריאה לשלום היא כשהעיר לא עשתה דבר לישראל. אבל כשבני העם הזה פגעו בישראל ראשונים, הדין שונה. אז גם מי שלא השתתף בעצמו נחשב חלק מהעם שפגע, ומותר לצאת נגדו למלחמה.</p>
+</div><div class="story-next"><a href="#story-53">הקטע הבא: &quot;צרור את המדינים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-53" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;צרור את המדינים&quot;</h3><button class="copy-link" type="button" data-id="story-53">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המהר"ל מביא ראיה ממלחמת מדין. התורה ציוותה:</p>
+<blockquote>"צָרוֹר אֶת הַמִּדְיָנִים וְהִכִּיתֶם אוֹתָם, כִּי צֹרְרִים הֵם לָכֶם" (במדבר כה, יז-יח)</blockquote>
+<p>בוודאי לא כל אחד ממדין השתתף בעצת בלעם. ובכל זאת, מכיוון שהיו בני אותה אומה שעשתה רע לישראל, יצאו עליהם למלחמה. כך, לדבריו, היו כל המלחמות.</p>
+<p>זה רעיון שקשה לאדם מודרני: אחריות של עם שלם. אבל המהר"ל מסביר שעם הוא גוף אחד, ומי שמשתייך אליו ושותק מול הרע, נושא באחריות.</p>
+<p>ויחד עם זה, הלקח של יעקב אבינו נשאר בתוקף: <strong>לא כל מה שמותר צריך לעשות.</strong> צריך תמיד לשקול את התוצאות.</p>
+</div><div class="story-next"><a href="#story-54">הקטע הבא: &quot;הרנינו גוים עמו&quot; – הנקמה האחרונה ←</a></div>
+</article>
+<article class="story-card" id="story-54" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;הרנינו גוים עמו&quot; – הנקמה האחרונה</h3><button class="copy-link" type="button" data-id="story-54">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסופו של דבר, הנקמה הגדולה והשלמה תבוא מהקדוש ברוך הוא עצמו. כך מסתיימת שירת האזינו:</p>
+<blockquote>"הַרְנִינוּ גוֹיִם עַמּוֹ, כִּי דַם עֲבָדָיו יִקּוֹם, וְנָקָם יָשִׁיב לְצָרָיו, וְכִפֶּר אַדְמָתוֹ עַמּוֹ" (דברים לב, מג)</blockquote>
+<p>הקדוש ברוך הוא מבטיח שהגאולה השלמה תגיע, ואז תתקיים הבקשה של "נקום לעינינו נקמת דם עבדיך השפוך". לא מתוך שנאה, אלא כדי שכל העולם יראה את כבוד שמיים מתגלה ומתרבה.</p>
+<p class="bold-para">"לישועתך קיויתי ה'" – שנזכה לראות זאת בקרוב, במהרה בימינו, אמן.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
