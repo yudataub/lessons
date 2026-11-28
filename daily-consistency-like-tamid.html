@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔥 כמו קרבן התמיד: ותלמוד תורה כנגד כולם</title>
+<meta name="description" content="למה ההתמדה היומיומית, ולא רגעי ההתלהבות, קובעת לאן אדם יגיע, ולמה דווקא תלמוד תורה היא המצווה שאין לה הפסק.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🔥 כמו קרבן התמיד: ותלמוד תורה כנגד כולם</h1>
+  <p class="hero-subtitle">למה ההתמדה היומיומית, ולא רגעי ההתלהבות, קובעת לאן אדם יגיע, ולמה דווקא תלמוד תורה היא המצווה שאין לה הפסק.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-9 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/Eh26b7ZNPP0" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧗 מה יקבע איפה תהיה בעוד עשרים שנה</a><ul class="toc-stories"><li><a href="#story-1">אותו בית מדרש, דרכים שונות</a></li><li><a href="#story-2">לא התמדה של שעה, התמדה של חיים</a></li><li><a href="#story-3">חשבון נפש קטן</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔥 קרבן התמיד: הקרבן החביב ביותר</a><ul class="toc-stories"><li><a href="#story-4">הקרבן שאין בלעדיו יום</a></li><li><a href="#story-5">&quot;מוסף&quot; פירושו תוספת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🌬️ אוויר, מים ואבנים טובות</a><ul class="toc-stories"><li><a href="#story-6">העולם מסודר לפי הצורך</a></li><li><a href="#story-7">כך גם במצוות</a></li><li><a href="#story-8">מה ששכיח מתרגשים ממנו פחות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📖 המצווה שאין לה הפסק</a><ul class="toc-stories"><li><a href="#story-9">שש מצוות תמידיות, ומצווה אחת שונה</a></li><li><a href="#story-10">עד יום מותו</a></li><li><a href="#story-11">צריך סיבה כדי להיות פטור</a></li><li><a href="#story-12">התורה מחזיקה את העולם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">⚔️ אתה ישן, והוא ער</a><ul class="toc-stories"><li><a href="#story-13">האויב שאיננו מרגישים</a></li><li><a href="#story-14">מי שלא מרגיש מלחמה, כבר שבוי</a></li><li><a href="#story-15">כשאתה נלחם, אתה כבר מנצח</a></li><li><a href="#story-16">&quot;בראתי יצר הרע, בראתי לו תורה תבלין&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🏛️ יסודות הבניין</a><ul class="toc-stories"><li><a href="#story-17">לא רק הצלה, אלא אושר</a></li><li><a href="#story-18">מים מלוחים</a></li><li><a href="#story-19">הבניין עומד על היסודות</a></li><li><a href="#story-20">להיות כמו התמיד</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧗</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">מה יקבע איפה תהיה בעוד עשרים שנה</h2></div></div>
+<p class="chapter-intro">בכל בית מדרש יושבים עשרות בחורים, כולם לומדים. אבל בעוד עשרים או שלושים שנה הדרכים שלהם ייפרדו. מה מכריע?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אותו בית מדרש, דרכים שונות</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בישיבה אחת יושבים ברוך ה' עשרות בחורים, ובעוד הרבה ישיבות יושבים עשרות ומאות. כולם לומדים, כולם באותם ספסלים. ובכל זאת, אם נסתכל בעוד עשרים או שלושים שנה, נראה תמונה שונה מאוד.</p>
+<p>אחד יהיה מלא וגדוש בתורה, ישפיע על רבים, ויבואו לשמוע ממנו. אחר יהיה "עוד אחד". ויש מי שאולי כבר לא יהיה בלימוד בכלל.</p>
+<p>מה קובע את ההבדל? יש הרבה גורמים, אבל אחת הנקודות שהכי משפיעות וקובעות לאן אדם יגיע ועד איזה גובה יצמח, היא נקודה אחת פשוטה: <strong>קביעות</strong>.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: לא התמדה של שעה, התמדה של חיים ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא התמדה של שעה, התמדה של חיים</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשאומרים "התמדה" מתכוונים לפעמים לדבר אחד: כשאתה יושב ללמוד שעה, תלמד באמת שעה, ולא שחלק ממנה הולך לדברים אחרים. זה חשוב, אבל לא על זה מדובר כאן.</p>
+<p>מדובר בהתמדה של <strong>קביעות</strong>: שאדם מתמיד בסדר היום שלו יום אחרי יום. לא ימים כך וימים אחרת, אלא מהלך קבוע. כל אחד לפי הכוחות שלו ולפי הנתונים שלו, אבל את מה שהוא יכול, הוא עושה יום יום, בלי שינוי. בקיץ ובחורף, כשיש חשק וכשאין חשק.</p>
+<p class="bold-para">לא מצבי רוח קובעים את סדר היום, אלא סדר היום קובע את מצב הרוח.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: חשבון נפש קטן ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חשבון נפש קטן</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל אחד יכול לעשות לעצמו חשבון נפש פנימי ולשאול: איפה אני בנקודה הזאת?</p>
+<p>האם אני מתנדנד? יש ימים כאלה ויש ימים אחרים, כמו גלים, עולים ויורדים, יורדים ועולים? או שאני באמת נוסע במהלך קבוע, לא נתון למצבי רוח, לא תלוי בתנאים שסביבי, בשכן או במי שיושב לידי?</p>
+<p>זו אחת הנקודות הכי בסיסיות, והיא מה שמאפיין את כל גדולי תלמידי החכמים שאנחנו מכירים. גדולי ישראל הצטיינו בזה יותר מבכל דבר אחר: יום יום, תמידים כסדרם.</p>
+<div class="honey-box">🍯 שומרים על הסדר הקבוע מכל משמר, ונצמדים אליו יום אחרי יום.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הקרבן שאין בלעדיו יום ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">קרבן התמיד: הקרבן החביב ביותר</h2></div></div>
+<p class="chapter-intro">בפרשת פנחס התורה פותחת את פרשת הקרבנות דווקא בקרבן הפשוט ביותר, זה שמגיע כל יום.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הקרבן שאין בלעדיו יום</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת פנחס התורה מונה את כל קרבנות הציבור של השנה, והראשון שבהם הוא קרבן התמיד:</p>
+<blockquote>אֶת הַכֶּבֶשׂ אֶחָד תַּעֲשֶׂה בַבֹּקֶר וְאֵת הַכֶּבֶשׂ הַשֵּׁנִי תַּעֲשֶׂה בֵּין הָעַרְבָּיִם (במדבר כח, ד)</blockquote>
+<p>אין יום בשנה בלי קרבן תמיד. לא משנה אם זה יום חול, שבת, יום טוב או יום כיפור: פעם בבוקר ופעם אחר הצהריים, כל יום.</p>
+<p>חז"ל והמפרשים מלמדים שדווקא הקרבן הזה הוא החביב ביותר לפני הקדוש ברוך הוא, ושמו מגלה למה: <strong>הוא תמיד</strong>.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;מוסף&quot; פירושו תוספת ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;מוסף&quot; פירושו תוספת</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ביום כיפור, בראש השנה ובכל המועדים יש קרבנות מיוחדים, מרשימים מאוד. אבל הם מגיעים פעם בשנה, ולא עליהם העולם עומד.</p>
+<p>העולם עומד על הקרבנות של כל יום. הם מביאים את השפע הבסיסי לקיום העולם. ולכן כל הקרבנות המיוחדים של המועדים נקראים "מוספים". מוסף פירושו תוספת: תוספת השפעה על העיקר. ומהו העיקר? קרבן התמיד. כך אומרת התורה על כל קרבן מוסף: "מִלְּבַד עֹלַת הַתָּמִיד".</p>
+<p class="bold-para">החגים מוסיפים, אבל היום-יום מחזיק.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: העולם מסודר לפי הצורך ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🌬️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">אוויר, מים ואבנים טובות</h2></div></div>
+<p class="chapter-intro">הסבא מקלם מלמד שאפשר לדעת כמה דבר חשוב לפי כמה הוא מצוי. זה נכון בעולם הגשמי, וזה נכון גם במצוות.</p>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">העולם מסודר לפי הצורך</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסבא מקלם מביא יסוד שכבר כתוב בחובות הלבבות: העולם הגשמי מסודר לפי מה שאדם צריך. ככל שאתה צריך דבר יותר, הוא מזומן לך יותר.</p>
+<p>הדבר שהכי נצרך לאדם הוא אוויר לנשימה. והוא מצוי בשפע, לא משלמים עליו, לא צריך צינורות או חוטי חשמל כדי להביא אותו. אתה פשוט נושם.</p>
+<p>אחר כך מים. גם הם נמצאים בשפע, אבל כבר צריך לטרוח: פעם חפרו תעלות ובורות, היום מניחים צינורות ומשלמים. אחר כך אוכל, שדורש עוד יותר טרחה ועולה יותר. ודברים שלא באמת צריך, אבנים טובות ומרגליות, נדירים, יקרים וקשים מאוד להשגה.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: כך גם במצוות ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כך גם במצוות</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסבא מקלם אומר: כך בדיוק גם ברוחניות. יש מצוות שמגיעות פעם בשנה. יש מצוות תדירות יותר, כמו שבת, פעם בשבוע. יש מצוות של כל יום, ויש מצוות של כמה פעמים ביום: קריאת שמע פעמיים ביום, ותפילה שלוש פעמים ביום, שתיקנו חכמים.</p>
+<p>אם אתה רואה שמצווה מסוימת סדירה יותר, תבין שהיא נצרכת לאדם יותר. המצוות של פעם בשנה הן תוספת, אבל לא מהן אתה חי. המצוות היומיומיות הן <strong>המזון הבסיסי של הנפש</strong>: קבלת עול מלכות שמיים, התפילה לקדוש ברוך הוא. מהן אתה ניזון.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מה ששכיח מתרגשים ממנו פחות ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה ששכיח מתרגשים ממנו פחות</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>טבע האדם הוא שמה ששכיח, מתרגשים ממנו פחות. מה שמגיע פעם בשנה מעורר התרגשות והתחדשות: שופר, סוכה, ליל הסדר. מה שחוזר שלוש פעמים ביום הופך לפעמים להרגל.</p>
+<p>אבל האמת היא שדווקא המצוות האלה הכי חשובות לך. לקרוא קריאת שמע כמו שצריך, להתפלל כמו שצריך: מזה אתה חי.</p>
+<div class="honey-box">🍯 המצוות שחוזרות הכי הרבה פעמים הן הלחם של הנשמה. לא מוותרים על הלחם כי הוא לא מרגש.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: שש מצוות תמידיות, ומצווה אחת שונה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📖</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">המצווה שאין לה הפסק</h2></div></div>
+<p class="chapter-intro">יש מצווה אחת שעולה על כולן: לא מצווה של פעם בשנה ולא של שלוש פעמים ביום, אלא של כל רגע.</p>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שש מצוות תמידיות, ומצווה אחת שונה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש שש מצוות תמידיות: לדעת שיש ה', לא להאמין בשום כוח זולתו, לייחד אותו, לאהוב אותו, לירוא ממנו, ולא לתור אחרי הלב והעיניים. מתי שאדם עוסק בהן, שבעה ימים בשבוע ועשרים וארבע שעות ביממה, הוא מקיים מצווה.</p>
+<p>אבל שימו לב: אתה לא חייב לעסוק בהן בכל רגע. אם תעסוק בהן, תקבל מצווה. אם לא, לא עברת על שום דבר.</p>
+<p>ויש מצווה אחת ויחידה שבה אתה <strong>חייב</strong> תמיד. אין רגע שאתה פטור ממנה כשאתה יכול לקיים אותה: <strong>תלמוד תורה</strong>.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: עד יום מותו ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">עד יום מותו</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תלמוד תורה הוא מצווה שברגע שאתה פנוי ויכול, אתה מחויב בה. אם אתה אנוס, יש לך צרכים לעשות, אז עכשיו אינך יכול. אבל אם אתה פנוי, אתה חייב. הרמב"ם כותב:</p>
+<blockquote>כָּל אִישׁ מִיִּשְׂרָאֵל חַיָּב בְּתַלְמוּד תּוֹרָה, בֵּין עָנִי בֵּין עָשִׁיר, בֵּין שָׁלֵם בְּגוּפוֹ בֵּין בַּעַל יִסּוּרִין, בֵּין בָּחוּר בֵּין שֶׁהָיָה זָקֵן גָּדוֹל (רמב"ם, הלכות תלמוד תורה א, ח)</blockquote>
+<p>ועד מתי? "עַד יוֹם מוֹתוֹ" (שם א, י).</p>
+<p>מסופר על בעל "גשר החיים", שכתב ספרים על דיני מיתה וקבורה, שלמד וכתב עד הרגע האחרון, ונפטר תוך כדי כתיבה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: צריך סיבה כדי להיות פטור ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">צריך סיבה כדי להיות פטור</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשמעות היא מהפכה בצורת החשיבה. בכל מצווה אחרת שואלים: האם אני חייב עכשיו? בתלמוד תורה השאלה הפוכה: <strong>למה אני פטור עכשיו?</strong></p>
+<p>צריך לאכול? מותר. צריך לישון? מותר. המוח צריך לנוח ולהתרענן? גם זו סיבה. אבל צריך סיבה. אם אין סיבה, אתה חייב.</p>
+<p>מזה אנחנו למדים שתלמוד תורה הוא הדבר הכי נצרך והכי בסיסי לאדם מכל המצוות כולן. גם קרבן התמיד, שהוא הבסיס לשפע של העולם, הוא פעמיים ביום. תלמוד תורה הוא כל רגע. ולכן אומרת המשנה: "וְתַלְמוּד תּוֹרָה כְּנֶגֶד כֻּלָּם" (פאה א, א).</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: התורה מחזיקה את העולם ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">התורה מחזיקה את העולם</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה איננה רק מצווה פרטית. היא מקיימת את כל הבריאה. כך אומר הנביא:</p>
+<blockquote>אִם לֹא בְרִיתִי יוֹמָם וָלָיְלָה חֻקּוֹת שָׁמַיִם וָאָרֶץ לֹא שָׂמְתִּי (ירמיהו לג, כה)</blockquote>
+<p>חז"ל דרשו שהברית של יומם ולילה היא התורה: אילולא עסק התורה ביום ובלילה, לא היו חוקות שמיים וארץ מתקיימים.</p>
+<p class="bold-para">כשאדם לומד, הוא לא רק מקיים את עצמו. הוא מחזיק את העולם כולו.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: האויב שאיננו מרגישים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">⚔️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">אתה ישן, והוא ער</h2></div></div>
+<p class="chapter-intro">יש עוד סיבה לכך שהתורה צריכה להיות כל רגע: יש מי שנלחם בנו כל רגע.</p>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">האויב שאיננו מרגישים</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חובות הלבבות מתאר את היצר הרע כאויב גדול, ומוסיף ביטוי חריף: אתה ישן ממנו, והוא ער לך.</p>
+<p>מי באמת חי בהרגשה שיש לו אויב שצריך להיזהר ממנו כל רגע? מי מרגיש שמישהו מחפש אותו כל הזמן, שאכפת לו שהוא יושב ולומד ומקיים מצוות, ושהוא רוצה להפיל אותו? רוב האנשים לא חיים כך בכלל. הם פשוט זורמים עם החיים.</p>
+<p>אבל היצר הרע לא ישן ולא מתעייף, ואין אצלו שום הפרעות. הוא ער כל הזמן.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מי שלא מרגיש מלחמה, כבר שבוי ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מי שלא מרגיש מלחמה, כבר שבוי</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה עם מי שאומר: "אני לא מבין על מה מדברים. הכל בסדר אצלי. אני לא מרגיש שמישהו נלחם בי"?</p>
+<p>אפשר שהוא כבר שבוי. מי ששבוי לא מרגיש מלחמה, כי כבר אין על מה להילחם. <strong>אם אדם לא מרגיש שיש לו מלחמה, זה סימן שהוא כבר בשבי.</strong></p>
+<p>צריך להרגיש מלחמה: אני רוצה ללמוד, וקשה לי, יש כל מיני מפריעים. אני רוצה להתפלל, וקשה לי. אני רוצה לקום בבוקר, וקשה לי. זו לא בעיה. זה סימן שאתה חי.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: כשאתה נלחם, אתה כבר מנצח ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כשאתה נלחם, אתה כבר מנצח</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מקובל מרבותינו: <strong>כשאתה נלחם, אתה מנצח</strong>. אם אתה נלחם, פירוש הדבר שאכפת לך. אתה לא שבוי. פעם מצליח ופעם נכשל, פעם הולך ופעם לא, אבל אתה נלחם, ומי שנלחם רוצה לעבוד את ה' ורוצה להיות בסדר. הוא כבר בגדר מנצח.</p>
+<p>כמובן, צריך לעבוד ולשאוף שהניצחונות ירבו יותר ויותר והכישלונות ימעטו. זה המהלך של החיים. אבל עצם המלחמה היא כבר ניצחון.</p>
+<div class="honey-box">🍯 הקושי שאתה מרגיש אינו סימן לכישלון. הוא הוכחה שאתה עדיין בשדה הקרב, ולא בשבי.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: &quot;בראתי יצר הרע, בראתי לו תורה תבלין&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;בראתי יצר הרע, בראתי לו תורה תבלין&quot;</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה כלי הנשק הכי חזק נגד היצר? חז"ל אומרים בשם הקדוש ברוך הוא:</p>
+<blockquote>בָּרָאתִי יֵצֶר הָרָע, בָּרָאתִי לוֹ תּוֹרָה תַּבְלִין (קידושין ל ע"ב)</blockquote>
+<p>אפשר לדייק: למה לא נאמר בקיצור "התורה תבלין ליצר הרע"? למה האריכות של "בראתי... בראתי"? כי הקדוש ברוך הוא אומר: אני היצרן. אין מי שמכיר מכשיר כמו מי שייצר אותו. אני בראתי את היצר הרע, אני יודע בדיוק מה הוא, ואני אומר לך: את התרופה בראתי לו. <strong>אין תרופה אחרת.</strong></p>
+<p>לכן מובן למה הקדוש ברוך הוא מצווה לעסוק בתורה בכל רגע שאפשר. התורה היא מה ששומר על האדם שלא יטבע בים של המידות הרעות והתאוות. מי שמרפה ממנה, נסחף מיד.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: לא רק הצלה, אלא אושר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">יסודות הבניין</h2></div></div>
+<p class="chapter-intro">התורה אינה רק מגן מפני היצר. היא האושר הגדול ביותר, גם בעולם הזה. והשנים של עכשיו הן היסודות.</p>
+<article class="story-card" id="story-17" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא רק הצלה, אלא אושר</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן שני דברים. הראשון: התורה מגינה ומצילה מן היצר הרע. זה הבסיס. השני: אין הצלחה גדולה בחיים כמו לעלות ולעלות בתורה.</p>
+<p>חז"ל אומרים שכל הנביאים כולם התנבאו על השכר של מי שמחזיק תלמידי חכמים ומסייע להם, אבל על תלמידי החכמים עצמם נאמר: "עַיִן לֹא רָאָתָה אֱלֹקִים זוּלָתְךָ" (ישעיהו סד, ג). השכר שמחכה להם בעולם הבא גדול מכל מה שעין יכולה לראות.</p>
+<p>ואין גם חיים מאושרים בעולם הזה כמו חייו של תלמיד חכם שלומד, גדל בתורה ומחובר אליה. הסיפוק הכי גדול והאושר הכי גדול.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: מים מלוחים ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מים מלוחים</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נכון, במוחשיות יש פיתויים אחרים שמרגישים אותם יותר חזק. אבל מעבר לפינה מחכה שם אכזבה גדולה. אין להם קיום.</p>
+<p>זה כמו מי ששותה מים מלוחים: לרגע אחד נדמה לו שהוא מרווה את צימאונו, ושנייה אחר כך הוא צמא כפליים. כך כל ההנאות שאין בהן תוכן: הן מבטיחות, ומשאירות ריקנות.</p>
+<p class="bold-para">אין אושר אמיתי כמו לשבת ולגדול בתורה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: הבניין עומד על היסודות ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הבניין עומד על היסודות</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל בניין עומד על היסודות שלו. לא על הקומה השלישית, לא על השנייה ואפילו לא על הראשונה. והשנים של הישיבה הן השנים שבהן אדם יוצק את היסודות לחייו.</p>
+<p>כשהבניין כבר עומד, קשה מאוד לשנות. אבל בזמן היציקה עוד אפשר להוסיף חומר מחזק, או חלילה לעשות לא נכון, וכל הבניין ייצא עקום. אם עכשיו לומדים להתחבר לתורה, ליהנות ממנה, להתמיד בה ולשאוף אליה, אפשר אחר כך לבנות מגדל עצום. אם השנים האלה עוברות בלי זה, אחר כך קשה מאוד לתקן. כל שנה שעוברת, ההרגלים נטבעים עמוק יותר בנפש.</p>
+<div class="honey-box">🍯 התוצאות ייראו רק בעוד שנים רבות, אבל הן נקבעות כבר עכשיו.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: להיות כמו התמיד ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">להיות כמו התמיד</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה בונה את היסודות? איך אתה מתנהל בזמן של קושי, איך אתה מתנהל בזמן של רפיון. האם אתה יודע להתמיד, להיצמד, ולא להתייחס למה שמסביב? או שאתה תלוי במצבי רוח, בשכן ובמי שלידך?</p>
+<p>לכן כדאי להתבונן ולהפנים מה עיקר ומה טפל בחיים, לאן אני באמת רוצה להגיע, ולהשקיע בצורה נכונה, בהתמדה ובעקביות. כמו קרבן התמיד: יום יום, תמידים כסדרם.</p>
+<p>מי שייקח את הדברים לתשומת לב, יסביר אותם לעצמו ויפנים אותם, יכול בעזרת ה' ללכת בדרך הזו ולהצליח. כל מי שרוצה, כתר תורה מונח לפניו. ה' יעזור שננצל את הכוחות האלה, ונגדל ונצליח.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
