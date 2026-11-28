@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🗺️ מה מותר לומר על ארץ ישראל?</title>
+<meta name="description" content="איפה עובר הגבול בין הערה תמימה לדיבת הארץ, למה בכלל אסור לדבר בגנותה, ואיך הופכים כל דיבור, מזגן וקופסת טבק לאהבת הארץ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🗺️ מה מותר לומר על ארץ ישראל?</h1>
+  <p class="hero-subtitle">איפה עובר הגבול בין הערה תמימה לדיבת הארץ, למה בכלל אסור לדבר בגנותה, ואיך הופכים כל דיבור, מזגן וקופסת טבק לאהבת הארץ.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-14 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/6Y23YBL-C24" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🧭 איפה עובר הגבול</a><ul class="toc-stories"><li><a href="#story-1">גם הכביש העקום?</a></li><li><a href="#story-2">הכוונה היא שקובעת</a></li><li><a href="#story-3">נאומי ההתרמה של שנות החמישים</a></li><li><a href="#story-4">האם שקיבלה &quot;התקף&quot; כי בנה עולה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📡 איך הארץ נשמעת מרחוק</a><ul class="toc-stories"><li><a href="#story-5">&quot;איפה הממ״ד?&quot;</a></li><li><a href="#story-6">כל צד ומה שהוא מספר</a></li><li><a href="#story-7">שלושה שנהרגו, ואלפים שאיש לא ספר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">💚 למה זה אסור?</a><ul class="toc-stories"><li><a href="#story-8">על האדמה, או גם על היושבים בה?</a></li><li><a href="#story-9">ואהבת לרעך – ואהבת את הארץ</a></li><li><a href="#story-10">האם מותר לספר על פיגוע?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">☀️ רבי אמי ורבי אסי עוברים לצל</a><ul class="toc-stories"><li><a href="#story-11">דבר שכולם יודעים</a></li><li><a href="#story-12">החידוש: בארץ ישראל גם זה אסור?</a></li><li><a href="#story-13">לימוד בלי הפסקה</a></li><li><a href="#story-14">קושיית הסבא מסלבודקה</a></li><li><a href="#story-15">מה עושה הסיפור בסוף כתובות</a></li><li><a href="#story-16">המשגיח שהרים בקבוקים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">❄️ המזגן של רבי אמי ורבי אסי</a><ul class="toc-stories"><li><a href="#story-17">&quot;מזגן דרבי אמי ורבי אסי&quot;</a></li><li><a href="#story-18">האם יש מצווה לקנות בית יפה?</a></li><li><a href="#story-19">קופסת הטבק של האדמו״ר מסלונים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">👑 ארץ כארצכם</a><ul class="toc-stories"><li><a href="#story-20">המלך שנזהר בלשונו</a></li><li><a href="#story-21">קל וחומר למי שמספר בשבחה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">איפה עובר הגבול</h2></div></div>
+<p class="chapter-intro">אם כל מילה רעה על ארץ ישראל היא דיבת הארץ, אי אפשר לפתוח את הפה. אז מה בדיוק אסור?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">גם הכביש העקום?</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני שנים רבות נכתבה הגדרה חמורה מאוד לאיסור דיבת הארץ: כל דיבור, אפילו של אמת, שגורם לבני אדם לאהוב פחות את אדמת ארץ ישראל – אסור. ואם הוא שקר – על אחת כמה וכמה. ולא רק על הארץ כולה: גם על אמה אחת ממנה, על האוויר, על הקור, על הפירות, על הבניינים, ואפילו על חורבה שנמצאת ביד גויים.</p>
+<p>אם זה באמת כך, מיד עולה השאלה: מה עם מי שאומר שהכביש בשכונה עקום? שהחוף מלוכלך? שהבניין ממול נבנה עקום? האם כל אחד מאלה כבר "מוציא דיבה"? איפה זה מתחיל ואיפה זה נגמר?</p>
+<p>לפי ההגדרה הזו לא מצאנו ידינו ורגלינו. כל אדם אומר לפעמים "זה עקום", "זה מלוכלך", "זה לא עובד". ברור שאי אפשר שכל אלה יהיו איסור חמור. צריך הגדרה מדויקת יותר.</p>
+<p class="bold-para">שאלה טובה היא חצי תשובה: מה בדיוק האיסור, ולמה הוא קיים.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: הכוונה היא שקובעת ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הכוונה היא שקובעת</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההגדרה הנכונה היא כנראה כך: דיבת הארץ היא דיבור שהכוונה שלו, או התוצאה הפשוטה שלו, היא לגנות את הארץ. מי שאומר "החוף מלוכלך" כי הוא רוצה שינקו אותו, מי שמתלונן על הכביש כי הוא רוצה שיתקנו אותו – אין לו שום עניין להכפיש את ארץ ישראל. יש לו עניין שיהיה בה טוב יותר.</p>
+<p>וכאן יש הבדל מעניין בין דיבת הארץ ובין לשון הרע על אדם. אם אדם מספר לחברו בבית הכנסת שהשכן עשה משהו לא בסדר – זה אסור, גם אם הכוונה לתקן. למה אתה מספר את זה לשמעון? לך לשכן! לך לרשות שאחראית! לשמעון אין מה לעשות עם המידע הזה.</p>
+<p>אבל בדיבת הארץ האיסור הוא רק כשהכוונה לגנות. גם מי שלא פונה לעירייה ולא למשרד התחבורה, אלא סתם אומר לחברו "הכביש הזה צריך תיקון" – בפשטות אין בזה איסור. הוא לא מכפיש את הארץ. הוא רוצה שתהיה יפה.</p>
+<div class="honey-box">🍯 השאלה הראשונה לפני כל משפט על הארץ: אני רוצה לתקן, או לגנות?</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: נאומי ההתרמה של שנות החמישים ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">נאומי ההתרמה של שנות החמישים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין מה כן אסור, כדאי לראות דוגמה הפוכה לגמרי. רב אחד שכיהן כרב קהילה בחוץ לארץ תיאר את מה שקרה בשנות החמישים. המדינה הצעירה הייתה ענייה מאוד, ומשלחות רבות יצאו מכאן לגייס כסף מיהודי התפוצות. היו שולחים אלופים, שרים, אנשי ביטחון, ועורכים כנסים גדולים.</p>
+<p>ומה היה אומר שם איש הביטחון? הוא היה מתאר כמה מסוכנת הארץ: איום מכאן ואיום משם, אויבים מכל עבר, "רגע אחד של מלחמה ויכולים חס ושלום לכלות את כולנו". ולכן – תרמו, ותרמו בנדיבות.</p>
+<p>והיהודים אכן תרמו, ותרמו הרבה. כמעט לכל אחד היו קרובים כאן, שארית הפליטה אחרי השואה, והם הרגישו שקיום עם ישראל תלוי בזה. אבל הנאומים האלה עשו עוד משהו, בלי שאיש התכוון: הם לימדו את יהודי חוץ לארץ לפחד מארץ ישראל.</p>
+<p class="bold-para">הכסף נכנס לקופה, והפחד נכנס ללב.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: האם שקיבלה &quot;התקף&quot; כי בנה עולה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האם שקיבלה &quot;התקף&quot; כי בנה עולה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אותו רב סיפר מעשה שקרה לו. יום אחד הוא מקבל טלפון דחוף מאב בקהילה: "בוא מהר, אשתי עומדת לקבל התקף!" הרב לא הבין למה קוראים דווקא לו ולא לרופא, אבל רץ.</p>
+<p>כשהגיע התברר מה האסון: הבן הודיע שהוא עולה לארץ ישראל. האם הייתה מבוהלת עד עמקי נשמתה. "לארץ המסוכנת הזאת? שיש עליה כל כך הרבה איומים?" היא חזרה על כל מה ששמעה בנאומים, שבת אחר שבת.</p>
+<p>הרב הרים את ידיו לשמים ואמר: "ריבונו של עולם, הלוואי שאסון כזה יקרה לי, לקרוביי ולידידיי ולכל יהודי באשר הוא – שיזכו לעלות לארץ ישראל." ואז התחיל להסביר להם שהמציאות שונה לגמרי ממה שמתארים בנאומים, שיהודים חיים בארץ ומשגשגים, ושבחוץ לארץ יש סכנות לא פחות. הוא דיבר ודיבר, עד שבסוף לא רק הבן עלה – כל המשפחה עלתה איתו.</p>
+<p>ולימים עלה גם הרב עצמו, ושם כתב את הסיפור. הוא הביא אותו כדוגמה ברורה: גם מי שמדבר מתוך כוונה טובה, כדי להתרים, צריך לשים לב מה התוצאה של דבריו.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;איפה הממ״ד?&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📡</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">איך הארץ נשמעת מרחוק</h2></div></div>
+<p class="chapter-intro">מה שנראה כאן כחדשות של יום אחד, נשמע בחוץ לארץ כמו תמונה של החיים כולם.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;איפה הממ״ד?&quot;</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פעם הגיעה משפחה מחוץ לארץ – אם ובתה – לראות דירה. הן הסתובבו, ראו את החדרים, והכל מצא חן בעיניהן. ואז שאלו: "איפה הממ״ד?"</p>
+<p>לא מדובר היה באזור קו העימות. מדובר היה בשכונה שקטה, רחוקה מכל גבול. אבל הן היו בטוחות שבכל נקודה בארץ, בכל יום, נוחתים טילים, ושאי אפשר לגור בבית בלי מרחב מוגן.</p>
+<p>מי שנוסע לארצות הברית ושומע איך מספרים שם על ארץ ישראל, נדהם לגלות שרבים בטוחים שכל יום יש כאן פיגוע וכל יום טילים. הם לא שמעו שקר מפורש. הם שמעו רק את הרע, שוב ושוב, בלי שום פרופורציה.</p>
+<p class="bold-para">זו בדיוק דיבת הארץ: לא בהכרח שקר, אלא תמונה מעוותת שמרחיקה לבבות.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: כל צד ומה שהוא מספר ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל צד ומה שהוא מספר</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התופעה הזו פועלת לכל הכיוונים. מי ששומע איך מתארים חלק מהיושבים בחוץ לארץ את הציבור החרדי בארץ, ישמע שהחרדים "משתלטים על הכל", על כל משרד ועל כל מקום. ומי ששומע את הצד השני, בקהילות חרדיות בחוץ לארץ, ישמע תיאורים הפוכים לגמרי: שכאן רודפים את הדתיים, לוקחים את הילדים, אי אפשר לשמור תורה ומצוות.</p>
+<p>שני התיאורים האלה, כל אחד מהכיוון שלו, משחירים את פני הארץ. הם לוקחים כמה מקרים, מנפחים אותם, ומציירים מהם תמונה של מקום שאי אפשר לחיות בו.</p>
+<p>אלו דוגמאות ברורות לאיסור: אדם מכפיש את ארץ ישראל כולה, מספר דברים בגנותה לא כדי לתקן ולא לשום תועלת, ומי ששומע אותו מתרחק ממנה.</p>
+<div class="honey-box">🍯 לפני שמספרים לחוץ לארץ מה קורה כאן – לשאול: האם השומע יבין את המציאות, או רק יפחד ממנה?</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: שלושה שנהרגו, ואלפים שאיש לא ספר ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שלושה שנהרגו, ואלפים שאיש לא ספר</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש עוד סיבה שהתמונה מתעוותת: העולם כולו מתעניין במה שקורה כאן הרבה יותר ממה שקורה במקומות אחרים. כששלושה יהודים נהרגים בתקרית בגבול – כל העולם יודע. כשבמלחמה רחוקה נהרגים אלפים – כמעט אף אחד לא יודע כמה, וכמעט אף אחד לא שואל.</p>
+<p>וכך נוצר רושם הפוך מהמציאות. אם בודקים באמת את הנתונים, בכמה מקומות בעולם נהרגים אנשים, איפה יותר בטוח ואיפה פחות, מתברר שארץ ישראל היא מהמדינות הבטוחות בעולם.</p>
+<p>זה לא אומר להעלים את מה שקורה. אף אחד לא צריך לטעון שאין פיגועים. אבל מי שמספר, צריך לספר בפרופורציה: "כן, יש. ובכל זאת, בוא תבדוק את התמונה כולה."</p>
+<p class="bold-para">אמת בלי פרופורציה יכולה להיות דיבה.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: על האדמה, או גם על היושבים בה? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">💚</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">למה זה אסור?</h2></div></div>
+<p class="chapter-intro">כדי לדעת מה אסור, צריך קודם להבין מה בדיוק התורה רוצה מאיתנו כלפי הארץ.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">על האדמה, או גם על היושבים בה?</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה גדולה עומדת בבסיס כל ההלכות האלה: האם דיבת הארץ היא רק דיבור על האדמה עצמה – "ארץ אוכלת יושביה", האקלים, הפירות? או שהיא כוללת גם דיבור על תושבי הארץ, על השלטון, על הממשלה?</p>
+<p>זה תלוי בשאלה למה בכלל אסור. אם האיסור הוא בגלל שהקדוש ברוך הוא נתן לנו מתנה טובה ומי שמגנה אותה כאילו אומר שהמתנה לא טובה – אז אפשר היה לומר: על האנשים מותר לדבר, הרי אותם לא אלוקים עשה כך, אלא הם עצמם.</p>
+<p>אבל אם האיסור הוא בגלל שהדיבור גורם לאנשים להתרחק מארץ ישראל, לא לבוא אליה, לא לאהוב אותה – אז אין הבדל בין דיבור על האדמה לדיבור על היושבים בה.</p>
+<p>והעיקר להלכה הוא הצד השני: <strong>האיסור כולל גם דיבור על התושבים ועל השלטון</strong>, כי עיקרו אינו המתנה עצמה, אלא מה שהדיבור עושה ללב של השומעים.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: ואהבת לרעך – ואהבת את הארץ ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ואהבת לרעך – ואהבת את הארץ</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגאון רבי דוד מן, ראש ישיבה ברכסים, הגדיר את היסוד הזה בצורה יפה מאוד. אין איסור לדבר על שום ארץ אחרת. אז מה מיוחד בארץ ישראל?</p>
+<p>קודם כול, הוא שואל: למה אסור לדבר רע על החבר? כי התורה ציוותה:</p>
+<blockquote>"וְאָהַבְתָּ לְרֵעֲךָ כָּמוֹךָ" (ויקרא יט, יח)</blockquote>
+<p>ואם יש מצווה לאהוב כל יהודי, אז לשון הרע היא ההפך הגמור שלה. אי אפשר לדבר רע על מישהו ולאהוב אותו באותו זמן. הדיבור הרע הורס את האהבה.</p>
+<p>ואותו דבר בארץ ישראל. יש מצווה לחבב את הארץ. התורה מאריכה שוב ושוב בשבחה – "טובה הארץ מאד מאד", וכשמשה רבנו מזמין את חותנו להצטרף אליהם הוא אומר: "לְכָה אִתָּנוּ וְהֵטַבְנוּ לָךְ כִּי ה' דִּבֶּר טוֹב עַל יִשְׂרָאֵל" (במדבר י, כט). כל השבחים האלה נכתבו כדי שנאהב אותה.</p>
+<p class="bold-para">מי שמדבר דיבורים שגורמים לאחרים להפסיק לאהוב את הארץ – עובר על דיבת הארץ, כי הקדוש ברוך הוא רוצה שנאהב אותה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: האם מותר לספר על פיגוע? ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">האם מותר לספר על פיגוע?</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באותה חוברת ישנה נכתב שאולי אסור אפילו לספר על פיגוע שקרה, אלא אם כן יש בזה תועלת ודאית, כי כל סיפור כזה מוריד מעט מחיבת הארץ.</p>
+<p>אבל בפשטות אין לאדם איסור לספר על פיגוע שקרה. ראשית, זה דבר מפורסם שכולם יודעים. ושנית, אף אחד לא מספר על פיגוע כדי לזלזל בארץ ישראל. מספרים כי זה אירוע מזעזע, כי זה כואב, כי לב יהודי מתעורר כשיהודי נפגע.</p>
+<p>סיפור אחד על אירוע אחד לא גורם לאדם לשנוא את ארץ ישראל. מה שמרחיק הוא התמונה המצטברת – כשמספרים רק את זה, שוב ושוב, בלי שום דבר טוב לצידו, ובלי פרופורציה.</p>
+<div class="honey-box">🍯 מותר לספר על כאב. האיסור מתחיל כשהכאב הופך למסקנה: "אל תבואו לשם".</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: דבר שכולם יודעים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">☀️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">רבי אמי ורבי אסי עוברים לצל</h2></div></div>
+<p class="chapter-intro">סיפור קטן בסוף מסכת כתובות, ומחלוקת גדולה על מה שאפשר ללמוד ממנו.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">דבר שכולם יודעים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בהלכות לשון הרע על אדם יש כלל: אם הדבר כבר ידוע לכולם, והמספר לא מתכוון לגנות, אין בזה איסור. אדם שמספר על משהו שפורסם בחדשות על אישיות ציבורית – לא כדי להשמיץ אותו, אלא כי זה מעניין, כי כולם מדברים על זה – לא עובר על איסור.</p>
+<p>למה? כי לשון הרע אסורה מסיבה כפולה: היא גורמת נזק לנפגע, והיא מרחיקה את השומע מלאהוב אותו. אבל אם הדבר כבר ידוע לכולם, הסיפור לא מוסיף נזק, ואם אין כוונה להשמיץ, הוא גם לא מרחיק.</p>
+<p>עם זאת, גם כשאין איסור, אין בזה מידה טובה. הנביא אומר: "וְאִישׁ אֶת רָעַת רֵעֵהוּ אַל תַּחְשְׁבוּ בִּלְבַבְכֶם" (זכריה ח, יז). ובספר חובות הלבבות מסופר על חסיד שעבר עם תלמידיו ליד נבלה של כלב. כולם אמרו: "כמה מסריחה הנבלה הזו!" והוא אמר: "ראו כמה לבנות שיניה!"</p>
+<p class="bold-para">אין מצווה לספר את כל החדשות הרעות. גם בתוך הרע אפשר לחפש את הנקודה הלבנה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: החידוש: בארץ ישראל גם זה אסור? ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">החידוש: בארץ ישראל גם זה אסור?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באותה חוברת ישנה נכתב חידוש: בדיבת הארץ מצאנו חומרה יתירה על לשון הרע רגילה. על אדם – דבר שידוע לכל ואין כוונה לגנות, מותר. אבל על ארץ הקודש – גם דבר שידוע לכל וגם בלי כוונה לגנות, אסור לגמרי, כי זה גורם לחיסרון בחיבת הארץ.</p>
+<p>ומאיפה החידוש הזה? מסיפור שמובא בגמרא בדף האחרון של מסכת כתובות (קיב, א). רבי אמי ורבי אסי, מגדולי האמוראים, ישבו ולמדו בארץ ישראל. כשהשמש הגיעה אליהם והתחיל להיות חם, הם קמו ועברו לצל. וכשהתקרר בצל, עברו בחזרה לשמש.</p>
+<p>למה? כדי שלא יבואו לומר שקשה לשבת בארץ ישראל – שחם מדי, או קר מדי.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: לימוד בלי הפסקה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לימוד בלי הפסקה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדאי לדמיין את התמונה. בדורות ההם לא היו הפסקות כמו היום. היו יושבים ולומדים מהבוקר ועד הצהריים, שעות רצופות, וזה לא נחשב משהו מיוחד. גם כשהיה חם, לא הפסיקו. החום לא היה סיבה לוותר על הלימוד.</p>
+<p>ומתי הייתה הבעיה? בסביבות אמצע היום, כשהשמש מגיעה למקום שבו יושבים. אם היו ממשיכים לשבת, הלומדים היו יוצאים בסוף ואומרים: "כמה חם בארץ ישראל! כמה קשה כאן!"</p>
+<p>אז מה עשו? הפסקה קצרה, וכולם עוברים לצד השני. לא היה שם מזגן. היה צל – וזה היה המזגן הכי טוב שהיה אז.</p>
+<p>וכל זה רק כדי שאיש לא יצא עם תחושה שקשה לחיות בארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: קושיית הסבא מסלבודקה ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">קושיית הסבא מסלבודקה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הסבא מסלבודקה שאל על הסיפור הזה שאלה חדה: מה הבעיה אם מישהו יאמר שחם בארץ ישראל? הרי זה דבר ידוע לכל! מי לא יודע שחם בקיץ בטבריה? ובהלכות לשון הרע, דבר שידוע לכולם מותר לספר.</p>
+<p>מכאן רצה להוכיח שבדיבת הארץ יש חומרה מיוחדת: גם דבר שכולם יודעים אסור לומר, אם הוא גורם לחיבת הארץ להיחלש.</p>
+<p>אבל נראה שאין הכרח ללמוד כך להלכה. ויש כלל חשוב בלימוד הגמרא: <strong>תמיד לשים לב באיזו מסכת ובאיזה הקשר מופיע הסיפור.</strong> סיפור שמובא בהלכות שבת מלמד משהו על שבת. סיפור שמובא בהלכות דרך ארץ מלמד על דרך ארץ.</p>
+<p>והסיפור הזה לא מופיע בסוגיית לשון הרע בסוף מסכת ערכין. הוא מופיע בסוף מסכת כתובות.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: מה עושה הסיפור בסוף כתובות ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה עושה הסיפור בסוף כתובות</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף מסכת כתובות הגמרא עוסקת בשאלה מה קורה כשאחד מבני הזוג רוצה לעלות לארץ ישראל והשני לא – וקובעת שהכל מעלים לארץ ישראל. ומשם היא ממשיכה ומאריכה בגודל מעלתה של הארץ, ומספרת על האמוראים ועל המעשים שעשו כדי להראות את אהבתם אליה.</p>
+<p>אחד מהם, מסופר שם, היה מתקן את המכשולים בדרכים. כשראה אבן באמצע הדרך, היה מסלק אותה – כדי שלא יאמרו שדרכי ארץ ישראל מקולקלות.</p>
+<p>בתוך הרצף הזה מגיע הסיפור על רבי אמי ורבי אסי. הוא לא בא ללמד הלכה בדיני לשון הרע. הוא בא ללמד מעלה: עד כמה גדולי ישראל חיפשו דרכים לגרום לאנשים לאהוב את הארץ, ולהרגיש בה נעים.</p>
+<p class="bold-para">לא כל מה שגדולים נזהרו בו הוא איסור. לפעמים זו דוגמה לאהבה.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: המשגיח שהרים בקבוקים ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">המשגיח שהרים בקבוקים</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה מימינו: משגיח ישיבה מוכר בירושלים, תלמיד חכם גדול, היה רגיל ללכת ברגל מהישיבה הביתה. ובדרך היה לו מנהג קבוע: כל בקבוק שראה מושלך על המדרכה – הרים.</p>
+<p>לא בהסתר, לא בלילה כשאף אחד לא רואה. באמצע היום, ברחוב. אפשר היה לחשוב שזה לא מכובד, שרב חשוב מתכופף להרים בקבוקים. אבל זה לא הפריע לו.</p>
+<p>כששאלו אותו, הסביר בשתי סיבות. האחת: "אני רוצה שארץ ישראל תהיה יפה. מה אני יכול לעשות? לפחות להרים את מה שמונח לפניי." והשנייה: את הבקבוקים היה מעביר למחזור – "אם אפשר לעשות מזה משהו טוב לעולם, למה לא?"</p>
+<div class="honey-box">🍯 כל אחד יכול למצוא את ה"בקבוק" שלו – דבר קטן שהוא עושה כדי שהארץ תהיה יפה יותר.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: &quot;מזגן דרבי אמי ורבי אסי&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">❄️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">המזגן של רבי אמי ורבי אסי</h2></div></div>
+<p class="chapter-intro">אם הגמרא מלמדת שיש עניין שיהיה נעים לגור בארץ ישראל, אפשר לקיים את זה גם בדברים פשוטים מאוד.</p>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;מזגן דרבי אמי ורבי אסי&quot;</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רב ידוע סיפר שבשנות השמונים נכנס לבית אחד, ומצא שם מזגן. צריך לזכור: באותן שנים מזגן היה דבר נדיר. גם עשור אחר כך, בהרבה בתי ספר לא היה מזגן אפילו בכיתה אחת, ואולי רק בחדר המנהל.</p>
+<p>על המזגן הודבק שלט: "מזגן דרבי אמי ורבי אסי". הרב לא הבין. מה זה? חברה חדשה?</p>
+<p>בעל הבית הסביר: "מזגנים היו אז יקרים מאוד, ולא רציתי להשקיע בזה. אבל אני אדם שסובל מאוד מהחום. ואז קראתי את הגמרא, וראיתי שיש עניין שיהיה לאדם נעים לשבת בארץ ישראל, שלא יבוא לומר שקשה לגור כאן. ידעתי שאם אקנה מזגן, יהיה לי הרבה יותר נעים. אז קניתי. וכדי לזכור למה – כתבתי עליו את השם הזה."</p>
+<p class="bold-para">מה שרבי אמי ורבי אסי עשו בצל, הוא עשה במזגן.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: האם יש מצווה לקנות בית יפה? ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">האם יש מצווה לקנות בית יפה?</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכאן מגיעה שאלה מעניינת שנשאלה פעם: האם יש מצווה לקנות בית יפה בארץ ישראל, כדי שיהיה נעים לגור בה?</p>
+<p>התשובה תלויה בכוונה. בדרך כלל אדם קונה בית יפה כי הוא רוצה ליהנות, בלי לחשוב על ארץ ישראל בכלל. אבל אם הוא באמת מכוון לכך – שיהיה לו טוב בארץ, שירגיש בה בבית, שלא יבוא לומר שקשה כאן – אז זו באמת תהיה כוונתו, וזה באמת יהיה העניין.</p>
+<p>כך גם בכל דבר: שולחן נאה, גינה מטופחת, שכונה נקייה. כל דבר שעושה את החיים בארץ ישראל נעימים יותר יכול להיות חלק מהמצווה לחבב אותה – אם רק מכוונים.</p>
+<div class="honey-box">🍯 אותו מזגן, אותה דירה – והכוונה הופכת אותם לחלק מאהבת הארץ.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: קופסת הטבק של האדמו״ר מסלונים ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">קופסת הטבק של האדמו״ר מסלונים</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סיפור יפה מסופר על אחד מאדמו״רי סלונים בחוץ לארץ. כמו אדמו״רים רבים בדורות ההם, הייתה לו קופסת טבק – לא סתם קופסה, אלא קופסה מיוחדת, מכובדת, אולי כזו שעברה מדור לדור. יום אחד היא נעלמה, והרבי הצטער מאוד.</p>
+<p>לימים נסע אחד החסידים לארץ ישראל, לטבריה, שם ישבו חסידי סלונים רבים. הוא נכנס לבית של אחד מהם, ולא האמין למראה עיניו: הקופסה של הרבי מונחת על השולחן. התברר שאותו אחד גבר עליו יצרו ולקח אותה.</p>
+<p>החסיד החזיר את הקופסה לרבי בשמחה. אבל הרבי אמר לו: "תשאיר אותה אצלך." החסיד הופתע, והרבי הסביר: "אם אחזיק אותה, יאמרו: הנה הקופסה שחזרה מארץ ישראל. ומי שיראה אותה ייזכר ביהודי שלקח אותה, ועוד יאמרו שבארץ ישראל גרים גנבים. אני לא רוצה שייצא שם רע על יהודי ארץ ישראל."</p>
+<p class="bold-para">זה לא איסור. זו זהירות מאבק דיבת הארץ – מתוך אהבה.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: המלך שנזהר בלשונו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">ארץ כארצכם</h2></div></div>
+<p class="chapter-intro">ומה שזכה לו אפילו מלך אויב, רק מפני שלא דיבר בגנות הארץ.</p>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המלך שנזהר בלשונו</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשסנחריב מלך אשור עלה על ירושלים, שליחו רבשקה עמד מול חומות העיר וקרא לעם להיכנע, והבטיח:</p>
+<blockquote>"עַד בֹּאִי וְלָקַחְתִּי אֶתְכֶם אֶל אֶרֶץ כְּאַרְצְכֶם" (מלכים ב יח, לב)</blockquote>
+<p>הוא רצה לשכנע אותם לצאת לגלות. היה אפשר לצפות שיאמר "ארץ יפה מארצכם", ארץ טובה יותר. אבל הוא לא אמר. הוא אמר רק "כארצכם" – כמו שלכם. הוא לא דיבר בגנות ארץ ישראל.</p>
+<p>ובגמרא (סנהדרין צד, א) מובא שבזכות זה זכה לשם של כבוד. הוא נקרא בספר עזרא "אָסְנַפַּר רַבָּא וְיַקִּירָא" (עזרא ד, י) – הגדול והחשוב.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: קל וחומר למי שמספר בשבחה ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קל וחומר למי שמספר בשבחה</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואם מלך רשע, שבא להגלות את ישראל מארצם, זכה לכבוד כזה רק מפני שנמנע מלדבר בגנותה – קל וחומר מי שמספר בשבחה.</p>
+<p>זה התפקיד שהתורה מטילה עלינו כשהיא מספרת שוב ושוב על חטא המרגלים: לא רק להיזהר מאוד שלא לדבר רע, אלא להפך – לחפש תמיד את הטוב. יש יהודים שאוהבים את הארץ אהבה גדולה, ותמיד מחפשים עוד דבר טוב לספר עליה. יש ברוך ה' ספרים שלמים שמספרים כמה מיוחדת ארץ ישראל.</p>
+<p>התורה מבטיחה:</p>
+<blockquote>"וְהֵיטִבְךָ וְהִרְבְּךָ מֵאֲבֹתֶיךָ" (דברים ל, ה)</blockquote>
+<p>והנה רואים את זה בעינינו: ארץ ישראל היא המקום שבו העם היהודי גדל ומתרבה משנה לשנה, יותר מכל מקום אחר בעולם.</p>
+<p class="bold-para">להודות לה' על המתנה הטובה שנתן לאבותינו ולנו – ולספר עליה רק טוב.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
