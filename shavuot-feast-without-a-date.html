@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🗓️ חלק א: חג בלי תאריך – למה שבועות נחגג במספר חמישים</title>
+<meta name="description" content="מסוד המספר חמש והגאולה שצומחת לאט, דרך שלוש המתנות שרבי שמעון בר יוחאי גילה והשער החמישים, ועד התשובה לשאלה למה התורה לא קבעה לשבועות תאריך">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🗓️ חלק א: חג בלי תאריך – למה שבועות נחגג במספר חמישים</h1>
+  <p class="hero-subtitle">מסוד המספר חמש והגאולה שצומחת לאט, דרך שלוש המתנות שרבי שמעון בר יוחאי גילה והשער החמישים, ועד התשובה לשאלה למה התורה לא קבעה לשבועות תאריך</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-13 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/75m4oEZhQV4" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🗓️ חג אחד בלי תאריך</a><ul class="toc-stories"><li><a href="#story-1">החג היחיד שאין לו תאריך</a></li><li><a href="#story-2">קושיית המגן אברהם: יום חמישים או חמישים ואחד?</a></li><li><a href="#story-3">חמישים בכל מקום</a></li><li><a href="#story-4">מה עניין שמיטה אצל הר סיני?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">✋ חמש – מספר הגאולה</a><ul class="toc-stories"><li><a href="#story-5">ל&quot;ג בעומר: היום החמישי בשבוע החמישי</a></li><li><a href="#story-6">ארבע רוחות ונקודה אחת</a></li><li><a href="#story-7">היד שאוחזת – והאגודה</a></li><li><a href="#story-8">צמח: גאולה שצומחת לאט לאט</a></li><li><a href="#story-9">מחמש לחמישים: שלמות הגאולה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🎁 שלוש מתנות שהן אחת</a><ul class="toc-stories"><li><a href="#story-10">מתנות שנקנות בייסורים</a></li><li><a href="#story-11">שלושה ראשים שיורדים לאחד</a></li><li><a href="#story-12">&quot;אחת שאלתי&quot; – סוד האר&quot;י</a></li><li><a href="#story-13">ברית: לדעת לקבל את המתנה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🎶 &quot;ואמרתם כה לחי&quot; – הבן איש חי במירון</a><ul class="toc-stories"><li><a href="#story-14">מי חיבר את השיר?</a></li><li><a href="#story-15">למה &quot;בן איש חי&quot;?</a></li><li><a href="#story-16">אהבת ארץ ישראל שנטע בקהילתו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🚪 השער החמישים</a><ul class="toc-stories"><li><a href="#story-17">&quot;שבע שבתות סוד חמשים&quot;</a></li><li><a href="#story-18">משה רבנו והשער שנעלם</a></li><li><a href="#story-19">הר נבו – נו&quot;ן בו</a></li><li><a href="#story-20">רבי שמעון זכה בחייו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌾 חג שחוגג שתי מתנות</a><ul class="toc-stories"><li><a href="#story-21">חג הקציר או חג מתן תורה?</a></li><li><a href="#story-22">עבודה או מתנה?</a></li><li><a href="#story-23">איזה תאריך היה מתאים לארץ ישראל?</a></li><li><a href="#story-24">חמישים: היום של שתי המתנות</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🗓️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">חג אחד בלי תאריך</h2></div></div>
+<p class="chapter-intro">יום אחרי ל"ג בעומר, באמצע ספירת העומר, עולה שאלה פשוטה שמסתתר מאחוריה סוד גדול: למה דווקא שבועות הוא החג היחיד שאין לו יום קבוע בלוח?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החג היחיד שאין לו תאריך</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פסח חל בט"ו בניסן, ראש השנה באחד בתשרי, סוכות בט"ו בתשרי. לכל חג יש תאריך. רק חג אחד יוצא דופן: שבועות. התורה לא אומרת "בשישי לחודש השלישי", אלא מצווה לספור:</p>
+<blockquote>עד ממחרת השבת השביעת תספרו חמשים יום (ויקרא כג, טז)</blockquote>
+<p>בזמן שקידשו את החודש על פי ראייה, החודשים ניסן ואייר היו לפעמים מלאים ולפעמים חסרים, וממילא שבועות יצא לפעמים בחמישה בסיון, לפעמים בשישה ולפעמים בשבעה – כך מובא בגמרא בראש השנה (ו, ב). החג לא נקבע לפי הלוח, אלא לפי הספירה.</p>
+<p class="bold-para">שבועות הוא חג של מספר, לא חג של תאריך.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: קושיית המגן אברהם: יום חמישים או חמישים ואחד? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קושיית המגן אברהם: יום חמישים או חמישים ואחד?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן קושיה מפורסמת. לפי החשבון שבגמרא במסכת שבת, משה רבנו הוסיף יום אחד מדעתו, והתורה ניתנה בשבעה בסיון – ביום החמישים ואחד לספירה. המגן אברהם מקשה: אם כך, איך אנחנו חוגגים את "זמן מתן תורתנו" בשישה בסיון?</p>
+<p>השאלה הזו נראית חשבונית, אבל בסוף הדרך יתברר שהיא נעלמת מעצמה. כשמבינים מה מסמל המספר חמישים, מבינים שאין "אחרי" חמישים. מי שהגיע לגג – אין מעליו עוד קומה.</p>
+<div class="honey-box">🍯 לפעמים קושיה של מספרים נפתרת רק כשמבינים מה המספר מסמל.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: חמישים בכל מקום ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חמישים בכל מקום</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התקופה הזו כולה מלאה במספר חמישים. בל"ג בעומר שרים בשיר "בר יוחאי" את המילים "שבע שבתות סוד חמשים". אנחנו באמצע ספירה של חמישים יום. ובפרשות השבוע של הימים האלה – בהר ובחוקותי – חמישים מופיע שוב ושוב.</p>
+<p>פרשת בהר פותחת בשמיטה ובשנת היובל: סופרים שבע שמיטות, ושנת החמישים היא שנת חירות. פרשת בחוקותי מסתיימת בדיני ערכין: מי שמקדיש שדה, פודה אותו לפי "זרע חמר שערים בחמשים שקל כסף" (ויקרא כז, טז), ומי שמעריך אדם בגיל העבודה – "חמשים שקל כסף".</p>
+<p><strong>ל"ג בעומר, הספירה, היובל והערכין – כולם מצביעים על אותו מספר.</strong> ואם הכול מצביע עליו, כנראה שיש בו סוד אחד שעובר דרך כולם.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: מה עניין שמיטה אצל הר סיני? ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה עניין שמיטה אצל הר סיני?</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פרשת בהר פותחת במילים:</p>
+<blockquote>וידבר ה' אל משה בהר סיני לאמר (ויקרא כה, א)</blockquote>
+<p>ומיד באה השאלה שהפכה לפתגם: "מה עניין שמיטה אצל הר סיני?" למה דווקא על שמיטה התורה מדגישה שנאמרה בסיני?</p>
+<p>רש"י עונה: כמו שהשמיטה נאמרה בכלליה ובפרטיה מסיני, כך כל המצוות נאמרו בכלליהן ובפרטיהן מסיני. אבל כל מי שקורא את רש"י שואל: נכון, אבל למה דווקא שמיטה? אפשר היה ללמוד את זה מכל מצווה אחרת.</p>
+<p>השאלה הזו נשארת פתוחה בינתיים. דרך סוד המספר חמישים היא תקבל תשובה יפה ופשוטה – שהשמיטה והר סיני שייכים לאותו עולם.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ל&quot;ג בעומר: היום החמישי בשבוע החמישי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">✋</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">חמש – מספר הגאולה</h2></div></div>
+<p class="chapter-intro">לפני החמישים צריך להכיר את אחיו הקטן, המספר חמש. המהר"ל, שמלמד רעיונות עמוקים של קבלה בשפה פשוטה וברורה, חוזר שוב ושוב על כך שחמש הוא סוד הגאולה.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ל&quot;ג בעומר: היום החמישי בשבוע החמישי</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ל"ג בעומר הוא היום השלושים ושלושה לעומר: ארבעה שבועות וחמישה ימים. כלומר – היום החמישי בשבוע החמישי. זה לא פרט חשבוני בלבד. אם חמש הוא מספר הגאולה, הרי שהיום הזה, שבו שמחים בגילוי אורו של רבי שמעון בר יוחאי, טבוע כולו בחותם הגאולה.</p>
+<p>המהר"ל מביא דוגמאות רבות למספר חמש בגאולה. עם ישראל היה במצרים ארבע מאות שנה, ויצא בתחילת המאה החמישית. ובפרשת וארא נאמרות חמש לשונות של גאולה: והוצאתי, והצלתי, וגאלתי, ולקחתי, והבאתי. הלשון החמישית – "והבאתי אתכם אל הארץ" – היא השלמת הגאולה.</p>
+<div class="honey-box">🍯 הגאולה מתחילה ביציאה, ומגיעה לשלמותה רק בלשון החמישית – כשמגיעים הביתה.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: ארבע רוחות ונקודה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ארבע רוחות ונקודה אחת</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה דווקא חמש? המהר"ל מסביר במשל פשוט. הגלות היא פיזור: עם ישראל מפוזר לארבע רוחות השמים, כל חלק בפינה אחרת של העולם. ארבע הוא מספר הפיזור.</p>
+<p>עכשיו שימו נקודה אחת באמצע, בין ארבע הרוחות. הנקודה הזו היא החמישית, והיא זו שמאחדת את כולן. ארבע הפינות מתכנסות אליה.</p>
+<p>זו בדיוק הגאולה: הקדוש ברוך הוא אוסף אותנו מארבע כנפות הארץ ומביא אותנו אל נקודה אחת – ארץ ישראל. לכן חמש הוא המספר של הגאולה. הוא לא עוד פריט בשורה, אלא המרכז שמחבר את כל הפריטים.</p>
+<p class="bold-para">ארבע זה פיזור; חמש זה איחוד.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: היד שאוחזת – והאגודה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">היד שאוחזת – והאגודה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לראות את הרעיון הזה ביד של כל אדם. ארבע אצבעות עומדות בצד אחד, והאצבע החמישית – האגודל – עומדת מולן. בלי האגודל אי אפשר לאחוז שום דבר. היא זו שמאחדת את ארבע האצבעות לכף יד אחת שתופסת ומחזיקה.</p>
+<p>המהר"ל מסביר כך גם משנה במסכת אבות (ג, ו): "ומנין אפילו חמשה? שנאמר ואגדתו על ארץ יסדה". המפרשים התקשו: איפה רמוז כאן המספר חמש? אבל לפי המהר"ל זה פשוט: "אגודה" היא איחוד, וכל איחוד של ארבעה צדדים לאחד – הוא חמש.</p>
+<div class="honey-box">🍯 כשחמישה יושבים יחד ולומדים תורה, הם כבר לא חמישה אנשים נפרדים, אלא אגודה אחת – והשכינה שורה ביניהם.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: צמח: גאולה שצומחת לאט לאט ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">צמח: גאולה שצומחת לאט לאט</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מדרש על חמש האותיות הסופיות – מנצפ"ך – שכל אחת מהן רומזת לגאולה. אברהם אבינו נגאל ב"לך לך" – כ"ף כפולה. גאולת מצרים באה ב"פקד פקדתי" – פ"א כפולה. והגאולה האחרונה רמוזה בצד"י: "את צמח דוד עבדך מהרה תצמיח".</p>
+<p>למה דווקא צמח? כי צמח לא מופיע ברגע אחד. זורעים, מחכים, ובהתחלה לא רואים כלום. אחר כך מבצבץ נבט קטן, ועוד עלה, ולאט לאט צומח עץ שלם.</p>
+<p>כך הגאולה של דורנו. היא איננה כמו גאולת מצרים, שבה יצאו בבת אחת בלילה אחד, וגם לא כמו גאולת בבל. היא תהליך: צומחת, נבנית, לוקחת זמן. מי שמחפש רק את הרגע הגדול עלול לפספס את הצמח שכבר גדל לנגד עיניו.</p>
+<p class="bold-para">הגאולה שלנו היא צמח – לא זיקוק.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מחמש לחמישים: שלמות הגאולה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מחמש לחמישים: שלמות הגאולה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם חמש הוא סוד הגאולה, מובן למה חוגגים את שלמות הגאולה ביום החמישים. פסח הוא תחילת הגאולה – יציאה מעבדות. שבועות הוא שלמותה – קבלת התורה.</p>
+<p>התורה עצמה היא גאולה. אדם בלי תורה הוא עבד ליצר שלו: הוא עושה מה שהטבע דוחף אותו לעשות. התורה נותנת לו כוח לעשות מה שהוא מבין שנכון – וזו החירות האמיתית. ובתורה יש חמישה חומשים, כי היא גואלת את האדם.</p>
+<p>לכן החג ביום החמישים, לכן היובל בשנת החמישים, ולכן שנת היובל היא שנת דרור. חמש וחמישים שורש אחד להם.</p>
+<div class="honey-box">🍯 "אין לך בן חורין אלא מי שעוסק בתורה" – החירות האמיתית מתחילה כשאדם שולט בעצמו.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: מתנות שנקנות בייסורים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🎁</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">שלוש מתנות שהן אחת</h2></div></div>
+<p class="chapter-intro">המאמר הראשון של רבי שמעון בר יוחאי בגמרא מגלה משהו על סוד גדולתו – ועל שלוש המתנות שכולן שייכות לעולם החמישים.</p>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מתנות שנקנות בייסורים</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בגמרא במסכת ברכות (ה, א) נאמר:</p>
+<blockquote>רבי שמעון בן יוחאי אומר: שלש מתנות טובות נתן הקדוש ברוך הוא לישראל, וכולן לא נתנן אלא על ידי יסורין. אלו הן: תורה, וארץ ישראל, והעולם הבא.</blockquote>
+<p>כל אחד שואל היום: למה דווקא רבי שמעון? אין צדיק אחר שהמונים כאלה נוהרים אליו, שעומדים שעות בדרך כדי להגיע לקברו. רבי שמעון עצמו כאילו עונה: דע לך איך זוכים למתנות הגדולות – על ידי ייסורים.</p>
+<p>הוא חי שנים ארוכות במערה, בלי שום נוחות, אוכל מן החרוב ושותה ממעיין המים, ולומד תורה. הייסורים, כשאדם לא בועט בהם, הופכים לכלי שמקבל שפע אלוקי.</p>
+<p class="bold-para">הקושי איננו סוף הדרך. הוא הכלי שבו מקבלים את המתנה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: שלושה ראשים שיורדים לאחד ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שלושה ראשים שיורדים לאחד</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לא במקרה מנה רבי שמעון את שלוש המתנות יחד. הן לא שלוש מתנות נפרדות, אלא שלושה ענפים של שורש אחד.</p>
+<p>בתפילין של ראש יש שי"ן שיש לה שלושה ראשים, וכולם יורדים ומתאחדים בבסיס אחד. כך תורה, ארץ ישראל ועולם הבא: מלמעלה נראים כשלושה, אבל בשורשם הם אחד. ואחד בלי השניים האחרים – חסר מאוד.</p>
+<p>תורה בלי ארץ ישראל איננה שלמה, וארץ ישראל בלי תורה איננה שלמה. מי שמחזיק רק בענף אחד ושוכח את האחרים – מחזיק בחלק מהמתנה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;אחת שאלתי&quot; – סוד האר&quot;י ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אחת שאלתי&quot; – סוד האר&quot;י</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוד המלך אומר בתהלים (כז, ד):</p>
+<blockquote>אחת שאלתי מאת ה' אותה אבקש, שבתי בבית ה' כל ימי חיי, לחזות בנעם ה' ולבקר בהיכלו</blockquote>
+<p>כולם שואלים: הוא אומר "אחת", ומיד מונה רשימה שלמה של בקשות. מובא בשם האר"י ז"ל רמז נפלא: "אחת" היא ראשי תיבות של <strong>א</strong>רץ ישראל, <strong>ח</strong>יי עולם הבא, <strong>ת</strong>ורה – שלוש המתנות של רבי שמעון.</p>
+<p>דוד המלך מבקש אחת, כי בשורש זו בקשה אחת. רק בפועל היא מתפצלת לשלוש: ללמוד תורה, לשבת בארץ ישראל, לזכות לחיי עולם הבא. מי שמבקש באמת אחת מהן – מבקש את שלושתן.</p>
+<div class="honey-box">🍯 כשדוד אומר "אחת", הוא מלמד שהמתנות הגדולות אינן מתחרות זו בזו – הן אחת.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: ברית: לדעת לקבל את המתנה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ברית: לדעת לקבל את המתנה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ברית היא הסכם בין שני צדדים: אני מתחייב כך ואתה מתחייב כך. ברית איננה הסכם חד צדדי. הקדוש ברוך הוא כרת ברית עם אברהם אבינו, ונתן לזרעו את ארץ ישראל ואת היותו אלוקיהם. מה הצד שלנו בברית?</p>
+<p>אפשר לומר כך: הקדוש ברוך הוא יכול לתת את ארץ ישראל על מגש של כסף, אבל צריך מי שיידע לקבל. מתנה שאין מי שיקבל אותה – נשארת באוויר. החלק שלנו בברית הוא להיות כלי, לדעת לקבל את מה שנותנים לנו.</p>
+<p>כך ראו בעיניים משפחות שעזבו הכול – בית, עבודה, ארץ נוחה – ועלו לארץ ישראל. זו ברית אמיתית: לא רק לקבל מתנה, אלא לפתוח את הידיים ולקחת אותה.</p>
+<p class="bold-para">הקדוש ברוך הוא נותן; אנחנו צריכים לדעת לקבל.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מי חיבר את השיר? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🎶</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">&quot;ואמרתם כה לחי&quot; – הבן איש חי במירון</h2></div></div>
+<p class="chapter-intro">שני שירים מלווים את ל"ג בעומר: "בר יוחאי" ו"ואמרתם כה לחי". לשיר השני יש סיפור של אהבת ארץ ישראל.</p>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מי חיבר את השיר?</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את "בר יוחאי" חיבר המקובל רבי שמעון לביא. את "ואמרתם כה לחי" – שיר שכל ילד בישראל מכיר – חיבר רבי יוסף חיים מבגדד, הבן איש חי.</p>
+<p>הבן איש חי עלה לביקור בארץ ישראל. הוא סייר בה, הגיע למקומות הקדושים, וכשהגיע למירון – חיבר שם את השיר. כך יצא שהשיר שמלווה את ההילולא נולד במקום עצמו, מתוך התרגשות של מי שזכה לעמוד ליד קברו של רבי שמעון.</p>
+<div class="honey-box">🍯 בפעם הבאה ששרים "ואמרתם כה לחי" – כדאי לזכור שהוא נכתב במירון, בידי מי שהגיע ממרחקים כדי לעמוד שם.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: למה &quot;בן איש חי&quot;? ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה &quot;בן איש חי&quot;?</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספר שמואל (ב כג, כ) נאמר על אחד מגיבורי דוד:</p>
+<blockquote>ובניהו בן יהוידע בן איש חי רב פעלים מקבצאל</blockquote>
+<p>בביקורו בארץ הגיע הבן איש חי לסביבות צפת, אל המקום שבו לפי המסורת קבור בניהו בן יהוידע. שם, כך מספרים, התגלה לו שנשמתו קשורה לשורש נשמתו של בניהו.</p>
+<p>מאז קרא לספריו על שם הפסוק הזה: "בן איש חי" על ההלכה, "רב פעלים" בשאלות ותשובות, "בניהו" ו"בן יהוידע" על האגדות שבש"ס. שמות הספרים, שמוכרים בכל בית בישראל, נולדו מאותו ביקור בארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: אהבת ארץ ישראל שנטע בקהילתו ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אהבת ארץ ישראל שנטע בקהילתו</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הבן איש חי אהב את ארץ ישראל אהבה עצומה, ונטע אותה בלב יהודי עיראק. כל מי שעלה לארץ קיבל ממנו עידוד והתלהבות. הוא שלח תלמידי חכמים לארץ, ושכנע נדיבים לתמוך בלומדי התורה שבה.</p>
+<p>הזרע הזה נבט. כשנפתחו שערי הארץ, עלתה כמעט כל יהדות עיראק לארץ ישראל. לא חצי, לא שליש, ולא רבים שבחרו ארצות נוחות יותר – כמעט כולם באו לכאן, למרות הקשיים שחיכו להם.</p>
+<p class="bold-para">מנהיג שנוטע אהבה לארץ ישראל – משנה את גורלה של קהילה שלמה, גם שנים רבות אחרי פטירתו.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: &quot;שבע שבתות סוד חמשים&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🚪</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">השער החמישים</h2></div></div>
+<p class="chapter-intro">"שבע שבתות סוד חמשים" – מה פירוש הדבר, ולמה זו מעלתו המיוחדת של רבי שמעון?</p>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;שבע שבתות סוד חמשים&quot;</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשיר "בר יוחאי" נאמר:</p>
+<blockquote>שבע שבתות סוד חמשים, קשרת קשרי שי"ן קשריך</blockquote>
+<p>כך מסבירים את המילים: שבע שבתות הספירה מביאות אל סוד החמישים, ורבי שמעון זכה לקשור את כל תורתו אל הסוד הזה. זו המעלה שבה משבחים אותו – הוא הגיע אל השער החמישים.</p>
+<p>כדי להבין כמה זה גדול, צריך לראות מה קרה למשה רבנו עם השער הזה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: משה רבנו והשער שנעלם ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">משה רבנו והשער שנעלם</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בגמרא בראש השנה (כא, ב) נאמר: "חמשים שערי בינה נבראו בעולם, וכולן נתנו למשה חוץ מאחד, שנאמר ותחסרהו מעט מאלוקים". הפסוק בתהלים נאמר על האדם כולו, וחז"ל קראו בו רמז למשה רבנו: "מעט" – בגימטריה ארבעים ותשעה. חסר לו שער אחד.</p>
+<p>יש מפרשים שמבארים שבתחילה, לפני חטא העגל, השיג משה את השער החמישים, וכשחטאו ישראל – נלקח ממנו. לכן נאמר לו אז "לך רד": רד ממעלתך, מן השער החמישים.</p>
+<p>ומשה לא חטא לעצמו. כל מה שעשה היה כדי להציל את עם ישראל, והוא ירד מדרגתו בשבילם.</p>
+<div class="honey-box">🍯 יש מי שמוותר על מדרגה גבוהה כדי להישאר עם עמו – וזו אולי המדרגה הגבוהה מכולן.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: הר נבו – נו&quot;ן בו ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הר נבו – נו&quot;ן בו</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני פטירתו נאמר למשה: "עלה אל הר העברים הזה הר נבו" (דברים לב, מט). מפרשים דורשים: "נבו" – נו"ן בו. החמישים בו. בפטירתו חזר משה והשיג את השער החמישים.</p>
+<p>למה דווקא בפטירה? כי העולם הזה מוגבל, והשער החמישים שייך לעולם הנשמות. ויש רמז יפה: כשמוסיפים נו"ן ל"משה" – מתקבלות אותיות "נשמה". כשמשה נעשה נשמה, נפתח לו השער החמישים.</p>
+<p class="bold-para">השער החמישים הוא השער של הנשמה – מעבר לגבולות העולם הזה.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: רבי שמעון זכה בחייו ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">רבי שמעון זכה בחייו</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה שמשה רבנו השיג רק בפטירתו, זכה רבי שמעון בר יוחאי לטעום – לפי פירוש השיר – עוד בחייו. זו מעלתו המיוחדת: הוא הגיע אל סוד החמישים כשהוא עוד בעולם הזה.</p>
+<p>מכאן מבינים כמה גדול המספר הזה. חמישים איננו עוד מספר בשורה. הוא שער לעולם שמעל העולם הזה – עולם הנשמות, העולם הבא. ובו ניתנה התורה: ביום החמישים. ובו נמדדת קדושת ארץ ישראל: בשנת החמישים, כשכל הקרקעות חוזרות לבעליהן וארץ ישראל חוזרת לשורש קדושתה.</p>
+<div class="honey-box">🍯 התורה, ארץ ישראל והעולם הבא – שלוש המתנות של רבי שמעון – שייכות כולן לשער החמישים.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: חג הקציר או חג מתן תורה? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌾</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">חג שחוגג שתי מתנות</h2></div></div>
+<p class="chapter-intro">עכשיו אפשר לחזור לשאלה הראשונה. למה שבועות נחגג במספר ולא בתאריך?</p>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חג הקציר או חג מתן תורה?</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש בשבועות הבדל מפתיע. אם פותחים את התורה שבכתב, אין בה אף מילה על מתן תורה. החג נקרא שם "חג הקציר", "חג הבכורים", "חג שבועות". מביאים שתי הלחם מן החיטה החדשה, ומתחילים להביא ביכורים מפירות הארץ. כלומר: בתורה שבכתב חוגגים את ארץ ישראל ואת פירותיה.</p>
+<p>אם פותחים את התורה שבעל פה – הקציר כמעט נעלם. בסידור כתוב "זמן מתן תורתנו", וכל עניין החג הוא קבלת התורה.</p>
+<p>פעם התפאר מישהו שבקיבוצים "הפכו" את חג מתן תורה לחג הביכורים. אבל הם לא המציאו כלום – זה כתוב בתורה שבכתב. האמת היא ששבועות חוגג את שתי המתנות יחד.</p>
+<p class="bold-para">התורה שבכתב חוגגת את הארץ; התורה שבעל פה חוגגת את התורה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: עבודה או מתנה? ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">עבודה או מתנה?</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה בתורה שבכתב אין "חג מתן תורה"? כי שם התורה מוצגת כעבודה, לא כמתנה:</p>
+<blockquote>אם בחקתי תלכו ואת מצותי תשמרו ועשיתם אתם (ויקרא כו, ג)</blockquote>
+<p>אם תשמרו – תקבלו גשם, יבול ושפע. התורה היא מה שעושים, והשכר בא אחריה. ועל עבודה לא עושים חג. חג עושים על מתנה: יציאת מצרים, ענני הכבוד, ארץ ישראל.</p>
+<p>לעומת זאת, בתהלים ובדברי חז"ל התורה מוצגת כמתנה הטובה ביותר שיש:</p>
+<blockquote>תורת ה' תמימה משיבת נפש... פקודי ה' ישרים משמחי לב... הנחמדים מזהב ומפז רב ומתוקים מדבש ונפת צופים (תהלים יט)</blockquote>
+<p>לכן דווקא בתורה שבעל פה יש "חג מתן תורה".</p>
+<div class="honey-box">🍯 מי שרואה בתורה רק עבודה – מקיים אותה. מי שרואה בה מתנה – גם חוגג אותה.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: איזה תאריך היה מתאים לארץ ישראל? ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">איזה תאריך היה מתאים לארץ ישראל?</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נניח שהיו רוצים לקבוע תאריך לחג "קבלת ארץ ישראל". איזה יום היו בוחרים?</p>
+<p>י' בניסן, היום שבו עברו את הירדן? באותו יום עוד לא כבשו כלום – לא את יריחו ולא את העי. יום כיבוש יריחו? זו רק עיר אחת. יהושע נפטר כשרוב הארץ עדיין לא נכבשה. הכיבוש נמשך דורות, ורק בימי דוד ושלמה הגיעה המלכות לגבולות רחבים – ואפילו אז לא כל השטח המובטח, "מים סוף ועד ים פלשתים", היה בידינו.</p>
+<p>המצב הזה מוכר גם מדורנו: גם על יום שבו מציינים את קבלת הארץ אפשר לשאול – מה בדיוק קרה בו? הרי הארץ לא נכבשה כולה ביום אחד.</p>
+<p class="bold-para">לארץ ישראל אין יום אחד שבו "קיבלנו אותה". היא נקנית לאט, בתהליך.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: חמישים: היום של שתי המתנות ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חמישים: היום של שתי המתנות</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וכאן הפתרון הנפלא של התורה. במקום לקבוע לשבועות תאריך, היא קבעה לו מספר – מספר שמסמל את הערך הפנימי של הארץ ושל התורה גם יחד.</p>
+<p>חמישים הוא סוד העולם הבא, עולם הנשמות. וארץ ישראל קשורה לעולם הבא: "כל ישראל יש להם חלק לעולם הבא, שנאמר ועמך כלם צדיקים לעולם יירשו ארץ" (סנהדרין צ, א). גם התורה שייכת לחמישים – היא ניתנה ביום החמישים.</p>
+<p>ועכשיו נעלמת גם קושיית המגן אברהם. גם אם התורה ניתנה ביום החמישים ואחד, אין חמישים ואחד. מי שהגיע לגג – אין מעליו עוד קומה. חמישים הוא הסוף, השער שמעבר לעולם הזה, וכל מה שניתן משם – שייך לחמישים.</p>
+<p>כל תאריך אחר היה מתאים רק לאחת המתנות. ביום החמישים חוגגים את שתיהן יחד: את התורה ואת ארץ ישראל – שתי מתנות שמשלימות את הגאולה.</p>
+<div class="honey-box">🍯 למה חמישים הוא באמת סוד העולם הבא, ואיך הוא קשור למספר שמונה – על כך בחלק ב.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
