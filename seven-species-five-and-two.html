@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌾 חמישה ושניים: הסוד שבסדר שבעת המינים</title>
+<meta name="description" content="למה דווקא שבעת המינים האלה, ולמה התורה חילקה אותם לחמישה ושניים – לוח השנה, מצרים ושתי ארצות שחיות בארץ אחת.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🌾 חמישה ושניים: הסוד שבסדר שבעת המינים</h1>
+  <p class="hero-subtitle">למה דווקא שבעת המינים האלה, ולמה התורה חילקה אותם לחמישה ושניים – לוח השנה, מצרים ושתי ארצות שחיות בארץ אחת.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/kwC-m51EZyM" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌾 שתי שאלות על פסוק אחד</a><ul class="toc-stories"><li><a href="#story-1">למה דווקא שבעה אלה?</a></li><li><a href="#story-2">חמישה ושניים</a></li><li><a href="#story-3">&quot;הקרוב לארץ – קודם לברכה&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🏺 פירות שמחזיקים חורף שלם</a><ul class="toc-stories"><li><a href="#story-4">פירות של עולם בלי מקרר</a></li><li><a href="#story-5">ברכה שנמדדת בזמן</a></li><li><a href="#story-6">&quot;יין ישן שדעת זקנים נוחה הימנו&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">✨ שבעה כנגד שבעה</a><ul class="toc-stories"><li><a href="#story-7">שבעת המינים ושבע הספירות</a></li><li><a href="#story-8">ואיפה העשר?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📅 לוח השנה של שבעת המינים</a><ul class="toc-stories"><li><a href="#story-9">מניסן ועד תשרי</a></li><li><a href="#story-10">הארץ שלא שכחה את הלוח שלה</a></li><li><a href="#story-11">השניים של השנה הבאה</a></li><li><a href="#story-12">&quot;מביא וקורא&quot; ו&quot;מביא ואינו קורא&quot;</a></li><li><a href="#story-13">פרי או מה שעושים ממנו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🗺️ חמש פעמים &quot;ארץ&quot;</a><ul class="toc-stories"><li><a href="#story-14">ארץ שהתקבצו בה כל הטובות</a></li><li><a href="#story-15">לחם, ומעדני מלכים</a></li><li><a href="#story-16">&quot;לא במסכנות תאכל בה לחם&quot;</a></li><li><a href="#story-17">&quot;אבניה ברזל&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌴 ארץ של קור וארץ של חום</a><ul class="toc-stories"><li><a href="#story-18">מה הם זכרו ומה שכחו</a></li><li><a href="#story-19">&quot;מעט צרי ומעט דבש&quot;</a></li><li><a href="#story-20">חיטה צריכה קור, תמר צריך חום</a></li><li><a href="#story-21">דבש של ארץ ישראל</a></li><li><a href="#story-22">שתי ארצות בתוך ארץ אחת</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌾</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">שתי שאלות על פסוק אחד</h2></div></div>
+<p class="chapter-intro">על שולחן ט״ו בשבט עומדים במרכז שבעת המינים. אבל מי שקורא את הפסוק בעיון נתקל בשתי שאלות.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה דווקא שבעה אלה?</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בט״ו בשבט נוהגים לאכול פירות, ובמיוחד את שבעת המינים שהשתבחה בהם ארץ ישראל:</p>
+<blockquote>"אֶרֶץ חִטָּה וּשְׂעֹרָה וְגֶפֶן וּתְאֵנָה וְרִמּוֹן, אֶרֶץ זֵית שֶׁמֶן וּדְבָשׁ" (דברים ח, ח)</blockquote>
+<p>אבל בארץ ישראל גדלים עוד הרבה פירות: תפוחים, תפוזים, אגסים, אבוקדו. גם בשיר השירים מופיע התפוח, ועוד פירות רבים מוזכרים בתנ״ך. מה מיוחד דווקא בשבעה האלה, שבהם בחרה התורה לשבח את הארץ?</p>
+<p>זו השאלה הראשונה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: חמישה ושניים ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חמישה ושניים</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השאלה השנייה מסקרנת עוד יותר. התורה מחלקת את שבעת המינים לשתי קבוצות, ופותחת כל אחת מהן במילה "ארץ":</p>
+<ul class="story-list"><li>"<strong>ארץ</strong> חיטה ושעורה וגפן ותאנה ורימון" – חמישה.</li><li>"<strong>ארץ</strong> זית שמן ודבש" – שניים.</li></ul>
+<p>למה לחלק? אפשר היה לכתוב את כל השבעה ברצף. ואם כבר מחלקים – למה לא חלוקה סימטרית, או לפחות קרובה לכך, כמו ארבעה ושלושה? למה דווקא חמישה ושניים?</p>
+<p>ננסה לראות כמה רעיונות שנאמרו על כך בספרים, וכל אחד מהם פותח חלון אחר אל ארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: &quot;הקרוב לארץ – קודם לברכה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;הקרוב לארץ – קודם לברכה&quot;</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נפקא מינה מעשית לחלוקה הזאת יש בסדר הברכות. כשיושבים לפני שולחן מלא פירות, על איזה פרי מברכים "בורא פרי העץ" ראשון?</p>
+<p>הגמרא במסכת ברכות קובעת: כל המוקדם בפסוק – מוקדם לברכה. ועוד: הפרי הקרוב יותר למילה "ארץ" – קודם. לכן הזית, שבא מיד אחרי ה"ארץ" השנייה, הוא הראשון בברכה; אחריו התמר, השני לאותה "ארץ"; ורק אחר כך הגפן, התאנה והרימון, שרחוקים יותר מן ה"ארץ" הראשונה.</p>
+<p>יוצא דבר מעניין: השניים שבחלק השני קודמים בברכה לפירות שבחלק הראשון.</p>
+<p>ויש מי שאמר שזו כל סיבת החלוקה: אילו נכתבו השבעה ברצף, היינו יודעים רק שהמוקדם בפסוק קודם. אבל כשהתורה שמה "ארץ" באמצע, היא מלמדת שיש עניין מיוחד בקרבה לארץ. זה תירוץ יפה – אבל הוא מסביר רק חצי. הוא לא מסביר למה דווקא חמישה ושניים.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: פירות של עולם בלי מקרר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🏺</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">פירות שמחזיקים חורף שלם</h2></div></div>
+<p class="chapter-intro">הרעיון הראשון: מה משותף לכל שבעת המינים, שאין בתפוח ובאגס?</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">פירות של עולם בלי מקרר</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נסו לחשוב על העולם לפני המקרר. רוב הפירות מחזיקים כמה ימים, אולי שבוע, ואחר כך נרקבים.</p>
+<p>עכשיו עברו אחד אחד על שבעת המינים:</p>
+<ul class="story-list"><li><strong>חיטה ושעורה</strong> – גרעינים יבשים שמחזיקים חצי שנה ויותר.</li><li><strong>גפן</strong> – כשהופכים את הענבים ליין, הוא מחזיק שנים.</li><li><strong>תאנה</strong> – מייבשים אותה לגרוגרות, ושומרים לכל החורף.</li><li><strong>רימון</strong> – מיץ רימונים כמעט לא מתקלקל, והפרי עצמו מחזיק זמן רב.</li><li><strong>זית</strong> – זיתים כבושים מחזיקים זמן רב, ושמן זית – שנה ויותר.</li><li><strong>תמר</strong> – גם היום כתוב על אריזת התמרים: לפחות שנה.</li></ul>
+<p>כולם פירות שגדלו בקיץ והחזיקו את בני האדם בחיים כל החורף כולו.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ברכה שנמדדת בזמן ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ברכה שנמדדת בזמן</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בימינו קשה להבין עד כמה זה היה חשוב. היום יש מקרר, יש מקפיא, יש חנות פתוחה כל השנה.</p>
+<p>אבל בימים שבהם לא היו אמצעי קירור, פרי שמחזיק לאורך זמן היה ההבדל בין שובע לרעב. משפחה שאגרה בקיץ חיטה, יין, שמן, גרוגרות ותמרים – ידעה שתעבור את החורף בשלום.</p>
+<p class="bold-para">ארץ שמגדלת פירות שנשמרים – היא ארץ שמבטיחה לחם לכל ימות השנה.</p>
+<p>וגם מבחינת הבריאות, שבעת המינים הם מן המזונות המזינים והבריאים ביותר. הם לא רק מתוקים וטעימים – הם מזון של ממש.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;יין ישן שדעת זקנים נוחה הימנו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;יין ישן שדעת זקנים נוחה הימנו&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשיוסף שולח לאביו מתנות ממצרים, נאמר "מִטּוּב מִצְרָיִם" (בראשית מה, כג). ורש״י מביא מן התלמוד ששלח לו יין ישן, "שדעת זקנים נוחה הימנו".</p>
+<p>למה דווקא יין ישן מתאים לזקנים? אפשר לומר: כי היין הוא כמו הזקן. רוב הדברים מתקלקלים עם הזמן, ואילו היין – ככל שהוא מזדקן, הוא משתבח. וגם החכמה כך: יש דברים שקונים רק בשנים, בניסיון, בהרבה מאוד חיים.</p>
+<div class="honey-box">🍯 יש דברים שהזמן לא מקלקל אלא משביח. שבעת המינים הם כאלה – ואדם יכול להיות כזה.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: שבעת המינים ושבע הספירות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">✨</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">שבעה כנגד שבעה</h2></div></div>
+<p class="chapter-intro">בספרי המקובלים יש לשבעת המינים משמעות עמוקה עוד יותר – וגם המספר עשר מסתתר בהם.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שבעת המינים ושבע הספירות</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספרי המקובלים כתוב ששבעת המינים אינם סתם רשימה של פירות. הם כנגד שבע המידות – שבע הספירות התחתונות: חסד, גבורה, תפארת, נצח, הוד, יסוד ומלכות.</p>
+<p>כל מין הוא ביטוי של מידה אחת, וכל ברכה על אחד מהם מעוררת את המידה שכנגדו. כך שולחן ט״ו בשבט הופך לשולחן של תיקון: לא רק אכילה, אלא עבודה של המידות.</p>
+<p>ולכן מקובלים רבים עורכים בט״ו בשבט סדר שלם, ומכוונים בכל פרי ופרי.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: ואיפה העשר? ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ואיפה העשר?</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל יש עשר ספירות, לא שבע. אז איך שבעה כנגד עשר?</p>
+<p>התשובה מסתתרת בחיטה ובשעורה. ההלכה קובעת שחמשת מיני דגן הם חיטה, שעורה, כוסמין, שיבולת שועל ושיפון – ועל כולם מברכים "בורא מיני מזונות" ו"המוציא". והגמרא אומרת שהכוסמין הם מין חיטה, ושיבולת שועל ושיפון – מין שעורה.</p>
+<p>יוצא שהחיטה כוללת בתוכה גם את הכוסמין, והשעורה כוללת גם את שיבולת השועל והשיפון. התורה כתבה רק את העיקר, אבל בתוך שבעת המינים יש חמישה מיני דגן וחמישה פירות – בדיוק עשרה.</p>
+<p class="bold-para">שבעה כלפי חוץ, עשרה בפנים.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מניסן ועד תשרי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📅</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">לוח השנה של שבעת המינים</h2></div></div>
+<p class="chapter-intro">הרעיון השני, ואולי היפה מכולם: הסדר בפסוק הוא סדר העונות – והחלוקה לחמישה ושניים היא חלוקה בין שתי שנים.</p>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מניסן ועד תשרי</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עברו על הפסוק לפי הסדר ושימו לב מתי כל מין מבשיל:</p>
+<ul class="story-list"><li><strong>שעורה</strong> – בניסן. לכן מביאים את העומר, מנחת השעורים, בפסח.</li><li><strong>חיטה</strong> – בשבועות, "זמן קציר חיטים". לכן מביאים בשבועות את שתי הלחם מן החיטה.</li><li><strong>גפן</strong> – בסוף סיוון מגיעים הענבים הראשונים.</li><li><strong>תאנה</strong> – בעיצומו של הקיץ.</li><li><strong>רימון</strong> – לקראת סוף הקיץ, סביב ראש השנה.</li></ul>
+<p>בתורה החיטה כתובה לפני השעורה, כי היא העיקר והחשובה; אבל בטבע השעורה מקדימה מעט. מלבד זה – זהו בדיוק סדר ההבשלה, חודש אחר חודש.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הארץ שלא שכחה את הלוח שלה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הארץ שלא שכחה את הלוח שלה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והפלא הוא שארץ ישראל שומרת על הלוח הזה עד היום. התורה מספרת על המרגלים:</p>
+<blockquote>"וְהַיָּמִים יְמֵי בִּכּוּרֵי עֲנָבִים" (במדבר יג, כ)</blockquote>
+<p>וחז״ל אומרים שזה היה בסוף סיוון. עברו שלושת אלפים שנה – ולכו היום לחנות בסוף סיוון, ותראו את הענבים הראשונים של ארץ ישראל מגיעים. אותה ארץ, אותם תאריכים.</p>
+<p>וגם לתאנה יש זמן משלה. התאנים המיובשות נקראות "קציעות", ויש קשר בין השם הזה לבין המילה "קיץ" – עונת התאנים. והרימונים? כל שנה הם מגיעים לקראת ראש השנה, כאילו הם יודעים שמחכים להם על שולחן החג.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: השניים של השנה הבאה ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">השניים של השנה הבאה</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו לחלק השני: זית ותמר.</p>
+<p>הזיתים מתחילים להבשיל בתשרי, ומוסקים בעיקר בחשוון, עם הגשמים. גם התמרים מגיעים לשיאם בסתיו.</p>
+<p>כלומר, חמשת המינים הראשונים מבשילים מניסן ועד תשרי – בשנה אחת. ושני האחרונים, הזית והתמר, מבשילים אחרי החגים, כשכבר מתחילה השנה החדשה.</p>
+<p>זה פירוש נפלא לחלוקה: ה"ארץ" הראשונה היא השנה הראשונה, וה"ארץ" השנייה היא השנה השנייה. החלוקה לחמישה ושניים איננה שרירותית – היא לוח השנה של הארץ.</p>
+<div class="honey-box">🍯 כשאתם קוראים "ארץ חיטה" ו"ארץ זית" – אתם בעצם קוראים שני דפים בלוח השנה של ארץ ישראל.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;מביא וקורא&quot; ו&quot;מביא ואינו קורא&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;מביא וקורא&quot; ו&quot;מביא ואינו קורא&quot;</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את אותה חלוקה בדיוק רואים גם בהלכה. המשנה במסכת ביכורים (א, ו) קובעת:</p>
+<blockquote>"מן העצרת ועד החג – מביא וקורא. מן החג ועד חנוכה – מביא ואינו קורא"</blockquote>
+<p>משבועות ועד סוכות הוא זמן של שפע ושמחה. מי שמביא ביכורים קורא את פרשת "ארמי אובד אבי" ומודה על הארץ. אחרי סוכות הכול כבר חלש יותר, העונה נגמרת – ומביאים בלי לקרוא.</p>
+<p>והנה ההתאמה: "ארץ חיטה" פותחת את עונת הביכורים בשבועות, ו"ארץ זית" סוגרת אותה אחרי החגים. החמישה הראשונים – בזמן של "מביא וקורא"; השניים האחרונים – בזמן של "מביא ואינו קורא".</p>
+<p class="bold-para">חמישה ושניים בפסוק – חמישה ושניים בלוח – חמישה ושניים בהלכה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: פרי או מה שעושים ממנו ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">פרי או מה שעושים ממנו</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועוד הבדל דק בין שני החלקים. בחלק הראשון התורה מזכירה את הצמחים עצמם: חיטה, שעורה, גפן, תאנה, רימון.</p>
+<p>בחלק השני היא מזכירה את מה שעושים מהם: "זית <strong>שמן</strong>" – זית שעושים ממנו שמן; ו"<strong>דבש</strong>" – דבש התמרים. הזית לא נאכל ככה מן העץ; ערכו העיקרי הוא בשמן. והתמר נזכר בשם המתיקות שהוא נותן.</p>
+<p>כך שני החלקים מספרים שני סיפורים: החמישה – מה שהארץ מצמיחה, והשניים – מה שהאדם מוציא ממה שהיא מצמיחה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: ארץ שהתקבצו בה כל הטובות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">חמש פעמים &quot;ארץ&quot;</h2></div></div>
+<p class="chapter-intro">יש מפרש שמונה בפסוקים חמש פעמים את המילה "ארץ" – וכל אחת היא טובה אחרת שהתקבצה בארץ ישראל.</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ארץ שהתקבצו בה כל הטובות</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפסוקים בפרשת עקב חוזרים על המילה "ארץ" שוב ושוב:</p>
+<blockquote>"כִּי ה' אֱלֹקֶיךָ מְבִיאֲךָ אֶל אֶרֶץ טוֹבָה, אֶרֶץ נַחֲלֵי מָיִם עֲיָנֹת וּתְהֹמֹת יֹצְאִים בַּבִּקְעָה וּבָהָר" (דברים ח, ז)</blockquote>
+<p>אחד המפרשים מסביר: ה' מביא אותך לארץ טובה, שהתקבצו בה מינים של טובות שלא התקבצו יחד בשום מקום אחר. ואחרי "ארץ טובה", הפסוקים מונים חמש פעמים "ארץ" – חמש טובות.</p>
+<p>הראשונה: "ארץ נחלי מים". לא מים רעים, לא ארץ צמאה – מים טובים, מעיינות ונחלים, ברכה של גשמים.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: לחם, ומעדני מלכים ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לחם, ומעדני מלכים</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השנייה: "ארץ חיטה ושעורה וגפן ותאנה ורימון". כאן נמצא מה שאדם צריך כדי לחיות – הלחם – לצד הפירות שהיו אוכלים על השולחן כל יום.</p>
+<p>השלישית: "ארץ זית שמן ודבש". אלה כבר מעדנים – שמן הזית והדבש הם המעדנים שמוזכרים בברכת יעקב: "וְהוּא יִתֵּן מַעֲדַנֵּי מֶלֶךְ" (בראשית מט, כ).</p>
+<p>ויש לשים לב: בכל הפסוקים האלה לא מוזכר אף ירק. מצרים משתבחת בירקות – "כְּגַן הַיָּרָק" (דברים יא, י). ארץ ישראל משתבחת בעצים ובפירות, כמו גן עדן שבו היו רק עצים.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: &quot;לא במסכנות תאכל בה לחם&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;לא במסכנות תאכל בה לחם&quot;</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרביעית:</p>
+<blockquote>"אֶרֶץ אֲשֶׁר לֹא בְמִסְכֵּנֻת תֹּאכַל בָּהּ לֶחֶם, לֹא תֶחְסַר כֹּל בָּהּ" (דברים ח, ט)</blockquote>
+<p>הלחם לא יהיה יקר, ולא יצטרכו לחסוך כל פרוטה כדי לקנות אותו.</p>
+<p>וברוך ה', הברכה הזאת מתקיימת בימינו ממש. הלחם הבסיסי בארץ זול. ומי שבאמת אין לו – יכול להיכנס כמעט לכל מאפייה ולבקש, ויקבל. כמעט אין בארץ אדם שרעב ללחם במובן הפשוט של המילה.</p>
+<div class="honey-box">🍯 כשאתם קונים לחם בזול, זכרו שזו לא רק כלכלה – זו ברכה שכתובה בתורה.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: &quot;אבניה ברזל&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;אבניה ברזל&quot;</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והחמישית:</p>
+<blockquote>"אֶרֶץ אֲשֶׁר אֲבָנֶיהָ בַרְזֶל וּמֵהֲרָרֶיהָ תַּחְצֹב נְחֹשֶׁת" (דברים ח, ט)</blockquote>
+<p>אותו מפרש מסביר: ארץ שיש בה שפע של אבנים קשות, בריאות ויפות לבניין. אבנים חזקות כברזל.</p>
+<p>וכך הושלמה התמונה: מים, לחם, מעדנים, שובע ובניין. כל מה שצריך כדי לחיות, ליהנות ולבנות – התקבץ בארץ אחת.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: מה הם זכרו ומה שכחו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌴</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">ארץ של קור וארץ של חום</h2></div></div>
+<p class="chapter-intro">שני רעיונות אחרונים: מה לא היה במצרים – ואיך ארץ קטנה אחת מכילה בתוכה שתי ארצות.</p>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה הם זכרו ומה שכחו</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשבני ישראל מתלוננים במדבר במי מריבה, הם אומרים למשה:</p>
+<blockquote>"לֹא מְקוֹם זֶרַע וּתְאֵנָה וְגֶפֶן וְרִמּוֹן, וּמַיִם אַיִן לִשְׁתּוֹת" (במדבר כ, ה)</blockquote>
+<p>שימו לב: הם מזכירים בדיוק את החמישה הראשונים – זרע (דגן), תאנה, גפן ורימון. את הזית והתמר הם לא מזכירים בכלל. למה?</p>
+<p>המשך חכמה מסביר: זית ותמר לא גדלו במצרים. ואדם לא מתלונן על מה שמעולם לא היה לו. הוא יכול לומר "היה לי, והבאתם אותי למקום שאין". אבל על מה שלא הכיר – אין לו על מה להתלונן.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: &quot;מעט צרי ומעט דבש&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;מעט צרי ומעט דבש&quot;</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומניין שבמצרים לא היו זית ותמר? המשך חכמה מביא ראיות.</p>
+<p>כשיעקב שולח את בניו למצרים עם מנחה למושל, הוא אומר:</p>
+<blockquote>"קְחוּ מִזִּמְרַת הָאָרֶץ בִּכְלֵיכֶם וְהוֹרִידוּ לָאִישׁ מִנְחָה, מְעַט צֳרִי וּמְעַט דְּבַשׁ" (בראשית מג, יא)</blockquote>
+<p>מה הטעם לשלוח למלך מצרים דבש? רק אם במצרים אין כזה. כמו שמביאים לאדם מתנה מארץ רחוקה – דבר שאין אצלו, ולכן גם מעט מספיק. ודבש התמרים היה בדיוק כזה.</p>
+<p>וגם על השמן אומר הנביא: "וְשֶׁמֶן לְמִצְרַיִם יוּבָל" (הושע יב, ב) – שמן היו מביאים למצרים מבחוץ.</p>
+<p>לפי זה, החלוקה מבארת את עצמה: החמישה הראשונים גדלו גם במצרים; השניים האחרונים – רק בארץ ישראל. ואולי לכן הם קודמים בברכה: הם הייחודיים לארץ.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: חיטה צריכה קור, תמר צריך חום ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חיטה צריכה קור, תמר צריך חום</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש עוד רעיון מעניין, שאפשר לראות היום בעיניים. החיטה גדלה במיטבה במקומות קרים. רוב החיטה בעולם מגיעה מארצות קרות, ולכן כשפרצה מלחמה באוקראינה – אחת מאסמי החיטה הגדולים בעולם – נוצר משבר מזון עולמי.</p>
+<p>התמר הוא ההפך הגמור. הוא צריך חום גדול. מי שנוסע לים המלח רואה לאורך כל הדרך מטעים של תמרים, שורות על גבי שורות. החום של בקעת הירדן וערבה מתאים להם בדיוק.</p>
+<p>ואת שני אלה – את הצמח של הקור ואת הצמח של החום – מגדלת ארץ אחת, קטנה.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: דבש של ארץ ישראל ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דבש של ארץ ישראל</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"ארץ זבת חלב ודבש" – הדבש של התורה הוא בפשטות דבש התמרים. והתמרים של ארץ ישראל הם משהו מיוחד במינו.</p>
+<p>זן המג'הול, שהגיע לארץ בדרך לא פשוטה, הצליח כאן מאוד, וישראל נעשתה אחת המגדלות והמייצאות החשובות שלו בעולם. ומי שטעם תמר טרי ומשובח באמת מרגיש מה פירוש "דבש": הוא נמס בפה, ממש נוטף מתיקות.</p>
+<div class="honey-box">🍯 בפעם הבאה שאתם אוכלים תמר טוב, עצרו רגע: זה ה"דבש" שעליו דיברה התורה.</div>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: שתי ארצות בתוך ארץ אחת ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שתי ארצות בתוך ארץ אחת</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו אפשר להבין עוד פירוש לחלוקה של חמישה ושניים.</p>
+<p>ה"ארץ" הראשונה – "ארץ חיטה ושעורה" – היא ארץ של צמחים שאוהבים מזג אוויר קריר. ה"ארץ" השנייה – "ארץ זית שמן ודבש" – היא ארץ של חום, של תמרים שמבשילים בשמש הלוהטת.</p>
+<p>למה התורה אומרת פעמיים "ארץ"? כי באמת יש כאן שתי ארצות. שני אקלימים, שני עולמות, בתוך מקום אחד קטן. בדרך כלל ארץ טובה לחיטה או טובה לתמרים. ארץ ישראל טובה לשניהם.</p>
+<p class="bold-para">זה השבח הגדול של ארץ ישראל: שתי ארצות שלמות, שה' כינס בתוך ארץ אחת.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
