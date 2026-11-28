@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔗 חברון: המקום שבו היחיד מתחבר</title>
+<meta name="description" content="מערת המכפלה שהכל בה כפול, הקנייה שהתורה משווה לקידושי אישה, ולמה דווקא בחברון לכל בית יש סיפור">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🔗 חברון: המקום שבו היחיד מתחבר</h1>
+  <p class="hero-subtitle">מערת המכפלה שהכל בה כפול, הקנייה שהתורה משווה לקידושי אישה, ולמה דווקא בחברון לכל בית יש סיפור</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-14 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/ey4NoZUsbw8" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🎶 העיר השנייה בקדושה</a><ul class="toc-stories"><li><a href="#story-1">חידה: על איזו עיר שרים?</a></li><li><a href="#story-2">שתי שבתות של חברון</a></li><li><a href="#story-3">שבע שנים בחברון</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔢 ארבע מאות: מטומאה לקדושה</a><ul class="toc-stories"><li><a href="#story-4">עפרון בלי ו&#x27;</a></li><li><a href="#story-5">הכל עולה לקדושה</a></li><li><a href="#story-6">עיר מחולקת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🪞 מערת המכפלה – הכל כפול</a><ul class="toc-stories"><li><a href="#story-7">קונים פעמיים</a></li><li><a href="#story-8">עוד קנייה באותה פרשה</a></li><li><a href="#story-9">שני קניינים בחתונה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">💰 למה אברהם התעקש לשלם</a><ul class="toc-stories"><li><a href="#story-10">קניין לעולמי עד</a></li><li><a href="#story-11">משלמים כדי להתחבר</a></li><li><a href="#story-12">הבית של אלוקים</a></li><li><a href="#story-13">בית הכנסת שבתוך דיר העיזים</a></li><li><a href="#story-14">למה ארבע מאות שנה במצרים?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🚪 הפתח לגן עדן</a><ul class="toc-stories"><li><a href="#story-15">השלט בכניסה</a></li><li><a href="#story-16">קרקע כאן, קרקע שם</a></li><li><a href="#story-17">שניים שהם אחד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🏠 לכל בית בחברון יש סיפור</a><ul class="toc-stories"><li><a href="#story-18">ארץ, עיר, שכונה, בית</a></li><li><a href="#story-19">&quot;מעמק חברון&quot;</a></li><li><a href="#story-20">כלב הולך לבד</a></li><li><a href="#story-21">דוד: מחברון לירושלים</a></li><li><a href="#story-22">המצווה של כל אחד</a></li><li><a href="#story-23">האבנים שעל הדרך</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🤍 אהבה כנגד אהבה</a><ul class="toc-stories"><li><a href="#story-24">&quot;על הארץ הטבה&quot;</a></li><li><a href="#story-25">&quot;כי עת לחננה&quot;</a></li><li><a href="#story-26">מה רואים בחברון</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🎶</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">העיר השנייה בקדושה</h2></div></div>
+<p class="chapter-intro">על שתי ערים בארץ ישראל יש הכי הרבה שירים. אחת מהן ברורה לכולם, והשנייה מגלה מקום שיעקב אבינו ביקש להגיע אליו במילותיו האחרונות.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חידה: על איזו עיר שרים?</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על איזו עיר בארץ ישראל יש הכי הרבה שירים? ירושלים, כמובן. אין ספור שירים נכתבו עליה.</p>
+<p>אבל יש עוד עיר שנכתבו עליה הרבה שירים, אף שלא כולם מכירים אותם: העיר השנייה בקדושתה בארץ ישראל – חברון. "חברון מאז ולתמיד", ושירים רבים נוספים, ואפילו שירים שמשלבים את הפסוקים על כלב בן יפונה ועל "רוח אחרת".</p>
+<p>לא במקרה. מי שמתבונן בתורה רואה שחברון היא מקום שמחבר את עם ישראל לשורשים שלו.</p>
+<p class="bold-para">ירושלים היא הלב של העם. חברון היא השורש.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: שתי שבתות של חברון ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שתי שבתות של חברון</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבים מכירים את "שבת חברון", שבת פרשת חיי שרה, שבה קוראים על קניית מערת המכפלה ואלפים באים לחברון. אבל יש עוד שבת שקשורה לחברון: שבת פרשת ויחי.</p>
+<p>במה יעקב אבינו נפרד מבניו? אחרי הברכות, המילים האחרונות שלו בתורה הן בקשה אחת: קברו אותי במערת המכפלה.</p>
+<blockquote>"קברו אתי אל אבתי אל המערה אשר בשדה עפרון החתי. במערה אשר בשדה המכפלה... שמה קברו את אברהם ואת שרה אשתו, שמה קברו את יצחק ואת רבקה אשתו, ושמה קברתי את לאה" (בראשית מט, כט-לא)</blockquote>
+<p>אדם מסיים את חייו במילים האלה. כנראה מונח בהן דבר עמוק מאוד.</p>
+<div class="honey-box">🍯 המילים האחרונות של אדם מגלות מה הכי חשוב לו. ליעקב – חברון.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: שבע שנים בחברון ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שבע שנים בחברון</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם ההפטרה של פרשת ויחי מזכירה את חברון. דוד המלך, לפני מותו, ושם מסופר:</p>
+<blockquote>"בחברון מלך שבע שנים ובירושלם מלך שלשים ושלש שנים" (מלכים א ב, יא)</blockquote>
+<p>דוד לא הגיע לירושלים ישר. קודם היו שבע שנים בחברון, ורק אחריהן ירושלים.</p>
+<p>אי אפשר להגיע לירושלים בלי לעבור דרך חברון. מה מונח בעיר הזאת, שהיא השלב הראשון בדרך אל המלכות ואל המקדש?</p>
+<p>כדי להבין, צריך להתחיל מהמערה עצמה ומהאיש שממנו נקנתה.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: עפרון בלי ו&#x27; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔢</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">ארבע מאות: מטומאה לקדושה</h2></div></div>
+<p class="chapter-intro">התורה מזכירה את עפרון שוב ושוב. הגימטריה של שמו, והמחיר ששולם לו, מגלים מה עשה אברהם אבינו במקום הזה.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עפרון בלי ו&#x27;</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה התורה מזכירה את עפרון כל כך הרבה פעמים? מה הזכות שלו?</p>
+<p>בפסוק שבו אברהם שוקל את הכסף, השם כתוב בלי ו': "וישמע אברהם אל עפרן" (בראשית כג, טז). כך הגימטריה יוצאת: ע' 70, פ' 80, ר' 200, ן' 50. סך הכל 400.</p>
+<p>וכמה שילם אברהם על המערה? ארבע מאות שקל כסף.</p>
+<p>ויש עוד 400 שמופיע בתורה: בברית בין הבתרים נאמר לאברהם "גר יהיה זרעך בארץ לא להם, ועבדום וענו אתם ארבע מאות שנה" (בראשית טו, יג).</p>
+<p class="bold-para">המספר 400 חוזר שוב ושוב סביב חברון, וכנראה יש בו משמעות.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: הכל עולה לקדושה ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הכל עולה לקדושה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מי שמסביר את המספר על פי סוד. בבריאה יש ארבעה עולמות: אצילות, בריאה, יצירה ועשייה. בכל עולם יש עשר ספירות, וכל ספירה כלולה בעצמה מעשר. כך כל עולם הוא מאה, וכל העולמות יחד ארבע מאות.</p>
+<p>עפרון, 400, מסמל את כל הכוחות שבבריאה כשהם בצד של הטומאה. ואברהם אבינו לוקח את מה שהיה של עפרון, משלם עליו בדיוק ארבע מאות, והופך את המקום לאחד המקומות הקדושים ביותר בעולם.</p>
+<p>זה כל העניין: לא לברוח מהעולם, אלא לקחת אותו ולהעלות אותו. מה שהיה של עפרון נעשה מקום מנוחתם של האבות והאמהות.</p>
+<div class="honey-box">🍯 אברהם לא ויתר על המקום. הוא שילם את המחיר המלא והפך אותו לקודש.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: עיר מחולקת ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עיר מחולקת</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש עוד "כפילות" שרואים בחברון בעיניים. אין עוד עיר בארץ שמחולקת כך. חלק מהעיר בשליטת ישראל וחלק בשליטת הרשות הפלסטינית, ובין החלקים עובר גבול גבוה שאי אפשר להתעלם ממנו.</p>
+<p>זה כואב. ובכל זאת אפשר לראות גם טוב שיצא מהחלוקה. פעם היה מסוכן מאוד לגור בחברון, כי היהודים גרו ממש בתוך האוכלוסייה הערבית. היום כמעט כל החנויות בצד היהודי סגורות, השוק הערבי נסגר לאט לאט, והמקום רגוע הרבה יותר.</p>
+<p>אבל המאבק לא נגמר. יש בתים בחברון שהיו שייכים ליהודים לפני מאורעות תרפ״ט, ועד היום לא מאפשרים לחזור אליהם.</p>
+<p class="bold-para">עיר שנלחמים עליה כל כך הרבה, כי הקדושה שבה כל כך גדולה.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: קונים פעמיים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🪞</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">מערת המכפלה – הכל כפול</h2></div></div>
+<p class="chapter-intro">לא בחינם נקראת המערה "מכפלה". מעבר לזוגות הקבורים בה, כמעט כל פרט בסיפור שלה כפול.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">קונים פעמיים</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כולם יודעים שבמערת המכפלה קבורים זוגות. אבל יש כפילות שלא שמים אליה לב: את המערה קנו פעמיים. אברהם מדבר עם בני חת, ואחר כך עם עפרון. למה צריך שתי קניות?</p>
+<p>כדי להבין, תחשבו מה צריך היום כדי להפוך בית מגורים לבית כנסת. אישור מהבעלים לא מספיק. צריך לשנות את ייעוד המקום, ולשם כך צריך אישור של הרשויות. גם ראש העיר לא יכול לאשר זאת לבדו, כי שינוי ייעוד הוא עניין של כל התושבים.</p>
+<p>כך היה גם שם. השדה היה מיועד לחקלאות, ואברהם רצה לעשות ממנו בית קברות. לכן צריך היה את הסכמת בני חת, "ראשי העיר" של אותם ימים, וגם את הסכמת הבעלים, עפרון.</p>
+<div class="honey-box">🍯 שתי הסכמות, שתי קניות. וגם שתי השתחוויות של הודיה: פעם לבני חת ופעם לעפרון.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: עוד קנייה באותה פרשה ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">עוד קנייה באותה פרשה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה עוד קונים בפרשת חיי שרה, מלבד המערה?</p>
+<p>כמעט כל המשך הפרשה עוסק בדבר אחד: אברהם שולח את עבדו לחפש אישה ליצחק. הסיפור ארוך מאוד, ומסתיים ברבקה שבאה אל יצחק.</p>
+<p>ולא במקרה שתי הקניות האלה נמצאות באותה פרשה. הגמרא בתחילת מסכת קידושין (ב, א) שואלת: מנין שאישה נקנית בכסף? ולומדת "קיחה קיחה משדה עפרון". באישה נאמר "כי יקח איש אשה" (דברים כד, א), ובמערה אמר אברהם "נתתי כסף השדה קח ממני" (בראשית כג, יג).</p>
+<p class="bold-para">את קידושי האישה לומדים מקניית מערת המכפלה. יש כאן משהו משותף לאישה ולארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: שני קניינים בחתונה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שני קניינים בחתונה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמה קניינים יש כשאדם נושא אישה? שניים: קידושין ונישואין.</p>
+<p>בקידושין, בכסף או בטבעת, האישה נאסרת על כל העולם. בנישואין, בחופה, היא באה לגור עם בעלה ונעשית אשתו בפועל. בעבר היה ביניהם פער זמן גדול, לפעמים שנה שלמה.</p>
+<p>למה צריך שניים? כשקונים מצלמה, משלמים ונגמר הסיפור, היא שלך. אבל אישה אינה מצלמה. אוי למי שיחשוב שאישה היא חפץ שמכניסים לשקית. המטרה איננה רק שהיא תהיה שלו, אלא שהם יתחברו ויאהבו זה את זה.</p>
+<p>לכן יש שני קניינים. הראשון, הקידושין, מנתק אותה מכל העולם ומייחד אותה לו. השני, הנישואין, מחבר ביניהם כדי שיאהבו.</p>
+<div class="honey-box">🍯 קניין אחד הוא ממוני וקניין אחד הוא נפשי. שייכות לבד אינה אהבה.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: קניין לעולמי עד ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">💰</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">למה אברהם התעקש לשלם</h2></div></div>
+<p class="chapter-intro">עפרון הציע לתת את המערה בחינם, ואברהם סירב ושילם הון. יש לכך שתי סיבות, כמו שני הקניינים של חתן וכלה.</p>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">קניין לעולמי עד</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עפרון הציע לאברהם לקחת את המערה בחינם. אברהם סירב, ושילם ארבע מאות שקל כסף, סכום עצום.</p>
+<p>הסיבה הראשונה: הוא רצה שהקניין יעמוד לעד. שלא יבוא יום שבו יאמרו "זה לא באמת שלכם, קיבלתם במתנה".</p>
+<p>וכמה זה היה נחוץ. כשבע מאות שנה, מימי הממלוכים ועד מלחמת ששת הימים, לא הרשו ליהודים להיכנס למערת המכפלה. יהודים יכלו לעלות רק עד המדרגה השביעית שבחוץ, ולהתפלל שם.</p>
+<p>השליטים הרגישו שיש שם קדושה, וחששו מה יקרה אם יהודים ייכנסו. אבל הקניין עמד. הכסף ששילם אברהם נרשם בתורה לעולם.</p>
+<p class="bold-para">אברהם לא קנה רק לעצמו. הוא קנה לכל הדורות.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: משלמים כדי להתחבר ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">משלמים כדי להתחבר</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש סיבה שנייה, יקרה לא פחות, שקשורה לאברהם עצמו.</p>
+<p>תחשבו על ההבדל בין גמרא שקיבלת בחינם או מצאת ברחוב, לבין גמרא שנסעת בשבילה לירושלים, חיפשת בחנויות ושילמת עליה מכספך. את השנייה תאהב הרבה יותר ותרגיש קשור אליה.</p>
+<p>כל דבר שהשקעת בו זמן ויגיעה, שחיפשת ואספת כסף כדי להשיג, חביב עליך מאוד. אדם לא זורק בקלות את מה שטרח עליו.</p>
+<p>למה תינוק מגיע אחרי תשעה חודשים? אילו היה מגיע ברגע, בלי מאמץ, הקשר היה אחר לגמרי. אבל האמא סבלה ונשאה ומסרה את עצמה, ולכן היא קשורה אליו בכל נפשה וקמה אליו באמצע הלילה. זה גם סוד ה"דב השכול": מה שמשקיעים בו – אוהבים.</p>
+<div class="honey-box">🍯 "חברון" מלשון חיבור. אברהם שילם כדי להתחבר לארץ ישראל לעולמי עד.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: הבית של אלוקים ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הבית של אלוקים</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ארץ ישראל אינה רק מקום שיש מצווה לגור בו. יש מצווה לאהוב אותה ולהתחבר אליה בנפש. איפה זה כתוב? דוד המלך אומר בתהלים:</p>
+<blockquote>"כי רצו עבדיך את אבניה ואת עפרה יחננו" (תהלים קב, טו)</blockquote>
+<p>אפילו העפר, הדבר הנמוך ביותר בארץ, מצא חן בעיני עבדי ה'. והרמב״ם פוסק להלכה (הלכות מלכים ה, י) שגדולי החכמים היו מנשקים את אבני הארץ ומתגלגלים בעפרה.</p>
+<p>אבל למה? האם זו אהבת מולדת רגילה, כמו של כל עם לארצו?</p>
+<p>לא. זה חלק מאהבת ה'. מי שאוהב את בורא עולם אוהב גם את ביתו, וארץ ישראל היא הבית של אלוקים, המקום שבו הוא שוכן.</p>
+<p class="bold-para">לאהוב את הארץ פירושו לאהוב את ביתו של מי שאתה אוהב.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: בית הכנסת שבתוך דיר העיזים ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בית הכנסת שבתוך דיר העיזים</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בחברון רואים בכל פינה כמה השקיעו במקום. אחת הדוגמאות היא בית הכנסת "אברהם אבינו" בעיר העתיקה, שבו שמור ספר תורה עתיק מאוד.</p>
+<p>פרופסור בן ציון טבגר, פיזיקאי שעלה מרוסיה וגר בקריית ארבע, הרבה לבוא לחברון. הוא גילה שבמקום שבו עמד פעם בית הכנסת יש דיר עיזים. איך ייתכן? מקום שבו התפללו יהודים נעשה מכלאה!</p>
+<p>הוא החליט לפעול. שילם לילדים מהשכונה כדי שיוציאו את הלכלוך, והתחיל לחפור בעצמו, לאט לאט, שכבה אחרי שכבה. בהתחלה איש לא התנגד. כולם היו בטוחים שאין לו סיכוי.</p>
+<p>אחר כך באו הקשיים והמכשולים, גם מצד הרשויות. הוא לא ויתר. חזר שוב ושוב, הזמין אנשים, ונאבק פעם אחר פעם, עד שבסוף הוחלט לשחזר את בית הכנסת כמו שהיה. היום תלויות שם תמונות של המקום לפני ואחרי.</p>
+<div class="honey-box">🍯 מה שנלחמים עליו נעשה יקר. מי שהשקיע כך במקום, אוהב אותו בכל לבו.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: למה ארבע מאות שנה במצרים? ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה ארבע מאות שנה במצרים?</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשות הבאות נקרא על גלות מצרים. למה הייתה גלות? למה לא נשארו בארץ ישראל מלכתחילה?</p>
+<p>יש שמסבירים: ה' דאג שעם ישראל יעבור קודם גלות קשה, כדי שכשיגיע לארץ ידע להעריך אותה. מה שמקבלים בלי מאמץ, לא מחבבים.</p>
+<p>רואים את זה גם היום. הדור הוותיק, שנלחם על הארץ ושילם עליה בדם, מעריך אותה מאוד. דור שנולד לתוך מדינה מוכנה לפעמים לוקח אותה כמובנת מאליה.</p>
+<p>אבל לפעמים ה' מעורר. חיילים שחוזרים מקרבות קשים מספרים שמה שעברו גרם להם להתעורר ולחבב את הארץ, כי עכשיו הם יודעים כמה היא עולה.</p>
+<p class="bold-para">שתי מטרות לתשלום: שהקניין יעמוד לעד, ושהקונה יתחבר. בדיוק כמו בקידושין ובנישואין.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: השלט בכניסה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🚪</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">הפתח לגן עדן</h2></div></div>
+<p class="chapter-intro">בכניסה למערת המכפלה תלוי שלט שמזכיר דברי חז״ל: כאן הפתח של גן עדן. וכאן מתגלה עוד כפילות, הגדולה מכולן.</p>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">השלט בכניסה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שנכנס למערת המכפלה רואה שלט עם דברי חז״ל: מערת המכפלה היא הפתח של גן עדן.</p>
+<p>יש לכך פירושים רבים. אחד מהם מסביר כך: כדי לחבר שני דברים צריך ביניהם נקודת מגע. אי אפשר לחבר דבר שרחוק מאוד מהשני. העולם הזה הוא גשמי, וגן עדן הוא רוחני ונצחי. איך מחברים ביניהם?</p>
+<p>לוקחים את הדבר הגשמי ומזככים אותו, עד שהוא נעשה דק ככל האפשר. אז הוא יכול לגעת ברוחני.</p>
+<p>חברון היא מקום שבו הגשמיות דקה ומזוככת כל כך, עד שהיא נוגעת בגן עדן.</p>
+<div class="honey-box">🍯 חברון – מלשון חיבור: המקום שבו העולם הזה מתחבר לעולם הנצח.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: קרקע כאן, קרקע שם ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">קרקע כאן, קרקע שם</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומכאן הכפילות הגדולה ביותר. מי שקונה קרקע בארץ ישראל לא קונה רק קרקע כאן. הוא קונה פעמיים: קרקע בעולם הזה, וכנגדה חלק בעולם הבא. ארץ ישראל בעולם הזה עומדת כנגד גן עדן בעולם הבא.</p>
+<p>כך כותב האבן עזרא על קניית השדה של יעקב בשכם (בראשית לג, יט): התורה מספרת זאת להודיע שמעלה גדולה יש לארץ ישראל, ומי שיש לו בה חלק, כאילו יש לו חלק בעולם הבא.</p>
+<p>וכך פותחת המשנה בפרק חלק:</p>
+<blockquote>"כל ישראל יש להם חלק לעולם הבא, שנאמר: ועמך כלם צדיקים לעולם יירשו ארץ" (סנהדרין י, א)</blockquote>
+<p>המשנה מדברת על העולם הבא, ומביאה ראיה מפסוק שמדבר על ירושת הארץ.</p>
+<p class="bold-para">חלק בארץ ישראל הוא חלק בנצח.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: שניים שהם אחד ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שניים שהם אחד</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מי שאומר שאברהם שילם את ארבע מאות השקלים בשתי שורות של מאתיים. ויש בזה עומק.</p>
+<p>שימו לב: זו לא "שתי מערות". שתי מערות הן אחת כאן ואחת שם. "מערת המכפלה" היא שתיים שהן אחת, מקום אחד כפול.</p>
+<p>זה בדיוק סוד המקום. משלמים כסף גשמי, אבל הקניין הוא רוחני. קונים בעולם הזה, ובאותו קניין קונים בעולם הבא. לא שני דברים נפרדים, אלא דבר אחד בשני עולמות.</p>
+<p>וכך גם המצווה: לא רק להתחבר לארץ בגוף, לגור בה, אלא גם להתחבר אליה בנפש ולאהוב אותה.</p>
+<div class="honey-box">🍯 הגוף והנפש, העולם הזה והעולם הבא – בחברון הם אחד.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: ארץ, עיר, שכונה, בית ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏠</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">לכל בית בחברון יש סיפור</h2></div></div>
+<p class="chapter-intro">פתגם יפה על ארץ ישראל מוביל להבדל עמוק בין חברון לירושלים: מקום של היחיד ומקום של הציבור.</p>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ארץ, עיר, שכונה, בית</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש פתגם יפה: לכל ארץ בעולם יש סיפור, איך נוסדה ומי ייסד אותה. בארץ ישראל, לכל עיר יש סיפור. כמעט על כל עיר אפשר לספר מתי נוסדה, מי היו המייסדים, איך נבנתה ואיך נכבשה.</p>
+<p>בירושלים, לכל שכונה יש סיפור. מאה שערים, משכנות שאננים, ימין משה, שערי חסד. על חלק מהשכונות נכתבו ספרים שלמים.</p>
+<p>ואיפה לכל בית יש סיפור? בחברון. בית הדסה, בית רומנו, בית שניאורסון, ועוד בתים רבים. כמעט לכל בית בחברון יש שם ויש סיפור.</p>
+<p>מה מונח בזה?</p>
+<p class="bold-para">בית מסמל את האדם היחיד. וחברון היא המקום של היחיד.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: &quot;מעמק חברון&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;מעמק חברון&quot;</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האבות גרו בחברון, לא בירושלים. אברהם באלוני ממרא, יצחק בחברון, ויעקב שלח את יוסף אל אחיו "מעמק חברון" (בראשית לז, יד).</p>
+<p>רש״י שואל: והלא חברון בהר? ועונה שהכוונה לעצה עמוקה, של הצדיק הקבור בחברון, לקיים מה שנאמר לאברהם בברית בין הבתרים "כי גר יהיה זרעך".</p>
+<p>מי שעומד על פסגת תל רומיידה, ליד המקום שמסורת מייחסת לקבר ישי ורות, רואה דבר מעניין: מערת המכפלה נמצאת למטה, בעמק. לפי המסורת, אברהם גר למעלה. אם כן גם הפשט מתאים: יעקב ליווה את יוסף ממקום מגוריו למטה, אל העמק.</p>
+<div class="honey-box">🍯 הפשט והמדרש נפגשים: יעקב נפרד מיוסף ליד קבר אברהם, ומשם מתחילה הדרך אל הגלות שנגזרה בברית בין הבתרים.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: כלב הולך לבד ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כלב הולך לבד</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש הבדל עמוק בין חברון לירושלים. לירושלים עולים "שבטים שבטי יה, עדות לישראל", העם כולו יחד. חברון היא המקום שבו האדם היחיד מתחבר לבורא עולם.</p>
+<p>עכשיו תראו את כלב בן יפונה. במסע המרגלים נאמר "ויבא עד חברון" (במדבר יג, כב), ורש״י מבאר שכלב לבדו הלך לשם להשתטח על קברי האבות ולהתפלל שלא יסיתוהו חבריו.</p>
+<p>למה דווקא לחברון ולא להר המוריה? כי כל הציבור שלו, המרגלים, הלכו לכיוון אחד, להוציא דיבת הארץ רעה. והוא רצה להיות שונה, לבד, לומר "טובה הארץ". איפה מוצא היחיד את הכוח לעמוד מול כולם? בחברון.</p>
+<p>ולכן גם קיבל אותה: "ועבדי כלב עקב היתה רוח אחרת עמו" (במדבר יד, כד), "על כן היתה חברון לכלב" (יהושע יד, יד).</p>
+<p class="bold-para">מי שיודע להתחבר לבד, מקבל את חברון.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: דוד: מחברון לירושלים ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דוד: מחברון לירושלים</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך גם דוד המלך. בהתחלה לא כל ישראל המליכו אותו. על השבטים האחרים מלך איש בושת בן שאול, ודוד מלך רק על שבט יהודה.</p>
+<p>ואיפה הוא מלך באותן שנים? בחברון. כשהוא מולך על חלק מהעם, על המעטים, מקומו בחברון, במקום של היחיד.</p>
+<p>אחרי שבע שנים באו כל שבטי ישראל והמליכו אותו על כולם. ואז הוא עובר לירושלים, המקום של הציבור כולו.</p>
+<p>אבל גם בירושלים לא שוכחים את חברון. בבית המקדש, לפני הקרבת התמיד של הבוקר, היו שואלים את הצופה אם כבר "האיר פני כל המזרח עד שבחברון" (יומא ג, א).</p>
+<div class="honey-box">🍯 הציבור מקבל את כוחו מהיחידים. האור של ירושלים מתחיל בחברון.</div>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: המצווה של כל אחד ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המצווה של כל אחד</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לכן יש למצוות ישוב ארץ ישראל שני חלקים.</p>
+<p>החלק הציבורי: לדאוג שהארץ תהיה מיושבת ובידינו. את זה אפשר לקיים אפילו מחוץ לארץ, למשל כשתורמים לחברון ולירושלים ועוזרים ליישוב הארץ. ובכלל זה התקווה שגם עזה תשוב להיות חלק מארץ ישראל, ונזכה לטייל בה.</p>
+<p>והחלק הפרטי: לכל יהודי יש מצווה להתחבר בעצמו לארץ. לגור בה, לקנות בה קרקע, לטייל בה, לחפש את הדרך האישית שלו לאהוב אותה. יש אף ספר שלם על המצווה של כל אדם לקנות בית בארץ ישראל, והראשונים לומדים אותה מאברהם אבינו שקנה את מערת המכפלה.</p>
+<p class="bold-para">הציבור אחראי על הארץ, וכל יחיד צריך למצוא את החיבור שלו אליה.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: האבנים שעל הדרך ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האבנים שעל הדרך</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשנת תרפ״ד, לפני כמאה שנה, קרה דבר שכל העולם היהודי דיבר עליו: לראשונה עזבה ישיבה שלמה את הגלות ועלתה לארץ ישראל. ישיבת סלבודקה עלתה לחברון, ונקראה מאז "ישיבת חברון". אחרי הפרעות היא עברה לירושלים, ופועלת עד היום.</p>
+<p>מספרים שראו פעם את ראש הישיבה הולך בדרכי חברון ומרים אבנים מהשביל. שאלו אותו למה, והוא הסביר שזו לא רק דאגה שאנשים לא ייתקלו.</p>
+<p>בסוף מסכת כתובות (קיב, א) מסופר שרבי חנינא היה מתקן את המכשולים בדרכים. רש״י מבאר שעשה זאת כדי שלא יוציאו שם רע על ארץ ישראל, כדי שהארץ תהיה יפה ונעימה בעיני כל מי שעובר בה.</p>
+<div class="honey-box">🍯 גם אדם אחד, עם אבן אחת ביד, יכול לגרום לאחרים לאהוב את ארץ ישראל.</div>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: &quot;על הארץ הטבה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🤍</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">אהבה כנגד אהבה</h2></div></div>
+<p class="chapter-intro">הכפילות האחרונה היא היפה מכולן: האהבה שלנו לארץ מעוררת את אהבת ה' אלינו.</p>
+<article class="story-card" id="story-24" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;על הארץ הטבה&quot;</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש דבר מעניין: על מה מצווה מן התורה להודות לה'?</p>
+<blockquote>"ואכלת ושבעת וברכת את ה' אלוקיך על הארץ הטבה אשר נתן לך" (דברים ח, י)</blockquote>
+<p>זו המצווה של ברכת המזון, ובה ההודיה היא על הארץ. אין בתורה מצווה מפורשת להודות על החיים, על הילדים או על הרכוש, אף שוודאי ראוי להודות על הכל. ההודיה המפורשת היא על "הארץ הטבה".</p>
+<p>למה? כי מי שמתבונן במה שקיבל מודה עליו, ומי שמודה – אוהב. ארץ ישראל היא ביתו של ה', והתורה רוצה שנתבונן בה, נודה עליה ונאהב אותה.</p>
+<p class="bold-para">ההודיה על הארץ היא הדרך לאהבת הארץ.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: &quot;כי עת לחננה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;כי עת לחננה&quot;</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפסוק "כי רצו עבדיך את אבניה" כבר הוזכר. אבל כדאי לקרוא גם את הפסוק שלפניו:</p>
+<blockquote>"אתה תקום תרחם ציון כי עת לחננה כי בא מועד. כי רצו עבדיך את אבניה ואת עפרה יחננו" (תהלים קב, יד-טו)</blockquote>
+<p>שימו לב: "לחננה" ו"יחננו". חן כנגד חן.</p>
+<p>מתי ה' יקום וירחם על ציון? מתי יגיע המועד? כשעבדי ה' ירצו את אבניה, כשאפילו העפר ימצא חן בעיניהם. כשהארץ מוצאת חן בעינינו, אנחנו מוצאים חן בעיני ה'.</p>
+<div class="honey-box">🍯 אהבה מעוררת אהבה. אנחנו אוהבים את ביתו, והוא אוהב אותנו.</div>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: מה רואים בחברון ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה רואים בחברון</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שמגיע לחברון לא יכול שלא להרגיש את זה. רואים את המסירות, כמה השקיעו, איך יהודים גרים שם שנים ארוכות, שלושים, ארבעים וחמישים שנה, בתנאים שאינם פשוטים, ולא עוזבים.</p>
+<p>מבקרים בביתו של אחד התושבים הוותיקים ושואלים: איך חיים כך? והתשובה ברורה מתוך הפנים: מאהבה. מחיבה לארץ ישראל.</p>
+<p>וזה מה שכל החיבור הזה מבקש ללמד. חברון מלשון חיבור. מערת המכפלה, שהכל בה כפול: שתי קניות, שני קניינים, עולם הזה ועולם הבא, יחיד וציבור. וכפילות אחרונה: האהבה שאנחנו אוהבים את הארץ מעוררת את האהבה של ה' אלינו.</p>
+<p class="bold-para">ובזכות האהבה הכפולה הזאת נזכה בקרוב לגאולה שלמה.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
