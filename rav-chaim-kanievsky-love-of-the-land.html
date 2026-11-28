@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌿 ארץ חיים: רבי חיים קנייבסקי ואהבת ארץ ישראל</title>
+<meta name="description" content="סיפורים, פסקים ותשובות קצרות של שר התורה, שמגלים כמה עמוקה הייתה אהבתו לארץ ישראל, ולמה כל יהודי צריך שתהיה לו חלקה משלו בארץ החיים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🌿 ארץ חיים: רבי חיים קנייבסקי ואהבת ארץ ישראל</h1>
+  <p class="hero-subtitle">סיפורים, פסקים ותשובות קצרות של שר התורה, שמגלים כמה עמוקה הייתה אהבתו לארץ ישראל, ולמה כל יהודי צריך שתהיה לו חלקה משלו בארץ החיים</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/xysStEmkJbY" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌿 ארץ חיים</a><ul class="toc-stories"><li><a href="#story-1">ספר שנקרא על שמו ועל שם הארץ</a></li><li><a href="#story-2">למה ארץ ישראל נקראת ארץ חיים?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📚 התורה שלו נטתה אל הארץ</a><ul class="toc-stories"><li><a href="#story-3">דרך אמונה ודרך חכמה</a></li><li><a href="#story-4">ישוב הארץ ברוחניות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">✈️ לא יוצאים מן הארץ</a><ul class="toc-stories"><li><a href="#story-5">מיליון דולר שלא שינו דבר</a></li><li><a href="#story-6">סע לצפת, לא לחוץ לארץ</a></li><li><a href="#story-7">הכותל שוויתר עליו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🏡 חלקה בארץ, חלק בעולם הבא</a><ul class="toc-stories"><li><a href="#story-8">דירה במחיר מציאה</a></li><li><a href="#story-9">המגרש של החזון איש</a></li><li><a href="#story-10">רות והשדה</a></li><li><a href="#story-11">אל תישאר בלי דירה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🌬️ אווירא דארץ ישראל</a><ul class="toc-stories"><li><a href="#story-12">עלייה לרגל של ימינו</a></li><li><a href="#story-13">ארץ צבי: תמיד יש מקום</a></li><li><a href="#story-14">ארץ זבת חלב</a></li><li><a href="#story-15">נטעה כרם: מצווה לנטוע עצים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">❓ תשובות קצרות, הכרעות ברורות</a><ul class="toc-stories"><li><a href="#story-16">שאלות ותשובות</a></li><li><a href="#story-17">ארץ ישראל גוברת</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌿</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">ארץ חיים</h2></div></div>
+<p class="chapter-intro">רבי חיים קנייבסקי, שר התורה, נפטר בשושן פורים תשפ"ב. מי שמתבונן בחייו מגלה, לצד הבקיאות העצומה בכל התורה, אהבה גדולה ושקטה לארץ ישראל.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ספר שנקרא על שמו ועל שם הארץ</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי פטירתו של רבי חיים קנייבסקי יצא לאור ספר בשם "ארץ חיים", ובו אוסף של שאלות ותשובות, סיפורים והנהגות של רבי חיים בענייני ארץ ישראל בלבד. מחבר הספר כותב בהקדמה שראה במשך שנים רבות כמה אהבה עצומה הייתה לרבי חיים לארץ ישראל.</p>
+<p>לשם הספר יש שתי כוונות. האחת, רבי חיים, ששמו מופיע בשם הספר. והשנייה, ארץ ישראל עצמה, שנקראת בפי הנביא "ארץ חיים":</p>
+<blockquote>"ונתתי צבי בארץ חיים" (יחזקאל כו, כ)</blockquote>
+<p>שם אחד שמחבר את האיש ואת הארץ שאהב.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: למה ארץ ישראל נקראת ארץ חיים? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה ארץ ישראל נקראת ארץ חיים?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל דרשו (כתובות קיא, א) שארץ ישראל נקראת "ארץ חיים" משום שהמתים שבה יחיו ראשונה לעתיד לבוא. ועוד אמרו שם שכל המהלך ארבע אמות בארץ ישראל מובטח לו שהוא בן העולם הבא.</p>
+<p>מה הסוד? ארץ ישראל היא כביכול המשך של העולם הבא בתוך העולם הזה. כמו הגוף והנשמה: הם לא שני דברים נפרדים שנמצאים זה ליד זה, אלא חיבור אחד שה' הרכיב. כך גם ארץ ישראל והנצח קשורים זה בזה. מי שחי כאן, נמצא כבר עכשיו במקום שמחובר לחיי הנצח.</p>
+<p>ומשום כך יעקב אבינו ביקש כל כך להיקבר בארץ ישראל: מי שנקבר בה, קם ממנה לחיי נצח.</p>
+<p class="bold-para">ארץ ישראל איננה רק מקום לחיות בו. היא מקום שהחיים בו נמשכים לנצח.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: דרך אמונה ודרך חכמה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📚</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">התורה שלו נטתה אל הארץ</h2></div></div>
+<p class="chapter-intro">רבי חיים ידע את כל התורה כולה. אבל כשבוחנים על מה כתב את ספריו, מגלים כיוון ברור.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דרך אמונה ודרך חכמה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי חיים היה בקי בכל התורה באופן שקשה לתאר. מסופר שבכל שנה, בערב פסח, היה מסיים את כל התורה שבעל פה: בבלי, ירושלמי, מדרשים והלכות.</p>
+<p>ובכל זאת, ספריו הגדולים עוסקים בשני תחומים עיקריים. "דרך אמונה" על הלכות זרעים: תרומות, מעשרות, שביעית ופאה, המצוות התלויות בארץ. ו"דרך חכמה" על הלכות קודשים, ענייני בית המקדש.</p>
+<p>השמות לקוחים מדרשת חז"ל (שבת לא, א) על הפסוק "והיה אמונת עתיך חסן ישועת חכמת ודעת" (ישעיהו לג, ו): "אמונת" זה סדר זרעים, "חכמת" זה סדר קודשים. למה זרעים נקרא אמונה? כי מי שזורע מאמין בחי העולמים. הוא טומן גרעין באדמה, ואיננו יודע אם יירד גשם. הוא בוטח בה'.</p>
+<div class="honey-box">🍯 שני התחומים שרבי חיים בחר להאיר, מצוות הארץ ובית המקדש, הם בדיוק הדברים שהלב של עם ישראל נכסף אליהם בארץ.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: ישוב הארץ ברוחניות ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ישוב הארץ ברוחניות</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי חיים עלה לארץ כילד, כשאביו, הסטייפלר, הוזמן לכהן כראש ישיבה בארץ. אחד מרבותיו בנעוריו היה הרב פינקלשטיין. מסופר שרבי חיים, בעודו נער צעיר, דילג על כיתות ונכנס לשיעור שלו. "מה אתה עושה כאן? זה לא הגיל שלך", תמה הרב. ענה הנער: "אבא אמר שיש הרבה מה ללמוד ממך".</p>
+<p>לימים שלח החזון איש את הרב פינקלשטיין לעזוב את בני ברק ולפתוח מקום תורה חדש בקריית אתא. היה לו קשה מאוד לעזוב, אבל החזון איש ציווה. כי מצוות יישוב הארץ איננה רק גשמית. לא די שיהיו בתים, צריך שבכל מקום יישמעו דברי תורה, שיהיו בתי כנסת ובתי מדרש, שכל מקום יפרח גם ברוח.</p>
+<p>כך עשה החזון איש עצמו: כשהגיע לארץ, רוב שומרי התורה ישבו בירושלים, והוא בחר לגור בבני ברק, שהייתה אז מקום קטן. ושנים אחר כך, כשרבי חיים ביקר בקריית אתא, הוא בא לבית רבו מנעוריו וכיבד אותו מאוד.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מיליון דולר שלא שינו דבר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">✈️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">לא יוצאים מן הארץ</h2></div></div>
+<p class="chapter-intro">רבי חיים החמיר מאוד בכל הנוגע ליציאה מארץ ישראל, וסיפורים מופלאים נקשרו בזה.</p>
+<article class="story-card" id="story-5" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מיליון דולר שלא שינו דבר</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר שגביר אחד הציע לרבי חיים לבוא לחוץ לארץ לשבוע ימים, והבטיח לו מיליון דולר. סכום שהיה יכול להחזיק ישיבות וכוללים רבים. רבי חיים סירב: "אסור לצאת מארץ ישראל". הכסף, בעיניו, אינו סיבה.</p>
+<p>רבי חיים נהג כשיטת הרמב"ם:</p>
+<blockquote>"אסור לצאת מארץ ישראל לחוצה לארץ לעולם, אלא ללמוד תורה, או לישא אשה, או להציל מן הגוים, וחוזר לארץ. וכן יוצא הוא לסחורה" (רמב"ם, הלכות מלכים ה, ט)</blockquote>
+<p>רבים נוהגים להקל ולצאת לכל דבר מצווה. אבל רבי חיים החמיר כפשטות דברי הרמב"ם, ולא יצא לשום מקום.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: סע לצפת, לא לחוץ לארץ ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">סע לצפת, לא לחוץ לארץ</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ראש כולל חשוב, שהיה חייב סכומים גדולים לאברכים, בא לבקש מרבי חיים ברכה לנסיעה לחוץ לארץ לגיוס כספים. רבי חיים אמר לו: "סע לצפת". ראש הכולל יצא נבוך, חזר עם ידיד, והסביר שוב כמה הוא חייב. ענה רבי חיים: "אם אתה רוצה, סע. אבל עדיף לנסוע לצפת".</p>
+<p>ראש הכולל ביטל את הנסיעה ונסע לצפת. בערב הלך לבית הכנסת, למד עד שנרדם על השולחן, וכשהתעורר בשעה מאוחרת שאל אם יש עוד מניין לערבית. התפלל במניין האחרון, ושם פגש יהודי מאמריקה. אחרי התפילה סיפר לו את דברי רבי חיים. היהודי שאל מיד: "כמה אתה צריך?" ולמחרת הגיע עם שני צ'קים, על כל הסכום.</p>
+<p class="bold-para">מי שמאמין, ה' עוזר לו. לפעמים הישועה מחכה דווקא בצפת, ולא מעבר לים.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: הכותל שוויתר עליו ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הכותל שוויתר עליו</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובאותו הקשר מסופר על יהודי שקנה דירה בעיר העתיקה, סמוך לכותל, מיד אחרי מלחמת ששת הימים, כשרבים עוד פחדו לגור שם. מחלון ביתו ראה את הכותל המערבי.</p>
+<p>לימים ביקשה ישיבה סמוכה להוסיף קומות, והבנייה הייתה חוסמת לו את המבט אל הכותל. היה לו כואב מאוד. אבל הוא אמר: הם רוצים להגדיל תורה, ותורה חשובה מהכול. ונתן רשות.</p>
+<p>הקומות נבנו, ובמשך זמן רב לא היה בהן שימוש. עד שבנו של אותו יהודי פתח שם כולל, שבו לומדים היום מאות אברכים, בלב העיר העתיקה.</p>
+<div class="honey-box">🍯 אדם חושב שהוא מפסיד, ובאמת הוא בונה את מה שבניו יזכו בו.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: דירה במחיר מציאה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🏡</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">חלקה בארץ, חלק בעולם הבא</h2></div></div>
+<p class="chapter-intro">אחד החידושים הבולטים של רבי חיים: כמה חמור למכור נחלה בארץ ישראל, וכמה גדולה המעלה להחזיק בה.</p>
+<article class="story-card" id="story-8" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">דירה במחיר מציאה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אדם שחיפש דירה מצא אחת מתאימה מאוד, במחיר נמוך אפילו ממחיר השוק. כששאל את המתווך למה המחיר זול כל כך, ענה: לבעל הדירה הוצעה עסקה מפתה בחוץ לארץ, והוא זקוק בדחיפות למזומנים. לכן הוא מוכר את דירתו בארץ ישראל כדי להשקיע את הכסף שם.</p>
+<p>מבחינת הקונה זו מציאה. אבל רבי חיים פסק שעל פי דברי ספר החינוך, הקונה דירה מאדם שמוכר אותה כדי להשקיע בחוץ לארץ, עובר על "לפני עור", כי הוא מסייע למוכר לזלזל בחיבת הארץ.</p>
+<p>ומניין? ספר החינוך מסביר את דין בתי ערי חומה, שהמוכר יכול לגאול את ביתו רק במשך שנה אחת: זהו קנס שקנסה התורה את המוכר, מפני חיבת הארץ. מי שמוכר את נחלתו בארץ, פוגע באהבת הארץ.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: המגרש של החזון איש ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">המגרש של החזון איש</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל ימי חייו גר החזון איש בדירות שכורות. ובכל זאת הקפיד שתהיה לו חלקת קרקע משלו בארץ ישראל. בתחילה קנה מגרש בשותפות עם גיסו הסטייפלר, ואחר כך מגרש משלו בבני ברק, שעמד ריק כל ימי חייו. למה? משום מצוות יישוב ארץ ישראל.</p>
+<p>ומה המקור? כשיעקב אבינו מגיע לשכם, מספרת התורה שקנה חלקת שדה ממשפחת חמור במאה קשיטה. שואל האבן עזרא: מדוע התורה מספרת כמה עלה לו? אין התורה מספרת כמה עלו בגדי הכהן הגדול או המשכן.</p>
+<p>והוא מסביר, בתוכן הדברים: כדי להודיע שיש מעלה גדולה לארץ ישראל, ומי שיש לו חלק בה, כאילו יש לו חלק בעולם הבא.</p>
+<p class="bold-para">מי שקונה חלקת אדמה בארץ ישראל, קונה חלקה בנצח.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: רות והשדה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">רות והשדה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כמה חמור הוא למכור נחלה בארץ, אפשר לראות במגילת רות. בועז אומר לגואל הקרוב:</p>
+<blockquote>"ביום קנותך השדה מיד נעמי ומאת רות המואביה אשת המת קניתי, להקים שם המת על נחלתו" (רות ד, ה)</blockquote>
+<p>מה הקשר בין קניית השדה לנישואי רות? אלימלך ובניו מתו בלי ילדים, והשדה עומד להימכר. מי שרוצה להציל את אלימלך צריך לדאוג לשני הדברים יחד: שתישאר לו נחלה בארץ, ושיהיה לו זרע. שניהם הם השארית שלו לעולם.</p>
+<p>והחתם סופר מוסיף על הפסוק "ויהושע בן נון וכלב בן יפנה חיו מן האנשים ההם" (במדבר יד, לח): חז"ל אמרו שהם נטלו את חלקם של המרגלים בארץ. מי שקיבל חלק בארץ נקרא "חי". ומכאן, שמי שמפסיד את חלקו בארץ, כאילו הפסיד מחייו.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: אל תישאר בלי דירה ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אל תישאר בלי דירה</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יהודי אחד החליט שהוא רוצה ללמוד תורה כל ימיו. איך יתפרנס? הוא חשב למכור את דירתו, לגור בשכירות, ולחיות מן הכסף שנים רבות. בא ושאל את רבי חיים.</p>
+<p>ענה לו רבי חיים: "דירה בארץ ישראל לא מוכרים. אם צריך, מוכרים וקונים קטנה יותר, אבל לא נשארים בלי בית בארץ ישראל".</p>
+<p>היהודי שמע בקולו. מכר את דירתו, ועבר לאזור שבו הדירות זולות יותר. ושם, בדרך שלא ציפה לה, קנה דירה גדולה אפילו מזו שמכר, ועוד נשאר בידו כסף רב. עד היום הוא יושב ולומד תורה.</p>
+<p>כשאדם שאל את רבי חיים מה לומר לעשירים בכינוס שנועד לעודד אותם לקנות בתים בארץ, ענה: "תאמר להם שזו מצווה מן התורה".</p>
+<div class="honey-box">🍯 גם מי שאין לו כסף לבית יכול לקנות חלק קטן בקרקע בארץ ישראל, למשל חלק בדונם משותף שנרשם בטאבו. זו מצווה, וגם עוזרת שאדמת הארץ תהיה בידי יהודים.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: עלייה לרגל של ימינו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🌬️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">אווירא דארץ ישראל</h2></div></div>
+<p class="chapter-intro">רבי חיים ראה בארץ ישראל מקור של קדושה ושל חכמה, ושמח בכל מי שבא אליה.</p>
+<article class="story-card" id="story-12" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">עלייה לרגל של ימינו</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פעם הגיעו לארץ מאות יהודים מארצות הברית, לכמה ימים של לימוד תורה בהתמדה. ביקשו מרבי חיים לומר להם כמה מילים, אף שלא נהג לדבר לפני קהל.</p>
+<p>הוא אמר להם: כשיהודי עלה לבית המקדש שלוש פעמים בשנה, קיבל שפע של רוחניות וגם שפע גשמי. היום אין לנו בית מקדש, אבל קדושת ארץ ישראל עדיין בידינו. היא הארץ ש"תמיד עיני ה' אלקיך בה מרשית השנה ועד אחרית שנה" (דברים יא, יב). ומי שעולה לארץ ישראל, כאילו עולה לרגל.</p>
+<p>וכשמשלחת רבנים מאמריקה שאלה אותו למה יש בארץ ישראל הרבה יותר גדולי תורה מאשר באמריקה, ענה במילים של חז"ל (בבא בתרא קנח, ב):</p>
+<p class="bold-para">"אוירא דארץ ישראל מחכים".</p>
+<p>פעם אף העיר שמכל העולם מגיעים אליו מכתבים עם שאלות, ובדרך כלל המכתבים שמגיעים מן הארץ טובים יותר. רואים עד כמה האוויר של הארץ משפיע.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: ארץ צבי: תמיד יש מקום ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ארץ צבי: תמיד יש מקום</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בימי המנדט באו פקידים בריטים אל רבי יוסף חיים זוננפלד, רבה של ירושלים, ושאלו: איך אתם אומרים שארץ ישראל היא ביתכם? וכי אם כל היהודים יבואו, יהיה מקום לכולם? היו אז בארץ כמאות אלפי יהודים בלבד, ולא הבינו איך ארץ קטנה כל כך תכיל עם שלם.</p>
+<p>ענה להם: "כשילדים באים לבית אמם, תמיד יש מקום לכולם". זו הייתה התשובה לגויים. והתשובה האמיתית, אמר, היא שארץ ישראל נקראת "ארץ צבי". חז"ל דרשו (גיטין נז, א) שכמו עורו של הצבי, שנמתח לפי גופו, כך ארץ ישראל: כשיושביה רבים היא מתרחבת.</p>
+<p class="bold-para">כמה שיבואו, יהיה מקום.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: ארץ זבת חלב ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ארץ זבת חלב</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>באותו עניין שאלו פעם את הרב מרדכי אליהו יהודים בחוץ לארץ: אתם צריכים את הכסף שלנו. אם כולנו נעלה, מי יפרנס אתכם?</p>
+<p>בשנים הראשונות של המדינה הייתה בדיחה שבארץ ישראל יש מיליון תושבים ושמונה מיליון משלמי מסים. כל העם היהודי, אחרי החורבן הגדול, התרגש שסוף סוף יש בית, וכולם תרמו.</p>
+<p>ענה להם הרב: ארץ ישראל היא "ארץ זבת חלב ודבש". וכמה חלב יש לפרה? תלוי כמה העגל יונק. ככל שהוא יונק יותר, כך יש יותר חלב. כך הארץ: כמה יהודים שיבואו, כך היא תשפיע. ובאמת, היום חיים כאן מיליוני יהודים, ויש לכולם מקום ושפע. ויבואו עוד, ובעזרת ה' יהיה עוד יותר.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: נטעה כרם: מצווה לנטוע עצים ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">נטעה כרם: מצווה לנטוע עצים</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשיר "אשת חיל" נאמר:</p>
+<blockquote>"זממה שדה ותקחהו, מפרי כפיה נטעה כרם" (משלי לא, טז)</blockquote>
+<p>למה בשדה נאמר "ותקחהו", שקנתה אותו, ובכרם נאמר "נטעה", שנטעה בעצמה?</p>
+<p>הסביר רבי חיים: התורה ציוותה "וכי תבאו אל הארץ ונטעתם כל עץ מאכל" (ויקרא יט, כג). יש מצווה לנטוע עצי פרי בארץ ישראל, ולא נאמרה מצווה כזו על זריעת תבואה. לכן את השדה, שדה של תבואה, אשת החיל קנתה. אבל את הכרם, שהוא עצים, היא נטעה בעצמה, כדי לקיים את המצווה בגופה.</p>
+<div class="honey-box">🍯 מי שנוטע עץ פרי בארץ ישראל, אפילו אחד בחצר ביתו, מקיים מצווה שאשת החיל עשתה בידיה.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: שאלות ותשובות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">❓</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">תשובות קצרות, הכרעות ברורות</h2></div></div>
+<p class="chapter-intro">בספר "ארץ חיים" מובאות תשובות קצרות רבות של רבי חיים. כמעט כולן מסתיימות באותה מסקנה.</p>
+<article class="story-card" id="story-16" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שאלות ותשובות</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<ul class="story-list"><li><strong>ישוב ארץ ישראל, מדרבנן או מדאורייתא?</strong> מדאורייתא.</li><li><strong>לחכות לביאת המשיח, ורק אז לעלות?</strong> חלילה. יש מצווה לעלות עכשיו.</li><li><strong>האם מקיימים את המצווה בכל רגע ורגע שגרים בארץ?</strong> כן, בכל רגע.</li><li><strong>מה עדיף, להיות רב בחוץ לארץ או יהודי פשוט בארץ ישראל?</strong> יהודי פשוט בארץ ישראל.</li><li><strong>רב קהילה בחוץ לארץ רוצה לעלות, והקהילה תישאר בלי רב?</strong> יעלה, ואינו מחויב לחפש מחליף.</li><li><strong>ההורים בחוץ לארץ רוצים שבנם יגור לידם?</strong> רשאי לעלות.</li><li><strong>רופא בכיר שתומך לבדו בישיבה, ואם יעלה לא יוכל לתמוך בה?</strong> יעלה.</li></ul>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: ארץ ישראל גוברת ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ארץ ישראל גוברת</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גבירים מדרום אפריקה שאלו: המטבע שלנו שווה מעט מול השקל. כל תרומה לישיבה אצלנו שווה פי כמה מאשר אותה תרומה בארץ ישראל. היכן עדיף לתרום? ענה רבי חיים: לארץ ישראל.</p>
+<p>שאלו אותו: מה עדיף, אתרוג מהודר מחוץ לארץ, או אתרוג פשוט מארץ ישראל? ענה: אתרוג מארץ ישראל.</p>
+<p>וכשבאו אליו שני אורחים, רב חשוב מחוץ לארץ ויהודי פשוט מארץ ישראל, ושאלו את מי להקדים, ענה: את זה מארץ ישראל. והביא ראיה מרש"י על "הנהר הגדול נהר פרת": נהר פרת הוא הקטן שבנהרות, ונקרא גדול משום שהוא נזכר עם ארץ ישראל.</p>
+<p class="bold-para">מה שקשור לארץ ישראל, גדול.</p>
+<p>יהי רצון שנזכה כולנו להרגיש את הזכות ואת החיבה של ארץ החיים, ושהארץ תלך ותגדל ותפרח, כרצון ה'.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
