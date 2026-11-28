@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏡 יעקב בבית לבן: מכשירים מטבח של צימר בחצי שעה</title>
+<meta name="description" content="מדריך מעשי, כלי אחר כלי, איך להכשיר כיריים, סירים, תנור, מיקרוגל, סכו״ם, כוסות ומחבת בצימר או בדירת אירוח שאין בהם שמירת כשרות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🏡 יעקב בבית לבן: מכשירים מטבח של צימר בחצי שעה</h1>
+  <p class="hero-subtitle">מדריך מעשי, כלי אחר כלי, איך להכשיר כיריים, סירים, תנור, מיקרוגל, סכו״ם, כוסות ומחבת בצימר או בדירת אירוח שאין בהם שמירת כשרות.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-17 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/vVCxqNQcvfQ" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🐑 יהודי בבית לבן</a><ul class="toc-stories"><li><a href="#story-1">מבית לבן ועד הצימר בגולן</a></li><li><a href="#story-2">למה צימר בחזקת לא כשר</a></li><li><a href="#story-3">האוכל שהבאת מהבית: כיסוי אחד או שניים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔥 הכלים הקלים: כיריים וסירים</a><ul class="toc-stories"><li><a href="#story-4">כיריים: חמש דקות של אש</a></li><li><a href="#story-5">ולמה בפסח עוטפים בנייר כסף?</a></li><li><a href="#story-6">סיר: מים רותחים עד שפתו</a></li><li><a href="#story-7">בלי אבן: המכסה עושה את העבודה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">☕ קומקום, קפה ומה שגוי בישל</a><ul class="toc-stories"><li><a href="#story-8">הקומקום החשמלי: לא צריך כלום</a></li><li><a href="#story-9">כוס קפה אצל גוי</a></li><li><a href="#story-10">לחם וגבינות בחוץ לארץ</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">♨️ תנור, תבניות וטוסטר אובן</a><ul class="toc-stories"><li><a href="#story-11">התנור שנשאר מהעובד הזר</a></li><li><a href="#story-12">עשרים דקות על החום הגבוה</a></li><li><a href="#story-13">התבנית: כאן כבר לא מספיק</a></li><li><a href="#story-14">טוסטר אובן: חפשו את הרשת</a></li><li><a href="#story-15">התנור הפירוליטי: מכשיר את עצמו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">📡 המיקרוגל: המצאה שחז״ל לא הכירו</a><ul class="toc-stories"><li><a href="#story-16">לא אש ולא מים</a></li><li><a href="#story-17">כוס מים וכמה דקות</a></li><li><a href="#story-18">הצלחת המסתובבת</a></li><li><a href="#story-19">קופסה עם קליק, נייר כסף ומפית</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🍴 סכו״ם, מנגל וכוסות</a><ul class="toc-stories"><li><a href="#story-20">סכו״ם: ההכשרה הכי מהירה שיש</a></li><li><a href="#story-21">כמה פרטים שחשוב לזכור</a></li><li><a href="#story-22">המנגל בחצר</a></li><li><a href="#story-23">כוסות זכוכית: בין ספרדים לאשכנזים</a></li><li><a href="#story-24">כוס לקידוש ולזימון</a></li><li><a href="#story-25">צלחות חרס וכלי פלסטיק</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🍳 אחרון חביב: המחבת</a><ul class="toc-stories"><li><a href="#story-26">באמצע בין אש למים</a></li><li><a href="#story-27">הכי טוב: להביא מחבת מהבית</a></li><li><a href="#story-28">למה זה חשוב: &quot;ולפני עוור&quot;</a></li><li><a href="#story-29">הסיכום: מטבח כשר בחצי שעה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🐑</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">יהודי בבית לבן</h2></div></div>
+<p class="chapter-intro">יעקב אבינו יצא מבית אביו וגר עשרים שנה בבית לבן. גם אנחנו מגיעים לפעמים ל"בית לבן" קטן: צימר, דירת אירוח, מלון בחוץ לארץ. איך שומרים שם על כשרות?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מבית לבן ועד הצימר בגולן</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת ויצא יעקב אבינו הולך לחרן, לבית לבן. הוא מגיע לבית שאין בו תורה ואין בו כשרות, וצריך להסתדר שם יום אחר יום. השאלה הזאת לא נשארה בספר בראשית. היא שאלה של כל יהודי שיוצא מהבית.</p>
+<p>פעם נסעו רק לבתי מלון. היום הרבה אנשים מעדיפים דירה: Airbnb, צימר, דירת אירוח. זה זול יותר, נוח יותר, ויש מטבח. אבל המטבח הזה שימש לפניך אנשים שאתה לא מכיר. אתה לא יודע מי בישל שם, מה בישלו ובאילו כלים.</p>
+<p>ולא צריך לנסוע לחוץ לארץ כדי לפגוש את השאלה. מי שלוקח צימר בגליל, בגולן או בכל מקום אחר בארץ פוגש אותה בדיוק.</p>
+<div class="honey-box">🍯 לא צריך להיות תלמיד חכם גדול כדי להסתדר. צריך רק לדעת מה עושים עם כל כלי. זה הכול.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: למה צימר בחזקת לא כשר ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה צימר בחזקת לא כשר</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לחשוב: בארץ ישראל כמעט כל המוצרים בסופרמרקט כשרים, אז מה הבעיה? מי שהגיע מחוץ לארץ מתפלא: שם צריך לחפש כשר, וכאן כמעט הכול כשר.</p>
+<p>אבל הבעיה בצימר היא לא רק האוכל שנכנס אליו. גם אם הגוי שגר בו לפניך קנה רק מוצרים בהכשר, הכלים כבר נאסרו. למה? בגלל <strong>בישולי גויים</strong>. חז״ל אסרו מאכל שגוי בישל, ואפילו אורז פשוט שאין בו שום חשש של טרפות. ומאכל שנאסר אוסר גם את הסיר שהתבשל בו, כי הסיר בולע ממנו.</p>
+<p>בארץ גרים היום הרבה מאוד גויים, ורבים מהם עולים שאינם יהודים. וגם יהודי שאינו שומר כשרות יכול להכניס לצימר כל דבר. לכן הכלל פשוט:</p>
+<p class="bold-para">כל צימר שאין בו שמירת כשרות, הכלים שבו בחזקת לא כשרים.</p>
+<p>יש מקומות שבהם בעל הצימר מקפיד מאוד, ואפילו כותב במודעה שהמקום לשומרי מצוות בלבד, כי חשוב לו לשמור על המטבח. במקום כזה אפשר לשאול אותו ולסמוך. אבל כשאין שמירה, צריך להכשיר.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: האוכל שהבאת מהבית: כיסוי אחד או שניים ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האוכל שהבאת מהבית: כיסוי אחד או שניים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הפתרון הראשון הוא להביא אוכל מוכן מהבית. אבל מיד עולה שאלה: איך מחממים אותו? התנור טרף, הכיריים טרפות, המיקרוגל טרף.</p>
+<p>הדרך הפשוטה היא לחמם את האוכל כשהוא <strong>סגור</strong>. אם הקופסה סגורה ועטופה עוד פעם בשקית או בנייר כסף, אפשר לחמם אותה גם בתנור או במיקרוגל של המקום. בזה יש שני כיסויים, והאוכל לא נוגע בכלי שאינו כשר ולא מקבל ממנו טעם.</p>
+<p>האם מספיק כיסוי אחד? יש בזה דעות. יש שמחמירים ודורשים שניים, ויש הרבה מאוד שמתירים כיסוי אחד, למשל קופסה טובה עם מכסה קליק שנסגר היטב. לכתחילה עושים שני כיסויים. כשאין ברירה, יש על מי לסמוך.</p>
+<div class="honey-box">🍯 שני כיסויים הם התשובה הקלה ביותר. מי שרוצה גם לבשל במקום, ממשיך לפרקים הבאים.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: כיריים: חמש דקות של אש ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">הכלים הקלים: כיריים וסירים</h2></div></div>
+<p class="chapter-intro">נתחיל מהקל. את הכיריים ואת הסירים אפשר להכשיר תוך דקות, בלי ציוד מיוחד.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כיריים: חמש דקות של אש</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמגיעים לצימר ורוצים לבשל על הכיריים, עושים שני דברים:</p>
+<ul class="story-list"><li><strong>מנקים.</strong> בודקים שעל הרשת שעליה מניחים את הסיר אין שאריות אוכל ממי שהיה לפניך. בצימר יקר בדרך כלל מנקים היטב בין אורח לאורח, אחרת לא היו יכולים לבקש מחיר כזה. בצימר זול כדאי לבדוק היטב.</li><li><strong>מדליקים.</strong> לפני השימוש מדליקים את האש חמש דקות, בלי סיר. האש שורפת את מה שעל הרשת, וזו ההכשרה.</li></ul>
+<p>בכיריים חשמליות עושים אותו דבר: מדליקים אותן כעשר דקות, הן מתלהטות, והכול נשרף.</p>
+<p>זהו. מעכשיו אפשר לחמם את האוכל שהבאת או לבשל בסיר שלך, בלי שום בעיה.</p>
+<p class="bold-para">חמש דקות של אש, והכיריים מוכנות.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ולמה בפסח עוטפים בנייר כסף? ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ולמה בפסח עוטפים בנייר כסף?</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שזוכר את פסח שואל: הרי בפסח אנחנו לא מסתפקים בהדלקה. מכסים את הכיריים בנייר כסף, ויש שמחליפים את הרשתות לגמרי. מה ההבדל?</p>
+<p>כשמדליקים את האש, היא מגיעה לחלק מהרשת, אבל לא בהכרח לכל הברזל שמסביב. במשך השנה סומכים על כך שהסיר עומד על המקום שהאש הכשירה, ושלא ייפול שום דבר החוצה. ובכל מקרה רשת הכיריים לא נוגעת באוכל עצמו.</p>
+<p>בפסח החומרה גדולה הרבה יותר, כי חמץ אסור במשהו, והוא נמצא שם כל ימי החג. לכן בפסח מוסיפים נייר כסף מסביב. במשך השנה, כשמגיעים לצימר לכמה ימים, חמש דקות של אש מספיקות.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: סיר: מים רותחים עד שפתו ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">סיר: מים רותחים עד שפתו</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לא תמיד אפשר לסחוב סירים מהבית. מי שנוסע לחוץ לארץ, למשל לשוויץ, יודע: מלון כשר שם יקר מאוד, ודירה חוסכת חלק גדול מהמחיר. אבל אין סירים. מה עושים? מכשירים את הסיר של המקום בהגעלה.</p>
+<p>בפסח היו מכניסים את הסיר לתוך סיר גדול יותר מלא מים רותחים. בצימר אין סיר כזה. לכן עושים כך:</p>
+<ul class="story-list"><li>ממלאים את הסיר במים עד שפתו העליונה.</li><li>מעמידים אותו על הכיריים, אחרי שהכשרנו אותן, ומרתיחים עד שהמים ממש מבעבעים.</li><li>מטילים לתוכו אבן או כלי אחר בגודל של ביצה.</li><li>המים עולים, גולשים על שפת הסיר ויורדים על הדפנות מבחוץ. כך הסיר כשר.</li></ul>
+<p>ולמה זה עובד? זה פסוק מפורש בתורה. אחרי מלחמת מדין הביאו בני ישראל כלים מן השלל, והתורה מלמדת איך מכשירים אותם:</p>
+<blockquote>"כל דבר אשר יבא באש תעבירו באש וטהר אך במי נדה יתחטא וכל אשר לא יבא באש תעבירו במים" (במדבר לא, כג)</blockquote>
+<p>כלי שהשתמשו בו במים, כמו סיר, מכשירים במים רותחים. וסיר שבישלו בו אפילו בשר חזיר, אחרי הגעלה כזו הוא כשר.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: בלי אבן: המכסה עושה את העבודה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">בלי אבן: המכסה עושה את העבודה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אין לך אבן? יש פתרון פשוט יותר. כשהמים רותחים, שמים על הסיר את המכסה. האדים נלכדים, הבעבוע מתגבר, והמים גולשים החוצה מעצמם.</p>
+<p>אפשר גם להרתיח מים בקומקום חשמלי ולשפוך אותם לסיר הרותח עד שהוא גולש. זה טיפה פחות מהודר, כי מים שנשפכים מקומקום הם "עירוי מכלי ראשון" ומתקררים מעט. אבל תוך שנייה הם מתערבבים עם המים הרותחים, ולכן גם זה טוב.</p>
+<p>נשארת שאלה: הרי בהגעלה רגילה המים מקיפים את הסיר מכל צד, וכאן מבחוץ רק זולגים כמה מים. למה מקילים? האחרונים מסבירים שסומכים על כך שהרתיחה בפנים מחממת את הדופן כולה, וגם המים שגולשים מבחוץ מכשירים. כשאין אפשרות אחרת, זו הכשרה טובה.</p>
+<div class="honey-box">🍯 סיר מלא עד השפה, רתיחה חזקה, אבן או מכסה, והמים גולשים. ככה מכשירים סיר בכל מקום בעולם.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: הקומקום החשמלי: לא צריך כלום ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">☕</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">קומקום, קפה ומה שגוי בישל</h2></div></div>
+<p class="chapter-intro">למה הקומקום החשמלי של הצימר לא צריך הכשרה, למה קפה של גוי מותר, ומה עם לחם וגבינות בחוץ לארץ.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הקומקום החשמלי: לא צריך כלום</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קומקום חשמלי בצימר לא צריך הכשרה. אף אחד לא מבשל בו אוכל, בדרך כלל מרתיחים בו רק מים. ומים שגוי הרתיח אינם אסורים.</p>
+<p>למה? כי גזירת בישולי גויים חלה רק על מאכל ש<strong>אי אפשר לאכול אותו חי</strong>. אורז חי לא אוכלים, ולכן אורז שגוי בישל אסור. מים שותים גם כשהם קרים, ולכן מים שגוי הרתיח מותרים.</p>
+<p>כך שהקומקום של הצימר מוכן לשימוש כמו שהוא. ובהמשך נראה שהוא גם יעזור לנו להכשיר את הסכו״ם.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: כוס קפה אצל גוי ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כוס קפה אצל גוי</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קפה כבר מסובך יותר. הרי פולי קפה אי אפשר לאכול חיים, אז למה לא חלים עליהם בישולי גויים?</p>
+<p>באמת יש בזה מחלוקת, ויש מחמירים. אבל המנהג להקל, ובשעת הצורך שותים כוס קפה שגוי הכין. הטעם: העיקר במשקה הוא המים, והקפה רק נותן להם טעם. ומים, כפי שראינו, אינם בכלל הגזירה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: לחם וגבינות בחוץ לארץ ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">לחם וגבינות בחוץ לארץ</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שנוסע לחוץ לארץ שואל גם על לחם. פת של גוי מקומי, "פת פלטר", מותרת בשעת הדחק לפי המנהג הנפוץ. אבל צריך לברר אצל המקומיים, ובעיקר אצל הרב המקומי: האם הלחם באמת עשוי רק מקמח ומים, או שמוסיפים לו עוד דברים. היום לחם כבר לא תמיד פשוט כמו פעם.</p>
+<p>כך גם בגבינות. גבינה מוחמצת בחומר מעמיד, ובגבינות מסוימות בחוץ לארץ, כמו הפרמזן העגול המפורסם, נוהגים להשתמש בחומר שמקורו בקיבת בהמה. אז זו כבר לא שאלה של בישולי גויים, אלא שאלה של בשר וחלב ושל גבינת גויים.</p>
+<div class="honey-box">🍯 מה שאינך יודע איך הוא עשוי, שואלים את הרב המקומי. הוא מכיר את המוצרים במקום.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: התנור שנשאר מהעובד הזר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">♨️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">תנור, תבניות וטוסטר אובן</h2></div></div>
+<p class="chapter-intro">עד כאן היה קל. התנור מסובך יותר, וכאן חשוב להבין את ההבדל בין התנור לתבנית שבתוכו.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">התנור שנשאר מהעובד הזר</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זו שאלה מעשית מאוד. בבית יש עובד זר, תאילנדי או פיליפיני, והחוק מחייב לתת לו כלים משלו. הוא מבשל בתנור מה שהוא רוצה, ואין לדעת מה. אחר כך העובד הולך, התנור נשאר, ובני הבית רוצים לבשל בו. מה עושים?</p>
+<p>תנור משתמשים בו באש, ולכאורה צריך ליבון. אבל ליבון אמיתי בתנור כמעט בלתי אפשרי. בגמרא בירושלמי מוגדר הליבון "עד שיהיו ניצוצות ניתזים": הברזל מתלהט עד שעפים ממנו ניצוצות. בתנור ביתי זה לא יקרה לעולם. יש מבארים שבעבר היה בברזל הרבה אוויר, ולכן כשחיממו אותו התיזו ממנו ניצוצות. הברזל של היום דחוס לגמרי, ושום ניצוץ לא יתיז ממנו.</p>
+<p>וגם הגעלה אי אפשר לעשות לתנור. אי אפשר למלא אותו במים רותחים.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: עשרים דקות על החום הגבוה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">עשרים דקות על החום הגבוה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אז מה עושים? מנקים את התנור היטב, מדליקים אותו על החום הגבוה ביותר כעשרים דקות, וזו ההכשרה. מעיקר הדין אפשר לסמוך על זה.</p>
+<p>למה זה מספיק? כי התנור עצמו לא בלע את האיסור מהמגע הישיר. הוא בלע אותו <strong>דרך האדים</strong> שעלו מהאוכל. ומה שנבלע דרך אדים, מוכשר על ידי חום של אדים ואוויר.</p>
+<p>לכתחילה רוב היהודים לא מכשירים כך תנור לפסח. יש שקונים תנור נפרד או טוסטר אובן לפסח. בצימר, במשך השנה, עשרים דקות על החום הגבוה מספיקות. זה כשר, גם אם ההכשר המהודר ביותר לא היה מסתפק בזה.</p>
+<p>לפני ההכשרה יש מי שמנקים את התנור בחומר ניקוי חזק לתנורים. זה חומר מסוכן מאוד ושורף ממש, וצריך להיזהר בו מאוד. מצד שני, אחרי ניקוי כזה כל מה שנשאר בתנור כבר נפגם ואינו ראוי למאכל.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: התבנית: כאן כבר לא מספיק ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">התבנית: כאן כבר לא מספיק</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תבנית האפייה שונה מהתנור לגמרי. התנור בלע דרך אדים, אבל על התבנית מונח האוכל עצמו. היא צריכה ליבון ממש.</p>
+<p>כאן קשה להקל. ההערכה היא שהליבון שחז״ל דיברו עליו הוא בחום של כ-400 מעלות, ותנור ביתי מגיע לכ-250 מעלות בלבד. זה לא מספיק לתבנית.</p>
+<p>לכן את תבניות הצימר לא מכשירים. מניחים על הרשת של התנור <strong>תבנית אלומיניום חד פעמית</strong>, ואופים בה. היום הרבה אנשים אופים בתבניות חד פעמיות גם בבית, אז זה לא קשה בכלל.</p>
+<p class="bold-para">התנור מוכשר בעשרים דקות, התבנית נשארת בצד, והחד פעמית נכנסת במקומה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: טוסטר אובן: חפשו את הרשת ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">טוסטר אובן: חפשו את הרשת</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בטוסטר אובן הכשרה עובדת בדיוק כמו בתנור. ההבדל הוא שבחלק מהטוסטר אובן אין רשת, יש רק מגש שנכנס לחריצים בדפנות. בטוסטרים הגדולים יש בדרך כלל גם רשת, ואז מניחים עליה את התבנית החד פעמית וזה הכי טוב.</p>
+<p>ואם אין רשת? בשעת הצורך אפשר להכשיר את המגש הרגיל יחד עם הטוסטר, באותו חום גבוה, ולהניח עליו את התבנית החד פעמית. ההכשרה של 250 מעלות לא מספיקה כדי לאפות על המגש עצמו, אבל היא מספיקה כדי להניח עליו תבנית נוספת. לכתחילה מוציאים את המגש ומשתמשים ברשת או בתבנית אחרת.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: התנור הפירוליטי: מכשיר את עצמו ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">התנור הפירוליטי: מכשיר את עצמו</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש היום תנורים עם ניקוי עצמי, פירוליטי. בזמן הניקוי התנור מתחמם לכ-500 מעלות ונועל את עצמו, כמו מכונת כביסה, כי מי שיפתח אותו באמצע עלול להיפגע מאוד מהחום.</p>
+<p>מי שיש לו תנור כזה, ההכשרה אצלו קלה מכולם. מפעילים ניקוי עצמי, וזה ליבון גמור לכל הדעות. אחרי זה אפשר להשתמש גם בתבניות ובמגשים שהיו בתוכו בזמן הניקוי.</p>
+<p>אפשר להכשיר כך את התנור גם בין בשר לחלב. ובכל זאת מנהג רבים, ובעיקר האשכנזים, לא להשתמש באותו תנור לבשר ולחלב, כדי שלא יתבלבלו.</p>
+<div class="honey-box">🍯 תנור רגיל מחזיק עשרות שנים. מי שמתלבט אם לקנות פירוליטי רק בשביל ההכשרה, כדאי שישאל קודם מי שיש לו כזה כמה זמן הוא מחזיק מעמד.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: לא אש ולא מים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">📡</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">המיקרוגל: המצאה שחז״ל לא הכירו</h2></div></div>
+<p class="chapter-intro">התורה מדברת על אש ועל מים. המיקרוגל לא זה ולא זה. איך מכשירים אותו?</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לא אש ולא מים</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה נותנת שתי דרכים להכשרה: מה שבא באש מכשירים באש, ומה שבא במים מכשירים במים. והנה בא המיקרוגל, המצאה חדשה שחז״ל לא חלמו עליה, ולא ברור לאיזה סוג הוא שייך.</p>
+<p>במיקרוגל הגלים מחממים את האוכל עצמו. הדפנות לא חמות, רק האוכל. אז איך המיקרוגל בולע? הדפנות מתחממות רק מהאדים שעולים מהאוכל. זה כלי שכל מה שהוא בולע, הוא בולע דרך אדים. הפוסקים התלבטו הרבה איך להגדיר אותו.</p>
+<p>דרך אגב, המיקרוגל הגיע אלינו מהטכנולוגיה הצבאית. כמו הרבה המצאות אחרות, משהו שנולד לצורכי מלחמה הפך לכלי של בית. זה מזכיר את חזון הנביא:</p>
+<blockquote>"וכתתו חרבותם לאתים וחניתותיהם למזמרות" (ישעיה ב, ד)</blockquote>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: כוס מים וכמה דקות ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כוס מים וכמה דקות</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכיוון שהמיקרוגל בולע דרך אדים, מכשירים אותו גם על ידי אדים:</p>
+<ul class="story-list"><li>מנקים את המיקרוגל היטב.</li><li>מוציאים את הצלחת המסתובבת, ובשלב הבא נראה מה עושים איתה.</li><li>שמים בפנים כוס מלאה מים ומפעילים את המיקרוגל זמן ממושך, בדרך כלל כמה דקות.</li><li>כשכל החלל הפנימי מתמלא אדים, המיקרוגל מוכשר.</li></ul>
+<p>מעיקר הדין סומכים על זה, ויש שמכשירים כך את המיקרוגל אפילו לפסח.</p>
+<p>יש גם מנהג להכשיר מיקרוגל עם חומר פוגם. אבל במקום עבודה, למשל כשהמיקרוגל משותף לכל המחלקה, אל תעשה את זה. כולם יקפצו עליך, ובצדק. ההכשרה באדים מספיקה, ושני כיסויים על האוכל מספיקים גם בלעדיה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: הצלחת המסתובבת ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הצלחת המסתובבת</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הצלחת שבתוך המיקרוגל בעייתית יותר. מי שהשתמש לפניך לא תמיד היה אכפת לו מה הוא מניח עליה. אורח אחד שם עליה גבינה צהובה, אחר שם בשר, ואף אחד לא שאל מי היה לפניו. אז הצלחת בלעה ישר מהאוכל, ולא דרך אדים, והכשרה באדים לא תעזור לה.</p>
+<p>הדרך הטובה היא להכשיר את הצלחת בהגעלה, בתוך סיר מים רותחים, כמו כל כלי שבלע במים. אבל לא תמיד יש סיר גדול מספיק.</p>
+<p>כשאין ברירה, אחרי שהכשרת את המיקרוגל באדים, שמים את האוכל בתוך צלחת או קופסה משלך ומניחים אותה על הצלחת המסתובבת. האוכל לא נוגע בצלחת של המיקרוגל, הצלחת עברה הכשרה מינימלית, ובשעת הצורך אפשר לסמוך על זה.</p>
+<div class="honey-box">🍯 האוכל בכלי שלך, הכלי שלך על הצלחת שלהם. כך אפשר לחמם גם במיקרוגל של מקום העבודה.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: קופסה עם קליק, נייר כסף ומפית ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">קופסה עם קליק, נייר כסף ומפית</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה עם שני כיסויים במיקרוגל? בבתי חולים ובמוסדות, שבהם אי אפשר להכשיר, מקפידים על כך: המנה סגורה, ומעליה עוד ניילון נצמד. שני כיסויים.</p>
+<p>יש הרבה מאוד פוסקים שמתירים גם כיסוי אחד, ובמיוחד קופסה טובה עם מכסה קליק שנסגרת לגמרי, עד שאפילו כשהופכים אותה לא נשפך ממנה כלום. יש קופסות שהחום פותח אותן, ולכן כדאי לבחור קופסה שמיועדת למיקרוגל ועומדת בחום.</p>
+<p>וכשאוכלים בצלחת של המקום? אפשר לכסות אותה בנייר כסף ולאכול עליו. נייר כסף מפריד באמת. מפית נייר לא מספיקה, כי הנוזלים והטעם עוברים דרכה.</p>
+<p class="bold-para">נייר כסף חוצץ. מפית נייר לא.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: סכו״ם: ההכשרה הכי מהירה שיש ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🍴</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">סכו״ם, מנגל וכוסות</h2></div></div>
+<p class="chapter-intro">סכו״ם מכשירים בדקה, מנגל צריך ליבון, ובכוסות זכוכית יש הבדל גדול בין אשכנזים לספרדים.</p>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">סכו״ם: ההכשרה הכי מהירה שיש</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סכו״ם אי אפשר לסחוב תמיד, ובצימר משתמשים בו כל הזמן. למזלנו, זה הכלי הכי קל להכשיר.</p>
+<p>הדרך הרגילה: מרתיחים מים בסיר שכבר הוכשר, ומטילים לתוכו את הסכו״ם. זו הגעלה. עדיף להכניס כל כלי לחוד ולא את כולם יחד, כי במקום שבו הכלים נוגעים זה בזה המים לא מגיעים.</p>
+<p>ויש דרך עוד יותר מהירה: <strong>הקומקום החשמלי</strong>. ממלאים אותו, מרתיחים, ומכניסים את המזלגות והכפות לתוך המים הרותחים. זה עובד גם בבית: ילד לקח מזלג חלבי ותקע אותו בבשר? תוך שנייה מגעילים אותו בקומקום.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: כמה פרטים שחשוב לזכור ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כמה פרטים שחשוב לזכור</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<ul class="story-list"><li><strong>כל הכלי צריך להיכנס.</strong> אם המים לא מגיעים עד סוף הסכו״ם, למשל בקומקום קטן, מכניסים פעמיים: פעם צד אחד ופעם הצד השני.</li><li><strong>לא להתבלבל.</strong> מי שמכניס הרבה כלים יחד עלול לשכוח איזה צד כבר הוכשר. הכי טוב לבחור שיטה אחידה, למשל תמיד קודם את הראש ואחר כך את הידית.</li><li><strong>ידיות מפלסטיק.</strong> כשיש לסכין ידית מפלסטיק, מגעילים את החלק המתכתי.</li><li><strong>להוציא בזהירות.</strong> כששופכים את הקומקום לכיור כדי להוציא את הכלים, נזהרים מהמים הרותחים.</li></ul>
+<p>זה שימושי גם הרחק מהצימר. חייל דתי שמגיע לבסיס שבו הוא היחיד שמקפיד יכול להכשיר לעצמו מזלג וכף בקומקום, תוך שנייה, ולאכול כמו בן אדם.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: המנגל בחצר ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המנגל בחצר</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מנגל שונה מכל השאר. הבשר מונח ישר על הרשת מעל האש, וכלי שבלע באש צריך ליבון: "כל דבר אשר יבא באש תעבירו באש".</p>
+<p>מי שרוצה להשתמש במנגל שבחצר הצימר מלבן את הרשת באש חזקה, למשל על ידי פחמים בוערים מתחתיה במשך זמן, ורק אחר כך מניח עליה את הבשר הכשר שלו. זה לא הכי מהודר, כי לא תמיד הליבון חזק מספיק, אבל אפשר.</p>
+<div class="honey-box">🍯 מי שיכול, יביא רשת משלו. רשת מנגל תופסת מעט מקום וחוסכת הרבה דאגות.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: כוסות זכוכית: בין ספרדים לאשכנזים ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כוסות זכוכית: בין ספרדים לאשכנזים</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בזכוכית יש הבדל גדול בין העדות. מי שמכיר בתים ספרדים של פעם זוכר: בהרבה בתים לא היו בכלל כוסות נפרדות לבשר ולחלב. בבוקר שתו בכוס קפה עם חלב, ובצהריים השתמשו בה לארוחה בשרית. הם סמכו על הדעות שזכוכית אינה בולעת, ומספיק לשטוף אותה היטב.</p>
+<p>האשכנזים לא נוהגים כך בשום אופן. ולמעשה, היום כמעט אין בית ספרדי שאין בו כוסות לבשר ולחלב. פעם חסכו, והכול היה קטן ומצומצם. היום, ברוך ה', יש. ויש גם סיבה פשוטה: בכוס קפה נשארות לפעמים שאריות בתחתית, ותלוי מאוד מי שטף אותה.</p>
+<p>בצימר: לשתייה קרה אין בעיה בכלל. רק לוודא שהכוס נקייה. לשתייה חמה הכי טוב כוס חד פעמית. ואם צריך כוס זכוכית למשקה חם, הספרדים מסתפקים בשטיפה טובה במים וסבון. האשכנזים נוהגים להגעיל גם כוסות זכוכית, בשפיכת מים רותחים או בטבילה בהם, ואחר כך משתמשים בהן.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: כוס לקידוש ולזימון ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כוס לקידוש ולזימון</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לקידוש ולזימון רוצים לכתחילה כוס של ממש ולא כוס חד פעמית. זו כוס של מצווה, וצריך שתהיה חשובה.</p>
+<p>בשבע ברכות שנערכו בצימר עלתה בדיוק השאלה הזאת: איפה נמצא כאן כוס זכוכית כשרה? והנה בארון היו גביעים חד פעמיים יוקרתיים. גביע כזה עשוי חומר חזק, ואנשים היו שוטפים אותו ומשתמשים בו שוב ושוב אילו רצו. זורקים אותו רק כי אין סיבה לשמור. גביע כזה חשוב מספיק לקידוש ולזימון.</p>
+<p>בכוס זכוכית רגילה בצימר אין בעיה ליין, כי יין קר ומספיק לשטוף. הבעיה האמיתית היא אחרת: האם הכוס טבולה. וזו כבר סוגיה בפני עצמה.</p>
+<div class="honey-box">🍯 טיפ שכדאי לאמץ: לכל אירוע משפחתי, שבע ברכות, שבת חתן או ברית, להביא איתכם כוס זכוכית. היום בהרבה אירועים הכול חד פעמי, וכוס לברית מילה צריכה להיות כוס של כבוד.</div>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: צלחות חרס וכלי פלסטיק ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">צלחות חרס וכלי פלסטיק</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כלי חרס אין להם תקנה. כך כתוב בגמרא: חרס בולע ואינו פולט לעולם, ולכן כלי חרס שנאסר יש לשבור אותו. מי שעשה פעם כלי מחימר בחוג יודע: שופכים לתוכו מיץ, וחצי נבלע בדפנות.</p>
+<p>אבל צלחות החרס של היום שונות לגמרי. הן מצופות בזיגוג קשה כמו זכוכית, ושום דבר לא נבלע בהן. לכתחילה מחמירים גם בהן כמו בכלי חרס. אבל מי שהגיע לצימר ואין לו ברירה יכול לסמוך ולהגעיל אותן במים רותחים, כי הן מצופות זכוכית.</p>
+<p>כלי פלסטיק: לכתחילה מחמירים שאין להם הכשרה. בשעת הצורך אפשר להגעיל אותם. כלי פלסטיק טוב לא נמס בטבילה קצרה במים רותחים. מכניסים לשנייה ומוציאים, ולא קורה לו כלום.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: באמצע בין אש למים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🍳</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">אחרון חביב: המחבת</h2></div></div>
+<p class="chapter-intro">המחבת היא הכלי המסובך ביותר בכל המטבח. היא לא נמצאת לגמרי במים וגם לא לגמרי באש.</p>
+<article class="story-card" id="story-26" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">באמצע בין אש למים</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה דווקא המחבת הכי מסובכת? כי היא באמצע. כשהאוכל נוגע באש, כמו במנגל, צריך ליבון. כשהאוכל מבושל במים, כמו בסיר, מספיקה הגעלה. ובמחבת? האש לא נוגעת באוכל, היא נמצאת למטה. וגם אין שם מים, האוכל מטוגן בשמן. אז לאיזה דין היא שייכת?</p>
+<p>בשולחן ערוך עצמו יש בזה שני כיוונים. בהלכות פסח, בסימן תנ״א, נפסק שלמחבת מספיקה הגעלה, כי האוכל לא נגע באש. ובהלכות יורה דעה, בהכשרת כלים שנאסרו מאיסור, נפסק שמחבת צריכה ליבון.</p>
+<p>מה ההבדל? בפסח החמץ נבלע בכלי בזמן שהיה מותר. כל השנה אוכלים חמץ, ורק אחר כך הוא נאסר. זה נקרא "היתר בלוע", וקל יותר להכשיר אותו. כלי שבישלו בו טרף בלע איסור ממש, וזה חמור יותר.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: הכי טוב: להביא מחבת מהבית ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הכי טוב: להביא מחבת מהבית</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לכן לכתחילה לא מכשירים מחבת. מביאים מחבת מהבית. היא תופסת מעט מקום, נכנסת בקלות לכל מזוודה, וחוסכת את כל הספק.</p>
+<p>ואם אין ברירה? אז סומכים על שני דברים יחד. האחד: שיש פוסקים שלמחבת מספיקה הגעלה. השני: שגם לליבון יש דעה קלה יותר.</p>
+<p>ליבון חמור הוא "עד שיהיו ניצוצות ניתזים", ולזה לא נגיע. אבל יש דעה בראשונים שליבון קל הוא חום כזה שאם תניח על הכלי קש או נייר דק, הוא יתחיל להיחרך. לזה אפשר להגיע.</p>
+<p>לכן בשעת הצורך: מעמידים את המחבת הנקייה על האש הגדולה, ומשאירים אותה עד שכל הכלי לוהט, עד שנייר דק שמונח עליה מתחיל להיחרך. זהו ליבון קל, ואפשר לסמוך עליו.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: למה זה חשוב: &quot;ולפני עוור&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה זה חשוב: &quot;ולפני עוור&quot;</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל ההלכות האלה מעשיות מאוד גם לבעלי צימרים ודירות אירוח. מי שמארח גם יהודים וגם גויים עומד מול שאלה קשה: אם נאמר שאין שום דרך להכשיר מחבת, אסור לו להשאיר מחבת לאורחים יהודים. הרי הם ישתמשו בה, והוא יעבור על "ולפני עוור לא תתן מכשול".</p>
+<p>אבל מכיוון שבשעת הצורך יש דרך להכשיר, בעל הבית יכול לתת לאורח את האפשרות. ולכן כדאי לתלות בדירת האירוח, על הארון במטבח, דף עם הלכות הכשרת כלים. כל אורח רואה אותו. מי שרוצה מכשיר, ומי שלא רוצה הבחירה בידו. אבל האפשרות נמצאת לפניו.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: הסיכום: מטבח כשר בחצי שעה ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הסיכום: מטבח כשר בחצי שעה</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שמגיע לצימר שאין בו שמירת כשרות יכול להכשיר את רוב המטבח בחצי שעה:</p>
+<ul class="story-list"><li><strong>כיריים:</strong> ניקוי והדלקה חמש דקות בלי סיר. כיריים חשמליות כעשר דקות.</li><li><strong>סיר:</strong> מים עד השפה, רתיחה, אבן או מכסה, עד שהמים גולשים.</li><li><strong>קומקום חשמלי:</strong> לא צריך הכשרה.</li><li><strong>סכו״ם:</strong> הגעלה בסיר שהוכשר או בקומקום, כל כלי לחוד ועד סופו.</li><li><strong>תנור:</strong> ניקוי ועשרים דקות על החום הגבוה. אופים רק בתבנית חד פעמית על הרשת.</li><li><strong>מיקרוגל:</strong> כוס מים כמה דקות עד שהחלל מתמלא אדים. את האוכל שמים בכלי משלך או בשני כיסויים.</li><li><strong>מנגל:</strong> ליבון הרשת באש חזקה, או רשת מהבית.</li><li><strong>כוסות:</strong> לשתייה קרה רק לשטוף. לשתייה חמה כוס חד פעמית, או הגעלה למנהג האשכנזים.</li><li><strong>מחבת:</strong> הכי טוב להביא מהבית. בשעת הצורך ליבון קל על אש גדולה.</li></ul>
+<p>כמו יעקב אבינו, שגר בבית לבן עשרים שנה ושמר על כל מה שקיבל מבית אביו, גם אנחנו יכולים לצאת לכל מקום ולשמור על המטבח שלנו כשר.</p>
+<p class="bold-para">שנזכה כולנו להשתמש תמיד בדברים כשרים ומהודרים, בעזרת ה' יתברך.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
