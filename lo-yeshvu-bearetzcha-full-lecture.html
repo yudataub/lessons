@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🗺️ לא ישבו בארצך: גויים בארץ ישראל – מהתורה ועד היום</title>
+<meta name="description" content="ההרצאה המלאה: גבולות הארץ שבתורה, הרמב״ם והראב״ד, מכירת בית לגוי, הערבים בעיני החזון איש והרב קוק, עובדים זרים ותיירות – ולמה ארץ ישראל היא &quot;חדר ייחוד&quot; בין ה&#x27; לעמו">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🗺️ לא ישבו בארצך: גויים בארץ ישראל – מהתורה ועד היום</h1>
+  <p class="hero-subtitle">ההרצאה המלאה: גבולות הארץ שבתורה, הרמב״ם והראב״ד, מכירת בית לגוי, הערבים בעיני החזון איש והרב קוק, עובדים זרים ותיירות – ולמה ארץ ישראל היא &quot;חדר ייחוד&quot; בין ה&#x27; לעמו</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-21 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/lskyuC24WxE" target="_blank" rel="noopener">🎬 חלק א ביוטיוב: האם מותר לגויים לגור בארץ ישראל?</a> <a class="video-btn" href="https://youtu.be/zCQRo1x-UTA" target="_blank" rel="noopener">🎬 חלק ב ביוטיוב: באיזה גויים מדובר, ומה עושים היום</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌍 שאלה של היום, וחמש שאלות על פסוק אחד</a><ul class="toc-stories"><li><a href="#story-1">160 אלף עובדים זרים</a></li><li><a href="#story-2">וחירם מלך צור?</a></li><li><a href="#story-3">ישיבה, אוכלוסייה, ושני לאווין</a></li><li><a href="#story-4">היחיד, הציבור, והמציאות של היום</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🏜️ מים סוף ועד ים פלשתים</a><ul class="toc-stories"><li><a href="#story-5">הפסוק היחיד עם הגבול הדרום-מזרחי</a></li><li><a href="#story-6">גבולות ההבטחה וגבולות המגורים</a></li><li><a href="#story-7">מתי מתקיימת ההבטחה?</a></li><li><a href="#story-8">&quot;לא ישבו בארצך&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📖 הרמב״ם: אפילו לא לעבור דרך הארץ</a><ul class="toc-stories"><li><a href="#story-9">ספר המצוות: עובדי עבודה זרה</a></li><li><a href="#story-10">פיליפינים, אוקראינים ומה שמביאים הביתה</a></li><li><a href="#story-11">דרכי שלום – ומה הן לא מתירות</a></li><li><a href="#story-12">&quot;אפילו לפי שעה&quot;</a></li><li><a href="#story-13">אין גר תושב בזמן הזה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🚪 הראב״ד והכסף משנה: הבית פתוח למי ששומר שבע מצוות</a><ul class="toc-stories"><li><a href="#story-14">&quot;ישיבה כתיב, ולא העברה&quot;</a></li><li><a href="#story-15">גר תושב לעניין הישיבה גם היום</a></li><li><a href="#story-16">הכסף משנה: מי שקיבל על עצמו</a></li><li><a href="#story-17">קהילת בני נח</a></li><li><a href="#story-18">שלוש מחלוקות, ושורה אחת למעשה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🎁 לא תחנם: מתנה, טרמפ, והגבול הדק</a><ul class="toc-stories"><li><a href="#story-19">הרשב״א: לא חינם, אלא גמול</a></li><li><a href="#story-20">טרמפ לעובד</a></li><li><a href="#story-21">למה התורה אסרה? כדי למנוע את הצעד האחרון</a></li><li><a href="#story-22">הצד השני של השכנות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">⚖️ הערבים: החזון איש, הרב קוק, והיהודי האחרון בשכונה</a><ul class="toc-stories"><li><a href="#story-23">ומה עם המוסלמים?</a></li><li><a href="#story-24">היתר המכירה והסכמי אוסלו</a></li><li><a href="#story-25">החזון איש: צריך אמונה בתורה</a></li><li><a href="#story-26">למה דווקא האמונה חשובה כל כך</a></li><li><a href="#story-27">&quot;הסנהדרין המחודשת&quot; ותעודות לבני נח</a></li><li><a href="#story-28">הרב קוק: בשעת הדחק</a></li><li><a href="#story-29">&quot;אני יהודי, תמכור לי&quot;</a></li><li><a href="#story-30">שתי תשובות שתשמע</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">💞 האם האיסור נוהג היום, ולמה הארץ היא חדר ייחוד</a><ul class="toc-stories"><li><a href="#story-31">הרב שאול ישראלי: &quot;בזמן שיד ישראל תקיפה&quot;</a></li><li><a href="#story-32">למה אי אפשר היום</a></li><li><a href="#story-33">ובכל זאת – להשתדל</a></li><li><a href="#story-34">עובדים זרים: על מה סומכים</a></li><li><a href="#story-35">&quot;עמים הר יקראו&quot; – לפי הרמב״ם</a></li><li><a href="#story-36">תיירות בימינו</a></li><li><a href="#story-37">דירה לחתן ולכלה</a></li><li><a href="#story-38">דפיקה בדלת חדר הייחוד</a></li><li><a href="#story-39">סיכום: מה למדנו</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌍</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">שאלה של היום, וחמש שאלות על פסוק אחד</h2></div></div>
+<p class="chapter-intro">האם מותר לתת לגויים לגור בארץ ישראל? צריך לגרש את כולם? ואיזה גויים בכלל? אלה לא שאלות תיאורטיות.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">160 אלף עובדים זרים</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בכל כמה זמן מתפרסמת החלטה: מביאים לארץ עשרות אלפי עובדים זרים, לפעמים מדברים על 160 אלף. האם זה בסדר? מה מותר ומה אסור? מותר להביא אותם לזמן קצוב? מותר לתת להם מגורי קבע? ומה עם פליטים, תיירים, או מכירת בית לגוי?</p>
+<p>התורה מתייחסת לשאלות האלה במפורש. ולא רק להלכה הפרטית: לאורך השנים התקבלו בממשלות ישראל החלטות רבות שהיו קשורות לשאלה איך לומדים את הפסוקים האלה. לכן כדאי ללמוד את הנושא מהיסוד: מה כתוב בתורה, ואיך מעבירים את זה למציאות.</p>
+<p class="bold-para">השאלה "מי גר כאן" היא אחת השאלות המעשיות ביותר שהתורה עוסקת בהן.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: וחירם מלך צור? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">וחירם מלך צור?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה ראשונה עולה מיד: הרי שלמה המלך היה בקשרים קרובים עם חירם מלך צור, ובזמנו גרו בארץ גויים רבים. בבניין בית המקדש עבדו חוצבים ובנאים מצור, עם ארזים מהלבנון, והגבעונים חיו בתוך ישראל עוד מימי יהושע.</p>
+<p>התשובה היא שיש סוג של גויים שמותר להם לגור בארץ. הם נקראים "גר תושב". לא גר גמור שהתגייר, אלא גוי ש"גר" לעניין זה בלבד: מותר לו להיות "תושב" בארץ. כמו שכתוב בתורה על הגר התושב "וָחַי עִמָּךְ" (ויקרא כה, לה). לגוי סתם אסור לשבת כאן; לגר תושב מותר. ונראה בהמשך מיהו בדיוק.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: ישיבה, אוכלוסייה, ושני לאווין ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ישיבה, אוכלוסייה, ושני לאווין</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>שאלה ראשונה:</strong> מה פירוש "לא ישבו"? האם הכוונה רק לישיבת קבע, לגור כאן ולבנות בית? או שאפילו ביקור קצר אסור, ויש לסגור את משרד התיירות?</p>
+<p><strong>שאלה שנייה:</strong> על איזה גוי מדובר? רק על שבעת העממים? על כל עובד עבודה זרה? מה עם מוסלמים, שאינם עובדי עבודה זרה? ומה עם נוצרים?</p>
+<p><strong>שאלה שלישית:</strong> למה צריך שני איסורים, גם "לא ישבו בארצך" וגם "לא תחנם"? מה ההבדל ביניהם?</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: היחיד, הציבור, והמציאות של היום ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">היחיד, הציבור, והמציאות של היום</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>שאלה רביעית:</strong> האם הציווי מוטל על כל יחיד, או רק על הציבור? יש מצוות שלא נאמרו לאדם הפרטי. המצווה למנות מלך מוטלת על העם כולו; המצווה לכבוש את הארץ מוטלת על הציבור, לא על כל אחד לבדו. "לא ישבו בארצך" – למי נאמר? לעומת זאת "לא תחנם" בוודאי מוטל על כל אחד: אסור לאדם פרטי למכור בית לגוי.</p>
+<p><strong>שאלה חמישית:</strong> איך מתייחסים למציאות של היום? ברור שאי אפשר לקחת את כל תושבי שפרעם ולשלוח אותם מכאן. אבל מה עם הכנסת גויים חדשים? כשפרצה המלחמה בין רוסיה לאוקראינה, נתנה מדינת ישראל לאלפים לבוא ולגור כאן. שר הפנים, שהיה אדם דתי, היה צריך לחתום על כך. אף אחד לא היה פוגע בו אם לא היה חותם; זו הייתה זכותו המלאה. האם היה מותר לו לחתום?</p>
+<p class="bold-para">זו לא שאלה דמיונית. זו החלטה שמישהו חתם עליה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: הפסוק היחיד עם הגבול הדרום-מזרחי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🏜️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מים סוף ועד ים פלשתים</h2></div></div>
+<p class="chapter-intro">לפני שמגיעים לאיסור עצמו, הפסוק שמביא אותו מגלה דבר מפתיע על גבולות הארץ.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הפסוק היחיד עם הגבול הדרום-מזרחי</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת משפטים אומרת התורה:</p>
+<blockquote>וְשַׁתִּי אֶת גְּבֻלְךָ מִיַּם סוּף וְעַד יָם פְּלִשְׁתִּים וּמִמִּדְבָּר עַד הַנָּהָר (שמות כג, לא)</blockquote>
+<p>זה פסוק מיוחד. בדרך כלל התורה מתארת את הגבול הדרום-מערבי של הארץ, "מִנְּהַר מִצְרַיִם" (בראשית טו, יח), אבל לא אומרת איפה בדיוק עובר הגבול בצד הדרום-מזרחי. כאן, ורק כאן, כתוב במפורש: הגבול נמתח מים סוף ועד ים פלשתים.</p>
+<p>אם הגבול מגיע מים פלשתים, כלומר מהים התיכון באזור עזה, ועד ים סוף, הרי הוא קו שחוצה מקצה לקצה. המינימום האפשרי הוא קו מאילת ועד עזה. ויש שהוסיפו שמכאן ראיה ש"נחל מצרים" הוא ואדי אל-עריש.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: גבולות ההבטחה וגבולות המגורים ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גבולות ההבטחה וגבולות המגורים</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל בפרשת מסעי מופיעים גבולות אחרים, צרים יותר, שבהם הארץ מסתיימת סמוך לים המלח. למה? כי שם מתוארים הגבולות שחולקו לשבטים, והם הגבולות של הארץ שהייתה ראויה למגורים באותה תקופה. מדרום לים המלח מתחיל מדבר, ובלי מים אין חיים. רק בימינו, עם המוביל הארצי וההתפלה, אפשר לגור שם.</p>
+<p>לכן נחלקו הפוסקים. לעניין המצוות התלויות בארץ, כמו שביעית, רוב הרבנים סוברים שהגבול הוא כמו בפרשת מסעי, ושהכיבוש של ימינו לא מחייב מחדש במצוות. כך נוהגים כמעט כל גופי הכשרות, שמביאים תוצרת מהערבה בלי חשש שביעית. הרב עובדיה יוסף סבר שארץ ישראל מסתיימת לגמרי באזור הערבה, ולכן גם לעניין מגורים, מעבר לשם הוא כחוץ לארץ. לעומתו קבוצה גדולה של רבנים סוברת שברגע שעם ישראל כבש את השטח עד ים סוף, הוא חלק מהארץ המובטחת.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מתי מתקיימת ההבטחה? ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מתי מתקיימת ההבטחה?</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המחלוקת הזאת היא גם שאלה של השקפת עולם: מתי ההבטחה של התורה אמורה להתקיים? יש הקוראים את "ושתי את גבולך" כהבטחה לימות המשיח. ויש האומרים: מי אמר שהיא לא מתקיימת עכשיו? אם ה' נתן לנו את אילת, אולי זו ההבטחה עצמה, שמתממשת לנגד עינינו.</p>
+<p>כשהוחזר חצי האי סיני, דנו הרבנים בדיוק בזה: האם מחזירים חלק מארץ ישראל? על חלקים מסוימים, כמו אזור ימית, היה ברור לכל הדעות שהם בתוך הגבול. ואילת, לפי הפסוק הזה, בוודאי בתוך הגבול המובטח.</p>
+<div class="honey-box">🍯 לפעמים ההבטחות הגדולות של התורה לא מחכות לסוף הימים. הן מתקיימות בשקט, ואנחנו רק צריכים לזהות אותן.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;לא ישבו בארצך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;לא ישבו בארצך&quot;</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ממשיך הפסוק ואומר:</p>
+<blockquote>כִּי אֶתֵּן בְּיֶדְכֶם אֵת יֹשְׁבֵי הָאָרֶץ וְגֵרַשְׁתָּמוֹ מִפָּנֶיךָ. לֹא תִכְרֹת לָהֶם וְלֵאלֹהֵיהֶם בְּרִית. לֹא יֵשְׁבוּ בְּאַרְצְךָ פֶּן יַחֲטִיאוּ אֹתְךָ לִי (שמות כג, לא-לג)</blockquote>
+<p>זה לאו מן התורה: אסור לתת לגויים לשבת בארץ ישראל. והטעם כתוב בפסוק עצמו: "פֶּן יַחֲטִיאוּ אֹתְךָ לִי". התורה חוששת שהשכנות הקרובה תמשוך את ישראל אחרי דרכיהם.</p>
+<p>לצד האיסור הזה יש איסור נוסף: "לֹא תְחָנֵּם" (דברים ז, ב), שחז״ל דרשו ממנו "לא תיתן להם חניה בקרקע", כלומר אסור למכור לגוי קרקע או בית בארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: ספר המצוות: עובדי עבודה זרה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📖</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">הרמב״ם: אפילו לא לעבור דרך הארץ</h2></div></div>
+<p class="chapter-intro">הרמב״ם כותב על האיסור פעמיים: בספר המצוות ובהלכות עבודה זרה. ובהלכות הוא מחדש חידוש מפליג.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ספר המצוות: עובדי עבודה זרה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספר המצוות (לא תעשה נ״א) כותב הרמב״ם שהוזהרנו מלהושיב עובדי עבודה זרה בארצנו, כדי שלא נלמד מכפירתם, שנאמר "לֹא יֵשְׁבוּ בְּאַרְצְךָ פֶּן יַחֲטִיאוּ אֹתְךָ לִי". ואם רצה הגוי לשבת בארצנו, אסור עד שיקבל עליו שלא לעבוד עבודה זרה. אז מותר לו לשכון בארץ, וזהו "גר תושב": גר רק לעניין זה שמותר לו לגור כאן. וממילא גם לא נמכור לו נחלה, משום "לא תחנם".</p>
+<p>מי שקורא את ספר המצוות לבד מבין ממנו שהאיסור הוא רק על גוי שעובד עבודה זרה. לפי זה, משרד העבודה שמחליט להביא עובדים, צריך לחפש מדינות שבהן לא עובדים עבודה זרה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: פיליפינים, אוקראינים ומה שמביאים הביתה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">פיליפינים, אוקראינים ומה שמביאים הביתה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן צריך להגדיר מהי עבודה זרה. רבים מהאוקראינים שהגיעו לכאן כמעט אינם דתיים בכלל; קשה לומר שהם "עובדי עבודה זרה" במובן המעשי. עובד פיליפיני שהולך לכנסייה פעם בכמה זמן, כשנולד לו ילד, שונה ממי שמחזיק פסל בכל פינה, כפי שנפוץ במזרח הרחוק.</p>
+<p>ויש עוד שאלה, ביתית יותר. מי שמזמין עובד זר לגור אצלו צריך לדעת שיש איסור מן התורה "וְלֹא תָבִיא תוֹעֵבָה אֶל בֵּיתֶךָ" (דברים ז, כו). לכן כדאי לברר שהעובד לא מביא איתו עבודה זרה לבית. פעם הגיעה לבקר בסוכה קבוצה גדולה מדרום קוריאה, ורק אחר כך התברר שאחד מהם ענד צלב. היה צריך לומר מראש שלבית לא נכנסים עם צלב; אפשר פשוט להכניס אותו לכיס. האם זה רק קישוט או סמל דתי? יש לברר כל מקרה.</p>
+<div class="honey-box">🍯 לפני שמכניסים עובד הביתה, מבררים גם מה הוא מביא איתו.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: דרכי שלום – ומה הן לא מתירות ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">דרכי שלום – ומה הן לא מתירות</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בהלכות עבודה זרה (פרק י) כותב הרמב״ם שמפרנסים עניי גויים עם עניי ישראל מפני דרכי שלום, ואין מוחים בידם ליטול לקט שכחה ופאה, ושואלים בשלומם אפילו ביום חגם. כשפותחים קופה ציבורית או חלוקה ברחוב, לא עושים בה הפרדה. בקופה פרטית של בית הכנסת אפשר לתת למי שרוצים.</p>
+<p>אבל דרכי שלום אינן היתר לעבור עבירות. פעם פרסמו רבני ערים, ובראשם רבה של צפת, מכתב שבו כתבו שיש איסור מן התורה למכור או להשכיר דירה לערבים. רבנים אחרים טענו: מה עם דרכי שלום? אבל ברמב״ם מפורש מה הן דרכי שלום: לא למנוע מגוי לקט שכחה ופאה, שבהם אינך עובר על שום איסור. להתיר מכירת בתים, שיש בה איסור תורה, זה כבר דבר אחר לגמרי.</p>
+<p class="bold-para">דרכי שלום פירושן לא לחפש מריבה. אין פירושן לוותר על מצוות התורה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;אפילו לפי שעה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אפילו לפי שעה&quot;</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וכאן מגיע החידוש הגדול. ממשיך הרמב״ם (עבודה זרה י, ו): כל הדברים האלה אמורים בזמן שישראל גולים בין הגויים, או כשיד הגויים תקיפה. אבל בזמן שיד ישראל תקיפה עליהם, אסור לנו להניח גויים עובדי עבודה זרה בינינו, ואפילו יושב ישיבת עראי או עובר ממקום למקום בסחורה, לא יעבור בארצנו עד שיקבל עליו שבע מצוות בני נח, שנאמר "לא ישבו בארצך" – אפילו לפי שעה.</p>
+<p>כלומר: לפי הרמב״ם, כשיש לישראל שליטה, גוי לא יכול אפילו לעבור דרך הארץ. סוחר שמגיע בספינה יעמוד על שפת הים, יעשה את עסקיו, ובאותו יום יחזור. הוא לא ייכנס לבקר בטבריה. אין תיירות.</p>
+<p>זה חידוש מפליג, ומיד עולה עליו קושיה: רש״י מביא את המדרש על הפסוק "עַמִּים הַר יִקְרָאוּ שָׁם יִזְבְּחוּ זִבְחֵי צֶדֶק" (דברים לג, יט): הסוחרים שבאים לנמלי זבולון אומרים "נעלה לירושלים לראות את האומה הזאת", רואים את ישראל עובדים לאלוה אחד, ומתגיירים. הרי מפורש שהגויים באו לבקר! את התשובה של הרמב״ם נראה בסוף הספר.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: אין גר תושב בזמן הזה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">אין גר תושב בזמן הזה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והרמב״ם ממשיך: מי שקיבל עליו שבע מצוות הוא גר תושב. אבל אין מקבלים גר תושב אלא בזמן שהיובל נוהג; בזמן הזה מקבלים רק גר צדק, כלומר גיור מלא (הלכות איסורי ביאה יד, ח).</p>
+<p>לגבי חלק מדיני גר תושב זו הלכה מוסכמת: לומדים מן התורה שגר תושב קיים רק בזמן היובל. אבל הרמב״ם סובר שאין חילוק: גם לעניין הישיבה בארץ, אין היום גר תושב. התוצאה, על פניה, מפליגה מאוד: לפי הרמב״ם אין היום שום דרך שגוי ישב בארץ ישראל. גם אם יהיה הגוי הנחמד ביותר ויקבל על עצמו שבע מצוות, זה לא יעזור לו, כי אין היום גר תושב.</p>
+<p>ולפי זה ברור: להביא את האוקראינים, לפי הרמב״ם, אסור. אם כן, על מה סמכו? בשביל זה צריך לפגוש את הראב״ד.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: &quot;ישיבה כתיב, ולא העברה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🚪</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">הראב״ד והכסף משנה: הבית פתוח למי ששומר שבע מצוות</h2></div></div>
+<p class="chapter-intro">הראב״ד חולק על הרמב״ם, והכסף משנה מוצא דרך באמצע. על הפתח הזה סומכים עד היום.</p>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;ישיבה כתיב, ולא העברה&quot;</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על דברי הרמב״ם שאפילו סוחר שעובר ממקום למקום לא יעבור בארצנו, משיג הראב״ד שלא מצא ולא שמע זאת מעולם. לדעתו הפסוק אומר "לא ישבו": ישיבה כתובה בו, לא מעבר. מי שבא לבקר ועובר בארץ לא "יושב" בה. וגם הטעם של הפסוק, "פן יחטיאו אותך לי", לא שייך בתייר שבא ליום או לשבוע.</p>
+<p>לפי הראב״ד, אם כן, אין צורך לסגור את משרד התיירות. האיסור הוא על ישיבת קבע, ולא על ביקור.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: גר תושב לעניין הישיבה גם היום ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גר תושב לעניין הישיבה גם היום</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והמחלוקת העיקרית: הראב״ד מסכים שאין היום גר תושב לכל דיניו. גר תושב המקורי שבתורה, שעליו נאמר "וָחַי עִמָּךְ", שמצווה להחיות אותו וקופת העיר צריכה לפרנס אותו כמו יהודי, קיים רק בזמן היובל. אבל לעניין הישיבה בארץ ישראל, עצם זה שהגוי מקיים שבע מצוות בני נח מספיק כדי שיהיה מותר לו לגור כאן.</p>
+<p>זו שיטה גדולה מאוד, ועליה נצטרך לדון הרבה: מהו בדיוק גוי ש"מקיים שבע מצוות"? האם צריך שיבוא לבית דין ויקבל עליו בפירוש? או שמספיק שבפועל הוא שומר אותן?</p>
+<div class="honey-box">🍯 לפי הראב״ד, השאלה איננה רק "גוי או יהודי", אלא איך הגוי חי.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הכסף משנה: מי שקיבל על עצמו ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הכסף משנה: מי שקיבל על עצמו</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דעה שלישית, שעליה נדבר הרבה, היא של הכסף משנה. הוא מביא את דברי הראב״ד, ולדעתו גם הרמב״ם מודה לו בעניין אחד: גוי שקיבל על עצמו מעצמו לשמור שבע מצוות, גם אם לא בא לבית דין, אין מונעים אותו מלשבת בארץ.</p>
+<p>זו דעה באמצע: גוי שקיבל עליו שבע מצוות בני נח, גם בימינו אפשר להשאיר אותו כאן בארץ ישראל. כך סובר הראב״ד, ולפי הכסף משנה גם הרמב״ם מודה בזה. ולכן ודאי שאפשר להקל ולסמוך על הדעה הזאת, כשיודעים בדיוק מה היא אומרת.</p>
+<p class="bold-para">לכתחילה מחמירים כרמב״ם. בשעת הצורך יש על מה לסמוך – אבל צריך להבין בדיוק על מה.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: קהילת בני נח ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">קהילת בני נח</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש גויים מעטים שבאמת קיבלו על עצמם את שבע המצוות: למדו אותן מתוך ספר, שאלו מה עושים בחגים, וביקשו שיחברו להם סדר תפילה. הרב יואל שוורץ ז״ל היה הרב של קהילה כזאת, וחיבר לה ספרים בשפות רבות, גם בקוריאנית ובסינית.</p>
+<p>בתחילת דרכו הוא גר בשכונת מאה שערים, ושם נוצר מחזה משעשע: כמרים בגלימות שחורות מגיעים לשיעור, לפעמים כדי ללמוד ולפעמים כדי להתווכח, וחלקם עדיין לא החליטו לאיזה צד הם שייכים. היה גם גביר גדול שלקח את העניין ברצינות רבה, ומימן הפצת ספרים לבני נח בעולם. ומה קרה בהמשך? ילדיו של אותו גביר כבר התגיירו לגמרי.</p>
+<p>אבל קהילות כאלה הן מעטות מאוד. השאלה הגדולה היא מה דינם של אלה שבאמצע.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: שלוש מחלוקות, ושורה אחת למעשה ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שלוש מחלוקות, ושורה אחת למעשה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נסדר את מה שראינו עד כאן. בין הרמב״ם לראב״ד יש שלוש מחלוקות:</p>
+<ul class="story-list"><li><strong>ישיבה:</strong> לרמב״ם אפילו ישיבת עראי אסורה, גם תייר וגם סוחר עובר. לראב״ד האיסור הוא רק על ישיבת קבע.</li><li><strong>איזה גוי:</strong> לרמב״ם האיסור חל על כל הגויים. לראב״ד "לא ישבו בארצך" נאמר בעיקר על שבעת העממים, ו"לא תחנם" על כל הגויים.</li><li><strong>גר תושב בזמן הזה:</strong> לרמב״ם אין היום גר תושב כלל. לראב״ד, ולפי הכסף משנה גם לרמב״ם, מי שקיבל עליו שבע מצוות בני נח מותר לו לגור בארץ.</li></ul>
+<p>ולמעשה: כל רב שתשאל יאמר שלכתחילה לא מוכרים בית לשום גוי, כדעת הרמב״ם, גם לא לעולה מרוסיה שידוע בבירור שהוא גוי. רק בשעת הצורך סומכים על הראב״ד.</p>
+<p class="bold-para">לכתחילה מחמירים כרמב״ם. בשעת הצורך יש על מה לסמוך – אבל צריך להבין בדיוק על מה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: הרשב״א: לא חינם, אלא גמול ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🎁</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">לא תחנם: מתנה, טרמפ, והגבול הדק</h2></div></div>
+<p class="chapter-intro">"לא תחנם" אוסר גם לתת לגוי מתנת חינם. האם אפשר לתת טרמפ לעובד?</p>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הרשב״א: לא חינם, אלא גמול</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרשב״א נשאל בתשובה: הגמרא מספרת על אדם ששלח ירך של בהמה לגוי. הרי אסור לתת לגוי מתנת חינם, משום "לא תחנם"! והשיב: יפה שאלת. לא אסרו אלא מתנת חינם גמורה. אבל אם הגוי עזר לו בעבר, או עשוי לעזור לו בעתיד, או שהוא נותן לו כדי לשמור על יחסים טובים, אין זו מתנת חינם, ומותר. וכן משום דרכי שלום.</p>
+<p>האיסור הוא כשנותנים לגוי רק משום שמחבבים אותו ורוצים להיטיב איתו, בלי שום סיבה אחרת.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: טרמפ לעובד ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">טרמפ לעובד</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה מעשית: אדם נוסע למקום כלשהו, ועובד גוי שעובד אצלו מבקש להצטרף לנסיעה. מותר?</p>
+<p>לעצור בדרך לגוי זר שאינך מכיר, רק כדי לעזור לו, אין סיבה, ויש בזה איסור "לא תחנם". אבל עובד שלך הוא דבר אחר. אם אתה לוקח אותו כדי לשמור על יחסים טובים ביניכם, כי היום אתה עוזר לו ומחר הוא יעזור לך, זה מפורש ברשב״א: מותר. אין כאן מתנת חינם אלא קשר של גמול.</p>
+<div class="honey-box">🍯 השאלה איננה רק מה עושים, אלא למה: יחסי עבודה הוגנים מותרים, חיבה סתם – לא.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: למה התורה אסרה? כדי למנוע את הצעד האחרון ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה התורה אסרה? כדי למנוע את הצעד האחרון</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה בכלל אסור לתת מתנה לגוי? התורה עצמה אומרת את הטעם:</p>
+<blockquote>כִּי יָסִיר אֶת בִּנְךָ מֵאַחֲרַי (דברים ז, ד)</blockquote>
+<p>בארץ פחות מכירים את זה, אבל בארצות הברית זה מאוד מעשי. נישואי תערובת לא מתחילים ברגע אחד. בהתחלה זה "שלום, שלום". בשבוע הבא כבר מגיעים מחמאות, ואחר כך מתנות. ויום אחד, לצערנו, מגיעה הצעת נישואין, והיא מסכימה.</p>
+<p>איך מונעים נישואים כשחיים בין גויים? מתחילים הרבה לפני כן. לא מחמיאים, לא נותנים מתנת חינם, לא מזמינים לארוחה. כי כשמגיעים לשלב האחרון, לפעמים כבר מאוחר מדי.</p>
+<p class="bold-para">התורה לא מחכה לסוף הדרך. היא חוסמת את הצעד הראשון.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: הצד השני של השכנות ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הצד השני של השכנות</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דווקא בארץ, עם כל הכאב שבשכנות לאויבים, יש בזה גם תועלת. אחוז ההתבוללות בארץ ישראל נמוך מאוד. ואחרי מה שקרה בשנים האחרונות, הסלידה מהצד השני כל כך גדולה, שנישואי תערובת כאלה הם כמעט בלתי נתפסים.</p>
+<p>בצרפת ובארצות אחרות זה קורה. כאן, המציאות עצמה בונה חומה, וממלאת בדרכה שלה את מה שהתורה ביקשה בציווי "לא תחנם".</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: ומה עם המוסלמים? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">הערבים: החזון איש, הרב קוק, והיהודי האחרון בשכונה</h2></div></div>
+<p class="chapter-intro">האם ערבים שמקיימים בפועל רוב שבע המצוות נחשבים "גר תושב"? המחלוקת הגיעה עד להיתר המכירה, עד הסכמי אוסלו ועד דלת הבית.</p>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ומה עם המוסלמים?</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המוסלמים אינם עובדי עבודה זרה. ובפועל, רבים מהם שומרים פחות או יותר על שבע מצוות בני נח: אינם עובדים עבודה זרה, אינם מקללים את ה', ובאזורים רבים שומרים גם על איסורי גזל ומקיימים בתי משפט. יש ביניהם, כמובן, גם שופכי דמים, ובמקומות כמו עזה ברור שאין שם "דינים" כפי שהתורה דורשת.</p>
+<p>אבל גם מי ששומר את המצוות בפועל, לא קיבל אותן על עצמו, ולא שומר אותן משום שה' ציווה כך בתורתו. לפי הרמב״ם זה בוודאי לא יעזור. לפי הראב״ד, שמתיר למי שקיבל עליו שבע מצוות, יש כאן תופעה מעניינת: אדם ששומר שבע מצוות בלי לקבל אותן. איך מתייחסים לזה? כאן נחלקו שניים מגדולי הדור.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: היתר המכירה והסכמי אוסלו ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">היתר המכירה והסכמי אוסלו</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השאלה התעוררה בעיקר סביב היתר המכירה בשמיטה: האם מותר למכור קרקעות בארץ לגוי כדי להפקיע את קדושת השביעית? יש שטענו: כדי להינצל מאיסור שביעית, שבימינו הוא מדרבנן לדעת רבים, אתה עובר על "לא תחנם" שהוא איסור תורה! הוויכוח התחיל כאן, ובהמשך הדרך הגיע גם לדיונים סביב הסכמי אוסלו.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: החזון איש: צריך אמונה בתורה ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החזון איש: צריך אמונה בתורה</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החזון איש כותב שלדעת הרמב״ם, כיוון שבזמן הזה אין מקבלים גר תושב, אין היתר ישיבה בארץ גם לגוי שנזהר בשבע מצוות, כי בלי קבלה בבית דין אין לנו ביטחון בזהירותו.</p>
+<p>ולדעת הראב״ד, אמנם מי שנזהר בשבע מצוות וראוי לקבלו מותר בישיבה גם בלי קבלה בבית דין. אבל, מוסיף החזון איש, זה דווקא כשהוא שלם באמונת ישראל: מאמין שה' ציווה את ישראל בתרי״ג מצוות ואת בני נח בשבע. אבל מי שמחזיק בדעות כוזבות, גם אם שומר שבע מצוות מצד היושר, אינו ראוי להיות גר תושב, ואסור בישיבה ובקניין קרקע, "פן יחטיאו".</p>
+<p>לכן לפי החזון איש אין שום היתר למכור קרקע לערבי. מכירה כזאת חמורה יותר מאי שמירת שמיטה, כי היא עבירה על איסור תורה של "לא תחנם".</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: למה דווקא האמונה חשובה כל כך ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה דווקא האמונה חשובה כל כך</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההבדל בין הדתות כאן משמעותי. בקוראן לא מוסבר מדוע נבחרו המוסלמים. ובנצרות, הטענה המסורתית הייתה שה' מאס בעם ישראל, הגלה אותו מארצו ובחר במקומו בנוצרים. כשעם ישראל חזר לארצו, זה העמיד אותם בפני קושי גדול: איך מסבירים את המציאות? רבים מהם פשוט הפסיקו ללמד את הטענה הזאת.</p>
+<p>ויש היום קהילות גדולות של אוונגליסטים שמאמינים להפך: שעם ישראל הוא העיקר, שהגאולה תבוא דרכו, ושצריך לעזור ליהודים לפרוח ולהצליח. רבים מהם מגיעים לבקר בארץ.</p>
+<p>לפי החזון איש, ההבדל הזה קריטי: מי שמכיר בכך שה' בחר בישראל ונתן להם את התורה, יכול להיות גר תושב. מי שדתו מבוססת על כך שהבחירה עברה אליו, לא.</p>
+<div class="honey-box">🍯 שבע מצוות בלי אמונה במי שציווה אותן – הן נימוס טוב, לא מעמד של גר תושב.</div>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: &quot;הסנהדרין המחודשת&quot; ותעודות לבני נח ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;הסנהדרין המחודשת&quot; ותעודות לבני נח</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לשיטת הרמב״ם, קבלת שבע מצוות צריכה להיות בבית דין. לפני כמה שנים הקימו כמה רבנים גוף שקראו לו "הסנהדרין המחודשת". אחד מעיקר עיסוקיו היה לתת לגויים שרצו לקבל על עצמם שבע מצוות בני נח חותמת ואישור רשמי.</p>
+<p>הם סמכו על הדעות שגם היום אפשר לקבל גר תושב, ושאפשר להקים בית דין לשם כך. היה סביב זה ויכוח רב, אבל הניסיון עצמו מראה עד כמה השאלה מעשית: מה צריך לעשות גוי כדי שיהיה מותר לו לגור בארץ ישראל?</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: הרב קוק: בשעת הדחק ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הרב קוק: בשעת הדחק</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב קוק, לעומת זאת, סבר שבשעת הדחק אפשר לסמוך על כך שהערבים נחשבים מקיימי שבע מצוות בני נח, ואין בהם איסור "לא תחנם". אמנם הם אינם מקיימים אותן משום שה' ציווה, אבל בפועל הם מקיימים: כך הורגלו, כך נולדו, כך מלמדים אותם. הם מאמינים באלוקים ומתנהגים, פחות או יותר, כמו שבני אדם צריכים להתנהג.</p>
+<p>גם הרב קוק לא התיר זאת לכתחילה. זו קולא לשעת הדחק בלבד. אבל היא פותחת פתח במקרים קשים באמת.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: &quot;אני יהודי, תמכור לי&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;אני יהודי, תמכור לי&quot;</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה מעשית: יהודי נשאר אחרון בשכונה מעורבת בחיפה. כל השכנים כבר ערבים. יש לו שתי אפשרויות: להמשיך לגור בין הערבים, או למכור לערבי. יהודי יקנה ממנו, אם בכלל, בחצי מחיר.</p>
+<p>היום, כשמפרסמים דירה כזאת, תוך כמה דקות מתקשרים מתווכים. חלקם כבר למדו את השיטה: "אני יהודי, תמכור לי, אל תדאג, אני כבר אסתדר". והם מוכרים הלאה. אפשר לטעון שהמוכר מכר ליהודי, ומה שהקונה עשה אחר כך הוא באחריותו. אבל לא תמיד זה פשוט, ויש מקום לומר שגם אז חייבים להיזהר.</p>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: שתי תשובות שתשמע ←</a></div>
+</article>
+<article class="story-card" id="story-30" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שתי תשובות שתשמע</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם תשאל רב שהולך בדרכו של החזון איש, הוא יאמר לך: בשום פנים ואופן אסור למכור לערבי. אין שום היתר בעולם לעבור על איסור תורה, גם אם כל כספך ילך.</p>
+<p>אם תשאל רב שהולך בדרכו של הרב קוק, גם הוא יאמר לך שלכתחילה אסור. אבל בשעת צורך גדול מאוד, כשאינך יכול להמשיך לגור שם ואין לך אפשרות אחרת, הוא יסמוך על ההיתר שהערבים נחשבים לעניין זה כגרי תושב, כי סוף סוף הם שומרים שבע מצוות בני נח.</p>
+<p class="bold-para">לכתחילה – כולם מסכימים: לא מוכרים. בשעת הדחק – תלוי את מי שואלים.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: הרב שאול ישראלי: &quot;בזמן שיד ישראל תקיפה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">💞</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">האם האיסור נוהג היום, ולמה הארץ היא חדר ייחוד</h2></div></div>
+<p class="chapter-intro">"לא תחנם" ודאי נוהג. אבל "לא ישבו בארצך" – האם הוא מחייב אותנו היום? ולמה הרמב״ם החמיר כל כך? הסבר מרגש של הרב שמשון פינקוס.</p>
+<article class="story-card" id="story-31" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הרב שאול ישראלי: &quot;בזמן שיד ישראל תקיפה&quot;</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב שאול ישראלי, מגדולי רבני הציונות הדתית וראש ישיבת מרכז הרב, שחיבר ספרים רבים בענייני ארץ ישראל, מדייק בלשון הרמב״ם: "בזמן שיד ישראל תקיפה עליהם, אסור לנו להניח עובדי כוכבים בינינו".</p>
+<p>שואל הרב ישראלי: מה מחדש כאן הרמב״ם? כל מצוות התורה נוהגות רק כשאפשר לקיים אותן; אם יש סכנה, אין חובה. למה דווקא כאן כתב שהמצווה נוהגת רק "בזמן שיד ישראל תקיפה"? אלא שהרמב״ם בא לומר שהמצווה הזאת נוהגת רק כשאפשר לקיים אותה במלואה. כשאי אפשר, אין חובה לקיים אותה חלקית.</p>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: למה אי אפשר היום ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">למה אי אפשר היום</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האם אפשר היום לפנות את כל תושבי שפרעם, או את כל הערבים בארץ? זה בלתי אפשרי במציאות. זה היה גורם לשפיכות דמים, וגם אם היינו חזקים מאוד בארץ, ההשלכות בעולם היו קשות מאוד. זה פשוט לא עומד על הפרק.</p>
+<p>לכן לפי הרב ישראלי, הלאו "לא ישבו בארצך" אינו נוהג היום כלל, כי הוא נוהג רק כשיש לנו שליטה ואפשרות לקיים אותו במלואו.</p>
+<p>ומה זה משנה למעשה? למשל, השאלה אם מותר היה לשר הפנים להביא את הפליטים מאוקראינה. זה הוצג כצעד זמני, אבל כידוע אין קבוע יותר מהזמני. לפי הדעה הזאת, הוא יכול היה לסמוך על כך שהיום האיסור אינו נוהג.</p>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: ובכל זאת – להשתדל ←</a></div>
+</article>
+<article class="story-card" id="story-33" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ובכל זאת – להשתדל</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל ממשיך הרב ישראלי: גם כשאין בידינו כוח לגרש, המטרה צריכה לעמוד לנגד עינינו. אין לנו פטור מלחתור ולמצוא דרכים לקיים את הציווי האלוקי. אפשר לעודד הגירה בדרכים המקובלות בעולם, ולפעול כך שהתוצאה של מלחמות ומשברים תהיה יציאת הגויים העוינים מן הארץ.</p>
+<p>בפשטות זה מסתבר מאוד: גם כשאי אפשר לקיים מצווה במלואה, צריך להשתדל לקיים אותה ככל שאפשר. למשל, לתת מענק למי שעוזב מרצונו, או לא להחזיר שטחים שהתפנו במלחמה, כשהדבר אפשרי באמת ואינו גורם נזק.</p>
+<div class="honey-box">🍯 כשאי אפשר להגיע ליעד, עדיין צריך לדעת לאן הולכים.</div>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: עובדים זרים: על מה סומכים ←</a></div>
+</article>
+<article class="story-card" id="story-34" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עובדים זרים: על מה סומכים</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה עם עובדים זרים מהפיליפינים, מתאילנד ומארצות אחרות? בפיקוח נפש, כמו מטפל לזקן חולה, אין שאלה. אבל רוב המקרים אינם פיקוח נפש: מביאים עובדים לבניין, לחקלאות ולקטיף.</p>
+<p>המנהג היום הוא להביא, וסומכים על שני דברים. האחד, דעת הראב״ד שישיבת עראי מותרת, ועובדים זרים באים לזמן מוגבל: כמה שנים, ואם לא נמצא להם מעסיק תוך זמן מסוים הם חייבים לעזוב. והשני, דעת הרב ישראלי שהיום הלאו אינו נוהג, כי אין לנו אפשרות לקיים אותו במלואו. ולכן גם משרד החקלאות שרוצה להביא עובדים יכול לסמוך על כך, ובלבד שידאג שיחזרו לארצם.</p>
+<p>אבל שאלה גדולה נשארת פתוחה: מה צריכה להיות ההשקפה? לחפש כמה שפחות גויים, ולקיים חלקית ככל שאפשר? או להסתפק בכך שהלאו אינו נוהג? כל רב לומד את זה אחרת. מה שברור הוא שהאידיאל של התורה הוא שבארץ ישראל יגורו אנשים שמקיימים את מצוות ה'.</p>
+</div><div class="story-next"><a href="#story-35">הקטע הבא: &quot;עמים הר יקראו&quot; – לפי הרמב״ם ←</a></div>
+</article>
+<article class="story-card" id="story-35" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;עמים הר יקראו&quot; – לפי הרמב״ם</h3><button class="copy-link" type="button" data-id="story-35">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתחילת הדרך עלתה קושיה: הרי רש״י מביא שהסוחרים שבאים לנמלי זבולון עולים לירושלים, רואים את ישראל עובדים לאלוה אחד ומתגיירים. איך זה מתיישב עם דעת הרמב״ם, שאפילו עובר בסחורה לא יעבור בארצנו?</p>
+<p>המפרשים מיישבים: הסוחרים עמדו רק על חוף הים, ושם עשו את עסקיהם. כך היה בזמן שיד ישראל תקיפה, למשל בימי שלמה המלך: משמר על החופים, ומי שבא לסחור נשאר בחוף. אבל אחרי שגמרו את המשא ומתן, מי שביקש לעלות לירושלים כדי לראות את האומה הזאת וללמוד את אמונת האמת, ודאי מותר לו לעבור בארצנו. ומתוך כך הם מתגיירים, או לפחות מקבלים על עצמם שבע מצוות כגרים תושבים, ומקריבים "זבחי צדק".</p>
+<p>כלומר: הדלת סגורה לסחורה ולטיול, ופתוחה למי שבא להכיר את ה'.</p>
+</div><div class="story-next"><a href="#story-36">הקטע הבא: תיירות בימינו ←</a></div>
+</article>
+<article class="story-card" id="story-36" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">תיירות בימינו</h3><button class="copy-link" type="button" data-id="story-36">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>היום אף אחד אינו מונע תיירות, ואין סיבה למנוע אותה. התיירות מפרנסת המון אנשים: בתי מלון, מדריכים, מסעדות, ובעלי צימרים שיודעים שהכסף הטוב מגיע מתיירים שבאים לכמה ימים ומשלמים מחיר מלא. בזמן המלחמה בתי המלון החזיקו אלפי מפונים, ואפשר היה לראות כמה גדול ענף התיירות.</p>
+<p>גם המציאות השתנתה. בעבר איש לא ידע מה קורה בממלכה רחוקה. היום יש תקשורת, וכל מניעת כניסה של תייר עושה רעש עולמי. המדינה אמנם מונעת כניסה ממי שנחשד בעוינות, אבל זה לא פשוט, ולכן פחות נוהגים כך.</p>
+<p>אז מה ראה הרמב״ם להחמיר כל כך, עד שאפילו ביקור קצר אסור?</p>
+</div><div class="story-next"><a href="#story-37">הקטע הבא: דירה לחתן ולכלה ←</a></div>
+</article>
+<article class="story-card" id="story-37" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דירה לחתן ולכלה</h3><button class="copy-link" type="button" data-id="story-37">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב שמשון פינקוס מסביר: ארץ ישראל היא החדר של ה' עם עם ישראל. עוד לפני שיצאנו ממצרים, כשה' לקח אותנו לעם, הוא כבר הודיע לנו שיביא אותנו "אֶל אֶרֶץ טוֹבָה וּרְחָבָה, אֶל אֶרֶץ זָבַת חָלָב וּדְבָשׁ" (שמות ג, ח).</p>
+<p>זה דומה לחתן וכלה. עוד לפני החופה, כבר בפגישות השידוך, מדברים על דירה: איפה נגור, האם נקנה. לכאורה למה צריך דירה? יש גינות, יש ספסלים ברחוב, אפשר לשבת שם יחד. התשובה פשוטה: צריך פרטיות. לכן מוכרחים דירה.</p>
+<p>כך אמר ה' לישראל: אביא אתכם לארץ ישראל, שם נחיה יחד, ושם אשפיע עליכם את אהבתי. זה עניינה של ארץ ישראל, וזה עניינו של בית המקדש: המקום שבו אנחנו גרים יחד עם בורא עולם.</p>
+<p class="bold-para">ארץ ישראל איננה רק מקום מגורים. היא הבית המשותף של ה' ועם ישראל.</p>
+</div><div class="story-next"><a href="#story-38">הקטע הבא: דפיקה בדלת חדר הייחוד ←</a></div>
+</article>
+<article class="story-card" id="story-38" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דפיקה בדלת חדר הייחוד</h3><button class="copy-link" type="button" data-id="story-38">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו מובן הרמב״ם. דמיינו: חתן וכלה נכנסים לחדר הייחוד אחרי החופה. הם יושבים שם, בפעם הראשונה בחייהם יחד לבד, שמחים ונרגשים. פתאום, דפיקה בדלת. החתן פותח. עומד שם אדם זר ואומר: אני רק רוצה לנוח כמה דקות ולעבור דרך החדר, לצד השני.</p>
+<p>אין חתן בעולם שיסכים. לא כי הוא שונא את האורח, לא כי האורח יזיק. פשוט, זה חדר הייחוד. אין מקום לאף אחד אחר.</p>
+<p>בזמן שבית המקדש היה קיים, כלל ישראל היו עם הקדוש ברוך הוא בקשר אישי ואינטימי שאין לו דומה. ממילא אסור היה לגוי להיכנס, ואפילו רק לעבור דרך הארץ, כדי שלא להפריע לאותו ייחוד נפלא.</p>
+<div class="honey-box">🍯 החומרה של הרמב״ם איננה שנאה לזר. היא אהבה לבית.</div>
+</div><div class="story-next"><a href="#story-39">הקטע הבא: סיכום: מה למדנו ←</a></div>
+</article>
+<article class="story-card" id="story-39" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">סיכום: מה למדנו</h3><button class="copy-link" type="button" data-id="story-39">🔗 העתק קישור</button></div>
+<div class="story-body">
+<ul class="story-list"><li><strong>מן התורה</strong> אסור לתת לגויים לשבת בארץ ישראל: "לא ישבו בארצך". ויש איסור נוסף, "לא תחנם": לא למכור להם קרקע ולא לתת להם מתנת חינם.</li><li><strong>האיסור</strong> הוא על גויים שאינם מקיימים שבע מצוות בני נח. נחלקו הרמב״ם והראב״ד אם בימינו מותר למי שמקיים אותן: לרמב״ם אסור לכל גוי, לראב״ד מותר. לכתחילה מחמירים כרמב״ם, ובשעת הצורך סומכים על הראב״ד.</li><li><strong>הערבים:</strong> רוב הדעות, ובראשן החזון איש, סוברות שאינם נחשבים גר תושב, כי אינם מקיימים את המצוות משום שה' ציווה. לכן לכתחילה לא מוכרים להם בית. בשעת הדחק יש רבנים שסומכים על דעת הרב קוק.</li><li><strong>"לא ישבו בארצך" בימינו:</strong> לדעת הרב ישראלי אינו נוהג, כי אי אפשר לקיים אותו במלואו. אבל צריך להשתדל לקיים אותו ככל האפשר.</li></ul>
+<p>ונזכה בקרוב להרגיש את הקדושה הנפלאה של ארץ ישראל, חדר הייחוד שלנו עם בורא עולם.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
