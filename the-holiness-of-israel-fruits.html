@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🍊 התפוזים שהרבי קם לכבודם: מעלת פירות ארץ ישראל</title>
+<meta name="description" content="למה צדיקים התרגשו מכל פרי שהגיע מארץ ישראל, מה הקדושה שיש בפירות הארץ, ועשר מעלות שיש לפרי העץ על פני הירק – לכבוד ט״ו בשבט.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🍊 התפוזים שהרבי קם לכבודם: מעלת פירות ארץ ישראל</h1>
+  <p class="hero-subtitle">למה צדיקים התרגשו מכל פרי שהגיע מארץ ישראל, מה הקדושה שיש בפירות הארץ, ועשר מעלות שיש לפרי העץ על פני הירק – לכבוד ט״ו בשבט.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-14 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/KX7RpWHDNoQ" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🍊 סיפור בבלז: הפדיון שהיה שווה הכול</a><ul class="toc-stories"><li><a href="#story-1">הדרך לרופא בווינה</a></li><li><a href="#story-2">פדיון בלי כסף</a></li><li><a href="#story-3">הרבי קם על רגליו</a></li><li><a href="#story-4">שישה ילדים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🌾 שבעת המינים: פירות שיש בהם תורה</a><ul class="toc-stories"><li><a href="#story-5">כל פרי – הלכה בתורה</a></li><li><a href="#story-6">תמר או ענב – מי קודם?</a></li><li><a href="#story-7">כל הקרוב לארץ – קרוב לברכה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🍇 קדושה שנכנסת דרך הפה</a><ul class="toc-stories"><li><a href="#story-8">ונאכל מפריה ונשבע מטובה</a></li><li><a href="#story-9">הזיתים השחורים</a></li><li><a href="#story-10">מעלה, לא איסור</a></li><li><a href="#story-11">זבת חלב ודבש – ראשי תיבות של שבת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">⛰️ משה רבנו והקרקע הקדושה</a><ul class="toc-stories"><li><a href="#story-12">וכי לאכול מפריה הוא צריך?</a></li><li><a href="#story-13">אם רצה מצוות, למה לראות?</a></li><li><a href="#story-14">לחפש את המצוות, לא לברוח מהן</a></li><li><a href="#story-15">האדמה כאן קדושה מן השמיים שם</a></li><li><a href="#story-16">הספסל האחרון של המסוק</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🌳 עשר מעלות לפרי העץ</a><ul class="toc-stories"><li><a href="#story-17">ארץ של פירות, ארץ של ירקות</a></li><li><a href="#story-18">ברכה קבועה, ברכה בגובה העיניים</a></li><li><a href="#story-19">שמחה, מוכנות ויופי</a></li><li><a href="#story-20">ריח טוב ומקום בצל</a></li><li><a href="#story-21">מצווה לנטוע עץ מאכל</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌱 עץ אחד, ברכה גדולה</a><ul class="toc-stories"><li><a href="#story-22">העצים שנעקרו</a></li><li><a href="#story-23">בועז בגורן</a></li><li><a href="#story-24">&quot;מצוות אני לא מוכר&quot;</a></li><li><a href="#story-25">פי מאה</a></li><li><a href="#story-26">למה עושים עסק מט״ו בשבט</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🍊</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">סיפור בבלז: הפדיון שהיה שווה הכול</h2></div></div>
+<p class="chapter-intro">לפני שמסבירים מה מיוחד בפירות ארץ ישראל – סיפור אחד שמראה כמה צדיקים העריכו אותם.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הדרך לרופא בווינה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כמאה שנה חיה אישה אחת שחיכתה שנים רבות מאוד לילדים. ניסתה הכול, ושום דבר לא עזר. אמרו לה: "סעי לווינה. יש שם רופאים מצוינים, אולי הם יוכלו לעזור לך." היא אספה את מעט הכסף שהיה לה ויצאה לדרך הארוכה.</p>
+<p>בדרך עברה דרך העיירה בלז, שם ישב האדמו״ר רבי יששכר דב מבלז, שנודע כצדיק שפועל ישועות. אמרו לה: "לפני שאת מגיעה לרופאים, היכנסי אל הרבי. אולי הוא יוכל לעזור לך." היא חשבה: למה לא? קודם הצדיק, ואחר כך נראה.</p>
+<p class="bold-para">לפעמים התחנה שבדרך היא התחנה האמיתית.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: פדיון בלי כסף ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">פדיון בלי כסף</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חסידים נוהגים, כשנכנסים לצדיק עם בקשה, לכתוב את הבקשה על פתק – "קוויטל" – ולצרף לו "פדיון": סכום כסף, כל אחד לפי יכולתו, שמחזיק את בית הצדיק, את הישיבה ואת צרכי החסידים.</p>
+<p>האישה כתבה על הפתק את מה שליבה ביקש: "אני מחכה לילדים כבר שנים רבות." אבל כסף לפדיון לא היה לה. בקושי היו לה דמי הדרך. היא חשבה וחשבה, ופתאום עלה בדעתה רעיון: היו לה בתיק כמה תפוזים שהביאה מארץ ישראל. "זה יהיה הפדיון שלי," החליטה.</p>
+<p>היא נכנסה אל הרבי, הגישה לו את הפתק, ולידו – כמה תפוזים של ארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: הרבי קם על רגליו ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הרבי קם על רגליו</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרבי קרא את הפתק, ראה את הפירות – ופתאום קם ממקומו ועמד. הגבאים נבהלו: מה קרה? למה הרבי עומד? אמר להם הרבי: "לא לכבוד האישה אני קם. אני קם לכבוד פירות ארץ ישראל שהגיעו לכאן."</p>
+<p>באותם ימים זה לא קרה כל יום. פרי מארץ ישראל שהגיע לגלות היה אוצר. הרבי לקח את התפוזים בידו והתחיל ללטף אותם, מביט בהם שוב ושוב, ושמחה גדולה על פניו. אחר כך חזר והסתכל בפתק – אישה שמחכה שנים לילדים – ושוב בתפוזים.</p>
+<p>לבסוף אמר לה: "אין לך צורך ללכת לרופאים. שובי לארץ ישראל, כי ישועתך קרובה. תזכי לבנים, לנכדים ולנינים."</p>
+<div class="honey-box">🍯 הצדיק לא ראה מולו כמה תפוזים. הוא ראה חתיכה מארץ ישראל.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: שישה ילדים ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שישה ילדים</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האישה הייתה אישה תמימה. לא שאלה שאלות ולא התווכחה. אם הרבי אמר – כך עושים. במקום להמשיך לווינה, הפנתה את דרכה וחזרה לארץ ישראל, בלי שום רופא.</p>
+<p>והקדוש ברוך הוא עזר: נולדו לה שישה ילדים.</p>
+<p>הסיפור הזה מלמד הרבה על אמונת חכמים ועל תמימות, אבל הוא מלמד גם דבר נוסף: <strong>בפירות ארץ ישראל יש קדושה עצומה.</strong> צדיק גדול קם על רגליו לכבודם, ושמחתו בהם פתחה שערי ישועה. מה יש בפירות האלה? זה מה שנראה בפרקים הבאים. וזו גם הסיבה למנהג שנהגו בו בהרבה קהילות כבר כארבע מאות שנה – לאכול בט״ו בשבט מפירות ארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: כל פרי – הלכה בתורה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌾</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">שבעת המינים: פירות שיש בהם תורה</h2></div></div>
+<p class="chapter-intro">התורה משבחת את הארץ דווקא בשבעה פירות. מה הסוד שלהם?</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל פרי – הלכה בתורה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השל״ה הקדוש כותב שאין מאכל ומשקה משובח יותר מן המינים שנשתבחה בהם ארץ ישראל. ולא רק בגלל הטעם: בכל אחד מהם רמוזים "גופי תורה".</p>
+<p>חז״ל במסכת ברכות מונים כיצד כל אחד משבעת המינים משמש מידה בהלכה: החיטה – לשיעור בבית המנוגע, השעורה – לשיעור עצם כשעורה בטומאת מת, הגפן – לרביעית יין של נזיר, וכן הלאה בכל אחד מהמינים. הפירות של הארץ הם גם אמות המידה של התורה.</p>
+<p>לכן אומר השל״ה: כשאדם אוכל משבעת המינים, שלא יתכוון רק למילוי הבטן. יש בפירות האלה גם מזון לגוף וגם מזון לנשמה. ויש שמסבירים ששבעת המינים כנגד שבע המידות שבהן ה' מנהיג את העולם – חסד, גבורה, תפארת, נצח, הוד, יסוד ומלכות.</p>
+<div class="honey-box">🍯 אוכלים לאט, מתבוננים ומודים – והפרי הופך מאוכל לתורה.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: תמר או ענב – מי קודם? ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">תמר או ענב – מי קודם?</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם מונחים לפניך ענבים ותמרים – על מה מברכים קודם? רוב האנשים יענו: על הגפן, כי היא מופיעה בפסוק לפני התמר. אבל ההלכה היא שהתמר קודם. למה?</p>
+<blockquote>"ארץ חטה ושערה וגפן ותאנה ורמון, ארץ זית שמן ודבש" (דברים ח, ח)</blockquote>
+<p>המילה "ארץ" נאמרת בפסוק פעמיים, וחז״ל לומדים מכאן כלל: <strong>כל המוקדם לארץ – מוקדם לברכה.</strong> סופרים את המרחק מהמילה "ארץ" הקרובה. הגפן היא השלישית אחרי "ארץ" הראשונה. אבל הדבש – כלומר דבש התמרים – הוא השני אחרי "ארץ" השנייה. לכן התמר קודם לגפן.</p>
+<p>הדבש שבפסוק הוא דבש תמרים. בימים ההם לא היו ממרחים מן החנות; התמרים היו הממרח המתוק, ממש כמו החרוסת שאנחנו מכינים בליל הסדר.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: כל הקרוב לארץ – קרוב לברכה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל הקרוב לארץ – קרוב לברכה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחד הצדיקים היה לומד מן הכלל ההלכתי הזה מוסר לחיים. "כל המוקדם לארץ מוקדם לברכה" – כל מי שקרוב יותר לארץ ישראל, קרוב יותר לברכה.</p>
+<p>זה לא רק סדר של ברכות על השולחן. מי שמתקרב לארץ ישראל – גר בה, אוהב אותה, מתגעגע אליה, אוכל מפירותיה בשמחה – נעשה כלי שהברכה של ה' יכולה לשרות עליו. הקרבה לארץ היא קרבה למקור הברכה.</p>
+<p class="bold-para">כל המוקדם לארץ – מוקדם לברכה.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: ונאכל מפריה ונשבע מטובה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🍇</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">קדושה שנכנסת דרך הפה</h2></div></div>
+<p class="chapter-intro">פירות ארץ ישראל אינם רק טעימים יותר. יש בהם קדושה שמשפיעה על מי שאוכל אותם.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ונאכל מפריה ונשבע מטובה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בברכה מעין שלוש אנחנו מבקשים: "והעלנו לתוכה ושמחנו בבנינה, ונאכל מפריה ונשבע מטובה". לכאורה זה מוזר: אנחנו מבקשים לחזור לארץ ישראל – כדי לאכול פירות?</p>
+<p>הב״ח מסביר: ארץ ישראל התקדשה בקדושה עליונה, והקדושה הזאת עוברת גם אל הפירות שגדלים בה. כשאוכלים מפירותיה בקדושה ובטהרה, ניזונים כביכול מקדושת השכינה, והקדושה נכנסת אל האדם.</p>
+<p>ובספר "מור וקציעה" כתוב שפירות ארץ ישראל מוסיפים לאדם כוח וחוכמה. חז״ל אמרו: "אוירא דארץ ישראל מחכים" (בבא בתרא קנח ע״ב) – האוויר של ארץ ישראל מחכים. ואם האוויר מחכים, הפירות שגדלים מאותה אדמה ומאותו אוויר – על אחת כמה וכמה.</p>
+<div class="honey-box">🍯 הבקשה "ונאכל מפריה" היא בקשה להתקדש.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: הזיתים השחורים ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הזיתים השחורים</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר על הרב מרדכי אליהו שהיה מאושפז בבית חולים, חלש ותשוש, ולא היה לו תיאבון. ניגש אליו העוזר שלו ושאל: "מה הרב אוהב? אולי זה יחזיר לו את התיאבון." אמר הרב: "אני אוהב חמוצים."</p>
+<p>העוזר התקשר מיד לחנות חמוצים בשוק מחנה יהודה. בעל החנות, כששמע שהרב מבקש, התלהב והביא מכל הסוגים שבחנות. פרשו את הכול על השולחן לפני הרב. הרב הביט, הביט – והצביע על הזיתים השחורים: "איזה הכשר יש על אלה?" ענו לו: "הכול בהשגחה מהודרת, הרב יכול להיות רגוע."</p>
+<p>אבל הרב התעקש. בדקו שוב, ואז התגלה: כל החמוצים בחנות היו תוצרת ארץ ישראל, חוץ מהזיתים השחורים – הם היו מיובאים. הרב הרגיש שמשהו שם שונה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: מעלה, לא איסור ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מעלה, לא איסור</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב מרדכי אליהו הקפיד מאוד לאכול דווקא מפירות ארץ ישראל, כדי שהקדושה של הארץ תיכנס בו. התאנים, המשמשים, הזיתים – הכול מן הארץ.</p>
+<p>חשוב לדייק: <strong>אין איסור לאכול פירות מחוץ לארץ.</strong> מי שקונה פרי מיובא לא עשה שום עבירה. אבל יש מעלה עצומה במי שבוחר, כשאפשר, דווקא בפרי שגדל בארץ ישראל. זה לא רק עניין של כלכלה או של טעם – זו בחירה לקבל לתוכך חלק מקדושת הארץ.</p>
+<div class="honey-box">🍯 כשעומדים מול המדף, אפשר לשאול: מאיפה הפרי הזה הגיע?</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: זבת חלב ודבש – ראשי תיבות של שבת ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">זבת חלב ודבש – ראשי תיבות של שבת</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החתם סופר כותב שהשבח "ארץ זבת חלב ודבש" הוא כפשוטו – יש בארץ חלב ודבש בשפע. אבל יש בו גם שבח עמוק יותר: הפירות של הארץ מכניסים קדושה בנפש האוכל אותם, ומוסיפים לו אהבה ודבקות בה'.</p>
+<p>התורה עצמה נמשלה לחלב ודבש: "דבש וחלב תחת לשונך" (שיר השירים ד, יא). התורה הטהורה, בלי סיג ופסולת, מתוקה כמו דבש וטהורה כמו חלב.</p>
+<p>ויש בזה רמז יפה: סופי התיבות של "זבת חלב ודבש" – ת', ב', ש' – יוצרים את המילה <strong>שבת</strong>. כמו שבאכילת סעודת שבת יש מצווה וקדושה, כך גם באכילת פירות ארץ ישראל יש מעין קדושת שבת.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: וכי לאכול מפריה הוא צריך? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">⛰️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">משה רבנו והקרקע הקדושה</h2></div></div>
+<p class="chapter-intro">למה כל כך רצה משה רבנו להיכנס לארץ? והאם יש מקום קדוש יותר מן השמיים?</p>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">וכי לאכול מפריה הוא צריך?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז״ל שואלים שאלה חזקה: מפני מה התאווה משה רבנו להיכנס לארץ ישראל?</p>
+<blockquote>"וכי לאכול מפריה הוא צריך, או לשבוע מטובה הוא צריך?" (סוטה יד ע״א)</blockquote>
+<p>ותשובתם: משה רצה לקיים את המצוות שאפשר לקיים רק בארץ ישראל.</p>
+<p>הכתב סופר מדייק בלשון: למה כתוב "צריך" ולא "רוצה"? ומסביר: אכילת פירות ארץ ישראל נועדה לרומם את הנפש, להחכים אותה ולקדש אותה. אנחנו <strong>צריכים</strong> את הפירות האלה – הם מרוממים אותנו. אבל משה רבנו היה כבר בדרגה כזאת של קדושה שלא היה צריך את זה. לכן אומרת הגמרא: וכי הוא היה צריך את הפירות? לא. אנחנו צריכים אותם. הוא רצה דבר אחר – את המצוות.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: אם רצה מצוות, למה לראות? ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אם רצה מצוות, למה לראות?</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל כאן מתעוררת שאלה. אם משה רבנו רצה רק לקיים מצוות, מה עזר לו כשה' אמר לו לעלות לראש ההר ולראות את הארץ מרחוק? ראייה איננה קיום מצווה!</p>
+<p>יש מסבירים זאת בדרך נפלאה: משה לא רצה "עוד מצוות" כדי לצבור עוד נקודות. המצוות התלויות בארץ הן הדרך שבה האדם מתחבר לארץ וקונה את קדושתה. אפשר לזכות בקדושת הארץ בשלוש דרכים: בישיבה בה, בראייה שלה ובקיום המצוות שלה.</p>
+<p>משה רבנו רצה לספוג את קדושת הארץ דרך המצוות. כשלא זכה לכך, אמר לו ה': לפחות תראה. גם הראייה נותנת חלק מן הקדושה. ויש שאומרים שמאז שמשה ראה את הארץ, הראייה הזאת נכנסה בו והחכימה אותו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: לחפש את המצוות, לא לברוח מהן ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לחפש את המצוות, לא לברוח מהן</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכאן לקח מעשי לכל מי שזוכה לגור בארץ ישראל: המצוות התלויות בארץ אינן עול שצריך להיפטר ממנו. הן הזדמנות.</p>
+<ul class="story-list"><li>לא לחפש איך להתחמק מהפרשת תרומות ומעשרות, אלא לשמוח כשיש פרי טבל ביד, לחתוך ממנו ולהפריש תרומה גדולה, מעשר ראשון ומעשר שני.</li><li>לא לחפש איך להיפטר מהלכות שביעית, אלא לחפש איך לזכות בקדושת פירות שביעית.</li><li>לראות בכל מצווה של הארץ קשר חי בין האדם, הארץ ובורא העולם.</li></ul>
+<p class="bold-para">המצוות התלויות בארץ הן הדרך לאהוב אותה.</p>
+<div class="honey-box">🍯 משה רבנו התחנן לקיים אותן ולא זכה. לנו הן מונחות בכל ארגז פירות.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: האדמה כאן קדושה מן השמיים שם ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">האדמה כאן קדושה מן השמיים שם</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מובא בשם החתם סופר רעיון מפתיע: משה רבנו היה בשמיים ארבעים יום וארבעים לילה, דיבר עם ה' פנים אל פנים – ובכל זאת חסר לו משהו. מה חסר לו? ארץ ישראל.</p>
+<p>מכאן למד החתם סופר: <strong>הקרקע של ארץ ישראל קדושה יותר מן השמיים של חוץ לארץ.</strong> מי שהיה בשמיים עצמם עדיין השתוקק לעפר של ארץ ישראל.</p>
+<p>זה משפט שקשה לעכל. אנחנו רגילים לחשוב שהקדושה נמצאת "למעלה". אבל ה' בחר בארץ הזאת, ושם בה קדושה מיוחדת, שאפילו השמיים של מקום אחר אינם משתווים לה.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הספסל האחרון של המסוק ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הספסל האחרון של המסוק</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פעם ביקשו מהרב מרדכי אליהו לטוס לסיני ולחזק את החיילים שהיו שם בשעת מלחמה. הביאו לו מסוק צבאי. בדרך הלוך התיישב הרב בספסל האחורי. הוא הגיע, דיבר עם החיילים וחיזק אותם, ובדרך חזור – התיישב דווקא בספסל הראשון.</p>
+<p>תלמידו שם לב ושאל: למה? הרב הסביר: "אני אוהב את ארץ ישראל בלי סוף. נאלצתי לצאת ממנה, כי צריך לחזק חיילים. אבל חבל לי על כל רגע מחוץ לה. בדרך החוצה ישבתי מאחור – כדי להישאר עוד חלקיק שנייה בתוך ארץ ישראל. ובדרך חזרה ישבתי מקדימה – כדי להיכנס אליה חלקיק שנייה קודם."</p>
+<div class="honey-box">🍯 כשאוהבים באמת, גם חלקיק שנייה חשוב.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: ארץ של פירות, ארץ של ירקות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🌳</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">עשר מעלות לפרי העץ</h2></div></div>
+<p class="chapter-intro">מצרים השתבחה בירקות, ארץ ישראל – בפירות. מה מיוחד בפרי העץ?</p>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ארץ של פירות, ארץ של ירקות</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שימו לב: כשהתורה משבחת את ארץ ישראל, היא מונה כמעט רק פירות – חיטה ושעורה, גפן, תאנה, רימון, זית ותמר. לעומת זאת, כשבני ישראל במדבר מתגעגעים למצרים, מה הם זוכרים?</p>
+<blockquote>"זכרנו את הדגה אשר נאכל במצרים חנם, את הקשאים ואת האבטחים ואת החציר ואת הבצלים ואת השומים" (במדבר יא, ה)</blockquote>
+<p>כולם ירקות. מצרים היא ארץ של ירקות; ארץ ישראל היא ארץ של פירות. למה? כי יש בפרי העץ מעלות שאין בירק, ובכל אחת מהן אפשר לראות את אהבת ה' לאדם. בואו נעבור עליהן.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: ברכה קבועה, ברכה בגובה העיניים ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ברכה קבועה, ברכה בגובה העיניים</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>ראשונה – ברכה קבועה.</strong> חז״ל במסכת ברכות מגדירים: עץ הוא צמח שנוטלים את פריו והגזע נשאר ומוציא פרי שוב. ירק – צריך לזרוע מחדש בכל שנה. עץ נותן ברכה עשר, עשרים, חמישים שנה ויותר; בהר הזיתים יש עצי זית שאומרים עליהם שהם בני מאות ואולי אלפי שנים. ירק הוא ברכה של שנה אחת. פרי העץ הוא ברכה שנשארת.</p>
+<p><strong>שנייה – בגובה האדם.</strong> את פרי העץ קוטפים כשעומדים זקופים, ביד מושטת. את הירק צריך לעקור כשמתכופפים אל העפר. פרי העץ מכבד את האדם.</p>
+<p><strong>שלישית – נקי.</strong> תפוח על העץ נקי ומבריק; אפשר לקטוף ולאכול. מלפפון או גזר יוצאים מן האדמה מלאי עפר, וצריך לשטוף אותם היטב.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: שמחה, מוכנות ויופי ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שמחה, מוכנות ויופי</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>רביעית – שמחה.</strong> פירות באים לתענוג. ירקות ולחם הם בעיקר מה שהאדם צריך כדי לחיות. פירות – טעם, מתיקות ורעננות. אכלת תפוז טוב, אשכול ענבים, תמר מתוק? מיד אתה מרגיש רענן ושמח. הפרי מביא לאדם הרחבת הדעת.</p>
+<p><strong>חמישית – מוכן מיד.</strong> פרי העץ ראוי לאכילה כמו שהוא. תפוח אדמה, דלעת, בצל – צריך לבשל. הפרי יוצא מידי הבורא מוכן, ערוך ומעוצב.</p>
+<p><strong>שישית – יופי.</strong> לפירות יש מראה נאה וצבעים שמשמחים את הלב.</p>
+<blockquote>"ויצמח ה' אלוקים מן האדמה כל עץ נחמד למראה וטוב למאכל" (בראשית ב, ט)</blockquote>
+<p>לא במקרה מעטרים כיכרות בפסלי רימון ענקיים, וחברות בוחרות תפוח כסמל. אף אחד לא בוחר מלפפון לסמל.</p>
+<div class="honey-box">🍯 בגן עדן לא היו ירקות – "מכל עץ הגן אכל תאכל". רק פירות.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: ריח טוב ומקום בצל ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ריח טוב ומקום בצל</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>שביעית – ריח.</strong> לפירות יש ריח נעים. יצחק אבינו אמר על יעקב:</p>
+<blockquote>"ראה ריח בני כריח שדה אשר ברכו ה'" (בראשית כז, כז)</blockquote>
+<p>ובזוהר קוראים לשכינה "חקל תפוחין קדישין" – שדה תפוחים קדושים. וכשמריחים פרי ריחני, כמו אתרוג, מברכים "הנותן ריח טוב בפירות". על ירק כמעט אין ריח, ואין עליו ברכה כזאת.</p>
+<p><strong>שמינית – צל.</strong> לעץ יש צל. אדם יכול לשבת תחתיו, לנוח ולאכול מפריו במקום.</p>
+<blockquote>"כתפוח בעצי היער כן דודי בין הבנים, בצלו חמדתי וישבתי ופריו מתוק לחכי" (שיר השירים ב, ג)</blockquote>
+<p>מתחת למלפפון אי אפשר לשבת. העץ נותן לאדם גם את הפרי וגם את המקום לאכול אותו.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: מצווה לנטוע עץ מאכל ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מצווה לנטוע עץ מאכל</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p><strong>תשיעית – מצווה מיוחדת.</strong> התורה אומרת:</p>
+<blockquote>"וכי תבאו אל הארץ ונטעתם כל עץ מאכל" (ויקרא יט, כג)</blockquote>
+<p>מכאן לומדים שיש מצווה לנטוע עצי פרי בארץ ישראל. על ירקות אין מצווה מיוחדת כזו – יש בהם יישוב הארץ באופן כללי, אבל לא מצוות נטיעה.</p>
+<p>יש שמביאים רמז לכך גם ב"אשת חיל":</p>
+<blockquote>"זממה שדה ותקחהו, מפרי כפיה נטעה כרם" (משלי לא, טז)</blockquote>
+<p>האישה החכמה קנתה שדה – ומה עשתה בו? נטעה כרם. היא לא זרעה בו ירקות; היא שתלה עצים.</p>
+<p><strong>עשירית – הכול מראה אהבה.</strong> בכל המעלות האלה – הקביעות, הכבוד, הנקיון, השמחה, היופי, הריח והצל – רואים יד אוהבת שעיצבה את הפרי בשביל האדם. לכן ארץ ישראל, הארץ שבה מרגישים את אהבת ה', משתבחת דווקא בפירותיה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: העצים שנעקרו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌱</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">עץ אחד, ברכה גדולה</h2></div></div>
+<p class="chapter-intro">מה קורה כשמישהו מחליט לנטוע עץ בארץ ישראל בעצמו, לשם מצווה.</p>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">העצים שנעקרו</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מעשה באדם שבנו בניין ליד ביתו, ובמהלך העבודות עקרו כמה עצים שלו. הוא היה עצוב, ניגש לקבלן ואמר לו: "חבל, למה עקרתם את העצים?" הקבלן הרגיע אותו: "אל תדאג. תקנה עצים חדשים, תביא לי קבלה, ואני אשלם."</p>
+<p>האדם חשב: לחפור באדמה ולשתול – אין לי כוח לזה. אזמין מישהו שיביא את העצים, ישתול אותם, ויביא קבלה על הכול. הקבלן ממילא משלם.</p>
+<p>הוא שאל חבר, יהודי ירא שמיים מיוחד, אם הוא מכיר גנן שעושה את כל העבודה. החבר הביט בו בתדהמה: "יש לך הזדמנות לנטוע עצים בארץ ישראל, באדמה שלך – ואתה רוצה שמישהו אחר יעשה את זה במקומך?"</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: בועז בגורן ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בועז בגורן</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החבר המשיך: "קראת פעם מה שכתב החתם סופר? בועז, גדול הדור, היה בעצמו בגורן בלילה וזרה את השעורים במו ידיו. למה? כי זו מצוות יישוב ארץ ישראל, ומצווה עושים בעצמך, לא שולחים מישהו אחר."</p>
+<p>האדם הבין שחברו צודק. הוא ישב ולמד את ההלכות של נטיעת עצים בארץ ישראל, וראה בעיניו: יש מצווה מן התורה לנטוע עצי מאכל בארץ ישראל, "ונטעתם כל עץ מאכל".</p>
+<p>הוא הלך למשתלה, קנה עצים, ונטע אותם בעצמו – לשם מצווה, כמו שכתוב בתורה.</p>
+<div class="honey-box">🍯 מצווה שאפשר לעשות בעצמך – אל תשלח אחר לעשות אותה.</div>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: &quot;מצוות אני לא מוכר&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;מצוות אני לא מוכר&quot;</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי כמה זמן הגיע הקבלן ושאל: "איפה הקבלה? אני צריך לשלם לך על העצים." ענה לו האדם: "אני מצטער. העצים האלה היו מצווה. מצוות אני לא מוכר."</p>
+<p>הוא ויתר על הכסף, כדי שהמצווה תהיה כולה שלו, בלי חשבון.</p>
+<p>עבר זמן, והבניין נגמר. אמר האדם לקבלן: "כשאדם גומר מלאכה גדולה, הגיע הזמן להודות לה'. אני מוציא ספרון הודיה – בוא נוציא אותו לכבוד סיום הבניין שלך." הקבלן הסכים בשמחה.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: פי מאה ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">פי מאה</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשהספרון היה מוכן, שאל הקבלן: "כמה עותקים אתה מדפיס?" האדם אמר מספר. "למה כל כך מעט? תדפיס יותר. כמה זה עולה? אני אעזור." והקבלן תרם להוצאת הספר סכום גדול מאוד – פי כמה וכמה ממחיר העצים, אולי פי מאה.</p>
+<p>האדם ויתר על מחיר כמה עצים לשם מצווה, וה' החזיר לו כפל כפליים.</p>
+<p><strong>עץ בארץ ישראל מביא ברכה.</strong> מי שנוטע עץ בארץ באהבה ולשם מצווה – הברכה צומחת יחד איתו.</p>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: למה עושים עסק מט״ו בשבט ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה עושים עסק מט״ו בשבט</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו מובן למה ט״ו בשבט כל כך חשוב. זה הזמן שבו מתחילים פירות ארץ ישראל לצמוח מחדש. רוב הגשמים כבר ירדו, השרף עולה בעצים, והפריחה בדרך.</p>
+<p>בפירות הארץ יש קדושה עצומה: צדיקים קמו לכבודם, הם מוסיפים חוכמה, הם רומזים לתורה ולשבת, ומשה רבנו התאווה למצוות שלהם. ויש להם מעלות רבות על פני הירקות, שבכולן רואים את אהבת ה' לאדם.</p>
+<p>כשאוכלים בט״ו בשבט פרי מארץ ישראל, אפשר לאכול אותו כמו שהרבי מבלז החזיק את התפוזים: לאט, בשמחה, באהבה ובהודיה.</p>
+<div class="honey-box">🍯 יהי רצון שנזכה להתקדש בקדושת פירות הארץ, ושכל עם ישראל ייהנה מפירותיה.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
