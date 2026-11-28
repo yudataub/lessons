@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🐪 חלק א: לדבר ולהודות – שתי דרכים קלות לאהבת ה&#x27;</title>
+<meta name="description" content="למה התורה מאריכה דווקא בסיפורו של אליעזר, מהי המצווה שהיא מוציאה מן הכלל, ושתי מתנות פשוטות מהסיפור שמביאות לחיבור לה&#x27;, לשמחה ולאושר.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🐪 חלק א: לדבר ולהודות – שתי דרכים קלות לאהבת ה&#x27;</h1>
+  <p class="hero-subtitle">למה התורה מאריכה דווקא בסיפורו של אליעזר, מהי המצווה שהיא מוציאה מן הכלל, ושתי מתנות פשוטות מהסיפור שמביאות לחיבור לה&#x27;, לשמחה ולאושר.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-11 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/932jZzivTsw" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">📜 הסיפור שהתורה מספרת פעמיים</a><ul class="toc-stories"><li><a href="#story-1">שלוש מתנות שכולם מחפשים</a></li><li><a href="#story-2">התורה כותבת בקיצור</a></li><li><a href="#story-3">יפה שיחתן של עבדי אבות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">❤️ המצווה שהתורה הוציאה מן הכלל</a><ul class="toc-stories"><li><a href="#story-4">שאלה שכמעט איש אינו יודע</a></li><li><a href="#story-5">&quot;ובחרת בחיים&quot;</a></li><li><a href="#story-6">כל התורה בפרשה אחת</a></li><li><a href="#story-7">הפסוק שאיש אינו תולה</a></li><li><a href="#story-8">&quot;אמרתי לך בחתונה&quot;</a></li><li><a href="#story-9">נסיעה בלי יעד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📞 המתנה הראשונה: לדבר עם ה&#x27;</a><ul class="toc-stories"><li><a href="#story-10">תפילה ליד הבאר</a></li><li><a href="#story-11">הדיבור יוצר חיבור</a></li><li><a href="#story-12">&quot;אל תרבה שיחה&quot; – ולהקשיב?</a></li><li><a href="#story-13">סוגים של הקשבה</a></li><li><a href="#story-14">הקו הפתוח של בורא העולם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🙏 המתנה השנייה: להודות</a><ul class="toc-stories"><li><a href="#story-15">יותר מהחלום</a></li><li><a href="#story-16">&quot;ויקד האיש וישתחו&quot;</a></li><li><a href="#story-17">הפסיכולוגיה שגילתה את ההודיה</a></li><li><a href="#story-18">חידה לחנוכה: הפסוק המשולש</a></li><li><a href="#story-19">עזי וזמרת – ויהי לי לישועה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🎉 לעשות מזה עסק</a><ul class="toc-stories"><li><a href="#story-20">דקה ביום במילים שלך</a></li><li><a href="#story-21">לצבוע את הלב בצהוב</a></li><li><a href="#story-22">למה &quot;מודים&quot; היא הברכה הארוכה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">הסיפור שהתורה מספרת פעמיים</h2></div></div>
+<p class="chapter-intro">התורה חוסכת בכל מילה – ובכל זאת, בפרשת חיי שרה היא חוזרת על סיפור שלם מההתחלה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שלוש מתנות שכולם מחפשים</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עונג, שמחה ואושר. אין אדם שאינו מחפש אותם. השאלה היא רק איפה מוצאים. והתשובה, כפי שנראה, נמצאת בסיפור אחד מספר בראשית, ובשלוש דרכים קלות שכל אחד יכול ללכת בהן כבר היום.</p>
+<p>בפרשת חיי שרה יוצא אליעזר, עבד אברהם, לחפש כלה ליצחק. הוא מגיע לבאר, מתפלל, ופוגש את רבקה. סיפור יפה ומרתק. אבל יש בו משהו חריג מאוד: אחרי שהתורה מספרת את כל מה שקרה, אליעזר מגיע לבית לבן ומספר הכול מחדש – והתורה חוזרת על כל הסיפור, מילה במילה כמעט, מההתחלה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: התורה כותבת בקיצור ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">התורה כותבת בקיצור</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה אינה ספר סיפורים שצריך למלא בו עמודים. היא מקצרת עד הקצה. קחו את השבת: מסכת שלמה של הלכות עירוב והוצאה נלמדת מפסוק אחד, "אל יצא איש ממקמו ביום השביעי". הלכות מזוזה – באיזה פתח, באיזה גובה, מה דינו של בית עם שני פתחים – הכול מתוך "וכתבתם על מזזות ביתך ובשעריך". מי שרוצה לקנות תפילין לבנו צריך כמעט קורס כדי להבין את סוגיהם, והתורה כותבת על כך כמה מילים בלבד.</p>
+<p>אז למה כאן, בסיפור של עבד שמחפש שידוך, התורה מאריכה כל כך? היא יכלה לכתוב בפשטות "ויספר להם את כל הדברים", כמו שכתבה בסוף הפרק: "ויספר העבד ליצחק את כל הדברים אשר עשה".</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: יפה שיחתן של עבדי אבות ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">יפה שיחתן של עבדי אבות</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז״ל עמדו על כך במשפט קצר ומפורסם, שרש״י מביא:</p>
+<blockquote>יפה שיחתן של עבדי אבות לפני המקום מתורתן של בנים (רש״י בראשית כד, מב)</blockquote>
+<p>השיחה של עבד אברהם חביבה יותר מהלכות שבת, ממזוזה, מתפילין. יש כאן משהו מיוחד מאוד, שכדאי מאוד להבין מה כל כך מתוק ויקר בו.</p>
+<p>אל המשגיח של ישיבת רכסים, הרב דב יפה זצ״ל, ניגשו פעם אברכים ושאלו למה הוא אינו מתערב בכל מיני נושאים ציבוריים. הוא ענה: "אני שומר את הכוחות שלי לדברים החשובים." אדם אינו יכול לעסוק בכול. וכך גם התורה: היא ספר שצריך לסיים בכל שנה, ולכן היא מקצרת בכל מקום ומאריכה רק בדברים החשובים באמת. כנראה שכאן טמון משהו שמביא גם לעיקר היהדות וגם לעונג, לשמחה ולאושר.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: שאלה שכמעט איש אינו יודע ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">❤️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">המצווה שהתורה הוציאה מן הכלל</h2></div></div>
+<p class="chapter-intro">בין תרי״ג המצוות, יש אחת שהתורה עצמה מציינת כתכלית של כולן.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שאלה שכמעט איש אינו יודע</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש ביהדות תרי״ג מצוות. האם יש מצווה אחת שהתורה עצמה שמה עליה את הדגש ואמרה: זו החשובה מכולן, זה היסוד?</p>
+<p>כשמציגים את השאלה, עולות תשובות רבות: שבת שקולה כנגד כל המצוות, ציצית שקולה כנגד כל המצוות, תלמוד תורה כנגד כולם. ויש מי שמזכיר את המשנה באבות, "שאין אתה יודע מתן שכרן של מצוות" – והמפרשים מסבירים שהתורה הסתירה את השכר, כדי שאדם לא יבחר רק את המצוות המשתלמות.</p>
+<p>ובכל זאת, יש ראיה מפורשת מן התורה עצמה, לא מספרי קבלה ולא מספרי מוסר, שמצווה אחת עומדת מעל כולן.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;ובחרת בחיים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ובחרת בחיים&quot;</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת ניצבים מעמידה התורה את האדם בפני הבחירה הגדולה: "החיים והמות נתתי לפניך, הברכה והקללה, ובחרת בחיים". ומהי הבחירה בחיים? הפסוק הבא מפרש:</p>
+<blockquote>לאהבה את ה' אלוקיך לשמע בקלו ולדבקה בו, כי הוא חייך וארך ימיך (דברים ל, כ)</blockquote>
+<p>"לשמוע בקולו" כולל את כל המצוות כולן. ובכל זאת מצווה אחת יוצאת מן הכלל ונכתבת בנפרד, ולפני כולן: אהבת ה'. למה? מכאן למדו מפרשים רבים, ובהם רבנו בחיי ואבן עזרא, שתכלית כל המצוות ועיקרן הוא אהבת ה'.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: כל התורה בפרשה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל התורה בפרשה אחת</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והראיה הגדולה ביותר נמצאת בקריאת שמע. ה' רצה שתהיה לאדם תזכורת יומית למה הוא בעולם. אי אפשר לקרוא כל יום את כל התורה, ולכן ניתנה לנו פרשה קצרה שהיא תמצית הכול. וכל כך חשובה היא, שאומרים אותה פעמיים ביום, קושרים אותה על היד ועל הראש וקובעים אותה בכל פתח.</p>
+<p>מה כתוב בה? קודם האמונה, שבלעדיה אין התחלה:</p>
+<blockquote>שמע ישראל ה' אלוקינו ה' אחד. ואהבת את ה' אלוקיך בכל לבבך ובכל נפשך ובכל מאדך (דברים ו, ד-ה)</blockquote>
+<p>ומצווה אחת בלבד: אהבת ה'. כל ההמשך – "והיו הדברים האלה... ושננתם לבניך... וקשרתם... וכתבתם" – אינו עוד מצוות, אלא דרכים לשמור על האהבה הזאת שלא תישכח.</p>
+<p class="bold-para">היהדות כולה על רגל אחת: אמונה, ואהבת ה'.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: הפסוק שאיש אינו תולה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הפסוק שאיש אינו תולה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בכל רחוב ובכל צומת אפשר לראות שלטים עם הפסוק "ונשמרתם מאד לנפשתיכם", כקריאה לשמור על הבריאות. אבל יש פסוק דומה בספר יהושע, שכמעט איש אינו מכיר:</p>
+<blockquote>ונשמרתם מאד לנפשתיכם לאהבה את ה' אלוקיכם (יהושע כג, יא)</blockquote>
+<p>בסוף ימיו, בצוואתו לעם ישראל, יהושע מזהיר: היזהרו מאוד, שימו על כך את נפשכם – לאהוב את ה'. זו לא עוד מצווה, זו התכלית של הכול.</p>
+<div class="honey-box">🍯 אם יש פסוק שראוי לתלות בכל צומת – זה הפסוק הזה.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;אמרתי לך בחתונה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;אמרתי לך בחתונה&quot;</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה בכל זאת אנשים לא עוסקים באהבת ה'? הטעות הראשונה: "אני כבר אוהב את ה'. אחרת למה אני מקיים מצוות? אני מסודר."</p>
+<p>אחרי שלוש שנות נישואין שאלה אישה את בעלה: "למה אתה אף פעם לא אומר שאתה אוהב אותי?" והוא ענה: "אמרתי לך בחתונה. אם יהיה שינוי – אודיע לך."</p>
+<p>כולם מבינים שזה לא עובד. אהבה צריך לשמוע שוב ושוב, כמו שיר אהוב שלא נמאס. ויותר מזה: אהבה איננה רכוש, היא רגש. ורגש שלא מלבים אותו – דועך.</p>
+<p>"ואהבת את ה' אלוקיך" אינו החלטה חד-פעמית. פירושו להבעיר את האהבה מחדש בכל יום, להקדיש לה כמה דקות, לתדלק אותה.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: נסיעה בלי יעד ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">נסיעה בלי יעד</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הטעות השנייה: "המצוות כבר יביאו אותי לאהבת ה'." ויש לכך יסוד. רש״י על "והיו הדברים האלה אשר אנכי מצוך היום על לבבך" מסביר שזו הדרך לאהבה, שמתוך כך אתה מכיר בהקב״ה ומידבק בדרכיו. אבל אם כך, למה הוצרכה התורה לצוות על האהבה בנפרד?</p>
+<p>אדם מארץ רחוקה שמע על ירושלים ועל הכותל ושאל איך מגיעים. אמרו לו: לוקחים רכב ונוסעים. הוא קנה רכב, למד לנהוג, נכנס לרכב ונסע. שעתיים, חמש, שבע שעות – ולא הגיע לשום מקום. "אמרת לי שבשעתיים מגיעים!" "מה חשבת? צריך להכניס את היעד לניווט!"</p>
+<p>המצוות הן הרכב, והן יכולות להביא את האדם לאהבת ה' – בתנאי שהוא שם לעצמו את היעד. מי שאינו מחפש את האהבה, לא יגיע אליה. והחדשות הטובות: אם ה' ציווה זאת על כל אדם, סימן שכל אחד יכול להגיע לכך, בדרכים פשוטות וקלות.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: תפילה ליד הבאר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📞</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">המתנה הראשונה: לדבר עם ה&#x27;</h2></div></div>
+<p class="chapter-intro">אליעזר עומד ליד הבאר בלי כתובת ובלי תוכנית – ומדבר עם ה' במילים שלו.</p>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">תפילה ליד הבאר</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אליעזר מגיע לחרן. אין לו כתובת, הוא אינו יודע איפה המשפחה גרה, והוא גם חושש: אם ידפוק בדלת ויספר שהוא מחפש כלה לבן אברהם העשיר, מי יודע את מי יציגו לו. הוא צריך דרך אחרת.</p>
+<p>מה הוא עושה? עומד ליד הבאר ומדבר עם ה', במילים שלו:</p>
+<blockquote>והיה הנערה אשר אמר אליה הטי נא כדך ואשתה, ואמרה שתה וגם גמליך אשקה – אתה הכחת לעבדך ליצחק (בראשית כד, יד)</blockquote>
+<p>ריבונו של עולם, אני לא מכיר כאן אף אחד, אני לא יודע איך – תעזור לי. והתפילה נענית מיד.</p>
+<p class="bold-para">זו הדרך הראשונה: לדבר עם ה' במילים שלך.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הדיבור יוצר חיבור ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הדיבור יוצר חיבור</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מתי? כשיש בעיה, וגם כשמתרגשים. לא צריך נוסח, לא צריך שעות. "ה', אתה אוהב אותי, דאגת לי אתמול, עשית לי כל כך הרבה חסדים, ועכשיו אני צריך עזרה."</p>
+<p>למה זה כל כך חזק? כי דיבור יוצר חיבור. בין בני זוג, בין הורים לילדים, בין חברים – הדרך להתחבר עוברת בדיבור. מי שמדבר, נפתח. ומי שנפתח, מתקרב.</p>
+<p>כך גם עם ה'. אדם שמספר לה' מה עובר עליו, מה מדאיג אותו ומה משמח אותו, בונה קשר חי. לא קשר של טקס, אלא קשר של שיחה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;אל תרבה שיחה&quot; – ולהקשיב? ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אל תרבה שיחה&quot; – ולהקשיב?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סיפור משעשע: היה בעל שכל פעם שאשתו דיברה יותר מעשר דקות, היה מביט בשעון ומזכיר לה את המשנה:</p>
+<blockquote>אל תרבה שיחה עם האשה (אבות א, ה)</blockquote>
+<p>הדבר העיק עליה, עד שיום אחד ענתה לו: "נכון, המשנה אומרת שאתה לא תרבה שיחה. מי ביקש ממך לדבר? ביקשתי שתקשיב!"</p>
+<p>תשובה גאונית. כשאישה מספרת מה עובר עליה ובעלה באמת מקשיב – נוצר חיבור. כדי להתחבר צריך שאחד ידבר והשני יקשיב.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: סוגים של הקשבה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">סוגים של הקשבה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש הקשבה ויש הקשבה. יש מי שמקשיב רק כדי לחכות שהשני יגמור. יש מי שמקשיב באופן סביל: שומע, מהנהן, "בסדר". יש מי שמקשיב כדי להגיב אחר כך. ויש מי ששומע את מה שמתחת למילים – מה באמת כואב לשני. לפעמים הוא מבין את הדובר טוב יותר ממה שהדובר מבין את עצמו.</p>
+<p>והחדשות המרגשות הן שה' מקשיב לנו בדרגה הגבוהה ביותר. הוא שומע כל מילה, ויודע גם את מה שלא הצלחנו לומר.</p>
+<div class="honey-box">🍯 כשאתה מדבר עם ה', אתה מדבר עם המקשיב הטוב ביותר שיש.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: הקו הפתוח של בורא העולם ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הקו הפתוח של בורא העולם</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פעם, כשהציעו לאנשים לדבר עם ה' במילים שלהם, הם התביישו: מה יגידו עליי? היום זה פשוט מאוד. שים אוזנייה, ואתה יכול לדבר עם כל העולם. אף אחד לא יודע עם מי אתה מדבר. אתה הולך ברחוב, אתה נראה נורמלי לגמרי – ואתה מדבר עם בורא העולם.</p>
+<p>כדאי לכל אדם "להתקשר" כל יום. זה קו שלא עולה כסף – להפך, על כל רגע שמדברים בו, ה' משלם שכר. זו הכתובת היחידה שתמיד פנויה, עשרים וארבע שעות ביממה, גם כשכולם כבר מאסו לשמוע אותך. והיא גם הכתובת היחידה שבאמת יכולה לעזור.</p>
+<p>זה עובד. בדוק ומנוסה.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: יותר מהחלום ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🙏</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">המתנה השנייה: להודות</h2></div></div>
+<p class="chapter-intro">רבקה עונה לתפילה יותר ממה שאליעזר חלם – והתגובה הראשונה שלו היא השתחוויה.</p>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">יותר מהחלום</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אליעזר ביקש סימן: נערה שתאמר "שתה וגם גמליך אשקה". אבל שימו לב מה רבקה עשתה באמת:</p>
+<blockquote>ותאמר שתה אדני... ותכל להשקתו ותאמר גם לגמליך אשאב עד אם כלו לשתת (בראשית כד, יח-יט)</blockquote>
+<p>היא חילקה את זה לשניים. קודם נתנה לו לשתות, ורק כשסיים הציעה לשאוב גם לגמלים. למה? האור החיים מסביר שרצתה שישתה ברוגע. מי ששומע "שתה, ואחר כך אתן לכל הגמלים" שותה מעט, כדי להשאיר לאחרים. רבקה רצתה שירווה בלי דאגה.</p>
+<p>זו חוכמה ורגישות גדולות יותר אפילו ממה שאליעזר ביקש. נדיר שמשהו קורה יותר טוב מהחלום.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: &quot;ויקד האיש וישתחו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;ויקד האיש וישתחו&quot;</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה אליעזר עושה ברגע שהוא רואה שהתפילה נענתה?</p>
+<blockquote>ויקד האיש וישתחו לה'. ויאמר ברוך ה' אלוקי אדני אברהם (בראשית כד, כו-כז)</blockquote>
+<p>הוא עוצר, משתחווה ומודה לה' מכל הלב: ה' עזר לי, ה' הנחה אותי בדרך.</p>
+<p class="bold-para">זו הדרך השנייה: ההודיה לה' יוצרת חיבור גדול מאוד אליו.</p>
+<p>במיוחד בחודש כסלו, חודש חנוכה, חודש ההודיה וההלל, זה הזמן לחזק את המתנה הזאת.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: הפסיכולוגיה שגילתה את ההודיה ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הפסיכולוגיה שגילתה את ההודיה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני עשרות שנים החליט אחד מנשיאי איגוד הפסיכולוגים בארצות הברית שהגיע הזמן לשנות כיוון. עד מתי נטפל באנשים רק אחרי שכבר הגיעו למצוקה? אולי אפשר ללמד אותם איך לא להגיע אליה מלכתחילה? כך נולדה הפסיכולוגיה החיובית.</p>
+<p>אחד הממצאים המפורסמים בתחום מראה שכחצי מרמת האושר של אדם תלוי באופי שקיבל, כעשרה אחוזים בנסיבות חייו, וכארבעים אחוזים – בידיים שלו. זה המון.</p>
+<p>ואחד הדברים החזקים ביותר, וגם הקלים ביותר, שמביאים אדם לאושר: לקבוע כל יום כמה דקות של הודיה. לחפש על מה אפשר להודות, לבני אדם ובוודאי לה'. אפילו חמש דקות ביום, אפילו דקה. נכתבו על כך ספרים שלמים ונערכו מחקרים רבים, וכולם מראים שהכרת הטוב ממלאת את האדם שמחה ואהבה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: חידה לחנוכה: הפסוק המשולש ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חידה לחנוכה: הפסוק המשולש</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איזה פסוק מופיע גם בתורה, גם בנביאים וגם בכתובים, ואומרים אותו פעם ביום, פעם בשבוע ופעם בחודש?</p>
+<p>התשובה:</p>
+<blockquote>עזי וזמרת יה ויהי לי לישועה</blockquote>
+<p>בתורה – בשירת הים (שמות טו, ב), ואומרים אותה כל בוקר בתפילה. בנביאים – בישעיהו (יב, ב), "הנה אל ישועתי אבטח ולא אפחד", שאשכנזים אומרים בכל מוצאי שבת בהבדלה. ובכתובים – בתהלים (קיח, יד), שאומרים בהלל בכל ראש חודש.</p>
+<p>למה זכה הפסוק הזה להופיע שלוש פעמים? כי הוא מלמד איך זוכים לישועה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: עזי וזמרת – ויהי לי לישועה ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">עזי וזמרת – ויהי לי לישועה</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"עזי" – אדם שמרגיש שה' הוא הכוח שלו, שבוטח בו ויודע שה' שומר עליו ואוהב אותו. בימי מלחמה, הביטחון הזה לא בא במקום המקלט, אבל הוא מוסיף רוגע שאין לו תחליף. מי שזוכר שה' שומר עליו יורד למקלט בלי בהלה, וידוע שלא מעט נפגעו דווקא מהבהלה ומהריצה.</p>
+<p>"וזמרת" – אדם שמזמר לה', מודה לו על כל הטוב שעשה לו. ומה התוצאה? "ויהי לי לישועה".</p>
+<p>כשבת קטנה התקשרה לסבתה להודות לה על כובע שסרגה לה, הסבתא שאלה מיד: "מה עוד אפשר להכין לך?" כשמודים, הנותן מקבל נחת, ורוצה לתת עוד.</p>
+<p>בזוהר זה כתוב בשפה של סוד: כשאדם מודה לה' על נס, הוא מעורר את האורות שהאירו בשעת הנס, והם חוזרים ומביאים ישועה נוספת.</p>
+<div class="honey-box">🍯 הודיה פותחת את הצינור לישועות הבאות.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: דקה ביום במילים שלך ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🎉</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">לעשות מזה עסק</h2></div></div>
+<p class="chapter-intro">שתי הדרכים בקיצור, ועוד סוד אחד: איך מכניסים את הטוב עמוק ללב.</p>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">דקה ביום במילים שלך</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הדרך הראשונה: פעם ביום לדבר עם ה' במילים שלך. למה זה חשוב כל כך? כי התפילה הקבועה, עם כל גדולתה, נעשית לפעמים מלומדה.</p>
+<p>יש בדיחה ידועה: "אלה ברכב ואלה בסוסים, ואנחנו – בשוק". אדם רגיל, כדי להגיע לשוק, צריך לעלות על רכב ולנסוע. אנחנו? מתחילים להתפלל, ותוך שנייה המחשבות כבר שם.</p>
+<p>לכן כדאי לקבוע אפילו דקה ביום שבה מדברים עם ה' בשפה שלך, על מה שבאמת מעסיק אותך. זה מחיה את כל השאר.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: לצבוע את הלב בצהוב ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לצבוע את הלב בצהוב</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הדרך השנייה: לקבוע דקה עד חמש דקות להודות לה' על הטוב שיש לך. לחפש בכל פעם דברים חדשים, לא לחזור על אותה רשימה.</p>
+<p>וכשקורה משהו טוב – לעשות מזה עסק. קנית רכב חדש? נולד ילד? אל תגמור את האירוע בדקה. תגיד "שהחיינו" בכוונה, תגיד תודה לה', תשיר, תעשה פעולה.</p>
+<p>גם הפסיכולוגיה מלמדת שלא עצם המאורע משמח, אלא כמה החדרת אותו ללב. כאילו צבעת את הלב בצהוב. ככל ששמים על הטוב דגש, הלב נעשה שמח יותר.</p>
+<p class="bold-para">לא מה שקרה משמח – אלא כמה התרגשת ממנו.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: למה &quot;מודים&quot; היא הברכה הארוכה ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה &quot;מודים&quot; היא הברכה הארוכה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איזו ברכה היא הארוכה ביותר בתפילת שמונה עשרה? מעט מאוד יודעים: ברכת "מודים". לא שמים לב, כי היא מתחלקת לכמה חלקים, וב"על הניסים" של חנוכה ופורים היא מתארכת עוד יותר.</p>
+<p>למה דווקא ההודיה ארוכה כל כך? כי אם רוצים שהיא תיכנס ללב, צריך להאריך בה. גם ב"על הניסים" יש רצף של ביטויים: גבורים ביד חלשים, רבים ביד מעטים, טמאים ביד טהורים. לכאורה אותו רעיון שוב ושוב. אלא שכך מחדירים ללב שקרה משהו טוב, שה' אוהב אותנו.</p>
+<div class="honey-box">🍯 תאריך בהודיה, תעשה ממנה עסק – והיא תיכנס ללב. אז תרגיש שה' אוהב אותך ושמח בך, ותהיה אדם מאושר.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
