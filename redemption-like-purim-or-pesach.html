@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌗 פורים או פסח? איך תגיע הגאולה שלנו</title>
+<meta name="description" content="שתי דרכים שבהן ה&#x27; גואל את עמו, ומה הן מלמדות אותנו על הגאולה של הדור שלנו: האם מחכים לנס פתאומי מן השמים, או זוכים לראות את האור עולה לאט לאט, וגם שותפים בו">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🌗 פורים או פסח? איך תגיע הגאולה שלנו</h1>
+  <p class="hero-subtitle">שתי דרכים שבהן ה&#x27; גואל את עמו, ומה הן מלמדות אותנו על הגאולה של הדור שלנו: האם מחכים לנס פתאומי מן השמים, או זוכים לראות את האור עולה לאט לאט, וגם שותפים בו</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-12 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/uQUcHh5fFl4" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌗 שתי דרכים לגאולה</a><ul class="toc-stories"><li><a href="#story-1">השאלה שבין פורים לפסח</a></li><li><a href="#story-2">לשבת ולחכות, או לקום ולפעול?</a></li><li><a href="#story-3">בבת אחת, או שלב אחר שלב?</a></li><li><a href="#story-4">בדרך נס או בדרך הטבע?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🧲 מי מקבץ את מי?</a><ul class="toc-stories"><li><a href="#story-5">וקבצתי: ה&#x27; יקבץ, או יאפשר לנו להתקבץ?</a></li><li><a href="#story-6">המשל על הטובע שחיכה לישועה</a></li><li><a href="#story-7">השיבה שופטינו: מי משיב?</a></li><li><a href="#story-8">מה נפלא יותר: מה שה&#x27; עושה, או מה שאנחנו עושים?</a></li><li><a href="#story-9">איך הם עלו?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📯 השופר הגדול</a><ul class="toc-stories"><li><a href="#story-10">שופר שאינו עשוי מקרן</a></li><li><a href="#story-11">הקול שכל העולם שמע</a></li><li><a href="#story-12">את העתיד קשה לדמיין</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🌱 מעט מעט תבוא גאולת ישראל</a><ul class="toc-stories"><li><a href="#story-13">הרב קלישר והקריאה לעורר את העם</a></li><li><a href="#story-14">גם קרבנות לפני בניין המקדש?</a></li><li><a href="#story-15">לא פתאום</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🌅 כאיילת השחר</a><ul class="toc-stories"><li><a href="#story-16">שני חכמים בבקעת ארבל</a></li><li><a href="#story-17">למה קוראים לשחר איילה?</a></li><li><a href="#story-18">השלבים במגילה</a></li><li><a href="#story-19">רק שלושה ימים? שני הסברים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🍊 סדר הברכות, סדר הגאולה</a><ul class="toc-stories"><li><a href="#story-20">כשהעצים חוזרים לתת פרי</a></li><li><a href="#story-21">קיבוץ גלויות, ואחריו דין ברשעים</a></li><li><a href="#story-22">והסר ממנו יגון ואנחה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌗</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">שתי דרכים לגאולה</h2></div></div>
+<p class="chapter-intro">בין פורים לפסח עומדות לפנינו שתי גאולות שונות מאוד זו מזו. השאלה איזו מהן דומה לגאולה האחרונה איננה שאלה של היסטוריה בלבד. היא קובעת איך אנחנו חיים היום.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">השאלה שבין פורים לפסח</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בחודשים שבין פורים לפסח אנחנו פוגשים, בזה אחר זה, את שתי הגאולות הגדולות של עם ישראל: גאולת מגילת אסתר וגאולת יציאת מצרים. ומתוך המפגש הזה עולה שאלה שמלווה את עם ישראל כבר כמאה וחמישים שנה, ועדיין לא הוכרעה:</p>
+<p class="bold-para">האם הגאולה האחרונה תהיה דומה לפורים, או דומה לפסח?</p>
+<p>זה לא ויכוח של חוקרים. גדולי הדורות בדורות האחרונים נחלקו בזה, ומן התשובה נגזרות הרבה שאלות מעשיות: מה עושים לקראת הגאולה, איך מסתכלים על מה שקורה בארץ ישראל בימינו, ואיך קוראים את הברכות שאנחנו אומרים שלוש פעמים ביום בתפילת שמונה עשרה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: לשבת ולחכות, או לקום ולפעול? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לשבת ולחכות, או לקום ולפעול?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההבדל הראשון, והמעשי ביותר: האם אדם ניגש אל הגאולה באופן סביל או באופן פעיל.</p>
+<p>במצרים עם ישראל כמעט לא עשה דבר. ישבו בבתים, אכלו את קרבן הפסח, וה' עשה הכול. במגילת אסתר התמונה שונה לגמרי: אסתר נכנסת אל המלך בלי רשות ומסכנת את חייה, מרדכי מעורר את העם, כולם צמים ומתפללים. ודאי שה' עזר, ובלעדיו לא היה כלום. מי גרם לכך שבאותו לילה נדדה שנת המלך? אבל עם ישראל עשו.</p>
+<p>ומכאן השאלה לימינו: האם מספיק לשבת בבית הכנסת, לומר תיקון חצות ולהתפלל על ירושלים, ולהישאר במקום רחוק? או שמי שרוצה בגאולה צריך גם לקום ולעשות: לעלות לארץ, לבנות, להקים יישובים, לדאוג ולפרסם?</p>
+<div class="honey-box">🍯 תפילה בלי מעשה דומה למי שמתפלל על פרנסה ואינו יוצא מן הבית. התפילה והמעשה הולכים יחד.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: בבת אחת, או שלב אחר שלב? ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בבת אחת, או שלב אחר שלב?</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההבדל השני נוגע לקצב. יציאת מצרים הייתה מעבר חד מאפס למאה: בלילה הקודם עוד היו עבדים, ולמחרת יצאו ביד רמה. במגילת אסתר הישועה באה בשלבים, שלב ועוד שלב.</p>
+<p>מכאן שאלה גדולה: האם הגאולה האחרונה חייבת להיות שלמה, ואם אינה שלמה הרי היא כאילו לא הייתה? או שיש גאולה חלקית, התחלה שהולכת ומתמלאת?</p>
+<p>ומזה נגזרת שאלה שלישית: האם קיים מצב ביניים, לא גלות ולא גאולה שלמה? יש מי שאומרים שגם כאן, בארץ ישראל, אנחנו עדיין בגלות. ויש מי שרואים במצבנו היום יצירה חדשה, שלב באמצע הדרך. בעבר כמעט לא העלו על הדעת מצב כזה: או גלות או גאולה. אבל אולי דווקא המצב הזה הוא מה שאנחנו חיים בו.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: בדרך נס או בדרך הטבע? ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בדרך נס או בדרך הטבע?</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההבדל הבא: בפסח הכול היה ניסים ונפלאות. עשר מכות, מכת בכורות, קריעת ים סוף. בפורים הכול נראה כמו מהלך טבעי של חצר מלוכה: מלך שמתרגז, יועץ שנופל, מלכה שמבקשת. שם ה' אינו נזכר במגילה כלל, ובכל זאת ידו ניכרת בכל פסוק.</p>
+<p>איך תיראה הגאולה האחרונה? עמוד אש וענני כבוד, או שרשרת של אירועים שנראים טבעיים, וממבט לאחור מתגלה שכולם היו מכוונים מלמעלה?</p>
+<p class="bold-para">ככל שהגאולה דומה יותר לפורים, כך גדלה האחריות שלנו לזהות את יד ה' בתוך הטבע, ולהצטרף אליה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: וקבצתי: ה&#x27; יקבץ, או יאפשר לנו להתקבץ? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🧲</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מי מקבץ את מי?</h2></div></div>
+<p class="chapter-intro">"וקבצתי אתכם". הבטחה אחת, ושתי דרכים לקרוא אותה.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">וקבצתי: ה&#x27; יקבץ, או יאפשר לנו להתקבץ?</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנביא יחזקאל מבטיח:</p>
+<blockquote>"ולקחתי אתכם מן הגוים וקבצתי אתכם מכל הארצות והבאתי אתכם אל אדמתכם" (יחזקאל לו, כד)</blockquote>
+<p>מה פירוש "וקבצתי"? אפשר לקרוא שה' ירים את היהודי ממקומו וישים אותו בארץ ישראל, בלי שהוא יזיז אצבע. ואפשר לקרוא שה' יפתח לנו את הדרך, יסדר את הנסיבות, ייתן לנו את האפשרות להתקבץ, ועלינו לקום וללכת בה.</p>
+<p>שתי הקריאות מכבדות את ההבטחה. ההבדל ביניהן קובע אם אדם יושב ומחכה, או אורז מזוודה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: המשל על הטובע שחיכה לישועה ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המשל על הטובע שחיכה לישועה</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מספרים על אדם שטבע בים וצעק לה' שיושיע אותו. אחרי דקה הגיע מסוק והורידו לו חבל. "לא", אמר, "אני ביקשתי שה' יושיע אותי, לא מסוק". אחר כך עברה סירה והציעו לו לעלות. "ביקשתי מה', לא מסירה". לבסוף שחה לידו אדם ואמר: "היאחז בי, אוציא אותך". וגם לו סירב.</p>
+<p>האיש טבע, ועלה לשמים בטענה: "בטחתי בך, התפללתי, התחננתי, ולא באת!" ענו לו: "לא באתי? מי שלח לך מסוק? מי שלח סירה? מי שלח אדם שישחה אליך?"</p>
+<p class="bold-para">ה' יכול לקבץ אותנו בהרבה דרכים. לפעמים הישועה מגיעה בדמות חבל שמורידים אלינו, ועלינו רק לאחוז בו.</p>
+<p>כך גם במשל האסיר שבבור: אם לא יושיט יד, גם מי שבא להציל אותו לא יוכל למשוך אותו החוצה.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: השיבה שופטינו: מי משיב? ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">השיבה שופטינו: מי משיב?</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אותה שאלה עולה גם בברכה הבאה בתפילה:</p>
+<blockquote>"השיבה שופטינו כבראשונה ויועצינו כבתחלה, והסר ממנו יגון ואנחה"</blockquote>
+<p>האם הכוונה שאדם יושב בבית, מתפלל שה' ישיב את השופטים, וזהו? או שהתפילה היא בקשה שה' יעזור לנו בעבודה שלנו: שנפעל, שנתקן, שנעשה כל מה שבידינו, ובעזרת ה' נצליח?</p>
+<p>התפילה איננה תחליף למעשה. היא הנשמה שלו. מי שמתפלל על דבר ואינו מוכן לעשות למענו, עדיין לא הבין על מה הוא מתפלל.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מה נפלא יותר: מה שה&#x27; עושה, או מה שאנחנו עושים? ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה נפלא יותר: מה שה&#x27; עושה, או מה שאנחנו עושים?</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן שאלה עמוקה עוד יותר. לא רק מה צריך לעשות, אלא מה טוב יותר: שה' יעשה הכול בעצמו, או שה' ייתן לנו את הזכות לתקן ולבנות?</p>
+<p>רוב האנשים בטוחים שהנפלא ביותר הוא כשה' עושה הכול. הראיה: איך רובנו מדמיינים את בית המקדש השלישי? יורד מן השמים, בנוי ומשוכלל, באש. ואם אנחנו נבנה אותו? נדמה לרבים שזה פחות מכובד, כמעט בושה.</p>
+<p>אבל המחשבה הזו משפיעה על המעשים. מי שחולם רק על מקדש יורד מן השמים, עלול ביום שבו תינתן רשות לבנות, לומר: "לא על זה חלמנו".</p>
+<div class="honey-box">🍯 אבא שנותן לבנו לבנות איתו את הבית לא מקטין את המתנה. הוא מגדיל אותה: הבן מקבל גם בית וגם חלק בבנייתו.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: איך הם עלו? ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">איך הם עלו?</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את השאלה הזו קל יותר להבין דווקא מן העבר הקרוב. אנחנו אומרים בכל יום: "וקבצנו יחד מארבע כנפות הארץ". ובאמת, בדורות האחרונים התקבצו כאן מיליוני יהודים.</p>
+<p>אבל איך הם עלו? האם ה' ירד ולקח אותם בידו? לא. הם עלו ברגליהם. קהילות שלמות קמו ועלו, באוניות ובמטוסים, בקשיים גדולים. ובכל זאת אנחנו אומרים בלב שלם שה' קיבץ אותם.</p>
+<p class="bold-para">קיבוץ הגלויות של ימינו הוא "וקבצתי" שהתקיים דרך בני אדם. ה' פתח את הדרך, והיהודים הלכו בה.</p>
+<p>כך אפשר להבין את הנבואות על העתיד: לא תמיד נדע מראש איך הן יתקיימו, אבל לרוב הן מתקיימות דרכנו.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: שופר שאינו עשוי מקרן ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📯</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">השופר הגדול</h2></div></div>
+<p class="chapter-intro">"תקע בשופר גדול לחרותנו". איפה היה השופר הזה?</p>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שופר שאינו עשוי מקרן</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתפילה אנחנו מבקשים: "תקע בשופר גדול לחרותנו, ושא נס לקבץ גלויותינו". אם מיליוני יהודים כבר התקבצו לארץ ישראל, מתי נשמע השופר? האם מישהו ראה שופר נתקע?</p>
+<p>כדי להבין, כדאי לשמוע איך הרמב"ם מסביר את השופר של ראש השנה. אף על פי שתקיעת שופר היא גזירת הכתוב, כותב הרמב"ם (הלכות תשובה ג, ד), יש בה רמז:</p>
+<blockquote>"עורו ישנים משנתכם, ונרדמים הקיצו מתרדמתכם"</blockquote>
+<p>השופר הוא קריאת התעוררות. הוא קול שמעיר את מי שנרדם. וכך אומר הנביא:</p>
+<blockquote>"אם יתקע שופר בעיר ועם לא יחרדו" (עמוס ג, ו)</blockquote>
+<p>שופר הוא קול שכל העם נחרד ממנו.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הקול שכל העולם שמע ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הקול שכל העולם שמע</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כשמונים שנה נשמע קול כזה, נורא ומזעזע, שלא היה אדם בעולם שלא שמע אותו. הקול אמר לעם ישראל בעוצמה שאין לה אח ורע: אין לכם מקום בגלות. יש מי שבחר שלא להקשיב, אבל אין מי שלא שמע.</p>
+<p>ומתוך החורבן הנורא קמו מאות אלפי יהודים, ובשנים שאחריו כמיליון, ועלו לכאן ובנו את הארץ.</p>
+<p>אין הכוונה להקטין במשהו את הכאב ואת השכול. הכוונה לראות שגם בשעה החשוכה ביותר, הקול שקרא ליהודים לשוב הביתה נשמע בכל העולם.</p>
+<p class="bold-para">"תורה דיברה בלשון בני אדם": השופר הגדול איננו בהכרח קרן של איל. הוא יכול להיות כל קול שמעורר את העם כולו.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: את העתיד קשה לדמיין ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">את העתיד קשה לדמיין</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם השופר של העבר נשמע בצורה שאיש לא דמיין מראש, קל להבין למה כל כך קשה לנו לדמיין איך יתקיימו שאר ההבטחות.</p>
+<p>יש לה' אינספור דרכים לקיים את דבריו. פעמים רבות רק אחרי שהדבר קורה אנחנו מבינים: אה, זו הייתה הנבואה. מי שקורא את הנבואות כמו תסריט מדויק של ניסים מעל הטבע, עלול לפספס אותן כשהן מתקיימות מול עיניו.</p>
+<div class="honey-box">🍯 כשקוראים נבואה על העתיד, כדאי לשאול לא רק "מתי זה יקרה?" אלא גם "האם ייתכן שזה כבר מתחיל לקרות?"</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: הרב קלישר והקריאה לעורר את העם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🌱</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מעט מעט תבוא גאולת ישראל</h2></div></div>
+<p class="chapter-intro">אחד הראשונים שאמרו בקול שהגאולה לא תבוא בבת אחת, היה הרב צבי הירש קלישר.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הרב קלישר והקריאה לעורר את העם</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב צבי הירש קלישר, תלמידו של רבי עקיבא איגר, היה מן הראשונים שעוררו את העם לחזור ולבנות את ארץ ישראל. מעניין שבאותם ימים כתב גם הרב יהודה אלקלעי רעיונות דומים מאוד, בלי שאחד ראה את דברי השני. שניהם באו לעקור מן הלב את מה שכולם חשבו: שהגאולה תבוא רק בבת אחת, מן השמים.</p>
+<p>בספרו "דרישת ציון", שנדפס באמצע המאה התשע עשרה, הוא כתב, עוד לפני שהיה אפשר לראות משהו בעיניים, שהגאולה תבוא בתהליך ארוך. הוא כתב מכתבים לעשירי ישראל, ואחד מהם, מכתבו לרוטשילד, שמור עד היום. באותם ימים זו הייתה מהפכה של ממש, ורוב העולם לא קיבל את דבריו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: גם קרבנות לפני בניין המקדש? ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גם קרבנות לפני בניין המקדש?</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חלק גדול מן הספר "דרישת ציון" עוסק בשאלה שנשמעת היום כמעט דמיונית: האם אפשר להקריב קרבנות, ובפרט קרבן פסח, עוד לפני שבית המקדש נבנה. הרב קלישר הביא לכך ראיות רבות, ושלח את השאלה לרבו רבי עקיבא איגר.</p>
+<p>רבי עקיבא איגר התלבט, היו לו כמה פקפוקים, והשאלה הגיעה גם אל חתנו, החתם סופר. בפועל הדבר לא יצא לפועל, ובפשטות מפני שהשלטון ששלט אז בהר הבית לא הרשה.</p>
+<p>השאלה הזו עשויה להפוך מעשית מאוד בשנים הבאות, וכדאי להכיר את הצדדים שלה: היו שהסכימו עם הרב קלישר, והיו שחלקו עליו.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: לא פתאום ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא פתאום</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל עיקר הספר, ועיקר המסר המעשי שלו, נמצא כבר בפתיחתו. אל יחשוב אדם, כותב הרב קלישר, שגאולת ישראל תבוא פתאום: שה' ירד מן השמים ויאמר לעם "צאו", או ישלח את המשיח ברגע אחד לתקוע בשופר גדול, יקבץ את הנדחים ויעמיד חומת אש ומקדש בנוי. ודאי שכל דברי הנביאים יתקיימו ולא ייפול מהם דבר, אך לא בבהלה ובחיפזון ביום אחד, אלא:</p>
+<p class="bold-para">"מעט מעט תבוא גאולת ישראל".</p>
+<p>המחשבה ש"פתאום יבוא" כל כך נכנסה ללב, עד שגם שרים אותה. ילד שגדל על השירים האלה קולט אוטומטית שכך יהיה. ללמד אחרת, פירושו ללכת נגד מה שנחקק בלב מילדות. לכן צריך לבדוק: מאיפה הרב קלישר לקח את דבריו?</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: שני חכמים בבקעת ארבל ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">כאיילת השחר</h2></div></div>
+<p class="chapter-intro">המקור של הרב קלישר הוא סיפור קצר ומרגש בתלמוד הירושלמי, שהתרחש בבוקר אחד בבקעת ארבל.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שני חכמים בבקעת ארבל</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מספר התלמוד הירושלמי (ברכות א, א) שרבי חייא רבה ורבי שמעון בן חלפתא היו מהלכים בבקעת ארבל בשעת השחר, וראו את איילת השחר שבקע אורה. אמר רבי חייא:</p>
+<blockquote>"כך היא גאולתן של ישראל, בתחילה קימעא קימעא, כל מה שהיא הולכת היא רבה והולכת"</blockquote>
+<p>ומניין? מן הפסוק:</p>
+<blockquote>"כי אשב בחשך ה' אור לי" (מיכה ז, ח)</blockquote>
+<p>גם כשאדם יושב בחושך, ה' מתחיל לתת לו אור. קטן, ואחר כך גדל, וגדל, עד שהכול מואר.</p>
+<div class="honey-box">🍯 בקעת ארבל נמצאת לא רחוק מטבריה. "שביל הסנהדרין" עובר בה, ולאורכו חרוטים על סלעים ציטוטים מן התנאים שחיו במקום. מי שהולך שם בשעת זריחה יכול לראות במו עיניו את מה שראו רבי חייא ורבי שמעון.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: למה קוראים לשחר איילה? ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה קוראים לשחר איילה?</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"איילת השחר" נשמע כמו משחק מילים יפה עם "עלות השחר", אבל יש כאן יותר מזה. נסו לדמיין זריחה במקום פתוח ושומם, בלי בתים ובלי עצים. בהתחלה אין רואים את השמש עצמה. רואים קרני אור ראשונות שמתפרשות לשני הצדדים, כמו שתי קרניים של איילה.</p>
+<p>ומשום כך גם אסתר המלכה נמשלה לאיילת השחר. חז"ל דרשו עליה את הפסוק:</p>
+<blockquote>"למנצח על אילת השחר" (תהלים כב, א)</blockquote>
+<p>בימי אסתר היה חושך גדול: גזירה להשמיד, להרוג ולאבד. ואסתר התחילה, לאט לאט, להזריח את האור, להראות שיש ישועה ויש תקווה.</p>
+<p>ומשום כך גם יש מי שקרא לספרו על דרכי הגאולה "אילת השחר", על שם המדרש הזה.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: השלבים במגילה ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">השלבים במגילה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הירושלמי ממשיך ומראה איך הגאולה הלכה וגדלה במגילת אסתר, שלב אחר שלב:</p>
+<ul class="story-list"><li>בתחילה, "ומרדכי יושב בשער המלך". שם הוא שומע על בגתן ותרש, מציל את המלך, והדבר נכתב בספר הזכרונות. נקודת זכות קטנה, שאיש עוד לא יודע מה תהיה חשיבותה.</li><li>אחר כך, "ויקח המן את הלבוש ואת הסוס".</li><li>אחר כך, "וישב מרדכי אל שער המלך".</li><li>אחר כך, "ומרדכי יצא מלפני המלך בלבוש מלכות".</li><li>ולבסוף, "ליהודים היתה אורה ושמחה וששון ויקר".</li></ul>
+<p class="bold-para">האור לא הופיע בבת אחת. הוא התחיל בנקודה קטנה, הרבה לפני שמישהו ידע שהוא בכלל נחוץ.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: רק שלושה ימים? שני הסברים ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">רק שלושה ימים? שני הסברים</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל כאן מתעוררת קושיה גדולה. מרגע שהמן שלח את האיגרות ועד שנתלה על העץ עברו ימים ספורים בלבד! מרדכי שומע על הגזירה ושולח את אסתר אל המלך. היא מבקשת שיצומו שלושה ימים, נכנסת אל המלך, מזמינה אותו ואת המן למשתה, ולמחרת כבר הכול מתהפך. אם כך, איפה ה"קימעא קימעא"?</p>
+<p>שני הסברים נאמרו בזה:</p>
+<ul class="story-list"><li><strong>הסבר אחד:</strong> הנס התחיל הרבה לפני הגזירה, ביום שמרדכי ישב בשער המלך והציל אותו. ה' מקדים רפואה למכה. הגאולה נבנתה בשקט שנים לפני שהצרה בכלל נראתה.</li><li><strong>הסבר שני:</strong> הירושלמי לא בא ללמד שהגאולה לוקחת זמן רב, אלא שהיא באה בשלבים. ביציאת מצרים היה זה לילה אחד: בערב עבדים, ובאמצע הלילה פרעה צועק "קומו צאו". במגילת אסתר, אפילו אם הכול קרה מהר, זה היה צעד ועוד צעד, משתה ועוד משתה. מכאן לומדים שיש גאולה שבאה שלב אחר שלב.</li></ul>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: כשהעצים חוזרים לתת פרי ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🍊</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">סדר הברכות, סדר הגאולה</h2></div></div>
+<p class="chapter-intro">גם הגמרא בבלי מלמדת אותו רעיון, מתוך סדר הברכות שאנחנו אומרים בכל יום.</p>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשהעצים חוזרים לתת פרי</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת מגילה (יז, ב) מסבירה את סדר ברכות שמונה עשרה. למה ברכת קיבוץ גלויות באה אחרי ברכת השנים? משום שנאמר:</p>
+<blockquote>"ואתם הרי ישראל ענפכם תתנו ופריכם תשאו לעמי ישראל כי קרבו לבוא" (יחזקאל לו, ח)</blockquote>
+<p>כשהארץ מתחילה לתת את פירותיה, זה סימן שקיבוץ הגלויות קרוב. ובמקום אחר אמרו חז"ל על הפסוק הזה: "אין לך קץ מגולה מזה" (סנהדרין צח, א).</p>
+<p>לפני כמאה שנה, כשגדולי ישראל באו לארץ וראו פרדסים ראשונים, מעט פה ומעט שם, הם התרגשו וראו בכך את הסימן. מה היו אומרים היום, כשהארץ היא מן המעצמות הגדולות בעולם בגידולי פירות וירקות, גם במקומות שהיו פעם מדבר?</p>
+<div class="honey-box">🍯 בפעם הבאה שאתם אוכלים פרי מן הארץ, זכרו שאתם אוכלים סימן של גאולה.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: קיבוץ גלויות, ואחריו דין ברשעים ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קיבוץ גלויות, ואחריו דין ברשעים</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ממשיכה הגמרא:</p>
+<blockquote>"וכיון שנתקבצו גליות, נעשה דין ברשעים, שנאמר: ואשיבה ידי עליך ואצרף כבר סיגיך, וכתיב: ואשיבה שפטיך כבראשנה" (ישעיהו א, כה-כו)</blockquote>
+<p>ואנחנו נמצאים היום בדיוק בשלב הזה. ברוך ה', אפשר כבר לומר שיש קיבוץ גלויות: קרוב למחצית העם היהודי כבר נמצאת בארץ ישראל. ומה השלב הבא? "השיבה שופטינו".</p>
+<p>אבל יש כאן דיוק נפלא. הגמרא מקדימה את "נעשה דין ברשעים" לפני "ואשיבה שפטיך כבראשנה". איפה בברכת "השיבה שופטינו" מוזכר דין ברשעים?</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: והסר ממנו יגון ואנחה ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">והסר ממנו יגון ואנחה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התשובה טמונה במילים שאנחנו אומרים בתוך הברכה: "והסר ממנו יגון ואנחה".</p>
+<p>מה הם היגון והאנחה? מצב שבו מי שיושבים בכיסא המשפט אינם שופטים על פי התורה, וגוזרים גזירות שכל אדם ישר מבין שאינן צודקות. כשאדם נאלץ להיות מיוצג דווקא על ידי מי שמתנגד לו, וכשהחוק מתרחק מן היושר ומן התורה, זה יגון ואנחה.</p>
+<p>לכן הסדר הוא כך: קודם מסירים את היגון והאנחה, את השלטון המעוות של המשפט. ורק אחר כך זוכים ל"השיבה שופטינו כבראשונה", לשופטים שדנים על פי התורה.</p>
+<p class="bold-para">הגאולה איננה קפיצה אחת אל הסוף. היא סולם של שלבים: הארץ נותנת פרי, הגלויות מתקבצות, היגון מוסר, ובעזרת ה' השופטים שבים כבראשונה.</p>
+<p>כרגע אנחנו נמצאים בשלב של "והסר ממנו יגון ואנחה". וכמו איילת השחר, כל שלב מאיר מעט יותר מקודמו.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
