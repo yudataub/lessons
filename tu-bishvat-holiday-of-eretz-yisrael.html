@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌸 יום טוב של ארץ ישראל: הסוד של ט״ו בשבט</title>
+<meta name="description" content="למה ט״ו בשבט הוא חג ולא רק תאריך בלוח ההלכה, מה מיוחד בפירות של ארץ ישראל, ואיך כל פרי על השולחן מבשר את הגאולה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🌸 יום טוב של ארץ ישראל: הסוד של ט״ו בשבט</h1>
+  <p class="hero-subtitle">למה ט״ו בשבט הוא חג ולא רק תאריך בלוח ההלכה, מה מיוחד בפירות של ארץ ישראל, ואיך כל פרי על השולחן מבשר את הגאולה.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-12 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/rsXgN4K-Xt0" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌸 השקדייה שממהרת לפרוח</a><ul class="toc-stories"><li><a href="#story-1">ראש השנה לאילן – באחד או בחמישה עשר?</a></li><li><a href="#story-2">מה פורח באמצע החורף?</a></li><li><a href="#story-3">&quot;מקל שקד אני רואה&quot;</a></li><li><a href="#story-4">למה דווקא באמצע שבט?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🎉 חג באמצע העונה</a><ul class="toc-stories"><li><a href="#story-5">מחלוקת שלא יכולה להיות על המציאות</a></li><li><a href="#story-6">חגי העונות נחגגים באמצע</a></li><li><a href="#story-7">ראש או חג?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">⚖️ ט״ו בשבט בהלכה</a><ul class="toc-stories"><li><a href="#story-8">שנות הערלה: מתי עץ &quot;גדל בשנה&quot;?</a></li><li><a href="#story-9">למה התורה אסרה את פירות הערלה?</a></li><li><a href="#story-10">שתיל מהמשתלה: מתי מתחילים לספור?</a></li><li><a href="#story-11">מעשרות: לאיזו שנה שייך הפרי?</a></li><li><a href="#story-12">&quot;עיני ה&#x27; אלוקיך בה&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🍇 מהלכה לשמחה</a><ul class="toc-stories"><li><a href="#story-13">לא צמים בט״ו בשבט</a></li><li><a href="#story-14">מנהג חדש שהתפשט בכל העם</a></li><li><a href="#story-15">&quot;היום יום טוב של ארץ ישראל&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🌳 ארץ שמשתבחת בפירותיה</a><ul class="toc-stories"><li><a href="#story-16">שבעת המינים – ואפילו החיטה היא עץ</a></li><li><a href="#story-17">לחם שצומח בארבע דקות</a></li><li><a href="#story-18">ביכורים וברכות: הארץ קודמת</a></li><li><a href="#story-19">אתרוג מהארץ או אתרוג מהודר מחוץ לארץ?</a></li><li><a href="#story-20">מצרים של ירקות, ארץ ישראל של עצים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌅 הפירות מבשרים את הגאולה</a><ul class="toc-stories"><li><a href="#story-21">אין לך קץ מגולה מזה</a></li><li><a href="#story-22">אלפיים שנה של ארץ שלא נכנעה</a></li><li><a href="#story-23">החתונה של ה&#x27; והארץ</a></li><li><a href="#story-24">ט״ו בשבט: ניצוץ של גאולה באמצע החורף</a></li><li><a href="#story-25">זכר לבניין – ושמחה בבניין עצמו</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌸</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">השקדייה שממהרת לפרוח</h2></div></div>
+<p class="chapter-intro">לפני שמדברים על הלכות ועל פירות, מתחילים בעץ אחד שכל ילד מכיר – ובשם שלו.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ראש השנה לאילן – באחד או בחמישה עשר?</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה הראשונה במסכת ראש השנה מונה ארבעה ראשי שנים, ובסופה:</p>
+<blockquote>"באחד בשבט ראש השנה לאילן, כדברי בית שמאי. בית הלל אומרים: בחמשה עשר בו" (ראש השנה א, א)</blockquote>
+<p>זו משנה מפתיעה. כמעט אין מקום שבו המשנה פותחת בסתם כדברי בית שמאי, ורק אחר כך מביאה את בית הלל – שהלכה כמותם. למה רבי ניסח כך? נחזור לזה בהמשך.</p>
+<p>אבל קודם צריך להבין על מה בכלל נחלקו. ובשביל זה צריך לצאת החוצה ולהסתכל על העצים.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: מה פורח באמצע החורף? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה פורח באמצע החורף?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שמסתובב בארץ ישראל בחודש שבט כמעט לא ימצא עץ פורח. העצים עדיין עירומים, הכול עוד ישן.</p>
+<p>כמעט הכול – חוץ מעץ אחד: השקדייה. היא הראשונה לפרוח, והפריחה הלבנה שלה מבשרת שהחורף מתחיל לעבור. לא בכדי שרים הילדים "השקדייה פורחת" – היא הסימן של ט״ו בשבט.</p>
+<p>ולמה קוראים לה דווקא "שקד"? התשובה נמצאת בתחילת ספר ירמיהו.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: &quot;מקל שקד אני רואה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;מקל שקד אני רואה&quot;</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתחילת נבואתו מראה ה' לירמיהו מראה:</p>
+<blockquote>"מָה אַתָּה רֹאֶה יִרְמְיָהוּ, וָאֹמַר: מַקֵּל שָׁקֵד אֲנִי רֹאֶה. וַיֹּאמֶר ה' אֵלַי: הֵיטַבְתָּ לִרְאוֹת, כִּי שֹׁקֵד אֲנִי עַל דְּבָרִי לַעֲשֹׂתוֹ" (ירמיהו א, יא–יב)</blockquote>
+<p>הרד״ק מסביר: השקד ממהר לפרוח יותר משאר העצים, ולכן הוא משל לפורענות שתבוא מהר. ומכאן גם שמו – "שקד" מלשון שקידה: זריזות, השתדלות, הקדמה. כמו שנאמר "לִשְׁקֹד עַל דַּלְתֹתַי יוֹם יוֹם" (משלי ח, לד) – מי שמשכים ובא ראשון.</p>
+<p>שקדן הוא אדם זריז וחרוץ, שמקדים ולא מתעצל. והשקד הוא העץ השקדן: כולם עוד ישנים, והוא כבר פורח.</p>
+<div class="honey-box">🍯 בט״ו בשבט השקדייה מלמדת אותנו להקדים – לא לחכות שהכול יפרח מסביב, אלא להיות הראשון.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: למה דווקא באמצע שבט? ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה דווקא באמצע שבט?</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא מסבירה שבט״ו בשבט כבר ירדו רוב גשמי השנה.</p>
+<p>בואו נחשב: חודשי החורף בארץ ישראל הם בערך כסלו, טבת, שבט ואדר. ט״ו בשבט הוא בדיוק האמצע. מכאן והלאה רוב החורף כבר מאחורינו. העצים כבר שתו את רוב הגשם שהם צריכים, והכוח מתחיל לעלות בהם. הם עוד לא פורחים – אבל הם כבר מתעוררים.</p>
+<p>זה רגע של התחלה שקטה: מבחוץ עוד לא רואים כלום, ובפנים כבר הכול זז.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מחלוקת שלא יכולה להיות על המציאות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🎉</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">חג באמצע העונה</h2></div></div>
+<p class="chapter-intro">אם הפריחה תלויה בשמש ולא בלוח העברי – על מה בדיוק נחלקו בית שמאי ובית הלל?</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מחלוקת שלא יכולה להיות על המציאות</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן מתעוררת שאלה. הפריחה של העצים לא תלויה בחודש העברי. היא תלויה בשמש – בערך בחודש פברואר. והלוח העברי נע ביחס לשמש: בשנה רגילה שבט מוקדם יותר, בשנה מעוברת מאוחר יותר.</p>
+<p>אם כן, לא ייתכן שבית שמאי ובית הלל נחלקו במציאות – מתי העצים מתחילים לפרוח – כי זה משתנה משנה לשנה בכל מקרה, גם ביום הראשון וגם בחמישה עשר.</p>
+<p>על מה, אם כן, נחלקו? יש מי שהסביר זאת בדרך נפלאה: הם נחלקו בשאלה מהו ט״ו בשבט בכלל.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: חגי העונות נחגגים באמצע ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חגי העונות נחגגים באמצע</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה נתנה לנו חגים שבהם אנחנו חוגגים את עונות השנה.</p>
+<p>פסח הוא "חג האביב". מתי הוא חל? בחמישה עשר בניסן – באמצע החודש. לפעמים האביב כבר בשיאו בראש חודש ניסן, ולפעמים הוא מתחיל רק בסופו – תלוי בשנה מעוברת או לא. אז התורה קבעה את החג באמצע, במקום שמתאים לכל השנים.</p>
+<p>וכך גם סוכות, "חג האסיף", כשאוספים את כל תבואת הקיץ ומכניסים הביתה: בחמישה עשר בתשרי – שוב באמצע.</p>
+<p class="bold-para">חג של עונה נחגג באמצע החודש – כי באמצע נפגשות כל השנים.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: ראש או חג? ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ראש או חג?</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו אפשר להבין את המחלוקת.</p>
+<p>בית שמאי אומרים: אתם קוראים לזה "ראש השנה"? ראש צריך להיות בראש! כל ראשי השנים במשנה – באחד בניסן, באחד באלול, באחד בתשרי – חלים בראש החודש. גם ראש השנה לאילן צריך להיות באחד בשבט. ולכן המשנה פותחת בדבריהם: מבחינה זו הם צודקים – ראש השנה מקומו בראש.</p>
+<p>בית הלל מבינים שט״ו בשבט הוא לא רק "ראש השנה" לחשבון ההלכתי. הוא גם חג – חג של עונה, היום שבו העצים מתעוררים. וחג של עונה, כמו פסח וכמו סוכות, נחגג באמצע: בחמישה עשר.</p>
+<div class="honey-box">🍯 כבר בתוך המשנה טמון הרמז: ט״ו בשבט הוא חג. חג של ארץ ישראל.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: שנות הערלה: מתי עץ &quot;גדל בשנה&quot;? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">ט״ו בשבט בהלכה</h2></div></div>
+<p class="chapter-intro">לפני השמחה – שני תחומים שבהם התאריך הזה קובע הלכה למעשה: ערלה ומעשרות.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שנות הערלה: מתי עץ &quot;גדל בשנה&quot;?</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שנוטע עץ בארץ ישראל אסור לו לאכול מפירותיו שלוש שנים – שנות ערלה. ואיך סופרים את השנים?</p>
+<p>השנה הראשונה נספרת לפי ראש השנה של תשרי, כמו ירקות: עץ שנשתל לפחות ארבעים וחמישה יום לפני ראש השנה (כדי שייקלט) – כבר עברה עליו שנה בראש השנה. כשהוא נשתל, הוא עוד שתיל קטן, וכמו כל צמח קטן הוא הולך אחרי ראש השנה הכללי.</p>
+<p>אבל בסוף שלוש השנים, כשהוא כבר עץ – הוא הולך אחרי ראש השנה של העצים. לכן גם אחרי שעברו שלוש שנים בתשרי, הפירות שחנטו לפני ט״ו בשבט עדיין אסורים, ורק פירות שחנטו אחריו מותרים.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: למה התורה אסרה את פירות הערלה? ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה התורה אסרה את פירות הערלה?</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב״ן נותן לכך טעם יפה. בשנה הרביעית הפירות הם "קודש הלולים" – מעלים אותם לירושלים ואוכלים אותם שם, כהודאה לה' על העץ שנתן פרי.</p>
+<p>אבל לא מכובד להביא לה' פרי בוסר. בשנים הראשונות הפירות של עץ צעיר עוד אינם ראויים. לכן מחכים עד שהפרי יהיה משובח, ואת הראשון שבהם מביאים לפני ה' – ורק אחר כך אוכלים בעצמנו.</p>
+<p class="bold-para">הפרי הראשון הראוי באמת – הולך קודם כול לתודה.</p>
+<p>היום זו הלכה מעשית מאוד: אנשים קונים במשתלה עץ שכבר נותן פרי אחרי שנה או שנה וחצי, ושואלים מה דינו.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: שתיל מהמשתלה: מתי מתחילים לספור? ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שתיל מהמשתלה: מתי מתחילים לספור?</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שקונה במשתלה עץ בעציץ ושותל אותו בגינה – האם השנים שעבר במשתלה נחשבות?</p>
+<p>כאן יש הבדל בין הכשרויות. יש שסומכים על כך שאם העץ עבר מהר מאדמה לאדמה, עם גוש העפר שלו, ולא היה מנותק זמן רב – השנים נמשכות. ויש שחוששים לדעות שגם הפסקה קצרה, אפילו רגע שבו השורשים מנותקים מן האדמה, מחשיבה את השתילה כנטיעה חדשה, ומתחילים לספור מההתחלה.</p>
+<p>ועוד דבר חשוב: עציץ שעומד ברכב, או עציץ שאינו מחובר לאדמת ארץ ישראל – אינו נחשב כמחובר. רק אדמה שמחוברת לאדמת הארץ ממשיכה את הספירה.</p>
+<p>מי שקונה עץ פרי – כדאי שישאל מראש איך נוהגים בו.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: מעשרות: לאיזו שנה שייך הפרי? ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מעשרות: לאיזו שנה שייך הפרי?</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מעשר ראשון ותרומה מפרישים בכל שנה. אבל המעשר השני מתחלף: בשנים הראשונה, השנייה, הרביעית והחמישית לשמיטה מפרישים מעשר שני, שנאכל בירושלים; ובשנים השלישית והשישית – מעשר עני, שניתן לעניים.</p>
+<p>ולגבי פירות העץ, השנה מתחלפת בט״ו בשבט. פרי שחנט לפני ט״ו בשבט שייך לשנה הקודמת, ופרי שחנט אחריו – לשנה החדשה.</p>
+<p>דוגמה: הקלמנטינות והתפוזים שבחצר עכשיו חנטו מזמן, בשנה שעברה. לעומת זאת השסק, שפורח בסוף שבט ומבשיל לקראת פסח – שייך כבר לשנה החדשה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;עיני ה&#x27; אלוקיך בה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;עיני ה&#x27; אלוקיך בה&quot;</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תיאורטית יכולה להיות פה הסתבכות גדולה: פרי שחנט בדיוק בימים שבין ראש השנה לט״ו בשבט, בשנה שאחרי השמיטה – לאיזו שנה הוא שייך, ומה מפרישים ממנו?</p>
+<p>אבל ברוך ה', בארץ ישראל הפירות "מתנהגים" כמו שכתוב בהלכה. כמעט אין פירות שחונטים בין תשרי לט״ו בשבט. יש פה ושם חריגים – בשנת בצורת, בזן מוקדם במיוחד – אבל בדרך כלל השאלה כמעט אינה מעשית.</p>
+<p>וזה מזכיר דבר מופלא נוסף. התורה מספרת שהמרגלים יצאו לתור את הארץ בימים ההם:</p>
+<blockquote>"וְהַיָּמִים יְמֵי בִּכּוּרֵי עֲנָבִים" (במדבר יג, כ)</blockquote>
+<p>חז״ל אומרים שזה היה בסוף סיוון. עברו שלושת אלפים שנה – ולכו היום לחנות בסוף סיוון: בדיוק אז מגיעים הענבים הראשונים של ארץ ישראל.</p>
+<div class="honey-box">🍯 הארץ שומרת אמונים ללוח שלה. היא ממש "ארץ אשר... עיני ה' אלוקיך בה".</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: לא צמים בט״ו בשבט ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🍇</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מהלכה לשמחה</h2></div></div>
+<p class="chapter-intro">איך תאריך שהיה בעיקר עניין של הלכה הפך ליום של שמחה ושל שולחן מלא פירות?</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא צמים בט״ו בשבט</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כבר הראשונים דנו בקהילות שבהן לא ירד גשם וגזרו תעניות. בימים ההם הרגישו את הבצורת באמת: אין מים, אין מה לשתות, אין מה לאכול. היום, כשפותחים ברז ויוצאים מים, קשה להרגיש את הצער הזה.</p>
+<p>והראשונים כתבו: אם קובעים תעניות על הגשם – לא קובעים אותן בט״ו בשבט. כי ט״ו בשבט אינו רק יום של חשבונות הלכתיים. הוא יום טוב.</p>
+<p>ומכאן ההלכה: בט״ו בשבט לא אומרים תחנון, וגם לא במנחה שלפניו. ואפילו חתן, שנוהג לצום ביום חופתו – אם חתונתו חלה בט״ו בשבט, אינו צם.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מנהג חדש שהתפשט בכל העם ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מנהג חדש שהתפשט בכל העם</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מתקופת האחרונים מתחיל בעם ישראל מנהג שלא מוצאים אותו קודם: לאכול פירות בט״ו בשבט, ובמיוחד פירות של ארץ ישראל. המנהג התפשט מאוד, עד שכיום כמעט כל בית עורך שולחן מלא פירות.</p>
+<p>ויש מקובלים שעורכים סדר שלם של ט״ו בשבט – סדר "פרי עץ הדר" – שנמשך שעות, עם פירות, ברכות, שבחים ושמחה גדולה.</p>
+<p>ושאלה פשוטה: ראש השנה למעשר ירקות חל באחד בתשרי. מישהו ראה פעם "סדר ירקות"? מישהו עורך שולחן חגיגי עם מלפפונים ופלפלים? אף אחד. אז למה דווקא הפירות זוכים לכל הכבוד הזה?</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: &quot;היום יום טוב של ארץ ישראל&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;היום יום טוב של ארץ ישראל&quot;</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר על אחד מאדמו״רי בית לעלוב בירושלים – בית חסידי שהיה מן הראשונים שהעבירו את מרכזם לארץ ישראל – שהיום השמח ביותר שלו בשנה היה ט״ו בשבט.</p>
+<p>באותו יום היה עורך שולחן בהתלהבות עצומה, מחלק פירות לכל מי שבא, והיה אומר: "היום יום טוב של ארץ ישראל". חסידיו סיפרו על ישועות רבות שנפעלו על ידי השולחן הזה.</p>
+<p>למה דווקא ט״ו בשבט? כי הפירות של ארץ ישראל הם לא סתם מאכל. התורה עצמה מייחדת את הארץ בפירותיה – בשלושה מקומות לפחות.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: שבעת המינים – ואפילו החיטה היא עץ ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🌳</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">ארץ שמשתבחת בפירותיה</h2></div></div>
+<p class="chapter-intro">שבעת המינים, הביכורים, הברכות – ומצרים שמשתבחת בירקות לעומת ארץ ישראל שמשתבחת בעצים.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שבעת המינים – ואפילו החיטה היא עץ</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ארץ ישראל השתבחה בשבעת המינים:</p>
+<blockquote>"אֶרֶץ חִטָּה וּשְׂעֹרָה וְגֶפֶן וּתְאֵנָה וְרִמּוֹן, אֶרֶץ זֵית שֶׁמֶן וּדְבָשׁ" (דברים ח, ח)</blockquote>
+<p>חמישה מהם עצים – גפן, תאנה, רימון, זית ותמר. ומה עם החיטה והשעורה?</p>
+<p>רבי יהודה אומר בגמרא שעץ הדעת שאכל ממנו אדם הראשון – חיטה היה. בתחילה היתה החיטה עץ, ואחרי החטא ירדה ונעשתה צמח נמוך. וכשחז״ל אומרים שבעצרת מביאים שתי הלחם "כדי שיתברכו לכם פירות האילן" – מסביר רש״י שהחיטה, בשורשה, היא עץ.</p>
+<p>ויותר מזה: חז״ל אומרים שלעתיד לבוא תוציא ארץ ישראל גלוסקאות – כיכרות לחם מוכנים, כמו פרי על העץ.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: לחם שצומח בארבע דקות ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לחם שצומח בארבע דקות</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש מי שמרגישים שהברכה הזאת כבר מתחילה להתקיים בימינו.</p>
+<p>פעם קמו בחמש בבוקר לטחון את החיטים, ללוש ולאפות, כדי שבשמונה יהיה לילדים מה לאכול. היום – בשבע בבוקר יוצאים לרגע למאפייה ליד הבית, ותוך ארבע דקות חוזרים עם לחם חם ביד.</p>
+<p>אז מה אכפת לנו אם הוא צומח על העץ או "צומח" מהמאפייה? הלחם כבר מגיע אלינו מוכן, כמו פרי. ברוך ה'.</p>
+<div class="honey-box">🍯 לפעמים ההבטחות הגדולות מתקיימות בדרך שגרתית כל כך, שאנחנו שוכחים להודות עליהן.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: ביכורים וברכות: הארץ קודמת ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ביכורים וברכות: הארץ קודמת</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את הביכורים מביאים רק משבעת המינים. למה? כי הביכורים הם הרגע שבו אדם מודה לה' – לא רק על הפירות, אלא על הארץ. ולכן מביאים את מה שהארץ השתבחה בו.</p>
+<p>וכך גם בברכות. בעוד שבוע יביאו לכם בט״ו בשבט שולחן מלא: תפוחים, אננס, משמש – ואולי דווקא הם הפירות שאתם הכי אוהבים. ובכל זאת, ההלכה היא שמברכים "בורא פרי העץ" קודם על פרי משבעת המינים, גם אם אוהבים פרי אחר יותר. רק אחר כך הולכים לפי מה שחביב.</p>
+<p>וגם בברכה האחרונה: על שבעת המינים לא מברכים "בורא נפשות", אלא ברכה מיוחדת – "על העץ ועל פרי העץ, ועל ארץ חמדה טובה ורחבה".</p>
+<p class="bold-para">בכל ברכה על פרי משבעת המינים, אנחנו בעצם מברכים על הארץ.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: אתרוג מהארץ או אתרוג מהודר מחוץ לארץ? ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">אתרוג מהארץ או אתרוג מהודר מחוץ לארץ?</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכאן אפשר לשאול שאלה מעשית. אם התורה מקדימה את פירות שבעת המינים בברכה – האם יש עניין להקדים בכל דבר את מה שגדל בארץ ישראל?</p>
+<p>למשל: אתרוג מהודר מחוץ לארץ, או אתרוג פשוט יותר מארץ ישראל? יין משובח מיובא, או יין פשוט מהארץ לקידוש?</p>
+<p>אין בזה חובה מן ההלכה. אבל פוסקים רבים למדו שראוי להעדיף את מה שגדל בארץ ישראל. ומסופר על אחד מגדולי התורה, שתלמיד הביא לו פעם אתרוג מהודר שיובא מחוץ לארץ. הוא נרעש ואמר: אני מעדיף את האתרוג הפשוט ביותר מארץ ישראל על פני המהודר ביותר מארצות העמים.</p>
+<div class="honey-box">🍯 כשאתם בוחרים פרי, יין או אתרוג – זכרו שגם הבחירה הקטנה הזאת היא חיבה לארץ.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: מצרים של ירקות, ארץ ישראל של עצים ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מצרים של ירקות, ארץ ישראל של עצים</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם מצרים היתה ארץ טובה. אבל כשבני ישראל התגעגעו אליה במדבר, במה נזכרו?</p>
+<blockquote>"זָכַרְנוּ אֶת הַדָּגָה אֲשֶׁר נֹאכַל בְּמִצְרַיִם חִנָּם, אֵת הַקִּשֻּׁאִים וְאֵת הָאֲבַטִּחִים וְאֶת הֶחָצִיר וְאֶת הַבְּצָלִים וְאֶת הַשּׁוּמִים" (במדבר יא, ה)</blockquote>
+<p>כולם גידולי אדמה, ירקות. וכך גם בכיכר הירדן: "כְּגַן ה' כְּאֶרֶץ מִצְרַיִם" (בראשית יג, י). ורש״י מפרש: כגן ה' – לאילנות, כארץ מצרים – לזרעים.</p>
+<p>והתורה אומרת במפורש על מצרים: "אֲשֶׁר תִּזְרַע אֶת זַרְעֲךָ וְהִשְׁקִיתָ בְרַגְלְךָ כְּגַן הַיָּרָק" (דברים יא, י).</p>
+<p>מצרים משתבחת בירקות. ארץ ישראל משתבחת בעצים. ובגן עדן? ה' אמר לאדם: "מִכֹּל עֵץ הַגָּן אָכֹל תֹּאכֵל" – רק עצים. ארץ ישראל היא מעין גן עדן, ולכן היא ארץ של פירות.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: אין לך קץ מגולה מזה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">הפירות מבשרים את הגאולה</h2></div></div>
+<p class="chapter-intro">"אין לך קץ מגולה מזה" – למה דווקא הפירות הם הסימן הברור ביותר, ומה עושים כדי לזכור את הבניין.</p>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אין לך קץ מגולה מזה</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת סנהדרין (צח, א) מתלבטת ארוכות מתי תבוא הגאולה: האם התשובה קודמת לגאולה, או שהגאולה תבוא פתאום? אפשר להתלבט בלי סוף. ואז אומרת הגמרא:</p>
+<blockquote>"אין לך קץ מגולה מזה, שנאמר: וְאַתֶּם הָרֵי יִשְׂרָאֵל עַנְפְּכֶם תִּתֵּנוּ וּפֶרְיְכֶם תִּשְׂאוּ לְעַמִּי יִשְׂרָאֵל כִּי קֵרְבוּ לָבוֹא" (יחזקאל לו, ח)</blockquote>
+<p>כשאתם רואים את ארץ ישראל נותנת את פירותיה – זה הסימן הטוב ביותר שהגאולה מתחילה.</p>
+<p class="bold-para">הסימן הברור ביותר לגאולה אינו בשמיים. הוא על העץ.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: אלפיים שנה של ארץ שלא נכנעה ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אלפיים שנה של ארץ שלא נכנעה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובאמת זה פלא. אלפיים שנה עם ישראל לא היה בארץ. וכמה עמים באו אליה בזמן הזה! צלבנים, ערבים, טורקים, בריטים. כמה מלחמות נערכו עליה, כמה השקיעו בה – ואיש לא הצליח לגרום לה לפרוח.</p>
+<p>נוסעים שביקרו כאן לפני כמאה וחמישים שנה תיארו שממה שקשה לדמיין: מרחבים ריקים, בלי עץ ובלי ישוב.</p>
+<p>והיום? כל הפירות שאתם רואים בחנות בעונתם גדלו כאן, בארץ. רק כשרוצים פרי שלא בעונתו מביאים מחוץ לארץ – כי ה' רוצה שכל פרי יבוא בעונתו. ולא רק זה: הארץ מייצאת פירות לעולם.</p>
+<div class="honey-box">🍯 כל קערת פירות בט״ו בשבט היא עדות חיה לנבואה של יחזקאל.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: החתונה של ה&#x27; והארץ ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החתונה של ה&#x27; והארץ</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה דווקא הפירות הם הסימן? הגאולה נמשלת לחתונה: "מְשׂוֹשׂ חָתָן עַל כַּלָּה יָשִׂישׂ עָלַיִךְ אֱלֹקָיִךְ" (ישעיהו סב, ה).</p>
+<p>איך יודעים שזוג נשוי? או שהייתם בחתונה – או שאתם רואים אותם הולכים עם עגלה של תינוק. והפירות של ארץ ישראל הם כמו הילדים. כשהקדוש ברוך הוא "מתחתן" מחדש עם עמו ועם ארצו – נולדים פירות.</p>
+<p>לכן כל השנים שזרים ניסו לגרום לה לפרוח – זה לא הלך. לא היתה חתונה. וכשה' החזיר את עמו לארצו, הארץ התחילה לפרוח ולתת פירות.</p>
+<p>הפירות של ארץ ישראל הם דבר רוחני: מעין גן עדן. אי אפשר שיצמחו בלי שה' מתחבר לארץ.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: ט״ו בשבט: ניצוץ של גאולה באמצע החורף ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ט״ו בשבט: ניצוץ של גאולה באמצע החורף</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החורף נמשל לגלות: אין חגים, אין פריחה, הכול קפוא. והאביב הוא הגאולה. לכן התורה אומרת "שָׁמוֹר אֶת חֹדֶשׁ הָאָבִיב וְעָשִׂיתָ פֶּסַח" (דברים טז, א) – עם ישראל יוצא לגאולה דווקא בניסן, כשהכול פורח.</p>
+<p>וט״ו בשבט? הוא באמצע. החורף עוד לא נגמר, אבל העצים כבר מתחילים להתעורר. זה ניצוץ ראשון של גאולה בתוך הגלות.</p>
+<p>ומי שזוכר את דברי הגמרא – "אין לך קץ מגולה מזה" – מבין למה זה יום טוב של ארץ ישראל. הפריחה הראשונה היא הסימן הראשון.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: זכר לבניין – ושמחה בבניין עצמו ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">זכר לבניין – ושמחה בבניין עצמו</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש שתי דרכים לזכור את בית המקדש.</p>
+<p>יש <strong>זכר לחורבן</strong>: בתשעה באב יושבים על הארץ ומתאבלים על מה שאין לנו.</p>
+<p>ויש <strong>זכר לבניין</strong>: עושים שמחת בית השואבה, נוטלים לולב שבעה ימים – "זכר למקדש", כפי שהתקין רבן יוחנן בן זכאי. עושים דבר שמח כמו שעשו כשהמקדש היה קיים, וכך מבינים כמה גדול היה, ומתגעגעים אליו.</p>
+<p>בגלות, כשארץ ישראל עוד לא נתנה פירות, אכלו יהודים פירות בט״ו בשבט ושמחו – זכר לבניין. ואנחנו זכינו ליותר: הפירות כבר כאן, בפועל, על השולחן.</p>
+<p class="bold-para">אם הם שמחו על הזיכרון – כמה עלינו לשמוח על המציאות.</p>
+<p>יהי רצון שנזכה במהרה לגאולה השלמה.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
