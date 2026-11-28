@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏞️ עבר הירדן: טרקלין המלך</title>
+<meta name="description" content="האם עבר הירדן הוא ארץ ישראל או חוץ לארץ? כל המקורות הסותרים, משל הטרקלין והקיטון שמיישב אותם, ההבדלים להלכה – מביכורים ועד שמיטה בגולן – והמחלוקת שנמשכת עד היום.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🏞️ עבר הירדן: טרקלין המלך</h1>
+  <p class="hero-subtitle">האם עבר הירדן הוא ארץ ישראל או חוץ לארץ? כל המקורות הסותרים, משל הטרקלין והקיטון שמיישב אותם, ההבדלים להלכה – מביכורים ועד שמיטה בגולן – והמחלוקת שנמשכת עד היום.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-20 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/672RoPVpgGY" target="_blank" rel="noopener">🎬 חלק א ביוטיוב: עבר הירדן – ארץ ישראל או חוץ לארץ?</a> <a class="video-btn" href="https://youtu.be/e7reEkXV46Q" target="_blank" rel="noopener">🎬 חלק ב ביוטיוב: טרקלין המלך – כמה קדוש עבר הירדן</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">📜 איך איבדנו את עבר הירדן</a><ul class="toc-stories"><li><a href="#story-1">שתי גדות לירדן</a></li><li><a href="#story-2">ממלכה בשביל עבדאללה</a></li><li><a href="#story-3">למה התורה מספרת איך קראו לחרמון?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">⚖️ שני צדדים לאותו ירדן</a><ul class="toc-stories"><li><a href="#story-4">&quot;זאת תהיה לכם הארץ&quot;</a></li><li><a href="#story-5">&quot;ושמה לא תבוא&quot;</a></li><li><a href="#story-6">&quot;וישבו להם חוץ מארץ ישראל&quot;</a></li><li><a href="#story-7">מה משה לא אמר לבני גד וראובן</a></li><li><a href="#story-8">&quot;וירא ראשית לו&quot;</a></li><li><a href="#story-9">כל מה שראה משה חייב במעשר</a></li><li><a href="#story-10">הגלעד, אליהו ושבט דן</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🗿 ארץ סיחון ועוג: הבטחה, שלום ונחלה</a><ul class="toc-stories"><li><a href="#story-11">הענקים שנקראו &quot;אימים&quot;</a></li><li><a href="#story-12">רש״י: הבשן הוא הארץ שהובטחה</a></li><li><a href="#story-13">החלוקה של ימינו</a></li><li><a href="#story-14">למה משה הציע שלום לסיחון?</a></li><li><a href="#story-15">למה בכל זאת נתן להם?</a></li><li><a href="#story-16">הצער שנגרם בעקיפין</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">👑 הטרקלין והקיטון</a><ul class="toc-stories"><li><a href="#story-17">התשובה: ארמון אחד, חדרים רבים</a></li><li><a href="#story-18">משל המלך ובנו</a></li><li><a href="#story-19">סלון וחדר פנימי</a></li><li><a href="#story-20">דרגות בקדושה</a></li><li><a href="#story-21">מה ביקש משה?</a></li><li><a href="#story-22">ירושלים עיר הקודש</a></li><li><a href="#story-23">גם המזרח קדוש</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🔟 עשר קדושות וארץ כנען</a><ul class="toc-stories"><li><a href="#story-24">עומר, שתי הלחם וביכורים</a></li><li><a href="#story-25">תודה על הארץ עצמה</a></li><li><a href="#story-26">אין עבר הירדן כשר לבית שכינה</a></li><li><a href="#story-27">&quot;אשר שכן שם משכן ה&#x27;&quot;</a></li><li><a href="#story-28">גבול הכנעני</a></li><li><a href="#story-29">זבת חלב ודבש</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🔑 העיקר והטפל: המשך חכמה ושמיטה</a><ul class="toc-stories"><li><a href="#story-30">שני תירוצים שמשלימים זה את זה</a></li><li><a href="#story-31">&quot;שלוש ארצות לביעור&quot;</a></li><li><a href="#story-32">&quot;וכי לאכול מפריה הוא צריך?&quot;</a></li><li><a href="#story-33">העיקר קודם לטפל</a></li><li><a href="#story-34">שמיטה בגולן וירקות מירדן</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🌿 שתי דרכים לקרוא, ובנות יוסף</a><ul class="toc-stories"><li><a href="#story-35">טמאה באמת, או רק בעיניכם?</a></li><li><a href="#story-36">מחלוקת שלא נגמרה</a></li><li><a href="#story-37">האור החיים מתלבט</a></li><li><a href="#story-38">כשדנו על החזרת הגולן</a></li><li><a href="#story-39">מנין שבנות צלפחד חיבבו את הארץ?</a></li><li><a href="#story-40">בית מכאן ושדה מכאן</a></li><li><a href="#story-41">כל הארץ השלמה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">איך איבדנו את עבר הירדן</h2></div></div>
+<p class="chapter-intro">לפני הפסוקים, קצת היסטוריה: עבר הירדן היה אמור להיות חלק מהבית הלאומי, ומה קרה?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שתי גדות לירדן</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשנת 1917 ניתנה הצהרת בלפור, ובעקבותיה המנדט הבריטי על ארץ ישראל. בתחילה היה ברור לכולם, גם לגויים, ששני עברי הירדן שייכים לארץ ישראל: הגדה המערבית והגדה המזרחית. כך נקבע גם בוועידת סן רמו.</p>
+<p>איך הגיע השטח לידי הבריטים? במלחמת העולם הראשונה הם הביסו את התורכים, והאזור כולו עבר לשליטתם. באותה תקופה הברון רוטשילד אף קנה שטחים גדולים בגולן ובחורן, ותכנן ליישב שם יהודים רבים.</p>
+<p class="bold-para">בתחילת הדרך, הבית הלאומי היהודי כלל את שתי גדות הירדן.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: ממלכה בשביל עבדאללה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ממלכה בשביל עבדאללה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחר כך התחילו מחלוקות בין המעצמות, הצרפתים רצו גם הם חלק, והבריטים חיפשו פתרון. הם ביקשו לוותר על השטח שממזרח לירדן ולהקים בו ממלכה בראשות עבדאללה, היא ממלכת ירדן.</p>
+<p>מאחר שהשטח הובטח לבית הלאומי, ביקשו הבריטים את הסכמת ההנהגה הציונית, ולצערנו ההסכמה ניתנה. אולי הרגישו שזה עדיין רחוק ולא מוחשי, ולא הבינו מה הם מוסרים. מאז לקח עבדאללה את כל השטח, ורבים חושבים שהירדן הוא גבול ארץ ישראל.</p>
+<p>הגולן חזר אלינו במלחמת ששת הימים. היו ניסיונות להחזיר אותו בתמורה להסכם, אבל נשיא סוריה דרש הכול עד הכנרת, ואף ממשלה לא יכלה להסכים לזה. ברוך ה' שכך היה: אילו הגולן היה נמסר, מי יודע אילו כוחות אויב היו יושבים היום מעל הכנרת.</p>
+<div class="honey-box">🍯 לפעמים עקשנותו של האויב היא החסד שה' עושה איתנו.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: למה התורה מספרת איך קראו לחרמון? ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה התורה מספרת איך קראו לחרמון?</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת דברים התורה עוסקת הרבה בעבר הירדן, ובכיבוש ארצות סיחון ועוג:</p>
+<blockquote>וַנִּקַּח בָּעֵת הַהִוא אֶת הָאָרֶץ מִיַּד שְׁנֵי מַלְכֵי הָאֱמֹרִי אֲשֶׁר בְּעֵבֶר הַיַּרְדֵּן מִנַּחַל אַרְנֹן עַד הַר חֶרְמוֹן. צִידֹנִים יִקְרְאוּ לְחֶרְמוֹן שִׂרְיֹן וְהָאֱמֹרִי יִקְרְאוּ לוֹ שְׂנִיר (דברים ג, ח-ט)</blockquote>
+<p>מה זה משנה לנו איך הצידונים קראו לחרמון ואיך קראו לו האמורי? התורה מקפידה לפרט כל שם וכל גבול של הארצות שבעבר הירדן. הפירוט הזה מרמז שיש כאן משהו חשוב: התורה רוצה שנדע בדיוק מה נכבש שם, כי לשטח הזה יש מעמד. אבל איזה מעמד? כאן מתחילה השאלה הגדולה.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: &quot;זאת תהיה לכם הארץ&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">שני צדדים לאותו ירדן</h2></div></div>
+<p class="chapter-intro">מקורות אחדים נראים כאומרים במפורש שעבר הירדן אינו ארץ ישראל, ומקורות לא פחות חזקים אומרים את ההפך.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;זאת תהיה לכם הארץ&quot;</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת מסעי התורה משרטטת את גבולות הארץ, והגבול המזרחי הוא הירדן:</p>
+<blockquote>וְיָרַד הַגְּבוּל הַיַּרְדֵּנָה וְהָיוּ תוֹצְאֹתָיו יָם הַמֶּלַח זֹאת תִּהְיֶה לָכֶם הָאָרֶץ לִגְבֻלֹתֶיהָ סָבִיב (במדבר לד, יב)</blockquote>
+<p>מי שקורא את הפסוק כפשוטו מבין: הגבול הוא הירדן, וכל מה שמעבר לו כבר אינו ארץ ישראל. לכל היותר מקום שאפשר להתיישב בו, אבל לא חלק מהארץ עצמה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;ושמה לא תבוא&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ושמה לא תבוא&quot;</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש מקור חזק עוד יותר. משה רבנו נענש בכך שלא ייכנס לארץ:</p>
+<blockquote>כִּי מִנֶּגֶד תִּרְאֶה אֶת הָאָרֶץ וְשָׁמָּה לֹא תָבוֹא אֶל הָאָרֶץ אֲשֶׁר אֲנִי נֹתֵן לִבְנֵי יִשְׂרָאֵל (דברים לב, נב)</blockquote>
+<p>וכן: "עֲלֵה רֹאשׁ הַפִּסְגָּה וְשָׂא עֵינֶיךָ יָמָּה וְצָפֹנָה וְתֵימָנָה וּמִזְרָחָה וּרְאֵה בְעֵינֶיךָ כִּי לֹא תַעֲבֹר אֶת הַיַּרְדֵּן הַזֶּה" (דברים ג, כז).</p>
+<p>כל אחד יודע מפרשת חוקת שמשה ואהרן לא נכנסו לארץ ישראל. והרי משה היה בעבר הירדן, כבש אותו, הלך בו, ונקבר בו! אם עבר הירדן הוא ארץ ישראל, משה כן היה בארץ ישראל. משמע שעבר הירדן אינו ארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;וישבו להם חוץ מארץ ישראל&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;וישבו להם חוץ מארץ ישראל&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והמדרש אומר זאת במפורש:</p>
+<blockquote>וכן אתה מוצא בבני גד ובני ראובן שהיו עשירים והיה להם מקנה גדול, וחיבבו את ממונם וישבו להם חוץ מארץ ישראל, לפיכך גלו תחילה מכל השבטים (במדבר רבה כב, ז)</blockquote>
+<p>המדרש קורא לנחלת גד וראובן בשמה: <strong>חוץ לארץ ישראל</strong>. ועל שבחרו בה בגלל המקנה, הם היו הראשונים שגלו.</p>
+<p class="bold-para">מקור אחר מקור נראה כאומר: הירדן הוא הקו, ומעבר לו חוץ לארץ.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מה משה לא אמר לבני גד וראובן ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה משה לא אמר לבני גד וראובן</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשבני גד ובני ראובן ביקשו להישאר בעבר הירדן, משה רבנו כעס עליהם מאוד. אבל כדאי לשים לב מה הייתה הטענה שלו:</p>
+<blockquote>הַאַחֵיכֶם יָבֹאוּ לַמִּלְחָמָה וְאַתֶּם תֵּשְׁבוּ פֹה. וְלָמָּה תְנִיאוּן אֶת לֵב בְּנֵי יִשְׂרָאֵל מֵעֲבֹר אֶל הָאָרֶץ אֲשֶׁר נָתַן לָהֶם ה' (במדבר לב, ו-ז)</blockquote>
+<p>הוא לא אמר להם: אתם מוותרים על ארץ ישראל הקדושה, על הארץ הטובה, על המצוות התלויות בה. מילה אחת על זה לא נאמרה. כל הטענה הייתה: אתם מרפים את ידי העם, כמו המרגלים, ואחיכם יילחמו לבד.</p>
+<p>וברגע שהתחייבו לבוא ולהילחם, משה הסכים בלב שלם, ואף הוסיף להם מעצמו את חצי שבט מנשה. אילו עבר הירדן היה חוץ לארץ, איך ייתכן שלא אמר על כך דבר?</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;וירא ראשית לו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;וירא ראשית לו&quot;</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובסוף התורה, כשמשה מברך את השבטים לפני מותו, הוא אומר על גד:</p>
+<blockquote>וַיַּרְא רֵאשִׁית לוֹ כִּי שָׁם חֶלְקַת מְחֹקֵק סָפוּן וַיֵּתֵא רָאשֵׁי עָם צִדְקַת ה' עָשָׂה וּמִשְׁפָּטָיו עִם יִשְׂרָאֵל (דברים לג, כא)</blockquote>
+<p>ומפרש רש״י: "וירא ראשית לו – ראה ליטול לו חלק בארץ סיחון ועוג, שהיא ראשית כבוש הארץ. כי שם חלקת – כי ידע אשר בנחלתו חלקת שדה קבורת מחוקק, הוא משה".</p>
+<p>משה <strong>משבח</strong> את שבט גד: הוא ראה טוב, ולקח את <strong>ראשית כיבוש הארץ</strong>. ועוד מעלה יש שם: קברו של משה רבנו. אנחנו לא יודעים היכן בדיוק הוא קבור, אבל המקום שבו קבור צדיק מתקדש. גם היום רואים כמה האזור סביב מירון מתמלא חיים בזכות קבר הרשב״י.</p>
+<p class="bold-para">אותה תורה שאומרת "ושמה לא תבוא", קוראת לעבר הירדן "ראשית כיבוש הארץ".</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: כל מה שראה משה חייב במעשר ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל מה שראה משה חייב במעשר</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה עלה לפני מותו לראש הפסגה:</p>
+<blockquote>וַיַּעַל מֹשֶׁה מֵעַרְבֹת מוֹאָב אֶל הַר נְבוֹ רֹאשׁ הַפִּסְגָּה אֲשֶׁר עַל פְּנֵי יְרֵחוֹ וַיַּרְאֵהוּ ה' אֶת כָּל הָאָרֶץ אֶת הַגִּלְעָד עַד דָּן (דברים לד, א)</blockquote>
+<p>אם עבר הירדן הוא חוץ לארץ, מה ראה משה כשהביט מזרחה? והגמרא אומרת:</p>
+<blockquote>אמר רב יהודה אמר שמואל: כל שהראהו הקדוש ברוך הוא למשה, חייב במעשר. לאתויי מאי? לאתויי קיני קניזי וקדמוני (בבא בתרא נו ע״א)</blockquote>
+<p>הקיני, הקניזי והקדמוני הם אזורים בעבר הירדן, מול באר שבע וערבה. והפסוק אומר במפורש שמשה ראה גם את הגלעד. מכאן: עבר הירדן חייב במעשר, כלומר יש לו קדושת ארץ ישראל לעניין המצוות התלויות בארץ.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הגלעד, אליהו ושבט דן ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הגלעד, אליהו ושבט דן</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגלעד, אזור מזרחי לירדן, אינו מקום שולי בתנ״ך. ממנו בא יפתח הגלעדי, ואליהו הנביא נקרא "אליהו התשבי מתושבי גלעד" (מלכים א יז, א), מה ששרים במוצאי שבת: אליהו התשבי, אליהו הגלעדי. אם אליהו גר שם, כנראה המקום ראוי.</p>
+<p>ומשה רואה "את הגלעד עד דן". שבט דן ישב בתחילה במישור החוף, וכשצר לו המקום הלך חלק ממנו צפונה, כבש את לשם וקרא לה דן. משם נולד הביטוי "מדן ועד באר שבע", שחוזר בתנ״ך בכל פעם שרוצים לומר: כל ישראל. וחז״ל אף דרשו את שם הירדן: "שיורד מדן" (בכורות נה ע״א).</p>
+<div class="honey-box">🍯 התורה מראה למשה את עבר הירדן יחד עם כל הארץ, כחלק אחד ממנה.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הענקים שנקראו &quot;אימים&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🗿</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">ארץ סיחון ועוג: הבטחה, שלום ונחלה</h2></div></div>
+<p class="chapter-intro">מה הובטח לאברהם מעבר לירדן, למה משה הציע שלום לסיחון, ואיך הגיעו לשם שבטי גד, ראובן וחצי מנשה.</p>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הענקים שנקראו &quot;אימים&quot;</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על נחלת חצי שבט מנשה בעבר הירדן נאמר:</p>
+<blockquote>וְיֶתֶר הַגִּלְעָד וְכָל הַבָּשָׁן מַמְלֶכֶת עוֹג נָתַתִּי לַחֲצִי שֵׁבֶט הַמְנַשֶּׁה כֹּל חֶבֶל הָאַרְגֹּב לְכָל הַבָּשָׁן הַהוּא יִקָּרֵא אֶרֶץ רְפָאִים (דברים ג, יג)</blockquote>
+<p>מי היו הרפאים? התורה מתארת אותם כ"עַם גָּדוֹל וְרַב וָרָם כָּעֲנָקִים" (דברים ב, כא), ענקים מפחידים כל כך שהמואבים קראו להם "אימים" והעמונים "זמזומים". חז״ל אף דרשו שענקי פלשתים, גלית ואחיו, היו מצאצאי ערפה, שנקראו "ילידי הרפה". אולי מכאן הגיע גם הביטוי "רוח רפאים" למשהו מפחיד.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: רש״י: הבשן הוא הארץ שהובטחה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">רש״י: הבשן הוא הארץ שהובטחה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה התורה טורחת לספר שהבשן "יקרא ארץ רפאים"? רש״י מסביר: היא אשר נתתי לאברהם. בברית בין הבתרים נאמר:</p>
+<blockquote>לְזַרְעֲךָ נָתַתִּי אֶת הָאָרֶץ הַזֹּאת מִנְּהַר מִצְרַיִם עַד הַנָּהָר הַגָּדֹל נְהַר פְּרָת. אֶת הַקֵּינִי וְאֶת הַקְּנִזִּי וְאֵת הַקַּדְמֹנִי. וְאֶת הַחִתִּי וְאֶת הַפְּרִזִּי וְאֶת הָרְפָאִים (בראשית טו, יח-כ)</blockquote>
+<p>כלומר, הבשן, ממלכת עוג שכבש משה ונתן למנשה, הוא <strong>ארץ הרפאים שהובטחה לאברהם אבינו</strong> בברית בין הבתרים.</p>
+<p>ומה עם ארץ סיחון, נחלת ראובן וגד? בזה נחלקו רש״י ורמב״ן. לפי רש״י, רק הבשן הוא ארץ רפאים, ושאר עבר הירדן אינו חלק ממה שהובטח לאברהם, ודרגתו פחותה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: החלוקה של ימינו ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">החלוקה של ימינו</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש כאן דבר מעניין מאוד. מה יש בידינו היום מעבר לירדן? את הגולן, שהוא בערך האזור של חצי שבט מנשה, הבשן. ומה אין בידינו? את נחלת ראובן וגד, שבממלכת ירדן של היום.</p>
+<p>האם זה מקרי? לפי רש״י, דווקא החלק שבידינו הוא ארץ הרפאים שהובטחה לאברהם, והחלק שאינו בידינו הוא בדרגה פחותה.</p>
+<p>זה מסביר גם למה ראובן וגד היו צריכים לבקש את נחלתם, ואילו מנשה קיבל את חלקו בלי שביקש: משה נתן לו מעצמו את הבשן, כי זו ארץ ההבטחה.</p>
+<div class="honey-box">🍯 לפעמים המפה של ימינו משרטטת, בלי שאיש התכוון, את דברי רש״י.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: למה משה הציע שלום לסיחון? ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה משה הציע שלום לסיחון?</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומכאן לשאלה טובה מאוד: אם ארץ סיחון ועוג היא חלק מארץ ישראל, איך משה רבנו מציע לסיחון שלום?</p>
+<blockquote>וָאֶשְׁלַח מַלְאָכִים מִמִּדְבַּר קְדֵמוֹת אֶל סִיחוֹן מֶלֶךְ חֶשְׁבּוֹן דִּבְרֵי שָׁלוֹם לֵאמֹר. אֶעְבְּרָה בְאַרְצֶךָ (דברים ב, כו-כז)</blockquote>
+<p>הרי בארץ ישראל צריך לכבוש, ולא להשאיר בה עמים אחרים. איך אומרים לו "תן לי רק לעבור"?</p>
+<p>הרמב״ן מתרץ: משה ידע שישראל לא יכבשו מיד את כל עשרת העמים שהובטחו לאברהם. ולכן רצה שכל הכיבוש יהיה מעבר לירדן והלאה, שכל העם יישבו יחד בארץ הטובה, ארץ זבת חלב ודבש. אילו לא ביקשו בני גד ובני ראובן, לא היה משה מניח שם אדם. <strong>משה תכנן מלכתחילה שכולם יגורו בחלק המערבי, הקדוש יותר.</strong></p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: למה בכל זאת נתן להם? ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה בכל זאת נתן להם?</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל הקדוש ברוך הוא סיבב אחרת: "וְלֹא אָבָה סִיחֹן... כִּי הִקְשָׁה ה' אֱלֹקֶיךָ אֶת רוּחוֹ" (דברים ב, ל). סיחון יצא למלחמה, ישראל כבשו את ארצו, ועכשיו השטח נמצא בידם. מה עושים איתו? לא מוותרים עליו.</p>
+<p>ואז באו בני גד ובני ראובן וביקשו אותו, ומשה הסכים. ואחר כך הוסיף להם מעצמו חצי שבט מנשה. למה?</p>
+<p>הנצי״ב בפירושו "העמק דבר" כותב שמשה חשש שבני גד וראובן יתעסקו יותר מדי במקנה, ולכן שלח איתם את חצי שבט מנשה, שהיו בו לומדי תורה, כמו שנאמר בשירת דבורה "מִנִּי מָכִיר יָרְדוּ מְחֹקְקִים" (שופטים ה, יד).</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הצער שנגרם בעקיפין ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הצער שנגרם בעקיפין</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש מדרש מעניין ומפחיד על נחלת מנשה. מנשה היה המתורגמן של יוסף במצרים. כשהאחים הגיעו, הוא העביר את דברי יוסף, שהאשים אותם שהם מרגלים, ואחר כך את הגזירה שבנימין יישאר עבד. ואז כתוב: "וַיִּקְרְעוּ שִׂמְלֹתָם" (בראשית מד, יג).</p>
+<p>אומר המדרש: מכיוון שמנשה גרם להם לקרוע את בגדיהם, נגרם לו שנחלתו "נקרעה" לשניים, חציה מכאן לירדן וחציה מכאן. הוא לא אמר מדעתו, רק העביר את דברי אביו, ובכל זאת, בעקיפין, נגרם בגללו צער.</p>
+<div class="honey-box">🍯 גם צער שגורמים בעקיפין, אפילו רק כשליח, משאיר חותם. כדאי להיזהר מאוד.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: התשובה: ארמון אחד, חדרים רבים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">הטרקלין והקיטון</h2></div></div>
+<p class="chapter-intro">משל המלך ובנו מיישב את כל הסתירות: בארץ ישראל יש דרגות של קדושה.</p>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">התשובה: ארמון אחד, חדרים רבים</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ראינו את שני הצדדים במלוא חוזקם, והם נראים סותרים: פעם עבר הירדן הוא "ראשית כיבוש הארץ", ופעם "חוץ לארץ ישראל". איך ייתכן ששני הדברים נכונים?</p>
+<p>המפתח הוא שקדושה אינה "יש" או "אין". יש לה דרגות. מקום יכול להיות חלק מארץ ישראל, ועדיין להיות רחוק יותר מהחדר הפנימי. משל אחד של רש״י מבהיר את זה בצורה הכי ברורה.</p>
+<p class="bold-para">שני המקורות צודקים, כל אחד מנקודת מבט אחרת.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: משל המלך ובנו ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">משל המלך ובנו</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התירוץ המקובל, שבו מיישבים רוב המפרשים את הקושיה, יוצא מדברי רש״י בפרשת ואתחנן. כשנכנס משה לנחלת בני גד ובני ראובן, ארץ סיחון ועוג, שמח ואמר: שמא הותר לי נדרי.</p>
+<p>משל למלך שגזר על בנו שלא ייכנס לפתח הארמון שלו. נכנס המלך לשער – והבן אחריו. לחצר – והבן אחריו. לטרקלין – והבן אחריו. כשבא להיכנס לקיטון, אמר לו: בני, מכאן והלאה אסור לך להיכנס.</p>
+<p>הבן כבר נכנס איתו לחלקים המפוארים, לטרקלין שבו מקבלים את השרים, ואולי חשב שהגזירה בוטלה. אבל לחדר הפרטי – לא.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: סלון וחדר פנימי ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">סלון וחדר פנימי</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה ההבדל בין טרקלין לקיטון? הטרקלין הוא אולם גדול ומפואר, שבו המלך מסב עם שריו ומקבל אורחים. הקיטון הוא החדר האישי של המלך.</p>
+<p>כמו ראש ממשלה: יש אולם שבו הוא מקבל משלחות, ויש מקום שבו הוא נפגש רק עם מעטים, בלי כל היועצים, בארבע עיניים. גם הטרקלין הוא מקום מכובד מאוד, חלק מהארמון עצמו. אבל אין בו את מעלת הקרבה של החדר הפנימי.</p>
+<p>כך עבר הירדן הוא "טרקלין המלך", והצד המערבי של ארץ ישראל הוא קיטונו של מלכו של עולם. "הֱבִיאַנִי הַמֶּלֶךְ חֲדָרָיו" (שיר השירים א, ד).</p>
+<p class="bold-para">עבר הירדן הוא חלק מהארמון, אבל לא החדר הפנימי.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: דרגות בקדושה ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">דרגות בקדושה</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התשובה לסתירה היא אפוא: בארץ ישראל יש כמה וכמה דרגות של קדושה. לא כל ארץ ישראל שווה. המשנה מונה "עשר קדושות", וגם עבר הירדן קדוש, אבל בדרגה נמוכה יותר מהארץ שממערב לירדן.</p>
+<p>הרב ישראל אריאל, שכתב סדרת ספרים על ארץ ישראל, קרא לכרך האחרון שבה, העוסק בקדושת עבר הירדן, "טרקלין של מלך". שם ספר שלם, על פי משל רש״י: עבר הירדן קדוש, הוא ארמון המלך, אבל עדיין אינו כמו הארץ המערבית.</p>
+<div class="honey-box">🍯 "פחות קדוש" אינו "לא קדוש". טרקלין המלך הוא עדיין ארמון.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: מה ביקש משה? ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה ביקש משה?</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמשה רבנו מתחנן להיכנס לארץ, הוא לא אומר רק "אראה את הארץ":</p>
+<blockquote>אֶעְבְּרָה נָּא וְאֶרְאֶה אֶת הָאָרֶץ הַטּוֹבָה אֲשֶׁר בְּעֵבֶר הַיַּרְדֵּן הָהָר הַטּוֹב הַזֶּה וְהַלְּבָנֹן (דברים ג, כה)</blockquote>
+<p>הוא מבקש את <strong>הארץ הטובה</strong>, את החלק הטוב. ורש״י מפרש: "ההר הטוב הזה" – זו ירושלים, "והלבנון" – זה בית המקדש.</p>
+<p>משה כבר עמד בטרקלין. הוא רצה להגיע לחלק המובחר של הארץ, לירושלים ולמקדש.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: ירושלים עיר הקודש ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ירושלים עיר הקודש</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם בתוך ארץ ישראל המערבית יש רמות של קדושה. ירושלים קדושה יותר משאר הערים. הנביא קורא לה בשם:</p>
+<blockquote>עוּרִי עוּרִי לִבְשִׁי עֻזֵּךְ צִיּוֹן לִבְשִׁי בִּגְדֵי תִפְאַרְתֵּךְ יְרוּשָׁלַ‍ִם עִיר הַקֹּדֶשׁ (ישעיהו נב, א)</blockquote>
+<p>וגם מקומות אחרים בארץ נקראים קדושים. בנוסח הספרדי של "קדיש דרבנן" אומרים "דִּי בְאַתְרָא קַדִּישָׁא הָדֵין" – במקום הקדוש הזה, על ארץ ישראל כולה.</p>
+<p>ויש גם ביטוי מקובל, "ארבע ערי הקודש" – ירושלים, חברון, צפת וטבריה. את "ירושלים עיר הקודש" אפשר למצוא בפסוק מפורש. את המושג "ארבע ערי הקודש" כולם מכירים, אבל לא ברור מי טבע אותו. בכל מקרה, הרעיון ברור: <strong>יש דרגות בקדושה.</strong></p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: גם המזרח קדוש ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גם המזרח קדוש</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ולפי זה הכול מתיישב. משה רבנו רואה "יָמָּה וְצָפֹנָה וְתֵימָנָה וּמִזְרָחָה", גם את המזרח. כי גם עבר הירדן קדוש, ויש לו קדושת ארץ ישראל בדרגה נמוכה יותר. לכן גם הוא חייב במעשרות.</p>
+<p>ומה עם המדרש שאומר שבני גד ובני ראובן ישבו "חוץ לארץ ישראל"? הוא לא מתכוון לחוץ לארץ ממש. זו לשון מושאלת: חוץ לארץ <strong>יחסית</strong> לקדושה הגבוהה של הארץ המערבית. הם בחרו בדרגה פחות מובחרת, וזו טענתו של המדרש.</p>
+<p class="bold-para">שני המקורות צודקים: עבר הירדן הוא ארץ ישראל, ולעומת הקיטון הוא "בחוץ".</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: עומר, שתי הלחם וביכורים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🔟</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">עשר קדושות וארץ כנען</h2></div></div>
+<p class="chapter-intro">איפה רואים את ההבדל בדרגות הלכה למעשה: בעומר ובביכורים, במשכן, ובגבולות ארץ כנען.</p>
+<article class="story-card" id="story-24" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">עומר, שתי הלחם וביכורים</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה במסכת כלים מונה עשר קדושות, והראשונה שבהן:</p>
+<blockquote>אֶרֶץ יִשְׂרָאֵל מְקֻדֶּשֶׁת מִכָּל הָאֲרָצוֹת. וּמַה הִיא קְדֻשָּׁתָהּ? שֶׁמְּבִיאִים מִמֶּנָּה הָעֹמֶר וְהַבִּכּוּרִים וּשְׁתֵּי הַלֶּחֶם, מַה שֶּׁאֵין מְבִיאִים כֵּן מִכָּל הָאֲרָצוֹת (כלים א, ו)</blockquote>
+<p>למה דווקא אלה? קורבן תודה, נסכים, קורבנות אחרים – אפשר להביא גם מתבואה שגדלה בחוץ לארץ. מה מיוחד בשלוש המצוות האלה?</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: תודה על הארץ עצמה ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">תודה על הארץ עצמה</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>העיקרון הוא <strong>הראשית</strong>. עומר, שתי הלחם וביכורים מביאים מראשית התבואה, ומטרתם להודות לקדוש ברוך הוא על ארץ ישראל.</p>
+<p>מי שמביא קורבן תודה על שניצל מצרה, מודה על הנס. מה זה משנה אם החיטה הגיעה מרוסיה? אבל בעומר, בשתי הלחם ובביכורים מודים על כך שהארץ נותנת את פריה: "וְעַתָּה הִנֵּה הֵבֵאתִי אֶת רֵאשִׁית פְּרִי הָאֲדָמָה אֲשֶׁר נָתַתָּה לִּי ה'" (דברים כו, י).</p>
+<p>לכן אי אפשר להביא אותם מחוץ לארץ. מה הטעם להודות על ארץ ישראל בפרי שגדל בטורקיה?</p>
+<div class="honey-box">🍯 יש תודה על מה שקרה לי, ויש תודה על המקום שבו אני חי. ביכורים הם התודה השנייה.</div>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: אין עבר הירדן כשר לבית שכינה ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">אין עבר הירדן כשר לבית שכינה</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובהמשך עשר הקדושות אמרו חז״ל: ארץ כנען כשרה לבית שכינה, ואין עבר הירדן כשר לבית שכינה.</p>
+<p>מה הפירוש? מאז שנכנס עם ישראל לארץ ועד בניין בית המקדש עמד המשכן במקומות שונים: בגלגל, בשילו, בנוב ובגבעון. בשילו עמד המשכן מאות שנים, ושם היה החג המפורסם: "הִנֵּה חַג ה' בְּשִׁלוֹ מִיָּמִים יָמִימָה" (שופטים כא, יט), שחז״ל מזהים עם ט״ו באב. גם היום מנסים לשחזר שם את המקום.</p>
+<p>המשכן יכול היה לעמוד בכל מקום בארץ ישראל המערבית. אבל בעבר הירדן המזרחי – לא. שם אי אפשר לבנות משכן.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: &quot;אשר שכן שם משכן ה&#x27;&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;אשר שכן שם משכן ה&#x27;&quot;</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה המקור לכך? בספר יהושע מסופר שבני גד ובני ראובן, אחרי שחזרו לנחלתם, בנו מזבח גדול על הירדן. שאר השבטים חשדו שזה מזבח לעבודה זרה, ושלחו משלחת בראשות פינחס. המשלחת אמרה להם:</p>
+<blockquote>וְאַךְ אִם טְמֵאָה אֶרֶץ אֲחֻזַּתְכֶם עִבְרוּ לָכֶם אֶל אֶרֶץ אֲחֻזַּת ה' אֲשֶׁר שָׁכַן שָׁם מִשְׁכַּן ה' וְהֵאָחֲזוּ בְּתוֹכֵנוּ (יהושע כב, יט)</blockquote>
+<p>"אשר שכן שם משכן ה'" – שם, בארץ המערבית, ולא בעבר הירדן. מכאן למדו חז״ל שעבר הירדן אינו ראוי להשראת השכינה של המשכן.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: גבול הכנעני ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">גבול הכנעני</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת נח התורה מתארת את גבולות ארץ הכנעני:</p>
+<blockquote>וַיְהִי גְּבוּל הַכְּנַעֲנִי מִצִּידֹן בֹּאֲכָה גְרָרָה עַד עַזָּה בֹּאֲכָה סְדֹמָה וַעֲמֹרָה וְאַדְמָה וּצְבֹיִם עַד לָשַׁע (בראשית י, יט)</blockquote>
+<p>מצידון בצפון, דרך גרר ועזה, עד סדום ועמורה שליד ים המלח. זו ארץ כנען, מצידון ועד באר שבע.</p>
+<p>וכדאי לשים לב: "ארץ כנען" לעולם אינה כוללת את עבר הירדן. יש ארץ כנען, ויש ארץ ישראל, שהיא רחבה יותר.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: זבת חלב ודבש ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">זבת חלב ודבש</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הביטוי "ארץ זבת חלב ודבש" נאמר רק על ארץ כנען. ולכן אמר רבי יוסי הגלילי במשנה:</p>
+<blockquote>אֵין מְבִיאִין בִּכּוּרִים מֵעֵבֶר הַיַּרְדֵּן, שֶׁאֵינָהּ אֶרֶץ זָבַת חָלָב וּדְבָשׁ (ביכורים א, י)</blockquote>
+<p>הביכורים הם תודה על "ארץ זבת חלב ודבש", ולכן לדעתו אין מביאים אותם מעבר הירדן. עוד הבדל מעשי בין הטרקלין לקיטון.</p>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: שני תירוצים שמשלימים זה את זה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🔑</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">העיקר והטפל: המשך חכמה ושמיטה</h2></div></div>
+<p class="chapter-intro">המשנה והרמב״ם מונים את עבר הירדן כאחת משלוש ארצות. אז מה חסר בו, ולמה משה רצה כל כך להיכנס?</p>
+<article class="story-card" id="story-30" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שני תירוצים שמשלימים זה את זה</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משל הטרקלין מסביר <strong>שעבר הירדן</strong> קדוש פחות. המשך חכמה מוסיף הסבר <strong>איך</strong> זה בא לידי ביטוי: הארץ המערבית היא העיקר, ועבר הירדן הוא הטפל לה.</p>
+<p>שני ההסברים נפגשים: הטרקלין שייך לארמון, אבל משמעותו נובעת מהמלך שיושב בפנים. כך עבר הירדן הוא ארץ ישראל, אבל קדושתו נשענת על קדושת הארץ שממערב. ומכאן גם התשובה לשאלה שליוותה אותנו מההתחלה: מה בדיוק החסיר משה רבנו, כשעמד בעבר הירדן ולא נכנס.</p>
+<div class="honey-box">🍯 טרקלין בלי מלך הוא סתם אולם. עבר הירדן מתקדש מכוח הארץ שממערב לו.</div>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: &quot;שלוש ארצות לביעור&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-31" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;שלוש ארצות לביעור&quot;</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשנה במסכת שביעית נאמר:</p>
+<blockquote>שָׁלֹשׁ אֲרָצוֹת לַבִּעוּר: יְהוּדָה, וְעֵבֶר הַיַּרְדֵּן, וְהַגָּלִיל (שביעית ט, ב)</blockquote>
+<p>וכך פוסק הרמב״ם בהלכות שמיטה: ארץ ישראל נחלקת לשלוש ארצות, ואחת מהן היא עבר הירדן. כלומר, להלכה עבר הירדן הוא <strong>חלק מארץ ישראל</strong>, ונוהגים בו דיני שביעית.</p>
+<p>אבל אם כן, הקושיה חוזרת במלוא עוזה: הרי משה רבנו היה בעבר הירדן. למה הוא התחנן כל כך להיכנס לארץ, ולמה נאמר שלא נכנס?</p>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: &quot;וכי לאכול מפריה הוא צריך?&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;וכי לאכול מפריה הוא צריך?&quot;</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת סוטה שואלת:</p>
+<blockquote>דרש רבי שמלאי: מפני מה נתאוה משה רבינו ליכנס לארץ ישראל? וכי לאכול מפריה הוא צריך, או לשבוע מטובה הוא צריך? אלא כך אמר משה: הרבה מצות נצטוו ישראל ואין מתקיימין אלא בארץ ישראל, אכנס אני לארץ כדי שיתקיימו כולן על ידי (סוטה יד ע״א)</blockquote>
+<p>המשך חכמה מקשה: למה הגמרא צריכה לחפש סיבה? הלוא ישיבת ארץ ישראל היא בעצמה מצווה, ומשה רצה לקיים אותה!</p>
+<p>ומתרץ: משה <strong>כבר</strong> היה בארץ ישראל. ארץ סיחון ועוג, ארץ האמורי, אחד משבעת העממים, היא ארץ ישראל, ובני גד וראובן קיימו בה מצוות ישיבת הארץ. לכן לא שואלת הגמרא על מצוות ישיבת הארץ, אלא על המצוות התלויות בארץ.</p>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: העיקר קודם לטפל ←</a></div>
+</article>
+<article class="story-card" id="story-33" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">העיקר קודם לטפל</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ולמה לא יכול משה לקיים את המצוות התלויות בארץ בעבר הירדן? כאן החידוש של המשך חכמה: המצוות התלויות בארץ חלות על עבר הירדן רק <strong>אחרי</strong> שכובשים ומחלקים את הארץ המערבית.</p>
+<p>הארץ המערבית היא העיקר, ועבר הירדן הוא הטפל. אי אפשר שהקדושה תחול על הטפל לפני שחלה על העיקר. רק כשעם ישראל כבש וחילק את הארץ שממערב לירדן, חלו המצוות גם על החלק המזרחי.</p>
+<p>ממילא, כל זמן שמשה עמד בעבר הירדן, הוא היה בארץ ישראל, ומקיים את מצוות ישיבתה, אבל לא יכול היה לקיים את המצוות התלויות בארץ. לשם כך היה צריך להיכנס לארץ המערבית.</p>
+<p class="bold-para">עבר הירדן הוא ארץ ישראל, אבל קדושתו תלויה בקדושת הארץ שממערב.</p>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: שמיטה בגולן וירקות מירדן ←</a></div>
+</article>
+<article class="story-card" id="story-34" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שמיטה בגולן וירקות מירדן</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לשאלה הזו יש משמעות מעשית מאוד גם היום. מהגמרא בבבא בתרא עולה שהגולן וחלק מעבר הירדן המזרחי, לפחות עד אזור עמון, חייבים במעשר ובשביעית. ובאמת, בשנת השמיטה לא עבדו בגולן כמו בשאר הארץ.</p>
+<p>ומה עם ירקות שמייבאים מממלכת ירדן בשמיטה? זה תלוי בשיטת ההכשר. לפי השיטה שבפירות שגדלו בקרקע של גוי אין קדושת שביעית, אין בעיה להביא מירדן, כמו שמביאים מכל מקום אחר. אבל לפי החזון איש, שגם בפירות של גוי יש קדושת שביעית, צריך לברר מאיזה אזור בירדן הגיעו. אם מהדרום הרחוק, שהיה שייך לעמון, למואב ולאדום ולא נכבש בידי משה, אין קדושה. אבל אם מארץ סיחון ועוג שכבש משה, יש בעיה.</p>
+<p>בפועל קשה מאוד למשגיחים לעקוב אחרי מקור הירקות בעומק ירדן.</p>
+<div class="honey-box">🍯 מחלוקת עתיקה על מעמדו של עבר הירדן מגיעה עד לצלחת שלנו בשנת השמיטה.</div>
+</div><div class="story-next"><a href="#story-35">הקטע הבא: טמאה באמת, או רק בעיניכם? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌿</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">שתי דרכים לקרוא, ובנות יוסף</h2></div></div>
+<p class="chapter-intro">"אם טמאה ארץ אחוזתכם": מחלוקת שנמשכת עד היום, וסיום עם בנות מנשה שזכו לבית משני עברי הירדן.</p>
+<article class="story-card" id="story-35" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">טמאה באמת, או רק בעיניכם?</h3><button class="copy-link" type="button" data-id="story-35">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה פירוש "אם טמאה ארץ אחוזתכם"? יש מושג של "טומאת ארץ העמים": כהן שיוצא לחוץ לארץ נטמא. האם עבר הירדן טמא כמו אירופה?</p>
+<p>המפרשים נחלקו איך לקרוא את הפסוק. אפשרות אחת: הארץ באמת אינה ראויה לשכינה, ולכן היא נקראת טמאה.</p>
+<p>אפשרות שנייה: הארץ איננה טמאה. אבל המשלחת אמרה להם: אם <strong>אתם</strong> מרגישים שהארץ שלכם טמאה, שאתם רחוקים מה' – ולכן בניתם לכם מזבח משלכם – אל תבנו מזבח. בואו, עברו אלינו, יש מקום.</p>
+<p>בני גד וראובן הרגישו מרוחקים מה', ובגלל זה בנו מזבח. בסופו של דבר התברר שלא היה זה לעבודה זרה, אלא עד לכך שגם הם חלק מעם ה'.</p>
+</div><div class="story-next"><a href="#story-36">הקטע הבא: מחלוקת שלא נגמרה ←</a></div>
+</article>
+<article class="story-card" id="story-36" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מחלוקת שלא נגמרה</h3><button class="copy-link" type="button" data-id="story-36">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השאלה איך להתייחס לעבר הירדן לא נגמרה עד היום. אפשר למצוא שתי אסכולות בין גדולי ישראל.</p>
+<p>יש שאומרים: זה מקום שאי אפשר לבנות בו משכן לה', מקום בלי השראת שכינה. איך אפשר לגור שם?</p>
+<p>ויש שאומרים: מה פתאום? זה טרקלין המלך! כמו שיש ירושלים ויש שאר ארץ ישראל, ואף אחד לא חושב שמי שגר בעיר אחרת עושה משהו פסול. כמו שיש כהנים, לויים וישראלים – ישראל הוא יהודי טוב מאוד, גם אם אינו כהן. יש דרגה גבוהה יותר, וזה הכול.</p>
+<p>בפועל רואים את זה גם היום: יש ציבורים שבונים בגולן קהילות וישיבות בהתלהבות, ויש ציבורים שכמעט אינם מתיישבים שם.</p>
+</div><div class="story-next"><a href="#story-37">הקטע הבא: האור החיים מתלבט ←</a></div>
+</article>
+<article class="story-card" id="story-37" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">האור החיים מתלבט</h3><button class="copy-link" type="button" data-id="story-37">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם האור החיים הקדוש, בפירושו לספר דברים, דן בשאלה הזו ומתלבט בה. בתחילה הוא כותב כך, ואחר כך חוזר בו בעצמו. השאלה קשה, ואין לה הגדרה פשוטה: כמה פחות? קצת פחות? הרבה פחות?</p>
+<p>ומנגד, אליהו הנביא, "אליהו התשבי מתושבי גלעד", גר שם. מקום שאליהו גר בו – ודאי שיש בו קדושה.</p>
+</div><div class="story-next"><a href="#story-38">הקטע הבא: כשדנו על החזרת הגולן ←</a></div>
+</article>
+<article class="story-card" id="story-38" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כשדנו על החזרת הגולן</h3><button class="copy-link" type="button" data-id="story-38">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לשאלה הזו הייתה משמעות מעשית חריפה. בתקופה שבה דנו על החזרת הגולן – וברוך ה', כרגע זה לא על הפרק – השאלה הייתה: כמה צריך להתנגד?</p>
+<p>היו שצעקו בקול גדול: זה להחזיר חלק מארץ ישראל גמורה, וזו עבירה לכל דבר. והיו שאמרו: זה לא כל כך נורא.</p>
+<p>ההבדל ביניהם נבע בדיוק מהשאלה הזו: איך קוראים את הפסוק, וכמה קדוש באמת טרקלין המלך.</p>
+<p class="bold-para">דרגה נמוכה יותר של קדושה היא עדיין קדושה, ואת ארמון המלך לא מוסרים בקלות.</p>
+</div><div class="story-next"><a href="#story-39">הקטע הבא: מנין שבנות צלפחד חיבבו את הארץ? ←</a></div>
+</article>
+<article class="story-card" id="story-39" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מנין שבנות צלפחד חיבבו את הארץ?</h3><button class="copy-link" type="button" data-id="story-39">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בנות צלפחד היו משבט מנשה, ורש״י מביא שהן חיבבו את הארץ, כמו יוסף אביהן. על כך שואלים: מנין? אולי הן פשוט רצו נחלה, כמו כל אחד?</p>
+<p>החתם סופר עונה: הן ביקשו נחלה בארץ המערבית. אילו היו מבקשות בעבר הירדן, היו נותנים להן מיד. עבר הירדן הוא שטח עצום, גדול לאין ערוך מהרצועה הצרה שממערב לירדן. שם היה מקום בשפע, אולי אפילו לכל עם ישראל.</p>
+<p>ומה עשו? ביקשו דווקא בארץ המערבית, שבה המקום צפוף וכל חלקה יקרה. <strong>זו הראיה שהן חיבבו את ארץ ישראל.</strong></p>
+</div><div class="story-next"><a href="#story-40">הקטע הבא: בית מכאן ושדה מכאן ←</a></div>
+</article>
+<article class="story-card" id="story-40" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">בית מכאן ושדה מכאן</h3><button class="copy-link" type="button" data-id="story-40">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובסוף, דבר יפה מאוד. בספר יהושע מסופר שבנות צלפחד קיבלו את נחלתן בחלק המערבי. ויש פירוש ברש״י על ברכת יעקב ליוסף:</p>
+<blockquote>בֵּן פֹּרָת יוֹסֵף בֵּן פֹּרָת עֲלֵי עָיִן בָּנוֹת צָעֲדָה עֲלֵי שׁוּר (בראשית מט, כב)</blockquote>
+<p>אחד ממדרשי האגדה שמביא רש״י: "בנות צעדה עלי שור" – בנות מנשה קיבלו נחלה משני עברי הירדן. ה"שור", החומה, הוא הירדן, שנעשה כחומה בפני משה, שלא יעבור. אבל בנות יוסף צעדו מעבר לחומה: היה להן חלק מכאן וחלק מכאן.</p>
+<p>אולי הבית היה בצד המערבי, והשדות והמרעה בצד המזרחי. הן היו היחידות שזכו לשני העברים יחד.</p>
+</div><div class="story-next"><a href="#story-41">הקטע הבא: כל הארץ השלמה ←</a></div>
+</article>
+<article class="story-card" id="story-41" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל הארץ השלמה</h3><button class="copy-link" type="button" data-id="story-41">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה הלקח? ארץ ישראל היא ארמון אחד, עם חדרים בדרגות שונות. יש טרקלין ויש קיטון, יש עבר הירדן, יש ארץ כנען, יש ירושלים ויש מקום המקדש. כל חלק קדוש בדרגתו, וכולם יחד הם בית המלך.</p>
+<p>בנות יוסף, שאהבו את הארץ בכל לבן, זכו לחלק בשני העברים, בטרקלין ובחדר הפנימי.</p>
+<p class="bold-para">נזכה בעזרת ה' לכל ארץ ישראל השלמה, בכל חלקיה ובכל דרגות קדושתה.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
