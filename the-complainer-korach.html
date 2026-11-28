@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>😤 הנרגן: המידה שמעוררת את מידת הדין</title>
+<meta name="description" content="למה אחרי קורח הקדוש ברוך הוא אמר פעמיים &quot;ואכלה אותם כרגע&quot;, מה זה נרגן לפי רבנו יונה, ואיך עין טובה הופכת את החיים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">😤 הנרגן: המידה שמעוררת את מידת הדין</h1>
+  <p class="hero-subtitle">למה אחרי קורח הקדוש ברוך הוא אמר פעמיים &quot;ואכלה אותם כרגע&quot;, מה זה נרגן לפי רבנו יונה, ואיך עין טובה הופכת את החיים</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-7 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/aWxoDt1DttA" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">⚡ פעמיים &quot;ואכלה אותם כרגע&quot;</a><ul class="toc-stories"><li><a href="#story-1">ים של רחמים</a></li><li><a href="#story-2">הפעם הראשונה: עדת קורח</a></li><li><a href="#story-3">הפעם השנייה: ממחרת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔍 מי הוא הנרגן</a><ul class="toc-stories"><li><a href="#story-4">דבריו יורדים חדרי בטן</a></li><li><a href="#story-5">כפוי טובה עד הסוף</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">☁️ איך זה נראה מלמעלה</a><ul class="toc-stories"><li><a href="#story-6">משל המשקיע</a></li><li><a href="#story-7">מה היה צריך לקרות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📖 או חברותא או מיתותא</a><ul class="toc-stories"><li><a href="#story-8">שבעים שנות שינה</a></li><li><a href="#story-9">לא האמינו לו</a></li><li><a href="#story-10">הכאב של מי שיש לו מה לתת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🎁 הקדוש ברוך הוא רוצה רק להיטיב</a><ul class="toc-stories"><li><a href="#story-11">מפנים עורף למי שרוצה לתת</a></li><li><a href="#story-12">ונרגן מפריד אלוף</a></li><li><a href="#story-13">הנרגן סובל בעיקר מעצמו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌸 והמטות – ושוב תלונה</a><ul class="toc-stories"><li><a href="#story-14">לקחו את המטות והלכו הביתה</a></li><li><a href="#story-15">לברוח ממנה כמו מאש</a></li><li><a href="#story-16">עין טובה, לב טוב, פה טוב</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">⚡</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">פעמיים &quot;ואכלה אותם כרגע&quot;</h2></div></div>
+<p class="chapter-intro">בפרשת קורח מופיע פעמיים, בזה אחר זה, משפט חמור מאוד מפי הקדוש ברוך הוא. מה קרה שם?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ים של רחמים</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אנחנו רגילים לדעת שיש רחמים משמיים. בספרים רבים מתבטאים שיש למעלה "ים של רחמים". הקדוש ברוך הוא חנון ורחום, סולח ומוחל.</p>
+<p>ויותר מזה: יש כמה מקרים שבהם אנשים גדולים, אפילו נביאים, הקפידו על עם ישראל – והקדוש ברוך הוא הקפיד על הקפדתם. ידוע הדבר אצל אליהו הנביא ואצל ישעיהו הנביא, שכשאמרו דברי קטגוריה על ישראל, מיד הייתה תגובה מלמעלה.</p>
+<p><strong>למעלה רוצים תמיד רחמים וסנגוריה.</strong> ולכן מפתיע מאוד מה שקורה בפרשת קורח.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: הפעם הראשונה: עדת קורח ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הפעם הראשונה: עדת קורח</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קורח מקהיל את כל העדה נגד משה ואהרן:</p>
+<blockquote>ויקהל עליהם קרח את כל העדה אל פתח אהל מועד וירא כבוד ה' אל כל העדה</blockquote>
+<blockquote>הבדלו מתוך העדה הזאת ואכלה אתם כרגע</blockquote>
+<p>כאן הקדוש ברוך הוא הוא שבא בדין, ומשה ואהרן הם שמלמדים זכות:</p>
+<blockquote>ויפלו על פניהם ויאמרו אל אלוקי הרוחות לכל בשר האיש אחד יחטא ועל כל העדה תקצף</blockquote>
+<p>הם עומדים בפרץ ומבקשים רחמים על העם.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: הפעם השנייה: ממחרת ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הפעם השנייה: ממחרת</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קורח ועדתו נבלעים באדמה, מאתיים וחמישים מקריבי הקטורת נשרפים. וממש למחרת:</p>
+<blockquote>וילנו כל עדת בני ישראל ממחרת על משה ועל אהרן לאמר אתם המתם את עם ה'</blockquote>
+<p>ושוב בא כבוד ה', ושוב אותו ביטוי בדיוק: "הרמו מתוך העדה הזאת ואכלה אתם כרגע". והפעם כבר פורצת מגפה, ומשה אומר לאהרן: מהר, קח את המחתה עם הקטורת ורוץ אל העדה, להציל את מה שאפשר להציל.</p>
+<p>על מה יצא קצף כזה? בחטא העגל אנחנו מבינים מה היה – עבודה זרה. אבל כאן? מה היה כל כך חמור?</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: דבריו יורדים חדרי בטן ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔍</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">מי הוא הנרגן</h2></div></div>
+<p class="chapter-intro">רבנו יונה בשערי תשובה מתאר מידה אחת, ודרכה אפשר להבין את כל הפרשה.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דבריו יורדים חדרי בטן</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף השער השלישי של שערי תשובה, בתוך דבריו על חומרת לשון הרע, רבנו יונה מביא את דברי שלמה המלך:</p>
+<blockquote>דברי נרגן כמתלהמים והם ירדו חדרי בטן</blockquote>
+<p>ומה זה נרגן? אומר רבנו יונה: זה אדם שדרכו וחוקו להתאונן ולהתרעם תמיד. תלונות, תלונות, תלונות. זה לא בסדר, וזה לא בסדר, וגם זה לא בסדר.</p>
+<p>ואף על פי שחברו מתהלך עמו בתומו ולא זד עליו בשום דבר – הוא ידון כל דבר לחובה ולא לזכות, וכל שגגה ישים לזדון. והוא מכה ומלהם בדבריו, ודבריו חודרים עמוק פנימה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: כפוי טובה עד הסוף ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כפוי טובה עד הסוף</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבנו יונה מוסיף שפעמים רבות הנרגן הוא כפוי טובה: חושב את הטובה לרעה, ומשיב רעה תחת טובה. ופעמים הוא חושב על חסדי ה' כאילו הם לנקמה ולתגמול רע, כמו שנאמר:</p>
+<blockquote>ותרגנו באהליכם ותאמרו בשנאת ה' אתנו הוציאנו מארץ מצרים</blockquote>
+<p>תחשבו על זה. הקדוש ברוך הוא עושה עשר מכות, קורע את הים, שידד מערכות – כל מכה שינוי טבע אדיר – הכול בשביל "בני בכורי ישראל". ואפשר לבוא ולומר: "בשנאת ה' אותנו הוציאנו"?</p>
+<p><strong>עד היכן השקר יכול להגיע. עד היכן המבט יכול להתעקם.</strong> זה הנרגן.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: משל המשקיע ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">☁️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">איך זה נראה מלמעלה</h2></div></div>
+<p class="chapter-intro">אי אפשר להשוות בני אדם לקדוש ברוך הוא, אבל משל יכול לקרב את הלב להבנה.</p>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">משל המשקיע</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נדמיין אדם שמשקיע בחברו. הולך למענו, עובר מבית לבית לאסוף צדקה בשבילו, פונה לעסקנים שיפעלו לטובתו – מה הוא לא עושה? שעות, ימים ולילות.</p>
+<p>ובסוף הוא שומע שאותו חבר אומר: "הכול היה נגדי. הכול נבע משנאה."</p>
+<p>אדם יכול להישבר לגמרי מדבר כזה. השקעתי כל כך – וזה מה שאני מקבל בחזרה?</p>
+<p>ועכשיו נחשוב על הקדוש ברוך הוא – הגדול והעצום, שמשגיח על כל הבריות, ולא סתם משגיח אלא נותן ומשפיע בלי הפסקה. ועוד פעם מתלוננים, ועוד פעם.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מה היה צריך לקרות ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה היה צריך לקרות</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך היה צריך העם להגיב אחרי מה שקרה לקורח ועדתו? כולם היו צריכים להוריד את הראש, לבוא אל משה רבנו, ליפול לפניו ארצה ולבקש מחילה. קורח שכנע, קורח הסית, הלכנו אחריו – אבל עכשיו ראינו כולנו מי צודק. הקדוש ברוך הוא הראה מה האמת.</p>
+<p>ובמקום זה? למחרת באים ואומרים: "אתם המתם את עם ה'". משה רבנו, ששלח שליחים לפייס את דתן ואבירם, שניסה בכל כוחו להשכין שלום – הוא "הרוצח"?</p>
+<p>כאן מבינים למה מידת הדין התעוררה כל כך. <strong>זו המידה של הנרגן: גם מול האמת הגלויה ביותר, הוא מוצא דרך להתלונן.</strong></p>
+<p>כמובן, הקדוש ברוך הוא מעל הכול ושום דבר אינו נוגע בו. אנחנו מדברים על מידת הדין שמקטרגת.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: שבעים שנות שינה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📖</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">או חברותא או מיתותא</h2></div></div>
+<p class="chapter-intro">סיפור חוני המעגל פותח צוהר להבנת הכאב של מי שיש לו מה לתת – ולא מקבלים ממנו.</p>
+<article class="story-card" id="story-8" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שבעים שנות שינה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת תענית מספרת שחוני המעגל התקשה בפסוק:</p>
+<blockquote>שיר המעלות בשוב ה' את שיבת ציון היינו כחלמים</blockquote>
+<p>הוא תמה: האם יש אדם שישן שבעים שנה, כמו שבעים שנות גלות בבל שנדמו לחלום? יום אחד הלך בדרך וראה אדם נוטע חרוב. שאל אותו: כמה שנים לוקח לחרוב להוציא פירות? ענה: שבעים שנה. שאל חוני: וכי ברור לך שתחיה עוד שבעים שנה? ענה האיש: כמו שאבותיי נטעו בשבילי, כך אני נוטע בשביל בניי.</p>
+<p>ישב חוני לאכול, ונפלה עליו שינה. סלע הקיף אותו והסתיר אותו מן העין, והוא ישן שבעים שנה. כשהתעורר, ראה אדם קוטף מאותו חרוב. שאל: אתה הוא שנטעת אותו? ענה: אני נכדו.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: לא האמינו לו ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא האמינו לו</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הלך חוני לביתו ושאל: בנו של חוני המעגל קיים? אמרו לו: בנו כבר אינו, אבל בן בנו קיים. אמר להם: אני חוני המעגל – ולא האמינו לו.</p>
+<p>הלך לבית המדרש ושמע את החכמים אומרים: "נהירן שמעתתין כבשני חוני המעגל" – מאירות השמועות כמו בימי חוני המעגל, שכשהיה נכנס לבית המדרש היה מיישב לחכמים כל קושיה. אמר להם: אני הוא! ולא האמינו לו, ולא נתנו לו כבוד כראוי לו. חלשה דעתו, ביקש רחמים, ומת.</p>
+<p>אמר רבא: היינו דאמרי אינשי – "או חברותא או מיתותא".</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הכאב של מי שיש לו מה לתת ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הכאב של מי שיש לו מה לתת</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לכאורה קשה: האם חוני המעגל ביקש למות כי לא כיבדו אותו? הרי הוא צדיק גדול! ועוד: מה הקשר ל"או חברותא או מיתותא"? היה צריך לומר "או כבוד או מיתה".</p>
+<p>אלא שהכוונה עמוקה יותר. חוני שמע איך לומדים, שמע את השאלות, והיו לו תשובות. הייתה לו תורה, שפע של תורה, והוא רצה להשפיע. אבל מכיוון שלא ידעו שזה הוא, כל תירוץ שאמר נדחה: "זה לא נשמע", "זה לא מתקבל". יש תירוצים שמאירים מצד עצמם, לא משנה מי אומר אותם. ויש דברים שכדי לקבל אותם צריך להחזיק מן האומר.</p>
+<p><strong>כשיש לך תורת אמת, יש לך מה לתת – ולא רוצים לקבל ממך, זה ייסורים נוראים.</strong> אם אין עם מי ללמוד ואין למי לתת, עדיף מוות מחיים.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: מפנים עורף למי שרוצה לתת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🎁</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">הקדוש ברוך הוא רוצה רק להיטיב</h2></div></div>
+<p class="chapter-intro">עכשיו אפשר לחזור לפרשה ולהבין את עומק הקטרוג.</p>
+<article class="story-card" id="story-11" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מפנים עורף למי שרוצה לתת</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה הקדוש ברוך הוא רוצה? הוא רוצה רק להיטיב לנו, להשפיע עלינו טובה. יש לו הרבה מה לתת – והוא נתן לנו תורה נפלאה עם מצוות נפלאות.</p>
+<p>וכאן עומדים בני אדם ומפנים עורף. לא מקבלים. ומתלוננים, ומתלוננים. ועד כדי מה? עד "בשנאת ה' אותנו הוציאנו ממצרים".</p>
+<p>אי אפשר להקיש מבני אדם כלפי מעלה, אבל זה סוג של "או חברותא או מיתותא": מי שרוצה רק לתת, ומקבל בחזרה תלונה אחר תלונה. מכאן הקטרוג של מידת הדין: "הרמו מתוך העדה הזאת ואכלה אתם כרגע". כאן כבר משה ואהרן צריכים לבקש רחמים, ולא להפך.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: ונרגן מפריד אלוף ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ונרגן מפריד אלוף</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבנו יונה מסיים בדברי שלמה המלך:</p>
+<blockquote>ונרגן מפריד אלוף</blockquote>
+<p>הנרגן מפריד מעליו אוהב ורע, כי הם אינם יכולים לשאת את חברתו. סופו של הנרגן שאפילו חבריו הקרובים כבר לא יכולים לסבול אותו. תלונות, תלונות, תלונות – ובסוף הוא נשאר לבד.</p>
+<p>לעומת זאת, אדם שמפיו יוצאים רק דברים טובים, שרואה את הטוב ומדבר דיבורים שמחים ומאירים – כולם רוצים להיות במחיצתו.</p>
+<div class="honey-box">🍯 אדם שרוצה חברים – שיתחיל לדבר טוב.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: הנרגן סובל בעיקר מעצמו ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הנרגן סובל בעיקר מעצמו</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המידה הזו גרועה לא רק כלפי מעלה, ולא רק כלפי החברים. היא גרועה בסופו של דבר לאדם עצמו.</p>
+<p>הנרגן סובל כל הזמן. מר לו, ומר לו, ומר לו. כולם נגדו, כולם עושים לו רע, כולם חפצים ברעתו. השוגג נהיה בעיניו מזיד, והמיטיב נהיה מי שמזיק לו. העולם שלו כולו רע ומר.</p>
+<p class="bold-para">הנרגן לא חי בעולם רע – הוא חי בתוך המבט הרע של עצמו.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: לקחו את המטות והלכו הביתה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌸</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">והמטות – ושוב תלונה</h2></div></div>
+<p class="chapter-intro">גם אחרי נס פריחת המטה, הסיפור לא נגמר.</p>
+<article class="story-card" id="story-14" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לקחו את המטות והלכו הביתה</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הקדוש ברוך הוא עושה עוד נס כדי להוכיח שוב מי צריך להיות הכהן הגדול: שנים עשר מטות מונחים באוהל מועד, ולמחרת – מטה אהרן פורח, מוציא ציץ ומגמל שקדים. ואז:</p>
+<blockquote>ויצא משה את כל המטת מלפני ה' אל כל בני ישראל ויראו ויקחו איש מטהו</blockquote>
+<p>נצייר את זה: ראו, לקחו את המטות, והלכו הביתה. רגע! תגיד סליחה. באת בתלונות, צעקת, האשמת – יש כאן איש צדק, והראו לך שאינך צודק. תתבייש, תגיד משהו!</p>
+<p>לא. ומיד אחר כך: "הן גוענו אבדנו כלנו אבדנו, כל הקרב הקרב אל משכן ה' ימות". שוב תלונה. זה לא נגמר – כי זה נרגן.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: לברוח ממנה כמו מאש ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לברוח ממנה כמו מאש</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את המידה הזו צריך להכיר ולהיזהר ממנה. ומי שתופס בעצמו נטייה אליה – צריך לברוח ממנה כמו מאש, ולעבור להפך הגמור.</p>
+<ul class="story-list"><li>ללמד זכות על בני אדם</li><li>ללמד זכות על הקדוש ברוך הוא: כל מה שהוא עושה איתי – הכול לטובה, הכול באהבה</li><li>לזכור שה' משגיח בהשגחה פרטית על כל פרט ופרט, דואג לי ומוליך אותי, גם כשאני עוד לא יודע מה התוכנית</li><li>לקבל כל דבר לטובה, לדבר טוב ולראות טוב</li></ul>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: עין טובה, לב טוב, פה טוב ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">עין טובה, לב טוב, פה טוב</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אדם כזה – שמח, מאיר פנים, רואה שהעולם טוב – כולם רוצים להיות בקרבתו. עין טובה, לב טוב, פה שמדבר טוב. כך צריך להיות.</p>
+<p>לאדם כזה טוב לו, טוב לסובבים אותו, ותמיד השכינה שורה סביבו.</p>
+<p class="bold-para">הנרגן מעורר את מידת הדין; מי שמלמד זכות מעורר את מידת הרחמים.</p>
+<div class="honey-box">🍯 ה' יעזור שנתחזק במידה הזו – ויהיה טוב לנו ולכל הסובבים אותנו.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
