@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🌙 גאולה של לילה, גאולה של יום</title>
+<meta name="description" content="למה כל יציאת מצרים קרתה בלילה, הכניסה לארץ בימי יהושע קרתה ביום, ומה זה מלמד על הגאולה של הדור שלנו, שמגיעה לאט לאט ומזמינה אותנו להיות שותפים">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🌙 גאולה של לילה, גאולה של יום</h1>
+  <p class="hero-subtitle">למה כל יציאת מצרים קרתה בלילה, הכניסה לארץ בימי יהושע קרתה ביום, ומה זה מלמד על הגאולה של הדור שלנו, שמגיעה לאט לאט ומזמינה אותנו להיות שותפים</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-11 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/4Gk_QvyggI0" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌙 הלילה שבלב הסיפור</a><ul class="toc-stories"><li><a href="#story-1">מילה אחת שחוזרת בכל הפרשה</a></li><li><a href="#story-2">החג היחיד שעיקרו בלילה</a></li><li><a href="#story-3">קרבן שנגמר עם עלות השחר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔄 הפעם היחידה שהסדר מתהפך</a><ul class="toc-stories"><li><a href="#story-4">התמיד והפסח: מי קודם?</a></li><li><a href="#story-5">קרבן שנאכל רק בלילה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🌊 גם הים נבקע בלילה</a><ul class="toc-stories"><li><a href="#story-6">כל הלילה, ועד הבוקר</a></li><li><a href="#story-7">עמוד אש בחושך</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🕯️ &quot;ה&#x27; ילחם לכם&quot;: סודו של הלילה</a><ul class="toc-stories"><li><a href="#story-8">משפט אחד שמסכם את יציאת מצרים</a></li><li><a href="#story-9">מה זה בעצם לילה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">☀️ יהושע: גאולה שקורית ביום</a><ul class="toc-stories"><li><a href="#story-10">קמים בבוקר ועוברים את הירדן</a></li><li><a href="#story-11">&quot;הכינו לכם צידה&quot;</a></li><li><a href="#story-12">שותפים במלחמה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌅 &quot;כי לא בחפזון תצאו&quot;: הגאולה שלנו</a><ul class="toc-stories"><li><a href="#story-13">חיפזון מול לאט לאט</a></li><li><a href="#story-14">הקב&quot;ה מבקש שותפים</a></li><li><a href="#story-15">שתי ידיים לבית המקדש</a></li><li><a href="#story-16">אם נזכה, נבנה בעצמנו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🕊️ גאולה שנשארת לנצח</a><ul class="toc-stories"><li><a href="#story-17">חיפזון: שבח או חיסרון?</a></li><li><a href="#story-18">גדלות לפני קטנות</a></li><li><a href="#story-19">גאולה ברצון</a></li><li><a href="#story-20">ספר אחד במקום נשק</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌙</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">הלילה שבלב הסיפור</h2></div></div>
+<p class="chapter-intro">מי שקורא את פרשת יציאת מצרים בעיון מגלה מילה אחת שחוזרת שוב ושוב: לילה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מילה אחת שחוזרת בכל הפרשה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>קשה לקרוא את פרשת יציאת מצרים בלי להתרגש: עשר המכות, החיפזון, הניסים הגדולים. אבל כדאי לעצור על פרט אחד שנראה קטן, ובעצם מאיר את כל הסיפור באור חדש. התורה מדגישה שוב ושוב שהכול קרה בלילה.</p>
+<blockquote>"ויהי בחצי הלילה וה' הכה כל בכור בארץ מצרים" (שמות יב, כט)</blockquote>
+<p>ומיד אחר כך:</p>
+<blockquote>"ויקם פרעה לילה הוא וכל עבדיו וכל מצרים... ויקרא למשה ולאהרן לילה ויאמר קומו צאו מתוך עמי" (שמות יב, ל-לא)</blockquote>
+<p>והפרשה נחתמת במילים:</p>
+<blockquote>"ליל שמרים הוא לה' להוציאם מארץ מצרים, הוא הלילה הזה לה' שמרים לכל בני ישראל לדרתם" (שמות יב, מב)</blockquote>
+<p>פרעה קם בלילה, משה ואהרן נקראים בלילה, המכה באה בחצות הלילה. החזרה הזו לא מקרית. היא מבקשת מהקורא לשים לב.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: החג היחיד שעיקרו בלילה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החג היחיד שעיקרו בלילה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשבו על כל חגי השנה. בראש השנה, ביום הכיפורים, בסוכות ובשבועות, עיקר החג הוא ביום. רק בפסח הלילה הוא לב הכול: ליל הסדר. זה הלילה היחיד בשנה שבו עיקר המצוות של החג מתקיימות דווקא בחושך.</p>
+<p>בספר דברים התורה מוסיפה ביטוי מפתיע עוד יותר:</p>
+<blockquote>"שמור את חדש האביב ועשית פסח לה' אלקיך, כי בחדש האביב הוציאך ה' אלקיך ממצרים לילה" (דברים טז, א)</blockquote>
+<p>אין כאן תאריך, אין יום בחודש. רק "לילה". כאילו זה כל מה שצריך לדעת על היציאה ממצרים.</p>
+<p class="bold-para">הלילה הוא לא רקע לסיפור. הוא חלק מהמסר שלו.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: קרבן שנגמר עם עלות השחר ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קרבן שנגמר עם עלות השחר</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם מצוות קרבן הפסח בנויה כולה סביב הלילה:</p>
+<blockquote>"שם תזבח את הפסח בערב כבוא השמש, מועד צאתך ממצרים" (דברים טז, ו)</blockquote>
+<blockquote>"ולא ילין מן הבשר אשר תזבח בערב ביום הראשון לבקר" (דברים טז, ד)</blockquote>
+<blockquote>"ופנית בבקר והלכת לאהליך" (דברים טז, ז)</blockquote>
+<p>בבוקר הכול נגמר. אסור להשאיר מן הבשר, ואפשר ללכת הביתה. ויש כאן עוד פלא: את הפסח, וכזכר לו את האפיקומן, נוהגים לאכול לפני חצות. אבל הנס, מכת בכורות, קרה רק בחצות! למה לסיים לאכול עוד לפני שהנס קרה?</p>
+<p>השאלה הזו מלווה אותנו. התשובה עליה תתברר כשנבין מה הלילה מסמל.</p>
+<div class="honey-box">🍯 בליל הסדר הבא, נסו לשים לב לכמה פעמים המילה "לילה" מופיעה בהגדה. היא כמעט בכל עמוד.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: התמיד והפסח: מי קודם? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔄</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">הפעם היחידה שהסדר מתהפך</h2></div></div>
+<p class="chapter-intro">ההדגשה על הלילה איננה רק רעיון יפה. היא משנה הלכה למעשה את סדר העבודה בבית המקדש.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">התמיד והפסח: מי קודם?</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל ימות השנה קרבן התמיד של בין הערביים הוא הקרבן האחרון של היום. אחריו לא מקריבים דבר. כך אומרים בסדר הקרבנות: "להשלים עליו כל הקרבנות כולם". התמיד סוגר את היום.</p>
+<p>אבל פעם אחת בשנה הסדר מתהפך. בערב פסח שוחטים את התמיד מוקדם יותר, ואחריו את קרבן הפסח. כך שנינו במשנה:</p>
+<blockquote>"תמיד נשחט בשמונה ומחצה וקרב בתשעה ומחצה. בערבי פסחים נשחט בשבע ומחצה וקרב בשמונה ומחצה... והפסח אחריו" (פסחים ה, א)</blockquote>
+<p>למה דווקא כאן? כי קרבן הפסח שייך אל הלילה. הוא נשחט לקראת הערב ונאכל בלילה, ולכן הוא בא אחרי שהיום כבר נסגר.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: קרבן שנאכל רק בלילה ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">קרבן שנאכל רק בלילה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל הקרבנות שנאכלים, נאכלים ביום ובלילה. שלמים נאכלים יום ולילה, ויש שנאכלים יומיים ולילה אחד. אבל קרבן שכל אכילתו רק בלילה? אין דבר כזה בתורה, חוץ מקרבן הפסח.</p>
+<p>מצוות רבות בתורה הן רק ביום. ברית מילה, למשל, נאמר בה "וביום השמיני ימול", ולכן אין עושים ברית בלילה. ופתאום יש מצווה אחת שכולה לילה.</p>
+<p>מזה נובעות גם הלכות שנוגעות לכל בית יהודי בערב פסח: מחצות היום אסור בחמץ, כי זה זמן שחיטת הפסח, ואין שוחטים את הפסח כשיש חמץ ברשות. ומחצות גם נמנעים ממלאכות, כמו בחול המועד, ומקדימים להסתפר לפני כן. ערב פסח אחר הצהריים הוא כבר קצת יום טוב.</p>
+<p class="bold-para">הלכה אחת קטנה בסדר הקרבנות מלמדת עד כמה הלילה הוא לב הפסח.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: כל הלילה, ועד הבוקר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🌊</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">גם הים נבקע בלילה</h2></div></div>
+<p class="chapter-intro">הלילה ממשיך ללוות את ישראל גם אחרי שיצאו ממצרים: בקריעת ים סוף ובהליכה במדבר.</p>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כל הלילה, ועד הבוקר</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם בקריעת ים סוף התורה מדגישה את הלילה:</p>
+<blockquote>"ויהי הענן והחשך ויאר את הלילה, ולא קרב זה אל זה כל הלילה" (שמות יד, כ)</blockquote>
+<blockquote>"ויט משה את ידו על הים ויולך ה' את הים ברוח קדים עזה כל הלילה" (שמות יד, כא)</blockquote>
+<p>וכשמגיע הבוקר, הנס מגיע לסופו:</p>
+<blockquote>"ויהי באשמרת הבקר וישקף ה' אל מחנה מצרים בעמוד אש וענן" (שמות יד, כד)</blockquote>
+<blockquote>"ויט משה את ידו על הים וישב הים לפנות בקר לאיתנו" (שמות יד, כז)</blockquote>
+<p>כל הנס נמשך לאורך הלילה. עם אור הבוקר הים חוזר לכוחו, והסיפור נגמר.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: עמוד אש בחושך ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">עמוד אש בחושך</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם על ההליכה במדבר חוזרת התורה ומזכירה שהיא נמשכה גם בלילה:</p>
+<blockquote>"וה' הלך לפניהם יומם בעמוד ענן לנחתם הדרך, ולילה בעמוד אש להאיר להם, ללכת יומם ולילה" (שמות יג, כא)</blockquote>
+<p>בני ישראל לא היו צריכים לחכות לבוקר כדי לדעת לאן ללכת. גם בחושך הגמור היה להם אור, אבל לא אור שהם הדליקו. אור שה' הדליק בשבילם.</p>
+<p>אפשר היה לחשוב שהפרסום של הנס חשוב יותר ביום, כשכל העולם רואה. אבל התורה בחרה אחרת. כנראה שהלילה מבטא משהו עמוק יותר מאשר פרסום.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: משפט אחד שמסכם את יציאת מצרים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">&quot;ה&#x27; ילחם לכם&quot;: סודו של הלילה</h2></div></div>
+<p class="chapter-intro">כאן מגיע ההסבר שמחבר את כל הפרטים לתמונה אחת.</p>
+<article class="story-card" id="story-8" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">משפט אחד שמסכם את יציאת מצרים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם היינו צריכים לסכם את כל יציאת מצרים במשפט אחד, זה המשפט שמשה אמר לעם על שפת הים:</p>
+<blockquote>"ה' ילחם לכם ואתם תחרשון" (שמות יד, יד)</blockquote>
+<p>בכל ניסי יציאת מצרים עם ישראל לא עשה כמעט דבר. הם עמדו מן הצד וראו איך ה' פועל בשבילם: המכות, היציאה, הים, המן. בזרוע נטויה ה' הוציא אותם, והם רק הלכו והסתכלו.</p>
+<p class="bold-para">יציאת מצרים היא גאולה שכולה של ה'. לאדם אין בה חלק.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מה זה בעצם לילה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה זה בעצם לילה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשבו על הלילה בימים שלפני החשמל. כשהשמש שקעה, העבודה נגמרה. "יצא אדם לפעלו ולעבדתו עדי ערב" (תהלים קד, כג), ולא יותר. בחושך אי אפשר לחרוש, לבנות או לנסוע. הלילה היה זמן של חוסר אונים, של פחד ושל סכנה. האדם שוכב על מיטתו, ואין לו על מי לסמוך.</p>
+<p>לכן אנחנו מבקשים כל ערב: "השכיבנו ה' אלקינו לשלום", ומברכים "שומר עמו ישראל לעד". בלילה ברור לכל אחד שהוא לא השולט.</p>
+<p>וזו בדיוק המשמעות של יציאת מצרים. היא קרתה בלילה כי הלילה הוא הזמן שבו האדם לא פועל, ורק ה' פועל. לכן גם הים נבקע בלילה, ועם בוא הבוקר, הזמן שבו האדם חוזר לפעול, הנס נגמר.</p>
+<div class="honey-box">🍯 הלילה מלמד שיש רגעים שבהם אין לנו מה לעשות חוץ מלסמוך על ה'. גם זו מתנה: לדעת שמישהו שומר עלינו כשאנחנו לא יכולים.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: קמים בבוקר ועוברים את הירדן ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">☀️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">יהושע: גאולה שקורית ביום</h2></div></div>
+<p class="chapter-intro">כשמשווים את יציאת מצרים לכניסה לארץ בימי יהושע, מגלים תמונה הפוכה כמעט בכל פרט.</p>
+<article class="story-card" id="story-10" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">קמים בבוקר ועוברים את הירדן</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם בימי יהושע עם ישראל עומד מול מים שצריך לחצות, הפעם הירדן. אבל שימו לב מה הם עושים:</p>
+<blockquote>"וישכם יהושע בבקר ויסעו מהשטים ויבאו עד הירדן הוא וכל בני ישראל, וילנו שם טרם יעברו" (יהושע ג, א)</blockquote>
+<p>בלילה ישנים. לינה, מנוחה. רק בבוקר קמים ועוברים. וכך גם בכיבוש יריחו:</p>
+<blockquote>"וישכם יהושע בבקר וישאו הכהנים את ארון ה'" (יהושע ו, יב)</blockquote>
+<p>ההקפות סביב החומה נעשות ביום, לעיני כולם. בספר יהושע הלילה משמש רק לשינה, והניסים קורים באור היום.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;הכינו לכם צידה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;הכינו לכם צידה&quot;</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההבדל מופיע גם בצידה לדרך. ביציאת מצרים:</p>
+<blockquote>"כי גרשו ממצרים ולא יכלו להתמהמה, וגם צדה לא עשו להם" (שמות יב, לט)</blockquote>
+<p>הם יצאו בלי אוכל, וסמכו לגמרי על ה' שיוריד להם לחם מן השמים. ובימי יהושע, בדיוק להפך:</p>
+<blockquote>"עברו בקרב המחנה וצוו את העם לאמר: הכינו לכם צידה, כי בעוד שלשת ימים אתם עברים את הירדן הזה" (יהושע א, יא)</blockquote>
+<p>במצרים: לא מכינים כלום. בכניסה לארץ: מכינים. הפסוק מדגיש את זה בכוונה, כדי שנרגיש את ההבדל.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: שותפים במלחמה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שותפים במלחמה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם בימי יהושע היו ניסים גלויים. הירדן נעצר, חומת יריחו נפלה. אבל לצד הניסים עם ישראל היה צריך לפעול: לצאת למלחמה, להילחם, להתאמץ. יהושע לא ישב וחיכה שהכול יקרה מעצמו. הוא יצא והילחם, וה' עשה עמו ניסים.</p>
+<p>זה המעבר הגדול: במצרים ה' עושה הכול והאדם עומד מן הצד. בארץ ישראל האדם שותף. וזה גם עתיד להיות סדר החיים בארץ: הניסים פחות גלויים, והאחריות עוברת אל כתפינו.</p>
+<p class="bold-para">לילה פירושו: ה' לבדו פועל. יום פירושו: גם האדם שותף.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: חיפזון מול לאט לאט ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">&quot;כי לא בחפזון תצאו&quot;: הגאולה שלנו</h2></div></div>
+<p class="chapter-intro">ועכשיו השאלה הגדולה: הגאולה האחרונה, שאנחנו חיים בתוכה, תהיה כמו מצרים או כמו יהושע?</p>
+<article class="story-card" id="story-13" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חיפזון מול לאט לאט</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על הגאולה ממצרים נאמר:</p>
+<blockquote>"וככה תאכלו אתו: מתניכם חגרים, נעליכם ברגליכם ומקלכם בידכם, ואכלתם אתו בחפזון, פסח הוא לה'" (שמות יב, יא)</blockquote>
+<p>ולכן אוכלים מצה, כי הבצק לא הספיק להחמיץ. אבל על הגאולה האחרונה אומר הנביא ישעיה, בפרק שקוראים בשבתות הנחמה:</p>
+<blockquote>"מה נאוו על ההרים רגלי מבשר, משמיע שלום מבשר טוב משמיע ישועה, אמר לציון מלך אלקיך" (ישעיה נב, ז)</blockquote>
+<p>ומיד אחר כך:</p>
+<blockquote>"כי לא בחפזון תצאו ובמנוסה לא תלכון, כי הלך לפניכם ה' ומאספכם אלקי ישראל" (ישעיה נב, יב)</blockquote>
+<p>הגאולה האחרונה לא תהיה בחיפזון. היא תבוא בהדרגה, לאט לאט, כמו אור הבוקר שעולה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: הקב&quot;ה מבקש שותפים ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הקב&quot;ה מבקש שותפים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה? כי בגאולה הזו ה' כביכול אומר לנו: בניי האהובים, אני רוצה שגם אתם תהיו שותפים בגאולה שלכם. אל תשאירו לי את כל העבודה.</p>
+<p>כשדבר קורה בשנייה אחת, האדם לא יכול להיות חלק ממנו. בלילה הם עבדים לפרעה, בחצות הוא אומר להם צאו, ובבוקר הם בחוץ. זו מהירות אלוקית. אבל גאולה שמתקדמת בקצב של בני אדם, צעד אחר צעד, משאירה מקום לכל אחד לתרום.</p>
+<p>קחו דוגמה: איך הגענו לארץ ישראל? דורות חלמו שנגיע "על כנפי נשרים", בלי מאמץ. בפועל, אבותינו מסרו את נפשם ואת רכושם, עלו בתנאים קשים, ייבשו ביצות ובנו את הארץ במו ידיהם. הקב"ה רצה שיהיה לנו חלק. אילו הכול היה נופל מן השמים, מה אנחנו היינו עושים?</p>
+<p>יש עוד טעמים לכך שהגאולה מגיעה לאט: כדי שלא נקבל את ההלם של שינוי פתאומי, וכדי שיהיה זמן לחזור בתשובה. כשהתהליך הדרגתי, אנשים מתעוררים ומצטרפים בזה אחר זה.</p>
+<div class="honey-box">🍯 דברים גדולים שנבנים בכוח, מהר מהר, עלולים להתפוצץ. דברים שנבנים לאט, בהסכמה, מחזיקים מעמד.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: שתי ידיים לבית המקדש ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שתי ידיים לבית המקדש</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא אומרת דבר מפתיע:</p>
+<blockquote>"גדולים מעשה צדיקים יותר ממעשה שמים וארץ" (כתובות ה, א)</blockquote>
+<p>ומאיפה לומדים? במעשה שמים וארץ כתוב "אף ידי יסדה ארץ" (ישעיה מח, יג), יד אחת. ובבית המקדש כתוב "מקדש ה' כוננו ידיך" (שמות טו, יז), שתי ידיים.</p>
+<p>אבל איפה כאן הצדיקים? הרי כתוב שה' כונן את המקדש! מפרש רש"י שבית המקדש נבנה על ידי הצדיקים, ונקרא מעשה ידיו של הקב"ה כי הוא נותן להם את הכוח והסייעתא דשמיא. ומה שנבנה בשיתוף כזה, חביב לפניו כביכול בשתי ידיים, יותר מכל השמים והארץ שברא לבד.</p>
+<p class="bold-para">מה שה' עושה לבד הוא גדול. מה שהוא עושה יחד איתנו חביב לו עוד יותר.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: אם נזכה, נבנה בעצמנו ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אם נזכה, נבנה בעצמנו</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מקובל לחשוב שבית המקדש השלישי ירד מן השמים, בנוי ומוכן, ואנחנו רק נצטרך להסתכל. יש במדרשים ובדברי רש"י מקום לכך. אבל הגאון רבי צבי פסח פרנק, רבה של ירושלים, הסביר שזה הפוך ממה שאנשים חושבים: אם נזכה, אנחנו נבנה. ורק אם לא נהיה ראויים, ה' יבנה מן השמים.</p>
+<p>כביכול הקב"ה אומר: לבנות בעצמי? את זה אני תמיד יכול. אני רוצה לראות מה אתם בונים. זה חביב בעיניי.</p>
+<p>זה הופך את הסדר הרגיל של המחשבה. בניין בידי אדם הוא לא פשרה, הוא המדרגה הגבוהה יותר.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: חיפזון: שבח או חיסרון? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🕊️</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">גאולה שנשארת לנצח</h2></div></div>
+<p class="chapter-intro">דברי הבני יששכר מסבירים למה החיפזון של מצרים היה מעלה, ולמה בכל זאת הגאולה האחרונה צריכה לבוא לאט.</p>
+<article class="story-card" id="story-17" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חיפזון: שבח או חיסרון?</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על המצה אומרת התורה:</p>
+<blockquote>"שבעת ימים תאכל עליו מצות לחם עני, כי בחפזון יצאת מארץ מצרים" (דברים טז, ג)</blockquote>
+<p>אם כן החיפזון הוא דבר טוב, ואנחנו זוכרים אותו כל שנה. ומנגד הנביא מבטיח לעתיד: "כי לא בחפזון תצאו". אז מה החיפזון: מעלה או חיסרון?</p>
+<p>הבני יששכר מסביר: במצרים ה' ראה שבני ישראל כבר שקועים בטומאת מצרים, ועוד רגע לא יהיה את מי להוציא. לכן היה צורך בחיפזון. זו חיבה גדולה: ה' תפס אותם רגע לפני שהיה מאוחר מדי. יש מצבים שאם מחכים, נשארים לבד.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: גדלות לפני קטנות ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גדלות לפני קטנות</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ממשיך הבני יששכר: מה שבא בחיפזון, בדרך פלא, דילג על כל המדרגות. בליל הסדר בני ישראל זכו לדרגה גבוהה מאוד, בלי שעבדו עליה. ידוע בספרים שבפסח היו "גדלות קודם קטנות": הגדולה באה לפני העבודה.</p>
+<p>אבל מה שאדם לא בנה בעצמו לא מחזיק מעמד. לכן כבר למחרת מתחילים לספור, מדרגה אחר מדרגה, עד חג השבועות, כדי לבנות מחדש בכוחות עצמנו את מה שקיבלנו במתנה.</p>
+<p>וראו את פרעה: הוא שילח את ישראל רק מפחד, כשראה שגם הוא עלול למות. שבוע אחר כך, כשנרגע, רדף אחריהם. כך קורה כשדבר קורה מהר, בלי רצון אמיתי.</p>
+<div class="honey-box">🍯 מתנה שמקבלים בבת אחת מרגשת. מה שבונים לאט, נשאר.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: גאולה ברצון ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גאולה ברצון</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועכשיו הסתכלו על הדור שלנו. אחרי אלפי שנות גלות, איש לא הכריח את בריטניה, את צרפת או את מלך תימן לשחרר את היהודים כמו שה' הכריח את פרעה. ה' סיבב אינספור סיבות, והעולם הגיע לאט לאט למסקנה שטוב לתת ליהודים לשוב לארצם.</p>
+<p>ובגלל שזה קרה מתוך רצון ולא מתוך הכרח, אין חרטה. עברו עשרות שנים, ועוד מצטרפים ועוד מכירים. לפעמים מגיעים מן העמים אנשים שרוצים ללמוד מהיהודים, איך שומרים מצוות ואיך חוגגים את החגים, ומרגישים שכשעם ישראל מצליח, כל העולם מצליח.</p>
+<p>אולי יום אחד גם בבית המקדש יהיה כך: לא בכוח ולא בניגוד לרצון העמים, אלא מתוך הכרה שזה דבר קדוש וטוב לכל העולם. היום זה נשמע רחוק, אבל גם השיבה לארץ נשמעה פעם הזויה.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: ספר אחד במקום נשק ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ספר אחד במקום נשק</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סיפור קטן מראה איך זה יכול להיות. רב בירושלים, שעסק הרבה בהפצת שבע מצוות בני נח, ישב פעם על ספסל ופגש ערבי מבוגר שלמד משניות. בתוך השיחה הציע לו הרב לתרגם לערבית ספר על שבע מצוות בני נח, מה שהיהדות מלמדת שכל אדם בעולם חייב בו. הערבי לקח על עצמו את המשימה, התרגום נבדק ונמצא טוב, והספר הודפס.</p>
+<p>בית ספר ערבי החליט לחלק אותו כפרס לבוגרים. זמן מה אחר כך התקשרה אם אחת: "אני חייבת לספר הזה את חיי הילדים שלי". הילדים שלה רצו להגיע לשמים, ולימדו אותם שהדרך היא למות כ"שהידים". אבל בספר הם קראו שאפשר להתקרב לבורא העולם גם בלי למות, ובחרו לחיות.</p>
+<p>הרב סיפר על כך לאנשי ביטחון ואמר: מצאתי נשק חדש נגד הטרור. הרעיון עוד לא התקבל, אבל הוא מראה איך לאט לאט, דרך לב ושכל, העולם כולו יכול להגיע להכרה.</p>
+<blockquote>"ומלאה הארץ דעה את ה' כמים לים מכסים" (ישעיה יא, ט)</blockquote>
+<p class="bold-para">גאולה של יום היא גאולה שכולם שותפים בה. ושותפות כזו נשארת לנצח.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
