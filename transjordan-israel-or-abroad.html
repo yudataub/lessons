@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏞️ עבר הירדן: ארץ ישראל או חוץ לארץ?</title>
+<meta name="description" content="התורה, חז״ל והמפרשים נראים כסותרים זה את זה: פעם עבר הירדן הוא &quot;ראשית כיבוש הארץ&quot; ופעם &quot;חוץ לארץ&quot;. ספר שמציג את כל הצדדים, מהצהרת בלפור ועד השמיטה בגולן, ואת תשובת המשך חכמה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🏞️ עבר הירדן: ארץ ישראל או חוץ לארץ?</h1>
+  <p class="hero-subtitle">התורה, חז״ל והמפרשים נראים כסותרים זה את זה: פעם עבר הירדן הוא &quot;ראשית כיבוש הארץ&quot; ופעם &quot;חוץ לארץ&quot;. ספר שמציג את כל הצדדים, מהצהרת בלפור ועד השמיטה בגולן, ואת תשובת המשך חכמה.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/672RoPVpgGY" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">📜 איך איבדנו את עבר הירדן</a><ul class="toc-stories"><li><a href="#story-1">שתי גדות לירדן</a></li><li><a href="#story-2">ממלכה בשביל עבדאללה</a></li><li><a href="#story-3">למה התורה מספרת איך קראו לחרמון?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🚧 הצד הראשון: הירדן הוא הגבול</a><ul class="toc-stories"><li><a href="#story-4">&quot;זאת תהיה לכם הארץ&quot;</a></li><li><a href="#story-5">&quot;ושמה לא תבוא&quot;</a></li><li><a href="#story-6">&quot;וישבו להם חוץ מארץ ישראל&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🌄 הצד השני: ראשית כיבוש הארץ</a><ul class="toc-stories"><li><a href="#story-7">מה משה לא אמר לבני גד וראובן</a></li><li><a href="#story-8">&quot;וירא ראשית לו&quot;</a></li><li><a href="#story-9">כל מה שראה משה חייב במעשר</a></li><li><a href="#story-10">הגלעד, אליהו ושבט דן</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🗿 ארץ רפאים: מה הובטח לאברהם</a><ul class="toc-stories"><li><a href="#story-11">הענקים שנקראו &quot;אימים&quot;</a></li><li><a href="#story-12">רש״י: הבשן הוא הארץ שהובטחה</a></li><li><a href="#story-13">החלוקה של ימינו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🔑 שלוש ארצות, ותשובת המשך חכמה</a><ul class="toc-stories"><li><a href="#story-14">&quot;שלוש ארצות לביעור&quot;</a></li><li><a href="#story-15">&quot;וכי לאכול מפריה הוא צריך?&quot;</a></li><li><a href="#story-16">העיקר קודם לטפל</a></li><li><a href="#story-17">שמיטה בגולן וירקות מירדן</a></li><li><a href="#story-18">שאלה שעדיין מחכה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">איך איבדנו את עבר הירדן</h2></div></div>
+<p class="chapter-intro">לפני הפסוקים, קצת היסטוריה: עבר הירדן היה אמור להיות חלק מהבית הלאומי, ומה קרה?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שתי גדות לירדן</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשנת 1917 ניתנה הצהרת בלפור, ובעקבותיה המנדט הבריטי על ארץ ישראל. בתחילה היה ברור לכולם, גם לגויים, ששני עברי הירדן שייכים לארץ ישראל: הגדה המערבית והגדה המזרחית. כך נקבע גם בוועידת סן רמו.</p>
+<p>איך הגיע השטח לידי הבריטים? במלחמת העולם הראשונה הם הביסו את התורכים, והאזור כולו עבר לשליטתם. באותה תקופה הברון רוטשילד אף קנה שטחים גדולים בגולן ובחורן, ותכנן ליישב שם יהודים רבים.</p>
+<p class="bold-para">בתחילת הדרך, הבית הלאומי היהודי כלל את שתי גדות הירדן.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: ממלכה בשביל עבדאללה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ממלכה בשביל עבדאללה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחר כך התחילו מחלוקות בין המעצמות, הצרפתים רצו גם הם חלק, והבריטים חיפשו פתרון. הם ביקשו לוותר על השטח שממזרח לירדן ולהקים בו ממלכה בראשות עבדאללה, היא ממלכת ירדן.</p>
+<p>מאחר שהשטח הובטח לבית הלאומי, ביקשו הבריטים את הסכמת ההנהגה הציונית, ולצערנו ההסכמה ניתנה. אולי הרגישו שזה עדיין רחוק ולא מוחשי, ולא הבינו מה הם מוסרים. מאז לקח עבדאללה את כל השטח, ורבים חושבים שהירדן הוא גבול ארץ ישראל.</p>
+<p>הגולן חזר אלינו במלחמת ששת הימים. היו ניסיונות להחזיר אותו בתמורה להסכם, אבל נשיא סוריה דרש הכול עד הכנרת, ואף ממשלה לא יכלה להסכים לזה. ברוך ה' שכך היה: אילו הגולן היה נמסר, מי יודע אילו כוחות אויב היו יושבים היום מעל הכנרת.</p>
+<div class="honey-box">🍯 לפעמים עקשנותו של האויב היא החסד שה' עושה איתנו.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: למה התורה מספרת איך קראו לחרמון? ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה התורה מספרת איך קראו לחרמון?</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת דברים התורה עוסקת הרבה בעבר הירדן, ובכיבוש ארצות סיחון ועוג:</p>
+<blockquote>וַנִּקַּח בָּעֵת הַהִוא אֶת הָאָרֶץ מִיַּד שְׁנֵי מַלְכֵי הָאֱמֹרִי אֲשֶׁר בְּעֵבֶר הַיַּרְדֵּן מִנַּחַל אַרְנֹן עַד הַר חֶרְמוֹן. צִידֹנִים יִקְרְאוּ לְחֶרְמוֹן שִׂרְיֹן וְהָאֱמֹרִי יִקְרְאוּ לוֹ שְׂנִיר (דברים ג, ח-ט)</blockquote>
+<p>מה זה משנה לנו איך הצידונים קראו לחרמון ואיך קראו לו האמורי? התורה מקפידה לפרט כל שם וכל גבול של הארצות שבעבר הירדן. הפירוט הזה מרמז שיש כאן משהו חשוב: התורה רוצה שנדע בדיוק מה נכבש שם, כי לשטח הזה יש מעמד. אבל איזה מעמד? כאן מתחילה השאלה הגדולה.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: &quot;זאת תהיה לכם הארץ&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🚧</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">הצד הראשון: הירדן הוא הגבול</h2></div></div>
+<p class="chapter-intro">כמה מקורות נראים כאומרים במפורש שעבר הירדן אינו ארץ ישראל.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;זאת תהיה לכם הארץ&quot;</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת מסעי התורה משרטטת את גבולות הארץ, והגבול המזרחי הוא הירדן:</p>
+<blockquote>וְיָרַד הַגְּבוּל הַיַּרְדֵּנָה וְהָיוּ תוֹצְאֹתָיו יָם הַמֶּלַח זֹאת תִּהְיֶה לָכֶם הָאָרֶץ לִגְבֻלֹתֶיהָ סָבִיב (במדבר לד, יב)</blockquote>
+<p>מי שקורא את הפסוק כפשוטו מבין: הגבול הוא הירדן, וכל מה שמעבר לו כבר אינו ארץ ישראל. לכל היותר מקום שאפשר להתיישב בו, אבל לא חלק מהארץ עצמה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: &quot;ושמה לא תבוא&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ושמה לא תבוא&quot;</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש מקור חזק עוד יותר. משה רבנו נענש בכך שלא ייכנס לארץ:</p>
+<blockquote>כִּי מִנֶּגֶד תִּרְאֶה אֶת הָאָרֶץ וְשָׁמָּה לֹא תָבוֹא אֶל הָאָרֶץ אֲשֶׁר אֲנִי נֹתֵן לִבְנֵי יִשְׂרָאֵל (דברים לב, נב)</blockquote>
+<p>וכן: "עֲלֵה רֹאשׁ הַפִּסְגָּה וְשָׂא עֵינֶיךָ יָמָּה וְצָפֹנָה וְתֵימָנָה וּמִזְרָחָה וּרְאֵה בְעֵינֶיךָ כִּי לֹא תַעֲבֹר אֶת הַיַּרְדֵּן הַזֶּה" (דברים ג, כז).</p>
+<p>כל אחד יודע מפרשת חוקת שמשה ואהרן לא נכנסו לארץ ישראל. והרי משה היה בעבר הירדן, כבש אותו, הלך בו, ונקבר בו! אם עבר הירדן הוא ארץ ישראל, משה כן היה בארץ ישראל. משמע שעבר הירדן אינו ארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;וישבו להם חוץ מארץ ישראל&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;וישבו להם חוץ מארץ ישראל&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והמדרש אומר זאת במפורש:</p>
+<blockquote>וכן אתה מוצא בבני גד ובני ראובן שהיו עשירים והיה להם מקנה גדול, וחיבבו את ממונם וישבו להם חוץ מארץ ישראל, לפיכך גלו תחילה מכל השבטים (במדבר רבה כב, ז)</blockquote>
+<p>המדרש קורא לנחלת גד וראובן בשמה: <strong>חוץ לארץ ישראל</strong>. ועל שבחרו בה בגלל המקנה, הם היו הראשונים שגלו.</p>
+<p class="bold-para">מקור אחר מקור נראה כאומר: הירדן הוא הקו, ומעבר לו חוץ לארץ.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: מה משה לא אמר לבני גד וראובן ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🌄</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">הצד השני: ראשית כיבוש הארץ</h2></div></div>
+<p class="chapter-intro">ומנגד, מקורות לא פחות חזקים נראים כאומרים בדיוק את ההפך.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה משה לא אמר לבני גד וראובן</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשבני גד ובני ראובן ביקשו להישאר בעבר הירדן, משה רבנו כעס עליהם מאוד. אבל כדאי לשים לב מה הייתה הטענה שלו:</p>
+<blockquote>הַאַחֵיכֶם יָבֹאוּ לַמִּלְחָמָה וְאַתֶּם תֵּשְׁבוּ פֹה. וְלָמָּה תְנִיאוּן אֶת לֵב בְּנֵי יִשְׂרָאֵל מֵעֲבֹר אֶל הָאָרֶץ אֲשֶׁר נָתַן לָהֶם ה' (במדבר לב, ו-ז)</blockquote>
+<p>הוא לא אמר להם: אתם מוותרים על ארץ ישראל הקדושה, על הארץ הטובה, על המצוות התלויות בה. מילה אחת על זה לא נאמרה. כל הטענה הייתה: אתם מרפים את ידי העם, כמו המרגלים, ואחיכם יילחמו לבד.</p>
+<p>וברגע שהתחייבו לבוא ולהילחם, משה הסכים בלב שלם, ואף הוסיף להם מעצמו את חצי שבט מנשה. אילו עבר הירדן היה חוץ לארץ, איך ייתכן שלא אמר על כך דבר?</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;וירא ראשית לו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;וירא ראשית לו&quot;</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובסוף התורה, כשמשה מברך את השבטים לפני מותו, הוא אומר על גד:</p>
+<blockquote>וַיַּרְא רֵאשִׁית לוֹ כִּי שָׁם חֶלְקַת מְחֹקֵק סָפוּן וַיֵּתֵא רָאשֵׁי עָם צִדְקַת ה' עָשָׂה וּמִשְׁפָּטָיו עִם יִשְׂרָאֵל (דברים לג, כא)</blockquote>
+<p>ומפרש רש״י: "וירא ראשית לו – ראה ליטול לו חלק בארץ סיחון ועוג, שהיא ראשית כבוש הארץ. כי שם חלקת – כי ידע אשר בנחלתו חלקת שדה קבורת מחוקק, הוא משה".</p>
+<p>משה <strong>משבח</strong> את שבט גד: הוא ראה טוב, ולקח את <strong>ראשית כיבוש הארץ</strong>. ועוד מעלה יש שם: קברו של משה רבנו. אנחנו לא יודעים היכן בדיוק הוא קבור, אבל המקום שבו קבור צדיק מתקדש. גם היום רואים כמה האזור סביב מירון מתמלא חיים בזכות קבר הרשב״י.</p>
+<p class="bold-para">אותה תורה שאומרת "ושמה לא תבוא", קוראת לעבר הירדן "ראשית כיבוש הארץ".</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: כל מה שראה משה חייב במעשר ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כל מה שראה משה חייב במעשר</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה עלה לפני מותו לראש הפסגה:</p>
+<blockquote>וַיַּעַל מֹשֶׁה מֵעַרְבֹת מוֹאָב אֶל הַר נְבוֹ רֹאשׁ הַפִּסְגָּה אֲשֶׁר עַל פְּנֵי יְרֵחוֹ וַיַּרְאֵהוּ ה' אֶת כָּל הָאָרֶץ אֶת הַגִּלְעָד עַד דָּן (דברים לד, א)</blockquote>
+<p>אם עבר הירדן הוא חוץ לארץ, מה ראה משה כשהביט מזרחה? והגמרא אומרת:</p>
+<blockquote>אמר רב יהודה אמר שמואל: כל שהראהו הקדוש ברוך הוא למשה, חייב במעשר. לאתויי מאי? לאתויי קיני קניזי וקדמוני (בבא בתרא נו ע״א)</blockquote>
+<p>הקיני, הקניזי והקדמוני הם אזורים בעבר הירדן, מול באר שבע וערבה. והפסוק אומר במפורש שמשה ראה גם את הגלעד. מכאן: עבר הירדן חייב במעשר, כלומר יש לו קדושת ארץ ישראל לעניין המצוות התלויות בארץ.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הגלעד, אליהו ושבט דן ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הגלעד, אליהו ושבט דן</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגלעד, אזור מזרחי לירדן, אינו מקום שולי בתנ״ך. ממנו בא יפתח הגלעדי, ואליהו הנביא נקרא "אליהו התשבי מתושבי גלעד" (מלכים א יז, א), מה ששרים במוצאי שבת: אליהו התשבי, אליהו הגלעדי. אם אליהו גר שם, כנראה המקום ראוי.</p>
+<p>ומשה רואה "את הגלעד עד דן". שבט דן ישב בתחילה במישור החוף, וכשצר לו המקום הלך חלק ממנו צפונה, כבש את לשם וקרא לה דן. משם נולד הביטוי "מדן ועד באר שבע", שחוזר בתנ״ך בכל פעם שרוצים לומר: כל ישראל. וחז״ל אף דרשו את שם הירדן: "שיורד מדן" (בכורות נה ע״א).</p>
+<div class="honey-box">🍯 התורה מראה למשה את עבר הירדן יחד עם כל הארץ, כחלק אחד ממנה.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הענקים שנקראו &quot;אימים&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🗿</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">ארץ רפאים: מה הובטח לאברהם</h2></div></div>
+<p class="chapter-intro">רש״י ורמב״ן נחלקו איזה חלק מעבר הירדן הוא "ארץ רפאים" שהובטחה לאברהם אבינו, ולמחלוקת יש הד מפתיע בימינו.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הענקים שנקראו &quot;אימים&quot;</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על נחלת חצי שבט מנשה בעבר הירדן נאמר:</p>
+<blockquote>וְיֶתֶר הַגִּלְעָד וְכָל הַבָּשָׁן מַמְלֶכֶת עוֹג נָתַתִּי לַחֲצִי שֵׁבֶט הַמְנַשֶּׁה כֹּל חֶבֶל הָאַרְגֹּב לְכָל הַבָּשָׁן הַהוּא יִקָּרֵא אֶרֶץ רְפָאִים (דברים ג, יג)</blockquote>
+<p>מי היו הרפאים? התורה מתארת אותם כ"עַם גָּדוֹל וְרַב וָרָם כָּעֲנָקִים" (דברים ב, כא), ענקים מפחידים כל כך שהמואבים קראו להם "אימים" והעמונים "זמזומים". חז״ל אף דרשו שענקי פלשתים, גלית ואחיו, היו מצאצאי ערפה, שנקראו "ילידי הרפה". אולי מכאן הגיע גם הביטוי "רוח רפאים" למשהו מפחיד.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: רש״י: הבשן הוא הארץ שהובטחה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">רש״י: הבשן הוא הארץ שהובטחה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה התורה טורחת לספר שהבשן "יקרא ארץ רפאים"? רש״י מסביר: היא אשר נתתי לאברהם. בברית בין הבתרים נאמר:</p>
+<blockquote>לְזַרְעֲךָ נָתַתִּי אֶת הָאָרֶץ הַזֹּאת מִנְּהַר מִצְרַיִם עַד הַנָּהָר הַגָּדֹל נְהַר פְּרָת. אֶת הַקֵּינִי וְאֶת הַקְּנִזִּי וְאֵת הַקַּדְמֹנִי. וְאֶת הַחִתִּי וְאֶת הַפְּרִזִּי וְאֶת הָרְפָאִים (בראשית טו, יח-כ)</blockquote>
+<p>כלומר, הבשן, ממלכת עוג שכבש משה ונתן למנשה, הוא <strong>ארץ הרפאים שהובטחה לאברהם אבינו</strong> בברית בין הבתרים.</p>
+<p>ומה עם ארץ סיחון, נחלת ראובן וגד? בזה נחלקו רש״י ורמב״ן. לפי רש״י, רק הבשן הוא ארץ רפאים, ושאר עבר הירדן אינו חלק ממה שהובטח לאברהם, ודרגתו פחותה.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: החלוקה של ימינו ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">החלוקה של ימינו</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש כאן דבר מעניין מאוד. מה יש בידינו היום מעבר לירדן? את הגולן, שהוא בערך האזור של חצי שבט מנשה, הבשן. ומה אין בידינו? את נחלת ראובן וגד, שבממלכת ירדן של היום.</p>
+<p>האם זה מקרי? לפי רש״י, דווקא החלק שבידינו הוא ארץ הרפאים שהובטחה לאברהם, והחלק שאינו בידינו הוא בדרגה פחותה.</p>
+<p>זה מסביר גם למה ראובן וגד היו צריכים לבקש את נחלתם, ואילו מנשה קיבל את חלקו בלי שביקש: משה נתן לו מעצמו את הבשן, כי זו ארץ ההבטחה.</p>
+<div class="honey-box">🍯 לפעמים המפה של ימינו משרטטת, בלי שאיש התכוון, את דברי רש״י.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: &quot;שלוש ארצות לביעור&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🔑</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">שלוש ארצות, ותשובת המשך חכמה</h2></div></div>
+<p class="chapter-intro">המשנה והרמב״ם מונים את עבר הירדן כאחד משלושת חלקי הארץ. אז למה משה רצה כל כך להיכנס?</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;שלוש ארצות לביעור&quot;</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במשנה במסכת שביעית נאמר:</p>
+<blockquote>שָׁלֹשׁ אֲרָצוֹת לַבִּעוּר: יְהוּדָה, וְעֵבֶר הַיַּרְדֵּן, וְהַגָּלִיל (שביעית ט, ב)</blockquote>
+<p>וכך פוסק הרמב״ם בהלכות שמיטה: ארץ ישראל נחלקת לשלוש ארצות, ואחת מהן היא עבר הירדן. כלומר, להלכה עבר הירדן הוא <strong>חלק מארץ ישראל</strong>, ונוהגים בו דיני שביעית.</p>
+<p>אבל אם כן, הקושיה חוזרת במלוא עוזה: הרי משה רבנו היה בעבר הירדן. למה הוא התחנן כל כך להיכנס לארץ, ולמה נאמר שלא נכנס?</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: &quot;וכי לאכול מפריה הוא צריך?&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;וכי לאכול מפריה הוא צריך?&quot;</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת סוטה שואלת:</p>
+<blockquote>דרש רבי שמלאי: מפני מה נתאוה משה רבינו ליכנס לארץ ישראל? וכי לאכול מפריה הוא צריך, או לשבוע מטובה הוא צריך? אלא כך אמר משה: הרבה מצות נצטוו ישראל ואין מתקיימין אלא בארץ ישראל, אכנס אני לארץ כדי שיתקיימו כולן על ידי (סוטה יד ע״א)</blockquote>
+<p>המשך חכמה מקשה: למה הגמרא צריכה לחפש סיבה? הלוא ישיבת ארץ ישראל היא בעצמה מצווה, ומשה רצה לקיים אותה!</p>
+<p>ומתרץ: משה <strong>כבר</strong> היה בארץ ישראל. ארץ סיחון ועוג, ארץ האמורי, אחד משבעת העממים, היא ארץ ישראל, ובני גד וראובן קיימו בה מצוות ישיבת הארץ. לכן לא שואלת הגמרא על מצוות ישיבת הארץ, אלא על המצוות התלויות בארץ.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: העיקר קודם לטפל ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">העיקר קודם לטפל</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ולמה לא יכול משה לקיים את המצוות התלויות בארץ בעבר הירדן? כאן החידוש של המשך חכמה: המצוות התלויות בארץ חלות על עבר הירדן רק <strong>אחרי</strong> שכובשים ומחלקים את הארץ המערבית.</p>
+<p>הארץ המערבית היא העיקר, ועבר הירדן הוא הטפל. אי אפשר שהקדושה תחול על הטפל לפני שחלה על העיקר. רק כשעם ישראל כבש וחילק את הארץ שממערב לירדן, חלו המצוות גם על החלק המזרחי.</p>
+<p>ממילא, כל זמן שמשה עמד בעבר הירדן, הוא היה בארץ ישראל, ומקיים את מצוות ישיבתה, אבל לא יכול היה לקיים את המצוות התלויות בארץ. לשם כך היה צריך להיכנס לארץ המערבית.</p>
+<p class="bold-para">עבר הירדן הוא ארץ ישראל, אבל קדושתו תלויה בקדושת הארץ שממערב.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: שמיטה בגולן וירקות מירדן ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שמיטה בגולן וירקות מירדן</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לשאלה הזו יש משמעות מעשית מאוד גם היום. מהגמרא בבבא בתרא עולה שהגולן וחלק מעבר הירדן המזרחי, לפחות עד אזור עמון, חייבים במעשר ובשביעית. ובאמת, בשנת השמיטה לא עבדו בגולן כמו בשאר הארץ.</p>
+<p>ומה עם ירקות שמייבאים מממלכת ירדן בשמיטה? זה תלוי בשיטת ההכשר. לפי השיטה שבפירות שגדלו בקרקע של גוי אין קדושת שביעית, אין בעיה להביא מירדן, כמו שמביאים מכל מקום אחר. אבל לפי החזון איש, שגם בפירות של גוי יש קדושת שביעית, צריך לברר מאיזה אזור בירדן הגיעו. אם מהדרום הרחוק, שהיה שייך לעמון, למואב ולאדום ולא נכבש בידי משה, אין קדושה. אבל אם מארץ סיחון ועוג שכבש משה, יש בעיה.</p>
+<p>בפועל קשה מאוד למשגיחים לעקוב אחרי מקור הירקות בעומק ירדן.</p>
+<div class="honey-box">🍯 מחלוקת עתיקה על מעמדו של עבר הירדן מגיעה עד לצלחת שלנו בשנת השמיטה.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: שאלה שעדיין מחכה ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שאלה שעדיין מחכה</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ראינו את שני הצדדים במלוא חוזקם. מצד אחד: הירדן הוא הגבול של פרשת מסעי, משה "לא בא אל הארץ", ובני גד וראובן "ישבו חוץ לארץ". מצד שני: משה לא טען נגדם דבר על ויתור על הארץ, הוא שיבח את גד שלקח "ראשית כיבוש הארץ", כל מה שראה משה חייב במעשר, והמשנה והרמב״ם מונים את עבר הירדן כאחת משלוש ארצות.</p>
+<p>המשך חכמה מציע דרך אחת ליישב: עבר הירדן הוא ארץ ישראל, אך הוא טפל לארץ המערבית. ויש עוד דרכים ליישב את הסתירה, וגם האור החיים בפרשה מתלבט בה וחוזר בו מהבנתו הראשונה.</p>
+<p>ומה שבטוח: עבר הירדן קשור לארץ ישראל בקשר עמוק, ונחלת שבטים מישראל הייתה שם. נתפלל שנזכה לראות את שני עברי הירדן בידי עם ישראל, וכל מה שה' הבטיח לאבותינו יתקיים במהרה בימינו.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
