@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🚨 חלק א: שלוחי מצווה אינם ניזוקים – כמה מותר להיכנס לסכנה</title>
+<meta name="description" content="מהמפולת של יום כיפור ועד בדיקת חמץ בין העקרבים: מתי מחללים שבת על ספק רחוק, מתי סומכים על &quot;שלוחי מצווה אינם ניזוקים&quot;, ומה פירוש &quot;היכא דשכיח היזיקא&quot; בימי מלחמה">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🚨 חלק א: שלוחי מצווה אינם ניזוקים – כמה מותר להיכנס לסכנה</h1>
+  <p class="hero-subtitle">מהמפולת של יום כיפור ועד בדיקת חמץ בין העקרבים: מתי מחללים שבת על ספק רחוק, מתי סומכים על &quot;שלוחי מצווה אינם ניזוקים&quot;, ומה פירוש &quot;היכא דשכיח היזיקא&quot; בימי מלחמה</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/YeelbY3ho5w" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🚨 שאלות שהמלחמה הביאה הביתה</a><ul class="toc-stories"><li><a href="#story-1">כשהאזעקה תופסת אותך באמצע התפילה</a></li><li><a href="#story-2">להיכנס למקום מסוכן כדי לעזור לאחרים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🧱 ספק ספק ספק – ובכל זאת מפקחים את הגל</a><ul class="toc-stories"><li><a href="#story-3">המפולת של המשנה</a></li><li><a href="#story-4">אפילו בשביל כמה שעות של חיים</a></li><li><a href="#story-5">פיקוח נפש בשבת, וחשבון &quot;מה יאמרו&quot;</a></li><li><a href="#story-6">&quot;לפניך&quot;: בית החולים שלא נבנה בשבת</a></li><li><a href="#story-7">שני רופאים מול מאה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🕯️ בדיקת חמץ בין העקרבים</a><ul class="toc-stories"><li><a href="#story-8">הבית שפעם היה על האדמה</a></li><li><a href="#story-9">&quot;שלוחי מצווה אינם ניזוקים&quot; – והמחט שאבדה</a></li><li><a href="#story-10">מצווה עם כוונה נוספת – עדיין מצווה</a></li><li><a href="#story-11">הציציות שהצילו</a></li><li><a href="#story-12">האם חוששים לזה בכל שליחות?</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">⚖️ היכא דשכיח היזיקא – כשהנזק מצוי</a><ul class="toc-stories"><li><a href="#story-13">החור שבין הבית שלך לבית השכן</a></li><li><a href="#story-14">&quot;איך אלך ושמע שאול והרגני&quot;</a></li><li><a href="#story-15">&quot;מצוי&quot; זה לא חמישים ואחד אחוז</a></li><li><a href="#story-16">ההגדרה של בעל שבט הלוי: עשר חנויות</a></li><li><a href="#story-17">נסיעה במכונית, ומה שעושים בשביל פרנסה</a></li><li><a href="#story-18">בית כנסת בלי ממ״ד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🏕️ לא בהליכתן ולא בחזרתן</a><ul class="toc-stories"><li><a href="#story-19">&quot;עליי ועל צווארי&quot;</a></li><li><a href="#story-20">ובדרך חזרה?</a></li><li><a href="#story-21">&quot;ולא יחמוד איש את ארצך&quot;</a></li><li><a href="#story-22">הפרה רועה באפר, והאוהל מחכה בשלום</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🚨</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">שאלות שהמלחמה הביאה הביתה</h2></div></div>
+<p class="chapter-intro">אזעקה באמצע שמונה עשרה, נסיעה לדרום כדי לעזור, תפילה בבית כנסת בלי ממ״ד. פעם אלה היו שאלות של ספרים; היום הן שאלות של כל יום.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשהאזעקה תופסת אותך באמצע התפילה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אדם עומד בשמונה עשרה, ופתאום נשמעת אזעקה. האם הוא חייב להפסיק וללכת לממ״ד? האם מותר לו להפסיק? ואם הפסיק – מאיפה ממשיך? ומה עם מי שנמצא באזור שכמעט לא נופלים בו טילים – גם הוא צריך לרוץ?</p>
+<p>אלה שאלות שכל יהודי בארץ פגש בתקופה האחרונה. כדי לענות עליהן לא מספיק לשאול "מה מרגיש לי נכון". צריך ללמוד מהיסוד: איך התורה מגדירה סכנה, מתי חוששים לה ומתי לא, ומה כוחה של מצווה להגן על האדם.</p>
+<p class="bold-para">לפני שמחליטים מה עושים בשעת סכנה, צריך להבין מה התורה קוראת "סכנה".</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: להיכנס למקום מסוכן כדי לעזור לאחרים ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">להיכנס למקום מסוכן כדי לעזור לאחרים</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה שנייה, קשה עוד יותר: עד כמה מותר לאדם להיכנס לסכנה כדי לעזור לאחרים? בתקופת המלחמה אנשים רבים נוסעים לדרום ולצפון, מביאים ציוד למשפחות, מחזקים חיילים, מתנדבים בכל דרך. בשמחת תורה רבים יצאו מבתיהם כדי להציל פצועים, וחלקם לא חזרו.</p>
+<p>האם מותר? האם זו מצווה? ואם כן, האם המצווה עצמה שומרת עליהם? חז״ל אמרו כלל גדול – "שלוחי מצווה אינם ניזוקים" – אבל הגמרא עצמה מגבילה אותו. ננסה להבין את הגבולות האלה צעד אחר צעד, מתוך המקורות עצמם.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: המפולת של המשנה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🧱</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">ספק ספק ספק – ובכל זאת מפקחים את הגל</h2></div></div>
+<p class="chapter-intro">נקודת המוצא: כשיש סכנה ודאית לפנינו, התורה הולכת עד הספק הרחוק ביותר כדי להציל חיים.</p>
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המפולת של המשנה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה במסכת יומא (ח, ז) מתארת מקרה קשה בשבת או ביום כיפור:</p>
+<blockquote>"מי שנפלה עליו מפולת, ספק הוא שם ספק אינו שם, ספק חי ספק מת, ספק כנעני ספק ישראל – מפקחין עליו את הגל. מצאוהו חי – מפקחין, ואם מת – יניחוהו."</blockquote>
+<p>תחשבו כמה ספקות יש כאן. אולי בכלל אין שם איש, אולי הוא הספיק לברוח. ואם יש – אולי הוא כבר מת, וכל העבודה לשווא. ואם חי – אולי אינו יהודי. ספק על ספק על ספק, ובכל זאת המשנה פוסקת: מחללים שבת ומפנים את ההריסות.</p>
+<p class="bold-para">כשסכנה ודאית מונחת לפניך, אין ספק רחוק מדי.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: אפילו בשביל כמה שעות של חיים ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אפילו בשביל כמה שעות של חיים</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא שואלת: מה החידוש בסוף המשנה? ברור שאם מצאוהו חי ממשיכים לפקח! ומתרצת: אפילו אם ברור שהאדם הזה יחיה רק עוד שעות ספורות – מחללים עליו שבת. "לחיי שעה".</p>
+<p>המקור לכל זה הוא הפסוק "אֲשֶׁר יַעֲשֶׂה אֹתָם הָאָדָם וָחַי בָּהֶם" (ויקרא יח, ה), ודרשו חז״ל: "וחי בהם – ולא שימות בהם". התוספות מסבירים שהתורה הקפידה שלעולם לא יגרם מוות של יהודי בגלל שמירת מצווה. התורה היא תורת חיים: שבת אחת נדחית כדי שאדם יחיה וישמור עוד שבתות רבות, ואפילו כדי שיחיה עוד שעה אחת.</p>
+<div class="honey-box">🍯 כל שעה של חיים יקרה בעיני ה' כל כך, שבשבילה נדחית השבת כולה.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: פיקוח נפש בשבת, וחשבון &quot;מה יאמרו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">פיקוח נפש בשבת, וחשבון &quot;מה יאמרו&quot;</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההיתר לחלל שבת נאמר על יהודי, וגם על ספק יהודי – אפילו כשרוב האנשים במקום אינם יהודים. אבל מה עם רופא בבית חולים שמגיע אליו פצוע שאינו יהודי? כאן נכנס שיקול נוסף: רופא שיסרב לטפל, הדבר יתפרסם בעולם, ויגרום שנאה וסכנה ליהודים בכל מקום – בארצות הברית, בצרפת ובכל מקום אחר. זו לא סכנה רחוקה אלא דבר שבוודאי יקרה, ולכן רופא בבית חולים מטפל בכל אדם.</p>
+<p>כך גם מי שקיבל על עצמו תפקיד בארגון הצלה, שהמחויבות שלו ידועה לכולם. ההלכה בנויה בדקדוק: לא רגש כללי ולא אדישות, אלא חשבון מדויק של מה התורה מתירה, ומתי השלום והבטחון של עם ישראל כולו מחייבים.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;לפניך&quot;: בית החולים שלא נבנה בשבת ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;לפניך&quot;: בית החולים שלא נבנה בשבת</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בראשית ימי המדינה היה מחסור גדול במיטות אשפוז. בנו בית חולים חדש, ושאלו את החזון איש: אולי מותר להמשיך בבנייה גם בשבת? הרי כל יום שבית החולים יפתח מוקדם יותר – יצילו בו עוד אנשים!</p>
+<p>החזון איש השיב שאסור. הגדר של פיקוח נפש הוא כשהסכנה <strong>לפניך</strong>: חולה מסוים, מפולת מסוימת. אם נתיר כל דבר שבעקיפין יציל חיים בעתיד, נתיר לסטודנט לרפואה ללמוד בשבת כדי שיהיה רופא מהר יותר, ולבנות כבישים בשבת כדי שהאמבולנס יגיע מהר יותר – ולא תישאר שבת.</p>
+<p class="bold-para">פיקוח נפש מתיר הכול כשהסכנה כאן; הוא לא מתיר לבנות את העולם על חשבון השבת.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: שני רופאים מול מאה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שני רופאים מול מאה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עוד דוגמה לכמה ההלכה הולכת אחר הספק. השולחן ערוך (אורח חיים, סימן תריח) פוסק לגבי חולה ביום כיפור: אם שני רופאים אומרים שהוא צריך לאכול, ואפילו מאה רופאים אומרים שאינו צריך, ואפילו החולה עצמו אומר שאינו צריך – מאכילים אותו.</p>
+<p>למה שניים ולא אחד? כי בתורה דבר מתבסס על פי שניים – "עַל פִּי שְׁנַיִם עֵדִים... יָקוּם דָּבָר" (דברים יט, טו). כשיש שני מומחים שאומרים שיש סכנה, זה כבר ספק ממשי, ובספק נפשות הולכים לקולא, גם מול רוב גדול.</p>
+<div class="honey-box">🍯 בספק נפשות לא סופרים קולות – מספיק שיש ספק אמיתי כדי להציל.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: הבית שפעם היה על האדמה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">בדיקת חמץ בין העקרבים</h2></div></div>
+<p class="chapter-intro">ממסכת פסחים לומדים את הכלל המפורסם "שלוחי מצווה אינם ניזוקים" – ומיד גם את הגבולות שלו.</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הבית שפעם היה על האדמה</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא (פסחים ח, ב) מביאה ברייתא: "אין מחייבין אותו להכניס ידו לחורין ולסדקין לבדוק, מפני הסכנה". כדי להבין את זה צריך לדמיין איך גרו פעם: בלי מרצפות, בלי ריצוף ובלי טיח. הבית עמד על האדמה, הקירות היו אבנים, ובין האבנים חורים וסדקים. מרימים אבן – ומתחתיה עקרב.</p>
+<p>הגמרא מעמידה את המקרה בכותל שנפל: היה קיר, הוא קרס, ועכשיו יש ערימת אבנים. בתוך הערימה אולי יש חמץ, ובוודאי יש גם "אורחים לא רצויים" – עקרבים. ואם הכלב יכול לחפור ולהגיע לחמץ, החמץ עוד נחשב מצוי בבית, וצריך לבדוק. ובכל זאת אומרים: אין מחייבים אותו להכניס יד, מפני הסכנה.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: &quot;שלוחי מצווה אינם ניזוקים&quot; – והמחט שאבדה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;שלוחי מצווה אינם ניזוקים&quot; – והמחט שאבדה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא שואלת מיד: מה הבעיה? הרי אמר רבי אלעזר: "שלוחי מצוה אינן ניזוקין". האדם הזה הולך לבדוק חמץ – הוא שליח מצווה!</p>
+<p>מתרץ רב אשי תירוץ מעניין: "דילמא נפלה ליה מחטא ואתי לעיוני בתרה". אולי איבד פעם מחט בין האבנים, ועכשיו, כשהוא כבר מחפש חמץ, הוא יחפש גם אותה. ומה שהוא מחפש בשביל עצמו – זה כבר לא שליחות של מצווה, ועליו ההבטחה לא חלה.</p>
+<p class="bold-para">ההבטחה שומרת על מי שעושה מצווה, לא על מי שמנצל את המצווה כדי לעסוק בענייניו.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: מצווה עם כוונה נוספת – עדיין מצווה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מצווה עם כוונה נוספת – עדיין מצווה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא מקשה: והרי שנינו "האומר סלע זו לצדקה בשביל שיחיו בני, או בשביל שאזכה לעולם הבא – הרי זה צדיק גמור"! אדם שעושה מצווה וגם מקווה לקבל ממנה טובה – עדיין מצווה גמורה.</p>
+<p>נכון שאנטיגנוס איש סוכו לימד: "אל תהיו כעבדים המשמשין את הרב על מנת לקבל פרס" (אבות א, ג), וזו מדרגה גבוהה יותר. אבל מי שעושה מצווה כדי שתגן עליו – עושה מצווה. לכן הגמרא מסבירה שהבעיה אינה בזמן הבדיקה עצמה, אלא אחריה: כשיגמור לבדוק את החמץ, הוא ימשיך לחפש את המחט, ואז הוא כבר לא שליח מצווה.</p>
+<div class="honey-box">🍯 כוונה נוספת לא מבטלת מצווה; מה שמבטל את ההגנה הוא כשהמצווה נגמרת והעיסוק הפרטי נמשך.</div>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הציציות שהצילו ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הציציות שהצילו</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתקופה האחרונה יש ביקוש עצום לציציות לחיילים. בבתי כנסת שלמים יושבים בחורים ומבוגרים וקושרים ציציות, ואלפי חיילים מבקשים ללבוש אותן – חלק מתוך אמונה עמוקה, חלק כי "זה שומר".</p>
+<p>התפרסם סיפור על אדם שנכנס ברכבו לבדו לאזור שהמחבלים השתלטו עליו, כדי להציל. נורה ונפל פצוע ליד גופות מחבלים. כשהגיעו הלוחמים, הוא היה בלי מדים ובלי שום סימן, והם חשבו שגם הוא מחבל. רגע לפני שירו, ראו את הציציות שלו. "מחבל לא לובש ציציות", אמרו – והוא ניצל.</p>
+<p>מי שלובש ציצית גם בשביל השמירה – עושה מצווה, והגמרא קוראת לו "צדיק גמור".</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: האם חוששים לזה בכל שליחות? ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">האם חוששים לזה בכל שליחות?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נשאלת שאלה: אם הגמרא חוששת שאחרי בדיקת החמץ האדם ימשיך לחפש דברים אחרים, האם נחשוש לזה בכל מצווה? מי שנוסע לחזק משפחות בדרום – אולי אחר כך יעצור לטייל, לדבר עם אנשים, לעסוק בענייניו?</p>
+<p>נראה שבדיקת חמץ היא מקרה מיוחד: אדם שביתו קרס מחפש כל דבר שאבד לו, וזה מצוי מאוד. במצוות אחרות אין לחשוש בכל מקום לחשבונות כאלה. ובכל זאת יש בגמרא תירוץ נוסף, והוא היסוד הגדול של כל הנושא.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: החור שבין הבית שלך לבית השכן ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">היכא דשכיח היזיקא – כשהנזק מצוי</h2></div></div>
+<p class="chapter-intro">ההבטחה "שלוחי מצווה אינם ניזוקים" לא חלה במקום שהנזק בו מצוי. אבל מה נקרא "מצוי"?</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">החור שבין הבית שלך לבית השכן</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא מביאה את דברי פלימו: חור שבין בית יהודי לבית שכנו הנכרי – "כל עצמו אינו בודק, מפני הסכנה". איזו סכנה? השכן יראה את היהודי בלילה, עם נר, מחטט בחורים שבקיר המשותף, ויחשוב שהוא עושה כשפים או מניח שם משהו רע. ומשם קצרה הדרך לעלילה ולסכנה ממשית.</p>
+<p>ושוב שואלת הגמרא: הרי שלוחי מצווה אינם ניזוקים! ועונה: "היכא דשכיח היזיקא שאני" – במקום שהנזק מצוי, אין סומכים על הנס.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: &quot;איך אלך ושמע שאול והרגני&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;איך אלך ושמע שאול והרגני&quot;</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הראיה מהפסוק:</p>
+<blockquote>"וַיֹּאמֶר שְׁמוּאֵל אֵיךְ אֵלֵךְ וְשָׁמַע שָׁאוּל וַהֲרָגָנִי וַיֹּאמֶר ה' עֶגְלַת בָּקָר תִּקַּח בְּיָדֶךָ וְאָמַרְתָּ לִזְבֹּחַ לַה' בָּאתִי" (שמואל א טז, ב)</blockquote>
+<p>ה' בעצמו שולח את שמואל למשוח את דוד, ושמואל מפחד. ה' לא אומר לו "אל תדאג, שלוחי מצווה אינם ניזוקים" – אלא נותן לו דרך להסוות: קח עגל, אמור שבאת להקריב, שב לסעודה עם ישי ובניו, ושם, בשקט, תמשח את דוד.</p>
+<p class="bold-para">אפילו שליח מצווה של ה' עצמו נוהג בזהירות כשהסכנה מצויה.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: &quot;מצוי&quot; זה לא חמישים ואחד אחוז ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;מצוי&quot; זה לא חמישים ואחד אחוז</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה נקרא "שכיח היזיקא"? ברור שאין הכוונה לרוב. לא מסתבר שלשליח מצווה מותר להיכנס למקום שיש בו עשרים אחוז סכנה למות – ברור שאסור! וכמה פעמים באמת קרה שגוי ראה יהודי בודק חמץ והעליל עליו? היו עלילות דם בערבי פסח, אבל זה לא היה דבר של כל יום. ובכל זאת הגמרא קוראת לזה "שכיח".</p>
+<p>אם כן, "מצוי" הוא דבר הרבה פחות מרוב. צריך הגדרה אחרת.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: ההגדרה של בעל שבט הלוי: עשר חנויות ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">ההגדרה של בעל שבט הלוי: עשר חנויות</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרב שמואל הלוי וואזנר, בעל שבט הלוי, הגדיר "מיעוט המצוי" לגבי תולעים בפירות, והגדרה זו מאירה גם כאן: אם אסתובב בעיר, אקנה תמרים בעשר חנויות, ובאחת מהן אמצא תמרים מתולעים – זה מצוי. וכך באמת: בתמרים מיובשים פשוטים, מכל עשר חבילות כמעט תמיד באחת יש תולעים (תמרי מג'הול המשובחים בדרך כלל נקיים).</p>
+<p>פירות מגינה פרטית שלא מרססים – תפוזים, קלמנטינות, אשכוליות – תמיד יש ביניהם מתולעים, ולכן צריכים בדיקה. לעומת זאת בוטנים אמריקאיים קלויים: אפשר לעבור עשר חנויות פיצוחים ולא למצוא אפילו אחד נגוע. לכן רוב העולם לא בודק אותם.</p>
+<div class="honey-box">🍯 "מצוי" פירושו: אם תחפש היום, תמצא. לא "קרה פעם", אלא "קורה עכשיו".</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: נסיעה במכונית, ומה שעושים בשביל פרנסה ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">נסיעה במכונית, ומה שעושים בשביל פרנסה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפי זה, אם נשאל שאלה הלכתית "האם מותר לנסוע במכונית?", לכאורה התשובה הייתה צריכה להיות שאסור – כמעט כל יום, לצערנו, מישהו נהרג בכביש. אז למה מותר?</p>
+<p>שתי סיבות. האחת: זה דבר שכל העולם עושה ורגיל בו, ו"שומר פתאים ה'". השנייה: בשביל פרנסה מותר לאדם להיכנס גם למידה מסוימת של סכנה. על הפועל אומרת התורה "וְאֵלָיו הוּא נֹשֵׂא אֶת נַפְשׁוֹ" (דברים כד, טו) – הוא מוסר את נפשו בעבודתו, עולה בסולם ותולה באילן, כדי להתפרנס. וכיוון שנסיעה היא חלק מהעבודה ומהחיים, כולם נוהגים כך.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: בית כנסת בלי ממ״ד ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בית כנסת בלי ממ״ד</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה עם מקום שנפלו בו טילים? אם כל יום שומעים שם על פגיעות ופצועים, כמו ביישובים צמודי גבול בתקופות חמות, שפונו מתושביהם – זה "שכיח היזיקא", ושם אין לסמוך על "שלוחי מצווה אינם ניזוקים". אבל נסיעה לדרום באופן כללי, או לתל אביב – זה לא נזק מצוי לפי ההגדרה הזו.</p>
+<p>מישהו שאל: מותר לי ללכת להתפלל בבית כנסת שאין בו ממ״ד? אם יש בית כנסת אחר עם מרחב מוגן – כמובן עדיף. אבל אם אין, קשה לקרוא למקום שכזה "שכיח היזיקא": אין כרגע שום סכנה מוחשית, ואדם הולך לעשות מצווה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: &quot;עליי ועל צווארי&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🏕️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">לא בהליכתן ולא בחזרתן</h2></div></div>
+<p class="chapter-intro">הגמרא מסיימת בהבטחה מרגשת: השמירה מלווה את שליח המצווה גם בדרך חזרה הביתה.</p>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;עליי ועל צווארי&quot;</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא מספרת על אנשים שגרו מחוץ לעיר ורצו לבוא לשמוע דרשה, אבל הדרך בשעות החשכה – מוקדם בבוקר ומאוחר בלילה – הייתה מסוכנת: חושך, ולפעמים שודדים. החכם שנשאל אמר להם: בואו, "עליי ועל צווארי" – אני לוקח את האחריות.</p>
+<p>זה עניין גדול: מישהו שמוכן לקחת אחריות. כמה פעמים קורה שפיקוד העורף מתיר לפתוח בתי ספר או מוסדות, ובכל זאת הכול סגור – כי אין מי שיגיד "עליי ועל צווארי". קל לסגור; קשה לעמוד ולומר: אני מחליט ואני אחראי.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: ובדרך חזרה? ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ובדרך חזרה?</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי הדרשה שאלו: ומה עכשיו? כשבאנו – הלכנו למצווה. אבל בחזרה כבר אין מצווה, הדרשה נגמרה! על זה ענה רבי אלעזר: יש בידינו קבלה – "שלוחי מצוה אינן ניזוקין, לא בהליכתן ולא בחזרתן".</p>
+<p>ההבטחה לא נגמרת ברגע שהמצווה נגמרת. מי שיצא מביתו בשביל מצווה – הקדוש ברוך הוא מלווה אותו עד שהוא חוזר בשלום לביתו.</p>
+<p class="bold-para">השמירה של המצווה מלווה את האדם כל הדרך – הלוך וחזור.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: &quot;ולא יחמוד איש את ארצך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;ולא יחמוד איש את ארצך&quot;</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הראיה מן התורה, על העלייה לרגל:</p>
+<blockquote>"וְלֹא יַחְמֹד אִישׁ אֶת אַרְצְךָ בַּעֲלֹתְךָ לֵרָאוֹת אֶת פְּנֵי ה' אֱלֹהֶיךָ שָׁלֹשׁ פְּעָמִים בַּשָּׁנָה" (שמות לד, כד)</blockquote>
+<p>תחשבו מה פירוש הדבר: שלוש פעמים בשנה כל הגברים בישראל עולים לירושלים. הגבולות ריקים, הבתים פתוחים, השדות מופקרים. אחרי מה שראינו בשמחת תורה, כשרק חלק מהחיילים לא היו בעמדות, אפשר לדמיין מה אויב היה יכול לעשות כשהוא יודע שכל העם בירושלים. ואז, כמו היום, ישבו פלשתים בעזה, ממש על הגבול.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: הפרה רועה באפר, והאוהל מחכה בשלום ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הפרה רועה באפר, והאוהל מחכה בשלום</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז״ל דרשו מהפסוק: "מלמד שתהא פרתך רועה באפר ואין חיה מזיקתה, תרנגולתך מנקרת באשפה ואין חולדה מזיקתה". ומניין שגם בחזרה? מהפסוק "וּפָנִיתָ בַבֹּקֶר וְהָלַכְתָּ לְאֹהָלֶיךָ" (דברים טז, ז) – תלך ותמצא את אוהלך בשלום. לא נבזז, לא נשרף, אף אחד לא נגע.</p>
+<p>זה נס אדיר שחזר שלוש פעמים בשנה, דור אחרי דור.</p>
+<p>ודרך אגב, בעזה עצמה גרו יהודים במשך דורות רבים. שם קבור רבי ישראל נג'ארה, מחבר הפיוט "קה ריבון עלם" ששרים בכל שולחן שבת, ובעיר היה בית כנסת עתיק.</p>
+<div class="honey-box">🍯 מי שהולך בשליחות של ה' – ה' שומר על מה שהשאיר מאחור.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
