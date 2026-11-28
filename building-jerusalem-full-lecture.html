@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🕍 בניין ירושלים: מהרמב״ן ועד השכונות שמחוץ לחומות</title>
+<meta name="description" content="הרצאה אחת שלמה על שבע מאות שנות בנייה: עיר שוממה עם מניין בקושי, חורבה ושריפה, הגאון מווילנא ותלמידיו, בית הכנסת החורבה שנבנה, פוצץ וקם שוב – ועד השכונות הראשונות מחוץ לחומות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🕍 בניין ירושלים: מהרמב״ן ועד השכונות שמחוץ לחומות</h1>
+  <p class="hero-subtitle">הרצאה אחת שלמה על שבע מאות שנות בנייה: עיר שוממה עם מניין בקושי, חורבה ושריפה, הגאון מווילנא ותלמידיו, בית הכנסת החורבה שנבנה, פוצץ וקם שוב – ועד השכונות הראשונות מחוץ לחומות.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-21 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/t-PNQapaRyI" target="_blank" rel="noopener">🎬 חלק א ביוטיוב: מהרמב״ן ועד תלמידי הגר״א</a> <a class="video-btn" href="https://youtu.be/fSgZWwrVAbY" target="_blank" rel="noopener">🎬 חלק ב ביוטיוב: החורבה, מונטיפיורי ובעלי המוסר</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🏚️ הרמב״ן מגיע לעיר שוממה</a><ul class="toc-stories"><li><a href="#story-1">עיר בלי מניין</a></li><li><a href="#story-2">מצוות יישוב ארץ ישראל לשיטת הרמב״ן</a></li><li><a href="#story-3">בית חרב עם עמודי שיש</a></li><li><a href="#story-4">מסגד מול בית הכנסת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🔥 חצר האשכנזים: מהשל״ה ועד רבי יהודה החסיד</a><ul class="toc-stories"><li><a href="#story-5">השל״ה הקדוש בחצר</a></li><li><a href="#story-6">תנועת עלייה שבאה להביא את הגאולה</a></li><li><a href="#story-7">ביום הראשון – קונים חלקה</a></li><li><a href="#story-8">שישה ימים אחרי</a></li><li><a href="#story-9">החוב, השריפה ומאה שנה בתחפושת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🦅 הגאון מווילנא ותלמידיו: צפת או ירושלים</a><ul class="toc-stories"><li><a href="#story-10">איך בונים את ירושלים?</a></li><li><a href="#story-11">התורה החדשה של הגר״א</a></li><li><a href="#story-12">השיירות יוצאות</a></li><li><a href="#story-13">השליח שיצא ראשון</a></li><li><a href="#story-14">מגפה, בריחה וגילוי</a></li><li><a href="#story-15">הוויכוח הגדול</a></li><li><a href="#story-16">כשהאדמה רעדה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📜 החורבה חוזרת לידיים יהודיות</a><ul class="toc-stories"><li><a href="#story-17">לקנות אסור – להחזיר מותר</a></li><li><a href="#story-18">חוק החובות הישנים</a></li><li><a href="#story-19">המחיר ששילם רבי זלמן צורף</a></li><li><a href="#story-20">כאילו בנה אחת מחורבות ירושלים</a></li><li><a href="#story-21">בית הכנסת מנחם ציון</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🏛️ החורבה: נבנית, נחרבת ונבנית</a><ul class="toc-stories"><li><a href="#story-22">חזרה לשלטון התורכי – והדלת שנפתחה</a></li><li><a href="#story-23">הפירמן של שנת תרי״ד</a></li><li><a href="#story-24">לילה אחד, כיפה אחת</a></li><li><a href="#story-25">לב העיר</a></li><li><a href="#story-26">ל״ג בעומר תש״ח</a></li><li><a href="#story-27">לבנות בדיוק כמו שהיה</a></li><li><a href="#story-28">ברוך מציב גבול אלמנה</a></li><li><a href="#story-29">רמז לבית השלישי</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🏘️ מהלב אל הגוף: מונטיפיורי ומשכנות שאננים</a><ul class="toc-stories"><li><a href="#story-30">קודם הלב, אחר כך הגוף</a></li><li><a href="#story-31">החלום של מונטיפיורי</a></li><li><a href="#story-32">יהודה טורו והקמח שהגיע ליפו</a></li><li><a href="#story-33">אלף לירות, כמו עפרון</a></li><li><a href="#story-34">בית חולים שהחולים ברחו ממנו</a></li><li><a href="#story-35">משלמים לאנשים שיגורו</a></li><li><a href="#story-36">מה כתב מונטיפיורי ביומנו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🧭 חצר טרביש ובעלי המוסר</a><ul class="toc-stories"><li><a href="#story-37">המקובלים ובעלי המוסר</a></li><li><a href="#story-38">שלושה תלמידים של רבי ישראל סלנטר</a></li><li><a href="#story-39">הארנק שנשאר ברחוב בשבת</a></li><li><a href="#story-40">שכונה שלמה לבעלי המוסר</a></li><li><a href="#story-41">התמונה היחידה של רבי יצחק בלאזר</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏚️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">הרמב״ן מגיע לעיר שוממה</h2></div></div>
+<p class="chapter-intro">בתחילת האלף השישי ירושלים כמעט ריקה מיהודים. אדם אחד מגיע, ומשם מתחיל הכול.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">עיר בלי מניין</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סיפור בניין ירושלים בדורות האחרונים לא מתחיל במאה התשע עשרה. הוא מתחיל הרבה קודם – בתחילת האלף השישי, בשנת ה'כ״ז (1267), כשהרמב״ן מגיע לירושלים.</p>
+<p>מה הוא מוצא? שממה. העיר הקדושה בעולם, ובה כמעט אין יהודים. מניין בקושי אפשר לאסוף. הצבאות שעברו בארץ השאירו אחריהם חורבן, והיהודים המעטים שנשארו היו מפוזרים וחלשים.</p>
+<p><strong>אבל הרמב״ן לא בא כדי לבכות על החורבן. הוא בא כדי לבנות.</strong> לאט לאט הוא מקבץ אנשים, מארגן תפילה, ומניח את היסוד הראשון של היישוב היהודי המתחדש בירושלים.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: מצוות יישוב ארץ ישראל לשיטת הרמב״ן ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מצוות יישוב ארץ ישראל לשיטת הרמב״ן</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין למה דווקא הרמב״ן, צריך לדעת כמה ארץ ישראל הייתה יקרה לו. הרמב״ן הוא זה שמונה את מצוות יישוב ארץ ישראל כמצוות עשה מן התורה. הרמב״ם, מסיבותיו, לא מנה אותה במניין המצוות – והרמב״ן כן.</p>
+<p>ויותר מזה: לשיטת הרמב״ן המצווה נוהגת גם בזמן הגלות. זה חידוש גדול. לדעת הרבה פוסקים, בזמן שעם ישראל בגלות אין חובה גמורה לעלות – מי שרוצה ויכול, עולה, וזו מעלה גדולה, אבל אין זו מצוות עשה שחייבים לקיים בכל מחיר.</p>
+<p>הרמב״ן לא הסתפק בלכתוב את זה. הוא קם ועלה בעצמו, בגיל מבוגר, מספרד הרחוקה.</p>
+<div class="honey-box">🍯 מי שבאמת מאמין במשהו – לא רק כותב עליו. הוא קם והולך.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: בית חרב עם עמודי שיש ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בית חרב עם עמודי שיש</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב״ן כתב מכתב לבנו, ובו תיאר את מה שמצא בירושלים. על המכתב הזה החוקרים דנים עד היום. הוא מספר שמצאו בית חרב, בנוי על עמודי שיש ועליו כיפה יפה, ולקחו אותו לבית הכנסת.</p>
+<p>יש שאומרים שהבית הזה היה כבר בעבר בית כנסת, מימי הגאונים, שנחרב בימי הצלבנים – והרמב״ן חזר והקים אותו. ומעניין: עד היום, בכניסה לבית הכנסת הרמב״ן ברובע היהודי, יש עמוד שיש עתיק. יש הרואים בו סימן שזה אכן המקום שעליו כתב.</p>
+<p>במשך מאתיים ושמונים שנה לפחות, זה היה בית הכנסת היחיד של היהודים בירושלים. לא אשכנזי ולא ספרדי – פשוט בית הכנסת של ירושלים.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: מסגד מול בית הכנסת ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מסגד מול בית הכנסת</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>היהודים בנו בית כנסת – והשכנים לא שמחו. במרוצת השנים נבנה מסגד צמוד ממש לבית הכנסת, מסגד סידנא עומר. המסגד הזה עומד עד היום בלב הרובע היהודי, וצריחו נראה מכל פינה.</p>
+<p>לפני שנים לא רבות עלה רעיון להפעיל אותו מחדש בתוך השכונה היהודית, וברוך ה' הצליחו למנוע זאת.</p>
+<p>במשך הדורות המסגד הפך למקור של צרות. בשלב מסוים, אחרי עלילות שלא חסרו אף פעם, נאסרה התפילה בבית הכנסת והוא נסגר. כאן הקהילה נחלקה: הספרדים עזבו ובנו את ארבעת בתי הכנסת – בית הכנסת רבן יוחנן בן זכאי וחבריו – והאשכנזים לא רצו לוותר על המקום. הם נשארו באותה חצר, בבתים שקנו או שכרו, ומאז נקרא המקום "דיר אל אשכנז" – חצר האשכנזים.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: השל״ה הקדוש בחצר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">חצר האשכנזים: מהשל״ה ועד רבי יהודה החסיד</h2></div></div>
+<p class="chapter-intro">החצר שבה נשארו האשכנזים אחרי סגירת בית הכנסת של הרמב״ן – מקום של גדולים, של חלומות גאולה, ושל שריפה אחת שגירשה את האשכנזים מירושלים למאה שנה.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">השל״ה הקדוש בחצר</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בחצר הזו גר גם השל״ה הקדוש, רבי ישעיה הורוביץ, מחבר הספר "שני לוחות הברית". הוא עלה לירושלים בשנת ה'שפ״א בערך והיה הרב של הקהילה האשכנזית בעיר.</p>
+<p>אבל גם אותו לא עזבו בשקט. השלטון המקומי רדף אותו והטיל עליו גזרות, ובסופו של דבר נאלץ לעזוב את ירושלים. הוא עבר לצפת ולטבריה, ושם נקבר, בטבריה, סמוך לקבר הרמב״ם.</p>
+<p>עד היום רבים נוהגים לומר את "תפילת השל״ה" על הילדים בערב ראש חודש סיון – תפילה של אבא שמבקש שילדיו יגדלו לתורה וליראת שמיים. התפילה הזו נולדה מאותו אדם שהתהלך בחצר הקטנה הזאת בירושלים.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: תנועת עלייה שבאה להביא את הגאולה ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">תנועת עלייה שבאה להביא את הגאולה</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשלוש מאות וחמישים שנה לפני ימינו יוצא מפולין רבי יהודה החסיד – לא רבי יהודה החסיד בעל "ספר חסידים", אלא גדול אחר שנקרא על שמו. הוא היה דרשן נלהב ומקובל, ובעיקר: מחולל תנועת עלייה.</p>
+<p>באותה תקופה לא היו עליות המוניות. פה ושם עלה יהודי בודד. רבי יהודה החסיד נסע מעיר לעיר עם ספר תורה בזרועו, עורר את העם לתשובה ולמעשים טובים, וסחף אחריו מאות. וזה לא היה סתם מסע: הוא האמין שאם יעלו ויבנו את ירושלים, אולי בכך יקרבו את הגאולה.</p>
+<p>המסע לקח כשלוש שנים. לא יום ולא שבוע – שלוש שנים בדרכים, עד שהגיעו לארץ ישראל בשנת ה'ת״ס (1700).</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: ביום הראשון – קונים חלקה ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ביום הראשון – קונים חלקה</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה עושים כשמגיעים סוף סוף לירושלים? רבי יהודה החסיד לא חיכה למחרת. ביום הראשון כבר קנה חצר – החצר האשכנזית שעליה דיברנו – כדי לבנות בה בית כנסת.</p>
+<p>כך מסופר גם על יעקב אבינו. כשחזר מבית לבן והגיע לשכם, הדבר הראשון שעשה היה לקנות קרקע:</p>
+<blockquote>וַיִּקֶן אֶת חֶלְקַת הַשָּׂדֶה אֲשֶׁר נָטָה שָׁם אָהֳלוֹ (בראשית לג, יט)</blockquote>
+<div class="honey-box">🍯 מי שמגיע לארץ ישראל באמת, לא מסתפק בביקור. הוא מכה שורש – ומהר.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: שישה ימים אחרי ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שישה ימים אחרי</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וכאן הסיפור נעשה טרגי. ביום השלישי אחרי שהגיע, רבי יהודה החסיד חלה. שישה ימים אחרי שהגיע לארץ ישראל – נפטר. שלוש שנים בדרך, וכמה ימים בלבד בירושלים.</p>
+<p>למה זה קרה? אנחנו לא יודעים. יש מי שאמר שהיה בזה משהו של "דחיקת הקץ" – שאסור לאדם לנסות להכריח את הגאולה לבוא לפני זמנה. אבל אין לנו דרך לדעת את חשבונות שמיים.</p>
+<p>חלק מהעולים התייאשו ועזבו. חלק לא. הם נשארו, אספו כסף, ולקחו על עצמם להשלים את מה שהרב התחיל: לבנות את בית הכנסת.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: החוב, השריפה ומאה שנה בתחפושת ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">החוב, השריפה ומאה שנה בתחפושת</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי לבנות לוו כסף מהשכנים הערבים, בתקווה שהשליחים שיצאו לאסוף תרומות בחוץ לארץ יחזרו עם הכסף. אבל הכסף לא הגיע. יום, שבוע, שנה, שנתיים – "חכו, עוד מעט יגיע".</p>
+<p>בשנת ה'תפ״א (1720) נגמרה הסבלנות. המלווים הציתו את בית הכנסת, והמקום נשאר חורבה – ומכאן שמו, "החורבה של רבי יהודה החסיד".</p>
+<p>אבל זה לא נגמר בשריפה. הנושים קבעו שכל יהודי אשכנזי חייב להם כסף. ראו אשכנזי בירושלים? גבו ממנו את "החוב". והחוב עבר מאבות לבנים ולנכדים, כמעט מאה שנה.</p>
+<p>התוצאה: אשכנזי שרצה להיכנס לירושלים היה צריך להתחפש – לחבוש תרבוש ולהיראות כמו ספרדי. רוב העולים האשכנזים, ובהם העלייה החסידית הגדולה, הלכו לצפת ולטבריה. בירושלים כמעט לא נשארו אשכנזים.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: איך בונים את ירושלים? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🦅</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">הגאון מווילנא ותלמידיו: צפת או ירושלים</h2></div></div>
+<p class="chapter-intro">רעיון אחד של הגר״א – "אולי המשיח מחכה לך" – הוציא לדרך את תלמידיו, ובראשם רבי מנחם מנדל משקלוב.</p>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">איך בונים את ירושלים?</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגאון מווילנא, רבי אליהו (נולד בשנת ה'ת״פ ונפטר בשנת ה'תקנ״ח), החשיב מאוד את ארץ ישראל. הוא עצמו יצא לעלות – ומסיבות שאינן ברורות לנו חזר מן הדרך. אבל את מה שלא הספיק לעשות בעצמו, הוריש לתלמידיו.</p>
+<p>עד אז, הדרך המקובלת לחשוב על הגאולה הייתה כזו: יום אחד יתקע שופר גדול, יבוא מלך המשיח, ויישא את כולנו על כנפי נשרים לארץ ישראל. ובינתיים? בונים את ירושלים בדמעות – בתפילות, בתיקון חצות, בגעגועים.</p>
+<p>זו דרך קדושה, והרבה קהילות חיו כך – ולא מעט חיות כך עד היום.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: התורה החדשה של הגר״א ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">התורה החדשה של הגר״א</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגאון לימד את תלמידיו משהו אחר: אם אתם רוצים שתבוא הגאולה – אתם צריכים לעשות. תעלו לארץ ישראל. תבנו את ירושלים. תכינו את הכלים, ועל ידי זה תבוא הגאולה.</p>
+<p>אנחנו רגילים לומר "אני מחכה למשיח". הגר״א בעצם אומר: אולי המשיח מחכה לך.</p>
+<p><strong>זה היה חידוש עצום באותם ימים – ובהמשך גם עורר עליו מחלוקת גדולה.</strong> אבל דבר אחד ברור: מהרעיון הזה התחיל לזוז משהו בארץ ישראל.</p>
+<div class="honey-box">🍯 תפילה בלי מעשה היא חצי מהדרך. מי שמתפלל על בניין ירושלים – כדאי שגם יניח בה אבן.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: השיירות יוצאות ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">השיירות יוצאות</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כל עוד הגר״א היה בחיים, איש מתלמידיו לא עזב אותו. כעשר שנים אחרי פטירתו התכנסו ואמרו: רבותיי, מדיבורים צריך לעבור למעשים.</p>
+<p>בשנת ה'תקס״ח בערך יצאה השיירה הראשונה של תלמידי הגר״א – "הפרושים" – ואחריה עוד ועוד שיירות. ביניהן היה רבי ישראל משקלוב, מגדולי בוני היישוב.</p>
+<p>עד אז, היהודים בארץ שמרו בעיקר על הקיים. תלמידי הגר״א היו תוססים: לא ישבו בשקט, ייסדו, קנו, בנו. מי שקורא את תולדות היישוב רואה שכאן מתחיל המפנה. מכאן הכול מתחיל לזוז.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: השליח שיצא ראשון ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">השליח שיצא ראשון</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחד הגדולים שראוי לזקוף לזכותו את בניין ירושלים הוא רבי מנחם מנדל משקלוב, מגדולי תלמידי הגר״א. כשהתכנסו תלמידי הגאון לתכנן את העלייה, חיפשו אדם מיוחד שילך לפניהם ויבדוק: איפה אפשר לגור, לאן הולכים, מה המקום המתאים.</p>
+<p>הם בחרו בו. הוא עלה בשנת ה'תקס״ח (בערך 1808) והיה "השליח" – מי שפורץ את הדרך ואומר לאחרים: אפשר לבוא.</p>
+<p>בהתחלה התיישב בצפת. ירושלים עוד הייתה סגורה בפני האשכנזים בגלל "החוב" הישן.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מגפה, בריחה וגילוי ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מגפה, בריחה וגילוי</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי כמה שנים פרצה מגפה בצפת – מגפה של אותם ימים, מסוכנת לאין ערוך יותר ממה שאנחנו מכירים. כל מי שיכול ברח.</p>
+<p>רבי מנחם מנדל ברח לירושלים, לבוש כספרדי, והתפלל עם הספרדים. ושם גילה משהו: ירושלים פתוחה יותר ממה שחשבו. השכנים כבר נרגעו. כמה דורות אפשר להוריש לילדים שכל אשכנזי חייב לך כסף? כמעט מאה שנה עברה מאז השריפה.</p>
+<p>הוא עלה עם עוד כמה ממקורביו, ראה שאיש לא מתנכל להם, והחליט: לא לבד – עם קבוצה. בשנת ה'תקע״ו בערך הוא עולה לירושלים ומייסד בה יישוב אשכנזי חדש.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: הוויכוח הגדול ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הוויכוח הגדול</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כאן נוצרה מחלוקת. רבי ישראל משקלוב נשאר בצפת וסבר שצריך לבנות את צפת. רבי מנחם מנדל סבר שצריך ללכת לירושלים. כל אחד ניסה לשכנע את העולים, והתורמים בחוץ לארץ ניסו למצוא פשרה – לאן ילכו התרומות.</p>
+<p>למה בכלל להתלבט? הרי ירושלים קדושה מכל מקום! אבל החשש היה אמיתי. בירושלים ישבו כוחות רבים – שלטון עוין, שכנים שאינם אוהבים, מתחים בין הדתות. בצפת – שקט, רגוע, קהילה מבוססת. "למה להסתבך?"</p>
+<p>זו שאלה שחוזרת בכל דור: ללכת למקום החשוב, הקשה והמסוכן – או למקום הנוח.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: כשהאדמה רעדה ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כשהאדמה רעדה</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>צפת שילמה מחיר כבד. מגפות פקדו אותה, ובשנת ה'תקצ״ז (1837) היכתה בה רעידת אדמה נוראה, שבה נספו אלפים. היישוב היהודי בצפת כמעט נחרב כליל.</p>
+<p>רבי ישראל משקלוב נשאר כמעט לבדו – אשתו וילדיו נפטרו במגפה. הוא נישא שוב, אבל את מה שאבד לא החזיר. מסופר שהגיע למסקנה שבורא עולם רוצה שיבנו את ירושלים, ויש שהביאו בשם החתם סופר שראה באסון אות לכך שעזבו את ירושלים.</p>
+<p>מאז נחלק היישוב: החסידים בצפת ובטבריה, ותלמידי הגר״א – "הפרושים" – בירושלים. ותלמידי החתם סופר שעלו אחר כך, כמעט כולם הלכו לירושלים ובנו אותה.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: לקנות אסור – להחזיר מותר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">החורבה חוזרת לידיים יהודיות</h2></div></div>
+<p class="chapter-intro">חוק אחד, שליח אמיץ אחד ובית כנסת אחד – ופתאום יש לאשכנזים שוב בית בירושלים.</p>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לקנות אסור – להחזיר מותר</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי מנחם מנדל הגיע לירושלים. הגר״א לימד שצריך לבנות. אבל איך בונים, כשבאותה תקופה יהודי כמעט לא יכול לקנות קרקע? המקום היחיד שהיה מותר ליהודים לקנות בו היה חלקת קבר בהר הזיתים – ארבע אמות.</p>
+<p>בינתיים התפלל בבית הכנסת "אור החיים", בית כנסת קטן שעמד ברשותו. אבל הוא ידע שיש מצווה לגאול את הארץ.</p>
+<p>הפתרון: לקנות אי אפשר, אבל להחזיר את מה ששלנו – אפשר. החורבה של רבי יהודה החסיד הייתה שייכת לאשכנזים. אם רק יבוטל החוב – היא חוזרת אלינו. ומקום גדול ומרווח, הוא האמין, ימשוך עוד ועוד אשכנזים לבוא.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: חוק החובות הישנים ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">חוק החובות הישנים</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ואז, אחרי שנים של מאמצים, הגיעה ההזדמנות: בקושטא עבר חוק שחוב שלא נגבה במשך עשרות שנים – מתבטל. החוב של החורבה עמד כבר יותר ממאה שנה.</p>
+<p>אבל לכו תגידו לשכנים שהחוב בטל. מי ישמע? צריך אישור מלכותי – פירמן.</p>
+<p>למשימה נשלח רבי אברהם שלמה זלמן צורף, מראשי הקהילה, צורף כסף במקצועו ואיש אמיץ במיוחד. הוא יצא למסע אל השלטונות, הגיע עד לבעלי הסמכות וביקש: תנו לנו אישור שהמקום שלנו, שאין חוב ואין כלום. הוא חזר עם הפירמן ביד. מושל העיר היה חייב לכבד אותו, ונתן הוראה לפנות את החצר. המקום חזר לידיים יהודיות.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: המחיר ששילם רבי זלמן צורף ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">המחיר ששילם רבי זלמן צורף</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השכנים לא שכחו לו. השנאה כלפיו רק גברה, במיוחד כשהמשיך לפעול לבנייה. ויום אחד, כשהלך להתפלל בבוקר בוותיקין, ארבו לו והתנפלו עליו. מפצעיו נפטר. הוא נקבר בהר הזיתים, ויש הרואים בו ראשון בשרשרת ארוכה של יהודים שנרצחו בירושלים רק משום שבנו אותה.</p>
+<p>אבל השושלת שלו לא נעצרה. נכדו היה יואל משה סלומון – ממייסדי פתח תקווה, מבוני השכונות הראשונות מחוץ לחומות.</p>
+<p>בשנת תשע״א, במלאת מאתיים שנה לעלייתו, נערך כינוס משפחתי גדול בירושלים. לפי חישובי בני המשפחה, צאצאיו מונים כעשרים אלף יהודים – ורובם הגדול חיים בארץ ישראל.</p>
+<div class="honey-box">🍯 מסירות נפש של אדם אחד יכולה להפוך לעם שלם.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: כאילו בנה אחת מחורבות ירושלים ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כאילו בנה אחת מחורבות ירושלים</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשזכה רבי מנחם מנדל לגאול את החצר, כתב מכתב מלא שמחה. הוא מודה על זכות הגאון מווילנא וזכות האבות הקדושים, שזכה לקבוע דירה בצפת ואחר כך בירושלים עיר הקודש, וקבע בית מדרש ובית כנסת לתורה ולתפילה. ועכשיו, הוא כותב, עזר ה' להוציא את החורבה שהייתה שייכת לאשכנזים יותר ממאה שנה, שנעשתה חורבה ושממה – מידי הזרים.</p>
+<p>והוא מביא את דברי חז״ל על המשמח חתן וכלה (ברכות ו ע״ב): יש אומרים שזוכה לתורה, ויש אומרים שכאילו בנה אחת מחורבות ירושלים. בניין חורבה אחת בירושלים, הוא מבין, הוא דבר גדול כל כך שנמנה לצד זכייה לתורה.</p>
+<p class="bold-para">זו הייתה אולי הגאולה הראשונה של קרקע בירושלים בדורות האחרונים – עוד לפני שנבנה דבר.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: בית הכנסת מנחם ציון ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">בית הכנסת מנחם ציון</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם אחרי שהחצר חזרה, אסור היה לבנות. ואז, כעבור כמה שנים, מרד מוחמד עלי, שליט מצרים, בשלטון התורכי, וכבש את ארץ ישראל לכמה שנים. הוא היה נוח הרבה יותר ליהודים, והם פנו אליו: תן לנו רשות לבנות בית כנסת. הוא הסכים.</p>
+<p>בראש חודש שבט ה'תקצ״ז (1837) נחנך בית הכנסת, כעשר שנים אחרי פטירת רבי מנחם מנדל. קראו לו "מנחם ציון" – גם על שמו, וגם כתפילה לנחמת ציון.</p>
+<p>בית הכנסת הזה, הצמוד לחורבה, שרד את כל התהפוכות. גם כשהעיר העתיקה הייתה בידי הירדנים והחורבה פוצצה – מנחם ציון נשאר עומד, קיים עד היום. כמעט מאתיים שנה הוא עומד שם: בית הכנסת האשכנזי הראשון שנבנה בירושלים, ההתחלה של בניין העיר בדורות האחרונים.</p>
+<p>אבל זה היה רק הבית הראשון. הבית השני, הגדול, עוד חיכה לקום על החורבה עצמה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: חזרה לשלטון התורכי – והדלת שנפתחה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">החורבה: נבנית, נחרבת ונבנית</h2></div></div>
+<p class="chapter-intro">על חורבות בית הכנסת של רבי יהודה החסיד קם בית הכנסת הגדול של ירושלים – כיפתו נבנתה בלילה אחד, הוא פוצץ ביום אחד, וקם שוב אבן על אבן.</p>
+<article class="story-card" id="story-22" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">חזרה לשלטון התורכי – והדלת שנפתחה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שלטונו של מוחמד עלי בארץ ישראל לא האריך ימים. בשנת ה'ת״ר (1840) התערבו האנגלים, עזרו לתורכים לגרש אותו, והארץ חזרה לשלטון העות'מאני. ועם החזרה – חזר גם האיסור: יהודי לא בונה בית. מה שקיים, אפשר אולי לקנות; לבנות – אין רשות.</p>
+<p>אבל בתוך הסיפור הזה הסתתרה הזדמנות. הסולטן חב תודה לאנגליה, ובתמורה קיבלו נתיני מעצמות אירופה זכויות יתר בארץ – מה שנקרא "הקפיטולציות". בין היתר, נתין זר שהסתבך במשפט נשפט בפני הקונסול של ארצו ולא בפני בית הדין המקומי, ונתינים זרים יכלו לפעול במקום שליהודי מקומי היה חסום.</p>
+<p>ומי שנכנס בדלת הזאת היה נתין בריטי מפורסם: סר משה מונטיפיורי.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: הפירמן של שנת תרי״ד ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הפירמן של שנת תרי״ד</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מונטיפיורי פנה לסולטן, ובשנת ה'תרי״ד (1854) ניתן לאשכנזים היתר מלכותי לבנות בית כנסת במקום שהיה בידיהם מימים קדומים – על חורבות בית הכנסת של רבי יהודה החסיד.</p>
+<p>הם התחילו לבנות, ובניסן הונחה אבן הפינה. זה לא היה בית כנסת קטן. סביבו נבנו בתים רבים, החצר כולה התמלאה במשפחות – ולראשונה היו לאשכנזים בירושלים בתים משלהם, לא בשכירות.</p>
+<p>בשנת ה'תרכ״ד (1864) נחנך הבניין כולו ברוב פאר והדר. שמו הרשמי היה "בית יעקב", אבל כולם המשיכו לקרוא לו בשם שדבק בו בשנות השממה: "החורבה".</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: לילה אחד, כיפה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לילה אחד, כיפה אחת</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>היהודים החליטו: בית הכנסת הגדול חייב להיות גבוה יותר מהמסגד שמולו. אבל הם ידעו מראש שאין סיכוי לקבל רשות כזאת. שהיהודים יעקפו את המסגד – זה לא בא בחשבון.</p>
+<p>מה עשו? ניצלו חוק עות'מאני ידוע: בניין שכבר עומד ויש עליו גג – לא הורסים אותו. הקירות כבר עמדו, נשארה הכיפה. ובלילה גשום אחד הזעיקו את כל יהודי העיר, באמצע הלילה, ועבדו מחצות ועד אור הבוקר. ברגעים שלפני עלות השחר הושלמה הכיפה כולה.</p>
+<p>לפי התיאורים, כשהאיר הבוקר הניח מנהיג העדה את האבן המרכזית שסוגרת את הכיפה, ברוב שמחה. הכיפה התנשאה כמה סנטימטרים מעל המסגד – ואת מה שכבר עומד עם גג, החוק אומר, לא הורסים.</p>
+<p class="bold-para">לפעמים הדרך לבנות היא לא להילחם בחוק – אלא להכיר אותו טוב יותר מכולם.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: לב העיר ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לב העיר</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מאז שנחנך, החורבה הפכה למרכז של ירושלים היהודית. כל כינוס של תושבי העיר, כל אורח חשוב שהגיע, כל אירוע ציבורי גדול – התקיים שם. הרבנים הראשיים נשאו בו את נאומיהם, ובחצר הגדולה שסביבו נפגשו כל היהודים.</p>
+<p>סמוך לו נבנה גם בית הכנסת החסידי "תפארת ישראל", ועליו מסופר סיפור יפה: כשביקר בירושלים הקיסר האוסטרי פרנץ יוזף, ראה שלבית הכנסת עוד אין כיפה ושאל מדוע. ענו לו בחכמה: בית הכנסת הסיר את כובעו לכבוד הוד מלכותו. הקיסר הבין את הרמז – ותרם לבניית הכיפה.</p>
+<div class="honey-box">🍯 תשובה חכמה ומכבדת פותחת לבבות – וגם כיסים.</div>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: ל״ג בעומר תש״ח ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ל״ג בעומר תש״ח</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשכבשו הירדנים את העיר העתיקה במלחמת העצמאות, אחד הדברים הראשונים שעשו היה לפוצץ את בית הכנסת החורבה. זה קרה בל״ג בעומר תש״ח. לא הייתה לכך שום סיבה צבאית – רק רצון למחוק את הסמל.</p>
+<p>עיתונאי אמריקאי שהיה במקום תיאר את הרגע: הוא ראה את הקיר האחרון של בית הכנסת העתיק נבלע בענן אבק, מטען הנפץ התפוצץ תחתיו, והקיר קרס. סביבו – ספרי תורה מפוזרים בין ההריסות, ואבן על אבן לא נשארה.</p>
+<p>במשך שנים רבות נשארה רק קשת אחת גבוהה, שהוקמה מחדש אחרי מלחמת ששת הימים כמזכרת – והפכה לאחד הסמלים המוכרים של הרובע היהודי.</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: לבנות בדיוק כמו שהיה ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לבנות בדיוק כמו שהיה</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כעשרים וחמש שנה התקבלה ההחלטה: משחזרים את בית הכנסת. לא בניין חדש בהשראת הישן – אלא בדיוק כמו שהיה. ההשקעה הייתה עצומה, עשרות מיליונים.</p>
+<p>האדריכל חיפש כל תצלום שנשאר, כל תיאור, כל אדם זקן שזכר איך נראה המקום מבפנים. ברוך ה', תייר אחד צילם פעם את בית הכנסת, והתמונות שלו עזרו לשחזר את הפרטים.</p>
+<p>בית הכנסת קם מחדש בגובה כעשרים וארבעה מטרים, כשבתוכו נשמרו שרידי הקירות המקוריים. על הקירות צוירו מחדש ציורי המקומות הקדושים – קבר רחל, מערת המכפלה, טבריה – וארון הקודש מתנשא לגובה של כארבע קומות, מהגבוהים בעולם. בשנת ה'תש״ע (2010) נחנך מחדש.</p>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: ברוך מציב גבול אלמנה ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ברוך מציב גבול אלמנה</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז״ל תיקנו ברכה למי שרואה את בתי ישראל בישובם אחרי חורבנם (ברכות נח ע״ב): "ברוך מציב גבול אלמנה". בהלכה יש דיון שלם מתי מברכים אותה ועל איזה מקום. בית הכנסת החורבה ממלא כמעט כל תנאי שאפשר לבקש: מקום יהודי שנחרב, נשאר שומם ונבנה מחדש במלוא הדרו.</p>
+<p>בכניסה לבית הכנסת מופיע נוסח הברכה, ורבים נוהגים לברך שם בשם ומלכות: "ברוך אתה ה' אלוקינו מלך העולם מציב גבול אלמנה". מי שמגיע לשם – כדאי לברר את ההלכה עם רבו, ולזכות לברכה הזאת לפחות פעם אחת בחיים.</p>
+<p class="bold-para">כשאדם עומד במקום שהיה חורבה ועכשיו הוא בנוי, הוא רואה במו עיניו שהבטחת הנביאים מתקיימת.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: רמז לבית השלישי ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">רמז לבית השלישי</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה עושים מבית הכנסת הזה עניין גדול כל כך? כי רואים בו סמל. הוא נבנה, נחרב ונבנה – פעם שלישית. ואפשר לראות בזה רמז: כמו שבית הכנסת קם בפעם השלישית, כך בקרוב ייבנה בית המקדש השלישי.</p>
+<p>מי שעומד על הר הזיתים ומסתכל רואה את כיפת החורבה מתנשאת מעל הרובע היהודי, מול הר הבית.</p>
+<div class="honey-box">🍯 כל אבן שחוזרת למקומה בירושלים היא הבטחה קטנה לבניין הגדול שעוד יבוא.</div>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: קודם הלב, אחר כך הגוף ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🏘️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">מהלב אל הגוף: מונטיפיורי ומשכנות שאננים</h2></div></div>
+<p class="chapter-intro">עד עכשיו בנו בתוך החומות. עכשיו ירושלים יוצאת החוצה – ואחריה כל הארץ.</p>
+<article class="story-card" id="story-30" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קודם הלב, אחר כך הגוף</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן יסוד שכדאי לשים לב אליו. באותן שנים, כמעט בשום מקום בארץ ישראל היהודים לא בנו. ירושלים הייתה הראשונה. וכשהתחילו לבנות את ירושלים, זה השפיע – ברוחניות ובגשמיות – על כל הארץ.</p>
+<p>פתח תקווה, ראשון לציון, זכרון יעקב, כל סיפורי המושבות שכולנו מכירים – כולם באו אחרי ירושלים. קודם התחיל לפעום הלב, ורק אחר כך התחיל כל הגוף לחיות.</p>
+<p class="bold-para">ירושלים היא לא עוד עיר בארץ ישראל. היא הלב, וממנה החיים זורמים לכל האיברים.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: החלום של מונטיפיורי ←</a></div>
+</article>
+<article class="story-card" id="story-31" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החלום של מונטיפיורי</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך הגיע מונטיפיורי, נדבן אנגלי עשיר, לעסוק כל כך בירושלים? מסופר שבלילה שבו החליט לעלות לראשונה לארץ ישראל חלם חלום, ובו ראה מילים שקראו לו לגאול את ירושלים ולבנות אותה. הוא התעורר, חזר לישון, והחלום חזר. ושוב, פעם שלישית.</p>
+<p>הוא הרגיש שזו שליחות. את המילים חרט על הטבעת שלו, לזיכרון, ומאז הקדיש את חייו לבניין הארץ. הוא ביקר בה פעמים רבות, בתקופה שהמסע לארץ היה ארוך ומסוכן, ובכל ביקור הביא איתו תוכנית חדשה.</p>
+<p>מי שעולה לארץ ישראל ומטייל בה – בכרמל, בשומרון, בכל מקום שמוזכר בתנ״ך – מבין משהו מההתרגשות הזאת: לראות את התנ״ך מול העיניים זה עולם אחר.</p>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: יהודה טורו והקמח שהגיע ליפו ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">יהודה טורו והקמח שהגיע ליפו</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לצד מונטיפיורי עמד יהודי עשיר נוסף, שחי הרחק משם – בניו אורלינס שבארצות הברית: יהודה טורו.</p>
+<p>מה הקשר שלו לירושלים? מסופר שפעם הסתבך במשפט קשה, והוא, שהיה תורם קבוע לקהילה בירושלים, ביקש מהם להתפלל עליו. היהודים בירושלים התפללו עליו בכותל ושלחו לו מכתב שהתפללו.</p>
+<p>עברו שנים, וירושלים סבלה מרעב כבד. יום אחד עגנה אונייה ביפו עם שקי קמח לירושלים. איש לא ידע מי שלח. כשפתחו את השקים ראו את שמו של התורם – זה היה האיש שפעם התפללו עליו. הוא ניצל, וזכר להם טובה.</p>
+<p>לפני מותו הוריש סכום עצום לבניין ירושלים, ומינה את חברו מונטיפיורי לממונה על הכסף. עכשיו היו למונטיפיורי גם רצון וגם אמצעים.</p>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: אלף לירות, כמו עפרון ←</a></div>
+</article>
+<article class="story-card" id="story-33" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אלף לירות, כמו עפרון</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשהגיע מונטיפיורי לירושלים ראה שמספר היהודים גדל מאוד – כמעט עקף את מספר הערבים בעיר העתיקה. הצפיפות הייתה קשה, והמחירים עלו. צריך לבנות שכונה חדשה.</p>
+<p>בזכות זכויות היתר כבר יכול היה נתין זר לקנות קרקע. הוא מצא בעל קרקע גדולה מול הר ציון ושאל אם ימכור. התשובה הייתה כמו בספר בראשית: "מה פתאום, לסר משה – בחינם!" ומונטיפיורי, כמו אברהם אבינו, סירב. מתנה היום – ומחר מי יודע מה יטענו?</p>
+<p>הם התווכחו יום ועוד יום, עד שבעל הקרקע אמר: "שיתן לי סר משה אלף לירות במתנה" – כמו עפרון: "אֶרֶץ אַרְבַּע מֵאֹת שֶׁקֶל כֶּסֶף בֵּינִי וּבֵינְךָ מַה הִוא" (בראשית כג, טו). ומונטיפיורי, כמו אברהם, לא התווכח – שילם, והקרקע עברה לידיו. זה היה בשנת ה'תרט״ז בערך (1855–1856).</p>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: בית חולים שהחולים ברחו ממנו ←</a></div>
+</article>
+<article class="story-card" id="story-34" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בית חולים שהחולים ברחו ממנו</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הקרקע שקנה מונטיפיורי השקיפה על העיר העתיקה ועל הר ציון, מתחת לשער יפו. התוכנית הראשונה הייתה להקים שם בית חולים.</p>
+<p>אבל החולים לא רצו להגיע. המקום היה מבודד, מחוץ לחומות שבלילה ננעלו שעריהן, ולידו בית קברות. באותם ימים, לישון מחוץ לחומות נחשב כמעט סכנת נפשות – שודדים, חיות, וכל מה שמסתובב בחושך.</p>
+<p>אז שינה מונטיפיורי את התוכנית: במקום בית חולים – בתי מגורים.</p>
+</div><div class="story-next"><a href="#story-35">הקטע הבא: משלמים לאנשים שיגורו ←</a></div>
+</article>
+<article class="story-card" id="story-35" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">משלמים לאנשים שיגורו</h3><button class="copy-link" type="button" data-id="story-35">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הוא בנה בניין ארוך ונמוך, עם חומה מסביב לכל השכונה. החלונות היו מסורגים היטב, כדי שאיש לא יוכל להיכנס בלילה. עשרים דירות לשמונים נפשות בערך, כולן מוכנות למגורים.</p>
+<p>ואף אחד לא בא. אנשים פחדו. חלקם היו באים ביום וחוזרים לישון בתוך החומות עם רדת החשכה.</p>
+<p>מה עשה מונטיפיורי? משהו שקשה לדמיין היום: הוא שילם לאנשים כדי שיגורו שם. לא הם שילמו שכירות – הוא שילם להם, סכום יפה, ובלבד שיסכימו לגור. ולאט לאט, ברוך ה', המקום התמלא.</p>
+<div class="honey-box">🍯 כל דבר גדול מתחיל במישהו אמיץ שמוכן להיות הראשון – גם כשכולם עוד מפחדים.</div>
+</div><div class="story-next"><a href="#story-36">הקטע הבא: מה כתב מונטיפיורי ביומנו ←</a></div>
+</article>
+<article class="story-card" id="story-36" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מה כתב מונטיפיורי ביומנו</h3><button class="copy-link" type="button" data-id="story-36">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשחזר לביקור כעבור כמה שנים כתב ביומנו שנהנה לראות שכל הדיירים מכירים טובה על המקום. הבתים, כתב, הם מהמקומות הטובים ביותר בירושלים: שורים בהם טהרה ונקיון, הדיירים שמחים ומרוצים ממצבם, ומקדישים חלק גדול מזמנם לתורה ולעבודת ה', וגם עוסקים במלאכה ובעבודת כפיים.</p>
+<p>על הבניין עצמו, למעלה, חקוק עד היום שהוא נבנה מכספי הצוואה של יהודה טורו. מי שמגיע לשם יכול לחפש את הכתובת.</p>
+<p>כך קמה משכנות שאננים, השכונה הראשונה מחוץ לחומות. אחריה באו עוד ועוד – שכונה ספרדית, נחלת שבעה ושכונות רבות אחרות – וכל אחת מהן היא סיפור בפני עצמו.</p>
+</div><div class="story-next"><a href="#story-37">הקטע הבא: המקובלים ובעלי המוסר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🧭</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">חצר טרביש ובעלי המוסר</h2></div></div>
+<p class="chapter-intro">מי עוד עלה לירושלים באותם ימים? המקובלים ובעלי המוסר – וסיפור אחד של ארנק בשבת שהקים שכונה שלמה.</p>
+<article class="story-card" id="story-37" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המקובלים ובעלי המוסר</h3><button class="copy-link" type="button" data-id="story-37">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מלבד תלמידי הגר״א היו עוד שתי קבוצות שאהבו את ארץ ישראל אהבה מיוחדת.</p>
+<p>הראשונה – המקובלים. תורת הקבלה קשורה בארץ ישראל בכל נימיה; האר״י ומקובלי צפת פעלו כאן, והארץ הייתה מרכז הקבלה. גם בעל "כף החיים", רבי יעקב חיים סופר, עלה לירושלים ונשאר בה, כי מצא בה מקובלים רבים, ובראשם ישיבת המקובלים "בית אל".</p>
+<p>השנייה – בעלי המוסר. הם חיפשו יראת שמיים, קרבת אלוקים, ובארץ ישראל הרגישו שאפשר להרגיש את בורא עולם הרבה יותר. כאן ביתו של הקדוש ברוך הוא.</p>
+</div><div class="story-next"><a href="#story-38">הקטע הבא: שלושה תלמידים של רבי ישראל סלנטר ←</a></div>
+</article>
+<article class="story-card" id="story-38" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שלושה תלמידים של רבי ישראל סלנטר</h3><button class="copy-link" type="button" data-id="story-38">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לרבי ישראל סלנטר, אבי תנועת המוסר, היו שלושה תלמידים גדולים: רבי שמחה זיסל זיו, "הסבא מקלם"; רבי יצחק בלאזר, "רבי איצלה פטרבורגר"; ורבי נפתלי אמסטרדם. שלושתם אהבו מאוד את ארץ ישראל.</p>
+<p>הסבא מקלם לא עלה בעצמו, אבל שלח ממשפחתו לעלות, ועודד רבים מהקרובים אליו לעלות לארץ. רבי נפתלי אמסטרדם עלה. ורבי יצחק בלאזר, מגדולי התלמידים, עלה גם הוא בסוף ימיו לירושלים.</p>
+<p>ובין המקורבים לסבא מקלם היה איש עשיר וירא שמיים בשם טרביש.</p>
+</div><div class="story-next"><a href="#story-39">הקטע הבא: הארנק שנשאר ברחוב בשבת ←</a></div>
+</article>
+<article class="story-card" id="story-39" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הארנק שנשאר ברחוב בשבת</h3><button class="copy-link" type="button" data-id="story-39">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>טרביש היה בנקאי – אבל בנק של אותם ימים: חליפה עם שני כיסים ושני ארנקים גדולים. אחד לכסף שנכנס ואחד לכסף שיוצא. זה כל הבנק.</p>
+<p>ביום שישי אחד הלך לברית מילה, והכניס את הארנק לחליפה. כשחזר בליל שבת מבית הכנסת, הרגיש פתאום משהו כבד בכיס: הארנק! מלא בכסף של אחרים, כסף פיקדונות שלא שלו. ואין עירוב.</p>
+<p>מה עושים? לא היה מה להתלבט. הוא הוציא את הארנק והשאיר אותו שם, במקום, ברחוב. הלך הביתה שמח שזכה לעמוד בניסיון. במוצאי שבת סיפר למשפחתו שאולי יצטרכו למכור את הבית – וקודם הלך לבדוק. הארנק היה שם. תפוח, שלם, כל המטבעות במקומם. הוא לא האמין למראה עיניו.</p>
+<p class="bold-para">מי ששומר את השבת – השבת שומרת עליו.</p>
+</div><div class="story-next"><a href="#story-40">הקטע הבא: שכונה שלמה לבעלי המוסר ←</a></div>
+</article>
+<article class="story-card" id="story-40" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שכונה שלמה לבעלי המוסר</h3><button class="copy-link" type="button" data-id="story-40">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מאז, בורא עולם עזר לו מאוד. אנשי שלטון חיפשו אצל מי להפקיד כסף, אמרו להם: יש כאן יהודי נאמן מאין כמוהו – והם הפקידו אצלו. השם הלך לפניו, העסקים פרחו, ושתי כיסים כבר לא הספיקו.</p>
+<p>הסבא מקלם רצה מאוד להקים שכונה לבעלי המוסר בירושלים, שם רוב הלומדים היו עניים מרודים. טרביש הסכים ותרם שכונה שלמה. שכונות של אז היו חצר סגורה: חומה מסביב, כל הדלתות פונות פנימה, ולחוץ רק קירות, כדי שאיש לא יוכל להיכנס. מי שהיה מבעלי המוסר קיבל דירה בחינם. היה שם גם בית מוסר.</p>
+</div><div class="story-next"><a href="#story-41">הקטע הבא: התמונה היחידה של רבי יצחק בלאזר ←</a></div>
+</article>
+<article class="story-card" id="story-41" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">התמונה היחידה של רבי יצחק בלאזר</h3><button class="copy-link" type="button" data-id="story-41">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי יצחק בלאזר הגיע לירושלים וגר בחצר טרביש. הוא היה ירא שמיים גדול, ומעולם לא הסכים להצטלם. יש ממנו תמונה אחת בלבד – שצולמה בלי ידיעתו, כשעמד על המדרגות בחצר הזאת.</p>
+<p>כעבור מאה שנה המדרגות כמעט קרסו. אבל איך אפשר לשבור את המדרגות שעליהן עומד רבי יצחק בלאזר בתמונה היחידה שלו? בנו מעליהן מדרגות ברזל, ומתחתן נשארו המדרגות הישנות. מי שמגיע לשם ופותח את שער הברזל הקטן רואה אותן – בדיוק כמו בתמונה.</p>
+<p>עד היום מצוי המקום ברחוב ע״ח שבשכונת מוסררה. מסופר בחיוך שהשם "מוסררה" נקשר לבעלי המוסר שגרו שם – כל כך היו בולטים, שהשכונה כולה נקראה כאילו על שמם.</p>
+<div class="honey-box">🍯 כל חצר בירושלים היא סיפור – מי בנה, איך בנה, ובשביל מה. כדאי ללכת ולחפש.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
