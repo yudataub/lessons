@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔍 מה באמת היה חטא המרגלים?</title>
+<meta name="description" content="שני חלקים בחטא אחד – חוסר אמונה ופרשנות רעה – ולמה דווקא איסור כל כך חמור כמעט לא נכתב בספרי ההלכה, ואיך לומדים לראות את הארץ בעין טובה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🔍 מה באמת היה חטא המרגלים?</h1>
+  <p class="hero-subtitle">שני חלקים בחטא אחד – חוסר אמונה ופרשנות רעה – ולמה דווקא איסור כל כך חמור כמעט לא נכתב בספרי ההלכה, ואיך לומדים לראות את הארץ בעין טובה.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-14 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/DbYZRZM9K1A" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🕊️ חטא שעוד מחכה לתיקון</a><ul class="toc-stories"><li><a href="#story-1">מפעל החיים של החפץ חיים</a></li><li><a href="#story-2">וימאסו בארץ חמדה</a></li><li><a href="#story-3">המעפילים שלנו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📜 למה זה לא כתוב בשולחן ערוך?</a><ul class="toc-stories"><li><a href="#story-4">פרשות שלמות מול סעיף שאינו</a></li><li><a href="#story-5">מה זו בעצם מחלוקת?</a></li><li><a href="#story-6">השולחן ערוך כותב מה שאפשר לשפוט</a></li><li><a href="#story-7">לשון הרע מזיקה, דיבת הארץ הורסת מבפנים</a></li><li><a href="#story-8">חוזרים מחופשה בחוץ לארץ</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🍇 חלק א: &quot;לא נוכל לעלות&quot;</a><ul class="toc-stories"><li><a href="#story-9">הקושיה שהראשונים עמדו עליה</a></li><li><a href="#story-10">פותחים בטוב</a></li><li><a href="#story-11">&quot;אפס&quot;</a></li><li><a href="#story-12">אותן עובדות, מסקנה הפוכה</a></li><li><a href="#story-13">&quot;אנחנו כבר לא ראויים&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">⚰️ חלק ב: &quot;ארץ אוכלת יושביה&quot;</a><ul class="toc-stories"><li><a href="#story-14">מעובדות לפרשנות</a></li><li><a href="#story-15">הלוויות בכל מקום</a></li><li><a href="#story-16">תלוי מי נוסע ברכב</a></li><li><a href="#story-17">יום לשנה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">👁️ לתור או לרגל</a><ul class="toc-stories"><li><a href="#story-18">החטא של מרים</a></li><li><a href="#story-19">ראה בטוב ירושלים</a></li><li><a href="#story-20">שתי מצלמות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">⚖️ להוציא דיבה או להביא דיבה</a><ul class="toc-stories"><li><a href="#story-21">יוסף מביא, המרגלים מוציאים</a></li><li><a href="#story-22">קושיית בעל אבי עזר</a></li><li><a href="#story-23">פרשנות רעה – אמת או שקר?</a></li><li><a href="#story-24">שני החלקים, במבט אחד</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🕊️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">חטא שעוד מחכה לתיקון</h2></div></div>
+<p class="chapter-intro">החפץ חיים הקדיש את חייו לתיקון לשון הרע כדי לקרב את הגאולה. אבל בחטא המרגלים היה עוד משהו.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מפעל החיים של החפץ חיים</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החפץ חיים החליט לכתוב את ספרו על הלכות לשון הרע מסיבה ברורה: הוא רצה מאוד לקרב את הגאולה. והוא הבין שהחטא שגרם לחורבן היה לשון הרע, שהולידה שנאת חינם. אם כך, מה שיביא את הגאולה הוא תיקון החטא הזה.</p>
+<p>אף שכתב גם את המשנה ברורה, שהיא אחד מספרי ההלכה החשובים ביותר בדורות האחרונים – את מפעל חייו ראה בתיקון הדיבור. ועל שם הספר הזה הוא נקרא לדורות: "חפץ חיים", על שם הפסוק "מִי הָאִישׁ הֶחָפֵץ חַיִּים... נְצֹר לְשׁוֹנְךָ מֵרָע" (תהלים לד, יג–יד).</p>
+<p>והוא הצליח מאוד. מאז ועד היום יוצאים עוד ועוד ספרים על הלכות לשון הרע, לגדולים ולילדים, בכל הצורות. הנושא שהיה כמעט נשכח – פורח.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: וימאסו בארץ חמדה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">וימאסו בארץ חמדה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל בחטא המרגלים לא הייתה רק לשון הרע. הם דיברו על ארץ ישראל. וכך מתאר זאת דוד המלך:</p>
+<blockquote>"וַיִּמְאֲסוּ בְּאֶרֶץ חֶמְדָּה לֹא הֶאֱמִינוּ לִדְבָרוֹ" (תהלים קו, כד)</blockquote>
+<p>ייתכן מאוד שלא מספיק לתקן את לשון הרע. צריך לתקן גם את החלק הזה: את מה שלא אהבו את הארץ, את מה שמאסו בה. בספר הכוזרי, ואחריו בספרים רבים, הודגש שאחד הדברים העיקריים שמעכבים את הגאולה הוא חיסרון החיבה לארץ ישראל.</p>
+<p>וכשמסתכלים על הדור שלנו, ששב לארץ אחרי אלפיים שנה, ושואלים על מה הוא עשה תשובה – הרי התורה אומרת שתשובה תקדים את השיבה – הדבר שאפשר להצביע עליו הוא אהבת הארץ. כל מה שהיה בחטא המרגלים, תמצאו בדיוק הפוך בדור ששב.</p>
+<p class="bold-para">המרגלים מאסו בארץ חמדה. הדור שלנו התגעגע אליה.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: המעפילים שלנו ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המעפילים שלנו</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי צדוק הכהן מלובלין כתב דבר מעניין. אחרי חטא המרגלים, קבוצה מבני ישראל ניסתה לעלות לארץ בכל זאת, נגד דברו של משה. הם נקראים "המעפילים", ועליהם אמר משה: "וְהִוא לֹא תִצְלָח" (במדבר יד, מא).</p>
+<p>ומדייק רבי צדוק: "היא" – העלייה הזו – לא תצלח. אבל יבוא זמן, באחרית הימים, שמעפילים אחרים יעלו ויצליחו.</p>
+<p>ומאז חטא המרגלים ועד היום הזה, עוד לא נכתב ספר מסודר על הלכות דיבת הארץ. אומרים שעל כל דבר יש ספר – אבל על זה, כמעט שאין.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: פרשות שלמות מול סעיף שאינו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">למה זה לא כתוב בשולחן ערוך?</h2></div></div>
+<p class="chapter-intro">התורה מאריכה בחטא המרגלים פרקים שלמים. בשולחן ערוך – אין עליו סעיף אחד. איך ייתכן?</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">פרשות שלמות מול סעיף שאינו</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פתחו חומש וספרו כמה פסוקים עוסקים בלשון הרע – עשרה, חמישה עשר. ועכשיו ספרו כמה עוסקים בדיבת הארץ: פרשת שלח כולה. אחר כך, בפרשת מטות, כשבני גד ובני ראובן מבקשים להישאר בעבר הירדן, משה רבנו מוכיח אותם בחריפות, כי חשש שהם חוזרים על חטא המרגלים: "וְהִנֵּה קַמְתֶּם תַּחַת אֲבֹתֵיכֶם תַּרְבּוּת אֲנָשִׁים חַטָּאִים" (במדבר לב, יד). ובספר דברים התורה חוזרת על הסיפור פעם שלישית.</p>
+<p>ועכשיו פתחו את השולחן ערוך, מתחילתו ועד סופו. האם תמצאו סעיף אחד: "מותר לדבר על ארץ ישראל כך, ואסור כך"? אין.</p>
+<p>לעומת זאת, הלכות עירובין תופסות במשנה ברורה ספר שלם. ועל כמה פסוקים הן נשענות? על פסוק אחד: "אַל יֵצֵא אִישׁ מִמְּקֹמוֹ בַּיּוֹם הַשְּׁבִיעִי" (שמות טז, כט). ובכל עיר משקיעים בעירוב הון עתק.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מה זו בעצם מחלוקת? ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה זו בעצם מחלוקת?</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין, נסתכל על דוגמה אחרת: פרשת קורח. פרשה שלמה על מחלוקת. האם יש בשולחן ערוך הלכה "אסור לעשות מחלוקת"? אין. למה? כי קשה מאוד להגדיר מה זו מחלוקת.</p>
+<p>אסור להתווכח? ודאי שמותר! אדרבה, בלי ויכוח אין לימוד, והגמרא כולה מלאה ויכוחים. מכוח הוויכוח יוצאים דברים מבוררים.</p>
+<p>אז מתי ויכוח הופך למחלוקת אסורה? כשהוא יורד מהפסים. כשהוא כבר לא על הנושא, אלא על האדם. כשמתחילים לשנוא, לפגוע, לרדוף, להצר את חייו של השני. בגמרא תראו ויכוחים חריפים מאוד – אבל בלי שום ניצוץ של עניין אישי. ברגע שזה נכנס, כבר אין עם מי לדבר.</p>
+<p class="bold-para">את הקו הזה קשה מאוד למתוח בסעיף של ספר הלכה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: השולחן ערוך כותב מה שאפשר לשפוט ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">השולחן ערוך כותב מה שאפשר לשפוט</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וזה היסוד: השולחן ערוך בחר לכתוב רק דברים מוגדרים – מעשים של ידיים ורגליים, דברים שדיין יכול לבחון ולומר "עשית טוב" או "עשית לא טוב". עירוב: גובה כך וכך, פרצה של כך וכך אמות. תפילה: מה אומרים, מתי, כמה אנשים.</p>
+<p>אבל דברים שמחוברים ללב, לרגש, למידות – לא נכתבו שם. אין בשולחן ערוך הלכות אהבת ישראל, אין הלכות אהבת ה', אין הלכות שנאה, נקימה ונטירה. האם זה לא חשוב? רבי עקיבא אמר על "ואהבת לרעך כמוך" שזה כלל גדול בתורה! הלל אמר לגר שזו כל התורה כולה על רגל אחת!</p>
+<p>זה לא נכתב לא כי זה לא חשוב, אלא כי זה לא נמדד בסרגל.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: לשון הרע מזיקה, דיבת הארץ הורסת מבפנים ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">לשון הרע מזיקה, דיבת הארץ הורסת מבפנים</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומכאן מובן למה החפץ חיים כתב הלכות לשון הרע – ולא הלכות דיבת הארץ. כשמדברים על אדם, יש נזק. יש מי שנפגע. ולכן אפשר להגדיר: זה מותר וזה אסור. גם בחוק המדינה יש הגדרות ללשון הרע, ובתי משפט דנים בהן עד היום, כי יש נפגע.</p>
+<p>בדיבת הארץ – את מי הזקת? אף אחד לא נפגע באופן ישיר. הרסת משהו אצלך, בלב שלך, ואצל השומע: את החיבה לארץ. וזה נוגע לרגש, לאהבה, לאמונה. קשה מאוד להגדיר את זה בהלכה מכאן ועד כאן.</p>
+<p>ולכן, דווקא בדברים כאלה, צריך ללמוד לעומק מה התורה רוצה – מה המטרה, מה היסוד. ואז יהיה לאדם קנה מידה, שבו יוכל למדוד בעצמו מה מותר ומה אסור.</p>
+<div class="honey-box">🍯 כשאין סעיף שאומר מה מותר, צריך להבין את הלב של המצווה.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: חוזרים מחופשה בחוץ לארץ ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חוזרים מחופשה בחוץ לארץ</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והשאלות האלה עולות כמעט כל יום, ובמיוחד בתקופות שנוסעים לטיולים. אדם חוזר מחוץ לארץ ומתחיל לספר. ובמציאות – יש בחוץ לארץ מקומות יפים מאוד. אי אפשר להתווכח עם זה. ברוך ה' יש מקומות יפים גם בארץ, אבל יש מה לראות גם שם.</p>
+<p>אז מה מותר? להגיד שבשווייץ יותר יפה? להעמיד פנים שזה לא נכון? או דוגמה אחרת: "שם נכנסתי לסניף הדואר ותוך חמש דקות יצאתי. וכאן? מי יודע כמה שעות מחכים." זה דיבת הארץ?</p>
+<p>צריך לדעת שיש גדרים. מי שלא יודע אותם עלול להיכשל, או להפך – לחשוש מכל מילה. כדי להתחיל להבין את הגדרים, חוזרים למקור: מה בדיוק היה חטא המרגלים.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: הקושיה שהראשונים עמדו עליה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🍇</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">חלק א: &quot;לא נוכל לעלות&quot;</h2></div></div>
+<p class="chapter-intro">הקושיה המפורסמת: משה ביקש מהם לבדוק מה בארץ. הם בדקו וסיפרו. מה החטא?</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הקושיה שהראשונים עמדו עליה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משה רבנו שולח שנים עשר אנשים ומבקש מהם במפורש: לכו וראו את הארץ, "הֲטוֹבָה הִוא אִם רָעָה", "הַשְׁמֵנָה הִוא אִם רָזָה", "הֶחָזָק הוּא הֲרָפֶה", "הֲיֵשׁ בָּהּ עֵץ אִם אַיִן". הם הולכים, רואים, וחוזרים ומספרים. אז למה זה חטא? הרי עשו בדיוק מה שביקשו מהם!</p>
+<p>זו קושיה מפורסמת מאוד, והראשונים עמדו עליה. התשובה מתחילה בהתבוננות מדויקת בפסוקים: התורה מחלקת את חטא המרגלים לשני חלקים. ואותה חלוקה תחזור אחר כך גם בהלכה. <strong>זה המפתח להבנת כל הסוגיה.</strong></p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: פותחים בטוב ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">פותחים בטוב</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"וַיָּשֻׁבוּ מִתּוּר הָאָרֶץ מִקֵּץ אַרְבָּעִים יוֹם" (במדבר יג, כה)</blockquote>
+<p>ארבעים יום לסייר בכל ארץ ישראל, לאורכה ולרוחבה, ולחזור – זה כמעט בלתי אפשרי בדרך הטבע. חז״ל אמרו שנעשתה להם קפיצת הדרך.</p>
+<p>והם חוזרים ומספרים:</p>
+<blockquote>"בָּאנוּ אֶל הָאָרֶץ אֲשֶׁר שְׁלַחְתָּנוּ וְגַם זָבַת חָלָב וּדְבַשׁ הִוא וְזֶה פִּרְיָהּ" (במדבר יג, כז)</blockquote>
+<p>הם פותחים בשבח. ורש״י מסביר למה: כל לשון הרע שאין בה קצת אמת בתחילתה, אינה מתקיימת בסופה. מי שרוצה שישמעו לו, פותח בדבר טוב – כדי שיהיה לו על מה לעמוד.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;אפס&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אפס&quot;</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"אֶפֶס כִּי עַז הָעָם הַיֹּשֵׁב בָּאָרֶץ וְהֶעָרִים בְּצֻרוֹת גְּדֹלֹת מְאֹד וְגַם יְלִדֵי הָעֲנָק רָאִינוּ שָׁם" (במדבר יג, כח)</blockquote>
+<p>הם ממשיכים ומתארים: עמלק יושב בנגב, החתי והיבוסי והאמורי בהר, והכנעני על הים ועל יד הירדן. כלב מהסה את העם ואומר: "עָלֹה נַעֲלֶה וְיָרַשְׁנוּ אֹתָהּ כִּי יָכוֹל נוּכַל לָהּ". והאנשים שעלו איתו עונים:</p>
+<blockquote>"לֹא נוּכַל לַעֲלוֹת אֶל הָעָם כִּי חָזָק הוּא מִמֶּנּוּ" (במדבר יג, לא)</blockquote>
+<p>כאן נגמר החלק הראשון. ושימו לב: עד כאן אין מילה אחת של שקר. ערים בצורות – נכון. ענקים – נכון. עמים חזקים – נכון. אז מה החטא?</p>
+<p class="bold-para">הם לא שיקרו בעובדות. הם הסיקו מהן מסקנה: "אין לנו סיכוי".</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: אותן עובדות, מסקנה הפוכה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">אותן עובדות, מסקנה הפוכה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב״ן מסביר שהחטא בחלק הראשון היה המסקנה. משה לא ביקש מהם להחליט אם אפשר לכבוש. הוא ביקש מידע. והם הביאו מידע, ואיתו פסק דין: לא נוכל.</p>
+<p>והראיה: בספר דברים משה רבנו עצמו אומר לעם כמעט אותם דברים בדיוק – שהם עולים לארץ של עמים גדולים ועצומים, ערים גדולות ובצורות בשמים, בני ענקים. אותה אינפורמציה. אבל המסקנה שלו הפוכה: תראו איזה ניסים הקדוש ברוך הוא עומד לעשות לכם!</p>
+<p>למה המסקנה של המרגלים הייתה חטא כה גדול? כי הם היו צריכים להאמין. הם יצאו ממצרים, ראו את קריעת ים סוף, אכלו מן, ראו ניסים ונפלאות כל יום. מה פתאום לחשוב שעכשיו הקדוש ברוך הוא לא יעזור?</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;אנחנו כבר לא ראויים&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אנחנו כבר לא ראויים&quot;</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל איך באמת קרה להם דבר כזה? אנשים גדולים, ראשי שבטים, שראו את כל הניסים?</p>
+<p>נראה שהם הגיעו לתחושה של ייאוש מעצמם. "פעם היינו צדיקים, והיו לנו ניסים. אבל מאז חטאנו בעגל, חטאנו כאן, חטאנו שם. למה שיהיו לנו ניסים עכשיו?" הם ידעו גם שההנהגה הניסית של המדבר עומדת להסתיים, ושבארץ ישראל יצטרכו לחרוש ולזרוע ולהילחם בדרך הטבע. והם לא האמינו שהקדוש ברוך הוא ילווה אותם גם שם.</p>
+<p>ומעניין שהדור שלנו עמד בדיוק בניסיון ההפוך. כשקמה המדינה, רבים טענו שעל פניו אין שום סיכוי: מעט נשק, כמעט בלי טנקים ומטוסים, מול צבאות שלמים. מעצמות לחצו שלא להכריז. ובכל זאת הלכו כמו שאמר כלב – "עָלֹה נַעֲלֶה" – והקדוש ברוך הוא עזר.</p>
+<div class="honey-box">🍯 הייאוש מעצמך הוא לא ענווה. הוא שוכח שה' עוזר גם למי שחטא.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: מעובדות לפרשנות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">⚰️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">חלק ב: &quot;ארץ אוכלת יושביה&quot;</h2></div></div>
+<p class="chapter-intro">אחרי המסקנה מגיע שלב חדש לגמרי. כאן התורה כבר קוראת לזה בשם: "ויוציאו דבת הארץ".</p>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מעובדות לפרשנות</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה עוצרת, ומתחילה פסוק חדש:</p>
+<blockquote>"וַיּוֹצִיאוּ דִּבַּת הָאָרֶץ אֲשֶׁר תָּרוּ אֹתָהּ אֶל בְּנֵי יִשְׂרָאֵל לֵאמֹר הָאָרֶץ אֲשֶׁר עָבַרְנוּ בָהּ לָתוּר אֹתָהּ אֶרֶץ אֹכֶלֶת יוֹשְׁבֶיהָ הִוא וְכָל הָעָם אֲשֶׁר רָאִינוּ בְתוֹכָהּ אַנְשֵׁי מִדּוֹת" (במדבר יג, לב)</blockquote>
+<p>כאן הם כבר לא מוסרים עובדות. הם מפרשים. והרמב״ן מסביר מה הייתה הדיבה: הם אמרו שהארץ קשה מאוד באווירה ובטבעה. מי שאינו ענק – לא מחזיק בה מעמד. לכן כל מי שגר שם הוא ענק וגיבור: החלשים מתים, ורק החזקים שורדים. וגם הפירות הענקיים – סימן לטבע כבד וקשה.</p>
+<p class="bold-para">"ארץ אוכלת יושביה" – זו כבר לא תצפית. זו פרשנות.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: הלוויות בכל מקום ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הלוויות בכל מקום</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה הם ראו שהביא אותם למסקנה הזו? רש״י מסביר: בכל מקום שעברו, מצאו אנשים קוברים את מתיהם. לוויה כאן, לוויה שם. והקדוש ברוך הוא עשה זאת לטובתם – כדי שתושבי הארץ יהיו טרודים באבלם ולא ישימו לב למרגלים.</p>
+<p>אבל כאן עולה שאלה פשוטה מאוד. אם אדם רואה לוויה ועוד לוויה ועוד לוויה, בכל מקום, מה המסקנה הטבעית? שיש מגפה! כמו בימי הקורונה. מה הנורמלי יותר: לחשוב שהארץ "אוכלת" את יושביה, או לחשוב שהקדוש ברוך הוא סידר את הלוויות כדי להסתיר את המרגלים?</p>
+<p>לכאורה דווקא המרגלים חשבו בצורה הנורמלית! למה כועסים עליהם שהוציאו דיבה?</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: תלוי מי נוסע ברכב ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">תלוי מי נוסע ברכב</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התשובה מבוארת בדברי בעלי המוסר: הכל תלוי מאיפה אתה מסתכל.</p>
+<p>דוגמה: אדם רואה בשבת מכונית נוסעת. אם הנהג הוא אדם שאינו שומר שבת, הוא יאמר בצער: "חבל, הוא נוסע בשבת." אבל אם הוא רואה ברכב יהודי בטלית ובשטריימל – מה הוא יחשוב? ודאי לא שהוא מחלל שבת! הוא יחשוב: מישהו חולה, נוסעים לבית החולים, יש פיקוח נפש, משהו דחוף מאוד. הוא יחפש כל הסבר שבעולם, העיקר לא לחשוד בו.</p>
+<p>למה? כי הוא כבר יודע מי האדם הזה. והידיעה הזו קובעת איך הוא יפרש את מה שהוא רואה.</p>
+<p>וכך בארץ ישראל: הקדוש ברוך הוא אמר שהיא טובה מאוד, ארץ זבת חלב ודבש. מי שבאמת מאמין בזה, כשהוא רואה לוויות – יחפש הסבר: אולי זה לטובתנו? אולי ה' רוצה להציל אותנו? <strong>מי שלא מאמין – יפרש הכל לרעה.</strong></p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: יום לשנה ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">יום לשנה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והראיה שזה עיקר החטא, היא העונש:</p>
+<blockquote>"בְּמִסְפַּר הַיָּמִים אֲשֶׁר תַּרְתֶּם אֶת הָאָרֶץ אַרְבָּעִים יוֹם יוֹם לַשָּׁנָה יוֹם לַשָּׁנָה תִּשְׂאוּ אֶת עֲוֹנֹתֵיכֶם אַרְבָּעִים שָׁנָה" (במדבר יד, לד)</blockquote>
+<p>זה מוזר מאוד. האם ראיתם פעם שמענישים מישהו לפי מספר הימים שבהם תכנן את מעשהו? מה אכפת לנו כמה זמן הסתובבו המרגלים בארץ? החטא היה הדיבור, ביום שחזרו. אז שיענשו על יום אחד!</p>
+<p>אלא שהעונש מלמד: <strong>החטא התחיל כבר בארבעים הימים.</strong> כל אותו זמן, בראש שלהם, הם כבר פירשו כל מה שראו לרעה. הדיבור בסוף היה רק התוצאה.</p>
+<p>מכאן חידוש גדול: עיקר האיסור אינו רק הדיבור. עיקרו הוא המחשבה – עצם זה שאדם רואה רע. אם אלוקים אמר שזה טוב, אדם חייב לחפש את הפירוש הטוב.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: החטא של מרים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">👁️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">לתור או לרגל</h2></div></div>
+<p class="chapter-intro">אותה ארץ, אותם רחובות – ושני אנשים רואים בהם דברים אחרים לגמרי.</p>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">החטא של מרים</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הראיה הזו נמצאת גם במרים הנביאה, שפרשתה סמוכה לפרשת המרגלים. מה היה החטא שלה? היא ראתה שמשה רבנו פרש מאשתו, וחששה שתיווצר תופעה: שכל הצדיקים יחשבו שכדי להיות צדיק צריך לפרוש מהבית, כמו נזירים.</p>
+<p>לכאורה כוונתה הייתה טובה. אז למה נענשה? כי פירשה את מה שראתה בצורה רעה. היא חשבה שמשה פרש כי החליט להחמיר על עצמו. ובאמת – הקדוש ברוך הוא הוא שציווה אותו, כי היה צריך להיות מוכן תמיד לדבר איתו.</p>
+<p class="bold-para">החטא לא היה רק במילים. הוא התחיל בפרשנות.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: ראה בטוב ירושלים ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ראה בטוב ירושלים</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<blockquote>"וּרְאֵה בְּטוּב יְרוּשָׁלָיִם כֹּל יְמֵי חַיֶּיךָ" (תהלים קכח, ה)</blockquote>
+<p>תמיד לחפש איפה יש טוב.</p>
+<p>פעם נסע אדמו״ר אחד מארץ ישראל לארצות הברית, ושם ניגש אליו יהודי ואמר: "רבי, איך אתה גר בארץ? יש שם כך, וכך, וכך." הרבי שאל אותו: "כמה זמן היית בארץ?" – "שבוע." אמר לו הרבי: "פלא עצום. אני גר בארץ כבר עשרים שנה, ועוד לא ראיתי אפילו פעם אחת את מה שאתה מתאר. ואתה, בשבוע אחד, ראית את כל זה?"</p>
+<p>הרבה פעמים אדם רואה בדיוק את מה שהוא רוצה לראות. מה שהוא מחפש – זה מה שהוא מוצא.</p>
+<div class="honey-box">🍯 לפני שמספרים מה ראינו, לשאול: מה חיפשנו?</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: שתי מצלמות ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שתי מצלמות</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש הבדל בין "לתור" את הארץ לבין "לרגל" אותה. איך מבינים את ההבדל? פתחו שתי מצלמות.</p>
+<p>המצלמה הראשונה שייכת לשוטרים שעוקבים אחרי סוחרי נשק. מה תמצאו בה? איפה מוסתר הנשק, מי נכנס ומי יצא, בורות, מחבואים, מסלולי בריחה.</p>
+<p>המצלמה השנייה שייכת לתייר. מה תמצאו בה? מוזיאונים, רכבות, פרחים, עצים, נופים יפים.</p>
+<p>שניהם היו באותה ארץ, באותם רחובות. אבל כל אחד צילם מה שבשבילו בא. אילו התייר היה מחפש בורות ומחבואים, אולי היה מוצא גם אותם. אבל זה לא מה שהוא בא לראות.</p>
+<p class="bold-para">השאלה איננה רק מה יש בארץ. השאלה היא באיזה עיניים מסתכלים עליה.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: יוסף מביא, המרגלים מוציאים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">להוציא דיבה או להביא דיבה</h2></div></div>
+<p class="chapter-intro">מחלוקת מרתקת בין המפרשים: האם מי שמפרש לרעה את מה שראה – משקר?</p>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">יוסף מביא, המרגלים מוציאים</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>במרגלים כתוב "וַיּוֹצִיאוּ דִּבַּת הָאָרֶץ". ועל מי עוד נאמר בתורה דיבה? על יוסף:</p>
+<blockquote>"וַיָּבֵא יוֹסֵף אֶת דִּבָּתָם רָעָה אֶל אֲבִיהֶם" (בראשית לז, ב)</blockquote>
+<p>שם – "הביא" דיבה. כאן – "הוציאו" דיבה. מה ההבדל?</p>
+<p>האבן עזרא, שהיה מדקדק גדול בלשון הקודש, מחלק: "ויוציאו" – דבר שקר. "ויבא" – דבר אמת. להוציא, כמו להוציא דבר מהקשרו: לוקחים משהו ומעוותים אותו עד שהוא נעשה שקר. המרגלים אמרו "ארץ אוכלת יושביה" – והאמת הפוכה, זו ארץ טובה מאוד שמאריכה ימים.</p>
+<p>יוסף, לעומת זאת, סיפר דברים שהיו להם בסיס: הוא ראה את אחיו עושים מעשים שנראו לו פסולים. אולי לא הבין אותם נכון, אבל לא המציא. לכן אצלו כתוב "ויבא".</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: קושיית בעל אבי עזר ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">קושיית בעל אבי עזר</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל בעל "אבי עזר", מפרש על האבן עזרא, חולק. לדעתו, המרגלים לא דיברו שקר. הרי באמת מתו בארץ כנען אנשים רבים באותם ימים, כפי שמביא רש״י מהמדרש. ובאמת היו שם אנשים גבוהי קומה, ופירות גדולים להפליא. לפי מה שהם ראו – הם אמרו אמת.</p>
+<p>אז מה חטאם? שהיה להם לפרש לטובה. אנשים רבים מתו – אולי זה לטובתנו, שיהיו טרודים ולא יראו אותנו. והם, ברשעות לבם, פירשו לרעה, כדי להמס את לב העם.</p>
+<p>ולכן, לדעתו, "ויוציאו" אין פירושו שקר, אלא כוונה: מוציא דיבה הוא מי שרוצה להוציא שם רע. ו"ויבא" הוא מי שמביא את הדברים כדי לתקן – כמו יוסף, שרצה שאביו יוכיח את אחיו.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: פרשנות רעה – אמת או שקר? ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">פרשנות רעה – אמת או שקר?</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זו מחלוקת עמוקה: אדם רואה דבר, מפרש אותו לא נכון, ומספר את פירושו. האם זה נקרא שקר?</p>
+<p>לפי האבן עזרא – כן. כלפי המציאות האמיתית, מה שאמר אינו נכון, ולכן זה שקר. לפי האבי עזר – לא. האדם אמר את האמת שלו; כך חשב, כך היה בטוח. אפשר לבוא אליו בטענות למה פירש לרעה, אבל אי אפשר לקרוא לזה שקר.</p>
+<p>רוב המפרשים, ובהם הרמב״ן והאבן עזרא, למדו שזה נקרא הוצאת דיבה – וזה נקרא שקר. וכך מקובל להגדיר גם היום: <strong>עצם זה שפירשת לרעה, ולא חיפשת את הפירוש הטוב, הוא השקר.</strong></p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: שני החלקים, במבט אחד ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שני החלקים, במבט אחד</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לסיכום, חטא המרגלים היה בנוי משני חלקים:</p>
+<ul class="story-list"><li><strong>חלק א:</strong> חוסר אמונה שהקדוש ברוך הוא יעזור. "במדבר ה' עזר, אבל היום אנחנו לא ראויים." ומזה המסקנה: הערים בצורות, אין לנו סיכוי, "לא נוכל לעלות".</li><li><strong>חלק ב:</strong> פרשנות רעה. כל מה שראו – פירשו לשלילה. ולא היה קל לפרש לחיוב: הם באמת ראו מתים, כמו במגפה. אבל אדם צריך להאמין כל כך שמה שאלוקים אמר הוא טוב, עד שיחפש את כל התירוצים שבעולם – העיקר לראות שמה שהוא רואה הוא לטובה.</li></ul>
+<p>וזה נקרא שהוציאו דיבה על ארץ ישראל.</p>
+<p>ונשארת שאלה גדולה: על מה נענשו יותר – על שלא האמינו, או על שדיברו רע? איזה מהחלקים חמור יותר?</p>
+<div class="honey-box">🍯 התיקון מתחיל בעיניים: לראות את הארץ כמו שה' אמר עליה – "טובה הארץ מאד מאד".</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
