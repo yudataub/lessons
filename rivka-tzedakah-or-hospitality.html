@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🐪 לשאוב לכל הגמלים: מה בין צדקה להכנסת אורחים</title>
+<meta name="description" content="למה רבקה לא הייתה &quot;פראיירית&quot; כשהשקתה את גמלי אליעזר, ומה ההבדל העמוק בין מצווה שנועדה לעזור לעני לבין מצווה שנועדה להפוך אותך לאדם שאוהב לתת">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🐪 לשאוב לכל הגמלים: מה בין צדקה להכנסת אורחים</h1>
+  <p class="hero-subtitle">למה רבקה לא הייתה &quot;פראיירית&quot; כשהשקתה את גמלי אליעזר, ומה ההבדל העמוק בין מצווה שנועדה לעזור לעני לבין מצווה שנועדה להפוך אותך לאדם שאוהב לתת</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/aQs20z0-cQw" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🤔 חסד, אבל לא פראייר?</a><ul class="toc-stories"><li><a href="#story-1">דבר תורה של בחור צעיר</a></li><li><a href="#story-2">עשרה גמלים ונערה אחת</a></li><li><a href="#story-3">החפץ חיים: רבקה כדוגמה להכנסת אורחים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">⚖️ רחמים וחסד: שתי מצוות, שני כיוונים</a><ul class="toc-stories"><li><a href="#story-4">אורח הוא לא תמיד עני</a></li><li><a href="#story-5">ההגדרה: צדקה היא רחמים, הכנסת אורחים היא חסד</a></li><li><a href="#story-6">צדקה בסתר, אורח בפנים מאירות</a></li><li><a href="#story-7">עוגה למי שכבר שבע</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🙌 בעצמו ולא על ידי שליח</a><ul class="toc-stories"><li><a href="#story-8">מה שעשה אברהם בעצמו</a></li><li><a href="#story-9">מצוות שבגוף ומצוות שבחפץ</a></li><li><a href="#story-10">צדקה בחפצא, אורחים בגברא</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🚪 האם יש הכנסת אורחים לגוי?</a><ul class="toc-stories"><li><a href="#story-11">צדקה לעניי נכרים</a></li><li><a href="#story-12">כמו שהקדוש ברוך הוא מארח</a></li><li><a href="#story-13">למה כאן כן ושם לא</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🧁 סבתא, במבה ורבקה: מי שאוהב לתת</a><ul class="toc-stories"><li><a href="#story-14">חסד שלא תמצא בעולם</a></li><li><a href="#story-15">האישה עם העוגות בבית החולים</a></li><li><a href="#story-16">סבא שלא יכול שלא לתת</a></li><li><a href="#story-17">זה מה שראה אליעזר</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🤔</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">חסד, אבל לא פראייר?</h2></div></div>
+<p class="chapter-intro">דבר תורה קצר בשבע ברכות פתח שאלה גדולה: איפה עובר הגבול בין נדיבות לבין תמימות?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דבר תורה של בחור צעיר</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשבע ברכות נוהגים לתת לבחורים צעירים לומר דבר תורה. זו הבמה הראשונה שלהם, וכל אחד מנסה לומר משהו חכם ומעשי לזוג הצעיר.</p>
+<p>פעם קם בחור ודיבר על החסד: כמה חשוב שהבית החדש יהיה בית של חסד. ואז הוסיף משפט שנשמע לו שנון: "חסד – כן. פראייר – אל תהיה." והסביר: כשהתינוק בוכה ואשתך עסוקה ומבקשת שתביא מוצץ או חיתול – זה חסד, ודאי צריך לעזור. אבל כשהיא יכולה להביא את המלח בעצמה ומבקשת ממך – זה כבר להיות פראייר.</p>
+<p>בין השומעים ישב רב ותיק. אחרי הסעודה ניגש אל הבחור ושאל אותו בחיוך: פרשת השבוע קראת? אם כך, איך אתה מסביר את מה שעשתה רבקה?</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: עשרה גמלים ונערה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">עשרה גמלים ונערה אחת</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אליעזר, עבד אברהם, הגיע אל הבאר בחרן. הוא היה איש בוגר וחזק, ואיתו עשרה גמלים. הוא ביקש מרבקה רק דבר אחד: מעט מים לשתות. והיא?</p>
+<blockquote>"ותמהר ותער כדה אל השקת ותרץ עוד אל הבאר לשאב ותשאב לכל גמליו" (בראשית כד, כ)</blockquote>
+<p>גמל צמא שותה כמויות עצומות של מים. נערה צעירה רצה הלוך וחזור, שוב ושוב, ושואבת לעשרה גמלים – עבודה של זמן ארוך. ואליעזר עומד ומסתכל. למה לא אמר לה: תני לי את הכד, אני אשאב לגמלים שלי בעצמי?</p>
+<p>לפי ההגדרה של הבחור, רבקה הייתה "פראיירית" גמורה: היא עשתה בשביל אדם חזק משהו שהוא יכול לעשות לבד. ובכל זאת, דווקא על המעשה הזה אמר אליעזר שהיא הראויה ליצחק.</p>
+<p class="bold-para">השאלה הזו פותחת את ההבדל בין שתי מצוות שנראות דומות, אבל הן שונות מן היסוד.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: החפץ חיים: רבקה כדוגמה להכנסת אורחים ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">החפץ חיים: רבקה כדוגמה להכנסת אורחים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החפץ חיים, בספרו "אהבת חסד", כשהוא מדבר על השכר הגדול של מצוות הכנסת אורחים, מביא את רבקה כדוגמה. הקדוש ברוך הוא סיבב שרבקה תגיע לביתו של יצחק דווקא בזכות שטרחה בעצמה למען האורח, כמו שאמר אליעזר: "והיה הנערה אשר אמר אליה... אתה הכחת לעבדך ליצחק" (בראשית כד, יד). ורש״י מפרש: "ראויה היא לו, שתהא גומלת חסדים וכדאי ליכנס בביתו של אברהם".</p>
+<p>מכאן, כותב החפץ חיים, אנו למדים עד כמה אדם יכול להגיע בקיום המצווה הזו בלב טוב – כמו רבקה, שהוסיפה הרבה מעבר למה שביקש ממנה האורח.</p>
+<p>שימו לב: החפץ חיים לא מכנה את מעשה רבקה "צדקה". הוא קורא לו "הכנסת אורחים". ומכאן השאלה: מה בעצם ההבדל ביניהן?</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: אורח הוא לא תמיד עני ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">רחמים וחסד: שתי מצוות, שני כיוונים</h2></div></div>
+<p class="chapter-intro">צדקה מסתכלת על מי שמקבל. הכנסת אורחים מסתכלת על מי שנותן.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אורח הוא לא תמיד עני</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין את ההבדל, צריך לדמיין מה היה אורח בעבר. אורח לא היה בהכרח עני. לפעמים הוא היה עשיר גדול, שהדרך הארוכה תפסה אותו רחוק מביתו. בתי מלון לא היו בכל מקום, ולכסף שבכיסו לא היה ערך כשאין איפה לישון.</p>
+<p>גם היום, במקום שאין בו בית מלון, נוסעים ברכב לעיר הקרובה. אבל פעם, מי שהגיע לעיירה בערב – לא היה לו לאן ללכת. וגם היום, בשבת, אפילו לעשיר אין מה לעשות עם כספו אם אין לו מקום ללון.</p>
+<p>אז הכנסת אורחים איננה רק עזרה לנזקק. זו מצווה אחרת.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: ההגדרה: צדקה היא רחמים, הכנסת אורחים היא חסד ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ההגדרה: צדקה היא רחמים, הכנסת אורחים היא חסד</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרבי מלובביץ' עסק הרבה בהבדל בין שתי המצוות, וההסבר שלו בהיר מאוד:</p>
+<ul class="story-list"><li><strong>צדקה היא רחמים.</strong> נותנים אותה כדי שלעני, למסכן, יהיה מה לאכול. המטרה היא הנזקק.</li><li><strong>הכנסת אורחים היא חסד.</strong> עושים אותה כי אתה אדם שאוהב להיטיב, ומחפש איך להיטיב. המטרה היא – במידה רבה – אתה עצמך.</li></ul>
+<p>בהכנסת אורחים אתה הולך בדרכיו של בורא עולם. כמו שהוא מיטיב לבריותיו – גם בלי שהן צריכות, גם בלי שביקשו – כך גם אתה מיטיב.</p>
+<div class="honey-box">🍯 צדקה שואלת: מה חסר לו? חסד שואל: איך אני יכול לשמח אותו?</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: צדקה בסתר, אורח בפנים מאירות ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">צדקה בסתר, אורח בפנים מאירות</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההבדל הזה מתבטא באופן מעשי מאוד. בצדקה, המעלה הגדולה ביותר היא לתת בסתר: הנותן לא יודע למי נתן, והמקבל לא יודע ממי קיבל. קופת צדקה עירונית היא הדוגמה המושלמת – הכסף מגיע לעני, ואף אחד לא מתבייש.</p>
+<p>עכשיו נסו לדמיין "הכנסת אורחים בסתר": אורח שלא יודע מי אירח אותו, ומארח שלא יודע את מי הכניס. זה לא מתאים בכלל. כל עניינה של הכנסת אורחים הוא לקבל את פני האורח, להראות לו שמחכים לו, שמכבדים אותו ושמחים בו.</p>
+<p>לכן פוסק הרמב״ם (הלכות אבל יד, ב): "שכר הלויה מרובה מן הכל". למה דווקא הליווי? הרי לא נתת לאורח שום דבר מוחשי! אלא שכשאתה מלווה אותו ונפרד ממנו באהבה, הוא יודע שהיה אורח רצוי, ולא שאתה שמח להיפטר ממנו.</p>
+<p class="bold-para">בצדקה העיקר הוא מה שהגיע לעני. בהכנסת אורחים העיקר הוא הפנים שהאורח ראה.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: עוגה למי שכבר שבע ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עוגה למי שכבר שבע</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך מגדיר החפץ חיים את מצוות הכנסת אורחים: המצווה היא ההשתדלות לקבל את האורחים בפנים יפות, אפילו אם אינם צריכים לטובתו.</p>
+<p>דמיינו אדם עשיר שחוזר מחתונה ונכנס אליכם לכמה דקות. הוא שבע לגמרי, ויש לו בבית חמש עוגות. ובכל זאת, המצווה היא לשים לפניו עוגה וכוס קפה. הוא אפילו לא יטעם. אבל כשהוא רואה שמישהו טרח והכין בשבילו – הוא מרגיש שמכבדים אותו, ששמחים בו, שהוא רצוי כאן.</p>
+<div class="honey-box">🍯 הכנסת אורחים איננה רק להאכיל. היא להראות לאדם שהוא אהוב.</div>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מה שעשה אברהם בעצמו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🙌</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">בעצמו ולא על ידי שליח</h2></div></div>
+<p class="chapter-intro">אפשר לשלוח צדקה דרך קופה. האם אפשר לשלוח הכנסת אורחים דרך מישהו אחר?</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מה שעשה אברהם בעצמו</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בגמרא (בבא מציעא פו, ב) נאמר יסוד נפלא: כל מה שעשה אברהם למלאכים בעצמו – עשה הקדוש ברוך הוא לבניו בעצמו; וכל מה שעשה אברהם על ידי שליח – עשה הקדוש ברוך הוא לבניו על ידי שליח.</p>
+<p>אברהם הביא בעצמו לחם ובשר – והקדוש ברוך הוא בעצמו הוריד לבני ישראל את המן במדבר, והביא להם שליו. אבל את המים הביא אברהם על ידי שליח: "יקח נא מעט מים" – ולכן גם המים במדבר הגיעו על ידי שליח: הקדוש ברוך הוא אמר למשה להכות בצור, ויצאו מים.</p>
+<p>השל״ה הקדוש לומד מכאן שהתורה האריכה בסיפור הכנסת האורחים של אברהם כדי ללמד אותנו את גודל המצווה, ושמי שמכניס אורחים צריך לטרוח בה בעצמו, ולא להעביר אותה לאחרים.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מצוות שבגוף ומצוות שבחפץ ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מצוות שבגוף ומצוות שבחפץ</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה בצדקה אין בעיה לתת דרך קופה, ובהכנסת אורחים חשוב כל כך לעשות בעצמך? ההבדל נעוץ בחילוק מוכר בלימוד: יש מצוות "בגברא", על האדם עצמו, ויש מצוות "בחפצא", שעיקרן התוצאה בעולם.</p>
+<ul class="story-list"><li><strong>מעקה</strong> היא מצווה בחפצא. אם שכרת פועל שבנה לך מעקה – קיימת את המצווה. העיקר הוא שלבית יש מעקה.</li><li><strong>מזוזה</strong> גם היא כזו. אפשר לכבד רב שיקבע לך את המזוזה. העיקר שעל הפתח תהיה מזוזה.</li><li><strong>תפילין</strong> הן מצווה בגברא. אי אפשר לשלם למישהו שיניח תפילין במקומך. אתה בעצמך צריך להניח.</li></ul>
+<p>יש מצוות שקשה להכריע לאיזה סוג הן שייכות, אבל ברוב המצוות התמונה ברורה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: צדקה בחפצא, אורחים בגברא ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">צדקה בחפצא, אורחים בגברא</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו נשאל: צדקה – מה עיקרה? האם העיקר שאני אתן, או שהעני יקבל? התשובה ברורה: שהעני יקבל. יש כאן אדם מסכן, ומישהו צריך לדאוג לו. לכן אין שום בעיה לתת דרך קופת צדקה, דרך גבאי או בכל דרך אחרת. העיקר שלעני יהיה.</p>
+<p>והכנסת אורחים? תראו את לשון החפץ חיים: "השתדלות לקבלם בפנים יפות, אפילו אינם צריכים לטובתו". העיקר הוא הפנים של המארח, איך הוא מתנהג, איך הוא מקבל את האחר. והשל״ה מגדיר: ללכת בדרכיו של בורא עולם. כמו שהוא ברא עולם נפלא ומארח בו את כל הבריות, כך אתה מארח בעולם הקטן שלך – בשמחה ובאהבה.</p>
+<p class="bold-para">צדקה היא מצווה בחפצא, והכנסת אורחים היא מצווה בגברא. לכן הכנסת אורחים על ידי שליח חסרה את עיקרה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: צדקה לעניי נכרים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🚪</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">האם יש הכנסת אורחים לגוי?</h2></div></div>
+<p class="chapter-intro">ההבדל בין שתי המצוות איננו רק רעיון. יש לו השלכה הלכתית מעשית מאוד.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">צדקה לעניי נכרים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מצוות צדקה, מעיקרה, מיועדת לעניי ישראל. ובכל זאת אמרו חז״ל (גיטין סא, א): "מפרנסים עניי נכרים עם עניי ישראל, מפני דרכי שלום". אם גוי עומד בתור עם העניים, נותנים גם לו, כדי שלא יהיו מריבות ושנאה.</p>
+<p>לשאלה הזו יש משמעות מעשית בקופות צדקה עירוניות. לפעמים מגיעות בקשות מעולים חדשים מחבר העמים, ורבים מהם אינם יהודים לפי ההלכה. לפי המשנה, כשהם באים יחד עם עניי ישראל – נותנים גם להם מפני דרכי שלום. אבל עיקר מצוות הצדקה נועד ליהודים.</p>
+<p>ומה לגבי הכנסת אורחים? האם יש מצווה לארח גוי?</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: כמו שהקדוש ברוך הוא מארח ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כמו שהקדוש ברוך הוא מארח</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ב"ספר החיים" מובא רעיון יפה: אדם בעולם הזה הוא כמו אורח בבית מלון, והקדוש ברוך הוא הוא בעל הבית שעורך את השולחן לפני כל אחד ואחד. וכמו שאורח טוב אומר "כמה טרח בעל הבית בשבילי", כך צריך אדם להכיר בטובתו של הקדוש ברוך הוא, המארח הטוב.</p>
+<p>ואם הכנסת אורחים פירושה ללכת בדרכי ה' – את מי מארח הקדוש ברוך הוא? רק יהודים? "טוב ה' לכל ורחמיו על כל מעשיו" (תהלים קמה, ט).</p>
+<p>ולכן ממשיך שם שגם כשמגיע אליך אדם נכרי, אפשר לכוון בכך למצוות הכנסת אורחים. ולמד זאת מאברהם אבינו: את מי הכניס אברהם לביתו? אנשים שנראו לו כערביים שמשתחווים לאבק רגליהם – כך מפרש רש״י (בראשית יח, ד). הוא ראה בהם עובדי עבודה זרה, ובכל זאת רץ לקראתם ואירח אותם במסירות.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: למה כאן כן ושם לא ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה כאן כן ושם לא</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו מובן ההבדל. אם צדקה היא מצווה בחפצא – שיהיה לעני יהודי מה לאכול – הרי שאצל גוי אין את ה"חפצא" הזה, ומעיקר הדין אין חיוב.</p>
+<p>אבל אם הכנסת אורחים היא מצווה בגברא – שאתה תהיה אדם טוב, שתלך בדרכי ה', שתכבד כל אדם – אז היא שייכת גם כלפי גוי. יש מצווה של כבוד האדם, ויש מעלה בכך שאדם מתרגל להיטיב לכל מי שנכנס בשעריו.</p>
+<p>השאלה הזו עלתה פעם הלכה למעשה, כשהשכרנו דירה לפועלים ערבים שהגיעו לעבודה באמצע השבוע. השאלה ההלכתית הייתה: האם יש בזה מצוות הכנסת אורחים? כי אם יש מצווה – כדאי להתאמץ גם כשזה לא נוח לבני הבית ולשכנים. היו רבנים שסברו שיש בזה מצווה, והיו שסברו שאין. בסוף הסיפור נגמר מעצמו, בדרך מפתיעה: ביום העצמאות הגיעו חמישה פועלים, חנו על המדרכה, ושכן חשדן הזעיק משטרה בטוחה שגילה פיגוע. אחרי שהכול נרגע, ביקשו מאיתנו להפסיק, ומאז, באורח פלא, הטלפונים פשוט פסקו.</p>
+<div class="honey-box">🍯 צדקה מסתכלת על הצורך של המקבל. חסד מסתכל על הלב של הנותן – ולכן הוא פתוח לכל אדם.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: חסד שלא תמצא בעולם ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🧁</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">סבתא, במבה ורבקה: מי שאוהב לתת</h2></div></div>
+<p class="chapter-intro">עכשיו אפשר לחזור לשאלה שפתחה הכול: למה אליעזר לא עצר את רבקה?</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">חסד שלא תמצא בעולם</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הבחנה מעניינת: גם בעולם הרחב יש ארגונים רבים של רחמים. ארגוני סיוע בינלאומיים עוזרים לנפגעי אסונות, למסכנים ולרעבים. זה רחמים – יש אדם שסובל, והלב לא יכול לראות את זה.</p>
+<p>אבל חסד במובן היהודי – אדם שמחפש איך להיטיב גם למי שלא חסר לו כלום, שפותח גמ״ח כי הוא מחפש למי לתת – זה דבר נדיר הרבה יותר.</p>
+<p>אצל רבקה זה היה חסד מהסוג הזה. היא לא עזרה לאליעזר מפני שלא היה מסוגל לבד. היא חיפשה איך לתת, כי רצתה ללכת בדרכי ה'. ומי שרוצה לתת – אין טעם לשאול אותו "אבל הוא יכול בעצמו". השאלה הזו פשוט לא שייכת.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: האישה עם העוגות בבית החולים ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">האישה עם העוגות בבית החולים</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שהיה פעם במיון יודע: אתה מגיע בצהריים, ולא יודע מתי תצא. השעות עוברות, הערב יורד, ואתה רעב ועייף. ובשעה עשר בלילה עוברות שתי נשים בין המחכים: מי רוצה עוגה? מי רוצה כוס קפה?</p>
+<p>עכשיו דמיינו שמישהו אומר לה: "תודה, אבל יש מכונת קפה בצד, אני יכול להכין לעצמי." האם היא פראיירית? בכלל לא. היא נהנית לתת. זה מה שהיא רוצה לעשות. היא הכינה בעצמה את העוגות כדי לחלק אותן.</p>
+<p>מסופר על רב אחד שהיה מביא תמיכה חודשית לאלמנה. בכל פעם הייתה מכינה לו עוגה, והוא היה יושב, טועם בהנאה, משבח את העוגה ומבקש את המתכון. האם היה צריך לומר לה "תודה, יש לי מספיק עוגות בבית"? הוא הבין שהעוגה הזו היא הנתינה שלה, ושלקבל אותה בשמחה – זה החסד שהוא עושה איתה.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: סבא שלא יכול שלא לתת ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">סבא שלא יכול שלא לתת</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ודוגמה קיצונית עוד יותר: סבתא שמחלקת במבה לכל הנכדים. נכד מבוגר אומר לה: "סבתא, אני מרוויח טוב, חבל על הכסף שלך, אני אקנה לילדים שלי במבה בעצמי." הוא לא מבין כלום. סבתא לא נותנת במבה כי לנכדים חסר במבה. היא נותנת כי היא נהנית לתת.</p>
+<p>אני זוכר את סבי, שהיה מביא לי במבה כל יום. יום אחד אמרתי לו: "סבא, אני כבר לא אוהב במבה." אחרי שבוע ניגש אליי ואמר: "תשמע, אני לא יכול לראות אותך ולא להביא לך משהו. תמציא משהו אחר, אבל משהו אני חייב לתת לך."</p>
+<p class="bold-para">מי שאוהב – צריך לתת. הנתינה היא לא בשביל המקבל בלבד; היא הביטוי של האהבה עצמה.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: זה מה שראה אליעזר ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">זה מה שראה אליעזר</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו מובן למה אליעזר לא עצר את רבקה. הוא לא עמד בצד כשנערה צעירה עובדת בשבילו מפני שלא היה אכפת לו. הוא ראה משהו נדיר: נערה שאוהבת לתת, ששמחה לעזור, שמחפשת איך להיטיב. בדיוק את זה הוא חיפש עבור ביתו של אברהם, בית החסד.</p>
+<p>ולעצור אדם שנהנה לתת – זה כמו לומר לסבתא "אני אקנה במבה בעצמי". זה לא חכמה, זו פגיעה.</p>
+<p>מסופר על עני שבא לבית אחד האדמו״רים. הרבי הגיש לו פרוסת לחם, והוא אכל וביקש עוד, ועוד, ועוד, עד שגמר הכול. שאל אותו הרבי: אתה רגיל לאכול כל כך הרבה? ענה העני: האמת, פרוסה אחת הייתה מספיקה לי. אבל ראיתי איך הפנים שלך זורחות בכל פעם שאתה נותן לי, ולא רציתי לקחת ממך את השמחה הזו.</p>
+<div class="honey-box">🍯 יהי רצון שנזכה להגיע לדרגה של רבקה: לאהוב חסד, וליהנות באמת מכל הזדמנות לתת.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
