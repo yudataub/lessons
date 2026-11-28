@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>👑 מלך או שופט? שני הפנים של ראש השנה</title>
+<meta name="description" content="יום של הכתרה בשמחה ויום של דין ביראה, ולמה בארץ ישראל חוזרת המלכות להיות במרכז.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">👑 מלך או שופט? שני הפנים של ראש השנה</h1>
+  <p class="hero-subtitle">יום של הכתרה בשמחה ויום של דין ביראה, ולמה בארץ ישראל חוזרת המלכות להיות במרכז.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/hK0zWWMCVxI" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🍎 תפוח בדבש או &quot;נורא ואיום&quot;?</a><ul class="toc-stories"><li><a href="#story-1">חידה בפתח השנה</a></li><li><a href="#story-2">מלכויות: שמחת ההכתרה</a></li><li><a href="#story-3">זכרונות: יום הפקודה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">📯 השופר: חצוצרת הכתרה או קול אזעקה?</a><ul class="toc-stories"><li><a href="#story-4">&quot;ובמה? בשופר&quot;</a></li><li><a href="#story-5">רבנו סעדיה גאון: הטעם הראשון</a></li><li><a href="#story-6">הכתרה שכולם ראו</a></li><li><a href="#story-7">הטעם השני: התעוררו!</a></li><li><a href="#story-8">שמחה או חרדה בשעת התקיעות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">💙 אם כבנים, אם כעבדים</a><ul class="toc-stories"><li><a href="#story-9">&quot;היום הרת עולם&quot;</a></li><li><a href="#story-10">הלבן: צבע העבד</a></li><li><a href="#story-11">התכלת: צבע בן המלך</a></li><li><a href="#story-12">בגלות עבדים, בארץ בנים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🏰 מלכות שזקוקה לממלכה</a><ul class="toc-stories"><li><a href="#story-13">נוסח ארץ ישראל: הכול מלכות</a></li><li><a href="#story-14">אין מלך בלי עם</a></li><li><a href="#story-15">קבוצה מקוריאה בסוכה</a></li><li><a href="#story-16">מבעיה של מחסור לבעיה של עודף</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">⚖️ שתי ההנהגות בהלכה</a><ul class="toc-stories"><li><a href="#story-17">&quot;אכלו משמנים&quot; ואין אומרים הלל</a></li><li><a href="#story-18">חג בלי &quot;מועדים לשמחה&quot;</a></li><li><a href="#story-19">לצום בראש השנה?</a></li><li><a href="#story-20">לא לאכול לפני התקיעות</a></li><li><a href="#story-21">בגדים נאים, אבל לא יותר מדי</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🍎</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">תפוח בדבש או &quot;נורא ואיום&quot;?</h2></div></div>
+<p class="chapter-intro">ראש השנה נראה כמו שני ימים שונים לגמרי שהודבקו יחד.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חידה בפתח השנה</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה זה ראש השנה? יום של תפוח בדבש, סימנים מתוקים, בגדים חגיגיים וברכות "שנה טובה ומתוקה"? או יום שעליו נאמר בתפילה "ונתנה תוקף קדושת היום כי הוא נורא ואיום", יום של רעדה ופחד מן הדין?</p>
+<p>התשובה היא: גם וגם. בראש השנה יש לא רק שני ימים, אלא גם שתי הנהגות שנראות לכאורה הפוכות זו מזו: הנהגה של אהבה והנהגה של יראה. מי שמתבונן בתפילות, במנהגים ובהלכות של היום, רואה את שתיהן כמעט בכל צעד.</p>
+<p>כדי לחוות את ראש השנה באמת, צריך להבין מה מקומה של היראה ומה מקומה של האהבה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: מלכויות: שמחת ההכתרה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מלכויות: שמחת ההכתרה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תפילת מוסף של ראש השנה בנויה משלוש ברכות מיוחדות: מלכויות, זכרונות ושופרות. כך אומרת הגמרא (ראש השנה טז ע״א): אמרו לפני בראש השנה מלכויות, זכרונות ושופרות. מלכויות כדי שתמליכוני עליכם, זכרונות כדי שיבוא לפני זכרונכם לטובה, ובמה? בשופר.</p>
+<p>מלכויות שייכות לאהבה ולשמחה. אנחנו מתפללים "ובכן צדיקים יראו וישמחו, וישרים יעלוזו": מתארים כמה נפלא יהיה כשהעולם כולו יכיר במלכות ה', וכל הבריאה תשמח.</p>
+<p>מי שראה פעם מעמד הכתרה של מלך יודע שזה מעמד של שמחה גדולה, של התרגשות והדר. מלך אמיתי הוא מלך שכולם רוצים בו.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: זכרונות: יום הפקודה ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">זכרונות: יום הפקודה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בברכת זכרונות האווירה אחרת לגמרי. אנחנו אומרים שה' מביא "חק זכרון להפקד כל רוח ונפש": זה יום הדין, שבו נגזר על כל אחד ואחד מה יהיה בשנה הבאה.</p>
+<p>כאן אדם חושש: איזה "תיק" אקבל? מה ייכתב עליי? יום כזה אי אפשר לקחת בקלות.</p>
+<p>כך כבר בשתי הברכות הראשונות אנחנו פוגשים את שתי הפנים: מלכויות שייכות יותר לאהבה, וזכרונות שייכים יותר ליראה.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: &quot;ובמה? בשופר&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">📯</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">השופר: חצוצרת הכתרה או קול אזעקה?</h2></div></div>
+<p class="chapter-intro">השופר משרת את שתי ההנהגות גם יחד.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ובמה? בשופר&quot;</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא אמרה: "ובמה? בשופר". על מה זה חוזר? גם על מלכויות וגם על זכרונות. השופר הוא הכלי של שתיהן.</p>
+<p>אם השופר שייך למלכויות, הוא חלק ממעמד ההכתרה. אם הוא שייך לזכרונות, תפקידו להזכיר לנו שיום הדין הגיע ולעורר אותנו.</p>
+<p>גם לתקיעות עצמן יש שני סוגים: תקיעה ותרועה. התקיעה היא קול ארוך, חזק ויציב, כמו הכרזה על מלך שמלכותו תקועה ובטוחה. התרועה היא קול שבור ומקוטע, כמו לב שנשבר ומתעורר לחזור בתשובה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: רבנו סעדיה גאון: הטעם הראשון ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">רבנו סעדיה גאון: הטעם הראשון</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבנו סעדיה גאון מנה עשרה טעמים לתקיעת שופר, והם מובאים במחזורים לפני התקיעות. הטעם הראשון: ראש השנה הוא תחילת הבריאה, היום שבו ברא ה' את העולם ומלך עליו. כמו שנוהגים המלכים לתקוע בחצוצרות ובקרנות ביום תחילת מלכותם, להודיע ולהשמיע בכל מקום, כך אנחנו ממליכים את הבורא ביום הזה.</p>
+<p>בעבר היה מקובל שביום הכתרתו המלך עורך משתה גדול. התורה מספרת שפרעה ערך ביום הולדתו משתה, ובו קבע מחדש את מעמדם של שר המשקים ושר האופים. ביום כזה המלך מחליט על הכול מחדש: מי עולה, מי יורד, מי ממונה ומי מודח. כמו ממשלה חדשה בימינו.</p>
+<p>כך ראש השנה: יום שבו מלכות ה' מתחדשת, והכול נקבע מחדש.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: הכתרה שכולם ראו ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הכתרה שכולם ראו</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני זמן לא רב ראה העולם כולו מעמד הכתרה של מלך אנגליה, אחת הממלכות האחרונות ששמרו על כל טקסי ההכתרה העתיקים. המלך ביקש מאוד שגם הרב הראשי של יהודי בריטניה יהיה נוכח, ונעשו מאמצים רבים כדי שיוכל להשתתף בלי לחלל שבת: סידרו לו מקום לינה קרוב, כדי שיגיע ברגל.</p>
+<p>במעמד כזה תוקעים בחצוצרות ומשמיעים קולות של שמחה. גם בתנ״ך אנחנו מכירים זאת: כשמשחו את שלמה המלך, תקעו בשופר וכל העם קרא "יחי המלך".</p>
+<p>זה הטעם הראשון של השופר: אנחנו מכתירים את המלך.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: הטעם השני: התעוררו! ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הטעם השני: התעוררו!</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הטעם השני של רבנו סעדיה הוא הפוך כמעט לגמרי: ראש השנה הוא תחילת עשרת ימי התשובה, ותוקעים בשופר כדי להכריז ולהזהיר. כמו מלך שמכריז: כל מי שרוצה לחזור, יחזור עכשיו. ומי שלא חזר, אחר כך לא יוכל לטעון שלא הוזהר.</p>
+<p>השופר הוא קריאת השכמה: יש לך משפט. נשארו עשרה ימים עד שהדין נחתם. אם לא תתעורר עכשיו, יהיה מאוחר מדי. כך כתב הרמב״ם (הלכות תשובה ג, ד) שיש בתקיעת השופר רמז: עורו ישנים משנתכם. וכך אומר הנביא:</p>
+<blockquote>"אִם יִתָּקַע שׁוֹפָר בְּעִיר וְעָם לֹא יֶחֱרָדוּ" (עמוס ג, ו)</blockquote>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: שמחה או חרדה בשעת התקיעות ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שמחה או חרדה בשעת התקיעות</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההבדל בין שני הטעמים הוא הבדל של שמים וארץ. לפי הטעם הראשון, אדם עומד בתקיעת שופר בשמחה גדולה, כמו מי שמשתתף בהכתרת מלך. מסופר על הגאון מווילנה שבשעת התקיעות ניכרה עליו שמחה עצומה.</p>
+<p>לפי הטעם השני, אדם עומד בתקיעות בחרדה, ומהרהר בתשובה. במחזורים רבים מופיעים לפני התקיעות וידויים ותחינות.</p>
+<p>בפועל אפשר לשלב את שני הטעמים: יש מאה קולות, וכל סדרה יכולה לעורר רגש אחר. אפשר לכוון בחלק מהן להכתרת המלך בשמחה, ובחלק מהן להתעוררות לתשובה.</p>
+<div class="honey-box">🍯 בשעת התקיעות אפשר לבחור: בתקיעה הארוכה לשמוח במלך, ובתרועה השבורה לחזור אליו.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: &quot;היום הרת עולם&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">💙</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">אם כבנים, אם כעבדים</h2></div></div>
+<p class="chapter-intro">שתי ההנהגות של ראש השנה מקבילות לשני סוגי קשר עם ה'.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;היום הרת עולם&quot;</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי כל סדרת תקיעות במוסף אנחנו אומרים:</p>
+<blockquote>"הַיּוֹם הֲרַת עוֹלָם, הַיּוֹם יַעֲמִיד בַּמִּשְׁפָּט כָּל יְצוּרֵי עוֹלָמִים, אִם כְּבָנִים אִם כַּעֲבָדִים"</blockquote>
+<p>שוב שתי ההנהגות: "אם כבנים" ו"אם כעבדים". המלכות שייכת יותר לבנים: בנו של המלך שמח בהכתרת אביו, היא שמחתו שלו. המשפט שייך יותר לעבדים: העבד עומד לפני אדונו בחשש, ממתין לגזר הדין.</p>
+<p>כדי להבין את היחס בין השתיים, נתבונן בשני צבעים מוכרים לכל יהודי.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הלבן: צבע העבד ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הלבן: צבע העבד</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בציצית יש חוטים לבנים וחוט תכלת. מה מסמל כל צבע?</p>
+<p>הלבן הוא צבע של התבטלות וקבלה. דף לבן מקבל כל צבע שנשים עליו; הוא רקע, נכון לקבל כל דבר. לכן אדם שרוצה להראות שהוא מקבל ומתבטל, לובש לבן. כך גם הכלה הלובשת לבן: היא מראה שהיא מסכימה לקבל. ומי שנכנע במלחמה מניף דגל לבן.</p>
+<p>הלבן מסמל את היהודי כעבד ה': מי שמקבל את עול מלכותו ונכון לעשות כל מה שיצווה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: התכלת: צבע בן המלך ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">התכלת: צבע בן המלך</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התכלת היא צבע של חשיבות ומלכות. בזמנים קדומים לא היה שפע הצבעים שיש לנו היום, ובגד תכלת היה סימן לאדם חשוב. כך נאמר על מרדכי:</p>
+<blockquote>"וּמָרְדֳּכַי יָצָא מִלִּפְנֵי הַמֶּלֶךְ בִּלְבוּשׁ מַלְכוּת תְּכֵלֶת וָחוּר" (אסתר ח, טו)</blockquote>
+<p>וגם בבגדי הכהן הגדול יש תכלת רבה. חוט התכלת מסמל את היהודי כבן של הקדוש ברוך הוא, בן מלך.</p>
+<p>בציצית יש את שניהם יחד, כי אנחנו צריכים את שני הצדדים: גם לקבל עול מלכות כעבדים, וגם לדעת שאנחנו בנים אהובים. ומי שבחר את צבעי הדגל, כחול ולבן, אף שלא התכוון לכך, הכניס בו רמז נפלא לשני הצדדים האלה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: בגלות עבדים, בארץ בנים ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">בגלות עבדים, בארץ בנים</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בגלות אי אפשר היה לראות שעם ישראל הם בנים של ה'. היהודים היו נרדפים ממקום למקום, בלי כבוד ובלי מעמד. העולם ראה בהם, לכל היותר, עבדי ה' שמחזיקים בתורתם בעקשנות. אבל שה' אוהב אותם בחיבה יתרה, שהם בניו? את זה איש לא ראה.</p>
+<p>מאז שעם ישראל חזר לארצו, משהו השתנה. זה בית המלך, וכאן הבנים של ה' שבים להיות בביתם. משנה לשנה אפשר לראות איך העולם מחפש את קרבת ישראל. מי שהיה אומר לפני שמונים שנה שגרמניה תבקש לקנות ממדינת ישראל נשק כדי להגן על עצמה, לא היה מאמין לו.</p>
+<p>לאט לאט מתגלה שעם ישראל הם בנים של ה': הוא אוהב אותם, עוזר להם, והם מצליחים למרות הכול. לכן דווקא בארץ ישראל מתגלה מחדש התכלת.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: נוסח ארץ ישראל: הכול מלכות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🏰</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מלכות שזקוקה לממלכה</h2></div></div>
+<p class="chapter-intro">התפילות והפיוטים של ראש השנה מספרים את סיפורו של עם ישראל.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">נוסח ארץ ישראל: הכול מלכות</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>פתחו את המחזור והסתכלו בנוסח התפילה עצמו, זה שחובר בארץ ישראל בימי התנאים. כמעט כולו עוסק בדבר אחד: מלכות ה' בעולם. "מלוך על כל העולם כולו בכבודך", "וידע כל פעול כי אתה פעלתו". רק קטע קצר בברכת זכרונות עוסק ביום הדין.</p>
+<p>עכשיו עברו על הפיוטים שהוסיפו קהילות אשכנז, שחוברו בחוץ לארץ. כמעט כולם עוסקים ביום הדין: "ונתנה תוקף", המלאכים שחרדים, הספרים הפתוחים, מי יחיה ומי ימות.</p>
+<p>כך גם בשיחות המוסר: בישיבות שבחוץ לארץ, הנושא המרכזי של ראש השנה היה תמיד חרדת הדין. מאז שעם ישראל שב לארצו, הולכות ומתרבות שיחות שעוסקות בהמלכת ה'.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: אין מלך בלי עם ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אין מלך בלי עם</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה זה כך? כדי שתהיה מלכות צריך ממלכה. מלך בלי ממלכה אינו מלך, כמו אדמו״ר בלי חסידים. בגלות, כשעם ישראל היה מפוזר ונרדף, לא היה שייך לדבר על מלכות ה' בעולם. הדבר לא נתפס. מה שהיה מוחשי, ומה שדיברו עליו, היה הדין.</p>
+<p>כשעם ישראל חזר לארצו ושולט בה, אפשר להתחיל לדבר על מלכות ה' שמתגלה בעולם. אבל המטרה אינה רק שתהיה ממלכה. המטרה היא שה' יהיה המלך בה.</p>
+<p>בתקופות של מחלוקת ציבורית סוערת, כשכולם שואלים מי באמת שולט, מי מחליט ומי המלך, זו הזדמנות להזכיר: אנחנו רוצים שה' יהיה המלך. שידעו כולם שהדרך הטובה ביותר לעם ישראל היא לשאול מה ה' רוצה, ושכך עם ישראל יצליח יותר מכול.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: קבוצה מקוריאה בסוכה ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">קבוצה מקוריאה בסוכה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה קטנה למלכות ה' שמתגלה בגויים: לפני כשנה, מיד אחרי ראש השנה, הגיעה הזמנה של קבוצת מטיילים מדרום קוריאה שחיפשה מקום לינה בצפון. הם הגיעו בשבת, ובמוצאי שבת ראו את בעל הבית בונה סוכה. הם התלהבו מאוד וביקשו לבוא כולם לראות. הם שמעו בתנ״ך על סוכה, אבל מעולם לא ראו אחת.</p>
+<p>זה היה בערב החג, לפני שהשכינה שורה בסוכה (הזוהר מלמד שבחג עצמו אין להכניס גויים לסוכה). הם שאלו, הקשיבו בעזרת תרגום, ביקשו לראות את ארבעת המינים ולמדו איך מנענעים. לבסוף ביקשו ברכה מיהודי, ולפי מנהגם השאירו מתנה בעבורה.</p>
+<p>מה שבלט יותר מכול היה היחס: הערכה עצומה ליהודים וליהדות, אהבה לתנ״ך ולשירים שלו. טעימה קטנה ממה שאנחנו מתפללים בראש השנה, שכל הגויים יכירו שעם ישראל הם בניו של ה', ודרכם תתגלה מלכותו בעולם.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מבעיה של מחסור לבעיה של עודף ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מבעיה של מחסור לבעיה של עודף</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה גדולה יותר: עברו על ספרי ההלכה לאורך הדורות. הלכות גרים מופיעות בשולחן ערוך ובפוסקים, אבל מעט מאוד נכתב עליהן הלכה למעשה. כמעט לא היו גרים. למה שגוי ירצה להצטרף לעם מושפל ונרדף? ובמקומות רבים גם נאסר הדבר בחוק.</p>
+<p>היום הבעיה הפוכה: רבים רוצים להתגייר, וצריך ללמוד איך לבדוק ולסנן, לא איך לקרב. יש גרים רבים שמצטרפים בכל לבם, מתוך הכרה אמיתית. יש מי שכבר גרים בארץ, יש להם הכול, ומתגיירים רק משום שהכירו כמה נפלא להיות בן של הקדוש ברוך הוא.</p>
+<p>כשמלכות ה' מתגלה ורואים שעם ישראל הם בניו, העמים רוצים להתקרב.</p>
+<div class="honey-box">🍯 ראש השנה בארץ ישראל הוא קודם כול יום הכתרה. הדין קיים, אבל המלך נמצא במרכז.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: &quot;אכלו משמנים&quot; ואין אומרים הלל ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">שתי ההנהגות בהלכה</h2></div></div>
+<p class="chapter-intro">גם ההלכות של ראש השנה משלבות שמחה ויראה.</p>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;אכלו משמנים&quot; ואין אומרים הלל</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מצד אחד, יש מצווה לאכול ולשמוח בראש השנה. כך אמרו נחמיה ועזרא לעם, כשבכו בראש השנה בשמעם את דברי התורה:</p>
+<blockquote>"לְכוּ אִכְלוּ מַשְׁמַנִּים וּשְׁתוּ מַמְתַקִּים וְשִׁלְחוּ מָנוֹת לְאֵין נָכוֹן לוֹ כִּי קָדוֹשׁ הַיּוֹם לַאֲדֹנֵינוּ וְאַל תֵּעָצֵבוּ כִּי חֶדְוַת ה' הִיא מָעֻזְּכֶם" (נחמיה ח, י)</blockquote>
+<p>אפשר לומר שהם היו רגילים לראש השנה של חוץ לארץ, יום של דין ובכי. ועכשיו, בשנתם הראשונה בארץ, אמרו להם: כאן העיקר הוא לשמוח במלכות ה'.</p>
+<p>ומצד שני, הגמרא (ראש השנה לב ע״ב) אומרת שאין אומרים הלל בראש השנה: אפשר מלך יושב על כסא דין, וספרי חיים וספרי מתים פתוחים לפניו, וישראל אומרים שירה?</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: חג בלי &quot;מועדים לשמחה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">חג בלי &quot;מועדים לשמחה&quot;</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתפילות של שלושת הרגלים אנחנו אומרים "ותתן לנו... מועדים לשמחה, חגים וזמנים לששון". בראש השנה המילים האלה אינן נאמרות. השמחה של ראש השנה אינה שמחה שלמה כמו בשאר המועדים.</p>
+<p>גם בברכות שאנשים מאחלים זה לזה רואים זאת: בראש השנה לא אומרים "חג שמח" כבשאר החגים, אלא "שנה טובה" ו"כתיבה וחתימה טובה". האיחול מכוון אל הדין.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: לצום בראש השנה? ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לצום בראש השנה?</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש דיון שלם בפוסקים: האם מותר להתענות בראש השנה? בשאר המועדים ברור שאסור. בראש השנה, בגלל צד הדין שבו, יש שהתירו.</p>
+<p>להלכה אין מתענים כל היום, אבל מותר לכתחילה להתפלל ארוכות ולאכול רק אחרי חצות, אף שבשבת רגילה יש להשתדל לקדש לפני חצות.</p>
+<p>אחת ההשלכות להלכה: מי ששכח "יעלה ויבוא" בברכת המזון של ראש השנה. בלילה הוא חוזר, כי בלילה חייבים לאכול. ביום אינו חוזר, משום שיש אומרים שמותר להתענות. שוב רואים את שני הצדדים באותו יום עצמו.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: לא לאכול לפני התקיעות ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">לא לאכול לפני התקיעות</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשאר המצוות מותר לטעום משהו לפני קיום המצווה. בראש השנה נהגו להחמיר ולא לאכול לפני התקיעות, מי שיכול. במנייני ותיקין רבים בארץ אין עושים קידוש לפני התקיעות, כי מסיימים מוקדם יחסית. במניינים מאוחרים, שמסיימים בצהריים, קשה לרבים להחזיק מעמד, ולכן עושים קידוש באמצע. מי שחלש ולא יוכל להתרכז, ודאי שיאכל.</p>
+<p>למה החמירו דווקא כאן? משום אימת יום הדין. אילו היו התקיעות רק הכתרת מלך, לא היה טעם להחמיר. אבל משום שהן גם קריאה לעמוד בדין, אדם צריך להרגיש את כובד הרגע.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: בגדים נאים, אבל לא יותר מדי ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">בגדים נאים, אבל לא יותר מדי</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המטה אפרים כותב שבראש השנה לובשים בגדים נאים לכבוד היום, אבל לא חשובים כמו של שאר הימים הטובים, כדי שיעלה בלב פחד יום הדין. יש שלובשים קיטל לבן כמו ביום כיפור.</p>
+<p>לא בגדי חול ולא בגדים של חג שמח לגמרי, אלא משהו באמצע: הכבוד של יום המלכות, יחד עם הצניעות של יום הדין.</p>
+<p class="bold-para">ראש השנה הוא גם וגם: יום שבו בן המלך שמח בהכתרת אביו, ויודע שאביו הוא גם השופט.</p>
+<p>כך אפשר להיכנס אליו: בשמחה של בנים שמכתירים את אביהם, וביראה של מי שיודע שהמלך הזה דן את כל העולם.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
