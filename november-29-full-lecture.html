@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🗳️ מנשיקת עשו ועד אהבת הארץ: כ״ט בנובמבר ומה שבא אחריו</title>
+<meta name="description" content="הרצאה אחת שלמה: הנס של ההצבעה באו״ם והרמזים שבפרשה, סוף שלוש השבועות, ולמה את ארץ ישראל קונים בייסורים – כדי שנאהב אותה בכל הלב">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 הרצאה · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🗳️ מנשיקת עשו ועד אהבת הארץ: כ״ט בנובמבר ומה שבא אחריו</h1>
+  <p class="hero-subtitle">הרצאה אחת שלמה: הנס של ההצבעה באו״ם והרמזים שבפרשה, סוף שלוש השבועות, ולמה את ארץ ישראל קונים בייסורים – כדי שנאהב אותה בכל הלב</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-24 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/iAmLhSAGURU" target="_blank" rel="noopener">🎬 חלק א ביוטיוב: כ״ט בנובמבר – הנשיקה של עשו</a> <a class="video-btn" href="https://youtu.be/2TpZUTfx0cw" target="_blank" rel="noopener">🎬 חלק ב ביוטיוב: למה את ארץ ישראל קונים בייסורים</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">💋 עשו שונא ליעקב – ובכל זאת נשק</a><ul class="toc-stories"><li><a href="#story-1">&quot;היום יום הולדת&quot; – למי?</a></li><li><a href="#story-2">הנקודות שעל &quot;וישקהו&quot;</a></li><li><a href="#story-3">למה &quot;הלכה&quot; ולא &quot;אגדה&quot;?</a></li><li><a href="#story-4">דווקא רבי שמעון בר יוחאי</a></li><li><a href="#story-5">מי שרואה את הפנימיות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🇮🇱 הנס של ההצבעה</a><ul class="toc-stories"><li><a href="#story-6">הבריטים מחפשים מוצא</a></li><li><a href="#story-7">חמישים שנה של דלתות סגורות</a></li><li><a href="#story-8">דופק על דלת התא</a></li><li><a href="#story-9">הפלא של סטלין</a></li><li><a href="#story-10">הלילה שבו איש לא ישן</a></li><li><a href="#story-11">&quot;כאילו נתנה לך בו ביום&quot;</a></li><li><a href="#story-12">רמז בסוף פרשת ויצא</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">📜 שלוש השבועות – ומתי הן נגמרות</a><ul class="toc-stories"><li><a href="#story-13">&quot;שלא יעלו בחומה&quot;</a></li><li><a href="#story-14">ניסיונות שנשברו</a></li><li><a href="#story-15">&quot;אם תעירו ואם תעוררו&quot;</a></li><li><a href="#story-16">הכלה שבאה לבית החתן</a></li><li><a href="#story-17">כורש – והמשך חכמה</a></li><li><a href="#story-18">החופה מוכנה, והכלה בחוץ</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🏡 מגש של כסף שלא הגיע</a><ul class="toc-stories"><li><a href="#story-19">&quot;כל פעם שהתנגדנו – הפסדנו&quot;</a></li><li><a href="#story-20">המלחמה שבאה אחרי הריקודים</a></li><li><a href="#story-21">שלוש מתנות שבאות בייסורים</a></li><li><a href="#story-22">מה האבות קנו?</a></li><li><a href="#story-23">משכנתא של ארבעים שנה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🧸 מה שמשקיעים בו – אוהבים</a><ul class="toc-stories"><li><a href="#story-24">חפץ שנקנה בדמים יקרים</a></li><li><a href="#story-25">למה זה עובד?</a></li><li><a href="#story-26">&quot;בעצב תלדי בנים&quot; – קללה?</a></li><li><a href="#story-27">ילד שנולד בלי צער</a></li><li><a href="#story-28">כדב שכול</a></li><li><a href="#story-29">השירים של דור תש״ח</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">💞 מצווה לאהוב את הארץ</a><ul class="toc-stories"><li><a href="#story-30">&quot;זה סתם רגש לאומי&quot;</a></li><li><a href="#story-31">מנשקים את הקרקע</a></li><li><a href="#story-32">הנשיקות בלילה</a></li><li><a href="#story-33">סיפור בתוך ספר הלכות</a></li><li><a href="#story-34">את האהבה אי אפשר לצוות בצורה אחת</a></li><li><a href="#story-35">חמישים דרכים לאהוב</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🌍 הבית של ה&#x27; – ושם מתעוררת האהבה</a><ul class="toc-stories"><li><a href="#story-36">&quot;את&quot; – לרבות</a></li><li><a href="#story-37">האבן עזרא על חלקת השדה</a></li><li><a href="#story-38">גוף ונשמה</a></li><li><a href="#story-39">מה מנשקים באמת</a></li><li><a href="#story-40">אהבה משני הצדדים</a></li><li><a href="#story-41">&quot;ומל ה&#x27; אלוקיך את לבבך&quot;</a></li><li><a href="#story-42">איפה מתעוררת האהבה</a></li><li><a href="#story-43">כל חלק הוא קדושה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">💋</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">עשו שונא ליעקב – ובכל זאת נשק</h2></div></div>
+<p class="chapter-intro">ארגון שהעולם קיווה שימנע מלחמות, ופסוק אחד בפרשת השבוע עם נקודות מעל מילה אחת. יחד הם מספרים את סיפורו של כ״ט בנובמבר.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;היום יום הולדת&quot; – למי?</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר על הרב סולובייצ'יק שהיה אומר בחיוך: יש ארגון אחד בעולם שאפשר לשיר לו "היום יום הולדת" רק ביום אחד בשנה. לא כי זה התאריך שבו נוסד, אלא כי זה היום היחיד שבו עשה משהו טוב.</p>
+<p>הארגון הוא האומות המאוחדות. הוא קם אחרי מלחמת העולם השנייה מתוך חלום יפה: אם כל העמים יתאחדו וישבו סביב שולחן אחד, לא יהיו עוד מלחמות. המציאות, כידוע, התבררה אחרת. מאז שהוא קם העולם לא הפסיק להילחם, והיושבים שם ממשיכים להתווכח בלי סוף.</p>
+<p>עם ישראל ספג מהארגון הזה הרבה החלטות קשות. אבל יום אחד בתולדותיו בולט מכל האחרים, והוא היום שבו התקבלה ההחלטה להקים מדינה יהודית בארץ ישראל: כ״ט בנובמבר 1947.</p>
+<p class="bold-para">ארגון שלם, עשרות שנים של דיונים – וכל מה שזכור ממנו לטובה הוא לילה אחד.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: הנקודות שעל &quot;וישקהו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הנקודות שעל &quot;וישקהו&quot;</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי עשרים שנה יעקב ועשו נפגשים. יעקב מתכונן לגרוע מכל, ומה קורה בפועל?</p>
+<blockquote>"וירץ עשו לקראתו ויחבקהו ויפל על צוארו וישקהו ויבכו" (בראשית לג, ד)</blockquote>
+<p>מי שפותח חומש רואה שעל המילה "וישקהו" יש נקודות מעל כל האותיות. זה סימן שהתורה רוצה שנעצור כאן ונשאל: מה בדיוק קרה בנשיקה הזאת?</p>
+<p>רש״י מביא שתי דעות. לפי אחת, הנשיקה לא הייתה מכל הלב. אבל רבי שמעון בן יוחאי אומר:</p>
+<blockquote>"הלכה היא, בידוע שעשו שונא ליעקב, אלא שנכמרו רחמיו באותה שעה ונשקו בכל לבו"</blockquote>
+<p class="bold-para">שנאה עתיקה, עמוקה, שאין לה הסבר – ופתאום, לרגע אחד, נשיקה אמיתית.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: למה &quot;הלכה&quot; ולא &quot;אגדה&quot;? ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה &quot;הלכה&quot; ולא &quot;אגדה&quot;?</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המילה "הלכה" כאן מפתיעה. הלכה היא דבר מעשי: כך עושים. אגדה היא המקום שבו מחפשים טעמים, הסברים ורעיונות.</p>
+<p>כשהשולחן ערוך כותב שהתפילין צריכות להיות מרובעות, איש לא שואל למה לא עגולות. כתוב – וכך עושים. יש טעם או אין טעם, ההלכה עומדת.</p>
+<p>זה בדיוק מה שרבי שמעון בר יוחאי אומר על השנאה לישראל. לאורך הדורות חיפשו לה אינספור הסברים. שנאו את היהודים כי הם עשירים, ושנאו אותם כי הם עניים. שנאו אותם כי התערבבו בין הגויים, ושנאו אותם כי נבדלו מהם. כל הסבר נשבר מול ההסבר ההפוך.</p>
+<div class="honey-box">🍯 "הלכה היא" – אל תחפש למה. זו מציאות שאין לה טעם, וכך צריך להתייחס אליה.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: דווקא רבי שמעון בר יוחאי ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דווקא רבי שמעון בר יוחאי</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב מי אומר את המשפט הזה. רבי שמעון בר יוחאי לא היה מי שנוטה לראות את הגויים באור חיובי. על הפסוק שמספר שהמצרים רדפו אחרי ישראל ברכב ובסוסים, שואלים חז״ל: מאיפה היו להם סוסים, הרי כולם מתו במכת דבר? ועונים: הם היו של "הירא את דבר ה'" מעבדי פרעה, שהכניס את מקנהו הביתה. ורש״י מביא שם: "מכאן היה רבי שמעון אומר: כשר שבמצרים הרוג, טוב שבנחשים רצוץ את מוחו" (רש״י שמות יד, ז).</p>
+<p>המשפט הזה לא בא להתיר דם. הרג סתם של כל אדם אסור מן התורה: "שפך דם האדם באדם דמו ישפך" (בראשית ט, ו). במקורות אחרים של חז״ל הדברים נאמרים במפורש על שעת מלחמה: מי שנלחם בך לא יכול להרשות לעצמו להניח שהאויב שמולו תמים. ראינו בימינו מה קורה כשסומכים על כך.</p>
+<p class="bold-para">ודווקא אדם כזה, שאינו תמים כלל, אומר: באותה שעה עשו נשק בכל לבו. כנראה קרה כאן משהו שהוא מעל הטבע.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מי שרואה את הפנימיות ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מי שרואה את הפנימיות</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה רבי שמעון בר יוחאי רואה כך את העולם? כי הוא תמיד מסתכל על הפנימיות. הזוהר, שמיוחס לו, עוסק ברובד הפנימי של הדברים ולא בקליפה החיצונית.</p>
+<p>כשיצא מהמערה וראה אנשים חורשים וזורעים, אמר: "מניחין חיי עולם ועוסקין בחיי שעה" (שבת לג, ב). הוא לא שפט אדם לפי מה שהוא עושה בחוץ, אלא לפי מה שהוא בפנים.</p>
+<p>לכן כשהוא אומר "נכמרו רחמיו", הוא מתכוון לשינוי פנימי אמיתי. לא חנופה, לא חשבון פוליטי, לא מתנות שקנו את הלב. ה' הוריד על עשו, לרגע אחד, ים של רחמים, והשנאה הוחלפה בנשיקה.</p>
+<div class="honey-box">🍯 המתנות של יעקב לא הן ששינו את עשו. את הלב שינה ה', באותה שעה.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: הבריטים מחפשים מוצא ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🇮🇱</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">הנס של ההצבעה</h2></div></div>
+<p class="chapter-intro">הבריטים היו בטוחים שהעולם יסרב. חמישים שנה אחרי שכל דלת נסגרה בפני הרצל, שלושים ושלוש מדינות הצביעו בעד.</p>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הבריטים מחפשים מוצא</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין את גודל הנס צריך לחזור לימים שאחרי השואה. השלטון בארץ היה בידי הבריטים, והיהודים כאן לא נתנו להם מנוחה: פיצוצים, התקפות, מאבק יומיומי. הבריטים הרגישו שהם מאבדים שליטה ולא ידעו איך לצאת מהמצב.</p>
+<p>הם החליטו להעביר את השאלה לאומות המאוחדות. החשבון שלהם היה פשוט: העולם לא אוהב יהודים, ואין שום סיכוי שהעמים יסכימו לתת להם מדינה. כך, חשבו, הבעיה תיפתר מעצמה והם יוכלו לשלוט כאן בשקט.</p>
+<p>האו״ם שלח לארץ ועדות, אחת אחרי השנייה, עד שהוחלט להציע לחלק את הארץ לשתי מדינות. וכדי שההצעה תתקבל לא הספיק רוב רגיל: היה צורך ברוב של שני שלישים מהמצביעים.</p>
+<div class="honey-box">🍯 מי שמסתכל על הנתונים של אותם ימים רואה שזה לא היה אמור לקרות. דווקא בגלל זה צריך לראות בו נס.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: חמישים שנה של דלתות סגורות ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חמישים שנה של דלתות סגורות</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חמישים שנה לפני כן הרצל עבר בין מלכי העולם וביקש פיסת אדמה אחת ליהודים. הוא הלך לסולטן התורכי, לגרמניה, לאנגליה. איש לא הסכים.</p>
+<p>בשלב מסוים הוא כבר ביקש רק מדבר: לא מדינה, רק מקום שבו יוכלו היהודים לחיות. גם את זה לא נתנו לו. האנגלים, ששלטו אז במצרים, סירבו גם להצעה הזאת.</p>
+<p>ואז עוברים חמישים שנה, וההחלטה מגיעה לאו״ם, ונדרשים שני שלישים מהמדינות. על הנייר זה נראה חסר סיכוי. הרי "הלכה היא, בידוע שעשו שונא ליעקב".</p>
+<p class="bold-para">ובכל זאת – "נכמרו רחמיו באותה שעה". שלושים ושלוש מדינות הצביעו בעד.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: דופק על דלת התא ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">דופק על דלת התא</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למדינה שעוד לא קמה אין שגרירים ואין קשרים. איך משכנעים את ניו זילנד? מי מגיע לנשיא של מדינה רחוקה באמריקה הדרומית?</p>
+<p>האנשים שהופקדו על המשימה, ואבא אבן ביניהם, הפכו את העולם. הם חיפשו כל יהודי שמכיר מישהו, שמכיר שגריר, שיכול לדבר עם נשיא. מדינה ועוד מדינה, קול ועוד קול.</p>
+<p>אבא אבן סיפר על מדינה אחת שהתחייבה להצביע בעד, אלא שהנציג שלה באו״ם היה שונא יהודים. כשהתחילה ההצבעה הוא נעלם, ונכנס לתא השירותים כדי לא להיות באולם. אבא אבן הלך אחריו, זיהה את הנעליים שלו מתחת לדלת, והתחיל לדפוק: "אני יודע שאתה כאן! הבטחתם להצביע. צא מיד וחזור לאולם!" והנציג יצא.</p>
+<div class="honey-box">🍯 כך נראה נס בדורנו: אנשים עושים כל מה שבידם, ובכל זאת ברור שמה שקרה גדול מכל המאמצים.</div>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: הפלא של סטלין ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הפלא של סטלין</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחד הנסים הגדולים של כ״ט בנובמבר הוא ההצבעה של ברית המועצות. בראשה עמד סטלין, שרדף את היהודים בארצו, ושברית המועצות שאחריו חימשה את אויבי ישראל.</p>
+<p>באותם ימים ארצות הברית וברית המועצות עמדו זו מול זו כמעט בכל נושא. קשה למצוא החלטה שבה שתיהן הצביעו באותו כיוון, ובכל זאת כאן שתיהן הצביעו בעד.</p>
+<p>מספרים שסטלין ראה כאן קיבוצים וחשב שהמדינה החדשה תהיה קומוניסטית, סניף שלו במזרח התיכון. מהר מאוד התברר לו שטעה, והוא הפך את עורו. בשנותיו האחרונות פגע ביהודים קשות, ועלילת הרופאים נקטעה רק במותו.</p>
+<div class="honey-box">🍯 דווקא שונא כזה הצביע בעד, ובלי הקולות של הגוש שלו ההחלטה לא הייתה עוברת. "נכמרו רחמיו באותה שעה".</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: הלילה שבו איש לא ישן ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הלילה שבו איש לא ישן</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>זה היה במוצאי שבת. בכל הארץ ישבו אנשים ליד מקלטי הרדיו ולא הלכו לישון. כן או לא? מה יהיה?</p>
+<p>באמצע הלילה הגיעה ההודעה: 33 בעד, 13 נגד. ההחלטה התקבלה.</p>
+<p>אנשים יצאו לרחובות באמצע הלילה ולא יכלו לעצור את השמחה. איש לא תלה מודעה, איש לא הזמין תזמורת, איש לא שכר אולם. בבחירות מכינים מראש למקרה של ניצחון, אבל כאן איש לא העז להכין דבר. והשמחה פרצה מעצמה: רקדו ברחובות, פתחו חנויות וחילקו בחינם, עלו על משאיות ועל משוריינים. לא שעה ולא שעתיים, יום שלם של ריקודים.</p>
+<p class="bold-para">שמחה שאי אפשר לתאר – כי אף אחד לא האמין שזה יכול לקרות.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;כאילו נתנה לך בו ביום&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;כאילו נתנה לך בו ביום&quot;</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשה השנייה שבתפילין כתוב:</p>
+<blockquote>"והיה כי יבאך ה' אל ארץ הכנעני כאשר נשבע לך ולאבתיך ונתנה לך" (שמות יג, יא)</blockquote>
+<p>רש״י שואל: אם ה' הביא אותך לארץ, ברור שנתן לך אותה. למה צריך להוסיף "ונתנה לך"? ועונה: "תהא בעיניך כאילו נתנה לך בו ביום, ואל תהי בעיניך כירושת אבות".</p>
+<p>מה שקיבלת בירושה מזמן, כבר לא מרגש אותך. התורה מבקשת שהארץ תהיה בעינינו כמו מתנה שקיבלנו היום.</p>
+<p>אם רוצים לדעת איך זה נראה, אפשר להסתכל על לילה אחד: הלילה שבו אנשים רקדו ברחובות עד אור הבוקר.</p>
+<div class="honey-box">🍯 כך יהודי צריך לשמוח בכל יום שהוא גר בארץ ישראל: כמו בלילה של כ״ט בנובמבר.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: רמז בסוף פרשת ויצא ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">רמז בסוף פרשת ויצא</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השבת שלפני אותו מוצאי שבת הייתה שבת פרשת ויצא. בסוף הפרשה יעקב ולבן נפגשים בדרך לארץ ישראל, עושים ברית ומקימים גל אבנים לעדות. ואז מופיע פסוק מוזר:</p>
+<blockquote>"ויקרא לו לבן יגר שהדותא ויעקב קרא לו גלעד" (בראשית לא, מז)</blockquote>
+<p>למה חשוב לנו איך לבן קרא לגל? ולמה פתאום מילים בארמית?</p>
+<p>יש מי שראה כאן רמז נפלא לכ״ט בנובמבר. כוחות הטוב וכוחות הרע נפגשים בדרך לארץ ישראל. יעקב קורא לו "גל עד": "גל" בגימטריה 33, כלומר שלושים ושלושה עדים שהעידו בעד ישראל. ולבן קורא לו "יגר": אותיות י״ג ר', שלושה עשר רשעים שהצביעו נגד.</p>
+<p class="bold-para">33 בעד ו-13 נגד, רמוזים בפסוק שנקרא באותה שבת.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;שלא יעלו בחומה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">שלוש השבועות – ומתי הן נגמרות</h2></div></div>
+<p class="chapter-intro">לכ״ט בנובמבר יש גם משמעות הלכתית: באותו לילה השתנה היחס בין עם ישראל לבין העלייה לארץ.</p>
+<article class="story-card" id="story-13" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;שלא יעלו בחומה&quot;</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת כתובות (קי, ב – קיא, א) מספרת שה' השביע שלוש שבועות: שישראל לא יעלו "בחומה", שלא ימרדו באומות העולם, ושהאומות לא ישתעבדו בישראל יותר מדי.</p>
+<p>מה פירוש "בחומה"? רש״י מסביר: יחד, ביד חזקה. אדם פרטי שעולה לארץ אינו בעיה. האיסור הוא שכל עוד הגלות נמשכת, העם כולו לא יעלה בכוח, כמו חומה בצורה, עם צבא ועוצמה.</p>
+<p>לכן לאורך הדורות כמעט לא היו התארגנויות גדולות לעלייה. היהודים חששו.</p>
+<p>האחרונים דנים מה טיבה של השבועה הזאת. יש שראו בה איסור הלכתי של ממש, ויש שהבינו שזו הודעה מראש: כל עוד נגזרה הגלות, ניסיון כזה פשוט לא יצליח.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: ניסיונות שנשברו ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">ניסיונות שנשברו</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ההיסטוריה מראה עד כמה זה נכון. מי שקורא את תולדות היישוב בארץ לפני הדורות האחרונים רואה דבר שאינו טבעי: ניסיון אחרי ניסיון עולה ונשבר.</p>
+<p>דונה גרציה, האישה היהודייה העשירה, קיבלה זכויות בטבריה, השקיעה בה הון רב ומימנה יהודים שיבואו לגור בה. היישוב החזיק מעמד כמה עשרות שנים, ואז נהרס ולא נשאר ממנו דבר.</p>
+<p>בצפת בנו קהילה מפוארת, ורעידת אדמה החריבה אותה. בירושלים בנו, ובאו פרעות ומגפות. כל מקום שהתחיל לפרוח נעצר.</p>
+<div class="honey-box">🍯 כאילו יד נעלמה עוצרת: כל עוד הגלות לא תמה, "בחומה" זה לא ילך.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: &quot;אם תעירו ואם תעוררו&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אם תעירו ואם תעוררו&quot;</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מקור השבועות הוא פסוק שחוזר בשיר השירים:</p>
+<blockquote>"השבעתי אתכם בנות ירושלם בצבאות או באילות השדה אם תעירו ואם תעוררו את האהבה עד שתחפץ" (שיר השירים ב, ז)</blockquote>
+<p>כדי להבין את הנמשל צריך להבין את המשל. בחור ובחורה נפגשו, מצאו זה את זה, וקבעו חתונה בעוד חודשיים. בתקופה הזאת נפגשים מדי פעם, בצניעות ובכבוד.</p>
+<p>עכשיו נניח שבפגישה האחרונה, שבועיים לפני החתונה, הכלה מתחילה לדבר דברי חיבה גלויים ולהתקרב. החתן מסמיק ולא יודע איפה לשים את עצמו. לא כי אין אהבה, אלא כי זה לא הזמן. עוד שבועיים יהיה הזמן לכל המילים האלה. עכשיו לא מעוררים את האהבה "עד שתחפץ".</p>
+<p class="bold-para">יש אהבה, והיא אמיתית. אבל לכל אהבה יש זמן.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: הכלה שבאה לבית החתן ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הכלה שבאה לבית החתן</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והנמשל: ארץ ישראל היא ביתו של הקדוש ברוך הוא. חוץ לארץ אינו המקום שבו הוא "גר". כשעם ישראל מגיע לארץ ישראל, זה כמו כלה שמגיעה אל החתן, וזה מעורר את האהבה בעוצמה עצומה.</p>
+<p>לכן אומר ה': אל תעוררו את האהבה הזאת לפני הזמן. אל תבואו לביתי בכוח, כל עוד הגלות לא תמה, "עד שתחפץ" – עד שאגלה לכם שהגיע הזמן.</p>
+<p>אבל איך יודעים שהגיע הזמן? מה הסימן?</p>
+<p>יש שחשבו שהסימן הוא בניין בית המקדש. אבל ההיסטוריה מלמדת סימן אחר, ברור ומוחשי: כשהגויים עצמם מחליטים לתת לנו את הארץ וקוראים לנו לבוא.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: כורש – והמשך חכמה ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כורש – והמשך חכמה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך היה בבית שני. מלכי פרס הקודמים התנגדו, ואז קם כורש והפך את הכל. הנביא קורא לו "משיחו" של ה' (ישעיה מה, א), והוא עצמו מכריז:</p>
+<blockquote>"מי בכם מכל עמו יהי אלוקיו עמו ויעל לירושלם" (עזרא א, ג)</blockquote>
+<p>גוי שהופך את עורו, כמו עשו שנכמרו רחמיו – זה הסימן שה' אומר: עכשיו "תחפץ".</p>
+<p>כך כתב גם בעל ה"משך חכמה", כבר אחרי הצהרת בלפור: כשהעמים עצמם נותנים לנו רשות לבוא לארץ ישראל, אנחנו לא עולים נגד הגויים אלא בהסכמתם, ו"סר פחד השבועות".</p>
+<p>ואם כך אמר על הצהרה של מדינה אחת, קל וחומר בכ״ט בנובמבר. העולם כולו התכנס והחליט, ברוב גדול ובהחלטה שמחייבת את כולם, לתת ליהודים מדינה בארץ ישראל.</p>
+<div class="honey-box">🍯 מאותו לילה אין עוד חשש של "בחומה": מותר לעם ישראל לעלות, להקים שלטון ולבנות את ארצו.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: החופה מוכנה, והכלה בחוץ ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">החופה מוכנה, והכלה בחוץ</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אין בשולחן ערוך או ברמב״ם הלכה שאומרת במפורש "כל יהודי חייב לעלות לארץ ישראל". יש שבחים עצומים, שכר גדול, מעלה מיוחדת, אבל לא חובה כתובה. למה? כי במשך דורות רבים זה לא היה אפשרי, ויש זמנים שבהם זה כן ויש שבהם זה לא.</p>
+<p>אבל נחזור למשל. החתן הגיע, יושב תחת החופה, הכל מוכן, הקרואים מחכים, והכלה לא מגיעה.</p>
+<p>ה' הודיע שהגיע הזמן. הוא עשה נסים, פתח את השערים, העולם כולו החליט. החתן כבר כאן, דופק ואומר "פתחי לי אחתי רעיתי יונתי תמתי" (שיר השירים ה, ב). איך יכולה הכלה להישאר בחוץ?</p>
+<p class="bold-para">גם בלי סעיף כתוב, מי שמבין את המשל מרגיש שזה מחייב.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: &quot;כל פעם שהתנגדנו – הפסדנו&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🏡</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">מגש של כסף שלא הגיע</h2></div></div>
+<p class="chapter-intro">אחרי הריקודים באו מלחמות, ועד היום לא הגענו אל המנוחה. למה המתנה הזאת עוברת דרך ייסורים? התורה רומזת על כך כבר בקניות של האבות.</p>
+<article class="story-card" id="story-19" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;כל פעם שהתנגדנו – הפסדנו&quot;</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השמחה הייתה גדולה גם מסיבה נוספת: כולם היו בטוחים שזהו, המדינה תגיע "על מגש של כסף". העולם החליט, ומה שנשאר הוא רק לקום ולהתחיל לחיות.</p>
+<p>אבל היה צד אחד שלא הסכים: הערבים. התנועה הציונית הסכימה לקבל חצי מהארץ, אף שהאמינה שכולה שלנו, כדי למנוע מלחמה ושפיכות דמים. וזה לא עזר. מאז ועד היום, כמה שמוותרים, כמה שמנסים לשכנע, ההתנגדות נשארת.</p>
+<p>אחד הכותבים הערבים כתב פעם בכאב: כל פעם שהתנגדנו למדינת ישראל רק הפסדנו. הציעו לנו חצי ודחינו, ואיבדנו עוד. התנגדנו שוב במלחמת ששת הימים, ואיבדנו עוד. ואנחנו עדיין מתנגדים.</p>
+<p>וכאן מתחילה שאלה גדולה: אם העולם החליט, למה הארץ לא הגיעה על מגש של כסף?</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: המלחמה שבאה אחרי הריקודים ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">המלחמה שבאה אחרי הריקודים</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השמחה של אותו לילה הייתה אמיתית, אבל הציפייה שאחריה התבדתה. אנשים חשבו שמעכשיו יהיו כאן חיים רגילים, כמו בכל מדינה אחרת.</p>
+<p>מה קרה בפועל? כבר למחרת התחילו התקפות ופרעות. אחר כך באה מלחמת השחרור, מלחמה קשה שנמשכה כמעט שנה שלמה, ובשלב מסוים לא היה ברור אם נעבור אותה בכלל. ומאז ועד היום לא הגענו אל המנוחה ואל הנחלה.</p>
+<p>למה? למה הסיפור לא נגמר? למה לא לקבל את הארץ ולחיות בשקט? למה כל כך הרבה צרות?</p>
+<p class="bold-para">הבלגים גרים בבלגיה והצרפתים בצרפת, ואף אחד לא נלחם על זכותם לגור שם. למה אצלנו זה אחרת?</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: שלוש מתנות שבאות בייסורים ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שלוש מתנות שבאות בייסורים</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את התשובה הבסיסית נתן כבר רבי שמעון בר יוחאי:</p>
+<blockquote>"שלש מתנות טובות נתן הקדוש ברוך הוא לישראל, וכולן לא נתנן אלא על ידי יסורין. אלו הן: תורה, וארץ ישראל, והעולם הבא" (ברכות ה, א)</blockquote>
+<p>שימו לב למילים: "מתנות טובות". ארץ ישראל היא מתנה, והיא טובה. אבל הדרך אליה עוברת בייסורים.</p>
+<p>אין עוד עם בעולם שיש לו כל כך הרבה מאבקים על הארץ שלו, כל הזמן, דור אחרי דור. זה לא מקרה.</p>
+<p>לייסורים האלה יש כמה טעמים. כאן נעסוק באחד מהם, והוא קשור ישירות לפרשת השבוע: למה התורה מקפידה לספר שאת ארץ ישראל קונים בכסף מלא.</p>
+<div class="honey-box">🍯 מה שבא בקלות לא תמיד נשאר. מתנה שבאה בייסורים היא מתנה שנאחזים בה.</div>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: מה האבות קנו? ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה האבות קנו?</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האבות בוודאי קנו הרבה דברים בימי חייהם: אוהלים, צאן, כלים. אבל התורה לא מספרת על אף אחת מהקניות האלה.</p>
+<p>היא מספרת בדיוק רב רק על שתי קניות: אברהם אבינו קונה את מערת המכפלה בארבע מאות שקל כסף, ובפרשת השבוע יעקב אבינו מגיע לשכם וקונה חלקת שדה:</p>
+<blockquote>"ויקן את חלקת השדה אשר נטה שם אהלו מיד בני חמור אבי שכם במאה קשיטה" (בראשית לג, יט)</blockquote>
+<p>סכום מכובד, שהתורה טורחת לפרט. ושתי הקניות הן של קרקע בארץ ישראל.</p>
+<p class="bold-para">סימן שיש במצווה של קניית קרקע בארץ ישראל מעלה מיוחדת, יותר מבדברים אחרים.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: משכנתא של ארבעים שנה ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">משכנתא של ארבעים שנה</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אפשר לראות את זה גם היום. מי שקונה דירה בארץ ישראל משלם עליה הרבה מאוד. יש לזה סיבות כלכליות, אבל בפועל זוג צעיר נכנס למשכנתא של עשרים, שלושים ולפעמים ארבעים שנה.</p>
+<p>זה לא פשוט, וזה גם לא דבר שקורה בכל מקום בעולם באותה עוצמה. כאילו גם בימינו ה' מזכה את עם ישראל לקנות את ארצו "בכסף מלא".</p>
+<p>כדי להבין למה זה טוב, צריך קודם להכיר מצווה שרבים לא יודעים עליה בכלל: המצווה לאהוב את ארץ ישראל.</p>
+<div class="honey-box">🍯 התשלום על הארץ אינו רק מחיר. כמו שנראה, הוא חלק מהקשר אליה.</div>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: חפץ שנקנה בדמים יקרים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🧸</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">מה שמשקיעים בו – אוהבים</h2></div></div>
+<p class="chapter-intro">למה אדם אוהב דווקא את מה שעלה לו ביוקר? בתשובה טמון אחד הסודות של הייסורים בארץ ישראל.</p>
+<article class="story-card" id="story-24" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">חפץ שנקנה בדמים יקרים</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דבר שאדם משלם עליו, הוא מתחבר אליו. כמו שאמרו: ישראל חביבים כחפץ שנקנה בדמים יקרים.</p>
+<p>לא תמיד, אבל הרבה פעמים. אדם שחסך כסף לא יום ולא שבוע, אלא שנים ארוכות, עד שקנה רכב, יאהב את הרכב הזה מאוד. הוא ינקה אותו מכל פירור, יכסה אותו, ויכאב לו מכל שריטה. מי שמסתכל מהצד אומר "מה הוא משתגע?", אבל הוא פשוט אוהב אותו.</p>
+<p>אדם יכול להתחבר כך לכל דבר: לתמונה שצייר, לגינה שטיפח. ילדים מתחברים לבניין לגו שבנו בעצמם, ולא מרשים לאף אחד לגעת בו.</p>
+<p class="bold-para">כל דבר שאדם משקיע בו כוחות, טורח וסובל בשבילו, הוא מתחבר אליו ואוהב אותו.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: למה זה עובד? ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה זה עובד?</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה קורה בנפש כשאדם משקיע בדבר? הוא מתחיל לראות את הדבר כחלק מעצמו. ההשקעה מחברת, והאהבה שאדם אוהב את עצמו עוברת אל מה שהשקיע בו.</p>
+<p>כבר אריסטו שאל שאלה מעניינת: איך ייתכן שמי שנותן אוהב יותר ממי שמקבל? היינו מצפים שמי שקיבל טובה יאהב יותר את מי שנתן לו. אבל המציאות הפוכה, ומי שנותן אוהב יותר.</p>
+<p>התשובה היא אותו עיקרון: מי שנותן, משקיע. ומה שמשקיעים בו נעשה חלק ממך.</p>
+<p>לכן ההורים אוהבים את הילדים הרבה יותר ממה שהילדים אוהבים את ההורים. הילדים צריכים מצווה מיוחדת של כיבוד אב ואם, וההורים לא צריכים מצווה לאהוב את ילדיהם. כמו שאומרים: אבא אחד יכול לגדל עשרה ילדים, ועשרה ילדים לא תמיד יכולים לגדל אבא אחד.</p>
+<div class="honey-box">🍯 ככל שנותנים יותר, מתחברים יותר.</div>
+</div><div class="story-next"><a href="#story-26">הקטע הבא: &quot;בעצב תלדי בנים&quot; – קללה? ←</a></div>
+</article>
+<article class="story-card" id="story-26" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;בעצב תלדי בנים&quot; – קללה?</h3><button class="copy-link" type="button" data-id="story-26">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי החטא נאמר לאדם "בזעת אפיך תאכל לחם" ולאישה "בעצב תלדי בנים" (בראשית ג, טז-יט). האם זו קללה?</p>
+<p>צריך להבין את זה בדקות. לפני החטא העולם היה במצב שבו אפשר היה להסתדר בלי עבודה קשה ובלי צער. אחרי שהאדם ירד ממדרגתו, המצב החדש הוא שטוב לו לעבוד. זה לא עונש אלא מה שמתאים לו עכשיו.</p>
+<p>תחשבו מה היה קורה אם מחר מישהו היה ממציא דרך שכל בני האדם יקבלו פרנסה בלי לעבוד. זה היה אסון עולמי. במצב שבו העולם נמצא, אי אפשר להחזיק אותו בלי עבודה.</p>
+<p class="bold-para">"בזעת אפיך" אינו "אני מקלל אותך". זה "במצב שלך, זה מה שטוב לך".</p>
+</div><div class="story-next"><a href="#story-27">הקטע הבא: ילד שנולד בלי צער ←</a></div>
+</article>
+<article class="story-card" id="story-27" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ילד שנולד בלי צער</h3><button class="copy-link" type="button" data-id="story-27">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וכך גם "בעצב תלדי בנים". נניח שילדים היו נולדים בלי שום מאמץ, בלי היריון ובלי לידה. מה היה חסר?</p>
+<p>החיבור. אם ילד היה בא בקלות, הוא היה כמו חפץ. כשרכב נגנב, אף אחד לא יוצא להפגין בשבילו. אבל כשילדים נחטפו, המדינה כולה עמדה על הרגליים.</p>
+<p>מי שראה את הסרטונים של אמהות שמבשרים להן שהילד שלהן חוזר הביתה, ראה את כל הרגשות שיש באדם: התרגשות, אושר, הקלה, אהבה. אי אפשר להישאר אדיש מול זה.</p>
+<p>למה כך? כי האמא השקיעה בילד תשעה חודשים, ואת הלידה, וכל לילה ללא שינה אחר כך. הוא עלה לה במשהו יקר בהרבה מכסף, ולכן היא רואה בו חלק ממנה. בזכות זה יש לה כוח לקום בלילות, להאכיל, להלביש, ובסוף גם לחתן.</p>
+<div class="honey-box">🍯 הצער אינו המטרה. הוא הדרך שבה נוצרת האהבה.</div>
+</div><div class="story-next"><a href="#story-28">הקטע הבא: כדב שכול ←</a></div>
+</article>
+<article class="story-card" id="story-28" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">כדב שכול</h3><button class="copy-link" type="button" data-id="story-28">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש ביטוי עתיק: "דב שכול" (הושע יג, ח). למה דובה שאיבדה את גוריה מסוכנת כל כך?</p>
+<p>כי היא השקיעה בגור זמן רב, ומי שלוקח אותו ממנה מעורר אצלה זעם עצום. אפילו בבעלי חיים רואים את העיקרון: ההשקעה יוצרת אהבה, והאהבה יוצרת מסירות.</p>
+<p>זו גם אחת הסיבות שארץ ישראל נקנית בייסורים. לא הסיבה היחידה, אבל סיבה חשובה: מה שעולה ביוקר, אוהבים.</p>
+<p>ומי שאוהב את הארץ באמת, לא יוותר עליה בקלות. בדיוק כמו אם על ילדה.</p>
+<p class="bold-para">את ארץ ישראל קונים בייסורים, כדי שנאהב אותה בכל הלב.</p>
+</div><div class="story-next"><a href="#story-29">הקטע הבא: השירים של דור תש״ח ←</a></div>
+</article>
+<article class="story-card" id="story-29" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">השירים של דור תש״ח</h3><button class="copy-link" type="button" data-id="story-29">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רואים את זה היטב בדור שעלה לארץ והקים את המדינה. האהבה שלהם לארץ הייתה עצומה, והראיה הפשוטה היא השירים. אין ספור שירים על ארץ ישראל: על הנופים, על השבילים, על ההליכה בארץ לאורכה ולרוחבה. אפילו בצבא שרו על הארץ.</p>
+<p>למה דווקא אז? כי כמעט כל אחד מהם ראה את המוות מול העיניים בשביל הארץ. אחד שרד את השואה, אחד עבר מסע קשה עד שהגיע, וכמעט כולם נלחמו. אחר כך באו העוני והצנע והמחסור.</p>
+<p>מי שהשקיע כל כך הרבה, אוהב.</p>
+<p>זה ההסבר הפשוט לכך שה' נותן את הארץ דווקא בדרך הקשה: כדי שנתחבר אליה בכל הנפש.</p>
+</div><div class="story-next"><a href="#story-30">הקטע הבא: &quot;זה סתם רגש לאומי&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">💞</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">מצווה לאהוב את הארץ</h2></div></div>
+<p class="chapter-intro">אהבת הארץ אינה רגש לאומי. יש לה מקור ברור בהלכה, ודרך מיוחדת שבה הרמב״ם כותב אותה.</p>
+<article class="story-card" id="story-30" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;זה סתם רגש לאומי&quot;</h3><button class="copy-link" type="button" data-id="story-30">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ארץ ישראל אינה רק מקום שיש מצווה לגור בו. יש מצווה להתחבר אליה גם בנפש: באהבה ובדבקות.</p>
+<p>מהר מאוד מתברר שהדבר הזה לא מובן מאליו. ערך שנכתב פעם באנציקלופדיה ברשת בשם "מצוות אהבת ארץ ישראל" נמחק שוב ושוב. אנשים הבינו שאהבת הארץ היא רגש לאומי רגיל, כמו שאנשים אוהבים את המולדת שלהם בכל מקום בעולם. נחמד, אבל לא מצווה.</p>
+<p>כדי להראות שזה ערך תורני של ממש, שיש לו מקור ברור, צריך לחפור הרבה. והיסוד המרכזי נמצא בהלכה מפורשת ברמב״ם.</p>
+<p class="bold-para">אהבת ארץ ישראל אינה רגש לאומי. היא ערך עליון ביהדות.</p>
+</div><div class="story-next"><a href="#story-31">הקטע הבא: מנשקים את הקרקע ←</a></div>
+</article>
+<article class="story-card" id="story-31" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מנשקים את הקרקע</h3><button class="copy-link" type="button" data-id="story-31">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך כותב הרמב״ם בהלכות מלכים (ה, י):</p>
+<blockquote>"גדולי החכמים היו מנשקין על תחומי ארץ ישראל, ומנשקין אבניה, ומתגלגלין על עפרה. וכן הוא אומר: כי רצו עבדיך את אבניה ואת עפרה יחננו"</blockquote>
+<p>כשגדולי החכמים הגיעו לגבול הארץ, היו מנשקים אותה. מכאן המנהג של יהודים רבים לנשק את האדמה כשהם מגיעים לארץ. גם אם יש שם אספלט, זה מחובר לקרקע וזה בסדר.</p>
+<p>בימינו ראתה את זה המדינה כולה. כשיהונתן פולארד נחת בארץ, בימי הקורונה, ראש הממשלה חיכה לו למטה. ועוד לפני שהושיט לו יד ללחיצה, פולארד התכופף ונישק את האדמה.</p>
+<p>מי שלא הכיר את ההלכה אולי לא הבין מה ראה. אבל זה בדיוק מה שכתב הרמב״ם: לפני שאומרים שלום לאנשים, מנשקים את הארץ.</p>
+</div><div class="story-next"><a href="#story-32">הקטע הבא: הנשיקות בלילה ←</a></div>
+</article>
+<article class="story-card" id="story-32" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הנשיקות בלילה</h3><button class="copy-link" type="button" data-id="story-32">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר על תלמיד חכם שלמד בכולל בפתח תקווה, בימים שלפני קום המדינה, כשהמקומות שבהם למדו תורה בארץ היו מעטים. כל ימיו עסק במצוות התלויות בארץ, וחיבר עליהן ספר גדול.</p>
+<p>הוא היה עני מאוד. כשסיים את הספר לא היה לו כסף להדפיס אותו, ולכן כתב מכתב לפנחס רוטנברג, מייסד חברת החשמל, וביקש עזרה בהוצאת ספר על ארץ ישראל.</p>
+<p>מישהו שם לב שבכל לילה, באמצע הלילה, הוא יוצא מהבית לכמה דקות וחוזר. פעם אחת הלך אחריו לראות מה הוא עושה, וראה אותו משתטח על האדמה ומנשק אותה.</p>
+<p>הוא התבייש שיראו אותו, ולכן עשה זאת בחושך. אבל מרוב לימוד על קדושת הארץ הרגיש רצון עז לקיים את ההלכה ממש: "ומנשקין אבניה ומתגלגלין על עפרה".</p>
+<div class="honey-box">🍯 מי שלומד הרבה על הארץ, מתחיל לאהוב אותה באמת.</div>
+</div><div class="story-next"><a href="#story-33">הקטע הבא: סיפור בתוך ספר הלכות ←</a></div>
+</article>
+<article class="story-card" id="story-33" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">סיפור בתוך ספר הלכות</h3><button class="copy-link" type="button" data-id="story-33">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משנה תורה של הרמב״ם הוא ספר הלכה. אין בו אגדות ואין בו סיפורים, רק מה שצריך לעשות. ובכל זאת כאן הרמב״ם כותב: "גדולי החכמים היו מנשקין".</p>
+<p>איזו הלכה לומדים מכאן? למה הרמב״ם לא כתב פשוט "מצווה לנשק את ארץ ישראל"?</p>
+<p>אולי כי זה לא מופיע בתורה כמצווה? אבל הרמב״ם עצמו מביא פסוק מתהלים, ודברי קבלה הם מקור מוסמך לגמרי.</p>
+<p>אז למה לספר סיפור במקום לכתוב מצווה?</p>
+<p class="bold-para">כדי להבין, אפשר לשאול שאלה פשוטה: האם יש מצווה לנשק את האישה?</p>
+</div><div class="story-next"><a href="#story-34">הקטע הבא: את האהבה אי אפשר לצוות בצורה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-34" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">את האהבה אי אפשר לצוות בצורה אחת</h3><button class="copy-link" type="button" data-id="story-34">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אין מצווה כזאת. אפשר לכתוב שיש מצווה לאהוב, אבל אי אפשר לקבוע בהלכה איך בדיוק לבטא את האהבה. כל אחד בוחר לעצמו איך הוא אוהב.</p>
+<p>כך גם בארץ ישראל. המצווה היא לאהוב, לא לנשק. הרמב״ם לא קובע דרך אחת. הוא מספר מה עשו גדולי החכמים, ומשאיר לכל אחד להחליט איך יבטא את אהבתו.</p>
+<p>אם הייתה כתובה צורה אחת מחייבת, הרעיון היה נהרס. אהבה צריכה לבוא מבפנים, מתוך הבחירה של כל אחד. אפשר לקבל רעיונות, אבל לא הוראות.</p>
+<div class="honey-box">🍯 "מצווה לאהוב" פירושה: תמצא את הדרך שלך.</div>
+</div><div class="story-next"><a href="#story-35">הקטע הבא: חמישים דרכים לאהוב ←</a></div>
+</article>
+<article class="story-card" id="story-35" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">חמישים דרכים לאהוב</h3><button class="copy-link" type="button" data-id="story-35">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש ספר שלם שמציע חמישים רעיונות איך לאהוב את ארץ ישראל. לא כדי שכל אחד יעשה את כולם, אלא כדי שכל אחד ימצא את שלו.</p>
+<ul class="story-list"><li>יש מי שתולה בביתו תמונות של נופי הארץ.</li><li>יש מי ששומע ושר שירים על ארץ ישראל.</li><li>יש מי שמטייל בכל פינה ומכיר את הארץ לאורכה ולרוחבה. כדאי לחשוב לפני היציאה "אני מטייל כי אני אוהב את הארץ", ואז הטיול עצמו נעשה מצווה.</li><li>יש מי שמקפיד לאכול דווקא פירות של ארץ ישראל. כבר בגמרא מוזכרים חכמים שאהבו את פירות הארץ.</li><li>ויש מי שפשוט שמח בלבו בכל פעם שהוא נזכר איפה הוא גר.</li></ul>
+<p class="bold-para">אין מספר סופי לרעיונות. האהבה עצמה תמציא אותם.</p>
+</div><div class="story-next"><a href="#story-36">הקטע הבא: &quot;את&quot; – לרבות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌍</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">הבית של ה&#x27; – ושם מתעוררת האהבה</h2></div></div>
+<p class="chapter-intro">למה בכלל אוהבים אדמה? כי היא ביתו של ה'. ובבית הזה, כמו שהתורה מבטיחה, מתעוררת האהבה הגדולה מכולן.</p>
+<article class="story-card" id="story-36" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;את&quot; – לרבות</h3><button class="copy-link" type="button" data-id="story-36">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נאמר: "ואהבת את ה' אלוקיך" (דברים ו, ה). חז״ל דרשו שהמילה "את" באה לרבות: לא רק את הקדוש ברוך הוא עצמו, אלא גם את מה שקשור אליו. כך דרשו שצריך לאהוב תלמידי חכמים. כך אנחנו אוהבים את התורה, את הטלית ואת התפילין.</p>
+<p>ובאותה דרך אנחנו אוהבים את ארץ ישראל. היא לא סתם מקום:</p>
+<blockquote>"כי בחר ה' בציון אוה למושב לו" (תהלים קלב, יג)</blockquote>
+<p>זה המקום שה' בחר בו מכל העולם, הבית שלו. ומי שאוהב את בורא עולם, אוהב גם את ביתו.</p>
+<div class="honey-box">🍯 אין ספר שמחבב את ארץ ישראל יותר מספר התורה. כמעט בכל פרשה היא מוזכרת: ההבטחה, הגעגועים, הדרך אליה.</div>
+</div><div class="story-next"><a href="#story-37">הקטע הבא: האבן עזרא על חלקת השדה ←</a></div>
+</article>
+<article class="story-card" id="story-37" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">האבן עזרא על חלקת השדה</h3><button class="copy-link" type="button" data-id="story-37">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נחזור לפרשת השבוע. למה התורה מספרת שיעקב קנה חלקת שדה, ואפילו כמה שילם? היום זה מעניין אותנו, כי שם נמצא קבר יוסף. אבל מה זה אמר לקורא באותו זמן?</p>
+<p>האבן עזרא עונה שהתורה מספרת זאת כדי להודיע שמעלה גדולה יש לארץ ישראל, ומי שיש לו בה חלק, כאילו יש לו חלק בעולם הבא.</p>
+<p>קרקע בארץ ישראל אינה רק נכס. היא קשורה לעולם הבא.</p>
+<p class="bold-para">מי שקונה חלקה בארץ ישראל, קונה משהו שהוא הרבה יותר מאדמה.</p>
+</div><div class="story-next"><a href="#story-38">הקטע הבא: גוף ונשמה ←</a></div>
+</article>
+<article class="story-card" id="story-38" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גוף ונשמה</h3><button class="copy-link" type="button" data-id="story-38">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>איך אפשר להבין את זה? ארץ ישראל דומה לאדם.</p>
+<p>כשמסתכלים על אדם רואים גוף: בשר ועצמות. אבל אוי למי שיאמר שאדם הוא חמישים קילו בשר. אדם הוא נשמה אלוקית שה' ברא, דבר רוחני אינסופי שלבוש בגוף.</p>
+<p>כך גם ארץ ישראל. אל תראה אותה כגוש עפר. העפר הוא הלבוש, ומתחתיו מונח דבר רוחני עצום.</p>
+<p>וכשיהודי אוהב יהודי, הוא לא אוהב גוש בשר, חלילה. הוא אוהב נשמה. כך מי שאוהב את ארץ ישראל אוהב בעצם משהו רוחני, נצחי, את מה שמונח מתחת לעפר.</p>
+<div class="honey-box">🍯 לאהוב את הארץ פירושו לאהוב את מה שמסתתר בתוכה.</div>
+</div><div class="story-next"><a href="#story-39">הקטע הבא: מה מנשקים באמת ←</a></div>
+</article>
+<article class="story-card" id="story-39" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה מנשקים באמת</h3><button class="copy-link" type="button" data-id="story-39">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו מתיישבת התמיהה. מה זה לנשק אבנים ולהתגלגל בעפר? נשמע כמו פולחן של עמים קדומים.</p>
+<p>אבל מי שמנשק אדם לא מנשק בשר. הוא מנשק את הנשמה, את הקשר, את האהבה. וכך מי שמנשק את ארץ ישראל לא מנשק אבנים. כמו שכתוב בספרים, הוא מנשק את השכינה, הוא מנשק את העולם הבא.</p>
+<p>הגוף הוא גוש גשמי, אבל בתוכו מונחים דברים רוחניים רבים כל כך.</p>
+<p>וזה מסביר גם את הייסורים. ה' רוצה שנאהב את הארץ באמת, בכל הנפש. והאהבה הזאת נבנית מתוך מה שמשקיעים בה.</p>
+<p class="bold-para">הנשיקה לאבן היא נשיקה לשכינה.</p>
+</div><div class="story-next"><a href="#story-40">הקטע הבא: אהבה משני הצדדים ←</a></div>
+</article>
+<article class="story-card" id="story-40" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">אהבה משני הצדדים</h3><button class="copy-link" type="button" data-id="story-40">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שני דברים התבררו עד כאן, והם משלימים זה את זה.</p>
+<p>האחד: את הארץ קונים בייסורים, כי מה שמשקיעים בו – אוהבים. ההשקעה שלנו בארץ, הדם והיגיעה והמשכנתא, בונה בנו אהבה אליה.</p>
+<p>השני: הארץ היא ביתו של ה', והאהבה אליה היא חלק מאהבת ה'. מי שמנשק את האבנים מנשק את השכינה.</p>
+<p>ומכאן הצעד האחרון. אם הארץ היא הבית, אז כשהכלה מגיעה אל בית החתן, האהבה לא מתעוררת רק אצלה. היא מתעוררת משני הצדדים.</p>
+<p class="bold-para">אנחנו אוהבים את הארץ, ובארץ מתעוררת אהבת ה' אלינו, ואהבתנו אליו.</p>
+</div><div class="story-next"><a href="#story-41">הקטע הבא: &quot;ומל ה&#x27; אלוקיך את לבבך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-41" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;ומל ה&#x27; אלוקיך את לבבך&quot;</h3><button class="copy-link" type="button" data-id="story-41">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התורה מתארת מה יקרה כשישראל יחזרו לארצם:</p>
+<blockquote>"אם יהיה נדחך בקצה השמים משם יקבצך ה' אלוקיך ומשם יקחך. והביאך ה' אלוקיך אל הארץ אשר ירשו אבתיך וירשתה והיטבך והרבך מאבתיך. ומל ה' אלוקיך את לבבך ואת לבב זרעך לאהבה את ה' אלוקיך בכל לבבך ובכל נפשך למען חייך" (דברים ל, ד-ו)</blockquote>
+<p>מקצה השמים: מניו זילנד, מארגנטינה, מכל מקום. ואכן, כמעט אין היום מדינה שסוגרת בפני יהודים את הדרך לארץ ישראל.</p>
+<p>והשלב הבא בפסוק מפתיע: אחרי שיבואו לארץ ויתיישבו בה תהיה התעוררות גדולה, והיא לא תבוא מפחד, לא מגיהנום ולא מ"מה יגידו". "לאהבה את ה' אלוקיך". אנשים ירגישו געגועים כאלה לבורא עולם עד שירצו לחזור אליו.</p>
+</div><div class="story-next"><a href="#story-42">הקטע הבא: איפה מתעוררת האהבה ←</a></div>
+</article>
+<article class="story-card" id="story-42" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">איפה מתעוררת האהבה</h3><button class="copy-link" type="button" data-id="story-42">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה דווקא בארץ? הנצי״ב מבאר שאהבה בין חתן וכלה מתעוררת במלואה כשהם יחד, בביתם. כל עוד הם רחוקים זה מזה אפשר לאהוב, אבל לא באותה עוצמה.</p>
+<p>כך עם ישראל: כשמגיעים לארץ ישראל, לבית שבו ה' שוכן, החתן פוגש את הכלה. וזה בדיוק מה ששיר השירים אמר: "אם תעירו ואם תעוררו את האהבה". את האהבה מעוררים כאן.</p>
+<p>אפשר לראות את זה בעיניים. יש אנשים שחזרו בתשובה בלי שום פחד ובלי שום לחץ, ולפעמים גם בניגוד לרצון הוריהם. כששואלים אותם למה, הם עונים: הרגשתי קרבת אלוקים, טעם של גמרא, אור בתפילה. לא אחד ולא שניים.</p>
+<p class="bold-para">זו הנבואה שמתגשמת: לאט לאט, אור אחרי אור, עד שכל ישראל ישובו מתוך אהבה.</p>
+</div><div class="story-next"><a href="#story-43">הקטע הבא: כל חלק הוא קדושה ←</a></div>
+</article>
+<article class="story-card" id="story-43" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל חלק הוא קדושה</h3><button class="copy-link" type="button" data-id="story-43">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכאן מבינים גם למה חשוב לנו שכל חלקי הארץ יהיו בידינו, ובכלל זה עזה. לא רק כי צריך עוד אדמה. כל חלק מארץ ישראל הוא קדושה, וכשחלק ממנה נמצא בידי זרים, הקדושה שבו כאילו נסתרת.</p>
+<p>אנחנו מקווים שנזכה למה שהתורה מבטיחה:</p>
+<blockquote>"ופרצת ימה וקדמה וצפנה ונגבה" (בראשית כח, יד)</blockquote>
+<p>שנזכה שכל הארץ תהיה שלנו, מצפון ועד דרום, ושנשב בה בשקט ובשלווה, מתוך אהבה ושמחה.</p>
+<div class="honey-box">🍯 הייסורים הם הדרך, והאהבה היא המטרה. ומי שאוהב באמת, זוכה בסוף לשמחה שלמה.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
