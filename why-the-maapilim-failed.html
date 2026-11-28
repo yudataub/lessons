@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🏔️ המעפילים: למה התשובה לא התקבלה</title>
+<meta name="description" content="מה היה חסר בתשובה המושלמת של המעפילים, למה הרמב&quot;ם לא מנה את מצוות ישוב הארץ, ומה באמת מצווה התורה – לאהוב את הארץ עד שנרצה לגור בה">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🏔️ המעפילים: למה התשובה לא התקבלה</h1>
+  <p class="hero-subtitle">מה היה חסר בתשובה המושלמת של המעפילים, למה הרמב&quot;ם לא מנה את מצוות ישוב הארץ, ומה באמת מצווה התורה – לאהוב את הארץ עד שנרצה לגור בה</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-12 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/wv2iGVtAI_k" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🕯️ המשיח מחכה לך</a><ul class="toc-stories"><li><a href="#story-1">האור החיים עולה לארץ</a></li><li><a href="#story-2">אורח מאמריקה בשבת חוקת</a></li><li><a href="#story-3">שתי שאלות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">💔 תשובה מושלמת שלא התקבלה</a><ul class="toc-stories"><li><a href="#story-4">כל חלקי התשובה</a></li><li><a href="#story-5">מסירות נפש עד הקצה</a></li><li><a href="#story-6">הבן שרוצה את המכונית</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🎯 על מה הם לא חזרו בתשובה</a><ul class="toc-stories"><li><a href="#story-7">שנים של &quot;ארץ טובה&quot;</a></li><li><a href="#story-8">הסתבכו עם מלך העולם</a></li><li><a href="#story-9">מאוחר מדי</a></li><li><a href="#story-10">יבוא יום של מעפילים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🚢 המעפילים של תש&quot;ז</a><ul class="toc-stories"><li><a href="#story-11">מה שבר את הבריטים</a></li><li><a href="#story-12">למה דווקא ארץ ישראל?</a></li><li><a href="#story-13">המקום היחיד שבו מספר היהודים עולה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">❓ למה הרמב&quot;ם לא מנה את המצווה</a><ul class="toc-stories"><li><a href="#story-14">עיר של גויים בארץ ישראל</a></li><li><a href="#story-15">הרמב&quot;ן – מנה ועלה</a></li><li><a href="#story-16">מצווה לחבב</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">💍 אי אפשר לצוות על אהבה</a><ul class="toc-stories"><li><a href="#story-17">המטרונה והזיווגים</a></li><li><a href="#story-18">טובה הארץ מאד מאד</a></li><li><a href="#story-19">כשהכלה לא אוהבת את הבית</a></li><li><a href="#story-20">המקום הסודי ביער</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🌅 כי רצו עבדיך את אבניה</a><ul class="toc-stories"><li><a href="#story-21">מתי בא המועד</a></li><li><a href="#story-22">בכייה של חינם – ותיקונה</a></li><li><a href="#story-23">מה עם אלפיים שנות גלות?</a></li><li><a href="#story-24">עם שפורח במקומו</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">המשיח מחכה לך</h2></div></div>
+<p class="chapter-intro">השאלה הגדולה: האם יש חובה לעלות לארץ ישראל, או שזו רשות?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האור החיים עולה לארץ</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבנו חיים בן עטר, בעל "אור החיים" הקדוש, עלה לארץ ישראל בשנת ה'תק"א בערך – תחילת המאה השישית לאלף השישי. על הפסוק "בשנת שש מאות שנה לחיי נח... נבקעו כל מעינות תהום רבה" כתוב בזוהר רמז שבמאה השישית של האלף השישי ייפתחו שערי חכמה למעלה ומעיינות חכמה למטה. הוא הבין שזה זמן של פתיחת שערים – שערי חכמה, שערי גאולה, שערי ישועה – ושאם יהודים יבואו לארץ ישראל, תתחיל הגאולה.</p>
+<p>כמה יהודים היו אז בארץ? מעטים מאוד – כמה אלפים בכל הארץ, ורובם בארבע ערי הקודש: ירושלים, חברון, צפת וטבריה. מחוץ להן – כמעט כלום.</p>
+<div class="honey-box">🍯 מסורת ההליכה למערת אליהו שבכרמל נשענת, כנראה, גם על מה שמופיע בכתבים על האור החיים: כשעלה לארץ, הלך לשם והתחזק שם מאוד.</div>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: אורח מאמריקה בשבת חוקת ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אורח מאמריקה בשבת חוקת</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מעשה שהיה: אורחים מאמריקה התארחו בשבת פרשת חוקת, והמארח ניסה לעורר את אחד מהם ושאל: קראנו השבוע שמשה רבנו נענש. מה היה העונש? – שלא ייכנס לארץ ישראל. והרי זה העונש הגדול ביותר שיכול לקרות ליהודי: לא להיות בארץ ישראל! איך אפשר שלא להשתוקק לבוא?</p>
+<p>מה הוא ענה? "כשיבוא משיח."</p>
+<p>אבל זה בדיוק הפוך. המשיח מחכה לך! זה מה שהבין האור החיים: לא "כשיבוא משיח – נעלה", אלא "אם נעלה – יבוא משיח". אתה מחכה למשיח, והמשיח מחכה לך.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: שתי שאלות ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">שתי שאלות</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש כאן שאלה שעומדת בין הלכה למוסר, ובעצם שתיים:</p>
+<p><strong>ראשונה:</strong> האם יש איסור מן התורה לצאת מארץ ישראל? זו שאלה שנוגעת מאוד לימי החופש, כשרבים טסים לחוץ לארץ. אפשר להשוות לסוכה: ישיבה ארעית מחוץ לסוכה מותרת, אבל לאכול ולישון בקבע מחוץ לסוכה – אסור. האם כך גם ביציאה מן הארץ?</p>
+<p><strong>שנייה:</strong> האם יש חיוב לגור בארץ ישראל, כמו שיש חיוב בכל מצווה? לכאורה, איך ייתכן שלא? כמעט אין בתורה מצווה שהיא רשות גמורה תמיד. יש מצוות שתלויות במצב – מעקה רק אם בנית בית, ציצית רק אם לבשת בגד בן ארבע כנפות – אבל אז הן חובה. מצווה שהיא תמיד רשות? מוזר מאוד.</p>
+<p>כדי להבין, צריך לעבור רגע לנושא אחר – ולחזור.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: כל חלקי התשובה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">💔</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">תשובה מושלמת שלא התקבלה</h2></div></div>
+<p class="chapter-intro">אחרי חטא המרגלים עם ישראל עושה תשובה מרגשת. ובכל זאת – היא נדחית.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כל חלקי התשובה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחרי שמשה מודיע לעם שבגלל החטא רק בניהם ייכנסו לארץ, מתעוררת תשובה עזה:</p>
+<blockquote>וידבר משה את הדברים האלה אל כל בני ישראל ויתאבלו העם מאד וישכמו בבקר ויעלו אל ראש ההר לאמר הננו ועלינו אל המקום אשר אמר ה' כי חטאנו</blockquote>
+<p>הרמב"ם מבאר שתשובה שלמה בנויה מחרטה על העבר, עזיבת החטא וקבלה לעתיד, ווידוי. בואו נבדוק:</p>
+<ul class="story-list"><li><strong>חרטה:</strong> "ויתאבלו העם מאד" – בכל מאודם, בלי גבול</li><li><strong>עזיבת החטא:</strong> "הננו ועלינו אל המקום אשר אמר ה'" – מוכנים לעלות עכשיו</li><li><strong>וידוי:</strong> "כי חטאנו"</li></ul>
+<p>והכול מהר, תוך שעות. "וישכמו בבקר" – בזריזות.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מסירות נפש עד הקצה ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מסירות נפש עד הקצה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ולא רק זה. הם עולים למרות האזהרה החמורה של משה:</p>
+<blockquote>אל תעלו כי אין ה' בקרבכם ולא תנגפו לפני איביכם</blockquote>
+<p>בלי משה, בלי אהרן, בלי ארון הברית – ועדיין הם עולים, במסירות נפש גמורה. בתחילה פחדו מהכנענים, ועכשיו הם מוכנים להסתער לבדם. זה ממש מה שהרמב"ם מתאר: מי שבא לתקן מידה רעה צריך להטות את עצמו לקצה השני.</p>
+<p>אם כן, למה התשובה לא התקבלה? היא נראית מושלמת מכל צד. בהמשך הוא אומר להם "והוא לא תצלח" – והם אכן מוכים ונרדפים עד חרמה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: הבן שרוצה את המכונית ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הבן שרוצה את המכונית</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משל: אב אומר לבנו – מחר יש הרצאה נפלאה, היא תעזור לך מאוד בחיים, אני מבקש שתלך. הבן לא רוצה. האב מפציר שוב ושוב, והבן לא הולך. כועס האב ואומר: מהיום אינך נוסע במכונית שלי.</p>
+<p>למחרת בא הבן: "אבא, התחרטתי. אני הולך להרצאה." שואל האב: למה פתאום? "נו... כי אני רוצה את המכונית."</p>
+<p>אומר לו האב: לא רציתי שתלך להרצאה כדי לקבל מכונית. רציתי שתלך כי אתה מאמין לי. יש לי ניסיון חיים; אם אני אומר שזה טוב בשבילך – היית צריך להאמין. עכשיו אתה הולך לא כי אתה מאמין שזה טוב, אלא בגלל המכונית. <strong>אם כך – עזוב. זה כבר לא מה שרציתי.</strong></p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: שנים של &quot;ארץ טובה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🎯</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">על מה הם לא חזרו בתשובה</h2></div></div>
+<p class="chapter-intro">נקודה דקה מאוד: הם התחרטו – אבל לא על הדבר הנכון.</p>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שנים של &quot;ארץ טובה&quot;</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הקדוש ברוך הוא אומר לעם ישראל במשך שנים: הוצאתי אתכם, הצלתי אתכם, ובסוף "והבאתי אתכם אל הארץ" – ארץ זבת חלב ודבש, ארץ חיטה ושעורה. כמעט אין פרשה שלא מזכירה את הארץ הטובה שאליה הם הולכים.</p>
+<p>ויום אחד באים המרגלים ואומרים שהארץ לא טובה – ולצערנו, העם מקשיב להם. למחרת מגיע העונש הנורא: כולכם תמותו במדבר. ומיד – כולם חוזרים בתשובה.</p>
+<p>למה הם חוזרים בתשובה?</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: הסתבכו עם מלך העולם ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הסתבכו עם מלך העולם</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הם הבינו שהם הסתבכו. אם מסתבכים עם ראש עיר – עוברים לעיר אחרת. אם מסתבכים עם ראש ממשלה – עוברים לארץ אחרת. אבל אם מסתבכים עם הקדוש ברוך הוא, מלך העולם – לאן יברחו? אפילו המוות לא יעזור. "אנה אלך מרוחך ואנה מפניך אברח".</p>
+<p>אז הם תופסים את עצמם: עזוב עכשיו ארץ טובה או רעה, מה זה משנה? הכי נורא בעולם זה להסתבך עם ה'. מאיפה יהיה לנו אוכל במדבר אם ה' כועס? נעלה לארץ!</p>
+<p>למה הם רוצים לעלות? כי הם מפחדים. וזה בדיוק כמו בדברים:</p>
+<blockquote>ותענו ותאמרו אלי חטאנו לה' אנחנו נעלה ונלחמנו ככל אשר צונו ה' אלוקינו</blockquote>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: מאוחר מדי ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">מאוחר מדי</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אומר להם הקדוש ברוך הוא: לא. אתם לא מתחרטים על כך שלא האמנתם לי שהארץ טובה. אתם מתחרטים כי אני כועס עליכם. בעיקרו של דבר, לא חזרתם בתשובה על מה שאמרתם על ארץ ישראל. אתם עדיין חושבים שהיא ארץ מסוכנת – אלא שאתם עולים כי "כך ציווה ה'".</p>
+<p class="bold-para">מי שבא בכפייה, שחושב שחייבים לבוא אף שהארץ לא טובה – זה לא החיבור הרצוי.</p>
+<div class="honey-box">🍯 תשובה אמיתית היא לא רק לשנות את המעשה – אלא לשנות את המבט.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: יבוא יום של מעפילים ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">יבוא יום של מעפילים</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש דברים יפים לרבי צדוק הכהן מלובלין: אף שתשובת המעפילים ההם לא התקבלה, יבוא יום שבו המעפילים יהיו רצויים לפני ה'. הוא מדייק בלשון "והוא לא תצלח" – היא, העלייה הזו דווקא, לא תצליח. אבל לקראת הגאולה תבוא העפלה אחרת שתצליח. ודבריו נכתבו כמאה וחמישים שנה לפני שהתקיימו.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: מה שבר את הבריטים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🚢</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">המעפילים של תש&quot;ז</h2></div></div>
+<p class="chapter-intro">כמאה שנה אחרי רבי צדוק, הסיפור חוזר – והפעם זה מצליח.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מה שבר את הבריטים</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בשנים שאחרי השואה, בערך עד תש"ח, הייתה בארץ ישראל מלחמה של ממש עם הבריטים. מה היה הדבר שהבריטים הרגישו שאינם מסוגלים לעמוד בו?</p>
+<p>המעפילים. ספינות של ניצולי שואה הגיעו לחופי הארץ, והבריטים נאלצו להילחם בהם ולגרש אותם בכוח. הספינה "אקסודוס", שעליה כארבעת אלפים וחמש מאות ניצולים, הוחזרה עד לגרמניה – וזה עורר סערה אדירה בכל העולם. תמונות של חיילים בריטים גוררים ניצולי שואה מאונייה לאונייה, אל מחנות המעצר, התפרסמו בכל מקום.</p>
+<p>העולם כולו כעס. הבריטים הרגישו שהם מאבדים את הלגיטימציה שלהם להיות כאן, ובסוף העבירו את השאלה לאומות המאוחדות. וברוך ה', נפתחו שערי ארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: למה דווקא ארץ ישראל? ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">למה דווקא ארץ ישראל?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שימו לב: למה עלו המעפילים האלה לארץ ישראל? האם כי הקדוש ברוך הוא כעס? לא. מי שחיפש סתם מקום – אמריקה הייתה פתוחה. הם רצו את ארץ ישראל דווקא, כי האמינו שאם ה' אמר שזה המקום של היהודים – זה המקום הטוב ביותר.</p>
+<p class="bold-para">כאלה מעפילים – הקדוש ברוך הוא אוהב.</p>
+<p>זה בדיוק ההבדל בין המעפילים של המדבר לבין המעפילים של הדור האחרון: הראשונים עלו מפחד, האחרונים עלו מאהבה ומאמונה בטובת הארץ.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: המקום היחיד שבו מספר היהודים עולה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">המקום היחיד שבו מספר היהודים עולה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש יהודים בחוץ לארץ שאומרים: דווקא כאן אנחנו שומרים תורה ומצוות בשקט, אף אחד לא מפריע, חיים בשפע ובשמחה. אבל מה קורה בסוף? לצערנו, ההתבוללות. יהודי בארץ, גם אם התרחק – נשאר יהודי. שם, לא פעם, הנכדים כבר אינם.</p>
+<p>מהגל הגדול של יהודים שהיגרו לאמריקה לפני השואה, מעטים מאוד הצאצאים שנשארו קשורים לעמם. המקום היחיד בעולם שבו מספר היהודים עולה משנה לשנה – הוא כאן.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: עיר של גויים בארץ ישראל ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">❓</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">למה הרמב&quot;ם לא מנה את המצווה</h2></div></div>
+<p class="chapter-intro">אחת השאלות המפורסמות ביותר – ותשובה שמחברת הכול.</p>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">עיר של גויים בארץ ישראל</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ם מפליג מאוד בחשיבות הישיבה בארץ ישראל. בהלכות מלכים הוא כותב:</p>
+<blockquote>לעולם ידור אדם בארץ ישראל אפילו בעיר שרובה גוים ואל ידור בחוצה לארץ ואפילו בעיר שרובה ישראל</blockquote>
+<p>וזה פלא, כי אותו רמב"ם כותב שאדם צריך להיזהר מאוד משכנים רעים – עד כדי כך שאם לא מצא מקום טוב, ילך ויגור במדבר. כי דרכו של אדם להיות מושפע מסביבתו. ובכל זאת, לגבי ארץ ישראל – עדיף לגור בה גם בעיר שרובה גויים.</p>
+<p>אבל בספר המצוות, כשהוא מונה את תרי"ג המצוות – אין מצווה של ישיבת ארץ ישראל. איך זה ייתכן?</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: הרמב&quot;ן – מנה ועלה ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הרמב&quot;ן – מנה ועלה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרמב"ן, לעומתו, מנה את ישוב הארץ כמצוות עשה מן התורה. ולא רק מנה – הוא גם עלה בפועל לארץ ישראל, בשנת ה'כ"ז בערך.</p>
+<p>ויש לנו ממנו מזכרת עד היום: בית הכנסת הרמב"ן ברובע היהודי בירושלים, ליד חורבת רבי יהודה החסיד, בית כנסת עתיק כבן שבע מאות שנה. אחרי מלחמת ששת הימים הוא היה מהראשונים ששוקמו – ויצא שהדבר קרה כמעט בדיוק שבע מאות שנה אחרי עלייתו של הרמב"ן.</p>
+<p>אבל גם לפי הרמב"ן קשה: לא מצאנו בשום מקום הלכה מפורשת "כל יהודי חייב לעלות לארץ ישראל". האם ראיתם פעם ספר הלכה שכותב כך? למה לא?</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: מצווה לחבב ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מצווה לחבב</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התשובה טמונה בלשון הרמב"ן עצמו. המצווה היא לרשת את הארץ ולשבת בה, "ולא נעזבה ביד זולתנו מן האומות או לשממה". ומתוך כך מבינים את עומק המצווה: לא למאוס בנחלת ה', אלא לחבב את הארץ – ומתוך החיבה לשבת בה ולרשת אותה.</p>
+<p>כלומר: המצווה היא שיהודי ישים לב, יתבונן, יחשוב ויראה כמה ארץ ישראל נפלאה – עד שמעצמו ירצה לבוא ולגור בה.</p>
+<p class="bold-para">התורה לא אומרת "קום ועלה". התורה משבחת ומהללת את הארץ – עד שתרצה בעצמך.</p>
+<div class="honey-box">🍯 יש מצוות שמקיימים בידיים. ויש מצווה שמקיימים קודם כול בעיניים ובלב.</div>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: המטרונה והזיווגים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">💍</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">אי אפשר לצוות על אהבה</h2></div></div>
+<p class="chapter-intro">משלים מעולם הזוגיות מבהירים למה התורה בחרה דווקא בדרך הזו.</p>
+<article class="story-card" id="story-17" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המטרונה והזיווגים</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האם אפשר לצוות על אדם: לך, תתחתן עם אישה מסוימת ותאהב אותה?</p>
+<p>מסופר במדרש על מטרונה ששאלה את רבי יוסי בר חלפתא: מה עושה הקדוש ברוך הוא מאז שברא את העולם? ענה לה: יושב ומזווג זיווגים. אמרה: זה הכול? גם אני יכולה! לקחה עבדים ושפחות רבים, העמידה אותם בשורות וחיתנה אותם זה לזה בלילה אחד – עם חופה, בגדים יפים, הכול נחמד.</p>
+<p>למחרת באו אליה – זה פצוע, זה בוכה, זה אומר "אינני רוצה בזו", וזו אומרת "אינני רוצה בזה". הבינה המטרונה שזה לא כל כך פשוט.</p>
+<p>אי אפשר לכפות על אדם לאהוב. אהבה צריך לבנות.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: טובה הארץ מאד מאד ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">טובה הארץ מאד מאד</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך גם בארץ ישראל. התורה ודאי רוצה שעם ישראל יגור כאן. אבל יותר מזה, היא רוצה שירגיש שזה המקום הטוב והנפלא ביותר.</p>
+<p>ולכן מה עושה התורה? כל שבוע היא מספרת כמה טוב יהיה כשנבוא לארץ, כמה מצוות נקיים, איך עם ישראל יפרח ויגדל. יהושע וכלב אומרים:</p>
+<blockquote>טובה הארץ מאד מאד</blockquote>
+<p>על הבריאה כולה כתוב "והנה טוב מאד" – "מאד" אחד. על ארץ ישראל – פעמיים "מאד". אין עוד מקום בתורה שמשבח כך.</p>
+<p>אילו התורה הייתה כותבת "קום ועלה", יהודי היה עולה כי אין לו ברירה – בדיוק כמו המעפילים. והתורה אינה רוצה בזה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: כשהכלה לא אוהבת את הבית ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כשהכלה לא אוהבת את הבית</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חתן וכלה שגרים בבית אחד – המגורים המשותפים עצמם יוצרים קרבה ודבקות. מעשה בזוג צעיר שבגלל מצוקה כספית ויתר על שכירות: הכלה חזרה לגור אצל הוריה עם התינוק, והבעל בא לבקר מדי פעם. כל אחד מבין שזו לא צורה של נישואים. בשביל להיות זוג – צריך בית.</p>
+<p>כך גם כאן: הקדוש ברוך הוא כביכול נמצא כאן, בארץ. כשיהודים גרים בארץ – הם גרים יחד עם הקדוש ברוך הוא, וזה עצמו יוצר אהבה.</p>
+<p>אבל אם הכלה גרה בבית ורוצה כל הזמן לברוח ממנו, ושונאת אותו – המגורים לא יוצרים שום דבקות. <strong>לא מספיק שהכלה גרה בבית; היא צריכה לאהוב אותו.</strong></p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: המקום הסודי ביער ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">המקום הסודי ביער</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>משל יפה: איש לוקח את רעייתו למקום מיוחד, עם סל ובו לחם ויין. כל הדרך הוא מתאר לה את המקום הסודי שלהם – כל כך יפה, כל כך שקט, כמו עולם אחר.</p>
+<p>הם מגיעים ליער מבודד. היא מעיפה מבט ומסננת: "זה המקום המיוחד שלך? אין כאן כלום. אין אפילו כיסא לשבת עליו. אתה מצפה שאשב על האדמה ואלכלך את השמלה? ויש כאן יתושים..."</p>
+<p>מה הסיכוי שהקשר שלהם יצליח, אם היא בזה למקום שהוא כל כך אוהב? האיש מצפה שהיא תתבונן היטב ותבין מדוע זה המקום הנפלא ביותר – עד שגם היא תרצה להיות בו. <strong>זו מצוות ישיבת ארץ ישראל.</strong></p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: מתי בא המועד ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">כי רצו עבדיך את אבניה</h2></div></div>
+<p class="chapter-intro">מתי תבוא הגאולה? הכוזרי עונה מפסוק בתהילים.</p>
+<article class="story-card" id="story-21" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מתי בא המועד</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בסוף ספר הכוזרי מובא יסוד מדהים, מתוך הפסוקים בתהילים (שהאשכנזים אומרים בתפילה לפני פיטום הקטורת):</p>
+<blockquote>אתה תקום תרחם ציון כי עת לחננה כי בא מועד</blockquote>
+<p>מתי בא המועד? הפסוק הבא עונה:</p>
+<blockquote>כי רצו עבדיך את אבניה ואת עפרה יחננו</blockquote>
+<p>"רצו" – לשון אהבה ורצון. "יחננו" – שימצא העפר חן בעיניהם. הגאולה תבוא כאשר עם ישראל יאהב את אבני ארץ ישראל, וגם עפרה יהיה חביב בעיניו.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: בכייה של חינם – ותיקונה ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">בכייה של חינם – ותיקונה</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>למה דווקא אז? כי כך התחיל הקלקול. בתשעה באב, בליל חטא המרגלים, בכו בני ישראל על הארץ. וחז"ל אומרים: "אתם בכיתם בכייה של חינם, ואני קובע לכם בכייה לדורות". הם לא האמינו שהארץ טובה.</p>
+<p>התיקון הוא ההפך הגמור: שנבין כמה ארץ ישראל טובה ונפלאה, נשבח ונהלל אותה – ואז תבוא הגאולה.</p>
+<p>לכן אין בתורה ציווי "קום ועלה". לא כי זה לא חשוב, חלילה, ולא כדי לומר "אשב כאן עד שיבוא משיח". אלא כי התורה אינה רוצה שתבוא לארץ רק מפני שאתה חייב. היא רוצה שתפקח את העיניים ותתבונן.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: מה עם אלפיים שנות גלות? ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה עם אלפיים שנות גלות?</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכאן מובן גם למה לא היה קשה על הדורות הקודמים. אם עיקר המצווה הוא לעלות מתוך ההבנה כמה הארץ טובה – במשך אלפיים שנות גלות המצב בארץ היה קשה ונורא. תלמידי הגר"א שעלו לפני כמאתיים שנה, רבים מהם מתו ממחלות, מרעב ומצרות בלי סוף. התורה עצמה תיארה את הארץ בגלותה: "גפרית ומלח שרפה כל ארצה לא תזרע ולא תצמח".</p>
+<p>במצב כזה אי אפשר לבוא בטענה לכל הדורות. אבל היום, כשרואים בעין את טובת הארץ – זה כבר אחרת. ולכן היום צריך בעיקר להתאמץ שיבינו ויפנימו כמה הארץ טובה.</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: עם שפורח במקומו ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">עם שפורח במקומו</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הכוזרי אומר שכל עץ שנוטעים במקום המתאים לו – פורח; במקום שאינו מתאים לו – אינו מצליח. כך עם ישראל בארצו.</p>
+<p>כמה ישיבות יש היום בארץ ישראל, כמה חוזרים בתשובה, כמה תורה – יותר מבכל דור. וגם ברכה גשמית: "למען ירבו ימיכם וימי בניכם על האדמה אשר נשבע ה' לאבתיכם". תוחלת החיים של יהודי ארץ ישראל מהגבוהות בעולם, ונפתחים עוד ועוד בתי אבות ומסגרות לגיל השלישי. אדם יוצא לפנסיה ויש לו לפעמים חמש עשרה שנה ויותר של בריאות – ויכול ללמוד תורה בוקר, צהריים וערב.</p>
+<p>בברית מילה אחת ראו סבא רבא בן תשעים ושתיים עוזב באמצע השמחה, עולה לאוטובוס ורץ לחברותא, כי מחכים לו. כך נראית ברכה בארץ ישראל.</p>
+<div class="honey-box">🍯 "כי רצו עבדיך את אבניה" – לאהוב את הארץ, לדבר בשבחה, לראות את הטוב שבה. זו המצווה, וזו הדרך לגאולה.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
