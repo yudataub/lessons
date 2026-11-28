@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🍇 אין לך קץ מגולה מזה: פירות ארץ ישראל כסימן לגאולה</title>
+<meta name="description" content="למה חז&quot;ל קבעו שהסימן הברור ביותר לגאולה הוא עץ שנותן פרי בארץ ישראל, ומה זה אומר לכל מי שמברך על פרי מהארץ בט&quot;ו בשבט.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🍇 אין לך קץ מגולה מזה: פירות ארץ ישראל כסימן לגאולה</h1>
+  <p class="hero-subtitle">למה חז&quot;ל קבעו שהסימן הברור ביותר לגאולה הוא עץ שנותן פרי בארץ ישראל, ומה זה אומר לכל מי שמברך על פרי מהארץ בט&quot;ו בשבט.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 7 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-13 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/XPKCDKP1MG8" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🔍 הסימן שאי אפשר לטעות בו</a><ul class="toc-stories"><li><a href="#story-1">ההבטחה של יחזקאל להרי ישראל</a></li><li><a href="#story-2">רבי אבא והשאלה הגדולה: איך נדע?</a></li><li><a href="#story-3">&quot;בעין יפה&quot;: מה בדיוק צריך לראות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🏜️ ארץ שמסרבת לזרים ופורחת לבניה</a><ul class="toc-stories"><li><a href="#story-4">&quot;והשמותי אני את הארץ&quot;: קללה שהיא ברכה</a></li><li><a href="#story-5">מה ראו המבקרים לפני מאה וחמישים שנה</a></li><li><a href="#story-6">כשהארץ מתחילה לתת – הגלות נגמרת</a></li><li><a href="#story-7">הפירוש השני של המהרש&quot;א</a></li><li><a href="#story-8">&quot;עולם כמנהגו נוהג&quot;</a></li><li><a href="#story-9">להיכנס היום לחנות פירות וירקות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🕊️ גוף ונשמה: למה הארץ חיכתה אלפיים שנה</a><ul class="toc-stories"><li><a href="#story-10">השכינה היא הנשמה של הארץ</a></li><li><a href="#story-11">למה כמעט לא עלו?</a></li><li><a href="#story-12">כשהעם חוזר, השכינה חוזרת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">💍 חתן, כלה והילדים שלהם</a><ul class="toc-stories"><li><a href="#story-13">&quot;כי יבעל בחור בתולה&quot;</a></li><li><a href="#story-14">משמח חתן וכלה, בונה את ירושלים</a></li><li><a href="#story-15">גיטין, חתונה, וילדים</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🌸 רמזים לט&quot;ו בשבט בתורה</a><ul class="toc-stories"><li><a href="#story-16">המכות של פרשת בא</a></li><li><a href="#story-17">&quot;הואיל משה באר את התורה הזאת&quot;</a></li><li><a href="#story-18">חודש וחצי לפני האביב</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌅 קץ מגולה וקץ הפלאות</a><ul class="toc-stories"><li><a href="#story-19">מגולה או מכוסה?</a></li><li><a href="#story-20">יוסף ויהודה</a></li><li><a href="#story-21">&quot;ישושום מדבר וציה&quot;</a></li><li><a href="#story-22">מדבר שפורח וערבה שמגדלת</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-7" style="background:#f6aa1c">🍎 ריח של שדה אשר ברכו ה&#x27;</a><ul class="toc-stories"><li><a href="#story-23">השמחה של רבי יוסף חיים זוננפלד</a></li><li><a href="#story-24">הפרדס ביפו</a></li><li><a href="#story-25">ומה אנחנו צריכים להרגיש?</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🔍</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">הסימן שאי אפשר לטעות בו</h2></div></div>
+<p class="chapter-intro">נבואה אחת של יחזקאל, ומשפט אחד של רבי אבא בגמרא, הפכו את הפרי הפשוט שעל השולחן לעדות חיה לגאולה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ההבטחה של יחזקאל להרי ישראל</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנביא יחזקאל פונה בנבואה אל ההרים עצמם, כאילו היו אנשים חיים ששומעים:</p>
+<blockquote>"ואתם הרי ישראל ענפכם תתנו ופריכם תשאו לעמי ישראל כי קרבו לבוא" (יחזקאל לו, ח)</blockquote>
+<p>כדאי לשים לב לסדר. קודם ההרים נותנים ענפים ופרי, ורק אחר כך באים בני האדם. בהמשך הנבואה מתוארות הערים החרבות שנבנות מחדש, הבתים שמתמלאים, האדם והבהמה שפרים ורבים, וההבטחה שהטוב יהיה גדול אפילו מזה שהיה בהתחלה.</p>
+<p>כלומר: ההרים מתחילים להתכונן לבואם של ישראל עוד לפני שהם מגיעים. הפרי הוא כמו שולחן ערוך שמחכה לאורחים.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: רבי אבא והשאלה הגדולה: איך נדע? ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">רבי אבא והשאלה הגדולה: איך נדע?</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בגמרא במסכת סנהדרין (צח ע"א) נחלקו רבי אליעזר ורבי יהושע, תלמידי רבן יוחנן בן זכאי ורבותיו של רבי עקיבא, מה יבוא קודם: התשובה או הגאולה. האם עם ישראל צריך קודם לחזור בתשובה, או שהגאולה יכולה לבוא גם לפני כן. מסקנת הסוגיה נוטה לכך שהגאולה אינה תלויה בתשובה.</p>
+<p>מיד אחר כך מביאה הגמרא:</p>
+<blockquote>"ואמר רבי אבא: אין לך קץ מגולה מזה, שנאמר ואתם הרי ישראל ענפכם תתנו ופריכם תשאו לעמי ישראל כי קרבו לבוא"</blockquote>
+<p>המילה "ואמר", עם האות ו', מחברת את דברי רבי אבא, אמורא מדורות מאוחרים, אל מחלוקת התנאים. החיבור הזה מבאר את כוונתו: אילו הגאולה הייתה תלויה בתשובה, היה קל לדעת מתי היא מתקרבת, רואים התעוררות גדולה ויודעים. אבל אם הגאולה יכולה לבוא גם כשהעם עדיין רחוק, איך נזהה אותה?</p>
+<p class="bold-para">רבי אבא עונה: הסתכלו על העצים.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: &quot;בעין יפה&quot;: מה בדיוק צריך לראות ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;בעין יפה&quot;: מה בדיוק צריך לראות</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רש"י על הגמרא מבאר שהכוונה היא שארץ ישראל תיתן את פירותיה בעין יפה, בשפע ובנדיבות, ואז הקץ קרוב, ואין לך קץ מגולה יותר מזה.</p>
+<p>לא מדובר בעץ אחד שהצליח לצמוח איכשהו בחצר. מדובר בארץ שלמה שפתאום מתחילה לתת, מטעים, פרדסים, שדות, שוק מלא בתוצרת מקומית.</p>
+<p>וכאן הגמרא מלמדת יסוד חשוב: הגאולה איננה רק רעיון רוחני שמתרחש בשמים. היא מתחילה בדברים שכל אחד יכול לראות בעיניים ולטעום בפה.</p>
+<div class="honey-box">🍯 בפעם הבאה שאתם קונים ארגז תפוזים מהארץ, זכרו שאתם מחזיקים בידיים את מה שרבי אבא קרא לו "קץ מגולה".</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: &quot;והשמותי אני את הארץ&quot;: קללה שהיא ברכה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🏜️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">ארץ שמסרבת לזרים ופורחת לבניה</h2></div></div>
+<p class="chapter-intro">כדי להבין למה הפרי הוא סימן כל כך חזק, צריך להבין מה קרה לארץ כשעם ישראל לא היה בה, ומה קורה בה עכשיו.</p>
+<article class="story-card" id="story-4" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;והשמותי אני את הארץ&quot;: קללה שהיא ברכה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת בחוקותי, בין הקללות שנאמרו על הגלות, כתוב:</p>
+<blockquote>"והשמותי אני את הארץ ושממו עליה אויביכם היושבים בה" (ויקרא כו, לב)</blockquote>
+<p>רש"י שם מפתיע: "זו מדה טובה לישראל, שלא ימצאו האויבים נחת רוח בארצם". הרמב"ן מוסיף ומסביר שזו בשורה טובה שמבשרת לנו בכל הגלויות, "שאין ארצנו מקבלת את אויבינו".</p>
+<p>הרמב"ן מעיד שאין בכל העולם ארץ כזו: ארץ שהייתה טובה ורחבה ומיושבת, וכל אומה ולשון שכבשה אותה ניסתה להושיב אותה, ולא הצליחה. הארץ פשוט סירבה.</p>
+<p class="bold-para">הקללה של השממה היא בעצם נאמנות: הארץ שומרת את עצמה בשבילנו.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מה ראו המבקרים לפני מאה וחמישים שנה ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה ראו המבקרים לפני מאה וחמישים שנה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לפני כמאה וחמישים שנה ביקרו בארץ תיירים וכותבים מן המערב, וכתבו תיאורים קשים. אחד הידועים שבהם, סופר אמריקני מפורסם, תיאר ארץ שוממה ועצובה: אדמה שאפשר היה לחשוב שהיא פורייה, אבל כולה מכוסה קוצים ועשבים, כמעט בלי עץ ובלי שיח, ריקה מאדם.</p>
+<p>זה לא היה לפני אלפי שנים. זה היה ממש לפני כמה דורות, בימי סבא רבא של חלק מאיתנו.</p>
+<p>המהרש"א על הגמרא מסביר: כל זמן שישראל אינם על אדמתם, הארץ אינה נותנת את פירותיה כדרכה. אין דבר כזה בטבע, שמקום פורח נהפך לשממה רק משום שאנשים עזבו אותו. אבל ארץ ישראל איננה עוד חלקת אדמה. היא ארץ אלוקית, והיא מגיבה למי שיושב עליה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: כשהארץ מתחילה לתת – הגלות נגמרת ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">כשהארץ מתחילה לתת – הגלות נגמרת</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מכאן נובעת המסקנה של המהרש"א בפשטות: אם הארץ שהייתה שוממה מאות שנים מתחילה פתאום לתת פרי, זה סימן שבורא העולם החליט שהגיע הזמן שבניו יחזרו הביתה.</p>
+<p>כך פירשו גם המלבי"ם על הפסוק ביחזקאל, שהארץ מושגחת בהשגחה מיוחדת, ועוצרת את כוחה או משפיעה אותו לפי רצון ה'; וגם המהר"ל, שמבאר שהקץ המגולה הוא כשהדברים הטבעיים עצמם, בדרך הטבע הרגילה, מתחילים לפרוח במקום שהיה שממה.</p>
+<p>גם הגאון רבי חיים קניבסקי כתב באותו כיוון: השממה הייתה מידה טובה לישראל, ולכן כשהארץ נותנת שוב את פירותיה, זו ראיה שהגיע הזמן שישראל עומדים לחזור.</p>
+<div class="honey-box">🍯 הפרי לא מגיע אחרי שהגאולה נגמרת. הוא ההודעה שהיא התחילה.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: הפירוש השני של המהרש&quot;א ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הפירוש השני של המהרש&quot;א</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המהרש"א מביא גם פירוש נוסף, "על דרך הדרש": חז"ל אמרו (שבת ל ע"ב) שלעתיד לבוא האילנות יוציאו פירות בכל יום, ולמדו זאת מהפסוק "ונשא ענף ועשה פרי" (יחזקאל יז, כג), מה ענף בכל יום, אף פרי בכל יום.</p>
+<p>לפי הדרש הזה, "ענפכם תתנו ופריכם תשאו" רומז לנס על-טבעי של פירות שמבשילים מדי יום.</p>
+<p>יש אנשים שנאחזים בפירוש הזה ואומרים: "כל זמן שלא רואים עץ שנותן פרי כל יום, הגאולה עוד לא התחילה". הם מעדיפים להרגיש שעדיין גלות, ולא לשים לב למה שקורה בשוק הירקות.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: &quot;עולם כמנהגו נוהג&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;עולם כמנהגו נוהג&quot;</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל ודאי שהמהרש"א לא התכוון לעקור את פשט הגמרא. הוא עצמו פירש קודם שעצם נתינת הפירות כדרכם היא הקץ המגולה, והדרש בא רק להוסיף שכבה.</p>
+<p>זה גם מתאים להלכה. אנחנו פוסקים כדברי הרמב"ם, שבימות המשיח עולם כמנהגו נוהג, וכדברי שמואל בגמרא:</p>
+<blockquote>"אין בין העולם הזה לימות המשיח אלא שעבוד מלכויות בלבד" (ברכות לד ע"ב)</blockquote>
+<p>אם תחילת הגאולה באה בדרך הטבע, לא ייתכן שהסימן המקדים שלה יהיה נס גמור. ואכן, אף אחד מפרשני המקרא לא פירש את הפסוק ביחזקאל כפשוטו על פירות בדרך נס.</p>
+<p class="bold-para">הנס הגדול הוא דווקא הטבע: ארץ שמתה מאות שנים, וחזרה לחיות בדרך רגילה.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: להיכנס היום לחנות פירות וירקות ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">להיכנס היום לחנות פירות וירקות</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מי שנכנס היום לחנות פירות וירקות בארץ רואה את הנבואה מתקיימת. כמעט כל מה שמונח על הדוכנים גדל כאן. אם יש משהו מיובא, זה בדרך כלל רק משום שעכשיו לא העונה שלו, כמו תפוחים בחודשים שבהם המטעים מנוחים, ואנשים רוצים תפוחים כל השנה.</p>
+<p>והדבר בולט עוד יותר בשני הדברים שהתורה עצמה בחרה לשבח בהם את הארץ, חלב ודבש:</p>
+<ul class="story-list"><li><strong>חלב:</strong> הפרה הישראלית נחשבת לאלופת העולם בתנובת חלב, עשרות ליטרים ביום, הרבה יותר מן הפרות במדינות שנחשבות מעצמות חלב. עוד לפני שבעים שנה המצב כאן היה רחוק מזה מאוד.</li><li><strong>דבש:</strong> הפירוש המקובל ל"דבש" הוא דבש תמרים, ותמרי ארץ ישראל נחשבים היום מן הטובים בעולם.</li></ul>
+<div class="honey-box">🍯 "ארץ זבת חלב ודבש" איננה רק מליצה יפה. היא דוח חקלאי מעודכן.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: השכינה היא הנשמה של הארץ ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🕊️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">גוף ונשמה: למה הארץ חיכתה אלפיים שנה</h2></div></div>
+<p class="chapter-intro">הסבר עמוק על הקשר בין השכינה לבין הפרי, שעונה גם על השאלה הקשה: למה עם ישראל לא חזר קודם.</p>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">השכינה היא הנשמה של הארץ</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אחד מגדולי המפרשים הסביר את השממה כך: הארץ לא נתנה את פירותיה בשפע כמו שנתנה בזמן שישראל ישבו עליה, "והטעם ברור כשמש". הנשמה של הארץ היא השכינה, והשכינה גלתה עם ישראל. וגוף בלי נשמה, מה הוא יכול לעשות?</p>
+<p>פירות ארץ ישראל אינם תוצאה של אדמה טובה וגשם בלבד. הם צומחים מכוח השראת השכינה בארץ. כשהשכינה יצאה, נשאר רק מעט ממנה, כמו ניצוץ שלא כבה לגמרי, ולכן גם הארץ נתנה רק מעט.</p>
+<p><strong>ארץ ישראל של אלפיים שנות גלות איננה אותה ארץ שעליה נאמרו כל הברכות שבתורה.</strong> זו אותה אדמה, אבל בלי הנשמה שמפיחה בה חיים.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: למה כמעט לא עלו? ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה כמעט לא עלו?</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שאלה מפורסמת: אם מצוות ישיבת ארץ ישראל כל כך גדולה, למה במשך דורות רבים כמעט לא עלו לכאן?</p>
+<p>כדאי לדעת עד כמה היישוב היה קטן. כשעלו לארץ החסידים, תלמידי תלמידיו של הבעל שם טוב, בסוף המאה השמונה עשרה, הם היו בסך הכול כשלוש מאות איש, ובכל זאת הם היו תוספת ניכרת ליישוב היהודי הזעיר שהיה כאן. עוד לפני כמאתיים שנה, רק חלק קטן מאוד, פחות מאחוז מיהודי העולם, ישב בארץ.</p>
+<p>מלבד הסכנות, העוני והמחלות, יש כאן הסבר פנימי: השכינה לא שרתה בארץ בשלמות, כי רוב עם ישראל היה בגלות. ממילא גם גדולי ישראל שישבו כאן היו בודדים, עד תקופת האר"י ותלמידיו.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: כשהעם חוזר, השכינה חוזרת ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כשהעם חוזר, השכינה חוזרת</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>וכאן ההסבר מתהפך לבשורה. ברגע שעם ישראל התחיל לחזור, השכינה חזרה איתו. והראיה היא בדיוק הפרי: אין אפשרות שארץ ישראל תיתן פירות בשפע בלי שהשכינה שורה בה.</p>
+<p>אם אתם רואים שהיום יש פירות, פירוש הדבר שהשכינה עזבה את הגלות וחזרה הביתה.</p>
+<p>כך מתחברים כל החלקים: בגלות השכינה הלכה עם העם, והארץ נשארה גוף בלי נשמה. כשהעם שב, השכינה שבה, והגוף מתעורר לחיים. העצים שמלבלבים הם הדופק שחוזר.</p>
+<div class="honey-box">🍯 כל פרי מארץ ישראל הוא הוכחה קטנה שהשכינה כאן, ממש עכשיו.</div>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;כי יבעל בחור בתולה&quot; ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">💍</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">חתן, כלה והילדים שלהם</h2></div></div>
+<p class="chapter-intro">התורה וחז"ל משווים שוב ושוב את הקשר בין עם ישראל לארץ ישראל לנישואים. ואם יש נישואים, יש גם ילדים.</p>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;כי יבעל בחור בתולה&quot;</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנביא ישעיה מתאר את שיבת ציון במשל של חתונה:</p>
+<blockquote>"כי יבעל בחור בתולה יבעלוך בניך, ומשוש חתן על כלה ישיש עלייך אלוקייך" (ישעיה סב, ה)</blockquote>
+<p>הבנים הם כמו חתן, והארץ היא הכלה.</p>
+<p>גם הגמרא בתחילת מסכת קידושין (ב ע"א) לומדת מניין שאישה מתקדשת בכסף, מגזירה שווה של "קיחה קיחה משדה עפרון": נאמר באישה "כי יקח איש אשה", ונאמר בקניית מערת המכפלה "נתתי כסף השדה קח ממני". הקניין הראשון של אברהם אבינו בארץ ישראל הוא הדוגמה לקניין שבו איש קונה את אשתו.</p>
+<p>ולא במקרה התורה מספרת באותה פרשה, מיד אחרי קניית השדה בחברון, על השידוך של יצחק ורבקה. קניין הארץ וקידושי האישה עומדים זה לצד זה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: משמח חתן וכלה, בונה את ירושלים ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">משמח חתן וכלה, בונה את ירושלים</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל אמרו:</p>
+<blockquote>"כל המשמח חתן וכלה, כאילו בנה אחת מחורבות ירושלים" (ברכות ו ע"ב)</blockquote>
+<p>מה הקשר בין שמחת חתונה לבניין ירושלים? אם עם ישראל וארץ ישראל הם חתן וכלה, מי שמחבר חתן וכלה עושה בקטן את מה שהגאולה עושה בגדול.</p>
+<p>וכך גם בדיני הצבא שבתורה: מי שנשא אישה חוזר מעורכי המלחמה, וכך גם מי שבנה בית ולא חנכו ומי שנטע כרם ולא חיללו. מי שנקשר עכשיו לאשתו, ומי שנקשר עכשיו לאדמה בבית ובכרם, שניהם מקבלים אותו מעמד. הקשר אל הארץ דומה לקשר של נישואים.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: גיטין, חתונה, וילדים ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">גיטין, חתונה, וילדים</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סיפור החורבן הגדול מופיע בגמרא במסכת גיטין. הגלות הייתה כביכול כמו גט, הקדוש ברוך הוא שילח את עם ישראל מביתו.</p>
+<p>אז איך יודעים שהנישואים חוזרים? יש שתי דרכים. הדרך האחת: להיות בחתונה. אבל מי שלא הוזמן ולא ראה את החופה, יכול לדעת שהייתה חתונה בדרך אחרת, כשהוא רואה את הילדים.</p>
+<p class="bold-para">הפירות של ארץ ישראל הם הילדים של החתונה בין עם ישראל לארצו.</p>
+<p>בלי חתונה אין ילדים. כל עוד ישראל לא מתחברים לארצם, אין פרי. וכשרואים שהארץ נותנת את פירותיה, זה הסימן הטוב ביותר שהקשר חזר והברית התחדשה. זה עומק דבריו של רבי אבא: אין לך קץ מגולה מזה.</p>
+<div class="honey-box">🍯 מי שאוכל פרי מארץ ישראל, כאילו רואה את נכדי החתונה הגדולה של עם ישראל.</div>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: המכות של פרשת בא ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🌸</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">רמזים לט&quot;ו בשבט בתורה</h2></div></div>
+<p class="chapter-intro">ט"ו בשבט אינו מוזכר בתורה במפורש, אבל יש לו רמזים יפים, וכולם מובילים אל הגאולה.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">המכות של פרשת בא</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המכות מתחלקות בתורה לשתי פרשות: שבע בפרשת וארא, ושלוש בפרשת בא. ויש שרמזו שהשם "בא" עולה בגימטריה שלוש (ב=2, א=1).</p>
+<p>לפי המסורת, בין מכה למכה עבר כחודש, ובו התראה. כך יוצא שהמכה האחרונה, מכת בכורות, הייתה בניסן; חושך היה כחודש לפני כן, באדר; וארבה כחודש לפני כן, בשבט.</p>
+<p>ובשלוש המכות האחרונות, כל מכה שפגעה במצרים הייתה מתנה לישראל:</p>
+<ul class="story-list"><li><strong>בכורות:</strong> מצרים איבדו את בכוריהם, וישראל נקראו "בני בכורי ישראל" (שמות ד, כב).</li><li><strong>חושך:</strong> במצרים היה חושך, "ולכל בני ישראל היה אור במושבתם" (שמות י, כג).</li><li><strong>ארבה:</strong> במצרים הארבה אכל כל עשב וכל פרי, ולישראל, באותו חודש שבט, העצים מתחילים לפרוח.</li></ul>
+<p>זה רמז נחמד. אבל יש רמז עמוק יותר.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: &quot;הואיל משה באר את התורה הזאת&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;הואיל משה באר את התורה הזאת&quot;</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ספר דברים נפתח בתאריך מדויק:</p>
+<blockquote>"ויהי בארבעים שנה בעשתי עשר חדש באחד לחדש" (דברים א, ג)</blockquote>
+<p>החודש האחד עשר הוא שבט. ומה התחיל משה לעשות אז?</p>
+<blockquote>"הואיל משה באר את התורה הזאת לאמר" (דברים א, ה)</blockquote>
+<p>בראש חודש שבט התחיל משה לבאר את התורה, להסביר ולפרש, כלומר להצמיח את התורה שבעל פה.</p>
+<p>והנה התמונה המלאה. בין איש לאשתו נאמר "ודבק באשתו", ובין ישראל לארצם נאמר "איש בנחלת מטה אבתיו ידבקו בני ישראל" (במדבר לו, ז). כשאיש ואשה נדבקים, יש ילדים. כשעם ישראל וארץ ישראל נדבקים, צומחים פירות. וכשעם ישראל והקדוש ברוך הוא נדבקים, צומחים חידושי תורה.</p>
+<p class="bold-para">בחודש שבט צמחו שני סוגי ילדים: הביאור של משה לתורה, והפרי הראשון בעצי הארץ.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: חודש וחצי לפני האביב ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">חודש וחצי לפני האביב</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>החורף תמיד מסמל את הגלות: חושך, קור, ואין בו כמעט חגים. הקיץ והאביב מסמלים את הגאולה. לכן התורה ציוותה "שמור את חדש האביב" ולחגוג בו את יציאת מצרים.</p>
+<p>ט"ו בשבט חל כחודש וחצי לפני פסח. עדיין חורף בחוץ, אבל השקדייה כבר פורחת. ככה גם בשנות העולם: אחרי גלות ארוכה, לפני שהגאולה נגלית במלואה, הארץ מתחילה לפרוח.</p>
+<p>מכאן מובן למה יהודים בכל הדורות, גם בגלות, עשו בט"ו בשבט שמחה כל כך גדולה, עם פירות ארץ ישראל על השולחן. כל אחד מהם הוא קץ מגולה קטן, תזכורת שהאביב בדרך.</p>
+<div class="honey-box">🍯 השקדייה הפורחת בשבט היא כמו הודעה מוקדמת: הפסח הגדול כבר בדרך.</div>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: מגולה או מכוסה? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">קץ מגולה וקץ הפלאות</h2></div></div>
+<p class="chapter-intro">הגאולה באה בשני שלבים, ואנחנו חיים בתוך הראשון שבהם.</p>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מגולה או מכוסה?</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בספר דניאל שואל המלאך:</p>
+<blockquote>"עד מתי קץ הפלאות" (דניאל יב, ו)</blockquote>
+<p>המילה "פלא" בלשון המקרא פירושה דבר מכוסה ונעלם, כמו "כי יפלא ממך דבר למשפט" (דברים יז, ח). אם כן, דניאל קורא לגאולה "קץ הפלאות", קץ מכוסה, ואילו רבי אבא קורא לה "קץ מגולה". איך זה מסתדר?</p>
+<p>התשובה: יש שני שלבים בהשראת השכינה. בשלב הראשון היא מתבטאת בגשמיות, בארץ שמוציאה פירות, ובדברים שכל אחד רואה. זה הקץ המגולה. בשלב השני השכינה תשרה בדרגה גבוהה יותר, כמו שכתוב "כי עין בעין יראו בשוב ה' ציון" (ישעיה נב, ח). זה הקץ הפלאי, הרוחני והנסתר, שקשה יותר לראותו.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: יוסף ויהודה ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">יוסף ויהודה</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שני השלבים האלה מקבילים למשיח בן יוסף ולמשיח בן דוד.</p>
+<p>יוסף במצרים היה "המשביר לכל עם הארץ": הוא דאג לכלכלה, לאוכל, ללחם, לכך שלכולם יהיה מה לאכול בשנות הרעב. כך משיח בן יוסף: קיבוץ גלויות, פריחת הארץ, הצד הגשמי של הגאולה.</p>
+<p>יהודה נשלח לפני יעקב "להורות לפניו גשנה" (בראשית מו, כח), ורש"י מביא שהלך לתקן שם בית תלמוד, שממנו תצא הוראה. כך משיח בן דוד: הגאולה הרוחנית, התורה, ההוראה, וגילוי כבוד ה'.</p>
+<p class="bold-para">הפירות של היום הם עבודתו של יוסף. הם מכינים את הבמה לעבודתו של יהודה.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: &quot;ישושום מדבר וציה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">&quot;ישושום מדבר וציה&quot;</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ישעיה מתאר את אותם שני שלבים:</p>
+<blockquote>"ישושום מדבר וציה ותגל ערבה ותפרח כחבצלת. פרח תפרח ותגל אף גילת ורנן, כבוד הלבנון נתן לה הדר הכרמל והשרון, המה יראו כבוד ה' הדר אלוקינו" (ישעיה לה, א-ב)</blockquote>
+<p>המדרש מלמד שכשהקדוש ברוך הוא מגלה את שכינתו לישראל, הוא אינו נגלה עליהם בבת אחת, כי אינם יכולים לעמוד בכל הטוב בפעם אחת. הוא מתגלה מעט מעט: קודם המדבר שש, אחר כך הערבה פורחת, אחר כך כבוד הלבנון, ורק בסוף "המה יראו כבוד ה'".</p>
+<p>קודם פרחים, אחר כך כבוד ה'. קודם קץ מגולה, אחר כך קץ הפלאות.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: מדבר שפורח וערבה שמגדלת ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מדבר שפורח וערבה שמגדלת</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המפרשים בדורות קודמים לא יכלו לדמיין את הפסוק כפשוטו, ולכן פירשו "ותגל ערבה" כמשל: ארץ ישראל שהייתה שוממה כמו ערבה, תגל.</p>
+<p>אבל בימינו אפשר לקרוא אותו כמו שהוא. מי שנוסע לעיר שנבנתה בלב מדבר יהודה רואה גינות מטופחות, עצים ירוקים ודקלים פורחים, ומשני צדי העיר מדבר צחיח. המדבר עצמו שש.</p>
+<p>והערבה, אזור שלפי הטבע לא אמור לגדל דבר, מספקת היום חלק גדול מהירקות שעל שולחנות הארץ: פלפלים, עגבניות, ואפילו ענבים.</p>
+<div class="honey-box">🍯 מי שאוכל פלפל מן הערבה אוכל פסוק מישעיה.</div>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: השמחה של רבי יוסף חיים זוננפלד ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-7">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🍎</div><div><div class="chapter-num">פרק 7</div><h2 class="chapter-title">ריח של שדה אשר ברכו ה&#x27;</h2></div></div>
+<p class="chapter-intro">איך הגיבו גדולי ישראל לפני מאה וחמישים שנה, כשראו את ההתחלה הצנועה של הפריחה, ומה זה מלמד אותנו היום.</p>
+<article class="story-card" id="story-23" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">השמחה של רבי יוסף חיים זוננפלד</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגאון רבי יוסף חיים זוננפלד, רבה של ירושלים, שמח מאוד, כמסופר בספר "האיש על החומה", כשראה את ארץ ישראל הולכת ונבנית: מושבות חדשות, שדות מוריקים, שכונות ראשונות מחוץ לחומות העיר העתיקה. הוא ראה בכך את נבואת יחזקאל "ואתם הרי ישראל ענפכם תתנו" מתחילה להתגשם, ואת דברי רבי אבא "אין לך קץ מגולה מזה".</p>
+<p>כדאי לעצור ולחשוב: הוא התרגש מכמה שכונות קטנות מחוץ לחומה. מה היה אומר אילו ראה את ירושלים של היום, על מרחביה העצומים?</p>
+</div><div class="story-next"><a href="#story-24">הקטע הבא: הפרדס ביפו ←</a></div>
+</article>
+<article class="story-card" id="story-24" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">הפרדס ביפו</h3><button class="copy-link" type="button" data-id="story-24">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר שכשהגיע רבי יוסף חיים לארץ, בשנת תרל"ג, לפני כמאה וחמישים שנה, רוב הארץ הייתה עדיין שוממה. העגלה שיצאה מיפו עברה בשביל ששני צדיו פרדסים, וריח הפרי הגיע אליו. מיד אמר את הפסוק:</p>
+<blockquote>"ראה ריח בני כריח שדה אשר ברכו ה'" (בראשית כז, כז)</blockquote>
+<p>והוסיף בהתרגשות שזה ממש ריח של עולם הבא. אחר כך שבר את השתיקה ואמר: זהו ששנינו בסנהדרין, "אין לך קץ מגולה מזה".</p>
+<p>ומסופר שאמר לבני לוויתו, מתוך שמחה גדולה, שאין ספק שהקץ מתקרב, ושצריך לזרז את הסוסים כדי להגיע לירושלים לפני שיבוא המשיח.</p>
+<p class="bold-para">כל זה בגלל פרדס אחד ליד יפו.</p>
+</div><div class="story-next"><a href="#story-25">הקטע הבא: ומה אנחנו צריכים להרגיש? ←</a></div>
+</article>
+<article class="story-card" id="story-25" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ומה אנחנו צריכים להרגיש?</h3><button class="copy-link" type="button" data-id="story-25">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם פרדס אחד הביא צדיק לכזו שמחה, מה צריך להרגיש מי שמגיע לט"ו בשבט ושולחנו מלא פירות מארץ ישראל, בשפע שאי אפשר לספור?</p>
+<p>הלימוד מכל זה פשוט: להרגיש שאנחנו חיים בתוך הקץ המגולה. לא לחכות לנס ולא להתעלם ממה שקורה מול העיניים, אלא לשמוח ולהודות לקדוש ברוך הוא על מה שכבר נתן.</p>
+<p>וככל שנדע לשמוח ולהודות על השלב הראשון, הגשמי, הגלוי, כך נזכה שהקדוש ברוך הוא ימשיך אל השלב השני, אל הקץ הפלאי שבו "המה יראו כבוד ה' הדר אלוקינו", במהרה בימינו, אמן.</p>
+<div class="honey-box">🍯 לפני שמברכים "בורא פרי העץ" על פרי מהארץ, אפשר להוסיף בלב מילה אחת: תודה, על ההתחלה.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
