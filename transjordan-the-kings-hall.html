@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>👑 חלק ב: טרקלין המלך – כמה קדוש עבר הירדן</title>
+<meta name="description" content="התשובה לסתירה: עבר הירדן הוא ארץ ישראל, אבל בדרגת קדושה אחרת. משל המלך ובנו, עשר הקדושות, המזבח של בני גד וראובן, ובנות מנשה שהיה להן בית משני עברי הירדן.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">👑 חלק ב: טרקלין המלך – כמה קדוש עבר הירדן</h1>
+  <p class="hero-subtitle">התשובה לסתירה: עבר הירדן הוא ארץ ישראל, אבל בדרגת קדושה אחרת. משל המלך ובנו, עשר הקדושות, המזבח של בני גד וראובן, ובנות מנשה שהיה להן בית משני עברי הירדן.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-10 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/e7reEkXV46Q" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">👑 הטרקלין והקיטון</a><ul class="toc-stories"><li><a href="#story-1">הסתירה שצריך ליישב</a></li><li><a href="#story-2">משל המלך ובנו</a></li><li><a href="#story-3">סלון וחדר פנימי</a></li><li><a href="#story-4">דרגות בקדושה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">⛰️ &quot;ההר הטוב הזה&quot;</a><ul class="toc-stories"><li><a href="#story-5">מה ביקש משה?</a></li><li><a href="#story-6">ירושלים עיר הקודש</a></li><li><a href="#story-7">גם המזרח קדוש</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🔟 עשר קדושות ובית השכינה</a><ul class="toc-stories"><li><a href="#story-8">עומר, שתי הלחם וביכורים</a></li><li><a href="#story-9">תודה על הארץ עצמה</a></li><li><a href="#story-10">אין עבר הירדן כשר לבית שכינה</a></li><li><a href="#story-11">&quot;אשר שכן שם משכן ה&#x27;&quot;</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📖 שתי דרכים לקרוא פסוק אחד</a><ul class="toc-stories"><li><a href="#story-12">טמאה באמת, או רק בעיניכם?</a></li><li><a href="#story-13">מחלוקת שלא נגמרה</a></li><li><a href="#story-14">האור החיים מתלבט</a></li><li><a href="#story-15">כשדנו על החזרת הגולן</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🗺️ ארץ כנען ושלום עם סיחון</a><ul class="toc-stories"><li><a href="#story-16">גבול הכנעני</a></li><li><a href="#story-17">זבת חלב ודבש</a></li><li><a href="#story-18">למה משה הציע שלום לסיחון?</a></li><li><a href="#story-19">למה בכל זאת נתן להם?</a></li><li><a href="#story-20">הצער שנגרם בעקיפין</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🌿 בנות צעדה עלי שור</a><ul class="toc-stories"><li><a href="#story-21">מנין שבנות צלפחד חיבבו את הארץ?</a></li><li><a href="#story-22">בית מכאן ושדה מכאן</a></li><li><a href="#story-23">כל הארץ השלמה</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">👑</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">הטרקלין והקיטון</h2></div></div>
+<p class="chapter-intro">מקורות אחדים קוראים לעבר הירדן ארץ ישראל, ואחרים קוראים לו חוץ לארץ. משל אחד של רש״י פותח את הכול.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הסתירה שצריך ליישב</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ראינו סתירה בין המקורות. מצד אחד, עבר הירדן נקרא ארץ ישראל: הקדוש ברוך הוא מראה למשה רבנו את הארץ, והוא רואה גם את הגלעד שממזרח לירדן; משה משבח את שבט גד על שלקח "ראשית" – ראשית כיבוש הארץ.</p>
+<p>מצד שני, עבר הירדן נקרא חוץ לארץ: משה רבנו נגזר עליו שלא ייכנס לארץ, והרי היה בעבר הירדן ואף נקבר שם. והמדרש אומר על בני גד ובני ראובן שישבו "חוץ מארץ ישראל" ולכן גלו ראשונים.</p>
+<p>פעם ארץ ישראל, ופעם חוץ לארץ. איך מתיישבים המקורות?</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: משל המלך ובנו ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">משל המלך ובנו</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התירוץ המקובל, שבו מיישבים רוב המפרשים את הקושיה, יוצא מדברי רש״י בפרשת ואתחנן. כשנכנס משה לנחלת בני גד ובני ראובן, ארץ סיחון ועוג, שמח ואמר: שמא הותר לי נדרי.</p>
+<p>משל למלך שגזר על בנו שלא ייכנס לפתח הארמון שלו. נכנס המלך לשער – והבן אחריו. לחצר – והבן אחריו. לטרקלין – והבן אחריו. כשבא להיכנס לקיטון, אמר לו: בני, מכאן והלאה אסור לך להיכנס.</p>
+<p>הבן כבר נכנס איתו לחלקים המפוארים, לטרקלין שבו מקבלים את השרים, ואולי חשב שהגזירה בוטלה. אבל לחדר הפרטי – לא.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: סלון וחדר פנימי ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">סלון וחדר פנימי</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה ההבדל בין טרקלין לקיטון? הטרקלין הוא אולם גדול ומפואר, שבו המלך מסב עם שריו ומקבל אורחים. הקיטון הוא החדר האישי של המלך.</p>
+<p>כמו ראש ממשלה: יש אולם שבו הוא מקבל משלחות, ויש מקום שבו הוא נפגש רק עם מעטים, בלי כל היועצים, בארבע עיניים. גם הטרקלין הוא מקום מכובד מאוד, חלק מהארמון עצמו. אבל אין בו את מעלת הקרבה של החדר הפנימי.</p>
+<p>כך עבר הירדן הוא "טרקלין המלך", והצד המערבי של ארץ ישראל הוא קיטונו של מלכו של עולם. "הֱבִיאַנִי הַמֶּלֶךְ חֲדָרָיו" (שיר השירים א, ד).</p>
+<p class="bold-para">עבר הירדן הוא חלק מהארמון, אבל לא החדר הפנימי.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: דרגות בקדושה ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דרגות בקדושה</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התשובה לסתירה היא אפוא: בארץ ישראל יש כמה וכמה דרגות של קדושה. לא כל ארץ ישראל שווה. המשנה מונה "עשר קדושות", וגם עבר הירדן קדוש, אבל בדרגה נמוכה יותר מהארץ שממערב לירדן.</p>
+<p>הרב ישראל אריאל, שכתב סדרת ספרים על ארץ ישראל, קרא לכרך האחרון שבה, העוסק בקדושת עבר הירדן, "טרקלין של מלך". שם ספר שלם, על פי משל רש״י: עבר הירדן קדוש, הוא ארמון המלך, אבל עדיין אינו כמו הארץ המערבית.</p>
+<div class="honey-box">🍯 "פחות קדוש" אינו "לא קדוש". טרקלין המלך הוא עדיין ארמון.</div>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מה ביקש משה? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">⛰️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">&quot;ההר הטוב הזה&quot;</h2></div></div>
+<p class="chapter-intro">גם בתוך הארץ המערבית יש דרגות, ולפי זה כל הקושיות מתיישבות.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מה ביקש משה?</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כשמשה רבנו מתחנן להיכנס לארץ, הוא לא אומר רק "אראה את הארץ":</p>
+<blockquote>אֶעְבְּרָה נָּא וְאֶרְאֶה אֶת הָאָרֶץ הַטּוֹבָה אֲשֶׁר בְּעֵבֶר הַיַּרְדֵּן הָהָר הַטּוֹב הַזֶּה וְהַלְּבָנֹן (דברים ג, כה)</blockquote>
+<p>הוא מבקש את <strong>הארץ הטובה</strong>, את החלק הטוב. ורש״י מפרש: "ההר הטוב הזה" – זו ירושלים, "והלבנון" – זה בית המקדש.</p>
+<p>משה כבר עמד בטרקלין. הוא רצה להגיע לחלק המובחר של הארץ, לירושלים ולמקדש.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: ירושלים עיר הקודש ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ירושלים עיר הקודש</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם בתוך ארץ ישראל המערבית יש רמות של קדושה. ירושלים קדושה יותר משאר הערים. הנביא קורא לה בשם:</p>
+<blockquote>עוּרִי עוּרִי לִבְשִׁי עֻזֵּךְ צִיּוֹן לִבְשִׁי בִּגְדֵי תִפְאַרְתֵּךְ יְרוּשָׁלַ‍ִם עִיר הַקֹּדֶשׁ (ישעיהו נב, א)</blockquote>
+<p>וגם מקומות אחרים בארץ נקראים קדושים. בנוסח הספרדי של "קדיש דרבנן" אומרים "דִּי בְאַתְרָא קַדִּישָׁא הָדֵין" – במקום הקדוש הזה, על ארץ ישראל כולה.</p>
+<p>ויש גם ביטוי מקובל, "ארבע ערי הקודש" – ירושלים, חברון, צפת וטבריה. את "ירושלים עיר הקודש" אפשר למצוא בפסוק מפורש. את המושג "ארבע ערי הקודש" כולם מכירים, אבל לא ברור מי טבע אותו. בכל מקרה, הרעיון ברור: <strong>יש דרגות בקדושה.</strong></p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: גם המזרח קדוש ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">גם המזרח קדוש</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ולפי זה הכול מתיישב. משה רבנו רואה "יָמָּה וְצָפֹנָה וְתֵימָנָה וּמִזְרָחָה", גם את המזרח. כי גם עבר הירדן קדוש, ויש לו קדושת ארץ ישראל בדרגה נמוכה יותר. לכן גם הוא חייב במעשרות.</p>
+<p>ומה עם המדרש שאומר שבני גד ובני ראובן ישבו "חוץ לארץ ישראל"? הוא לא מתכוון לחוץ לארץ ממש. זו לשון מושאלת: חוץ לארץ <strong>יחסית</strong> לקדושה הגבוהה של הארץ המערבית. הם בחרו בדרגה פחות מובחרת, וזו טענתו של המדרש.</p>
+<p class="bold-para">שני המקורות צודקים: עבר הירדן הוא ארץ ישראל, ולעומת הקיטון הוא "בחוץ".</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: עומר, שתי הלחם וביכורים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🔟</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">עשר קדושות ובית השכינה</h2></div></div>
+<p class="chapter-intro">איפה רואים את ההבדל בדרגות הלכה למעשה?</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">עומר, שתי הלחם וביכורים</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה במסכת כלים מונה עשר קדושות, והראשונה שבהן:</p>
+<blockquote>אֶרֶץ יִשְׂרָאֵל מְקֻדֶּשֶׁת מִכָּל הָאֲרָצוֹת. וּמַה הִיא קְדֻשָּׁתָהּ? שֶׁמְּבִיאִים מִמֶּנָּה הָעֹמֶר וְהַבִּכּוּרִים וּשְׁתֵּי הַלֶּחֶם, מַה שֶּׁאֵין מְבִיאִים כֵּן מִכָּל הָאֲרָצוֹת (כלים א, ו)</blockquote>
+<p>למה דווקא אלה? קורבן תודה, נסכים, קורבנות אחרים – אפשר להביא גם מתבואה שגדלה בחוץ לארץ. מה מיוחד בשלוש המצוות האלה?</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: תודה על הארץ עצמה ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">תודה על הארץ עצמה</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>העיקרון הוא <strong>הראשית</strong>. עומר, שתי הלחם וביכורים מביאים מראשית התבואה, ומטרתם להודות לקדוש ברוך הוא על ארץ ישראל.</p>
+<p>מי שמביא קורבן תודה על שניצל מצרה, מודה על הנס. מה זה משנה אם החיטה הגיעה מרוסיה? אבל בעומר, בשתי הלחם ובביכורים מודים על כך שהארץ נותנת את פריה: "וְעַתָּה הִנֵּה הֵבֵאתִי אֶת רֵאשִׁית פְּרִי הָאֲדָמָה אֲשֶׁר נָתַתָּה לִּי ה'" (דברים כו, י).</p>
+<p>לכן אי אפשר להביא אותם מחוץ לארץ. מה הטעם להודות על ארץ ישראל בפרי שגדל בטורקיה?</p>
+<div class="honey-box">🍯 יש תודה על מה שקרה לי, ויש תודה על המקום שבו אני חי. ביכורים הם התודה השנייה.</div>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: אין עבר הירדן כשר לבית שכינה ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">אין עבר הירדן כשר לבית שכינה</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובהמשך עשר הקדושות אמרו חז״ל: ארץ כנען כשרה לבית שכינה, ואין עבר הירדן כשר לבית שכינה.</p>
+<p>מה הפירוש? מאז שנכנס עם ישראל לארץ ועד בניין בית המקדש עמד המשכן במקומות שונים: בגלגל, בשילו, בנוב ובגבעון. בשילו עמד המשכן מאות שנים, ושם היה החג המפורסם: "הִנֵּה חַג ה' בְּשִׁלוֹ מִיָּמִים יָמִימָה" (שופטים כא, יט), שחז״ל מזהים עם ט״ו באב. גם היום מנסים לשחזר שם את המקום.</p>
+<p>המשכן יכול היה לעמוד בכל מקום בארץ ישראל המערבית. אבל בעבר הירדן המזרחי – לא. שם אי אפשר לבנות משכן.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: &quot;אשר שכן שם משכן ה&#x27;&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">&quot;אשר שכן שם משכן ה&#x27;&quot;</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה המקור לכך? בספר יהושע מסופר שבני גד ובני ראובן, אחרי שחזרו לנחלתם, בנו מזבח גדול על הירדן. שאר השבטים חשדו שזה מזבח לעבודה זרה, ושלחו משלחת בראשות פינחס. המשלחת אמרה להם:</p>
+<blockquote>וְאַךְ אִם טְמֵאָה אֶרֶץ אֲחֻזַּתְכֶם עִבְרוּ לָכֶם אֶל אֶרֶץ אֲחֻזַּת ה' אֲשֶׁר שָׁכַן שָׁם מִשְׁכַּן ה' וְהֵאָחֲזוּ בְּתוֹכֵנוּ (יהושע כב, יט)</blockquote>
+<p>"אשר שכן שם משכן ה'" – שם, בארץ המערבית, ולא בעבר הירדן. מכאן למדו חז״ל שעבר הירדן אינו ראוי להשראת השכינה של המשכן.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: טמאה באמת, או רק בעיניכם? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📖</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">שתי דרכים לקרוא פסוק אחד</h2></div></div>
+<p class="chapter-intro">"אם טמאה ארץ אחוזתכם" – האם עבר הירדן באמת טמא? המחלוקת על הפסוק הזה נמשכת עד היום.</p>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">טמאה באמת, או רק בעיניכם?</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מה פירוש "אם טמאה ארץ אחוזתכם"? יש מושג של "טומאת ארץ העמים": כהן שיוצא לחוץ לארץ נטמא. האם עבר הירדן טמא כמו אירופה?</p>
+<p>המפרשים נחלקו איך לקרוא את הפסוק. אפשרות אחת: הארץ באמת אינה ראויה לשכינה, ולכן היא נקראת טמאה.</p>
+<p>אפשרות שנייה: הארץ איננה טמאה. אבל המשלחת אמרה להם: אם <strong>אתם</strong> מרגישים שהארץ שלכם טמאה, שאתם רחוקים מה' – ולכן בניתם לכם מזבח משלכם – אל תבנו מזבח. בואו, עברו אלינו, יש מקום.</p>
+<p>בני גד וראובן הרגישו מרוחקים מה', ובגלל זה בנו מזבח. בסופו של דבר התברר שלא היה זה לעבודה זרה, אלא עד לכך שגם הם חלק מעם ה'.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: מחלוקת שלא נגמרה ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מחלוקת שלא נגמרה</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>השאלה איך להתייחס לעבר הירדן לא נגמרה עד היום. אפשר למצוא שתי אסכולות בין גדולי ישראל.</p>
+<p>יש שאומרים: זה מקום שאי אפשר לבנות בו משכן לה', מקום בלי השראת שכינה. איך אפשר לגור שם?</p>
+<p>ויש שאומרים: מה פתאום? זה טרקלין המלך! כמו שיש ירושלים ויש שאר ארץ ישראל, ואף אחד לא חושב שמי שגר בעיר אחרת עושה משהו פסול. כמו שיש כהנים, לויים וישראלים – ישראל הוא יהודי טוב מאוד, גם אם אינו כהן. יש דרגה גבוהה יותר, וזה הכול.</p>
+<p>בפועל רואים את זה גם היום: יש ציבורים שבונים בגולן קהילות וישיבות בהתלהבות, ויש ציבורים שכמעט אינם מתיישבים שם.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: האור החיים מתלבט ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">האור החיים מתלבט</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם האור החיים הקדוש, בפירושו לספר דברים, דן בשאלה הזו ומתלבט בה. בתחילה הוא כותב כך, ואחר כך חוזר בו בעצמו. השאלה קשה, ואין לה הגדרה פשוטה: כמה פחות? קצת פחות? הרבה פחות?</p>
+<p>ומנגד, אליהו הנביא, "אליהו התשבי מתושבי גלעד", גר שם. מקום שאליהו גר בו – ודאי שיש בו קדושה.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: כשדנו על החזרת הגולן ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כשדנו על החזרת הגולן</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לשאלה הזו הייתה משמעות מעשית חריפה. בתקופה שבה דנו על החזרת הגולן – וברוך ה', כרגע זה לא על הפרק – השאלה הייתה: כמה צריך להתנגד?</p>
+<p>היו שצעקו בקול גדול: זה להחזיר חלק מארץ ישראל גמורה, וזו עבירה לכל דבר. והיו שאמרו: זה לא כל כך נורא.</p>
+<p>ההבדל ביניהם נבע בדיוק מהשאלה הזו: איך קוראים את הפסוק, וכמה קדוש באמת טרקלין המלך.</p>
+<p class="bold-para">דרגה נמוכה יותר של קדושה היא עדיין קדושה, ואת ארמון המלך לא מוסרים בקלות.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: גבול הכנעני ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">ארץ כנען ושלום עם סיחון</h2></div></div>
+<p class="chapter-intro">התורה מבחינה בין "ארץ כנען" לבין "ארץ ישראל", וההבחנה הזו מסבירה גם למה משה הציע שלום לסיחון.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">גבול הכנעני</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בפרשת נח התורה מתארת את גבולות ארץ הכנעני:</p>
+<blockquote>וַיְהִי גְּבוּל הַכְּנַעֲנִי מִצִּידֹן בֹּאֲכָה גְרָרָה עַד עַזָּה בֹּאֲכָה סְדֹמָה וַעֲמֹרָה וְאַדְמָה וּצְבֹיִם עַד לָשַׁע (בראשית י, יט)</blockquote>
+<p>מצידון בצפון, דרך גרר ועזה, עד סדום ועמורה שליד ים המלח. זו ארץ כנען, מצידון ועד באר שבע.</p>
+<p>וכדאי לשים לב: "ארץ כנען" לעולם אינה כוללת את עבר הירדן. יש ארץ כנען, ויש ארץ ישראל, שהיא רחבה יותר.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: זבת חלב ודבש ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">זבת חלב ודבש</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הביטוי "ארץ זבת חלב ודבש" נאמר רק על ארץ כנען. ולכן אמר רבי יוסי הגלילי במשנה:</p>
+<blockquote>אֵין מְבִיאִין בִּכּוּרִים מֵעֵבֶר הַיַּרְדֵּן, שֶׁאֵינָהּ אֶרֶץ זָבַת חָלָב וּדְבָשׁ (ביכורים א, י)</blockquote>
+<p>הביכורים הם תודה על "ארץ זבת חלב ודבש", ולכן לדעתו אין מביאים אותם מעבר הירדן. עוד הבדל מעשי בין הטרקלין לקיטון.</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: למה משה הציע שלום לסיחון? ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה משה הציע שלום לסיחון?</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומכאן לשאלה טובה מאוד: אם ארץ סיחון ועוג היא חלק מארץ ישראל, איך משה רבנו מציע לסיחון שלום?</p>
+<blockquote>וָאֶשְׁלַח מַלְאָכִים מִמִּדְבַּר קְדֵמוֹת אֶל סִיחוֹן מֶלֶךְ חֶשְׁבּוֹן דִּבְרֵי שָׁלוֹם לֵאמֹר. אֶעְבְּרָה בְאַרְצֶךָ (דברים ב, כו-כז)</blockquote>
+<p>הרי בארץ ישראל צריך לכבוש, ולא להשאיר בה עמים אחרים. איך אומרים לו "תן לי רק לעבור"?</p>
+<p>הרמב״ן מתרץ: משה ידע שישראל לא יכבשו מיד את כל עשרת העמים שהובטחו לאברהם. ולכן רצה שכל הכיבוש יהיה מעבר לירדן והלאה, שכל העם יישבו יחד בארץ הטובה, ארץ זבת חלב ודבש. אילו לא ביקשו בני גד ובני ראובן, לא היה משה מניח שם אדם. <strong>משה תכנן מלכתחילה שכולם יגורו בחלק המערבי, הקדוש יותר.</strong></p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: למה בכל זאת נתן להם? ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה בכל זאת נתן להם?</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אבל הקדוש ברוך הוא סיבב אחרת: "וְלֹא אָבָה סִיחֹן... כִּי הִקְשָׁה ה' אֱלֹקֶיךָ אֶת רוּחוֹ" (דברים ב, ל). סיחון יצא למלחמה, ישראל כבשו את ארצו, ועכשיו השטח נמצא בידם. מה עושים איתו? לא מוותרים עליו.</p>
+<p>ואז באו בני גד ובני ראובן וביקשו אותו, ומשה הסכים. ואחר כך הוסיף להם מעצמו חצי שבט מנשה. למה?</p>
+<p>הנצי״ב בפירושו "העמק דבר" כותב שמשה חשש שבני גד וראובן יתעסקו יותר מדי במקנה, ולכן שלח איתם את חצי שבט מנשה, שהיו בו לומדי תורה, כמו שנאמר בשירת דבורה "מִנִּי מָכִיר יָרְדוּ מְחֹקְקִים" (שופטים ה, יד).</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: הצער שנגרם בעקיפין ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">הצער שנגרם בעקיפין</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש מדרש מעניין ומפחיד על נחלת מנשה. מנשה היה המתורגמן של יוסף במצרים. כשהאחים הגיעו, הוא העביר את דברי יוסף, שהאשים אותם שהם מרגלים, ואחר כך את הגזירה שבנימין יישאר עבד. ואז כתוב: "וַיִּקְרְעוּ שִׂמְלֹתָם" (בראשית מד, יג).</p>
+<p>אומר המדרש: מכיוון שמנשה גרם להם לקרוע את בגדיהם, נגרם לו שנחלתו "נקרעה" לשניים, חציה מכאן לירדן וחציה מכאן. הוא לא אמר מדעתו, רק העביר את דברי אביו, ובכל זאת, בעקיפין, נגרם בגללו צער.</p>
+<div class="honey-box">🍯 גם צער שגורמים בעקיפין, אפילו רק כשליח, משאיר חותם. כדאי להיזהר מאוד.</div>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: מנין שבנות צלפחד חיבבו את הארץ? ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌿</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">בנות צעדה עלי שור</h2></div></div>
+<p class="chapter-intro">סיום מפתיע: בנות צלפחד מוכיחות את אהבתן לארץ, ובנות מנשה זכו לבית משני עברי הירדן.</p>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מנין שבנות צלפחד חיבבו את הארץ?</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בנות צלפחד היו משבט מנשה, ורש״י מביא שהן חיבבו את הארץ, כמו יוסף אביהן. על כך שואלים: מנין? אולי הן פשוט רצו נחלה, כמו כל אחד?</p>
+<p>החתם סופר עונה: הן ביקשו נחלה בארץ המערבית. אילו היו מבקשות בעבר הירדן, היו נותנים להן מיד. עבר הירדן הוא שטח עצום, גדול לאין ערוך מהרצועה הצרה שממערב לירדן. שם היה מקום בשפע, אולי אפילו לכל עם ישראל.</p>
+<p>ומה עשו? ביקשו דווקא בארץ המערבית, שבה המקום צפוף וכל חלקה יקרה. <strong>זו הראיה שהן חיבבו את ארץ ישראל.</strong></p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: בית מכאן ושדה מכאן ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בית מכאן ושדה מכאן</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובסוף, דבר יפה מאוד. בספר יהושע מסופר שבנות צלפחד קיבלו את נחלתן בחלק המערבי. ויש פירוש ברש״י על ברכת יעקב ליוסף:</p>
+<blockquote>בֵּן פֹּרָת יוֹסֵף בֵּן פֹּרָת עֲלֵי עָיִן בָּנוֹת צָעֲדָה עֲלֵי שׁוּר (בראשית מט, כב)</blockquote>
+<p>אחד ממדרשי האגדה שמביא רש״י: "בנות צעדה עלי שור" – בנות מנשה קיבלו נחלה משני עברי הירדן. ה"שור", החומה, הוא הירדן, שנעשה כחומה בפני משה, שלא יעבור. אבל בנות יוסף צעדו מעבר לחומה: היה להן חלק מכאן וחלק מכאן.</p>
+<p>אולי הבית היה בצד המערבי, והשדות והמרעה בצד המזרחי. הן היו היחידות שזכו לשני העברים יחד.</p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: כל הארץ השלמה ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">כל הארץ השלמה</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה הלקח? ארץ ישראל היא ארמון אחד, עם חדרים בדרגות שונות. יש טרקלין ויש קיטון, יש עבר הירדן, יש ארץ כנען, יש ירושלים ויש מקום המקדש. כל חלק קדוש בדרגתו, וכולם יחד הם בית המלך.</p>
+<p>בנות יוסף, שאהבו את הארץ בכל לבן, זכו לחלק בשני העברים, בטרקלין ובחדר הפנימי.</p>
+<p class="bold-para">נזכה בעזרת ה' לכל ארץ ישראל השלמה, בכל חלקיה ובכל דרגות קדושתה.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
