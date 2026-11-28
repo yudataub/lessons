@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🍷 הכוס החמישית והקול החמישי</title>
+<meta name="description" content="למה בליל הסדר שותים ארבע כוסות ולא חמש, מה ההלכה אומרת על כוס חמישית ועל כוס של אליהו, ומה התפקיד שה&#x27; השאיר דווקא לנו">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">🍷 הכוס החמישית והקול החמישי</h1>
+  <p class="hero-subtitle">למה בליל הסדר שותים ארבע כוסות ולא חמש, מה ההלכה אומרת על כוס חמישית ועל כוס של אליהו, ומה התפקיד שה&#x27; השאיר דווקא לנו</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 5 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-12 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/7OaG1W3dIRg" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🍇 ליל הסדר וארבע הכוסות</a><ul class="toc-stories"><li><a href="#story-1">למה קוראים לו &quot;ליל הסדר&quot;</a></li><li><a href="#story-2">ארבע לשונות של גאולה</a></li><li><a href="#story-3">לא חרוזים, אלא שלבים</a></li><li><a href="#story-4">למה דווקא יין</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🎶 הקול החמישי שנעלם</a><ul class="toc-stories"><li><a href="#story-5">חמישה קולות</a></li><li><a href="#story-6">פנקס הודיה לכלה</a></li><li><a href="#story-7">ההודיה לא תתבטל לעולם</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">⚖️ מה ההלכה אומרת על כוס חמישית</a><ul class="toc-stories"><li><a href="#story-8">שלוש שיטות</a></li><li><a href="#story-9">למזוג ולא לשתות</a></li><li><a href="#story-10">כוס של אליהו</a></li><li><a href="#story-11">שתי טעויות הפוכות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">📜 הפסוק שאנחנו לא דורשים</a><ul class="toc-stories"><li><a href="#story-12">כל ההגדה בשורה אחת</a></li><li><a href="#story-13">&quot;עד שיגמור כל הפרשה כולה&quot;?</a></li><li><a href="#story-14">שני חגים לגאולה אחת</a></li><li><a href="#story-15">הלחמים של קרבן התודה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🙏 להודות גם על חצי גאולה</a><ul class="toc-stories"><li><a href="#story-16">רמז לדור שלנו</a></li><li><a href="#story-17">קושיית האור החיים</a></li><li><a href="#story-18">&quot;וידעתם&quot;: התנאי</a></li><li><a href="#story-19">מי שמודה על החלק הראשון, זוכה לשני</a></li><li><a href="#story-20">החמישי שלנו</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🍇</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">ליל הסדר וארבע הכוסות</h2></div></div>
+<p class="chapter-intro">ארבע הכוסות הן אחד הדברים המפורסמים ביותר בליל הסדר. אבל למה דווקא ארבע, למה דווקא יין, ולמה נעלמה הלשון החמישית?</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה קוראים לו &quot;ליל הסדר&quot;</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בכל העולם מכירים את הלילה הזה בשם "ליל הסדר". איזה סדר יש בו? הכוונה איננה לעריכת השולחן היפה, אלא לסדר שקבעו חז"ל: קדש, ורחץ, כרפס, יחץ, מגיד ועוד.</p>
+<p>יש חובה לשתות בלילה הזה ארבע כוסות. אבל אי אפשר לשתות אותן ברצף, אחת אחרי השנייה, "לגמור עם זה". כל כוס יש לה מקום: הראשונה על הקידוש, השנייה על ההגדה בסוף "מגיד", השלישית על ברכת המזון, והרביעית על ההלל. חז"ל שזרו את ארבע הכוסות לאורך כל הלילה.</p>
+<p class="bold-para">זה ליל הסדר: לילה שכל דבר בו נעשה בסדר שנקבע, ולא כפי שמתחשק.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: ארבע לשונות של גאולה ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ארבע לשונות של גאולה</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתלמוד הבבלי לא מפורש למה שותים ארבע כוסות דווקא. בספרים נאמרו טעמים רבים. בתלמוד הירושלמי (פסחים י, א) מובאים כמה טעמים: כנגד ארבע כוסות שנזכרו בחלום שר המשקים של פרעה, כנגד ארבע מלכויות, וההסבר המפורסם מכולם: כנגד ארבע לשונות של גאולה שנאמרו למשה:</p>
+<blockquote>"לכן אמר לבני ישראל אני ה' והוצאתי אתכם מתחת סבלת מצרים, והצלתי אתכם מעבדתם, וגאלתי אתכם בזרוע נטויה ובשפטים גדלים. ולקחתי אתכם לי לעם והייתי לכם לאלקים, וידעתם כי אני ה' אלקיכם המוציא אתכם מתחת סבלות מצרים" (שמות ו, ו-ז)</blockquote>
+<p>אבל מיד ממשיך הפסוק:</p>
+<blockquote>"והבאתי אתכם אל הארץ אשר נשאתי את ידי לתת אתה לאברהם ליצחק וליעקב, ונתתי אתה לכם מורשה, אני ה'" (שמות ו, ח)</blockquote>
+<p>השאלה המפורסמת: איפה הכוס החמישית? למה דווקא הלשון "והבאתי" לא זכתה לכוס?</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: לא חרוזים, אלא שלבים ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">לא חרוזים, אלא שלבים</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הנצי"ב מסביר שארבע הלשונות אינן משחק מילים או חרוזים שאומרים את אותו הדבר בכמה דרכים. כל לשון היא שלב אחר בגאולה. והמהר"ל מסדר אותם כהיפוך מדויק של מה שנאמר לאברהם אבינו בברית בין הבתרים: "גר יהיה זרעך בארץ לא להם, ועבדום וענו אתם" (בראשית טו, יג). הגאולה התחילה מן הסוף:</p>
+<ul class="story-list"><li><strong>"והוצאתי אתכם מתחת סבלת מצרים"</strong>: הם עוד היו עבדים, אבל הסבל הקשה נפסק. כשהמכות התחילו, המצרים פחדו להעביד אותם בפרך. זה כנגד "וענו אתם".</li><li><strong>"והצלתי אתכם מעבדתם"</strong>: גם העבודה עצמה פסקה. חז"ל אמרו שבראש השנה, חצי שנה לפני היציאה, בטלה העבודה מאבותינו במצרים (ראש השנה יא, א). זה כנגד "ועבדום".</li><li><strong>"וגאלתי אתכם"</strong>: יציאה מוחלטת. הם כבר לא שייכים לשום אדון, כבר לא "בארץ לא להם".</li><li><strong>"ולקחתי אתכם לי לעם"</strong>: הר סיני וקבלת התורה.</li></ul>
+<div class="honey-box">🍯 כל שלב גדול מקודמו. הגאולה איננה רגע אחד אלא סולם.</div>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: למה דווקא יין ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה דווקא יין</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומכאן הנצי"ב מסביר רעיון יפה, שכדאי לספר לילדים בליל הסדר: למה מבטאים את ארבע הלשונות דווקא בארבע כוסות יין? למה לא ארבעה תפוחים, אדום, ירוק, צהוב?</p>
+<p>כל מאכל או משקה רגיל הולך ופוחת בהנאה שלו. כוס קפה ראשונה טעימה מאוד, השנייה פחות, והשלישית כבר מיותרת. תפוח ראשון טעים, את השלישי כבר קשה לגמור.</p>
+<p>היין הוא הדבר היחיד שהולך ועולה: אחרי הכוס הראשונה אדם מרגיש טוב, אחרי השנייה הוא כבר מתחיל לשמוח, אחרי השלישית השמחה גדלה עוד. השמחה מן היין הולכת וגדלה עם כל כוס.</p>
+<p class="bold-para">כך היא הגאולה: כל שלב לא חוזר על הקודם, אלא מוסיף ומעלה. לכן מבטאים אותה ביין, שהשמחה ממנו הולכת וגדלה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: חמישה קולות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🎶</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">הקול החמישי שנעלם</h2></div></div>
+<p class="chapter-intro">יש עוד "חמישי" שנעלם, והוא נמצא בכל שמחת חתונה.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">חמישה קולות</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>"כימי צאתך מארץ מצרים אראנו נפלאות" (מיכה ז, טו): כמו שהייתה הגאולה הראשונה, כך תהיה האחרונה. ובנבואת ירמיהו על הגאולה האחרונה יש חמישה קולות:</p>
+<blockquote>"עוד ישמע במקום הזה אשר אתם אמרים חרב הוא... קול ששון וקול שמחה, קול חתן וקול כלה, קול אמרים הודו את ה' צבאות כי טוב ה' כי לעולם חסדו, מבאים תודה בית ה'" (ירמיהו לג, י-יא)</blockquote>
+<p>את ארבעת הקולות הראשונים כולם מכירים ושרים בכל חתונה: קול ששון וקול שמחה, קול חתן וקול כלה. אבל אם תשאלו בסעודת שבע ברכות מה הקול החמישי, נדיר מאוד שמישהו יידע.</p>
+<p class="bold-para">הקול החמישי הוא "קול אומרים הודו את ה' צבאות": קול ההודיה.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: פנקס הודיה לכלה ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">פנקס הודיה לכלה</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מדריכת כלות סיפרה פעם שהיא נוהגת לקנות פנקסים קטנים ולתת לכל כלה שמגיעה אליה "פנקס הודיה". בתחילת ההדרכה היא מלמדת את הכלה להתכונן לחתונה בכך שתכתוב את חסדי ה' שהיו איתה מאז שנולדה, כדי להגיע ליום החתונה בנפש מרוממת ומודה.</p>
+<p>היא חשבה שזה רעיון שלה. אבל זה כתוב בנביא במפורש: יחד עם קול חתן וקול כלה בא קול האומרים "הודו את ה' צבאות כי טוב". החתונה היהודית השלמה כוללת הודיה.</p>
+<div class="honey-box">🍯 לפני כל שמחה גדולה, כדאי לעצור ולמנות את החסדים שהביאו אותנו עד אליה.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: ההודיה לא תתבטל לעולם ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">ההודיה לא תתבטל לעולם</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חז"ל אמרו במדרש (ויקרא רבה ט, ז) שלעתיד לבוא כל הקרבנות בטלים, וקרבן תודה אינו בטל. כל התפילות בטלות, וההודאה אינה בטלה. לכן נפסק בשולחן ערוך שאת "מזמור לתודה" אומרים בנגינה ובשמחה.</p>
+<p>פעם, לפני כמה עשרות שנים, כמעט לא היה לחן מוכר ל"מזמור לתודה". היום, ברוך ה', יש עשרות ומאות לחנים, וכל מי שרוצה יכול לשמוע אותם בכל רגע. נראה שגם זה סימן של התקרבות הגאולה: קול ההודיה הולך ומתרבה בארץ ישראל מיום ליום.</p>
+<p>ואף על פי כן, בשבע ברכות אנחנו מזכירים רק ארבעה קולות. הקול החמישי נעלם, בדיוק כמו שהכוס החמישית נעלמת בליל הסדר. האם יש קשר בין שתי התעלומות?</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: שלוש שיטות ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">⚖️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">מה ההלכה אומרת על כוס חמישית</h2></div></div>
+<p class="chapter-intro">לפני שמחפשים טעם, צריך לדעת את הדין: האם יש בכלל דבר כזה, כוס חמישית?</p>
+<article class="story-card" id="story-8" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שלוש שיטות</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בתלמוד הבבלי אין זכר לכוס חמישית, אף שבדברי הגאונים יש גרסה שמזכירה אותה. בפוסקים יש שלוש שיטות:</p>
+<ul class="story-list"><li><strong>הרמב"ם</strong> (הלכות חמץ ומצה ח, י) כותב שאחרי הכוס הרביעית לא טועמים כלום חוץ ממים, ומוסיף שיש לו למזוג כוס חמישית ולומר עליה את ההלל הגדול, מ"הודו לה' כי טוב" עד "על נהרות בבל", ושכוס זו אינה חובה כמו ארבע הכוסות. כלומר: מצווה, אבל לא חובה.</li><li><strong>השולחן ערוך</strong> (אורח חיים תפא, א) פוסק שאחרי ארבע הכוסות אסור לשתות יין, רק מים.</li><li><strong>הרמ"א</strong> שם מתיר למי שצמא מאוד, או שהוא איסטניס, למזוג כוס חמישית ולומר עליה הלל הגדול.</li></ul>
+<p>ארבע כוסות הן חובה גמורה, עד כדי כך שאפילו עני שמתפרנס מן הצדקה צריך להשיג אותן. הכוס החמישית, לכל היותר, רשות או מצווה שאיננה חובה.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: למזוג ולא לשתות ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למזוג ולא לשתות</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הרבי מליובאוויטש דייק בלשון הרמב"ם: על הכוס הרביעית כתוב שהוא "גומר עליו את ההלל" ומברך, ועל החמישית כתוב רק "יש לו למזוג". לא כתוב שהוא שותה אותה. לפי זה, עניינה של הכוס החמישית הוא לומר את ההלל הגדול על כוס יין, כמו שאמרו חז"ל שאין אומרים שירה אלא על היין, בלי לשתות אותה.</p>
+<p>זה חידוש, ולא הפשט הרגיל. בדרך כלל אין טעם לברך על כוס ולא לשתות ממנה. אבל לפי החידוש הזה, הכוס שמוזגים ולא שותים היא רמז: חלק מן הגאולה עוד לא הושלם. בחסידות חב"ד, שעוסקת הרבה בגאולה ובאליהו הנביא, יש על כך דרשות רבות.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: כוס של אליהו ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">כוס של אליהו</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה ברורה (סימן תפ) מביא שנוהגים במדינות אלו למזוג כוס אחת יותר מן המסובים, וקוראים לה "כוס של אליהו הנביא", לרמז שאנחנו מאמינים שכשם שגאלנו ה' ממצרים כך יגאלנו עוד, וישלח לנו את אליהו לבשר.</p>
+<p>חשוב לדעת: זה מנהג של הדורות האחרונים. הוא לא מופיע בגמרא, לא אצל הראשונים, לא ברמב"ם ולא בשולחן ערוך. אין מקור ברור מי היה הראשון שנהג כך.</p>
+<p>אחרי שהמנהג התפשט, נוסף לו טעם: יש ספרים מן הדורות האחרונים שכתבו שהכוס החמישית כנגד "והבאתי", ושאנחנו לא שותים אותה כי אנחנו בגלות, וכשיבוא אליהו הנביא ויביא אותנו לארץ, נשתה. הטעם הזה התקבל מאוד.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: שתי טעויות הפוכות ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שתי טעויות הפוכות</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הטעם הזה מעורר קושי גדול בדורנו. מי שיושב בארץ ישראל ורואה את קיבוץ הגלויות בעיניו, איך יאמר שהכוס נשארת מלאה כי עוד לא הגענו לארץ? רק מי שמתכחש לכל מה שקרה כאן יכול לומר זאת.</p>
+<p>ומנגד, היו שרצו לחדש שבימינו צריך לשתות כוס חמישית, כנגד "והבאתי" שהתקיים. והוסיפו לכך סברה: אולי פעם, כשישבנו בארץ, שתו כוס חמישית, ובגלות מחקו אותה. אבל נמצאו הגדות עתיקות מאוד, מימי קדם, ובאף אחת מהן אין כוס חמישית. גם בימי בית ראשון ובית שני, כשעם ישראל ישב בארצו, שתו ארבע כוסות בלבד.</p>
+<p class="bold-para">לא אלה צודקים ולא אלה. הסיבה שאין כוס חמישית בליל הסדר שונה לגמרי, והיא מפורשת במשנה.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: כל ההגדה בשורה אחת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">הפסוק שאנחנו לא דורשים</h2></div></div>
+<p class="chapter-intro">התשובה מסתתרת בשורה אחת במשנה, שבה כתובה כל ההגדה של פסח.</p>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כל ההגדה בשורה אחת</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המשנה (פסחים י, ד) מתארת את ליל הסדר: מוזגים כוס שנייה, הבן שואל את אביו "מה נשתנה", ואז:</p>
+<blockquote>"לפי דעתו של בן אביו מלמדו. מתחיל בגנות ומסיים בשבח, ודורש מארמי אובד אבי עד שיגמור כל הפרשה כולה"</blockquote>
+<p>זו כל ההגדה. כל אוסף המדרשים שבהגדה שלנו הוא פירוש של השורה הזו.</p>
+<p>למה דווקא פרשת הביכורים? כי ליל הסדר הוא ליל ההודיה. אנחנו מודים לה' שהוציא אותנו ממצרים, ופרשת ביכורים היא המקום שבו התורה עצמה מספרת את יציאת מצרים בלשון של הודיה, מפי מי שמביא את פירותיו הראשונים לבית ה'.</p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;עד שיגמור כל הפרשה כולה&quot;? ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;עד שיגמור כל הפרשה כולה&quot;?</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בהגדה דורשים את הפסוקים מפרשת כי תבוא, מילה במילה:</p>
+<blockquote>"ארמי אבד אבי וירד מצרימה ויגר שם במתי מעט, ויהי שם לגוי גדול עצום ורב. וירעו אתנו המצרים ויענונו ויתנו עלינו עבדה קשה. ונצעק אל ה' אלקי אבתינו וישמע ה' את קלנו וירא את ענינו ואת עמלנו ואת לחצנו. ויוצאנו ה' ממצרים ביד חזקה ובזרע נטויה ובמרא גדל ובאתות ובמפתים" (דברים כו, ה-ח)</blockquote>
+<p>אבל בתורה יש פסוק נוסף:</p>
+<blockquote>"ויבאנו אל המקום הזה ויתן לנו את הארץ הזאת, ארץ זבת חלב ודבש" (דברים כו, ט)</blockquote>
+<p>את הפסוק הזה לא דורשים באף הגדה. המשנה אמרה "עד שיגמור כל הפרשה כולה", ואנחנו עוצרים באמצע. וגם כאן, בדיוק כמו בארבע הכוסות, החלק שנעדר הוא הכניסה לארץ.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: שני חגים לגאולה אחת ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">שני חגים לגאולה אחת</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>התשובה יסודית מאוד: התורה חילקה את הגאולה לשני חגים.</p>
+<p><strong>חג הפסח</strong> מסמן את היציאה מן הגלות. הייתי משועבד, הייתי בגלות, ויצאתי משם.</p>
+<p><strong>חג השבועות</strong> מסמן את הגאולה השלמה. ה' לא רק הוציא אותנו ממצרים, הוא נתן לנו עוד שתי מתנות: את התורה הקדושה, ואת ארץ ישראל. לכן שבועות הוא גם זמן מתן תורתנו וגם "חג הביכורים", החג שבו מביאים את ראשית פירות הארץ ומודים עליה.</p>
+<p>ה' רצה שנחגוג כל חלק בנפרד. בליל הסדר חוגגים רק את היציאה מן הגלות. לא מזכירים בו לא את מתן תורה ולא את ארץ ישראל, חוץ מרמז קטן ב"דיינו". ממחרת מתחילים לספור את העומר, ואז אפשר לצפות לגאולה השלמה.</p>
+<div class="honey-box">🍯 אין כוס חמישית בליל הסדר, כי הלילה הזה שייך לחלק הראשון בלבד.</div>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: הלחמים של קרבן התודה ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הלחמים של קרבן התודה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רמז יפה לכך יש בקרבן התודה שבפרשת צו. עם קרבן התודה מביאים ארבעים לחמים: שלושה סוגים של מצה, עשרה מכל סוג, ועוד עשרה לחמי חמץ.</p>
+<p>בליל הסדר יש על השולחן שלוש מצות, כנגד שלושת סוגי המצה של קרבן התודה. ואיפה החמץ? בפסח אי אפשר להביא אותו. מתי מביאים חמץ למקדש? בחג השבועות, בשתי הלחם, שהן חמץ.</p>
+<p>כך גם ההודיה עצמה מתחלקת לשניים: חלק המצה בפסח, על היציאה מן הגלות, וחלק החמץ בשבועות, על שלמות הגאולה. הכוס החמישית, הפסוק החמישי והחמץ, כולם ממתינים ליום החמישים.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: רמז לדור שלנו ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🙏</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">להודות גם על חצי גאולה</h2></div></div>
+<p class="chapter-intro">בחלוקה הזו יש מסר עמוק לדור שלנו: ההודיה על החלק הראשון היא התנאי לחלק השני.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">רמז לדור שלנו</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נראה שה' רמז כאן רמז לדורות הבאים. הוא ידע שיעברו אלפי שנים, ויהיה ויכוח גדול: האם צריך להודות לה' על חצי גאולה? יצאנו מן הגלות, אבל לגאולה השלמה עוד לא הגענו. עוד לא כל עם ישראל קיבל את התורה, ויש עוד צרות וקשיים רבים.</p>
+<p>אבל מן הגלות יצאנו. אף אחד לא מונע מאיתנו לאפות מצות, לשתות ארבע כוסות או לשמור את התורה. היו דורות שבהם יהודים בסיביר עשו הכול כדי להשיג מצה, והיו עלילות דם שהפכו את ליל הסדר ללילה של פחד. מי שמרגיש היום שהוא בגלות, צריך כמעט להלביש על עצמו גלות שאיננה.</p>
+<p>התורה לימדה אותנו: חג הפסח עומד בפני עצמו. גם בלי הגאולה השלמה, היציאה מן הגלות היא מתנה שמגיעה עליה תודה מלאה.</p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: קושיית האור החיים ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">קושיית האור החיים</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האור החיים (שמות ו, ח) שואל שאלה גדולה: ה' הבטיח "והבאתי אתכם אל הארץ", ודברי ה' אמת. והרי היוצאים ממצרים לא נכנסו לארץ! כל דור יוצאי מצרים, מבן עשרים ומעלה, מת במדבר. רק בניהם נכנסו, ומבין היוצאים עצמם רק יהושע וכלב. ועוד, ההבטחה נאמרה בלשון "לכן", שיש בה לשון שבועה.</p>
+<p>התשובה נמצאת בדיוק נפלא בפסוק. שימו לב לסדר: "והוצאתי, והצלתי, וגאלתי, ולקחתי", ואז, באמצע, "וידעתם כי אני ה' אלקיכם המוציא אתכם", ורק אחר כך "והבאתי".</p>
+<p>כך לא מדברים בדרך כלל. מי שמונה את מעלותיו אומר "אני עושה אחת, שתיים, שלוש", ואת המסקנה אומר בסוף או בהתחלה, לא באמצע הרשימה. למה "וידעתם" נכנס בין "ולקחתי" לבין "והבאתי"?</p>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: &quot;וידעתם&quot;: התנאי ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">&quot;וידעתם&quot;: התנאי</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>האור החיים מתרץ: ארבע הלשונות הראשונות הן הבטחה בלי תנאי. ה' הבטיח לאברהם אבינו "ואחרי כן יצאו ברכש גדול", ולכן הם ייצאו בכל מקרה, צדיקים או לא.</p>
+<p>אבל "והבאתי" מותנה. התנאי הוא "וידעתם כי אני ה' אלקיכם המוציא אתכם". אם תדעו, אביא אתכם לארץ.</p>
+<p>הכוונה איננה לידיעה שכלית. ברור שהם ידעו שה' הוציא אותם, ולא פרעה. הכוונה היא לחיות את זה: להרגיש שה' אוהב אותי ורוצה בטובתי, ולכן הוציא אותי ממצרים. כשהמרגלים חזרו וסיפרו על ענקים ועל ערים בצורות, העם אמר "בשנאת ה' אתנו הוציאנו מארץ מצרים" (דברים א, כז). את זה יכול לומר רק מי שלא הפנים שה' אוהב אותו.</p>
+<p class="bold-para">מי שחי שה' הוציא אותו מתוך אהבה, לא מפחד מענקים. אדם מלא אמונה ותחושת שליחות פשוט לא מרגיש פחד.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: מי שמודה על החלק הראשון, זוכה לשני ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">מי שמודה על החלק הראשון, זוכה לשני</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עכשיו מובן למה זה כל כך חשוב לדור שלנו. ה' חילק את הגאולה לשני חגים, ובליל הסדר אמר: אל תשתו כוס חמישית, אל תקראו את הפסוק "ויבאנו". הודו קודם כול על היציאה מן הגלות.</p>
+<p>זה התנאי. מי שיודע להודות על החלק הראשון, ולהכיר שהוא בא מאת ה', יזכה לחלק השני. מי שמדלג על ההודיה וקופץ ישר אל מה שעוד חסר, מפסיד את הזכות.</p>
+<p>אם נדע לחיות את ההרגשה שכל מה שקרה עד היום איננו מקרה, שה' הוציא אותנו מן הגלות, אסף אותנו משבעים אומות והביא אותנו לכאן, נהיה ראויים בעזרת ה' לכל חלקי הגאולה השלמה.</p>
+<div class="honey-box">🍯 ההודיה על מה שכבר יש היא המפתח למה שעוד יבוא.</div>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: החמישי שלנו ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">החמישי שלנו</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ויש בכך רמז נוסף. לפי הנצי"ב, הגאונים שהזכירו כוס חמישית התכוונו שהיא כנגד "וידעתם כי אני ה'". ולמה היא רשות ולא חובה?</p>
+<p>כי את "והוצאתי" עושה ה'. את "והצלתי", "וגאלתי" ו"ולקחתי" עושה ה'. אבל את "וידעתם" עושים אנחנו. על ארבע הכוסות אנחנו מודים לה' על מה שהוא עשה. הכוס החמישית היא החלק שלנו, ולכן אי אפשר לחייב אותה כמו את הארבע.</p>
+<p>וכך גם בחמשת הקולות: קול ששון וקול שמחה, קול חתן וקול כלה, את אלה ה' נותן. אבל "קול אומרים הודו את ה' צבאות" הוא התפקיד שלנו: להכיר שכל מה שקרה, ה' עשה.</p>
+<p class="bold-para">ארבעה ה' עושה, כדי שאנחנו נעשה את החמישי: נכיר, נודה, ונזכה בקרוב לגאולה השלמה.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
