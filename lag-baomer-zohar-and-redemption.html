@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>✨ הזוהר שאחרי החושך: ל&quot;ג בעומר ותורת הסוד של דור הגאולה</title>
+<meta name="description" content="למה דווקא מתוך הצער צומח האור הגדול, מה באמת חוגגים בל&quot;ג בעומר, ולמה השמחה במירון גדלה דווקא בדורות שלנו.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">✨ הזוהר שאחרי החושך: ל&quot;ג בעומר ותורת הסוד של דור הגאולה</h1>
+  <p class="hero-subtitle">למה דווקא מתוך הצער צומח האור הגדול, מה באמת חוגגים בל&quot;ג בעומר, ולמה השמחה במירון גדלה דווקא בדורות שלנו.</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-13 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/uQRy9Qeb92c" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">🌅 אחרי המכה – הישועה</a><ul class="toc-stories"><li><a href="#story-1">אבא שמתמלא רחמים</a></li><li><a href="#story-2">מששת הימים ליום כיפור</a></li><li><a href="#story-3">בית ספר שנולד מתוך הלב</a></li><li><a href="#story-4">הגרף שהפך כיוון</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🕳️ רבי שמעון במערה</a><ul class="toc-stories"><li><a href="#story-5">מעיין, חרוב ושלוש־עשרה שנה</a></li><li><a href="#story-6">&quot;שם קנית הודך והדרך&quot;</a></li><li><a href="#story-7">שלוש מתנות שבאות בייסורים</a></li><li><a href="#story-8">מי שלא נשבר</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">💧 &quot;אשריך שראיתני בכך&quot;</a><ul class="toc-stories"><li><a href="#story-9">דמעות על הפצעים</a></li><li><a href="#story-10">שתים־עשרה תשובות, עשרים וארבע תשובות</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🔥 על מה באמת שמחים בל&quot;ג בעומר</a><ul class="toc-stories"><li><a href="#story-11">רבי עקיבא לא נשבר</a></li><li><a href="#story-12">&quot;והם הם העמידו תורה&quot;</a></li><li><a href="#story-13">&quot;יום שמחתי&quot; – הכוח שנולד מהחושך</a></li><li><a href="#story-14">לא על המוות – על האור שאחריו</a></li><li><a href="#story-15">אהבה שחוזרת כל שנה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">🏛️ שלושה בתי מקדש, שלוש תורות</a><ul class="toc-stories"><li><a href="#story-16">בית ראשון – התורה שבכתב</a></li><li><a href="#story-17">ארון ומנורה</a></li><li><a href="#story-18">בית שלישי – תורת הסוד</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">🕯️ אור הזוהר ואור הגאולה</a><ul class="toc-stories"><li><a href="#story-19">מגירוש ספרד אל צפת</a></li><li><a href="#story-20">צפת – תקע בשופר גדול</a></li><li><a href="#story-21">האור שמתפשט לכל בית</a></li><li><a href="#story-22">רשב&quot;י, שבת ועולם הבא</a></li><li><a href="#story-23">למה השמחה במירון גדלה דווקא בדורנו</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🌅</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">אחרי המכה – הישועה</h2></div></div>
+<p class="chapter-intro">יסוד אחד פותח את כל סודו של ל"ג בעומר: הרבה פעמים דווקא אחרי צרה גדולה מגיעה ישועה שאין כדוגמתה.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">אבא שמתמלא רחמים</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש יסוד שמאיר גם את ל"ג בעומר וגם את התקופה שלנו: הרבה פעמים דווקא אחרי שעוברת על אדם צרה גדולה, מגיעה אליו אחר כך ישועה גדולה מאוד.</p>
+<p>למה דווקא אחרי הצרה? כי הקדוש ברוך הוא הוא אבא. כשאבא נאלץ להכות את בנו – גם כשזה לטובתו – הלב שלו מתמלא אחר כך רחמים. סוף סוף זה הבן שלו, והבן נפגע. ודווקא מתוך הרחמים האלה יכולה לצמוח מתנה שלא הייתה יכולה לבוא קודם.</p>
+<p class="bold-para">הצער אינו סוף הסיפור – הוא לפעמים הפתח לאהבה הגדולה ביותר.</p>
+<p>כך ראינו בהקמת המדינה: שנים רבות רצו יהודים לחזור ולבנות כאן ארץ, ולא הצליחו. דווקא אחרי השואה, אחרי החושך הנורא ביותר, קמה התקומה.</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: מששת הימים ליום כיפור ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מששת הימים ליום כיפור</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דוגמה נוספת מהדורות האחרונים. אחרי מלחמת ששת הימים הייתה התעוררות גדולה. אנשים ראו בעיניים יד ה', הבינו שיש אלוקים בעולם והוא עוזר לנו. אבל ההתעוררות נשארה בלב, ברגש ובדיבורים – ולא יצא ממנה הרבה למעשה.</p>
+<p>ואז באה מלחמת יום כיפור, תשל"ד – מכה קשה וכואבת. ודווקא אחריה מתחילה התעוררות חדשה, חזקה הרבה יותר מקודמתה. והפעם היא לא נשארת בדיבורים: היא הופכת למציאות. אנשים רבים לא רק מתעוררים, אלא רוצים לעשות. קמות תנועות, נפתחים מקומות לימוד, מתחילים סמינרים לקירוב – עוד לפני שהיו הארגונים הגדולים המוכרים היום – ובחלק מהם כמעט כל המשתתפים חזרו בתשובה.</p>
+<div class="honey-box">🍯 התעוררות אמיתית נמדדת במה שהיא משאירה בידיים, לא רק במה שהיא עושה בלב.</div>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: בית ספר שנולד מתוך הלב ←</a></div>
+</article>
+<article class="story-card" id="story-3" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">בית ספר שנולד מתוך הלב</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את ההתעוררות הזו אפשר היה לראות גם בעיר קטנה בצפון, בקרית אתא. באותן שנים החליטו הורים – רובם לא בוגרי ישיבות, לא אנשים שגדלו בבית תורני – שהילדים שלהם צריכים חינוך תורני יותר. בתחילה ביקשו רק מעט: עוד כמה שעות לימוד קודש במסגרת הקיימת. כשהבקשה נדחתה, החליטו להקים בית ספר נפרד.</p>
+<p>זה לא היה פשוט כלל. היו מאבקים, היה בית משפט, היה בלגן גדול. בסוף התערב שר החינוך דאז, זבולון המר, ונמצאה דרך מסודרת – מסמך של עשרה דפים שקבע איך מקימים בית ספר כזה, אילו אזורי רישום יהיו לו ומי יוכל ללמוד בו.</p>
+<p>כשנשאלו ההורים, שנים אחר כך, מה הניע אותם – הם לא ידעו להסביר. "הרגשנו בלב שהיום חייבים שהילדים יהיו תורניים." <strong>זו בדיוק התעוררות שבאה מלמעלה, ולא מתוך חשבון.</strong></p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הגרף שהפך כיוון ←</a></div>
+</article>
+<article class="story-card" id="story-4" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הגרף שהפך כיוון</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>אם משרטטים גרף של המצב הדתי במדינה בשנים הראשונות, רואים קו שיורד, יורד ויורד: בכל תחום, בכל מקום. אחרי ששת הימים הקו התייצב. ואחרי מלחמת יום כיפור – הוא הפך כיוון, והתחיל לעלות ולעלות.</p>
+<p>מי שזוכר את שנות ילדותו בעיר חילונית יודע: מנחה וערבית היו פעם במניין אחד או שניים, ובשעה תשע וחצי בערב התפללו האחרונים, שנים־עשר או שלושה־עשר איש, ובזה נגמר. היום באותן ערים יש מניין מנחה כמעט בכל שעה, ערבית כל חצי שעה עד שעה מאוחרת בלילה, ובתי כנסת מלאים.</p>
+<p>זה מה שהנביא יחזקאל ניבא – שאחרי שה' יקבץ את ישראל לארצם, הוא יטהר את לבם:</p>
+<blockquote>וְזָרַקְתִּי עֲלֵיכֶם מַיִם טְהוֹרִים וּטְהַרְתֶּם (יחזקאל לו, כה)</blockquote>
+<p>אנשים מרגישים פתאום בלב שהם רוצים לחזור, להתעורר ולהתחזק – בלי שמישהו שכנע אותם. <strong>זה המים הטהורים, וזה בא דווקא אחרי המכה.</strong></p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: מעיין, חרוב ושלוש־עשרה שנה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🕳️</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">רבי שמעון במערה</h2></div></div>
+<p class="chapter-intro">גם אצל רבי שמעון בר יוחאי עצמו רואים את היסוד הזה: האור של הזוהר צמח מתוך המערה.</p>
+<article class="story-card" id="story-5" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מעיין, חרוב ושלוש־עשרה שנה</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי שמעון בר יוחאי נרדף על ידי הרומאים וברח עם בנו רבי אלעזר למערה. לא היה להם אוכל, לא היו להם בגדים. רק השמיים, מעיין מים ועץ חרוב שצמח להם בנס – מזה חיו שנים ארוכות.</p>
+<p>בפקיעין שבגליל מראים עד היום עץ חרוב, ויש מסורת שאולי זהו החרוב ההוא. אם זה נכון או לא – קשה לדעת. אבל השאלה האמיתית אחרת: <strong>למה דווקא משם, מתוך המערה, בלי אוכל ובלי בגדים, מתגלה לעולם הזוהר הקדוש?</strong></p>
+<p>התשובה היא אותו יסוד עצמו: לפעמים דווקא מתוך הצער והייסורים מגיע האור הגדול.</p>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: &quot;שם קנית הודך והדרך&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">&quot;שם קנית הודך והדרך&quot;</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את זה בדיוק אומר הפייטן בשיר שמזמרים בכל ל"ג בעומר ובכל ליל שבת:</p>
+<blockquote>בַּר יוֹחָאי, מוֹשַׁב טוֹב יָשַׁבְתָּ, יוֹם נַסְתָּ, יוֹם אֲשֶׁר בָּרַחְתָּ, בִּמְעָרַת צוּרִים שֶׁעָמַדְתָּ, שָׁם קָנִיתָ הוֹדְךָ וַהֲדָרֶךָ</blockquote>
+<p>הפייטן לא אומר שרבי שמעון קנה את הודו והדרו למרות המערה. הוא אומר: <strong>שם</strong>. ביום שנס, ביום שברח, בתוך מערת הסלעים הקשה – דווקא שם קנה את גדולתו.</p>
+<div class="honey-box">🍯 בפעם הבאה שמזמרים "בר יוחאי", כדאי לעצור על המילה "שם" – כל הסוד טמון בה.</div>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: שלוש מתנות שבאות בייסורים ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">שלוש מתנות שבאות בייסורים</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ולא בכדי, אחד המאמרים הראשונים של רבי שמעון בר יוחאי בתלמוד מדבר בדיוק על זה:</p>
+<blockquote>תניא, רבי שמעון בן יוחאי אומר: שלש מתנות טובות נתן הקדוש ברוך הוא לישראל, וכולן לא נתנן אלא על ידי יסורין. אלו הן: תורה, וארץ ישראל, והעולם הבא (ברכות ה, א)</blockquote>
+<p>המתנות הטובות ביותר – דווקא על ידי ייסורים. רבי שמעון לא אמר את זה כתיאוריה. הוא חי את זה בגופו.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: מי שלא נשבר ←</a></div>
+</article>
+<article class="story-card" id="story-8" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">מי שלא נשבר</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>את היסוד הזה רואים גם בחיים של אנשים. יש משפחות שעברו צער נורא – למשל, ילד שנפטר להם, רחמנא ליצלן. יש מי שנשבר מזה, וחלילה לבוא אליו בטענות: זה כאב שאין לו שיעור. אבל יש משפחות שלא נשברו, התחזקו באמונה – ואחר כך זכו לילדים מיוחדים, הקימו מפעלים של חסד ותורה, ועשו דברים שאף אחד לא היה מעלה על דעתו.</p>
+<p>המפתח הוא לא להתייאש. אם אדם מחזיק באמונה שהקדוש ברוך הוא ממשיך לאהוב אותו גם כשהוא מייסר אותו, הרי שאחרי החושך מסוגל מאוד להגיע אור גדול.</p>
+<blockquote>וּכְאָב אֶת בֵּן יִרְצֶה (משלי ג, יב)</blockquote>
+<p class="bold-para">הייסורים אינם סימן שאבא עזב – הם סימן שאבא עוד שם.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: דמעות על הפצעים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">💧</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">&quot;אשריך שראיתני בכך&quot;</h2></div></div>
+<p class="chapter-intro">כשרבי שמעון יוצא מהמערה, חותנו רואה את גופו הפצוע ובוכה. התשובה של רבי שמעון היא כל התורה של הספר הזה.</p>
+<article class="story-card" id="story-9" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">דמעות על הפצעים</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הגמרא במסכת שבת (לג, ב) מספרת: שמע רבי פנחס בן יאיר, חותנו של רבי שמעון, שרבי שמעון יצא מהמערה, ויצא לקראתו. הכניס אותו לבית המרחץ – אחרי שלוש־עשרה שנה במערה – והתחיל לטפל בבשרו. ראה שגופו מלא סדקים ופצעים: כך קורה לגוף שישב שנים בתוך החול והאדמה.</p>
+<p>רבי פנחס התחיל לבכות, והדמעות נפלו על הפצעים. מי שיודע מה עושה מלח לפצע פתוח מבין: זה צורב מאוד, ורבי שמעון צעק מכאב.</p>
+<p>אמר לו רבי פנחס: "אוי לי שראיתיך בכך!" – איך אני רואה אותך במצב הזה.</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: שתים־עשרה תשובות, עשרים וארבע תשובות ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">שתים־עשרה תשובות, עשרים וארבע תשובות</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ענה לו רבי שמעון: "אשריך שראיתני בכך, שאילמלא לא ראיתני בכך – לא מצאת בי כך." אילולא עברתי את כל הצרות והייסורים האלה, לא הייתי מגיע למה שהגעתי.</p>
+<p>ולמה הגיע? הגמרא מספרת: בתחילה, כשרבי שמעון היה מקשה קושיה, רבי פנחס בן יאיר היה מתרץ לו שנים־עשר תירוצים. בסוף, אחרי המערה, כשרבי פנחס היה מקשה קושיה, רבי שמעון היה מתרץ לו עשרים וארבעה תירוצים.</p>
+<p>המספר עשרים וארבע אינו מקרי – יש בו רמזים רבים: עשרים וארבעה ספרי התנ"ך, עשרים וארבעה תכשיטי כלה, ועוד. הוא רומז לשלמות מסוימת שאליה הגיע רבי שמעון.</p>
+<p class="bold-para">אדם לא מחפש ייסורים. אבל מי שכבר עבר אותם – אשריו, אם הוא יודע להפוך אותם לאור.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: רבי עקיבא לא נשבר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🔥</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">על מה באמת שמחים בל&quot;ג בעומר</h2></div></div>
+<p class="chapter-intro">עכשיו מתברר היטב למה ל"ג בעומר הוא יום שמחה כל כך גדול – ועל מה בדיוק שמחים.</p>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">רבי עקיבא לא נשבר</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי עקיבא חי כל ימיו עם הידיעה שיש לו אבא אוהב. גם כשהאבא נאלץ להכות אותו – זה לטובה, ומיד אחר כך הוא מתמלא אהבה ורחמים על בנו יותר מקודם. כך כתב הנביא:</p>
+<blockquote>אַל תִּשְׂמְחִי אֹיַבְתִּי לִי כִּי נָפַלְתִּי קָמְתִּי כִּי אֵשֵׁב בַּחֹשֶׁךְ ה' אוֹר לִי (מיכה ז, ח)</blockquote>
+<p>ודרשו חז"ל: אילולא נפלתי – לא קמתי; אילולא ישבתי בחושך – לא היה ה' אור לי. הנפילה עצמה היא סיבת הקימה.</p>
+<p>עשרים וארבעה אלף תלמידי רבי עקיבא מתו, והעולם היה שמם – חושך גמור, כמעט לא נשארה תורה. ומה עושה רבי עקיבא? הוא לא מתייאש. הוא הולך אל רבותינו שבדרום ומתחיל מחדש.</p>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: &quot;והם הם העמידו תורה&quot; ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;והם הם העמידו תורה&quot;</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כך מספרת הגמרא (יבמות סב, ב): "והיה העולם שמם, עד שבא רבי עקיבא אצל רבותינו שבדרום ושנאה להם: רבי מאיר ורבי יהודה ורבי יוסי ורבי שמעון ורבי אלעזר בן שמוע, והם הם העמידו תורה אותה שעה."</p>
+<p>למה הכפילות "הם הם"? כי רק הם. כל התורה שבעל פה שבידינו עוברת דרך חמשת תלמידי רבי עקיבא האלה. כך אומרת הגמרא (סנהדרין פו, א): "סתם מתניתין רבי מאיר, סתם תוספתא רבי נחמיה, סתם ספרא רבי יהודה, סתם ספרי רבי שמעון, וכולהו אליבא דרבי עקיבא." משנה, תוספתא, ספרא וספרי – הכול יוצא מבית מדרשו של רבי עקיבא.</p>
+<p>רבי עקיבא לוקח חמישה תלמידים – וכל אחד מהם נהיה ענק: רבי מאיר בעל הנס, רבי שמעון בר יוחאי בעל הזוהר. <strong>איך זה קורה? כי מתוך אותו חושך צמח אור גדול.</strong></p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: &quot;יום שמחתי&quot; – הכוח שנולד מהחושך ←</a></div>
+</article>
+<article class="story-card" id="story-13" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">&quot;יום שמחתי&quot; – הכוח שנולד מהחושך</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>עד רבי שמעון, סודות התורה עברו רק מפה לאוזן, במעט ובצנעה. לא נכתבו ולא נלמדו ברבים. ואז בא רבי שמעון ומביא לעולם אור עצום – אור הזוהר.</p>
+<p>מאיפה קיבל את הכוח לזה? מכוח ל"ג בעומר. היום שבו פסק החושך והתחיל האור – זה היום שהעניק לו את הכוח. לכן קרא רבי שמעון לל"ג בעומר "יום שמחתי": כל האור הגדול שלו צמח מכוח החושך שהיה לפניו.</p>
+<p>יש בזה עוד רמז: רבי עקיבא עצמו היה, לפי המסורת, בן גרים, ומגדולי התנאים היו צאצאי גרים. אדם שהקריב הרבה מאוד – זוכה אחר כך להרבה מאוד. מי שמגיע מרחוק ומשלם על כך מחיר, מגיע לפעמים רחוק יותר מכולם.</p>
+<div class="honey-box">🍯 החושך אינו רק מה שקדם לאור – לפעמים הוא חומר הגלם שממנו האור עשוי.</div>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: לא על המוות – על האור שאחריו ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא על המוות – על האור שאחריו</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>חשוב לדייק: לא שמחים על כך שתלמידי רבי עקיבא פסקו למות. על זה אין מה לשמוח – לא נשאר אף אחד. שמחים על האור שצמח אחרי שהם פסקו.</p>
+<p>אין לזה ממש דוגמה, אבל אפשר לנסות: אף יהודי אינו שמח על השואה. אבל מה קרה אחריה? הקדוש ברוך הוא עשה פלא שלא היה כמותו: העולם כולו מתכנס ומחליט לתת ליהודים את ארץ ישראל – אומות נוצריות, שלא היו מסוגלות להסכים לכך, מסכימות. ואחר כך מעט יהודים מנצחים את כל האויבים מסביב. על האהבה הגדולה שבאה אחר כך – על זה אפשר לשמוח.</p>
+<p>כך כתבו גם הפוסקים: הטעם לשמחה בל"ג בעומר הוא שבו התחיל רבי עקיבא לשנות לרבי שמעון בר יוחאי וחבריו, והאיר להם שחזרה התורה ליושנה. ולכן מדליקים מדורות – להודות לקדוש ברוך הוא על אור התורה הגדול שזרח אחרי החושך.</p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: אהבה שחוזרת כל שנה ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">אהבה שחוזרת כל שנה</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יום שבו קרה נס גדול לישראל, יום שבו התגלתה אהבה, חוזר פעמים רבות ומתעורר בכל שנה מחדש.</p>
+<p>דוגמה לכך היא ט"ו באב. ביום הזה פסקו מתי מדבר למות, והקדוש ברוך הוא החליט לרחם על ישראל ולהביא אותם לרשת את הארץ. מאז נקבע ט"ו באב ליום שמחה לדורות, ובכל שנה מתעוררת בו אותה אהבה ראשונה.</p>
+<p>כך גם ל"ג בעומר: אחרי החושך הנורא של אותם ימים, מילא הקדוש ברוך הוא את העולם באור של אהבה לעם ישראל. ובכל שנה ושנה, ביום הזה, מתעוררת אותה אהבה מחדש.</p>
+<p class="bold-para">השמחה של ל"ג בעומר היא שמחת אהבת ה' – אהבה שמתגלה דווקא אחרי החושך.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: בית ראשון – התורה שבכתב ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">🏛️</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">שלושה בתי מקדש, שלוש תורות</h2></div></div>
+<p class="chapter-intro">שלושת בתי המקדש של עם ישראל מקבילים לשלושת חלקי התורה – ומזה מתברר מה מחכה לנו בבית השלישי.</p>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">בית ראשון – התורה שבכתב</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>שלושה בתי מקדש יש לעם ישראל לאורך ההיסטוריה: הבית הראשון שבנה שלמה המלך, הבית השני שבימי עזרא ונחמיה, והבית השלישי שייבנה במהרה בימינו. ושלושתם מקבילים לשלושה חלקי התורה: תורה שבכתב, תורה שבעל פה ותורת הסוד.</p>
+<p>התנ"ך נכתב ברובו בימי הבית הראשון. אז חיו הנביאים: ישעיהו, ירמיהו, יחזקאל, ספרי שופטים ומלכים. בתחילת הבית השני נוספו חגי, זכריה ומלאכי, ספרי עזרא ונחמיה ודברי הימים – ובזה נחתם התנ"ך. <strong>הבית הראשון הוא בית התורה שבכתב.</strong></p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: ארון ומנורה ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ארון ומנורה</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>בבית השני מתחיל עידן התורה שבעל פה: המשניות, רבי עקיבא ותלמידיו – כל מה שראינו קודם.</p>
+<p>הנצי"ב מוולוז'ין מוסיף על כך רעיון יפה. במשכן ובמקדש היו שני כלים שעניינם תורה: הארון, ובו לוחות הברית, והמנורה. וכדברי חז"ל, הרוצה להחכים – ידרים, וסימנך: מנורה בדרום. למה שני כלים? הארון הוא התורה שבכתב – בתוכו הלוחות שהקדוש ברוך הוא כתב. המנורה היא התורה שבעל פה.</p>
+<p>ולכן בבית הראשון היה הארון, ובבית השני הארון כבר נגנז. ומה היה הנס של הבית השני? נס המנורה, נס חנוכה. כי עניינו של הבית השני הוא התורה שבעל פה.</p>
+<div class="honey-box">🍯 הנס של כל בית מספר מה היה עניינו: בבית שני – אור המנורה, אור התורה שבעל פה.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: בית שלישי – תורת הסוד ←</a></div>
+</article>
+<article class="story-card" id="story-18" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">בית שלישי – תורת הסוד</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה נשאר לבית השלישי? תורת הסוד. הזוהר מלמד שבימות המשיח יגלה הקדוש ברוך הוא את סודותיה העמוקים של התורה, וכך יתקיים הכתוב:</p>
+<blockquote>כִּי מָלְאָה הָאָרֶץ דֵּעָה אֶת ה' כַּמַּיִם לַיָּם מְכַסִּים (ישעיהו יא, ט)</blockquote>
+<p>וכן:</p>
+<blockquote>וְלֹא יְלַמְּדוּ עוֹד אִישׁ אֶת רֵעֵהוּ וְאִישׁ אֶת אָחִיו לֵאמֹר דְּעוּ אֶת ה' כִּי כוּלָּם יֵדְעוּ אוֹתִי לְמִקְּטַנָּם וְעַד גְּדוֹלָם (ירמיהו לא, לג)</blockquote>
+<p>הדעה שתמלא את הארץ אינה רק הפשט – גם הסוד. וכדברי הזוהר המפורסם (נשא, קכד ב): "ובגין דעתידין ישראל למטעם מאילנא דחיי דאיהו האי ספר הזהר, יפקון ביה מן גלותא ברחמים" – בזכות לימוד הזוהר ייצאו ישראל מן הגלות ברחמים.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: מגירוש ספרד אל צפת ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">🕯️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">אור הזוהר ואור הגאולה</h2></div></div>
+<p class="chapter-intro">מן הרגע שהאור של הגאולה מתחיל לנצנץ, מתחילה גם תורת הסוד להתגלות – ומכאן גם סוד השמחה במירון.</p>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מגירוש ספרד אל צפת</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גירוש ספרד היה חורבן גדול: קהילה מפוארת איבדה הכול. חלק מהמגורשים הגיעו לצפת – גם רבי יוסף קארו, מחבר הבית יוסף, היה מגולי ספרד. ובצפת מתקבצת, לראשונה כמעט מאז החורבן, קבוצה גדולה מאוד של גדולי תורה.</p>
+<p>מי היה שם? רבי יוסף קארו; רבי אלעזר אזכרי, בעל ספר חרדים; רבי אליהו די וידאש, בעל ראשית חכמה; רבי שלמה אלקבץ, בעל "לכה דודי"; הרמ"ק, רבי משה קורדובירו, בעל תומר דבורה; והאר"י הקדוש – ועוד רבים. ישיבות פרחו, והארץ החלה להיבנות.</p>
+<p>ושם, מתוך החושך של הגירוש, מתחילה תורת הסוד להתנוצץ. האר"י מסדר את הדברים בצורה בהירה, מסביר איך הם פועלים, והם נכתבים כך שאפשר ללמוד אותם. ואז שרים ב"לכה דודי": "התעוררי התעוררי, כי בא אורך קומי אורי".</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: צפת – תקע בשופר גדול ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">צפת – תקע בשופר גדול</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>יש בזה רמז נפלא: צפת בגימטריה 570 (צ=90, פ=80, ת=400) – כמו "תקע", המילה הראשונה בברכת קיבוץ גלויות שבתפילה: "תקע בשופר גדול לחירותנו". הרמז הוא שבצפת יתחיל להתגלות אור הגאולה.</p>
+<p>ובדורות מאוחרים יותר, כשתלמידי הגר"א עלו לארץ והתיישבו תחילה בצפת, סביב שנת תק"ע, ראו גם הם בכך רמז: עלייה ל"צפת" בשנת "תקע" – תקיעת שופר של גאולה שמתחילה להישמע.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: האור שמתפשט לכל בית ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האור שמתפשט לכל בית</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מתקופת האר"י והלאה האור הולך ומתפשט. אצל חכמי ספרד כמעט כל תלמיד חכם לומד זוהר. אצל חכמי אשכנז היה יותר ריסון, ואז קמה החסידות: הבעל שם טוב ותלמידיו הכניסו את תורת הסוד בצורה מופשטת ומעשית – בתניא, בספרי חסידות, אצל רבי נחמן מברסלב – עד שהיום כמעט כל מי שלומד מעט ספרי חסידות נוגע בזוהר.</p>
+<p>הזוהר שכתב רבי שמעון היה גנוז מאות רבות של שנים. לפני כשבע מאות שנה החל להתגלות, ועדיין רק מעטים ראו אותו. לפני כחמש מאות שנה האר"י מתחיל לבאר איך לומדים אותו. ורק בדור האחרון יש בכל בית כנסת זוהר עם פירוש קל, וכל יהודי יכול לפתוח ולהבין.</p>
+<p class="bold-para">האור של הבית השלישי לא מגיע ברגע אחד – הוא נבנה שלב אחר שלב, כמו הגאולה עצמה.</p>
+</div><div class="story-next"><a href="#story-22">הקטע הבא: רשב&quot;י, שבת ועולם הבא ←</a></div>
+</article>
+<article class="story-card" id="story-22" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">רשב&quot;י, שבת ועולם הבא</h3><button class="copy-link" type="button" data-id="story-22">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי שמעון כבר בחייו חי במדרגה של עולם הבא. כשיצא מהמערה וראה אנשים חורשים וזורעים, לא הצליח להבין: "מניחין חיי עולם ועוסקין בחיי שעה!" עיניו כבר לא ראו את העולם הזה, אלא את הכול במבט של עולם הבא.</p>
+<p>באותה גמרא יש ויכוח: רבי יהודה משבח את מעשי הרומאים – תיקנו שווקים, גשרים ומרחצאות. רבי שמעון משיב: כל מה שתיקנו – לא תיקנו אלא לצורך עצמם. הוויכוח אינו על העובדות, אלא על המבט: רבי יהודה רואה את התועלת בעולם הזה; רבי שמעון שואל מה יישאר מזה לעולם הבא – ומה שנעשה רק לצורך עצמו אין לו שכר שם.</p>
+<p>ולכן, דבר מעניין: בדרך כלל הלכה כרבי יהודה נגד רבי שמעון – אבל בהלכות שבת, כמו בדין "דבר שאינו מתכוון", הלכה כרבי שמעון. ולכן גם כל סיפורו של רבי שמעון במערה מופיע דווקא במסכת שבת. <strong>שבת היא מעין עולם הבא, ורבי שמעון הוא איש עולם הבא.</strong></p>
+</div><div class="story-next"><a href="#story-23">הקטע הבא: למה השמחה במירון גדלה דווקא בדורנו ←</a></div>
+</article>
+<article class="story-card" id="story-23" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">למה השמחה במירון גדלה דווקא בדורנו</h3><button class="copy-link" type="button" data-id="story-23">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>לאורך רוב ההיסטוריה העלייה למירון בל"ג בעומר הייתה של מאות אנשים בלבד. רק מתקופת האר"י התחילה השמחה להתעורר, ובעיקר בדורות האחרונים היא הגיעה לממדים שלא היו כמותם.</p>
+<p>אין זה מקרה. ההמונים בל"ג בעומר הם סימן שתורת הסוד מתפשטת בעולם – ובעיקר בארץ ישראל, שבה מתחילה הגאולה, כמו שראינו בנבואת יחזקאל: קודם קיבוץ גלויות, ואחר כך כל שאר נבואות הגאולה.</p>
+<p>כשבאים למירון, אל רבי שמעון, מרגישים מעט מהאור שלו – אור של ימות המשיח, אור של עולם הבא. ואז האדם נמצא בשמחה גדולה, כמו שנאמר: "בשוב ה' את שיבת ציון היינו כחולמים... אז ימלא שחוק פינו".</p>
+<blockquote>קוּמִי אוֹרִי כִּי בָא אוֹרֵךְ וּכְבוֹד ה' עָלַיִךְ זָרָח (ישעיהו ס, א)</blockquote>
+<p class="bold-para">ישראל שמחים בל"ג בעומר כי הם מרגישים איך הגאולה הולכת וקרבה – הם כבר טועמים את אור ימות המשיח. שנזכה לו במהרה בימינו, אמן.</p>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
