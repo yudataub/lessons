@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📜 למה התורה פותחת בבראשית? ארץ ישראל כתכלית התורה</title>
+<meta name="description" content="הרש״י הראשון בתורה, &quot;לסטים אתם&quot;, דברי רבי ירוחם ממיר וספר הברית - איך כל התורה כולה היא סיפור אהבה אחד שמוביל אל ארץ ישראל">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+/* ═══ CANDY POP — תפוח בדבש ═══════════════════════════════════════════════ */
+:root {
+  --apple: #d62828; --apple-dark: #9d0208;
+  --honey: #f6aa1c; --honey-dark: #c77d00;
+  --leaf: #6a994e;  --leaf-dark: #386641;
+  --cream: #fff8e7; --brown: #5a3210;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+  background: linear-gradient(135deg, #fff3d6 0%, #ffe1e1 35%, #fff8e7 65%, #ffe9b3 100%);
+  background-attachment: fixed;
+  min-height: 100vh; color: var(--brown); direction: rtl; line-height: 1.85;
+}
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+.confetti span { position: absolute; font-size: 1.6rem; opacity: .55; animation: float 4s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(20deg); } }
+
+.hero {
+  position: relative; z-index: 1; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, #d62828 0%, #f77f00 45%, #f6aa1c 80%, #ffd166 100%);
+  padding: 3rem 1.2rem 3.6rem; border-radius: 0 0 48px 48px;
+  box-shadow: 0 10px 30px rgba(157,2,8,.25);
+}
+.hero-badge { display: inline-block; background: rgba(255,255,255,.3); border: 2px solid rgba(255,255,255,.6);
+  border-radius: 50px; padding: .25rem 1rem; color: #fff; font-weight: 700; font-size: .9rem; margin-bottom: 1rem; }
+.hero-title { font-family: 'Secular One', 'Heebo', sans-serif; font-size: clamp(1.7rem, 5vw, 3.2rem);
+  color: #fff; line-height: 1.3; text-shadow: 3px 3px 0 var(--apple-dark), 6px 6px 0 rgba(0,0,0,.12); }
+.hero-subtitle { font-size: 1.15rem; color: #fff; margin: .9rem auto 0; max-width: 760px; font-weight: 500; }
+.hero-stats { display: flex; gap: .7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.4rem; }
+.video-btn { display: inline-block; margin-top: 1.4rem; background: #fff; color: var(--apple-dark); text-decoration: none;
+  font-weight: 900; font-size: 1.1rem; padding: .7rem 1.6rem; border-radius: 50px; box-shadow: 0 6px 0 var(--apple-dark), 0 10px 20px rgba(0,0,0,.18);
+  transition: transform .12s; }
+.video-btn:hover { transform: translateY(-2px); }
+.stat-bubble { background: rgba(255,255,255,.25); border: 2px solid rgba(255,255,255,.55); border-radius: 50px;
+  padding: .4rem 1.1rem; color: #fff; font-weight: 700; font-size: .95rem; }
+
+.layout { position: relative; z-index: 1; display: grid; grid-template-columns: 300px 1fr; gap: 1.6rem;
+  max-width: 1200px; margin: 2rem auto; padding: 0 16px; }
+.sidebar { position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow-y: auto;
+  background: #fff; border-radius: 26px; padding: 1.1rem; box-shadow: 0 8px 24px rgba(214,40,40,.12);
+  border: 3px solid #ffe1a8; }
+.sidebar h2 { font-family: 'Secular One', sans-serif; color: var(--apple); font-size: 1.25rem; margin-bottom: .6rem; }
+.search-box { width: 100%; padding: .65rem 1rem; border-radius: 50px; border: 3px solid var(--honey);
+  font: inherit; font-size: 1rem; color: var(--brown); background: var(--cream); outline: none; }
+.search-box:focus { border-color: var(--apple); }
+.search-results { margin-top: .6rem; }
+.search-results a { display: block; padding: .5rem .7rem; border-radius: 14px; text-decoration: none; color: var(--brown);
+  background: #fff4dc; margin-bottom: .4rem; font-size: .9rem; line-height: 1.5; }
+.search-results a b { color: var(--apple-dark); display: block; }
+.search-results mark { background: #ffd166; color: inherit; border-radius: 4px; }
+.search-empty { color: #a0703a; font-size: .9rem; padding: .4rem; }
+.toc { list-style: none; margin-top: .8rem; }
+.toc > li { margin-bottom: .5rem; }
+.toc-chapter { display: flex; gap: .5rem; align-items: center; padding: .5rem .8rem; border-radius: 16px;
+  text-decoration: none; color: #fff; font-weight: 700; line-height: 1.4; }
+.toc-stories { list-style: none; margin: .3rem 1.2rem 0 0; }
+.toc-stories a { display: block; padding: .2rem .4rem; color: var(--brown); text-decoration: none; font-size: .92rem;
+  border-right: 3px solid #ffe1a8; padding-right: .7rem; line-height: 1.5; }
+.toc-stories a:hover { border-color: var(--apple); color: var(--apple-dark); }
+.toc-toggle { display: none; }
+
+.chapter { margin-bottom: 2.4rem; }
+.chapter-head { display: flex; align-items: center; gap: .9rem; padding: 1rem 1.4rem; border-radius: 26px;
+  color: #fff; box-shadow: 0 8px 20px rgba(0,0,0,.12); margin-bottom: 1.1rem; }
+.chapter-icon { font-size: 2.3rem; background: rgba(255,255,255,.3); width: 3.6rem; height: 3.6rem; border-radius: 50%;
+  display: grid; place-items: center; flex-shrink: 0; }
+.chapter-num { font-size: .9rem; font-weight: 700; opacity: .9; }
+.chapter-title { font-family: 'Secular One', sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.3; }
+.story-card { background: #fff; border-radius: 24px; padding: 1.5rem 1.6rem 1.2rem; margin-bottom: 1.1rem;
+  box-shadow: 0 6px 18px rgba(199,125,0,.13); border-top: 6px solid var(--card, var(--honey)); scroll-margin-top: 1rem; }
+.story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.story-title { font-family: 'Secular One', sans-serif; font-size: 1.35rem; color: var(--card-dark, var(--apple-dark)); line-height: 1.4; }
+.copy-link { flex-shrink: 0; border: 2px solid var(--card, var(--honey)); background: var(--cream); color: var(--brown);
+  border-radius: 50px; padding: .25rem .8rem; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; }
+.copy-link:hover { background: var(--card, var(--honey)); color: #fff; }
+.copy-link.done { background: var(--leaf); border-color: var(--leaf); color: #fff; }
+.story-body p { margin-bottom: .9rem; font-size: 1.1rem; }
+.story-body .bold-para { font-weight: 700; color: var(--apple-dark); background: #fff4dc; border-right: 5px solid var(--honey);
+  padding: .6rem 1rem; border-radius: 12px; }
+.story-body blockquote { background: #fff8e7; border-right: 5px solid var(--apple); border-radius: 12px;
+  padding: .7rem 1rem; margin-bottom: .9rem; font-size: 1.12rem; font-weight: 500; }
+.honey-box { background: linear-gradient(135deg, #ffe9a8, #ffd166); border-radius: 18px; padding: .8rem 1.1rem;
+  margin-bottom: .9rem; font-weight: 700; font-size: 1.08rem; box-shadow: inset 0 -4px 0 rgba(199,125,0,.25); }
+.chapter-intro { background: rgba(255,255,255,.75); border-radius: 20px; padding: .9rem 1.3rem; margin: -.3rem 0 1.1rem;
+  font-size: 1.12rem; font-style: italic; border: 2px dashed #f6aa1c; }
+.story-body ul { margin: 0 1.4rem .9rem 0; }
+.story-body li { margin-bottom: .3rem; font-size: 1.08rem; }
+.story-next { text-align: left; margin-top: .4rem; }
+.story-next a { color: var(--card-dark, var(--apple-dark)); font-weight: 700; text-decoration: none; font-size: .92rem; }
+
+.kol-box { max-width: 1200px; margin: 1rem auto 0; padding: 0 16px; position: relative; z-index: 1; }
+.kol-box div { background: linear-gradient(135deg, #fff4dc, #ffe1e1); border: 3px solid var(--honey); border-radius: 24px;
+  padding: 1.1rem 1.4rem; text-align: center; font-weight: 500; }
+.kol-box a { color: var(--apple-dark); font-weight: 700; }
+footer { text-align: center; padding: 1.6rem 16px 2.4rem; color: #a0703a; font-size: .9rem; position: relative; z-index: 1; }
+footer a { color: var(--apple-dark); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; max-height: none; }
+  .toc-toggle { display: block; width: 100%; margin-top: .7rem; border: none; border-radius: 50px; padding: .55rem;
+    background: var(--apple); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .toc.collapsed { display: none; }
+  .story-card { padding: 1.2rem 1.1rem 1rem; }
+  .story-top { flex-direction: column; }
+}
+@media print {
+  .confetti, .sidebar, .copy-link, .story-next { display: none !important; }
+  .layout { display: block; }
+  .story-card { box-shadow: none; break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="confetti" aria-hidden="true">
+<span style="top:6%;left:8%">🍎</span><span style="top:14%;left:88%;animation-delay:1s">🍯</span><span style="top:32%;left:4%;animation-delay:2s">🐝</span><span style="top:48%;left:93%;animation-delay:.5s">🍏</span><span style="top:66%;left:6%;animation-delay:1.5s">✨</span><span style="top:80%;left:90%;animation-delay:2.5s">🌼</span>
+</div>
+
+<header class="hero">
+  <div class="hero-badge">🍎 שיעור · 28.11.2026 🍯</div>
+  <h1 class="hero-title">📜 למה התורה פותחת בבראשית? ארץ ישראל כתכלית התורה</h1>
+  <p class="hero-subtitle">הרש״י הראשון בתורה, &quot;לסטים אתם&quot;, דברי רבי ירוחם ממיר וספר הברית - איך כל התורה כולה היא סיפור אהבה אחד שמוביל אל ארץ ישראל</p>
+  <div class="hero-stats">
+    <div class="stat-bubble">📚 6 פרקים</div>
+    <div class="stat-bubble">⏱️ כ-12 דקות קריאה</div>
+    <div class="stat-bubble">🔗 קישור ישיר לכל קטע</div>
+  </div>
+<a class="video-btn" href="https://youtu.be/RxoHqwHb-1w" target="_blank" rel="noopener">🎬 לצפייה בהרצאה המלאה ביוטיוב</a>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>🍯 תוכן העניינים</h2>
+    <input class="search-box" id="search" type="search" placeholder="🔍 חיפוש בספר..." aria-label="חיפוש בספר">
+    <div class="search-results" id="results"></div>
+    <button class="toc-toggle" id="tocToggle" type="button" aria-expanded="false">📖 הצג את תוכן העניינים</button>
+    <ul class="toc collapsed" id="toc">
+<li><a class="toc-chapter" href="#chapter-1" style="background:#d62828">📜 הרש״י הראשון</a><ul class="toc-stories"><li><a href="#story-1">השאלה של רבי יצחק</a></li><li><a href="#story-2">האגדה על אביו של רש״י</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-2" style="background:#f6aa1c">🌙 החודש הזה לכם: עם שדומה לירח</a><ul class="toc-stories"><li><a href="#story-3">המצווה הראשונה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-3" style="background:#6a994e">🗺️ &quot;לסטים אתם&quot;: של מי הארץ</a><ul class="toc-stories"><li><a href="#story-4">הטענה שמרגישים על הבשר</a></li><li><a href="#story-5">התנ״ך כשטר קניין</a></li><li><a href="#story-6">למה דרך הבריטים?</a></li><li><a href="#story-7">למה לספר את זה דווקא לנו</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-4" style="background:#a4133c">🏗️ רבי ירוחם: הסוגיה של כל התורה</a><ul class="toc-stories"><li><a href="#story-8">המשגיח שראה את הנפש</a></li><li><a href="#story-9">כמו דף גמרא אחד</a></li><li><a href="#story-10">מן ההתחלה ועד הסוף</a></li><li><a href="#story-11">הבנאי ששומר את התוכנית בראש</a></li><li><a href="#story-12">לא עוד מצווה</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-5" style="background:#f77f00">💍 ספר הברית</a><ul class="toc-stories"><li><a href="#story-13">שאלה הלכתית אחת מן החיים</a></li><li><a href="#story-14">שכירות: קנייה או עבודה?</a></li><li><a href="#story-15">למה בתורה יש כל כך הרבה סיפורים</a></li><li><a href="#story-16">ברית בלי גירושין</a></li><li><a href="#story-17">התכלית: גן עדן</a></li></ul></li>
+<li><a class="toc-chapter" href="#chapter-6" style="background:#d62828">❤️ סיפור אהבה אחד</a><ul class="toc-stories"><li><a href="#story-18">ביוגרפיה של זוג</a></li><li><a href="#story-19">מאדם הראשון עד אברהם</a></li><li><a href="#story-20">דרך ארוכה וברית אמיתית</a></li><li><a href="#story-21">הארץ ההופכת לגן עדן</a></li></ul></li>
+    </ul>
+  </aside>
+  <main>
+<section class="chapter" id="chapter-1">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">📜</div><div><div class="chapter-num">פרק 1</div><h2 class="chapter-title">הרש״י הראשון</h2></div></div>
+<p class="chapter-intro">המילים הראשונות של רש״י על התורה הן אולי המפורסמות שבדבריו, והן נוגעות ישירות לשאלה הבוערת של ימינו: של מי הארץ הזאת.</p>
+<article class="story-card" id="story-1" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">השאלה של רבי יצחק</h3><button class="copy-link" type="button" data-id="story-1">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רש״י פותח את פירושו לתורה כך:</p>
+<blockquote>אמר רבי יצחק: לא היה צריך להתחיל את התורה אלא מ"הַחֹדֶשׁ הַזֶּה לָכֶם", שהיא מצוה ראשונה שנצטוו בה ישראל. ומה טעם פתח בבראשית? משום "כֹּחַ מַעֲשָׂיו הִגִּיד לְעַמּוֹ לָתֵת לָהֶם נַחֲלַת גּוֹיִם". שאם יאמרו אומות העולם לישראל: לסטים אתם, שכבשתם ארצות שבעה גוים, הם אומרים להם: כל הארץ של הקב״ה היא, הוא בראה ונתנה לאשר ישר בעיניו. ברצונו נתנה להם, וברצונו נטלה מהם ונתנה לנו.</blockquote>
+<p>זו שאלה עקרונית: התורה היא ספר של הוראות, מילה מלשון "הוראה". ספר הוראות היה צריך לפתוח בהוראה הראשונה. למה הוא פותח בסיפורים - בריאת העולם, האבות, יציאת מצרים - ורק אחרי חומש שלם ועוד מגיע אל המצווה הראשונה לעם ישראל?</p>
+</div><div class="story-next"><a href="#story-2">הקטע הבא: האגדה על אביו של רש״י ←</a></div>
+</article>
+<article class="story-card" id="story-2" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">האגדה על אביו של רש״י</h3><button class="copy-link" type="button" data-id="story-2">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>סביב השאלה הזאת התגלגלה אגדה עממית. רש״י הוא רבי שלמה יצחקי, ושם אביו יצחק. האגדה מספרת שאביו לא היה מגדולי החכמים, ורש״י ביקש להנציח אותו בפירושו. אמר לו: שאל שאלה על החומש. שאל האב: למה פותחת התורה בבראשית? ורש״י הפך את השאלה לפתיחת פירושו, וכתב: "אמר רבי יצחק". על האגדה הזאת אף נכתב שיר יפה בשם "הרש״י הראשון".</p>
+<p>אבל יש באגדה קושי גדול: הדברים מופיעים כבר במדרש תנחומא, מדרש קדום, הרבה לפני רש״י. השאלה היא שאלתו של אחד מחכמי המדרש, לא של אביו של רש״י.</p>
+<p>לכן יש שדחו את האגדה מכול וכול. ויש שניסו ליישב אותה: רש״י בדרך כלל אינו מציין בשם מי נאמרו הדברים - הוא כותב את הפירוש עצמו בלשון נעימה ופשוטה. ואם כאן, דווקא בפתיחה, כתב "אמר רבי יצחק", אולי זה רמז: הוא בחר להביא את המדרש שבו מופיע השם של אביו.</p>
+</div><div class="story-next"><a href="#story-3">הקטע הבא: המצווה הראשונה ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-2">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f6aa1c,#c77d00)"><div class="chapter-icon">🌙</div><div><div class="chapter-num">פרק 2</div><h2 class="chapter-title">החודש הזה לכם: עם שדומה לירח</h2></div></div>
+
+<article class="story-card" id="story-3" style="--card:#f6aa1c;--card-dark:#c77d00">
+<div class="story-top"><h3 class="story-title">המצווה הראשונה</h3><button class="copy-link" type="button" data-id="story-3">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המצווה הראשונה שנצטוו בה ישראל כעם מופיעה בספר שמות, בפרשת בא: "הַחֹדֶשׁ הַזֶּה לָכֶם רֹאשׁ חֳדָשִׁים". הקב״ה אומר לעם ישראל: אתם תמנו את הזמן לא לפי השמש, כמו שמונים הגויים, אלא לפי הירח.</p>
+<p>למה דווקא הירח? כי עם ישראל נמשל ללבנה. השמש זהה בכל יום: זורחת, שוקעת, ושוב זורחת באותו אור. כך גם רוב האומות. מדינה באירופה נשארת בערך כפי שהייתה, יבשת נשארת יבשת, וההיסטוריה זורמת לאט.</p>
+<p>הירח, לעומת זאת, משתנה כל לילה: גדל, מתמלא, מתמעט ונעלם, ושוב מתחדש. <strong>כך עם ישראל: עולה ויורד, ותמיד שב ומתחדש.</strong> מי שחי בארץ יודע: מספיק לישון לילה אחד כדי לפספס יותר חדשות ממה שקורה במדינות אחרות בשבוע שלם.</p>
+</div><div class="story-next"><a href="#story-4">הקטע הבא: הטענה שמרגישים על הבשר ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-3">
+<div class="chapter-head" style="background:linear-gradient(135deg,#6a994e,#386641)"><div class="chapter-icon">🗺️</div><div><div class="chapter-num">פרק 3</div><h2 class="chapter-title">&quot;לסטים אתם&quot;: של מי הארץ</h2></div></div>
+<p class="chapter-intro">התשובה של רש״י היא תשובה ישנה לטענה שאנחנו שומעים היום בכל מקום.</p>
+<article class="story-card" id="story-4" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">הטענה שמרגישים על הבשר</h3><button class="copy-link" type="button" data-id="story-4">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רש״י כותב: "שאם יאמרו אומות העולם". היום אנחנו כבר לא צריכים לומר "אם". אנחנו שומעים את הטענה הזאת בכל יום: אתם שודדים, לקחתם ארץ שאינה שלכם.</p>
+<p>מעניין להתבונן: מי שטוען זאת אינו אפילו מאותם שבעה עממים. אין לו תעודה שאבי אביו ישב כאן מימי קדם. ובמציאות, בדורות האחרונים, הארץ לא נלקחה מידיהם; היא עברה מן השלטון העות׳מאני לשלטון הבריטי, ומשם לעם ישראל.</p>
+<p>ומה עונים להם? התשובה החזקה ביותר: <strong>כל הארץ של הקב״ה היא.</strong> הארץ אינה שייכת לא לבריטים, לא לתורכים ולא לאף שלטון אחר. ארץ ישראל היא נחלת ה', והבורא מחליט למי לתת אותה.</p>
+</div><div class="story-next"><a href="#story-5">הקטע הבא: התנ״ך כשטר קניין ←</a></div>
+</article>
+<article class="story-card" id="story-5" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">התנ״ך כשטר קניין</h3><button class="copy-link" type="button" data-id="story-5">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>מסופר על דוד בן גוריון, שכאשר עמד לפני ועדה בינלאומית שדנה בעתיד הארץ, לא בנה את טענתו רק על הסבל והרדיפות שעבר העם. הוא הרים את ספר התנ״ך ואמר: זה הקושאן שלנו - שטר הבעלות על הארץ.</p>
+<p>בתנ״ך כתוב במפורש שה' ברא את העולם, ופעמים רבות בלי סוף נאמר בו שארץ ישראל ניתנה לעם ישראל. זו בדיוק תשובתו של רש״י: "ברצונו נתנה להם, וברצונו נטלה מהם ונתנה לנו".</p>
+<div class="honey-box">🍯 הטענה החזקה ביותר על הארץ אינה היסטוריה ואינה פוליטיקה. היא הפסוק הראשון בתורה: בראשית ברא אלוקים.</div>
+</div><div class="story-next"><a href="#story-6">הקטע הבא: למה דרך הבריטים? ←</a></div>
+</article>
+<article class="story-card" id="story-6" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה דרך הבריטים?</h3><button class="copy-link" type="button" data-id="story-6">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>נשאלת שאלה: אם הארץ שלנו, למה ה' לא נתן אותה לנו ישירות? למה היא הייתה מאות שנים בידי אחרים? גם בימי יהושע הארץ הייתה קודם בידי שבעה עממים, ויש לכך טעמים רבים.</p>
+<p>באחד הספרים, שנכתב בתקופת השלטון הבריטי ולפני קום המדינה, מובא פירוש מעניין. הארץ הייתה כארבע מאות שנה בידי העות׳מאנים המוסלמים, ואחר כך באה תקופה קצרה מאוד, כשלושים שנה, של שלטון בריטי. למה?</p>
+<p>לפי הפירוש הזה, הבטחת הארץ קשורה לברית המילה, כמו שנאמר לאברהם בברית המילה שה' יתן לזרעו את ארץ כנען. המוסלמים מקיימים מילה, ויש להם במובן מסוים אחיזה בזכות הזאת. לכן ה' העביר את הארץ לזמן קצר לבריטים, שאינם נימולים, וכך יכלו ישראל לרשת את הארץ מידיהם. זה פירוש, לא הלכה - אבל הוא מעורר מחשבה.</p>
+</div><div class="story-next"><a href="#story-7">הקטע הבא: למה לספר את זה דווקא לנו ←</a></div>
+</article>
+<article class="story-card" id="story-7" style="--card:#6a994e;--card-dark:#386641">
+<div class="story-top"><h3 class="story-title">למה לספר את זה דווקא לנו</h3><button class="copy-link" type="button" data-id="story-7">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>על רש״י הזה חוזרים כמעט בכל שנה, ויש בו קושיה ידועה: אם הגויים הם שטוענים "לסטים אתם", למה התורה מלמדת את התשובה ליהודים? שילמדו את הגויים! והפסוק עצמו אומר "כֹּחַ מַעֲשָׂיו הִגִּיד לְעַמּוֹ" - לעמו, לעם ישראל.</p>
+<p>התשובה עמוקה: הבעיה האמיתית אינה בגויים. הבעיה מתחילה כשאנחנו עצמנו לא בטוחים. אם ברור לנו, בלי ספקות, שה' נתן לנו את הארץ, ושכאן מקומנו - הספקות של האחרים לא יכריעו אותנו.</p>
+<p><strong>כשהיהודי יודע את הרש״י הראשון, הוויכוח עם העולם משתנה.</strong> לכן ה' מספר זאת קודם כל לעמו.</p>
+</div><div class="story-next"><a href="#story-8">הקטע הבא: המשגיח שראה את הנפש ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-4">
+<div class="chapter-head" style="background:linear-gradient(135deg,#a4133c,#6a040f)"><div class="chapter-icon">🏗️</div><div><div class="chapter-num">פרק 4</div><h2 class="chapter-title">רבי ירוחם: הסוגיה של כל התורה</h2></div></div>
+<p class="chapter-intro">המשגיח של ישיבת מיר מגלה שארץ ישראל אינה פרט אחד בתורה, אלא הנושא של כולה.</p>
+<article class="story-card" id="story-8" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">המשגיח שראה את הנפש</h3><button class="copy-link" type="button" data-id="story-8">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי ירוחם ליבוביץ היה המשגיח של ישיבת מיר, עד שנים ספורות לפני השואה. הוא נודע ביכולתו להכיר את האדם: אחרי ימים ספורים ידע מה קשה לתלמיד, מה מחזק אותו ואיך אפשר לרומם אותו. תלמידיו העריצו אותו מאוד.</p>
+<p>בתחילת דרכו כיהן בישיבת ראדין, ישיבתו של החפץ חיים. החפץ חיים היה דמות עצומה בצדקותו; אבל לדעת לרומם אדם, להכיר את נפשו - זו יכולת אחרת. היו תלמידים שנמשכו מאוד לרבי ירוחם, והדבר עורר מחלוקת בישיבה. כשראה זאת, החליט לעזוב, ועבר לישיבת מיר, שבה כיהן עד סוף ימיו.</p>
+<p>מגדולי המשגיחים בדור שאחריו העידו שלמדו אצלו זמן קצר בלבד, וכל ימיהם עמדה דמותו לנגד עיניהם. משיחותיו נאספו בספר "דעת תורה", ובהן שיחות שמסר בפרשת השבוע, גם לבחורים שבאו מאמריקה ללמוד בפולין.</p>
+</div><div class="story-next"><a href="#story-9">הקטע הבא: כמו דף גמרא אחד ←</a></div>
+</article>
+<article class="story-card" id="story-9" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">כמו דף גמרא אחד</h3><button class="copy-link" type="button" data-id="story-9">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>רבי ירוחם כותב בשיחה על פרשת בראשית יסוד גדול: התורה מלאה עניינים רבים מספור - אברהם, יצחק ויעקב, מצרים, המדבר, משה רבנו, מצוות לאין סוף. ובכל זאת, כל התורה כולה היא כמו דף גמרא אחד.</p>
+<p>בדף גמרא יש קושיות ותירוצים, פרטים וצדדים, אבל ברור שיש סוגיה אחת שכל הדף סובב סביבה. כך גם התורה: יש לה תכלית אחת שכל הפרטים סובבים סביבה.</p>
+<p>ומהי? לפי רבי יצחק ברש״י, אומר רבי ירוחם, <strong>הסוגיה של כל התורה כולה היא ארץ ישראל</strong>: כיבוש הארץ, כלומר לעשות מקום להשראת השכינה, כמו שנאמר: "מָכוֹן לְשִׁבְתְּךָ פָּעַלְתָּ ה'".</p>
+</div><div class="story-next"><a href="#story-10">הקטע הבא: מן ההתחלה ועד הסוף ←</a></div>
+</article>
+<article class="story-card" id="story-10" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">מן ההתחלה ועד הסוף</h3><button class="copy-link" type="button" data-id="story-10">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>תראו איך התורה נגמרת. בפרקים האחרונים ה' אומר למשה רבנו לעלות אל ההר ולראות את הארץ:</p>
+<blockquote>זֹאת הָאָרֶץ אֲשֶׁר נִשְׁבַּעְתִּי לְאַבְרָהָם לְיִצְחָק וּלְיַעֲקֹב לֵאמֹר לְזַרְעֲךָ אֶתְּנֶנָּה.</blockquote>
+<p>הסיפור האחרון בתורה הוא הקב״ה מקיים את הבטחתו לאבות. מן ההתחלה ועד הסוף, הנושא הוא ארץ ישראל.</p>
+<p>ואין הכוונה לעוד שטח על המפה. הכוונה למקום שבו עם ישראל חי, ושבו הוא דואג לקיום דבר ה', כך שהעולם כולו יראה איך ה' שוכן בתוכו. להפוך את הארץ לארץ של ה' - זו מטרת הבריאה.</p>
+<p>רבי ירוחם עצמו מאוד אהב את ארץ ישראל, השתוקק לעלות אליה, ודיבר רבות עם תלמידיו על חשיבות העלייה.</p>
+</div><div class="story-next"><a href="#story-11">הקטע הבא: הבנאי ששומר את התוכנית בראש ←</a></div>
+</article>
+<article class="story-card" id="story-11" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">הבנאי ששומר את התוכנית בראש</h3><button class="copy-link" type="button" data-id="story-11">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ועדיין קשה: יפה שהתורה רוצה לספר שהארץ שייכת לה', אבל למה בפתיחה? שתכתוב את זה בספר דברים, לפני הכניסה לארץ! בראשית - המצוות, ובסוף - הארץ.</p>
+<p>רבי ירוחם עונה: מי שחושב שארץ ישראל היא פרט שולי בתורה, טועה. כמו בנאי שבונה בית: ברגע שהוא מניח את היסוד הראשון, התכלית האחרונה - הבית הגמור - כבר עומדת לנגד עיניו. כך בבריאת העולם: מן הרגע הראשון, התכלית - נחלת הארץ לעם ישראל - הייתה "מחשבה תחילה".</p>
+<div class="honey-box">🍯 התורה פותחת בארץ ישראל, כי היא לא פרק אחד בסיפור. היא הסיבה לכתוב את הסיפור כולו.</div>
+</div><div class="story-next"><a href="#story-12">הקטע הבא: לא עוד מצווה ←</a></div>
+</article>
+<article class="story-card" id="story-12" style="--card:#a4133c;--card-dark:#6a040f">
+<div class="story-top"><h3 class="story-title">לא עוד מצווה</h3><button class="copy-link" type="button" data-id="story-12">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ורבי ירוחם עצמו מקשה: הרי ארץ ישראל היא מצווה אחת מתוך תרי״ג. נכון שיש לה חשיבות מיוחדת, שהיא עושה מקום לשכינה, אבל איך היא נעשית התכלית של כל המצוות?</p>
+<p>זו אינה שאלה תיאורטית. יהודים רבים רואים בארץ ישראל עוד מצווה, כמו סוכה. וכמו שמי שמצטער בסוכה - בגשם, בקור, בגלל טרדה - פטור ממנה, כך הם אומרים: קשה לי לבוא לארץ, מפחיד לגור שם, אני מצטער, אז אני פטור. באים לביקור מדי פעם, ומסתפקים בזה. ובעתות מלחמה, הביקורים מתבטלים אחד אחרי השני.</p>
+<p>בא הרש״י הראשון ואומר: לא. ארץ ישראל אינה עוד מצווה. <strong>היא הנושא של כל התורה כולה.</strong></p>
+</div><div class="story-next"><a href="#story-13">הקטע הבא: שאלה הלכתית אחת מן החיים ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-5">
+<div class="chapter-head" style="background:linear-gradient(135deg,#f77f00,#b85c00)"><div class="chapter-icon">💍</div><div><div class="chapter-num">פרק 5</div><h2 class="chapter-title">ספר הברית</h2></div></div>
+<p class="chapter-intro">למה התורה מלאה סיפורים, ושולחן ערוך כמעט אינו מספר דבר? התשובה מגלה מהי התורה באמת.</p>
+<article class="story-card" id="story-13" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שאלה הלכתית אחת מן החיים</h3><button class="copy-link" type="button" data-id="story-13">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>כדי להבין את ההבדל בין ספר הלכה לבין התורה, הנה מקרה אמיתי. אדם מזמין דירת אירוח לכמה ימים, לחברים שיבואו לחתונה. הוא משלם מראש. ואז פורצת מלחמה: החתן והכלה נקראים שניהם למילואים, והכול מתבטל. האם המשכיר צריך להחזיר את הכסף?</p>
+<p>בהלכה יש הבדל גדול בין שני סוגי אונס. מי ששכר פועל - זמר לחתונה, למשל - ונאנס, החתונה התבטלה ואינו צריך את הזמר, פטור מלשלם, בתנאים מסוימים. אבל מי שקנה חפץ, והאונס קרה אחר כך, אינו יכול להחזיר אותו. מי שקנה ארגז בקבוקי מים, ולמחרת נאלץ לברוח מביתו, לא יחזיר את המים לחנות. החפץ כבר שלו, והאונס קרה אצלו.</p>
+<p>וכך גם מי שהזמין מוצר רפואי יקר לחולה, והחולה נפטר לפני שהמוצר הגיע: הקנייה כבר נעשתה.</p>
+</div><div class="story-next"><a href="#story-14">הקטע הבא: שכירות: קנייה או עבודה? ←</a></div>
+</article>
+<article class="story-card" id="story-14" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">שכירות: קנייה או עבודה?</h3><button class="copy-link" type="button" data-id="story-14">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ומה עם שכירות דירה? כאן השאלה אינה פשוטה. האם השוכר "קנה" את הדירה לימים האלה, ואז האונס קרה אצלו? או ששכירות דומה לפועל - המשכיר התחייב לתת שירות, וכשהשירות אינו נצרך בגלל אונס, אין חיוב?</p>
+<p>בשאלה הזאת נחלקו כבר הראשונים. והרמ״א הכריע להלכה שבמקרה כזה, כשההלכה מסופקת, הכסף נשאר אצל מי שמוחזק בו. אם השוכר כבר שילם, הכסף אצל המשכיר; אם עדיין לא שילם - אינו חייב לשלם. כמובן, אם יש חוק מיוחד במדינה או תנאים מוסכמים בהזמנה, זה כבר עניין אחר.</p>
+<p>כל זה כתוב בשולחן ערוך, חושן משפט: מה עושים במקרה כזה, ומה במקרה אחר. <strong>הלכה, הלכה, הלכה. בלי סיפורים.</strong></p>
+</div><div class="story-next"><a href="#story-15">הקטע הבא: למה בתורה יש כל כך הרבה סיפורים ←</a></div>
+</article>
+<article class="story-card" id="story-15" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">למה בתורה יש כל כך הרבה סיפורים</h3><button class="copy-link" type="button" data-id="story-15">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ובכן, אם התורה היא ספר הוראות, היא הייתה צריכה להיראות כמו שולחן ערוך. בשולחן ערוך אין אף סיפור. אין בו אפילו מה השכר על המצוות, מי זוכה לעולם הבא או לארץ ישראל. רק מה עושים מן הבוקר ועד הלילה.</p>
+<p>אבל התורה מלאה סיפורים. יש לנו ספר בראשית שלם, ובו שלוש מצוות בלבד: פרו ורבו, ברית מילה וגיד הנשה. ושאר הספר - סיפורים, ובהם גם מקרים לא נעימים כלל.</p>
+<p>באחד המאמרים על הרש״י הזה ניתנת תשובה נפלאה: התורה נקראת גם "ספר הברית". ספר ברית אינו כותב רק את הצד המוטל עלינו - ההוראות והמצוות. הוא כותב את ההתחייבות של שני הצדדים: מה אנחנו התחייבנו, ומה ה' התחייב לתת לנו. ומה שה' התחייב לתת, בראש ובראשונה, הוא ארץ ישראל.</p>
+</div><div class="story-next"><a href="#story-16">הקטע הבא: ברית בלי גירושין ←</a></div>
+</article>
+<article class="story-card" id="story-16" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">ברית בלי גירושין</h3><button class="copy-link" type="button" data-id="story-16">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>הברית בין ה' לעם ישראל היא דו צדדית: אנחנו שומרים את התורה והמצוות, וה' נותן לנו את העולם הבא ואת ארץ ישראל. היא דומה לכתובה, שבה כתובות ההתחייבויות בין איש לאשתו, וכמה מדרשים אכן ממשילים את התורה לכתובה.</p>
+<p>והברית הזאת אינה יכולה להתבטל. ה' לא יבחר באומה אחרת. וגם אנחנו לא יכולים לעזוב; אין כאן אפשרות של גירושין.</p>
+<p>ולכן התורה כותבת גם מה יקרה אם נעזוב. בפרשת בחוקותי נכתבה התוכחה הראשונה, ובפרשת כי תבוא נכתבה תוכחה ארוכה כפליים. בדורות האחרונים אנחנו כבר מספרים בעיקר מה שהיה: חורבן הבית הראשון, חורבן הבית השני, גלות ארוכה ורדיפות קשות. ברית אינה משחק; יש בה מחויבות של שני הצדדים. <strong>אבל מאותה ברית עצמה באה גם ההבטחה: ה' לא יעזוב לעולם.</strong></p>
+</div><div class="story-next"><a href="#story-17">הקטע הבא: התכלית: גן עדן ←</a></div>
+</article>
+<article class="story-card" id="story-17" style="--card:#f77f00;--card-dark:#b85c00">
+<div class="story-top"><h3 class="story-title">התכלית: גן עדן</h3><button class="copy-link" type="button" data-id="story-17">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>המאמר מוסיף יסוד גדול. ה' לא ברא את העולם רק כדי שיקיימו בו מצוות. הוא ברא אותו כדי לתת את הטוב הגדול ביותר - שבני האדם ישבו בגן עדן. אבל ה' אינו נותן מתנה כזאת כשהיא באה בחינם; הוא רוצה שנזכה בה במעשינו. ולכן ניתנו המצוות: על ידן אנחנו זוכים לתכלית.</p>
+<p>וכאן ארץ ישראל: היא הגן עדן של העולם הזה. ככל שעם ישראל מקיים בה יותר מצוות, היא עצמה הולכת ונהפכת לגן עדן. יש גן עדן למעלה, בעולמות הרוחניים, ויש גן עדן שאמור להיבנות כאן, למטה.</p>
+<div class="honey-box">🍯 המצוות אינן מטרה בפני עצמן בלבד. הן הדרך לזכות בטוב שה' רוצה לתת - ובראשו ארץ ישראל.</div>
+</div><div class="story-next"><a href="#story-18">הקטע הבא: ביוגרפיה של זוג ←</a></div>
+</article>
+</section>
+<section class="chapter" id="chapter-6">
+<div class="chapter-head" style="background:linear-gradient(135deg,#d62828,#9d0208)"><div class="chapter-icon">❤️</div><div><div class="chapter-num">פרק 6</div><h2 class="chapter-title">סיפור אהבה אחד</h2></div></div>
+<p class="chapter-intro">אם התורה היא ספר ברית, אז היא דומה לביוגרפיה של זוג. וכך מתגלה כל ספר בראשית מחדש.</p>
+<article class="story-card" id="story-18" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">ביוגרפיה של זוג</h3><button class="copy-link" type="button" data-id="story-18">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>דמיינו אדם שיושב לכתוב את סיפור חייו עם אשתו. מה הוא יכתוב? איפה גר לפני שהכירו, איך חיפש, איך הציעו לו הצעות, ולמה בחר דווקא בה - מה ראה בה, אילו מעלות, כמה התרגש. אחר כך יספר איך הקימו בית, איך עברו את משברי החיים, עליות וירידות, ניסיונות שחיזקו את הקשר, ילד אחרי ילד, עד שזכו לראות דורות ישרים ולהגיע לחתונת הזהב.</p>
+<p>ספר כזה אינו ספר הוראות. זה סיפור של קשר.</p>
+<p>וזו התורה. ה' ברא את העולם, והוא מחפש כביכול "כלה" - מישהו שיכרות איתו ברית. התפקיד שלה יהיה להביא את העולם להכיר את ה'. ובתמורה, ה' ייתן לה את הטוב ביותר שיש לו - ארץ ישראל, גן עדן של העולם הזה.</p>
+</div><div class="story-next"><a href="#story-19">הקטע הבא: מאדם הראשון עד אברהם ←</a></div>
+</article>
+<article class="story-card" id="story-19" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">מאדם הראשון עד אברהם</h3><button class="copy-link" type="button" data-id="story-19">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>ה' בורא את אדם הראשון, ומעמיד אותו בגן עדן. אבל אדם הראשון לא החזיק מעמד; ביום אחד הכול התקלקל, והוא גורש מן הגן.</p>
+<p>אחר כך באים עשרה דורות, והתורה כמעט "מריצה" אותם בקצרה: אנשים נולדו, חיו ומתו. נמצא נח, אדם צדיק, וה' הציל אותו. אבל עדיין לא היה בו מי שיכרות ברית לעולם. שוב עשרה דורות, עד שנמצא אדם אחד שאהב את ה' בכל נפשו: אברהם אבינו.</p>
+<p>אברהם רצה ללמד את כל באי עולם שה' ברא את העולם, ושראוי להודות לו. הוא לא פחד מאף אחד. הוא נטע אשל - בית הארחה קבוע, בחינם. והתשלום היחיד שביקש: שהאורח יודה לה' על מה שקיבל. ה' כרת איתו ברית: אתה תהיה השותף שלי בעולם, ולזרעך אתן את הארץ הזאת.</p>
+</div><div class="story-next"><a href="#story-20">הקטע הבא: דרך ארוכה וברית אמיתית ←</a></div>
+</article>
+<article class="story-card" id="story-20" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">דרך ארוכה וברית אמיתית</h3><button class="copy-link" type="button" data-id="story-20">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>גם אחרי שנבחר אברהם, הדרך לא הייתה קלה. לאברהם היו שני בנים, ונבחר יצחק ולא ישמעאל. ליצחק היו שני בנים, ונבחר יעקב ולא עשו. ובני הבנים שלא נבחרו עוד עושים לנו קשיים עד היום. יעקב יורד למצרים, ושם הופך משפחה לעם, ועובר שעבוד קשה. ה' מוציא אותו משם - כדי להביא אותו לארץ ישראל.</p>
+<p>ובדרך יש גם עונשים. בחטא העגל מתו בתורה כשלושת אלפים איש ביום אחד. דור המדבר לא רצה לקבל את מתנת הארץ, ונענש. ה' גם הודיע מראש: תגלו מן הארץ, ותשובו אליה.</p>
+<p class="bold-para">ברית אמיתית היא לא משחק. מי שזוכה לטוב הנפלא ביותר, נדרש גם לנאמנות.</p>
+</div><div class="story-next"><a href="#story-21">הקטע הבא: הארץ ההופכת לגן עדן ←</a></div>
+</article>
+<article class="story-card" id="story-21" style="--card:#d62828;--card-dark:#9d0208">
+<div class="story-top"><h3 class="story-title">הארץ ההופכת לגן עדן</h3><button class="copy-link" type="button" data-id="story-21">🔗 העתק קישור</button></div>
+<div class="story-body">
+<p>והתורה עצמה מבטיחה שבסוף הדרך עם ישראל ישוב בתשובה וישוב לארצו. אנחנו רואים את התהליך הזה מתרחש לאט לאט מול עינינו.</p>
+<p>ומה אמור לקרות בסופו? ארץ ישראל אמורה לפרוח ולהפוך לגן עדן, שבו עם ישראל חי. בהתחלה העמים נלחמים בנו. אחר כך העולם כולו מתחיל לראות את יד ה' כאן, וכולם באים ללמוד מעם ישראל איך חיים, ורוצים להידבק בו, עד שיתקיים הפסוק:</p>
+<blockquote>כִּי מִצִּיּוֹן תֵּצֵא תוֹרָה וּדְבַר ה' מִירוּשָׁלָיִם.</blockquote>
+<p>וזה מה שרבי יצחק לימד מן הפסוק הראשון: התורה פותחת בבראשית, כי ה' מספר לנו מן ההתחלה שהוא ברא את העולם כדי לתת לעם ישראל את הטוב הנבחר ביותר. הדרך ארוכה, אבל היעד ברור.</p>
+<div class="honey-box">🍯 "כֹּחַ מַעֲשָׂיו הִגִּיד לְעַמּוֹ": מי שזוכר איך התחיל הסיפור, יודע גם איך הוא ייגמר. יהי רצון שנזכה במהרה לראות את הארץ הופכת לגן עדן, בימינו.</div>
+</div>
+</article>
+</section>
+  </main>
+</div>
+
+<div class="kol-box"><div>
+📚 עוד חומרי לימוד – חינם, במאגר הקול החמישי: <a href="https://www.kol-toda.co.il/search/" target="_blank" rel="noopener">https://www.kol-toda.co.il/search/</a><br>
+המאגר המלא: <a href="https://www.kol-toda.co.il/" target="_blank" rel="noopener">https://www.kol-toda.co.il/</a>
+</div></div>
+<footer>🍎 <a href="./">כל ספרי השיעורים</a> 🍯</footer>
+
+<script>
+(function () {
+  // ── קישור "שקט" (27.10, בקשת המשתמש): ?text בסוף הכתובת מסתיר את כפתור השמיעה ביוטיוב, למשל
+  //    כשיש בהקלטה רעש של כיתה. "העתק קישור" שומר על ה-?text, כך שגם קטע שתלמיד מעביר נשאר שקט ──
+  try {
+    if (/[?&]text\b/.test(location.search)) {
+      document.querySelectorAll('.video-btn').forEach(function (a) { a.remove(); });
+    }
+  } catch (e) {}
+
+  // ── נחיתה על #story-N מקישור ששותף: בלי האנימציה החלקה של הדפדפן, ועד שהיעד מתייצב ──
+  var root = document.documentElement;
+  if (location.hash) {
+    root.style.scrollBehavior = 'auto';
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) {
+      var last = null, still = 0, frames = 0;
+      (function settle() {
+        target.scrollIntoView({ block: 'start' });
+        var top = Math.round(target.getBoundingClientRect().top);
+        still = (top === last) ? still + 1 : 0; last = top;
+        if (still < 6 && ++frames < 120) requestAnimationFrame(settle);
+        else root.style.scrollBehavior = '';
+      })();
+    } else root.style.scrollBehavior = '';
+  }
+
+  // ── תוכן עניינים מתקפל בטלפון ──
+  var toc = document.getElementById('toc'), tg = document.getElementById('tocToggle');
+  if (window.matchMedia('(min-width: 901px)').matches) toc.classList.remove('collapsed');
+  tg.addEventListener('click', function () {
+    var open = toc.classList.toggle('collapsed') === false;
+    tg.setAttribute('aria-expanded', open);
+    tg.textContent = open ? '📕 הסתר את תוכן העניינים' : '📖 הצג את תוכן העניינים';
+  });
+  toc.addEventListener('click', function (e) {
+    if (e.target.closest('a') && !window.matchMedia('(min-width: 901px)').matches) {
+      toc.classList.add('collapsed'); tg.textContent = '📖 הצג את תוכן העניינים';
+    }
+  });
+
+  // ── העתקת קישור: בתוך iframe הכתובת האמיתית היא של הדף העוטף ──
+  function pageUrl() {
+    var framed = false;
+    try { framed = window.top !== window.self; } catch (e) { framed = true; }
+    var base = (framed && document.referrer) ? document.referrer : location.href;
+    return base.split('#')[0];
+  }
+  function copyText(text, done) {
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) done(); else window.prompt('העתיקו את הקישור:', text);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+  }
+  document.querySelectorAll('.copy-link').forEach(function (b) {
+    b.addEventListener('click', function () {
+      copyText(pageUrl() + '#' + b.dataset.id, function () {
+        var t = b.textContent; b.textContent = '✅ הועתק'; b.classList.add('done');
+        setTimeout(function () { b.textContent = t; b.classList.remove('done'); }, 1800);
+      });
+    });
+  });
+
+  // ── חיפוש: בלי ניקוד, ובמעבר שני גם בלי ו/י (כתיב מנוקד חסר) ──
+  var POINTS = /[֑-ׇ]/g;
+  function strip(s) { return s.replace(POINTS, '').replace(/["'״׳]/g, ''); }
+  function noVY(s) { return s.replace(/[וי]/g, ''); }
+  var cards = Array.prototype.map.call(document.querySelectorAll('.story-card'), function (c) {
+    var title = c.querySelector('.story-title').textContent;
+    var text = strip(c.querySelector('.story-body').textContent.replace(/\s+/g, ' '));
+    return { id: c.id, title: title, plain: text, ptitle: strip(title) };
+  });
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function find(hay, q) {
+    var i = hay.indexOf(q);
+    if (i >= 0) return { i: i, n: q.length, direct: true };
+    var h2 = noVY(hay), q2 = noVY(q);
+    if (!q2 || h2.indexOf(q2) < 0) return null;
+    return { i: -1 };
+  }
+  var input = document.getElementById('search'), out = document.getElementById('results');
+  input.addEventListener('input', function () {
+    var q = strip(input.value.trim());
+    if (q.length < 2) { out.innerHTML = ''; return; }
+    var html = '', count = 0;
+    cards.forEach(function (c) {
+      var m = find(c.ptitle + ' ' + c.plain, q);
+      if (!m || count >= 30) return;
+      count++;
+      var hay = c.ptitle + ' ' + c.plain, snip;
+      if (m.i >= 0) {
+        var a = Math.max(0, m.i - 40), z = Math.min(hay.length, m.i + m.n + 60);
+        snip = (a ? '…' : '') + esc(hay.slice(a, m.i)) + '<mark>' + esc(hay.slice(m.i, m.i + m.n)) + '</mark>' + esc(hay.slice(m.i + m.n, z)) + '…';
+      } else snip = esc(c.plain.slice(0, 90)) + '…';
+      html += '<a href="#' + c.id + '"><b>' + esc(c.title) + '</b>' + snip + '</a>';
+    });
+    out.innerHTML = html || '<div class="search-empty">לא נמצא — נסו מילה אחרת 🍯</div>';
+  });
+})();
+</script>
+</body>
+</html>
